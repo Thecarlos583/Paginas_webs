@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Posada La Solariega y Sus Sabores</title>
+<meta name="description" content="Posada La Solariega y Sus Sabores — La Mucuy Baja, Tabay. Río, montaña y sazón de casa en La Mucuy.">
+<style>
+:root{--fondo:#f6f2e4;--superficie:#ece6cf;--primario:#3d6b3a;--primario-osc:#24401f;--acento:#c97a22;
+--texto:#263022;--suave:#5a6653;--oscuro:#1c2e1a;--radio:24px;--f-titulo:Georgia, "Times New Roman", serif;--f-cuerpo:"Trebuchet MS", "Segoe UI", sans-serif;--wa:#25d366}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--f-cuerpo);color:var(--texto);background:var(--fondo);line-height:1.65;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--f-titulo);line-height:1.15;font-weight:700}
+.contenedor{width:100%;max-width:1140px;margin:0 auto;padding:0 16px}
+.seccion{padding:76px 0}
+.eyebrow{font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;color:var(--acento);font-weight:600;margin-bottom:10px}
+.titulo{font-size:clamp(1.9rem,4.6vw,2.8rem);color:var(--primario-osc);margin-bottom:14px}
+.intro{max-width:640px;color:var(--suave)}
+.centro{text-align:center}.centro .intro{margin:0 auto}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 26px;border-radius:var(--radio-btn,999px);font-weight:600;font-size:.95rem;transition:transform .2s,filter .2s;cursor:pointer}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.06)}
+.btn-principal{background:var(--acento);color:#fff}
+.btn-claro{border:1.5px solid currentColor}
+.i-wa{width:19px;height:19px;flex-shrink:0}
+.ico{width:26px;height:26px}
+
+/* nav */
+.nav{position:absolute;top:0;left:0;right:0;z-index:5}
+.nav .contenedor{display:flex;align-items:center;justify-content:space-between;height:72px;gap:12px}
+.logo{font-family:var(--f-titulo);font-size:1.2rem;font-weight:700;line-height:1.1}
+.logo small{display:block;font-family:var(--f-cuerpo);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;opacity:.8;font-weight:600}
+.nav-links{display:none;gap:26px;font-size:.88rem;font-weight:500}
+.nav-links a:hover{color:var(--acento)}
+.nav .btn{padding:9px 18px;font-size:.82rem}
+@media(min-width:900px){.nav-links{display:flex}}
+
+/* hero */
+.hero{position:relative;min-height:min(100svh,860px);display:flex;align-items:center;overflow:hidden}
+.hero-escena{position:absolute;inset:0;z-index:0}
+.hero-escena svg{width:100%;height:100%;display:block}
+.hero-texto{position:relative;z-index:2;padding-top:90px;padding-bottom:90px}
+.hero h1{font-size:clamp(2.4rem,8vw,4.6rem);margin-bottom:14px}
+.hero .lema{font-size:clamp(1.05rem,2.6vw,1.35rem);margin-bottom:30px;max-width:560px}
+.hero .botones{display:flex;gap:12px;flex-wrap:wrap}
+.hero-centrado .hero-texto{text-align:center}.hero-centrado .lema{margin-left:auto;margin-right:auto}.hero-centrado .botones{justify-content:center}
+.hero-claro{color:#fff}
+.hero-claro .hero-escena::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.45),rgba(0,0,0,.12) 45%,rgba(0,0,0,.5))}
+.hero-claro .hero-texto{text-shadow:0 2px 14px rgba(0,0,0,.35)}
+.hero-claro .eyebrow{color:var(--fondo)}
+.hero-oscuro{color:var(--oscuro)}
+.hero-oscuro .hero-escena::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.55),rgba(255,255,255,.05) 55%,rgba(0,0,0,.2))}
+.hero-oscuro .eyebrow{color:var(--primario-osc)}
+.hero-dividido{background:var(--fondo);color:var(--oscuro);align-items:stretch;min-height:0}
+.hero-dividido .hero-escena{position:relative;inset:auto;border-radius:var(--radio);overflow:hidden;aspect-ratio:4/3}
+.hero-dividido .hero-escena::after{display:none}
+.hero-dividido .rejilla{display:grid;gap:36px;align-items:center;padding-top:100px;padding-bottom:60px;width:100%}
+.hero-dividido .hero-texto{padding:0}
+@media(min-width:900px){.hero-dividido .rejilla{grid-template-columns:1fr 1.1fr}}
+
+/* historia */
+.historia-grid{display:grid;gap:40px;align-items:start}
+.historia p+p{margin-top:14px}
+.historia p{color:var(--suave)}
+.historia-grid>*{min-width:0}
+.datos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.dato{background:var(--superficie);border-radius:var(--radio);padding:18px 8px;text-align:center;box-shadow:0 6px 22px rgba(0,0,0,.05)}
+.dato strong{display:block;font-family:var(--f-titulo);font-size:clamp(1.05rem,4.6vw,1.7rem);color:var(--primario);overflow-wrap:anywhere}
+.dato span{font-size:.78rem;color:var(--suave);line-height:1.35;display:block}
+@media(min-width:900px){.historia-grid{grid-template-columns:1.2fr 1fr;gap:60px}.datos{grid-template-columns:1fr;}}
+
+/* habitaciones */
+.habitaciones{background:var(--superficie)}
+.hab-grid{display:grid;gap:24px;margin-top:44px}
+@media(min-width:640px){.hab-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1000px){.hab-grid{grid-template-columns:repeat(4,1fr)}}
+.hab{background:var(--fondo);border-radius:var(--radio);overflow:hidden;display:flex;flex-direction:column;box-shadow:0 8px 26px rgba(0,0,0,.07);transition:transform .25s}
+.hab:hover{transform:translateY(-4px)}
+.hab-ilus{display:block;width:100%;height:auto;aspect-ratio:5/3}
+.hab-cuerpo{padding:20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.hab h3{font-size:1.3rem;color:var(--primario-osc)}
+.hab .cap{font-size:.78rem;color:var(--acento);font-weight:600;letter-spacing:.05em;text-transform:uppercase}
+.hab p{font-size:.9rem;color:var(--suave)}
+.hab ul{list-style:none;font-size:.82rem;color:var(--suave);display:flex;flex-wrap:wrap;gap:6px}
+.hab li{background:var(--superficie);padding:3px 10px;border-radius:999px}
+.hab-pie{margin-top:auto;padding-top:10px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.precio{font-family:var(--f-titulo);font-size:1.6rem;color:var(--primario);font-weight:700}
+.precio small{font-family:var(--f-cuerpo);font-size:.75rem;color:var(--suave);font-weight:400}
+.hab .btn{padding:9px 18px;font-size:.82rem;background:var(--primario);color:#fff}
+
+/* destacado (opcional) */
+.destacado{background:var(--primario-osc);color:#fff}
+.destacado .titulo{color:#fff}.destacado .intro{color:rgba(255,255,255,.78)}
+.platos{display:grid;gap:18px;margin-top:40px}
+@media(min-width:700px){.platos{grid-template-columns:repeat(2,1fr)}}
+.plato{display:flex;gap:16px;align-items:flex-start;padding:20px;border:1px solid rgba(255,255,255,.18);border-radius:var(--radio)}
+.plato .ico{color:var(--acento);width:30px;height:30px;flex-shrink:0}
+.plato h3{font-size:1.2rem;margin-bottom:4px}.plato p{font-size:.88rem;color:rgba(255,255,255,.75)}
+
+/* servicios */
+.serv-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:40px}
+@media(min-width:800px){.serv-grid{grid-template-columns:repeat(3,1fr)}}
+.serv{padding:22px 18px;border-radius:var(--radio);background:var(--superficie);box-shadow:0 6px 20px rgba(0,0,0,.04)}
+.serv .ico{color:var(--primario);margin-bottom:10px;width:32px;height:32px}
+.serv h3{font-size:1.08rem;color:var(--primario-osc);margin-bottom:4px}
+.serv p{font-size:.85rem;color:var(--suave)}
+
+/* alrededores */
+.alrededores{background:var(--superficie)}
+.alr-grid{display:grid;gap:18px;margin-top:40px}
+@media(min-width:800px){.alr-grid{grid-template-columns:repeat(3,1fr)}}
+.alr{padding:24px;border-left:4px solid var(--acento);background:var(--fondo);border-radius:0 var(--radio) var(--radio) 0}
+.alr .dist{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--acento);font-weight:700}
+.alr h3{font-size:1.2rem;color:var(--primario-osc);margin:4px 0 6px}
+.alr p{font-size:.88rem;color:var(--suave)}
+
+/* cta */
+.cta{background:var(--primario);color:#fff;text-align:center;padding:84px 0}
+.cta .titulo{color:#fff}.cta p{max-width:540px;margin:0 auto 28px;opacity:.88}
+.cta .contacto{margin-top:22px;font-size:.88rem;opacity:.85}
+
+footer{background:var(--oscuro);color:rgba(255,255,255,.72);padding:38px 0;text-align:center;font-size:.85rem}
+footer .logo{color:#fff;margin-bottom:6px;display:inline-block}
+.aviso{margin-top:14px;font-size:.72rem;opacity:.55}
+
+.wa-flotante{position:fixed;right:16px;bottom:16px;z-index:20;width:58px;height:58px;border-radius:50%;background:var(--wa);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+.wa-flotante .i-wa{width:30px;height:30px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.hab{transition:none}}
+
+.hero:not(.hero-dividido)::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:70px;z-index:3;background:var(--fondo);
+-webkit-mask:radial-gradient(70px 40px at 50% 0,transparent 98%,#000) 0 0/140px 100%;mask:radial-gradient(70px 40px at 50% 0,transparent 98%,#000) 0 0/140px 100%}
+.dato,.serv{box-shadow:0 10px 30px rgba(40,70,40,.08)}
+.serv .ico{background:var(--fondo);padding:8px;width:46px;height:46px;border-radius:50%}
+.cta{background:radial-gradient(circle at 20% 20%,var(--primario),var(--primario-osc))}
+</style>
+</head>
+<body class="tema-naturaleza">
+
+<header class="hero hero-dividido " id="inicio">
+  <nav class="nav">
+    <div class="contenedor">
+      <a href="#inicio" class="logo">La Solariega<small>La Mucuy Baja · Tabay</small></a>
+      <div class="nav-links">
+        <a href="#historia">Nosotros</a>
+        <a href="#habitaciones">Habitaciones</a>
+        <a href="#sabores">Sus sabores</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#alrededores">Alrededores</a>
+      </div>
+      <a class="btn btn-principal" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20informaci%C3%B3n%20para%20reservar%20en%20Posada%20La%20Solariega%20y%20Sus%20Sabores." target="_blank" rel="noopener">Reservar</a>
+    </div>
+  </nav>
+  <div class="contenedor rejilla"><div class="hero-texto"><p class="eyebrow">La Mucuy Baja, Tabay</p><h1>Posada La Solariega y Sus Sabores</h1><p class="lema">Río, montaña y sazón de casa en La Mucuy</p><div class="botones"><a class="btn btn-principal" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20informaci%C3%B3n%20para%20reservar%20en%20Posada%20La%20Solariega%20y%20Sus%20Sabores." target="_blank" rel="noopener"><svg class="i-wa" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.31l-.34-.2-3.57.94.95-3.48-.22-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.23-9.43 9.44-9.43a9.43 9.43 0 0 1 9.43 9.44c0 5.2-4.23 9.43-9.44 9.43zm8.03-17.46A11.27 11.27 0 0 0 12.05.72C5.79.72.7 5.81.7 12.07c0 2 .52 3.95 1.52 5.67L.6 23.65l6.05-1.59a11.33 11.33 0 0 0 5.4 1.38h.01c6.26 0 11.35-5.09 11.35-11.35 0-3.03-1.18-5.88-3.33-8.03z"/></svg> Reservar por WhatsApp</a><a class="btn btn-claro" href="#habitaciones">Ver habitaciones</a></div></div><div class="hero-escena"><svg viewBox="0 0 1440 800" preserveAspectRatio="xMidYMax slice" role="img" aria-label="Ilustración del paisaje de La Mucuy Baja · Tabay">
+<defs><linearGradient id="cielo" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#bfe0e6"/><stop offset="1" stop-color="#f4efd9"/></linearGradient></defs>
+<rect width="1440" height="800" fill="url(#cielo)"/>
+<circle cx="300" cy="170" r="60" fill="#ffe7a8"/>
+<polygon points="0,420 200,300 380,360 560,240 760,330 960,260 1160,340 1440,280 1440,800 0,800" fill="#8fb39a" opacity="0.8"/>
+<polygon points="0,520 260,440 520,500 780,430 1040,490 1300,440 1440,470 1440,800 0,800" fill="#6a9a6c" opacity="1"/>
+<polygon points="0,620 300,580 600,610 900,570 1200,610 1440,590 1440,800 0,800" fill="#3d6b3a" opacity="1"/>
+<path d="M640,600 C700,640 600,690 700,730 S760,790 720,800 L900,800 C860,760 940,720 860,680 S800,620 760,600z" fill="#9fd0e0"/>
+<path d="M700,640 c20,10 -10,25 15,40 M820,700 c-15,15 20,30 0,50" stroke="#fff" stroke-width="3" fill="none" opacity=".7"/>
+<g transform="translate(1000 600)"><rect x="0" y="0" width="120" height="70" fill="#f1e2c4"/><polygon points="-12,2 60,-40 132,2" fill="#c97a22"/>
+<rect x="85" y="-38" width="14" height="26" fill="#7a5a40"/><rect x="48" y="30" width="22" height="40" fill="#7a5a40"/><rect x="15" y="20" width="20" height="18" fill="#bfe0e6"/>
+<path d="M92,-44 c-10,-14 12,-22 0,-38 c-10,-14 10,-20 4,-34" stroke="#ffffff" stroke-width="6" fill="none" opacity=".7" stroke-linecap="round"/></g>
+<g transform="translate(60 690) scale(1.1)"><rect x="-4" y="-10" width="8" height="30" fill="#3a2a1c"/><polygon points="0,-110 -38,-20 38,-20" fill="#24401f"/><polygon points="0,-140 -30,-60 30,-60" fill="#24401f"/></g><g transform="translate(150 710) scale(0.9)"><rect x="-4" y="-10" width="8" height="30" fill="#3a2a1c"/><polygon points="0,-110 -38,-20 38,-20" fill="#3d6b3a"/><polygon points="0,-140 -30,-60 30,-60" fill="#3d6b3a"/></g><g transform="translate(1250 700) scale(1.2)"><rect x="-4" y="-10" width="8" height="30" fill="#3a2a1c"/><polygon points="0,-110 -38,-20 38,-20" fill="#24401f"/><polygon points="0,-140 -30,-60 30,-60" fill="#24401f"/></g><g transform="translate(1350 690) scale(1)"><rect x="-4" y="-10" width="8" height="30" fill="#3a2a1c"/><polygon points="0,-110 -38,-20 38,-20" fill="#3d6b3a"/><polygon points="0,-140 -30,-60 30,-60" fill="#3d6b3a"/></g><g transform="translate(1180 720) scale(0.8)"><rect x="-4" y="-10" width="8" height="30" fill="#3a2a1c"/><polygon points="0,-110 -38,-20 38,-20" fill="#3d6b3a"/><polygon points="0,-140 -30,-60 30,-60" fill="#3d6b3a"/></g><g transform="translate(330 720) scale(0.7)"><rect x="-4" y="-10" width="8" height="30" fill="#3a2a1c"/><polygon points="0,-110 -38,-20 38,-20" fill="#24401f"/><polygon points="0,-140 -30,-60 30,-60" fill="#24401f"/></g>
+</svg></div></div>
+</header>
+
+<section class="seccion historia" id="historia">
+  <div class="contenedor historia-grid">
+    <div>
+      <p class="eyebrow">Nuestra historia</p>
+      <h2 class="titulo">Una cocina abierta junto al río</h2>
+      <p>La Solariega nació alrededor de un fogón. Primero fueron los almuerzos de fin de semana para los caminantes que bajaban de La Mucuy, y con el tiempo se sumaron las habitaciones para que pudieran quedarse a dormir.</p><p>Hoy seguimos cocinando con lo que da la zona: truchas del río, trigo, papas y hierbas del huerto. Te despiertas con el sonido del agua y el olor del pan saliendo del horno.</p>
+    </div>
+    <div class="datos"><div class="dato"><strong>Río</strong><span>a la orilla, rodeada de bosque</span></div><div class="dato"><strong>Huerto</strong><span>propio para la cocina</span></div><div class="dato"><strong>8</strong><span>habitaciones y una cabaña</span></div></div>
+  </div>
+</section>
+
+<section class="seccion habitaciones" id="habitaciones">
+  <div class="contenedor">
+    <div class="centro">
+      <p class="eyebrow">Habitaciones</p>
+      <h2 class="titulo">Para dormir con el sonido del río</h2>
+      <p class="intro">Habitaciones sencillas y calientitas, todas con baño privado.</p>
+    </div>
+    <div class="hab-grid">
+      <article class="hab">
+        <svg class="hab-ilus" viewBox="0 0 400 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+<defs><linearGradient id="g0" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3d6b3a"/><stop offset="1" stop-color="#24401f"/></linearGradient></defs>
+<rect width="400" height="240" fill="url(#g0)"/>
+<circle cx="320" cy="60" r="70" fill="#fff" opacity=".08"/><circle cx="60" cy="220" r="90" fill="#000" opacity=".08"/>
+<g transform="translate(164 84) scale(3)" color="#fff" opacity=".92"><svg class="ico" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 18v-7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v7M3 14h18M3 18v2M21 18v2M6 9V6h5v3M13 9V6h5v3"/></svg></g>
+</svg>
+        <div class="hab-cuerpo">
+          <span class="cap">1 a 2 personas</span>
+          <h3>Habitación Helecho</h3>
+          <p>Sencilla y cómoda, perfecta para caminantes que salen temprano.</p>
+          <ul><li>Cama matrimonial</li><li>Agua caliente</li></ul>
+          <div class="hab-pie">
+            <span class="precio">$16 <small>/ noche</small></span>
+            <a class="btn" href="https://wa.me/580000000000?text=Hola%2C%20quiero%20reservar%20la%20Habitaci%C3%B3n%20Helecho%20en%20Posada%20La%20Solariega%20y%20Sus%20Sabores." target="_blank" rel="noopener">Reservar</a>
+          </div>
+        </div>
+      </article>
+      <article class="hab">
+        <svg class="hab-ilus" viewBox="0 0 400 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+<defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c97a22"/><stop offset="1" stop-color="#3d6b3a"/></linearGradient></defs>
+<rect width="400" height="240" fill="url(#g1)"/>
+<circle cx="280" cy="60" r="70" fill="#fff" opacity=".08"/><circle cx="90" cy="220" r="90" fill="#000" opacity=".08"/>
+<g transform="translate(164 84) scale(3)" color="#fff" opacity=".92"><svg class="ico" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c1 3 5 5 5 10a5 5 0 0 1-10 0c0-2.5 1.5-4 2.5-5 0 2 1 3 2 3 0-3-1-5.5.5-8z"/></svg></g>
+</svg>
+        <div class="hab-cuerpo">
+          <span class="cap">2 personas</span>
+          <h3>Habitación Fogón</h3>
+          <p>Cerca de la cocina y del comedor, con ventana hacia el bosque.</p>
+          <ul><li>Cama matrimonial</li><li>Desayuno</li></ul>
+          <div class="hab-pie">
+            <span class="precio">$22 <small>/ noche</small></span>
+            <a class="btn" href="https://wa.me/580000000000?text=Hola%2C%20quiero%20reservar%20la%20Habitaci%C3%B3n%20Fog%C3%B3n%20en%20Posada%20La%20Solariega%20y%20Sus%20Sabores." target="_blank" rel="noopener">Reservar</a>
+          </div>
+        </div>
+      </article>
+      <article class="hab">
+        <svg class="hab-ilus" viewBox="0 0 400 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+<defs><linearGradient id="g2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#24401f"/><stop offset="1" stop-color="#3d6b3a"/></linearGradient></defs>
+<rect width="400" height="240" fill="url(#g2)"/>
+<circle cx="240" cy="60" r="70" fill="#fff" opacity=".08"/><circle cx="120" cy="220" r="90" fill="#000" opacity=".08"/>
+<g transform="translate(164 84) scale(3)" color="#fff" opacity=".92"><svg class="ico" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11 12 4l9 7M5 10v10h14V10M10 20v-5h4v5"/></svg></g>
+</svg>
+        <div class="hab-cuerpo">
+          <span class="cap">2 a 4 personas</span>
+          <h3>Cabaña del Río</h3>
+          <p>Cabaña de madera a orillas del río, con terraza propia.</p>
+          <ul><li>Terraza</li><li>Desayuno</li><li>2 camas</li></ul>
+          <div class="hab-pie">
+            <span class="precio">$35 <small>/ noche</small></span>
+            <a class="btn" href="https://wa.me/580000000000?text=Hola%2C%20quiero%20reservar%20la%20Caba%C3%B1a%20del%20R%C3%ADo%20en%20Posada%20La%20Solariega%20y%20Sus%20Sabores." target="_blank" rel="noopener">Reservar</a>
+          </div>
+        </div>
+      </article>
+      <article class="hab">
+        <svg class="hab-ilus" viewBox="0 0 400 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+<defs><linearGradient id="g3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3d6b3a"/><stop offset="1" stop-color="#c97a22"/></linearGradient></defs>
+<rect width="400" height="240" fill="url(#g3)"/>
+<circle cx="200" cy="60" r="70" fill="#fff" opacity=".08"/><circle cx="150" cy="220" r="90" fill="#000" opacity=".08"/>
+<g transform="translate(164 84) scale(3)" color="#fff" opacity=".92"><svg class="ico" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg></g>
+</svg>
+        <div class="hab-cuerpo">
+          <span class="cap">2 personas</span>
+          <h3>Suite Solariega</h3>
+          <p>La más especial de la casa, con chimenea y vista a la montaña.</p>
+          <ul><li>Chimenea</li><li>Desayuno</li><li>Vista</li></ul>
+          <div class="hab-pie">
+            <span class="precio">$40 <small>/ noche</small></span>
+            <a class="btn" href="https://wa.me/580000000000?text=Hola%2C%20quiero%20reservar%20la%20Suite%20Solariega%20en%20Posada%20La%20Solariega%20y%20Sus%20Sabores." target="_blank" rel="noopener">Reservar</a>
+          </div>
+        </div>
+      </article></div>
+  </div>
+</section>
+
+<section class="seccion destacado" id="sabores"><div class="contenedor"><div class="centro"><p class="eyebrow">Sus sabores</p><h2 class="titulo">Cocina andina hecha en casa</h2><p class="intro">Nuestro restaurante está abierto para huéspedes y visitantes. Estos son los favoritos de la casa.</p></div><div class="platos"><div class="plato"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="3.5"/><path d="M2 5v5M2 7.5h1.5M22 5v14"/></svg><div><h3>Trucha de la casa</h3><p>Trucha fresca al ajillo o a la plancha, con papas y ensalada del huerto.</p></div></div><div class="plato"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="3.5"/><path d="M2 5v5M2 7.5h1.5M22 5v14"/></svg><div><h3>Pisca andina</h3><p>El caldo tradicional del páramo, con huevo, queso y arepa de trigo.</p></div></div><div class="plato"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9h12v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5zM16 10h2a2.5 2.5 0 0 1 0 5h-2M8 3c0 1.5 1 1.5 1 3M12 3c0 1.5 1 1.5 1 3"/></svg><div><h3>Chocolate caliente con queso</h3><p>Para las tardes frías después de la caminata.</p></div></div><div class="plato"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19c0-9 6-14 15-14 0 9-5 15-14 15M5 19 13 11"/></svg><div><h3>Pan casero y dulces</h3><p>Pan de horno y dulces de leche hechos aquí mismo.</p></div></div></div></div></section>
+
+<section class="seccion servicios" id="servicios">
+  <div class="contenedor">
+    <div class="centro">
+      <p class="eyebrow">Servicios</p>
+      <h2 class="titulo">Lo que te espera en la posada</h2>
+    </div>
+    <div class="serv-grid"><div class="serv"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="3.5"/><path d="M2 5v5M2 7.5h1.5M22 5v14"/></svg><h3>Restaurante propio</h3><p>Desayuno, almuerzo y cena con sazón andina.</p></div><div class="serv"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19c0-9 6-14 15-14 0 9-5 15-14 15M5 19 13 11"/></svg><h3>Huerto y jardín</h3><p>Recorre el huerto de donde sale la comida.</p></div><div class="serv"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 21c0-4 10-4 10-8s-8-3-8-7 4-3 4-3"/></svg><h3>Senderos</h3><p>Caminatas cortas por el bosque cerca del río.</p></div><div class="serv"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c1 3 5 5 5 10a5 5 0 0 1-10 0c0-2.5 1.5-4 2.5-5 0 2 1 3 2 3 0-3-1-5.5.5-8z"/></svg><h3>Fogata nocturna</h3><p>Noches de fogata y cuentos los fines de semana.</p></div><div class="serv"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 16h14M3 16v-3l2-5h14l2 5v3M5 16v2M19 16v2"/><circle cx="7.5" cy="13" r="1"/><circle cx="16.5" cy="13" r="1"/></svg><h3>Estacionamiento</h3><p>Gratuito dentro de la posada.</p></div><div class="serv"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V8a4 4 0 0 1 8 0M9 8h6M10 12v1M13 12v1M16 12v1M10 16v1M13 16v1M16 16v1"/></svg><h3>Agua caliente</h3><p>En todas las habitaciones.</p></div></div>
+  </div>
+</section>
+
+<section class="seccion alrededores" id="alrededores">
+  <div class="contenedor">
+    <div class="centro">
+      <p class="eyebrow">Alrededores</p>
+      <h2 class="titulo">En la puerta del parque nacional</h2>
+      <p class="intro">La Mucuy es la entrada a algunas de las caminatas más bonitas de Mérida.</p>
+    </div>
+    <div class="alr-grid"><div class="alr"><span class="dist">Muy cerca</span><h3>Sector La Mucuy</h3><p>Entrada al Parque Nacional Sierra Nevada, con bosque nublado y ríos.</p></div><div class="alr"><span class="dist">Caminata de un día</span><h3>Laguna de Coromoto</h3><p>Una de las lagunas más visitadas por los excursionistas.</p></div><div class="alr"><span class="dist">En carro</span><h3>Pueblo de Tabay</h3><p>Su plaza, su iglesia y las aguas termales de la zona.</p></div></div>
+  </div>
+</section>
+
+<section class="cta" id="reservar">
+  <div class="contenedor">
+    <p class="eyebrow" style="color:rgba(255,255,255,.8)">Reservas</p>
+    <h2 class="titulo">Ven con hambre y quédate a dormir</h2>
+    <p>Reserva tu habitación o tu mesa por WhatsApp. Te respondemos rápido.</p>
+    <a class="btn btn-principal" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20consultar%20disponibilidad%20en%20Posada%20La%20Solariega%20y%20Sus%20Sabores." target="_blank" rel="noopener"><svg class="i-wa" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.31l-.34-.2-3.57.94.95-3.48-.22-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.23-9.43 9.44-9.43a9.43 9.43 0 0 1 9.43 9.44c0 5.2-4.23 9.43-9.44 9.43zm8.03-17.46A11.27 11.27 0 0 0 12.05.72C5.79.72.7 5.81.7 12.07c0 2 .52 3.95 1.52 5.67L.6 23.65l6.05-1.59a11.33 11.33 0 0 0 5.4 1.38h.01c6.26 0 11.35-5.09 11.35-11.35 0-3.03-1.18-5.88-3.33-8.03z"/></svg> Consultar disponibilidad</a>
+    <p class="contacto">WhatsApp: +58 000 0000000 · La Mucuy Baja, Tabay</p>
+  </div>
+</section>
+
+<footer>
+  <div class="contenedor">
+    <span class="logo">Posada La Solariega y Sus Sabores</span><br>
+    Río, montaña y sazón de casa en La Mucuy · La Mucuy Baja, Tabay
+    <p class="aviso">Página de ejemplo con datos ficticios</p>
+  </div>
+</footer>
+
+<a class="wa-flotante" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20informaci%C3%B3n%20para%20reservar%20en%20Posada%20La%20Solariega%20y%20Sus%20Sabores." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><svg class="i-wa" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.31l-.34-.2-3.57.94.95-3.48-.22-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.23-9.43 9.44-9.43a9.43 9.43 0 0 1 9.43 9.44c0 5.2-4.23 9.43-9.44 9.43zm8.03-17.46A11.27 11.27 0 0 0 12.05.72C5.79.72.7 5.81.7 12.07c0 2 .52 3.95 1.52 5.67L.6 23.65l6.05-1.59a11.33 11.33 0 0 0 5.4 1.38h.01c6.26 0 11.35-5.09 11.35-11.35 0-3.03-1.18-5.88-3.33-8.03z"/></svg></a>
+</body>
+</html>

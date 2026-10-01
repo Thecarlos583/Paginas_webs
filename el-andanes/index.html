@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Posada El Andanes</title>
+<meta name="description" content="Posada El Andanes — San Rafael de Mucuchíes. Abrigo de piedra y lana bajo el cielo más estrellado de los Andes.">
+<style>
+:root{--fondo:#eef2f5;--superficie:#ffffff;--primario:#2e4a62;--primario-osc:#172636;--acento:#c9853a;
+--texto:#1d2a36;--suave:#56687a;--oscuro:#111c27;--radio:3px;--f-titulo:"Gill Sans", "Gill Sans MT", Calibri, "Segoe UI", sans-serif;--f-cuerpo:"Segoe UI", system-ui, -apple-system, sans-serif;--wa:#25d366}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--f-cuerpo);color:var(--texto);background:var(--fondo);line-height:1.65;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--f-titulo);line-height:1.15;font-weight:700}
+.contenedor{width:100%;max-width:1140px;margin:0 auto;padding:0 16px}
+.seccion{padding:76px 0}
+.eyebrow{font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;color:var(--acento);font-weight:600;margin-bottom:10px}
+.titulo{font-size:clamp(1.9rem,4.6vw,2.8rem);color:var(--primario-osc);margin-bottom:14px}
+.intro{max-width:640px;color:var(--suave)}
+.centro{text-align:center}.centro .intro{margin:0 auto}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 26px;border-radius:var(--radio-btn,999px);font-weight:600;font-size:.95rem;transition:transform .2s,filter .2s;cursor:pointer}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.06)}
+.btn-principal{background:var(--acento);color:#fff}
+.btn-claro{border:1.5px solid currentColor}
+.i-wa{width:19px;height:19px;flex-shrink:0}
+.ico{width:26px;height:26px}
+
+/* nav */
+.nav{position:absolute;top:0;left:0;right:0;z-index:5}
+.nav .contenedor{display:flex;align-items:center;justify-content:space-between;height:72px;gap:12px}
+.logo{font-family:var(--f-titulo);font-size:1.2rem;font-weight:700;line-height:1.1}
+.logo small{display:block;font-family:var(--f-cuerpo);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;opacity:.8;font-weight:600}
+.nav-links{display:none;gap:26px;font-size:.88rem;font-weight:500}
+.nav-links a:hover{color:var(--acento)}
+.nav .btn{padding:9px 18px;font-size:.82rem}
+@media(min-width:900px){.nav-links{display:flex}}
+
+/* hero */
+.hero{position:relative;min-height:min(100svh,860px);display:flex;align-items:center;overflow:hidden}
+.hero-escena{position:absolute;inset:0;z-index:0}
+.hero-escena svg{width:100%;height:100%;display:block}
+.hero-texto{position:relative;z-index:2;padding-top:90px;padding-bottom:90px}
+.hero h1{font-size:clamp(2.4rem,8vw,4.6rem);margin-bottom:14px}
+.hero .lema{font-size:clamp(1.05rem,2.6vw,1.35rem);margin-bottom:30px;max-width:560px}
+.hero .botones{display:flex;gap:12px;flex-wrap:wrap}
+.hero-centrado .hero-texto{text-align:center}.hero-centrado .lema{margin-left:auto;margin-right:auto}.hero-centrado .botones{justify-content:center}
+.hero-claro{color:#fff}
+.hero-claro .hero-escena::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.45),rgba(0,0,0,.12) 45%,rgba(0,0,0,.5))}
+.hero-claro .hero-texto{text-shadow:0 2px 14px rgba(0,0,0,.35)}
+.hero-claro .eyebrow{color:var(--fondo)}
+.hero-oscuro{color:var(--oscuro)}
+.hero-oscuro .hero-escena::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.55),rgba(255,255,255,.05) 55%,rgba(0,0,0,.2))}
+.hero-oscuro .eyebrow{color:var(--primario-osc)}
+.hero-dividido{background:var(--fondo);color:var(--oscuro);align-items:stretch;min-height:0}
+.hero-dividido .hero-escena{position:relative;inset:auto;border-radius:var(--radio);overflow:hidden;aspect-ratio:4/3}
+.hero-dividido .hero-escena::after{display:none}
+.hero-dividido .rejilla{display:grid;gap:36px;align-items:center;padding-top:100px;padding-bottom:60px;width:100%}
+.hero-dividido .hero-texto{padding:0}
+@media(min-width:900px){.hero-dividido .rejilla{grid-template-columns:1fr 1.1fr}}
+
+/* historia */
+.historia-grid{display:grid;gap:40px;align-items:start}
+.historia p+p{margin-top:14px}
+.historia p{color:var(--suave)}
+.historia-grid>*{min-width:0}
+.datos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.dato{background:var(--superficie);border-radius:var(--radio);padding:18px 8px;text-align:center;box-shadow:0 6px 22px rgba(0,0,0,.05)}
+.dato strong{display:block;font-family:var(--f-titulo);font-size:clamp(1.05rem,4.6vw,1.7rem);color:var(--primario);overflow-wrap:anywhere}
+.dato span{font-size:.78rem;color:var(--suave);line-height:1.35;display:block}
+@media(min-width:900px){.historia-grid{grid-template-columns:1.2fr 1fr;gap:60px}.datos{grid-template-columns:1fr;}}
+
+/* habitaciones */
+.habitaciones{background:var(--superficie)}
+.hab-grid{display:grid;gap:24px;margin-top:44px}
+@media(min-width:640px){.hab-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1000px){.hab-grid{grid-template-columns:repeat(4,1fr)}}
+.hab{background:var(--fondo);border-radius:var(--radio);overflow:hidden;display:flex;flex-direction:column;box-shadow:0 8px 26px rgba(0,0,0,.07);transition:transform .25s}
+.hab:hover{transform:translateY(-4px)}
+.hab-ilus{display:block;width:100%;height:auto;aspect-ratio:5/3}
+.hab-cuerpo{padding:20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.hab h3{font-size:1.3rem;color:var(--primario-osc)}
+.hab .cap{font-size:.78rem;color:var(--acento);font-weight:600;letter-spacing:.05em;text-transform:uppercase}
+.hab p{font-size:.9rem;color:var(--suave)}
+.hab ul{list-style:none;font-size:.82rem;color:var(--suave);display:flex;flex-wrap:wrap;gap:6px}
+.hab li{background:var(--superficie);padding:3px 10px;border-radius:999px}
+.hab-pie{margin-top:auto;padding-top:10px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.precio{font-family:var(--f-titulo);font-size:1.6rem;color:var(--primario);font-weight:700}
+.precio small{font-family:var(--f-cuerpo);font-size:.75rem;color:var(--suave);font-weight:400}
+.hab .btn{padding:9px 18px;font-size:.82rem;background:var(--primario);color:#fff}
+
+/* destacado (opcional) */
+.destacado{background:var(--primario-osc);color:#fff}
+.destacado .titulo{color:#fff}.destacado .intro{color:rgba(255,255,255,.78)}
+.platos{display:grid;gap:18px;margin-top:40px}
+@media(min-width:700px){.platos{grid-template-columns:repeat(2,1fr)}}
+.plato{display:flex;gap:16px;align-items:flex-start;padding:20px;border:1px solid rgba(255,255,255,.18);border-radius:var(--radio)}
+.plato .ico{color:var(--acento);width:30px;height:30px;flex-shrink:0}
+.plato h3{font-size:1.2rem;margin-bottom:4px}.plato p{font-size:.88rem;color:rgba(255,255,255,.75)}
+
+/* servicios */
+.serv-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:40px}
+@media(min-width:800px){.serv-grid{grid-template-columns:repeat(3,1fr)}}
+.serv{padding:22px 18px;border-radius:var(--radio);background:var(--superficie);box-shadow:0 6px 20px rgba(0,0,0,.04)}
+.serv .ico{color:var(--primario);margin-bottom:10px;width:32px;height:32px}
+.serv h3{font-size:1.08rem;color:var(--primario-osc);margin-bottom:4px}
+.serv p{font-size:.85rem;color:var(--suave)}
+
+/* alrededores */
+.alrededores{background:var(--superficie)}
+.alr-grid{display:grid;gap:18px;margin-top:40px}
+@media(min-width:800px){.alr-grid{grid-template-columns:repeat(3,1fr)}}
+.alr{padding:24px;border-left:4px solid var(--acento);background:var(--fondo);border-radius:0 var(--radio) var(--radio) 0}
+.alr .dist{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--acento);font-weight:700}
+.alr h3{font-size:1.2rem;color:var(--primario-osc);margin:4px 0 6px}
+.alr p{font-size:.88rem;color:var(--suave)}
+
+/* cta */
+.cta{background:var(--primario);color:#fff;text-align:center;padding:84px 0}
+.cta .titulo{color:#fff}.cta p{max-width:540px;margin:0 auto 28px;opacity:.88}
+.cta .contacto{margin-top:22px;font-size:.88rem;opacity:.85}
+
+footer{background:var(--oscuro);color:rgba(255,255,255,.72);padding:38px 0;text-align:center;font-size:.85rem}
+footer .logo{color:#fff;margin-bottom:6px;display:inline-block}
+.aviso{margin-top:14px;font-size:.72rem;opacity:.55}
+
+.wa-flotante{position:fixed;right:16px;bottom:16px;z-index:20;width:58px;height:58px;border-radius:50%;background:var(--wa);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+.wa-flotante .i-wa{width:30px;height:30px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.hab{transition:none}}
+
+h1,h2,.titulo{text-transform:uppercase;letter-spacing:.06em}
+.titulo{font-size:clamp(1.6rem,4vw,2.4rem)}
+.habitaciones{background:var(--oscuro)}
+.habitaciones .titulo{color:#fff}.habitaciones .intro{color:rgba(255,255,255,.72)}
+.hab{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.14);box-shadow:none}
+.hab h3{color:#fff}.hab p,.hab ul{color:rgba(255,255,255,.7)}
+.hab li{background:rgba(255,255,255,.08)}
+.precio{color:var(--acento)}.precio small{color:rgba(255,255,255,.6)}
+.hab .btn{background:var(--acento)}
+.serv{border:1px solid rgba(0,0,0,.08);box-shadow:none}
+.alr{border-left:none;border-top:3px solid var(--acento);border-radius:var(--radio)}
+.cta{background:linear-gradient(180deg,var(--primario-osc),var(--oscuro))}
+</style>
+</head>
+<body class="tema-montana">
+
+<header class="hero hero-izquierda hero-claro" id="inicio">
+  <nav class="nav">
+    <div class="contenedor">
+      <a href="#inicio" class="logo">El Andanes<small>San Rafael de Mucuchíes</small></a>
+      <div class="nav-links">
+        <a href="#historia">Nosotros</a>
+        <a href="#habitaciones">Habitaciones</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#alrededores">Alrededores</a>
+      </div>
+      <a class="btn btn-principal" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20informaci%C3%B3n%20para%20reservar%20en%20Posada%20El%20Andanes." target="_blank" rel="noopener">Reservar</a>
+    </div>
+  </nav>
+  <div class="hero-escena"><svg viewBox="0 0 1440 800" preserveAspectRatio="xMidYMax slice" role="img" aria-label="Ilustración del paisaje de San Rafael de Mucuchíes">
+<defs><linearGradient id="cielo" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#0b1622"/><stop offset=".6" stop-color="#172636"/><stop offset="1" stop-color="#2e4a62"/></linearGradient></defs>
+<rect width="1440" height="800" fill="url(#cielo)"/>
+<circle cx="663" cy="77" r="2" fill="#fff" opacity="0.9"/><circle cx="98" cy="37" r="0.8" fill="#fff" opacity="0.6"/><circle cx="1193" cy="29" r="1.1" fill="#fff" opacity="0.4"/><circle cx="176" cy="222" r="2" fill="#fff" opacity="0.4"/><circle cx="492" cy="46" r="2" fill="#fff" opacity="0.4"/><circle cx="1158" cy="63" r="1.1" fill="#fff" opacity="0.9"/><circle cx="1284" cy="298" r="0.8" fill="#fff" opacity="0.9"/><circle cx="1199" cy="203" r="0.8" fill="#fff" opacity="0.4"/><circle cx="95" cy="285" r="1.1" fill="#fff" opacity="0.6"/><circle cx="858" cy="73" r="0.8" fill="#fff" opacity="0.9"/><circle cx="631" cy="286" r="1.1" fill="#fff" opacity="0.4"/><circle cx="1191" cy="292" r="1.1" fill="#fff" opacity="0.6"/><circle cx="199" cy="280" r="0.8" fill="#fff" opacity="0.9"/><circle cx="122" cy="316" r="1.1" fill="#fff" opacity="0.6"/><circle cx="1393" cy="272" r="2" fill="#fff" opacity="0.6"/><circle cx="953" cy="299" r="2" fill="#fff" opacity="0.6"/><circle cx="613" cy="127" r="1.1" fill="#fff" opacity="0.9"/><circle cx="499" cy="41" r="1.5" fill="#fff" opacity="0.9"/><circle cx="1013" cy="175" r="2" fill="#fff" opacity="0.6"/><circle cx="1247" cy="37" r="0.8" fill="#fff" opacity="0.9"/><circle cx="856" cy="84" r="1.5" fill="#fff" opacity="0.4"/><circle cx="1001" cy="215" r="0.8" fill="#fff" opacity="0.9"/><circle cx="158" cy="391" r="1.5" fill="#fff" opacity="0.6"/><circle cx="1423" cy="179" r="2" fill="#fff" opacity="0.9"/><circle cx="934" cy="35" r="0.8" fill="#fff" opacity="0.6"/><circle cx="970" cy="356" r="0.8" fill="#fff" opacity="0.4"/><circle cx="1436" cy="158" r="2" fill="#fff" opacity="0.6"/><circle cx="790" cy="342" r="1.5" fill="#fff" opacity="0.4"/><circle cx="945" cy="181" r="1.1" fill="#fff" opacity="0.9"/><circle cx="239" cy="252" r="0.8" fill="#fff" opacity="0.4"/><circle cx="588" cy="66" r="1.1" fill="#fff" opacity="0.6"/><circle cx="800" cy="254" r="0.8" fill="#fff" opacity="0.4"/><circle cx="919" cy="205" r="1.5" fill="#fff" opacity="0.4"/><circle cx="881" cy="281" r="1.5" fill="#fff" opacity="0.9"/><circle cx="850" cy="183" r="2" fill="#fff" opacity="0.4"/><circle cx="309" cy="42" r="1.1" fill="#fff" opacity="0.4"/><circle cx="475" cy="337" r="1.1" fill="#fff" opacity="0.4"/><circle cx="993" cy="301" r="1.1" fill="#fff" opacity="0.6"/><circle cx="577" cy="2" r="1.1" fill="#fff" opacity="0.6"/><circle cx="1094" cy="189" r="1.5" fill="#fff" opacity="0.4"/><circle cx="1414" cy="263" r="0.8" fill="#fff" opacity="0.6"/><circle cx="1393" cy="408" r="2" fill="#fff" opacity="0.6"/><circle cx="817" cy="201" r="0.8" fill="#fff" opacity="0.6"/><circle cx="1299" cy="205" r="0.8" fill="#fff" opacity="0.4"/><circle cx="137" cy="106" r="2" fill="#fff" opacity="0.4"/><circle cx="225" cy="174" r="0.8" fill="#fff" opacity="0.4"/><circle cx="0" cy="290" r="1.1" fill="#fff" opacity="0.9"/><circle cx="207" cy="186" r="0.8" fill="#fff" opacity="0.4"/><circle cx="425" cy="314" r="2" fill="#fff" opacity="0.4"/><circle cx="1299" cy="129" r="1.5" fill="#fff" opacity="0.9"/><circle cx="745" cy="242" r="0.8" fill="#fff" opacity="0.4"/><circle cx="999" cy="238" r="2" fill="#fff" opacity="0.6"/><circle cx="638" cy="43" r="1.1" fill="#fff" opacity="0.4"/><circle cx="701" cy="379" r="1.5" fill="#fff" opacity="0.6"/><circle cx="1417" cy="82" r="0.8" fill="#fff" opacity="0.4"/><circle cx="1081" cy="185" r="1.1" fill="#fff" opacity="0.9"/><circle cx="1112" cy="13" r="1.5" fill="#fff" opacity="0.9"/><circle cx="186" cy="356" r="1.5" fill="#fff" opacity="0.9"/><circle cx="751" cy="85" r="1.5" fill="#fff" opacity="0.4"/><circle cx="1090" cy="277" r="1.5" fill="#fff" opacity="0.9"/><circle cx="456" cy="313" r="1.1" fill="#fff" opacity="0.4"/><circle cx="820" cy="378" r="1.1" fill="#fff" opacity="0.4"/><circle cx="1060" cy="252" r="1.5" fill="#fff" opacity="0.9"/><circle cx="59" cy="14" r="1.5" fill="#fff" opacity="0.6"/><circle cx="530" cy="99" r="1.5" fill="#fff" opacity="0.6"/><circle cx="715" cy="186" r="0.8" fill="#fff" opacity="0.4"/><circle cx="209" cy="116" r="2" fill="#fff" opacity="0.4"/><circle cx="691" cy="104" r="2" fill="#fff" opacity="0.9"/><circle cx="1249" cy="0" r="2" fill="#fff" opacity="0.9"/><circle cx="704" cy="409" r="0.8" fill="#fff" opacity="0.9"/><circle cx="245" cy="198" r="1.1" fill="#fff" opacity="0.6"/><circle cx="365" cy="222" r="1.5" fill="#fff" opacity="0.4"/><circle cx="810" cy="237" r="2" fill="#fff" opacity="0.9"/><circle cx="173" cy="371" r="1.1" fill="#fff" opacity="0.4"/><circle cx="260" cy="14" r="1.1" fill="#fff" opacity="0.9"/><circle cx="953" cy="412" r="1.1" fill="#fff" opacity="0.9"/><circle cx="1220" cy="242" r="1.5" fill="#fff" opacity="0.4"/><circle cx="1123" cy="280" r="1.1" fill="#fff" opacity="0.4"/><circle cx="29" cy="409" r="0.8" fill="#fff" opacity="0.9"/><circle cx="285" cy="222" r="1.1" fill="#fff" opacity="0.4"/><circle cx="57" cy="128" r="1.1" fill="#fff" opacity="0.6"/><circle cx="1026" cy="123" r="1.5" fill="#fff" opacity="0.6"/><circle cx="1114" cy="214" r="1.1" fill="#fff" opacity="0.4"/><circle cx="724" cy="234" r="2" fill="#fff" opacity="0.9"/><circle cx="267" cy="272" r="1.1" fill="#fff" opacity="0.9"/><circle cx="1045" cy="9" r="2" fill="#fff" opacity="0.4"/><circle cx="1246" cy="2" r="1.1" fill="#fff" opacity="0.4"/><circle cx="289" cy="242" r="0.8" fill="#fff" opacity="0.9"/><circle cx="126" cy="166" r="2" fill="#fff" opacity="0.4"/><circle cx="1147" cy="29" r="1.1" fill="#fff" opacity="0.4"/><circle cx="567" cy="21" r="0.8" fill="#fff" opacity="0.9"/><circle cx="926" cy="287" r="0.8" fill="#fff" opacity="0.4"/><circle cx="907" cy="166" r="1.1" fill="#fff" opacity="0.9"/><circle cx="567" cy="231" r="2" fill="#fff" opacity="0.9"/><circle cx="507" cy="357" r="1.5" fill="#fff" opacity="0.9"/><circle cx="414" cy="229" r="1.1" fill="#fff" opacity="0.6"/><circle cx="249" cy="200" r="2" fill="#fff" opacity="0.6"/><circle cx="148" cy="343" r="1.1" fill="#fff" opacity="0.6"/><circle cx="149" cy="108" r="1.5" fill="#fff" opacity="0.4"/><circle cx="316" cy="366" r="1.5" fill="#fff" opacity="0.4"/><circle cx="518" cy="70" r="2" fill="#fff" opacity="0.4"/><circle cx="192" cy="203" r="2" fill="#fff" opacity="0.4"/><circle cx="1367" cy="114" r="1.1" fill="#fff" opacity="0.9"/><circle cx="883" cy="263" r="2" fill="#fff" opacity="0.6"/><circle cx="862" cy="100" r="1.5" fill="#fff" opacity="0.6"/><circle cx="188" cy="369" r="1.5" fill="#fff" opacity="0.4"/><circle cx="692" cy="283" r="2" fill="#fff" opacity="0.6"/><circle cx="1440" cy="9" r="2" fill="#fff" opacity="0.6"/><circle cx="1059" cy="319" r="1.5" fill="#fff" opacity="0.9"/><circle cx="131" cy="57" r="1.1" fill="#fff" opacity="0.4"/><circle cx="172" cy="135" r="1.5" fill="#fff" opacity="0.4"/><circle cx="371" cy="138" r="1.1" fill="#fff" opacity="0.6"/><circle cx="1384" cy="419" r="1.5" fill="#fff" opacity="0.6"/><circle cx="305" cy="274" r="2" fill="#fff" opacity="0.9"/><circle cx="669" cy="45" r="1.5" fill="#fff" opacity="0.4"/><circle cx="1409" cy="93" r="2" fill="#fff" opacity="0.4"/><circle cx="550" cy="8" r="0.8" fill="#fff" opacity="0.6"/><circle cx="171" cy="311" r="1.1" fill="#fff" opacity="0.4"/><circle cx="541" cy="62" r="2" fill="#fff" opacity="0.4"/><circle cx="694" cy="283" r="2" fill="#fff" opacity="0.6"/><circle cx="1273" cy="66" r="0.8" fill="#fff" opacity="0.9"/><circle cx="488" cy="56" r="1.1" fill="#fff" opacity="0.6"/><circle cx="103" cy="92" r="1.1" fill="#fff" opacity="0.6"/><circle cx="1287" cy="156" r="1.1" fill="#fff" opacity="0.6"/><circle cx="912" cy="256" r="1.1" fill="#fff" opacity="0.6"/><circle cx="710" cy="411" r="0.8" fill="#fff" opacity="0.6"/><circle cx="75" cy="7" r="0.8" fill="#fff" opacity="0.9"/><circle cx="1035" cy="282" r="1.1" fill="#fff" opacity="0.9"/><circle cx="972" cy="125" r="2" fill="#fff" opacity="0.4"/><circle cx="1348" cy="419" r="2" fill="#fff" opacity="0.9"/><circle cx="1013" cy="279" r="2" fill="#fff" opacity="0.9"/><circle cx="630" cy="352" r="1.1" fill="#fff" opacity="0.4"/><circle cx="701" cy="101" r="1.1" fill="#fff" opacity="0.6"/><circle cx="711" cy="27" r="1.1" fill="#fff" opacity="0.4"/><circle cx="144" cy="320" r="1.5" fill="#fff" opacity="0.6"/><circle cx="334" cy="28" r="0.8" fill="#fff" opacity="0.9"/><circle cx="780" cy="259" r="1.5" fill="#fff" opacity="0.9"/><circle cx="496" cy="354" r="1.5" fill="#fff" opacity="0.4"/><circle cx="940" cy="94" r="1.1" fill="#fff" opacity="0.6"/><circle cx="913" cy="1" r="1.5" fill="#fff" opacity="0.6"/>
+<circle cx="1150" cy="170" r="48" fill="#eef3f8"/><circle cx="1170" cy="158" r="44" fill="#14243a"/>
+<polygon points="0,470 140,380 260,430 420,280 520,340 640,250 760,330 880,270 1010,360 1150,300 1300,390 1440,330 1440,800 0,800" fill="#3b5670" opacity="1"/>
+<polygon points="420,280 445,302 430,300 415,315 395,298" fill="#e8f0f7"/><polygon points="640,250 668,276 650,272 632,290 612,272" fill="#e8f0f7"/>
+<polygon points="880,270 905,293 888,290 872,302 858,290" fill="#e8f0f7"/><polygon points="1150,300 1170,318 1150,316 1132,320" fill="#e8f0f7"/>
+<polygon points="0,580 220,520 420,560 640,500 860,560 1080,510 1280,550 1440,520 1440,800 0,800" fill="#22374b" opacity="1"/>
+<polygon points="0,700 300,660 600,690 900,650 1200,690 1440,665 1440,800 0,800" fill="#121f2c" opacity="1"/>
+<g transform="translate(560 640)" fill="#0e1822"><rect x="0" y="20" width="90" height="62"/>
+<polygon points="-6,22 45,-12 96,22"/><rect x="34" y="-50" width="22" height="44"/><polygon points="30,-50 45,-72 60,-50"/>
+<path d="M36 82 V58 a9 9 0 0 1 18 0 V82z" fill="#c9853a" opacity=".85"/></g>
+<g transform="translate(140 742) scale(1.2)"><rect x="-3" y="0" width="6" height="34" fill="#0e1822"/><circle cx="0" cy="-4" r="14" fill="#0e1822"/><circle cx="-9" cy="2" r="8" fill="#0e1822"/><circle cx="9" cy="2" r="8" fill="#0e1822"/></g><g transform="translate(230 760) scale(0.9)"><rect x="-3" y="0" width="6" height="34" fill="#0e1822"/><circle cx="0" cy="-4" r="14" fill="#0e1822"/><circle cx="-9" cy="2" r="8" fill="#0e1822"/><circle cx="9" cy="2" r="8" fill="#0e1822"/></g><g transform="translate(1160 735) scale(1.3)"><rect x="-3" y="0" width="6" height="34" fill="#0e1822"/><circle cx="0" cy="-4" r="14" fill="#0e1822"/><circle cx="-9" cy="2" r="8" fill="#0e1822"/><circle cx="9" cy="2" r="8" fill="#0e1822"/></g><g transform="translate(1260 755) scale(1)"><rect x="-3" y="0" width="6" height="34" fill="#0e1822"/><circle cx="0" cy="-4" r="14" fill="#0e1822"/><circle cx="-9" cy="2" r="8" fill="#0e1822"/><circle cx="9" cy="2" r="8" fill="#0e1822"/></g><g transform="translate(1340 745) scale(0.8)"><rect x="-3" y="0" width="6" height="34" fill="#0e1822"/><circle cx="0" cy="-4" r="14" fill="#0e1822"/><circle cx="-9" cy="2" r="8" fill="#0e1822"/><circle cx="9" cy="2" r="8" fill="#0e1822"/></g><g transform="translate(960 770) scale(0.7)"><rect x="-3" y="0" width="6" height="34" fill="#0e1822"/><circle cx="0" cy="-4" r="14" fill="#0e1822"/><circle cx="-9" cy="2" r="8" fill="#0e1822"/><circle cx="9" cy="2" r="8" fill="#0e1822"/></g>
+</svg></div><div class="contenedor"><div class="hero-texto"><p class="eyebrow">San Rafael de Mucuchíes</p><h1>Posada El Andanes</h1><p class="lema">Abrigo de piedra y lana bajo el cielo más estrellado de los Andes</p><div class="botones"><a class="btn btn-principal" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20informaci%C3%B3n%20para%20reservar%20en%20Posada%20El%20Andanes." target="_blank" rel="noopener"><svg class="i-wa" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.31l-.34-.2-3.57.94.95-3.48-.22-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.23-9.43 9.44-9.43a9.43 9.43 0 0 1 9.43 9.44c0 5.2-4.23 9.43-9.44 9.43zm8.03-17.46A11.27 11.27 0 0 0 12.05.72C5.79.72.7 5.81.7 12.07c0 2 .52 3.95 1.52 5.67L.6 23.65l6.05-1.59a11.33 11.33 0 0 0 5.4 1.38h.01c6.26 0 11.35-5.09 11.35-11.35 0-3.03-1.18-5.88-3.33-8.03z"/></svg> Reservar por WhatsApp</a><a class="btn btn-claro" href="#habitaciones">Ver habitaciones</a></div></div></div>
+</header>
+
+<section class="seccion historia" id="historia">
+  <div class="contenedor historia-grid">
+    <div>
+      <p class="eyebrow">Nuestra historia</p>
+      <h2 class="titulo">Piedra, lana y fogón</h2>
+      <p>El Andanes está construida en piedra, como las casas viejas del páramo. Paredes gruesas que guardan el calor, techos de madera y una chimenea encendida desde que cae la tarde.</p><p>Aquí el frío se disfruta: cobijas de lana tejidas en la zona, chocolate caliente al llegar y noches tan despejadas que se ve la Vía Láctea desde el patio.</p>
+    </div>
+    <div class="datos"><div class="dato"><strong>3.140 m</strong><span>sobre el nivel del mar</span></div><div class="dato"><strong>Chimenea</strong><span>en el salón y en las cabañas</span></div><div class="dato"><strong>6</strong><span>habitaciones de piedra</span></div></div>
+  </div>
+</section>
+
+<section class="seccion habitaciones" id="habitaciones">
+  <div class="contenedor">
+    <div class="centro">
+      <p class="eyebrow">Habitaciones</p>
+      <h2 class="titulo">Para dormir calientito en el páramo</h2>
+      <p class="intro">Todas tienen cobijas de lana, agua caliente y baño privado.</p>
+    </div>
+    <div class="hab-grid">
+      <article class="hab">
+        <svg class="hab-ilus" viewBox="0 0 400 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+<defs><linearGradient id="g0" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2e4a62"/><stop offset="1" stop-color="#172636"/></linearGradient></defs>
+<rect width="400" height="240" fill="url(#g0)"/>
+<circle cx="320" cy="60" r="70" fill="#fff" opacity=".08"/><circle cx="60" cy="220" r="90" fill="#000" opacity=".08"/>
+<g transform="translate(164 84) scale(3)" color="#fff" opacity=".92"><svg class="ico" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 18v-7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v7M3 14h18M3 18v2M21 18v2M6 9V6h5v3M13 9V6h5v3"/></svg></g>
+</svg>
+        <div class="hab-cuerpo">
+          <span class="cap">1 persona</span>
+          <h3>Sencilla Lucero</h3>
+          <p>Pequeña y abrigada, ideal para viajeros y ciclistas de paso.</p>
+          <ul><li>Cama individual</li><li>Cobijas de lana</li></ul>
+          <div class="hab-pie">
+            <span class="precio">$15 <small>/ noche</small></span>
+            <a class="btn" href="https://wa.me/580000000000?text=Hola%2C%20quiero%20reservar%20la%20Sencilla%20Lucero%20en%20Posada%20El%20Andanes." target="_blank" rel="noopener">Reservar</a>
+          </div>
+        </div>
+      </article>
+      <article class="hab">
+        <svg class="hab-ilus" viewBox="0 0 400 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+<defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c9853a"/><stop offset="1" stop-color="#2e4a62"/></linearGradient></defs>
+<rect width="400" height="240" fill="url(#g1)"/>
+<circle cx="280" cy="60" r="70" fill="#fff" opacity=".08"/><circle cx="90" cy="220" r="90" fill="#000" opacity=".08"/>
+<g transform="translate(164 84) scale(3)" color="#fff" opacity=".92"><svg class="ico" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 18v-7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v7M3 14h18M3 18v2M21 18v2M6 9V6h5v3M13 9V6h5v3"/></svg></g>
+</svg>
+        <div class="hab-cuerpo">
+          <span class="cap">2 personas</span>
+          <h3>Habitación Frailejón</h3>
+          <p>Cama matrimonial y ventana hacia los frailejones del páramo.</p>
+          <ul><li>Cama matrimonial</li><li>Desayuno</li></ul>
+          <div class="hab-pie">
+            <span class="precio">$20 <small>/ noche</small></span>
+            <a class="btn" href="https://wa.me/580000000000?text=Hola%2C%20quiero%20reservar%20la%20Habitaci%C3%B3n%20Frailej%C3%B3n%20en%20Posada%20El%20Andanes." target="_blank" rel="noopener">Reservar</a>
+          </div>
+        </div>
+      </article>
+      <article class="hab">
+        <svg class="hab-ilus" viewBox="0 0 400 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+<defs><linearGradient id="g2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#172636"/><stop offset="1" stop-color="#2e4a62"/></linearGradient></defs>
+<rect width="400" height="240" fill="url(#g2)"/>
+<circle cx="240" cy="60" r="70" fill="#fff" opacity=".08"/><circle cx="120" cy="220" r="90" fill="#000" opacity=".08"/>
+<g transform="translate(164 84) scale(3)" color="#fff" opacity=".92"><svg class="ico" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c1 3 5 5 5 10a5 5 0 0 1-10 0c0-2.5 1.5-4 2.5-5 0 2 1 3 2 3 0-3-1-5.5.5-8z"/></svg></g>
+</svg>
+        <div class="hab-cuerpo">
+          <span class="cap">2 personas</span>
+          <h3>Habitación Páramo</h3>
+          <p>Con chimenea propia para las noches más frías.</p>
+          <ul><li>Chimenea</li><li>Desayuno</li><li>Vista</li></ul>
+          <div class="hab-pie">
+            <span class="precio">$26 <small>/ noche</small></span>
+            <a class="btn" href="https://wa.me/580000000000?text=Hola%2C%20quiero%20reservar%20la%20Habitaci%C3%B3n%20P%C3%A1ramo%20en%20Posada%20El%20Andanes." target="_blank" rel="noopener">Reservar</a>
+          </div>
+        </div>
+      </article>
+      <article class="hab">
+        <svg class="hab-ilus" viewBox="0 0 400 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+<defs><linearGradient id="g3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2e4a62"/><stop offset="1" stop-color="#c9853a"/></linearGradient></defs>
+<rect width="400" height="240" fill="url(#g3)"/>
+<circle cx="200" cy="60" r="70" fill="#fff" opacity=".08"/><circle cx="150" cy="220" r="90" fill="#000" opacity=".08"/>
+<g transform="translate(164 84) scale(3)" color="#fff" opacity=".92"><svg class="ico" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11 12 4l9 7M5 10v10h14V10M10 20v-5h4v5"/></svg></g>
+</svg>
+        <div class="hab-cuerpo">
+          <span class="cap">Hasta 4 personas</span>
+          <h3>Cabaña Andanes</h3>
+          <p>Cabaña de piedra independiente, con sala, chimenea y cocina pequeña.</p>
+          <ul><li>Chimenea</li><li>Cocina</li><li>2 ambientes</li></ul>
+          <div class="hab-pie">
+            <span class="precio">$38 <small>/ noche</small></span>
+            <a class="btn" href="https://wa.me/580000000000?text=Hola%2C%20quiero%20reservar%20la%20Caba%C3%B1a%20Andanes%20en%20Posada%20El%20Andanes." target="_blank" rel="noopener">Reservar</a>
+          </div>
+        </div>
+      </article></div>
+  </div>
+</section>
+
+<section class="seccion servicios" id="servicios">
+  <div class="contenedor">
+    <div class="centro">
+      <p class="eyebrow">Servicios</p>
+      <h2 class="titulo">Hecho para el frío</h2>
+    </div>
+    <div class="serv-grid"><div class="serv"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c1 3 5 5 5 10a5 5 0 0 1-10 0c0-2.5 1.5-4 2.5-5 0 2 1 3 2 3 0-3-1-5.5.5-8z"/></svg><h3>Chimenea</h3><p>Encendida todas las noches en el salón común.</p></div><div class="serv"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v14H4zM4 9h16M4 13h16M8 5v14M16 5v14"/></svg><h3>Cobijas de lana</h3><p>Tejidas por artesanas de la zona.</p></div><div class="serv"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9h12v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5zM16 10h2a2.5 2.5 0 0 1 0 5h-2M8 3c0 1.5 1 1.5 1 3M12 3c0 1.5 1 1.5 1 3"/></svg><h3>Chocolate de bienvenida</h3><p>Un chocolate caliente apenas llegas.</p></div><div class="serv"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="3.5"/><path d="M2 5v5M2 7.5h1.5M22 5v14"/></svg><h3>Desayuno andino</h3><p>Pisca, arepas de trigo y queso ahumado.</p></div><div class="serv"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg><h3>Patio para ver estrellas</h3><p>Cielo despejado y sin luces de ciudad.</p></div><div class="serv"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 16h14M3 16v-3l2-5h14l2 5v3M5 16v2M19 16v2"/><circle cx="7.5" cy="13" r="1"/><circle cx="16.5" cy="13" r="1"/></svg><h3>Estacionamiento</h3><p>Techado y gratuito.</p></div></div>
+  </div>
+</section>
+
+<section class="seccion alrededores" id="alrededores">
+  <div class="contenedor">
+    <div class="centro">
+      <p class="eyebrow">Alrededores</p>
+      <h2 class="titulo">En pleno corazón del páramo</h2>
+      <p class="intro">San Rafael es punto de partida para los paisajes más altos de Mérida.</p>
+    </div>
+    <div class="alr-grid"><div class="alr"><span class="dist">En el pueblo</span><h3>Capilla de Piedra</h3><p>La famosa capilla levantada piedra por piedra por Juan Félix Sánchez.</p></div><div class="alr"><span class="dist">En carro</span><h3>Pico El Águila</h3><p>Uno de los puntos más altos de las carreteras de Venezuela.</p></div><div class="alr"><span class="dist">En carro</span><h3>Laguna de Mucubají</h3><p>Laguna de páramo rodeada de frailejones y senderos.</p></div></div>
+  </div>
+</section>
+
+<section class="cta" id="reservar">
+  <div class="contenedor">
+    <p class="eyebrow" style="color:rgba(255,255,255,.8)">Reservas</p>
+    <h2 class="titulo">Reserva tu noche en el páramo</h2>
+    <p>Escríbenos por WhatsApp. Te avisamos el clima de la semana y te guardamos la chimenea.</p>
+    <a class="btn btn-principal" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20consultar%20disponibilidad%20en%20Posada%20El%20Andanes." target="_blank" rel="noopener"><svg class="i-wa" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.31l-.34-.2-3.57.94.95-3.48-.22-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.23-9.43 9.44-9.43a9.43 9.43 0 0 1 9.43 9.44c0 5.2-4.23 9.43-9.44 9.43zm8.03-17.46A11.27 11.27 0 0 0 12.05.72C5.79.72.7 5.81.7 12.07c0 2 .52 3.95 1.52 5.67L.6 23.65l6.05-1.59a11.33 11.33 0 0 0 5.4 1.38h.01c6.26 0 11.35-5.09 11.35-11.35 0-3.03-1.18-5.88-3.33-8.03z"/></svg> Consultar disponibilidad</a>
+    <p class="contacto">WhatsApp: +58 000 0000000 · San Rafael de Mucuchíes</p>
+  </div>
+</section>
+
+<footer>
+  <div class="contenedor">
+    <span class="logo">Posada El Andanes</span><br>
+    Abrigo de piedra y lana bajo el cielo más estrellado de los Andes · San Rafael de Mucuchíes
+    <p class="aviso">Página de ejemplo con datos ficticios</p>
+  </div>
+</footer>
+
+<a class="wa-flotante" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20informaci%C3%B3n%20para%20reservar%20en%20Posada%20El%20Andanes." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><svg class="i-wa" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.31l-.34-.2-3.57.94.95-3.48-.22-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.23-9.43 9.44-9.43a9.43 9.43 0 0 1 9.43 9.44c0 5.2-4.23 9.43-9.44 9.43zm8.03-17.46A11.27 11.27 0 0 0 12.05.72C5.79.72.7 5.81.7 12.07c0 2 .52 3.95 1.52 5.67L.6 23.65l6.05-1.59a11.33 11.33 0 0 0 5.4 1.38h.01c6.26 0 11.35-5.09 11.35-11.35 0-3.03-1.18-5.88-3.33-8.03z"/></svg></a>
+</body>
+</html>

@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Posada Los Aches</title>
+<meta name="description" content="Posada Los Aches — San Rafael de Tabay. Neblina, helechos y café recién colado.">
+<style>
+:root{--fondo:#f2f1e9;--superficie:#e5e6da;--primario:#2f5d50;--primario-osc:#1b3a31;--acento:#b85a33;
+--texto:#22302b;--suave:#56635d;--oscuro:#162b24;--radio:6px;--f-titulo:Rockwell, "Roboto Slab", Georgia, serif;--f-cuerpo:"Segoe UI", system-ui, -apple-system, sans-serif;--wa:#25d366}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--f-cuerpo);color:var(--texto);background:var(--fondo);line-height:1.65;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--f-titulo);line-height:1.15;font-weight:700}
+.contenedor{width:100%;max-width:1140px;margin:0 auto;padding:0 16px}
+.seccion{padding:76px 0}
+.eyebrow{font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;color:var(--acento);font-weight:600;margin-bottom:10px}
+.titulo{font-size:clamp(1.9rem,4.6vw,2.8rem);color:var(--primario-osc);margin-bottom:14px}
+.intro{max-width:640px;color:var(--suave)}
+.centro{text-align:center}.centro .intro{margin:0 auto}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 26px;border-radius:var(--radio-btn,999px);font-weight:600;font-size:.95rem;transition:transform .2s,filter .2s;cursor:pointer}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.06)}
+.btn-principal{background:var(--acento);color:#fff}
+.btn-claro{border:1.5px solid currentColor}
+.i-wa{width:19px;height:19px;flex-shrink:0}
+.ico{width:26px;height:26px}
+
+/* nav */
+.nav{position:absolute;top:0;left:0;right:0;z-index:5}
+.nav .contenedor{display:flex;align-items:center;justify-content:space-between;height:72px;gap:12px}
+.logo{font-family:var(--f-titulo);font-size:1.2rem;font-weight:700;line-height:1.1}
+.logo small{display:block;font-family:var(--f-cuerpo);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;opacity:.8;font-weight:600}
+.nav-links{display:none;gap:26px;font-size:.88rem;font-weight:500}
+.nav-links a:hover{color:var(--acento)}
+.nav .btn{padding:9px 18px;font-size:.82rem}
+@media(min-width:900px){.nav-links{display:flex}}
+
+/* hero */
+.hero{position:relative;min-height:min(100svh,860px);display:flex;align-items:center;overflow:hidden}
+.hero-escena{position:absolute;inset:0;z-index:0}
+.hero-escena svg{width:100%;height:100%;display:block}
+.hero-texto{position:relative;z-index:2;padding-top:90px;padding-bottom:90px}
+.hero h1{font-size:clamp(2.4rem,8vw,4.6rem);margin-bottom:14px}
+.hero .lema{font-size:clamp(1.05rem,2.6vw,1.35rem);margin-bottom:30px;max-width:560px}
+.hero .botones{display:flex;gap:12px;flex-wrap:wrap}
+.hero-centrado .hero-texto{text-align:center}.hero-centrado .lema{margin-left:auto;margin-right:auto}.hero-centrado .botones{justify-content:center}
+.hero-claro{color:#fff}
+.hero-claro .hero-escena::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.45),rgba(0,0,0,.12) 45%,rgba(0,0,0,.5))}
+.hero-claro .hero-texto{text-shadow:0 2px 14px rgba(0,0,0,.35)}
+.hero-claro .eyebrow{color:var(--fondo)}
+.hero-oscuro{color:var(--oscuro)}
+.hero-oscuro .hero-escena::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.55),rgba(255,255,255,.05) 55%,rgba(0,0,0,.2))}
+.hero-oscuro .eyebrow{color:var(--primario-osc)}
+.hero-dividido{background:var(--fondo);color:var(--oscuro);align-items:stretch;min-height:0}
+.hero-dividido .hero-escena{position:relative;inset:auto;border-radius:var(--radio);overflow:hidden;aspect-ratio:4/3}
+.hero-dividido .hero-escena::after{display:none}
+.hero-dividido .rejilla{display:grid;gap:36px;align-items:center;padding-top:100px;padding-bottom:60px;width:100%}
+.hero-dividido .hero-texto{padding:0}
+@media(min-width:900px){.hero-dividido .rejilla{grid-template-columns:1fr 1.1fr}}
+
+/* historia */
+.historia-grid{display:grid;gap:40px;align-items:start}
+.historia p+p{margin-top:14px}
+.historia p{color:var(--suave)}
+.historia-grid>*{min-width:0}
+.datos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.dato{background:var(--superficie);border-radius:var(--radio);padding:18px 8px;text-align:center;box-shadow:0 6px 22px rgba(0,0,0,.05)}
+.dato strong{display:block;font-family:var(--f-titulo);font-size:clamp(1.05rem,4.6vw,1.7rem);color:var(--primario);overflow-wrap:anywhere}
+.dato span{font-size:.78rem;color:var(--suave);line-height:1.35;display:block}
+@media(min-width:900px){.historia-grid{grid-template-columns:1.2fr 1fr;gap:60px}.datos{grid-template-columns:1fr;}}
+
+/* habitaciones */
+.habitaciones{background:var(--superficie)}
+.hab-grid{display:grid;gap:24px;margin-top:44px}
+@media(min-width:640px){.hab-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1000px){.hab-grid{grid-template-columns:repeat(4,1fr)}}
+.hab{background:var(--fondo);border-radius:var(--radio);overflow:hidden;display:flex;flex-direction:column;box-shadow:0 8px 26px rgba(0,0,0,.07);transition:transform .25s}
+.hab:hover{transform:translateY(-4px)}
+.hab-ilus{display:block;width:100%;height:auto;aspect-ratio:5/3}
+.hab-cuerpo{padding:20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.hab h3{font-size:1.3rem;color:var(--primario-osc)}
+.hab .cap{font-size:.78rem;color:var(--acento);font-weight:600;letter-spacing:.05em;text-transform:uppercase}
+.hab p{font-size:.9rem;color:var(--suave)}
+.hab ul{list-style:none;font-size:.82rem;color:var(--suave);display:flex;flex-wrap:wrap;gap:6px}
+.hab li{background:var(--superficie);padding:3px 10px;border-radius:999px}
+.hab-pie{margin-top:auto;padding-top:10px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.precio{font-family:var(--f-titulo);font-size:1.6rem;color:var(--primario);font-weight:700}
+.precio small{font-family:var(--f-cuerpo);font-size:.75rem;color:var(--suave);font-weight:400}
+.hab .btn{padding:9px 18px;font-size:.82rem;background:var(--primario);color:#fff}
+
+/* destacado (opcional) */
+.destacado{background:var(--primario-osc);color:#fff}
+.destacado .titulo{color:#fff}.destacado .intro{color:rgba(255,255,255,.78)}
+.platos{display:grid;gap:18px;margin-top:40px}
+@media(min-width:700px){.platos{grid-template-columns:repeat(2,1fr)}}
+.plato{display:flex;gap:16px;align-items:flex-start;padding:20px;border:1px solid rgba(255,255,255,.18);border-radius:var(--radio)}
+.plato .ico{color:var(--acento);width:30px;height:30px;flex-shrink:0}
+.plato h3{font-size:1.2rem;margin-bottom:4px}.plato p{font-size:.88rem;color:rgba(255,255,255,.75)}
+
+/* servicios */
+.serv-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:40px}
+@media(min-width:800px){.serv-grid{grid-template-columns:repeat(3,1fr)}}
+.serv{padding:22px 18px;border-radius:var(--radio);background:var(--superficie);box-shadow:0 6px 20px rgba(0,0,0,.04)}
+.serv .ico{color:var(--primario);margin-bottom:10px;width:32px;height:32px}
+.serv h3{font-size:1.08rem;color:var(--primario-osc);margin-bottom:4px}
+.serv p{font-size:.85rem;color:var(--suave)}
+
+/* alrededores */
+.alrededores{background:var(--superficie)}
+.alr-grid{display:grid;gap:18px;margin-top:40px}
+@media(min-width:800px){.alr-grid{grid-template-columns:repeat(3,1fr)}}
+.alr{padding:24px;border-left:4px solid var(--acento);background:var(--fondo);border-radius:0 var(--radio) var(--radio) 0}
+.alr .dist{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--acento);font-weight:700}
+.alr h3{font-size:1.2rem;color:var(--primario-osc);margin:4px 0 6px}
+.alr p{font-size:.88rem;color:var(--suave)}
+
+/* cta */
+.cta{background:var(--primario);color:#fff;text-align:center;padding:84px 0}
+.cta .titulo{color:#fff}.cta p{max-width:540px;margin:0 auto 28px;opacity:.88}
+.cta .contacto{margin-top:22px;font-size:.88rem;opacity:.85}
+
+footer{background:var(--oscuro);color:rgba(255,255,255,.72);padding:38px 0;text-align:center;font-size:.85rem}
+footer .logo{color:#fff;margin-bottom:6px;display:inline-block}
+.aviso{margin-top:14px;font-size:.72rem;opacity:.55}
+
+.wa-flotante{position:fixed;right:16px;bottom:16px;z-index:20;width:58px;height:58px;border-radius:50%;background:var(--wa);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+.wa-flotante .i-wa{width:30px;height:30px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.hab{transition:none}}
+
+.hero:not(.hero-dividido)::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:70px;z-index:3;background:var(--fondo);
+-webkit-mask:radial-gradient(70px 40px at 50% 0,transparent 98%,#000) 0 0/140px 100%;mask:radial-gradient(70px 40px at 50% 0,transparent 98%,#000) 0 0/140px 100%}
+.dato,.serv{box-shadow:0 10px 30px rgba(40,70,40,.08)}
+.serv .ico{background:var(--fondo);padding:8px;width:46px;height:46px;border-radius:50%}
+.cta{background:radial-gradient(circle at 20% 20%,var(--primario),var(--primario-osc))}
+</style>
+</head>
+<body class="tema-naturaleza">
+
+<header class="hero hero-izquierda hero-oscuro" id="inicio">
+  <nav class="nav">
+    <div class="contenedor">
+      <a href="#inicio" class="logo">Los Aches<small>San Rafael de Tabay</small></a>
+      <div class="nav-links">
+        <a href="#historia">Nosotros</a>
+        <a href="#habitaciones">Habitaciones</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#alrededores">Alrededores</a>
+      </div>
+      <a class="btn btn-principal" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20informaci%C3%B3n%20para%20reservar%20en%20Posada%20Los%20Aches." target="_blank" rel="noopener">Reservar</a>
+    </div>
+  </nav>
+  <div class="hero-escena"><svg viewBox="0 0 1440 800" preserveAspectRatio="xMidYMax slice" role="img" aria-label="Ilustración del paisaje de San Rafael de Tabay">
+<defs><linearGradient id="cielo" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#d7e1dc"/><stop offset="1" stop-color="#eef0e8"/></linearGradient></defs>
+<rect width="1440" height="800" fill="url(#cielo)"/>
+<polygon points="0,360 200,230 360,300 540,180 720,280 900,200 1100,300 1280,220 1440,290 1440,800 0,800" fill="#a8bcb3" opacity="1"/>
+<rect x="0" y="300" width="1440" height="80" fill="#eef0e8" opacity=".7"/>
+<polygon points="0,470 240,380 480,440 720,360 960,430 1200,370 1440,420 1440,800 0,800" fill="#7d9a8d" opacity="1"/>
+<rect x="0" y="430" width="1440" height="70" fill="#eef0e8" opacity=".6"/>
+<g transform="translate(420 600) scale(0.7)"><rect x="-4" y="-10" width="8" height="30" fill="#3a2a1c"/><polygon points="0,-110 -38,-20 38,-20" fill="#5d7f72"/><polygon points="0,-140 -30,-60 30,-60" fill="#5d7f72"/></g><g transform="translate(470 610) scale(0.6)"><rect x="-4" y="-10" width="8" height="30" fill="#3a2a1c"/><polygon points="0,-110 -38,-20 38,-20" fill="#5d7f72"/><polygon points="0,-140 -30,-60 30,-60" fill="#5d7f72"/></g><g transform="translate(900 590) scale(0.8)"><rect x="-4" y="-10" width="8" height="30" fill="#3a2a1c"/><polygon points="0,-110 -38,-20 38,-20" fill="#5d7f72"/><polygon points="0,-140 -30,-60 30,-60" fill="#5d7f72"/></g><g transform="translate(960 600) scale(0.6)"><rect x="-4" y="-10" width="8" height="30" fill="#3a2a1c"/><polygon points="0,-110 -38,-20 38,-20" fill="#5d7f72"/><polygon points="0,-140 -30,-60 30,-60" fill="#5d7f72"/></g>
+<polygon points="0,620 300,560 600,600 900,550 1200,600 1440,570 1440,800 0,800" fill="#4f7365" opacity="1"/>
+<rect x="0" y="600" width="1440" height="50" fill="#eef0e8" opacity=".45"/>
+<polygon points="0,720 360,680 720,710 1080,670 1440,700 1440,800 0,800" fill="#1b3a31" opacity="1"/>
+<g transform="translate(700 600)"><rect x="0" y="0" width="110" height="60" fill="#b85a33"/><polygon points="-10,2 55,-34 120,2" fill="#7c3b22"/>
+<rect x="44" y="24" width="20" height="36" fill="#3a2418"/><rect x="12" y="16" width="18" height="16" fill="#f6e7b5"/><rect x="78" y="16" width="18" height="16" fill="#f6e7b5"/></g>
+<g transform="translate(80 800) scale(1.2) rotate(8)"><path d="M0,0 C6,-80 -4,-150 10,-200" stroke="#1b3a31" stroke-width="4" fill="none"/><ellipse cx="12" cy="-20" rx="26.0" ry="6" fill="#2f5d50" transform="rotate(-25 12 -20)"/><ellipse cx="-12" cy="-30" rx="24.0" ry="6" fill="#2f5d50" transform="rotate(25 -12 -30)"/><ellipse cx="12" cy="-42" rx="23.5" ry="6" fill="#2f5d50" transform="rotate(-25 12 -42)"/><ellipse cx="-12" cy="-52" rx="21.5" ry="6" fill="#2f5d50" transform="rotate(25 -12 -52)"/><ellipse cx="12" cy="-64" rx="21.0" ry="6" fill="#2f5d50" transform="rotate(-25 12 -64)"/><ellipse cx="-12" cy="-74" rx="19.0" ry="6" fill="#2f5d50" transform="rotate(25 -12 -74)"/><ellipse cx="12" cy="-86" rx="18.5" ry="6" fill="#2f5d50" transform="rotate(-25 12 -86)"/><ellipse cx="-12" cy="-96" rx="16.5" ry="6" fill="#2f5d50" transform="rotate(25 -12 -96)"/><ellipse cx="12" cy="-108" rx="16.0" ry="6" fill="#2f5d50" transform="rotate(-25 12 -108)"/><ellipse cx="-12" cy="-118" rx="14.0" ry="6" fill="#2f5d50" transform="rotate(25 -12 -118)"/><ellipse cx="12" cy="-130" rx="13.5" ry="6" fill="#2f5d50" transform="rotate(-25 12 -130)"/><ellipse cx="-12" cy="-140" rx="11.5" ry="6" fill="#2f5d50" transform="rotate(25 -12 -140)"/><ellipse cx="12" cy="-152" rx="11.0" ry="6" fill="#2f5d50" transform="rotate(-25 12 -152)"/><ellipse cx="-12" cy="-162" rx="9.0" ry="6" fill="#2f5d50" transform="rotate(25 -12 -162)"/><ellipse cx="12" cy="-174" rx="8.5" ry="6" fill="#2f5d50" transform="rotate(-25 12 -174)"/><ellipse cx="-12" cy="-184" rx="6.5" ry="6" fill="#2f5d50" transform="rotate(25 -12 -184)"/></g><g transform="translate(200 800) scale(0.9) rotate(-8)"><path d="M0,0 C-6,-80 4,-150 -10,-200" stroke="#1b3a31" stroke-width="4" fill="none"/><ellipse cx="-12" cy="-20" rx="26.0" ry="6" fill="#2f5d50" transform="rotate(25 -12 -20)"/><ellipse cx="12" cy="-30" rx="24.0" ry="6" fill="#2f5d50" transform="rotate(-25 12 -30)"/><ellipse cx="-12" cy="-42" rx="23.5" ry="6" fill="#2f5d50" transform="rotate(25 -12 -42)"/><ellipse cx="12" cy="-52" rx="21.5" ry="6" fill="#2f5d50" transform="rotate(-25 12 -52)"/><ellipse cx="-12" cy="-64" rx="21.0" ry="6" fill="#2f5d50" transform="rotate(25 -12 -64)"/><ellipse cx="12" cy="-74" rx="19.0" ry="6" fill="#2f5d50" transform="rotate(-25 12 -74)"/><ellipse cx="-12" cy="-86" rx="18.5" ry="6" fill="#2f5d50" transform="rotate(25 -12 -86)"/><ellipse cx="12" cy="-96" rx="16.5" ry="6" fill="#2f5d50" transform="rotate(-25 12 -96)"/><ellipse cx="-12" cy="-108" rx="16.0" ry="6" fill="#2f5d50" transform="rotate(25 -12 -108)"/><ellipse cx="12" cy="-118" rx="14.0" ry="6" fill="#2f5d50" transform="rotate(-25 12 -118)"/><ellipse cx="-12" cy="-130" rx="13.5" ry="6" fill="#2f5d50" transform="rotate(25 -12 -130)"/><ellipse cx="12" cy="-140" rx="11.5" ry="6" fill="#2f5d50" transform="rotate(-25 12 -140)"/><ellipse cx="-12" cy="-152" rx="11.0" ry="6" fill="#2f5d50" transform="rotate(25 -12 -152)"/><ellipse cx="12" cy="-162" rx="9.0" ry="6" fill="#2f5d50" transform="rotate(-25 12 -162)"/><ellipse cx="-12" cy="-174" rx="8.5" ry="6" fill="#2f5d50" transform="rotate(25 -12 -174)"/><ellipse cx="12" cy="-184" rx="6.5" ry="6" fill="#2f5d50" transform="rotate(-25 12 -184)"/></g><g transform="translate(1260 800) scale(1.3) rotate(-8)"><path d="M0,0 C-6,-80 4,-150 -10,-200" stroke="#1b3a31" stroke-width="4" fill="none"/><ellipse cx="-12" cy="-20" rx="26.0" ry="6" fill="#2f5d50" transform="rotate(25 -12 -20)"/><ellipse cx="12" cy="-30" rx="24.0" ry="6" fill="#2f5d50" transform="rotate(-25 12 -30)"/><ellipse cx="-12" cy="-42" rx="23.5" ry="6" fill="#2f5d50" transform="rotate(25 -12 -42)"/><ellipse cx="12" cy="-52" rx="21.5" ry="6" fill="#2f5d50" transform="rotate(-25 12 -52)"/><ellipse cx="-12" cy="-64" rx="21.0" ry="6" fill="#2f5d50" transform="rotate(25 -12 -64)"/><ellipse cx="12" cy="-74" rx="19.0" ry="6" fill="#2f5d50" transform="rotate(-25 12 -74)"/><ellipse cx="-12" cy="-86" rx="18.5" ry="6" fill="#2f5d50" transform="rotate(25 -12 -86)"/><ellipse cx="12" cy="-96" rx="16.5" ry="6" fill="#2f5d50" transform="rotate(-25 12 -96)"/><ellipse cx="-12" cy="-108" rx="16.0" ry="6" fill="#2f5d50" transform="rotate(25 -12 -108)"/><ellipse cx="12" cy="-118" rx="14.0" ry="6" fill="#2f5d50" transform="rotate(-25 12 -118)"/><ellipse cx="-12" cy="-130" rx="13.5" ry="6" fill="#2f5d50" transform="rotate(25 -12 -130)"/><ellipse cx="12" cy="-140" rx="11.5" ry="6" fill="#2f5d50" transform="rotate(-25 12 -140)"/><ellipse cx="-12" cy="-152" rx="11.0" ry="6" fill="#2f5d50" transform="rotate(25 -12 -152)"/><ellipse cx="12" cy="-162" rx="9.0" ry="6" fill="#2f5d50" transform="rotate(-25 12 -162)"/><ellipse cx="-12" cy="-174" rx="8.5" ry="6" fill="#2f5d50" transform="rotate(25 -12 -174)"/><ellipse cx="12" cy="-184" rx="6.5" ry="6" fill="#2f5d50" transform="rotate(-25 12 -184)"/></g><g transform="translate(1380 800) scale(1) rotate(8)"><path d="M0,0 C6,-80 -4,-150 10,-200" stroke="#1b3a31" stroke-width="4" fill="none"/><ellipse cx="12" cy="-20" rx="26.0" ry="6" fill="#2f5d50" transform="rotate(-25 12 -20)"/><ellipse cx="-12" cy="-30" rx="24.0" ry="6" fill="#2f5d50" transform="rotate(25 -12 -30)"/><ellipse cx="12" cy="-42" rx="23.5" ry="6" fill="#2f5d50" transform="rotate(-25 12 -42)"/><ellipse cx="-12" cy="-52" rx="21.5" ry="6" fill="#2f5d50" transform="rotate(25 -12 -52)"/><ellipse cx="12" cy="-64" rx="21.0" ry="6" fill="#2f5d50" transform="rotate(-25 12 -64)"/><ellipse cx="-12" cy="-74" rx="19.0" ry="6" fill="#2f5d50" transform="rotate(25 -12 -74)"/><ellipse cx="12" cy="-86" rx="18.5" ry="6" fill="#2f5d50" transform="rotate(-25 12 -86)"/><ellipse cx="-12" cy="-96" rx="16.5" ry="6" fill="#2f5d50" transform="rotate(25 -12 -96)"/><ellipse cx="12" cy="-108" rx="16.0" ry="6" fill="#2f5d50" transform="rotate(-25 12 -108)"/><ellipse cx="-12" cy="-118" rx="14.0" ry="6" fill="#2f5d50" transform="rotate(25 -12 -118)"/><ellipse cx="12" cy="-130" rx="13.5" ry="6" fill="#2f5d50" transform="rotate(-25 12 -130)"/><ellipse cx="-12" cy="-140" rx="11.5" ry="6" fill="#2f5d50" transform="rotate(25 -12 -140)"/><ellipse cx="12" cy="-152" rx="11.0" ry="6" fill="#2f5d50" transform="rotate(-25 12 -152)"/><ellipse cx="-12" cy="-162" rx="9.0" ry="6" fill="#2f5d50" transform="rotate(25 -12 -162)"/><ellipse cx="12" cy="-174" rx="8.5" ry="6" fill="#2f5d50" transform="rotate(-25 12 -174)"/><ellipse cx="-12" cy="-184" rx="6.5" ry="6" fill="#2f5d50" transform="rotate(25 -12 -184)"/></g><g transform="translate(1120 800) scale(0.8) rotate(8)"><path d="M0,0 C6,-80 -4,-150 10,-200" stroke="#1b3a31" stroke-width="4" fill="none"/><ellipse cx="12" cy="-20" rx="26.0" ry="6" fill="#2f5d50" transform="rotate(-25 12 -20)"/><ellipse cx="-12" cy="-30" rx="24.0" ry="6" fill="#2f5d50" transform="rotate(25 -12 -30)"/><ellipse cx="12" cy="-42" rx="23.5" ry="6" fill="#2f5d50" transform="rotate(-25 12 -42)"/><ellipse cx="-12" cy="-52" rx="21.5" ry="6" fill="#2f5d50" transform="rotate(25 -12 -52)"/><ellipse cx="12" cy="-64" rx="21.0" ry="6" fill="#2f5d50" transform="rotate(-25 12 -64)"/><ellipse cx="-12" cy="-74" rx="19.0" ry="6" fill="#2f5d50" transform="rotate(25 -12 -74)"/><ellipse cx="12" cy="-86" rx="18.5" ry="6" fill="#2f5d50" transform="rotate(-25 12 -86)"/><ellipse cx="-12" cy="-96" rx="16.5" ry="6" fill="#2f5d50" transform="rotate(25 -12 -96)"/><ellipse cx="12" cy="-108" rx="16.0" ry="6" fill="#2f5d50" transform="rotate(-25 12 -108)"/><ellipse cx="-12" cy="-118" rx="14.0" ry="6" fill="#2f5d50" transform="rotate(25 -12 -118)"/><ellipse cx="12" cy="-130" rx="13.5" ry="6" fill="#2f5d50" transform="rotate(-25 12 -130)"/><ellipse cx="-12" cy="-140" rx="11.5" ry="6" fill="#2f5d50" transform="rotate(25 -12 -140)"/><ellipse cx="12" cy="-152" rx="11.0" ry="6" fill="#2f5d50" transform="rotate(-25 12 -152)"/><ellipse cx="-12" cy="-162" rx="9.0" ry="6" fill="#2f5d50" transform="rotate(25 -12 -162)"/><ellipse cx="12" cy="-174" rx="8.5" ry="6" fill="#2f5d50" transform="rotate(-25 12 -174)"/><ellipse cx="-12" cy="-184" rx="6.5" ry="6" fill="#2f5d50" transform="rotate(25 -12 -184)"/></g>
+</svg></div><div class="contenedor"><div class="hero-texto"><p class="eyebrow">San Rafael de Tabay</p><h1>Posada Los Aches</h1><p class="lema">Neblina, helechos y café recién colado</p><div class="botones"><a class="btn btn-principal" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20informaci%C3%B3n%20para%20reservar%20en%20Posada%20Los%20Aches." target="_blank" rel="noopener"><svg class="i-wa" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.31l-.34-.2-3.57.94.95-3.48-.22-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.23-9.43 9.44-9.43a9.43 9.43 0 0 1 9.43 9.44c0 5.2-4.23 9.43-9.44 9.43zm8.03-17.46A11.27 11.27 0 0 0 12.05.72C5.79.72.7 5.81.7 12.07c0 2 .52 3.95 1.52 5.67L.6 23.65l6.05-1.59a11.33 11.33 0 0 0 5.4 1.38h.01c6.26 0 11.35-5.09 11.35-11.35 0-3.03-1.18-5.88-3.33-8.03z"/></svg> Reservar por WhatsApp</a><a class="btn btn-claro" href="#habitaciones">Ver habitaciones</a></div></div></div>
+</header>
+
+<section class="seccion historia" id="historia">
+  <div class="contenedor historia-grid">
+    <div>
+      <p class="eyebrow">Nuestra historia</p>
+      <h2 class="titulo">Entre la neblina de San Rafael</h2>
+      <p>Los Aches es una casa de campo entre helechos y árboles altos, donde la neblina baja casi todas las tardes. Es el tipo de lugar donde el tiempo pasa más despacio.</p><p>Aquí el café es protagonista: lo colamos a cualquier hora, y lo acompañamos con pan de horno y conversaciones largas alrededor de la fogata.</p>
+    </div>
+    <div class="datos"><div class="dato"><strong>Bosque</strong><span>de helechos y árboles altos</span></div><div class="dato"><strong>Fogata</strong><span>todas las noches en el patio</span></div><div class="dato"><strong>7</strong><span>habitaciones y cabañas</span></div></div>
+  </div>
+</section>
+
+<section class="seccion habitaciones" id="habitaciones">
+  <div class="contenedor">
+    <div class="centro">
+      <p class="eyebrow">Habitaciones</p>
+      <h2 class="titulo">Habitaciones entre los árboles</h2>
+      <p class="intro">Rústicas, abrigadas y con baño privado.</p>
+    </div>
+    <div class="hab-grid">
+      <article class="hab">
+        <svg class="hab-ilus" viewBox="0 0 400 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+<defs><linearGradient id="g0" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2f5d50"/><stop offset="1" stop-color="#1b3a31"/></linearGradient></defs>
+<rect width="400" height="240" fill="url(#g0)"/>
+<circle cx="320" cy="60" r="70" fill="#fff" opacity=".08"/><circle cx="60" cy="220" r="90" fill="#000" opacity=".08"/>
+<g transform="translate(164 84) scale(3)" color="#fff" opacity=".92"><svg class="ico" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 18v-7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v7M3 14h18M3 18v2M21 18v2M6 9V6h5v3M13 9V6h5v3"/></svg></g>
+</svg>
+        <div class="hab-cuerpo">
+          <span class="cap">1 a 2 personas</span>
+          <h3>Habitación Neblina</h3>
+          <p>Sencilla y abrigada, con ventana hacia el bosque.</p>
+          <ul><li>Cama matrimonial</li><li>Agua caliente</li></ul>
+          <div class="hab-pie">
+            <span class="precio">$17 <small>/ noche</small></span>
+            <a class="btn" href="https://wa.me/580000000000?text=Hola%2C%20quiero%20reservar%20la%20Habitaci%C3%B3n%20Neblina%20en%20Posada%20Los%20Aches." target="_blank" rel="noopener">Reservar</a>
+          </div>
+        </div>
+      </article>
+      <article class="hab">
+        <svg class="hab-ilus" viewBox="0 0 400 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+<defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b85a33"/><stop offset="1" stop-color="#2f5d50"/></linearGradient></defs>
+<rect width="400" height="240" fill="url(#g1)"/>
+<circle cx="280" cy="60" r="70" fill="#fff" opacity=".08"/><circle cx="90" cy="220" r="90" fill="#000" opacity=".08"/>
+<g transform="translate(164 84) scale(3)" color="#fff" opacity=".92"><svg class="ico" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19c0-9 6-14 15-14 0 9-5 15-14 15M5 19 13 11"/></svg></g>
+</svg>
+        <div class="hab-cuerpo">
+          <span class="cap">2 personas</span>
+          <h3>Habitación Helecho</h3>
+          <p>Con balcón pequeño para ver bajar la neblina en la tarde.</p>
+          <ul><li>Balcón</li><li>Desayuno</li></ul>
+          <div class="hab-pie">
+            <span class="precio">$23 <small>/ noche</small></span>
+            <a class="btn" href="https://wa.me/580000000000?text=Hola%2C%20quiero%20reservar%20la%20Habitaci%C3%B3n%20Helecho%20en%20Posada%20Los%20Aches." target="_blank" rel="noopener">Reservar</a>
+          </div>
+        </div>
+      </article>
+      <article class="hab">
+        <svg class="hab-ilus" viewBox="0 0 400 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+<defs><linearGradient id="g2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1b3a31"/><stop offset="1" stop-color="#2f5d50"/></linearGradient></defs>
+<rect width="400" height="240" fill="url(#g2)"/>
+<circle cx="240" cy="60" r="70" fill="#fff" opacity=".08"/><circle cx="120" cy="220" r="90" fill="#000" opacity=".08"/>
+<g transform="translate(164 84) scale(3)" color="#fff" opacity=".92"><svg class="ico" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11 12 4l9 7M5 10v10h14V10M10 20v-5h4v5"/></svg></g>
+</svg>
+        <div class="hab-cuerpo">
+          <span class="cap">2 a 4 personas</span>
+          <h3>Cabaña Los Aches</h3>
+          <p>Cabaña de madera con porche y vista a la montaña.</p>
+          <ul><li>Porche</li><li>Desayuno</li><li>2 camas</li></ul>
+          <div class="hab-pie">
+            <span class="precio">$34 <small>/ noche</small></span>
+            <a class="btn" href="https://wa.me/580000000000?text=Hola%2C%20quiero%20reservar%20la%20Caba%C3%B1a%20Los%20Aches%20en%20Posada%20Los%20Aches." target="_blank" rel="noopener">Reservar</a>
+          </div>
+        </div>
+      </article>
+      <article class="hab">
+        <svg class="hab-ilus" viewBox="0 0 400 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+<defs><linearGradient id="g3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2f5d50"/><stop offset="1" stop-color="#b85a33"/></linearGradient></defs>
+<rect width="400" height="240" fill="url(#g3)"/>
+<circle cx="200" cy="60" r="70" fill="#fff" opacity=".08"/><circle cx="150" cy="220" r="90" fill="#000" opacity=".08"/>
+<g transform="translate(164 84) scale(3)" color="#fff" opacity=".92"><svg class="ico" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="7" r="3"/><circle cx="17" cy="9" r="2.3"/><path d="M3 20v-2a5 5 0 0 1 10 0v2M13.5 20v-1.5a3.5 3.5 0 0 1 7 0V20"/></svg></g>
+</svg>
+        <div class="hab-cuerpo">
+          <span class="cap">Hasta 5 personas</span>
+          <h3>Familiar Cafetal</h3>
+          <p>Espaciosa, con dos habitaciones y sala, ideal para familias.</p>
+          <ul><li>2 habitaciones</li><li>Sala</li><li>Desayuno</li></ul>
+          <div class="hab-pie">
+            <span class="precio">$40 <small>/ noche</small></span>
+            <a class="btn" href="https://wa.me/580000000000?text=Hola%2C%20quiero%20reservar%20la%20Familiar%20Cafetal%20en%20Posada%20Los%20Aches." target="_blank" rel="noopener">Reservar</a>
+          </div>
+        </div>
+      </article></div>
+  </div>
+</section>
+
+<section class="seccion servicios" id="servicios">
+  <div class="contenedor">
+    <div class="centro">
+      <p class="eyebrow">Servicios</p>
+      <h2 class="titulo">Vida de campo, sin apuro</h2>
+    </div>
+    <div class="serv-grid"><div class="serv"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9h12v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5zM16 10h2a2.5 2.5 0 0 1 0 5h-2M8 3c0 1.5 1 1.5 1 3M12 3c0 1.5 1 1.5 1 3"/></svg><h3>Café a toda hora</h3><p>Café de la zona, recién colado.</p></div><div class="serv"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c1 3 5 5 5 10a5 5 0 0 1-10 0c0-2.5 1.5-4 2.5-5 0 2 1 3 2 3 0-3-1-5.5.5-8z"/></svg><h3>Fogata nocturna</h3><p>En el patio, con chocolate caliente.</p></div><div class="serv"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="3.5"/><path d="M2 5v5M2 7.5h1.5M22 5v14"/></svg><h3>Desayuno criollo</h3><p>Arepas, queso, huevos y frutas.</p></div><div class="serv"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 21c0-4 10-4 10-8s-8-3-8-7 4-3 4-3"/></svg><h3>Senderos</h3><p>Caminos entre helechos y quebradas.</p></div><div class="serv"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 16h14M3 16v-3l2-5h14l2 5v3M5 16v2M19 16v2"/><circle cx="7.5" cy="13" r="1"/><circle cx="16.5" cy="13" r="1"/></svg><h3>Estacionamiento</h3><p>Amplio y gratuito.</p></div><div class="serv"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 9a14 14 0 0 1 19 0M5.5 12.5a9.5 9.5 0 0 1 13 0M8.5 16a5 5 0 0 1 7 0"/><circle cx="12" cy="19" r="1"/></svg><h3>Wifi</h3><p>En el área común de la casa.</p></div></div>
+  </div>
+</section>
+
+<section class="seccion alrededores" id="alrededores">
+  <div class="contenedor">
+    <div class="centro">
+      <p class="eyebrow">Alrededores</p>
+      <h2 class="titulo">Cerca de todo, lejos del ruido</h2>
+      <p class="intro">San Rafael de Tabay está rodeado de naturaleza y a poca distancia de la ciudad.</p>
+    </div>
+    <div class="alr-grid"><div class="alr"><span class="dist">En carro</span><h3>Pueblo de Tabay</h3><p>Plaza, iglesia y comida típica merideña.</p></div><div class="alr"><span class="dist">En carro</span><h3>Aguas termales de Tabay</h3><p>Pozos de agua caliente en plena montaña.</p></div><div class="alr"><span class="dist">En carro</span><h3>Sector La Mucuy</h3><p>Bosque nublado y ríos del Parque Nacional Sierra Nevada.</p></div></div>
+  </div>
+</section>
+
+<section class="cta" id="reservar">
+  <div class="contenedor">
+    <p class="eyebrow" style="color:rgba(255,255,255,.8)">Reservas</p>
+    <h2 class="titulo">Ven a desconectarte en la neblina</h2>
+    <p>Escríbenos por WhatsApp y te apartamos la habitación para tus fechas.</p>
+    <a class="btn btn-principal" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20consultar%20disponibilidad%20en%20Posada%20Los%20Aches." target="_blank" rel="noopener"><svg class="i-wa" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.31l-.34-.2-3.57.94.95-3.48-.22-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.23-9.43 9.44-9.43a9.43 9.43 0 0 1 9.43 9.44c0 5.2-4.23 9.43-9.44 9.43zm8.03-17.46A11.27 11.27 0 0 0 12.05.72C5.79.72.7 5.81.7 12.07c0 2 .52 3.95 1.52 5.67L.6 23.65l6.05-1.59a11.33 11.33 0 0 0 5.4 1.38h.01c6.26 0 11.35-5.09 11.35-11.35 0-3.03-1.18-5.88-3.33-8.03z"/></svg> Consultar disponibilidad</a>
+    <p class="contacto">WhatsApp: +58 000 0000000 · San Rafael de Tabay</p>
+  </div>
+</section>
+
+<footer>
+  <div class="contenedor">
+    <span class="logo">Posada Los Aches</span><br>
+    Neblina, helechos y café recién colado · San Rafael de Tabay
+    <p class="aviso">Página de ejemplo con datos ficticios</p>
+  </div>
+</footer>
+
+<a class="wa-flotante" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20informaci%C3%B3n%20para%20reservar%20en%20Posada%20Los%20Aches." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><svg class="i-wa" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.31l-.34-.2-3.57.94.95-3.48-.22-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.23-9.43 9.44-9.43a9.43 9.43 0 0 1 9.43 9.44c0 5.2-4.23 9.43-9.44 9.43zm8.03-17.46A11.27 11.27 0 0 0 12.05.72C5.79.72.7 5.81.7 12.07c0 2 .52 3.95 1.52 5.67L.6 23.65l6.05-1.59a11.33 11.33 0 0 0 5.4 1.38h.01c6.26 0 11.35-5.09 11.35-11.35 0-3.03-1.18-5.88-3.33-8.03z"/></svg></a>
+</body>
+</html>
