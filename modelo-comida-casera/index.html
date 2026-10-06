@@ -266,8 +266,11 @@ h1,h2,h3{font-weight:400;line-height:1.05}
 .js .jugos.revelar-grupo.visible.listo>*{transition-delay:0s}
 
 /* olas entre secciones */
-.ola{display:block;height:46px;overflow:hidden;line-height:0;position:relative;z-index:1;margin-bottom:-2px;background:var(--fondo-ola,var(--crema))}
-.ola svg{display:block;width:200%;height:100%;animation:oleaje 18s linear infinite}
+/* el dibujo de la ola mide 12px más que la caja: su borde de abajo queda recortado y siempre sobre verde
+   (con escala de pantalla 125% el borde caía en medio píxel y se veía una línea clara) */
+.ola{display:block;height:46px;overflow:hidden;line-height:0;position:relative;z-index:1;margin-bottom:-2px;
+  background:var(--fondo-ola,var(--crema))}
+.ola svg{display:block;width:200%;height:58px;animation:oleaje 18s linear infinite}
 .ola path{fill:var(--verde)}
 .ola.abajo{transform:scaleY(-1);margin-bottom:0;margin-top:-2px}
 @keyframes oleaje{to{transform:translateX(-50%)}}
@@ -506,7 +509,7 @@ body.pausado *,body.pausado *::before,body.pausado *::after{animation-play-state
 </section>
 
 <!-- CÓMO PEDIR -->
-<div class="ola" aria-hidden="true"><svg viewBox="0 0 1440 46" preserveAspectRatio="none"><path d="M0 30 C120 10 240 10 360 30 S600 50 720 30 S960 10 1080 30 S1320 50 1440 30 V46 H0Z"></path></svg></div>
+<div class="ola" aria-hidden="true"><svg viewBox="0 0 1440 58" preserveAspectRatio="none"><path d="M0 30 C120 10 240 10 360 30 S600 50 720 30 S960 10 1080 30 S1320 50 1440 30 V58 H0Z"></path></svg></div>
 <section class="seccion pedir" id="como-pedir">
   <div class="burbujas" aria-hidden="true"><i style="--t:14px;left:8%;--d:16s;--r:-2s"></i><i style="--t:8px;left:22%;--d:12s;--r:-7s"></i><i style="--t:18px;left:47%;--d:20s;--r:-11s"></i><i style="--t:10px;left:66%;--d:14s;--r:-4s"></i><i style="--t:12px;left:84%;--d:18s;--r:-9s"></i><i style="--t:7px;left:93%;--d:11s;--r:-1s"></i></div>
   <div class="contenedor">
@@ -518,7 +521,7 @@ body.pausado *,body.pausado *::before,body.pausado *::after{animation-play-state
     </ol>
   </div>
 </section>
-<div class="ola abajo" style="--fondo-ola:var(--crema-2)" aria-hidden="true"><svg viewBox="0 0 1440 46" preserveAspectRatio="none"><path d="M0 30 C120 10 240 10 360 30 S600 50 720 30 S960 10 1080 30 S1320 50 1440 30 V46 H0Z"></path></svg></div>
+<div class="ola abajo" style="--fondo-ola:var(--crema-2)" aria-hidden="true"><svg viewBox="0 0 1440 58" preserveAspectRatio="none"><path d="M0 30 C120 10 240 10 360 30 S600 50 720 30 S960 10 1080 30 S1320 50 1440 30 V58 H0Z"></path></svg></div>
 
 <!-- ENTREGAS Y HORARIOS -->
 <section class="seccion entregas" id="entregas">
@@ -568,7 +571,7 @@ body.pausado *,body.pausado *::before,body.pausado *::after{animation-play-state
 </section>
 
 <!-- CIERRE Y CONTACTO -->
-<div class="ola" aria-hidden="true"><svg viewBox="0 0 1440 46" preserveAspectRatio="none"><path d="M0 30 C120 10 240 10 360 30 S600 50 720 30 S960 10 1080 30 S1320 50 1440 30 V46 H0Z"></path></svg></div>
+<div class="ola" aria-hidden="true"><svg viewBox="0 0 1440 58" preserveAspectRatio="none"><path d="M0 30 C120 10 240 10 360 30 S600 50 720 30 S960 10 1080 30 S1320 50 1440 30 V58 H0Z"></path></svg></div>
 <section class="seccion cierre" id="contacto">
   <div class="burbujas" aria-hidden="true"><i style="--t:12px;left:12%;--d:15s;--r:-3s"></i><i style="--t:20px;left:30%;--d:22s;--r:-12s"></i><i style="--t:9px;left:55%;--d:13s;--r:-6s"></i><i style="--t:15px;left:76%;--d:19s;--r:-1s"></i><i style="--t:8px;left:90%;--d:12s;--r:-8s"></i></div>
   <div class="contenedor revelar">
