@@ -266,10 +266,10 @@ h1,h2,h3{font-weight:400;line-height:1.05}
 .js .jugos.revelar-grupo.visible.listo>*{transition-delay:0s}
 
 /* olas entre secciones */
-.ola{display:block;height:46px;overflow:hidden;line-height:0;position:relative}
-.ola svg{width:200%;height:100%;animation:oleaje 18s linear infinite}
+.ola{display:block;height:46px;overflow:hidden;line-height:0;position:relative;z-index:1;margin-bottom:-2px;background:var(--fondo-ola,var(--crema))}
+.ola svg{display:block;width:200%;height:100%;animation:oleaje 18s linear infinite}
 .ola path{fill:var(--verde)}
-.ola.abajo{transform:scaleY(-1)}
+.ola.abajo{transform:scaleY(-1);margin-bottom:0;margin-top:-2px}
 @keyframes oleaje{to{transform:translateX(-50%)}}
 
 /* cómo pedir */
@@ -349,6 +349,22 @@ h1,h2,h3{font-weight:400;line-height:1.05}
 .galeria-cab{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px}
 .galeria{display:grid;grid-auto-flow:column;grid-auto-columns:min(72%,320px);gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 20px 18px;margin-top:30px;scrollbar-width:none;scroll-padding-inline:20px;list-style:none}
 .galeria::-webkit-scrollbar{display:none}
+.flechas{display:none;gap:10px}
+.flecha{width:48px;height:48px;border-radius:50%;border:1.5px solid var(--linea-f);background:var(--papel);color:var(--verde);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background-color .3s,color .3s,transform .3s var(--salto),opacity .3s}
+.flecha:hover{background:var(--verde);color:#fff;transform:scale(1.06)}
+.flecha:disabled{opacity:.35;cursor:default;transform:none;background:var(--papel);color:var(--verde)}
+.flecha svg{width:20px;height:20px}
+.galeria-acciones{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+@media (hover:hover) and (pointer:fine){
+  .flechas{display:flex}
+  .galeria{scrollbar-width:thin;scrollbar-color:var(--lima) var(--crema-2);padding-bottom:26px;cursor:grab}
+  .galeria::-webkit-scrollbar{display:block;height:8px}
+  .galeria::-webkit-scrollbar-track{background:var(--crema-2);border-radius:999px;margin-inline:40px}
+  .galeria::-webkit-scrollbar-thumb{background:var(--lima);border-radius:999px}
+  .galeria::-webkit-scrollbar-thumb:hover{background:var(--verde-2)}
+  .galeria.arrastrando{cursor:grabbing;scroll-snap-type:none;scroll-behavior:auto}
+  .galeria.arrastrando img{pointer-events:none}
+}
 @media (min-width:900px){.galeria{grid-auto-columns:calc((100% - 56px)/4.2);padding:6px 40px 18px;scroll-padding-inline:40px}}
 @media (min-width:1200px){.galeria{padding-left:calc((100vw - 1200px)/2 + 40px);scroll-padding-left:calc((100vw - 1200px)/2 + 40px)}}
 .galeria li{scroll-snap-align:start;min-width:0}
@@ -502,7 +518,7 @@ body.pausado *,body.pausado *::before,body.pausado *::after{animation-play-state
     </ol>
   </div>
 </section>
-<div class="ola abajo" aria-hidden="true"><svg viewBox="0 0 1440 46" preserveAspectRatio="none"><path d="M0 30 C120 10 240 10 360 30 S600 50 720 30 S960 10 1080 30 S1320 50 1440 30 V46 H0Z"></path></svg></div>
+<div class="ola abajo" style="--fondo-ola:var(--crema-2)" aria-hidden="true"><svg viewBox="0 0 1440 46" preserveAspectRatio="none"><path d="M0 30 C120 10 240 10 360 30 S600 50 720 30 S960 10 1080 30 S1320 50 1440 30 V46 H0Z"></path></svg></div>
 
 <!-- ENTREGAS Y HORARIOS -->
 <section class="seccion entregas" id="entregas">
@@ -546,7 +562,7 @@ body.pausado *,body.pausado *::before,body.pausado *::after{animation-play-state
 <section class="seccion" id="galeria" style="padding-top:0">
   <div class="contenedor galeria-cab revelar">
     <div><span class="rotulo"><svg aria-hidden="true"><use href="#i-gota"></use></svg>Galería</span><h2 class="titulo">Recién hechos</h2></div>
-    <a class="btn btn-linea" data-ig="" href="https://instagram.com/yoplindetox" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-ig"></use></svg><span data-ig-usuario="">@yoplindetox</span></a>
+    <div class="galeria-acciones"><div class="flechas"><button class="flecha" type="button" data-gal-ir="-1" aria-label="Fotos anteriores"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></button><button class="flecha" type="button" data-gal-ir="1" aria-label="Fotos siguientes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></button></div><a class="btn btn-linea" data-ig="" href="https://instagram.com/yoplindetox" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-ig"></use></svg><span data-ig-usuario="">@yoplindetox</span></a></div>
   </div>
   <ul class="galeria revelar-grupo" data-galeria=""><li><figure><div class="foto"><img src="assets/img/frascos-640.webp" width="640" height="800" alt="Frascos de jugos de colores en fila" loading="lazy"></div><figcaption>Los de cada día</figcaption></figure></li><li><figure><div class="foto"><img src="assets/img/citricos-640.webp" width="640" height="800" alt="Rodajas de naranja, toronja y limón" loading="lazy"></div><figcaption>Cítricos recién picados</figcaption></figure></li><li><figure><div class="foto"><img src="assets/img/rojos-640.webp" width="640" height="800" alt="Dos vasos de jugo rojo sobre una tabla" loading="lazy"></div><figcaption>Para compartir</figcaption></figure></li><li><figure><div class="foto"><img src="assets/img/naranjas-640.webp" width="640" height="800" alt="Montón de naranjas frescas" loading="lazy"></div><figcaption>La fruta de hoy</figcaption></figure></li><li><figure><div class="foto"><img src="assets/img/fresa-hielo-640.webp" width="640" height="800" alt="Jugo de fresa con hielo y hierbabuena" loading="lazy"></div><figcaption>Fresa bien fría</figcaption></figure></li><li><figure><div class="foto"><img src="assets/img/vaso-naranja-640.webp" width="640" height="800" alt="Vaso de jugo de naranja con hielo" loading="lazy"></div><figcaption>Naranja del momento</figcaption></figure></li><li><a class="insta-tarjeta" href="https://instagram.com/yoplindetox" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-ig"></use></svg><div><b>Más en Instagram</b><span>@yoplindetox</span></div></a></li></ul>
 </section>
@@ -784,13 +800,32 @@ body.pausado *,body.pausado *::before,body.pausado *::after{animation-play-state
     }
     addEventListener("scroll", enRaf(mover), { passive: true }); addEventListener("resize", enRaf(mover)); mover();
   }
+  function initGaleria(){
+    var g = $("[data-galeria]"), ant = $('[data-gal-ir="-1"]'), sig = $('[data-gal-ir="1"]'); if (!g) return;
+    function paso(){ var li = g.querySelector("li"); return li ? li.getBoundingClientRect().width + 14 : 300; }
+    function marcar(){ var max = g.scrollWidth - g.clientWidth - 4;
+      if (ant) ant.disabled = g.scrollLeft <= 4; if (sig) sig.disabled = g.scrollLeft >= max; }
+    [ant, sig].forEach(function(b){ if (b) b.addEventListener("click", function(){ g.scrollBy({ left: +b.dataset.galIr * paso() * 2, behavior: reducido ? "auto" : "smooth" }); setTimeout(marcar, 60); setTimeout(marcar, 700); }); });
+    var espera; g.addEventListener("scroll", function(){ clearTimeout(espera); espera = setTimeout(marcar, 80); }, { passive: true });
+    g.addEventListener("scrollend", marcar); addEventListener("resize", enRaf(marcar)); marcar();
+    // arrastrar con el mouse
+    if (!matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+    var x0 = 0, s0 = 0, abajo = false, movio = false;
+    g.addEventListener("pointerdown", function(e){ if (e.pointerType !== "mouse" || e.button !== 0) return; abajo = true; movio = false; x0 = e.clientX; s0 = g.scrollLeft; });
+    addEventListener("pointermove", function(e){ if (!abajo) return; var dx = e.clientX - x0;
+      if (Math.abs(dx) > 4) { movio = true; g.classList.add("arrastrando"); } if (movio) g.scrollLeft = s0 - dx; });
+    addEventListener("pointerup", function(){ if (!abajo) return; abajo = false;
+      if (movio) { var p = paso(), destino = Math.round(g.scrollLeft / p) * p; g.classList.remove("arrastrando"); g.scrollTo({ left: destino, behavior: "smooth" }); } });
+    g.addEventListener("click", function(e){ if (movio) { e.preventDefault(); e.stopPropagation(); movio = false; } }, true);
+    g.addEventListener("dragstart", function(e){ e.preventDefault(); });
+  }
   function initPausa(){ document.addEventListener("visibilitychange", function(){ document.body.classList.toggle("pausado", document.hidden); }); }
 
   safe(pintarTextos, "textos"); safe(pintarCatalogo, "catalogo"); safe(pintarCinta, "cinta"); safe(pintarPortada, "portada");
   safe(pintarEntregas, "entregas"); safe(pintarVentajas, "ventajas"); safe(pintarGaleria, "galeria");
   if (HORNEAR) return;   // solo se pinta el contenido, para dejarlo escrito en el HTML
   safe(initSabores, "sabores"); safe(initTamanos, "tamanos"); safe(initEstado, "estado"); safe(initNav, "nav");
-  safe(initPartir, "partir"); safe(initRevelar, "revelar"); safe(initScroll, "scroll"); safe(initPausa, "pausa");
+  safe(initPartir, "partir"); safe(initRevelar, "revelar"); safe(initScroll, "scroll"); safe(initPausa, "pausa"); safe(initGaleria, "galeria-mover");
 })();
 </script>
 </body>
