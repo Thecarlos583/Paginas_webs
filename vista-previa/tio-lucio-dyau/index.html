@@ -12,7 +12,7 @@
    - Color principal: uno solo, en colores.principal. Al llegar el logo, pon aquí su color.
    - Logo: ponlo en assets/logo.png y escribe la ruta en "logo". Vacío = se escribe el nombre.
    - Fotos: hoy son REFERENCIALES de Unsplash. Pon las reales en assets/img/ con el mismo
-     nombre (WebP, unos 800 y 1600 px) o cambia la ruta en "foto".
+     nombre (WebP) o cambia la ruta en "foto".
    Después de editar, corre hornear_web.py (skill webs-carlos).
    ===================================================================== */
 var CONFIG = {
@@ -21,14 +21,12 @@ var CONFIG = {
     nombreCompleto: "Posada Agroturística El Refugio de Tío Lucio",
     pueblo: "Santo Domingo",
     estado: "Mérida",
-    direccion: ["Calle Bolívar con calle Sucre", "Santo Domingo, estado Mérida"],
+    direccion: "Calle Bolívar con calle Sucre, Santo Domingo, estado Mérida",
     whatsapp: "584143715244",
     whatsappVisible: "0414 371 5244",
     instagram: "",                                   // POR CONFIRMAR (vacío = no se muestra)
     horarioAtencion: "Todos los días, de 7:00 a. m. a 8:00 p. m.",   // EJEMPLO
-    mapa: "https://www.google.com/maps/search/?api=1&query=Posada%20Agroturística%20El%20Refugio%20de%20Tío%20Lucio%2C%20calle%20Bolívar%20con%20calle%20Sucre%2C%20Santo%20Domingo%2C%20Mérida",
-    // Para la hora y la temperatura en vivo de la portada (Santo Domingo, Mérida)
-    lat: 8.8617, lon: -70.6928
+    mapa: "https://www.google.com/maps/search/?api=1&query=Posada%20Agroturística%20El%20Refugio%20de%20Tío%20Lucio%2C%20calle%20Bolívar%20con%20calle%20Sucre%2C%20Santo%20Domingo%2C%20Mérida"
   },
   colores: { principal: "#2F4A35" },                // verde bosque. Cámbialo por el color del logo
   logo: "",
@@ -38,41 +36,41 @@ var CONFIG = {
     enlace: "https://www.google.com/maps/search/?api=1&query=Posada%20Agroturística%20El%20Refugio%20de%20Tío%20Lucio%20Santo%20Domingo%20Mérida"  // POR CONFIRMAR: link exacto de su ficha
   },
   portada: {
-    lema: "Posada agroturística en Santo Domingo. Un refugio de familia para vivir el campo andino de cerca, sin apuro.",
-    // De día sale "foto"; de 6:00 p. m. a 5:00 a. m. (hora de Santo Domingo) sale "fotoNoche".
+    lema: "Un refugio de familia en la montaña para vivir el campo andino de cerca: el ordeño, la huerta, la comida de casa y la chimenea en la noche.",
     foto: "assets/img/portada-900.webp", fotoGrande: "assets/img/portada-1600.webp",
-    alt: "Casa de madera en una ladera verde de montaña con terrazas sembradas",
-    fotoNoche: "assets/img/noche-900.webp", fotoNocheGrande: "assets/img/noche-1600.webp",
-    altNoche: "Casa iluminada al pie de la montaña al anochecer"
+    alt: "Casa de madera en una ladera verde de montaña con terrazas sembradas"
   },
-  // EJEMPLO: el día en el refugio (horas, actividades y fotos).
+  // EJEMPLO: experiencias del campo.
   experiencias: [
-    { id: "ordeno", hora: "6:30", ampm: "a. m.", titulo: "Ordeño y café recién colado", corto: "el ordeño", texto: "Acompaña el ordeño cuando sale el sol y tómate la leche tibia con café.",
-      foto: "assets/img/dia-ordeno-800.webp", fotoGrande: "assets/img/dia-ordeno-1600.webp", alt: "Vaca pastando en un potrero con neblina al amanecer" },
-    { id: "desayuno", hora: "8:00", ampm: "a. m.", titulo: "Desayuno andino", corto: "el desayuno andino", texto: "Arepas de trigo, pisca andina y queso hecho en casa, en la mesa de la familia.",
-      foto: "assets/img/dia-desayuno-800.webp", fotoGrande: "assets/img/dia-desayuno-1600.webp", alt: "Plato de arepas con un acompañante sobre un mantel de cuadros" },
-    { id: "huerta", hora: "10:00", ampm: "a. m.", titulo: "Manos en la huerta", corto: "la huerta", texto: "Siembra, cosecha y saca tus propias papas. Aquí se aprende cómo se cultiva en la montaña.",
-      foto: "assets/img/dia-huerta-800.webp", fotoGrande: "assets/img/dia-huerta-1600.webp", alt: "Manos sacando papas de la tierra en una huerta" },
-    { id: "caminata", hora: "3:00", ampm: "p. m.", titulo: "Caminata por la montaña", corto: "la caminata", texto: "Senderos entre potreros, quebradas y frailejones, con alguien de la casa.",
-      foto: "assets/img/dia-caminata-800.webp", fotoGrande: "assets/img/dia-caminata-1600.webp", alt: "Caminantes en un sendero de páramo entre frailejones" },
-    { id: "fogon", hora: "7:00", ampm: "p. m.", titulo: "Noche de fogón", corto: "la noche de fogón", texto: "Chocolate caliente, cuentos y la chimenea encendida. Afuera hace frío; adentro no.",
-      foto: "assets/img/dia-fogon-800.webp", fotoGrande: "assets/img/dia-fogon-1600.webp", alt: "Manos sosteniendo una taza caliente frente a una chimenea encendida" }
+    { id: "ordeno", hora: "6:30 a. m.", titulo: "Ordeño al amanecer", corto: "el ordeño", texto: "Acompaña el ordeño y tómate la leche tibia con café recién colado.",
+      foto: "assets/img/dia-ordeno-800.webp", alt: "Vaca pastando en un potrero con neblina al amanecer" },
+    { id: "desayuno", hora: "8:00 a. m.", titulo: "Desayuno andino", corto: "el desayuno andino", texto: "Arepas de trigo, pisca andina y queso hecho en casa.",
+      foto: "assets/img/dia-desayuno-800.webp", alt: "Plato de arepas con un acompañante sobre un mantel de cuadros" },
+    { id: "huerta", hora: "10:00 a. m.", titulo: "Manos en la huerta", corto: "la huerta", texto: "Siembra, cosecha y saca tus propias papas.",
+      foto: "assets/img/dia-huerta-800.webp", alt: "Manos sacando papas de la tierra en una huerta" },
+    { id: "caminata", hora: "3:00 p. m.", titulo: "Caminata al páramo", corto: "la caminata", texto: "Senderos entre potreros, quebradas y frailejones, con alguien de la casa.",
+      foto: "assets/img/dia-caminata-800.webp", alt: "Caminantes en un sendero de páramo entre frailejones" },
+    { id: "fogon", hora: "7:00 p. m.", titulo: "Noche de fogón", corto: "la noche de fogón", texto: "Chocolate caliente, cuentos y la chimenea encendida.",
+      foto: "assets/img/dia-fogon-800.webp", alt: "Manos sosteniendo una taza caliente frente a una chimenea encendida" }
   ],
   // EJEMPLO: habitaciones, camas, capacidad, lo que incluye y precios.
   habitaciones: [
     { id: "fogon", nombre: "Cabaña El Fogón", articulo: "la cabaña El Fogón", capacidad: 5, camas: "2 camas matrimoniales y 1 individual",
+      texto: "La más grande de la casa, con chimenea propia para las noches frías.",
       incluye: ["Chimenea", "Baño privado con agua caliente", "Cocinita", "Vista a la montaña"], precio: 65,
       foto: "assets/img/hab-fogon-700.webp", fotoGrande: "assets/img/hab-fogon-1100.webp", alt: "Habitación de madera con estufa de leña, cama y una silla junto a la ventana" },
     { id: "frailejon", nombre: "Habitación Frailejón", articulo: "la habitación Frailejón", capacidad: 2, camas: "1 cama matrimonial",
-      incluye: ["Baño privado con agua caliente", "Cobijas de lana"], precio: 30,
+      texto: "Toda de madera, tibia y tranquila. Pensada para parejas.",
+      incluye: ["Baño privado con agua caliente", "Cobijas de lana", "Wifi"], precio: 30,
       foto: "assets/img/hab-frailejon-640.webp", fotoGrande: "assets/img/hab-frailejon-1000.webp", alt: "Habitación de cabaña con paredes de madera, lámparas encendidas y cobija de lana" },
     { id: "trigal", nombre: "Habitación Trigal", articulo: "la habitación Trigal", capacidad: 3, camas: "1 cama matrimonial y 1 individual",
-      incluye: ["Baño privado con agua caliente", "Ventana a la huerta"], precio: 40,
+      texto: "Con ventana a la huerta, para despertarte viendo el campo.",
+      incluye: ["Baño privado con agua caliente", "Ventana a la huerta", "Wifi"], precio: 40,
       foto: "assets/img/hab-trigal-640.webp", fotoGrande: "assets/img/hab-trigal-1000.webp", alt: "Habitación de madera con cama de cobija a cuadros rojos y ventana con cortinas" }
   ],
   pueblo: {
-    altura: 2173,                                    // real (Wikipedia)
-    texto: "Un pueblo de montaña andino: aire frío, verde por todos lados y gente que te saluda en la calle.",
+    altura: "2.173",                                 // real (Wikipedia)
+    texto: "Un pueblo de montaña andino, con aire frío, verde por todos lados y el páramo cerca.",
     foto: "assets/img/pueblo-800.webp", fotoGrande: "assets/img/pueblo-1600.webp", alt: "Montaña verde con casas entre la neblina"
   },
   lugares: [                                         // EJEMPLO, sin distancias
@@ -103,7 +101,7 @@ var CONFIG = {
 <meta name="robots" content="noindex, nofollow">
 <title>El Refugio de Tío Lucio · Posada agroturística en Santo Domingo, Mérida</title>
 <meta name="description" content="Posada agroturística en Santo Domingo, Mérida. Vive el campo andino y reserva por WhatsApp.">
-<meta name="theme-color" content="#16201A">
+<meta name="theme-color" content="#FAF7F0">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_VE">
 <meta property="og:title" content="El Refugio de Tío Lucio · Santo Domingo, Mérida">
@@ -113,9 +111,9 @@ var CONFIG = {
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232F4A35'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' font-weight='700' text-anchor='middle' fill='%23F4EDDF'%3ER%3C/text%3E%3C/svg%3E">
-<link rel="preload" href="assets/fuentes/alegreya.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/fuentes/alegreya-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232F4A35'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='36' text-anchor='middle' fill='%23F4EDDF'%3ER%3C/text%3E%3C/svg%3E">
+<link rel="preload" href="assets/fuentes/cormorant.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fuentes/mulish.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/img/portada-900.webp" as="image" imagesrcset="assets/img/portada-900.webp 900w, assets/img/portada-1600.webp 1600w" imagesizes="100vw">
 <script type="application/ld+json">
 {
@@ -134,287 +132,345 @@ var CONFIG = {
 }
 </script>
 <style>
-@font-face{font-family:"Alegreya";src:url("assets/fuentes/alegreya.woff2") format("woff2");font-weight:400 800;font-style:normal;font-display:swap}
-@font-face{font-family:"Alegreya";src:url("assets/fuentes/alegreya-italica.woff2") format("woff2");font-weight:400 800;font-style:italic;font-display:swap}
-@font-face{font-family:"Alegreya Sans";src:url("assets/fuentes/alegreya-sans-400.woff2") format("woff2");font-weight:400;font-display:swap}
-@font-face{font-family:"Alegreya Sans";src:url("assets/fuentes/alegreya-sans-700.woff2") format("woff2");font-weight:700;font-display:swap}
+@font-face{font-family:"Cormorant";src:url("assets/fuentes/cormorant.woff2") format("woff2");font-weight:500 600;font-style:normal;font-display:swap}
+@font-face{font-family:"Cormorant";src:url("assets/fuentes/cormorant-italica.woff2") format("woff2");font-weight:500;font-style:italic;font-display:swap}
+@font-face{font-family:"Mulish";src:url("assets/fuentes/mulish.woff2") format("woff2");font-weight:300 800;font-display:swap}
 :root{
   color-scheme:only light;
-  --principal:#2F4A35;--principal-osc:#1F3226;
-  --papel:#F7F2E7;--crema:#EFE6D3;--tinta:#1E211B;--texto:#383A32;--suave:#66665A;--linea:#D9CFBB;
-  --tierra:#9A4A2C;--tierra-osc:#7E3A21;--maiz:#E9BC6A;--noche:#16201A;
-  --serif:"Alegreya",Georgia,"Book Antiqua",serif;
-  --sans:"Alegreya Sans","Segoe UI",system-ui,-apple-system,Roboto,sans-serif;
+  --principal:#2F4A35;--principal-osc:#22372A;
+  --fondo:#FAF7F0;--fondo-2:#F1ECE0;--blanco:#FFFEFA;
+  --tinta:#1F221C;--texto:#3B3D34;--suave:#67665A;--linea:#E3DCCB;
+  --acento:#B88A3E;--acento-claro:#E2C48E;--acento-osc:#7A5A1F;
+  --noche:#1C231E;
+  --serif:"Cormorant","Cormorant Garamond",Georgia,"Times New Roman",serif;
+  --sans:"Mulish","Segoe UI",system-ui,-apple-system,Roboto,sans-serif;
   --suave-c:cubic-bezier(.22,.61,.36,1);--salto:cubic-bezier(.34,1.56,.64,1);
-  --franja:30px;--nav:64px;--ancho:1200px;--gutter:clamp(18px,5vw,48px)
+  --franja:30px;--nav:66px;--ancho:1180px;--gutter:clamp(16px,5vw,40px)
 }
-@supports (color:color-mix(in srgb,red,blue)){:root{--principal-osc:color-mix(in srgb,var(--principal) 66%,#000)}}
+@supports (color:color-mix(in srgb,red,blue)){:root{--principal-osc:color-mix(in srgb,var(--principal) 75%,#000)}}
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth;overflow-x:hidden;overflow-x:clip;-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--papel);color:var(--texto);font:400 1.15rem/1.6 var(--sans);overflow-x:hidden;overflow-x:clip;-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--fondo);color:var(--texto);font:400 1.0625rem/1.7 var(--sans);overflow-x:hidden;overflow-x:clip;-webkit-font-smoothing:antialiased}
 body.sin-franja{--franja:0px}
 img{max-width:100%;height:auto;display:block}
 a{color:inherit}
-h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.02;margin:0;letter-spacing:-.01em;color:var(--tinta)}
+h1,h2,h3{font-family:var(--serif);color:var(--tinta);font-weight:500;line-height:1.08;margin:0}
 p{margin:0}
-:focus-visible{outline:2.5px solid var(--maiz);outline-offset:3px}
+:focus-visible{outline:2px solid var(--acento-osc);outline-offset:3px;border-radius:4px}
 .solo-lector{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.saltar{position:absolute;left:12px;top:-60px;z-index:200;background:var(--tinta);color:#fff;padding:10px 14px}
+.saltar{position:absolute;left:12px;top:-60px;z-index:200;background:var(--tinta);color:#fff;padding:10px 14px;border-radius:8px}
 .saltar:focus{top:calc(var(--franja) + 8px)}
 .contenedor{width:100%;max-width:var(--ancho);margin:0 auto;padding-left:var(--gutter);padding-right:var(--gutter)}
-section{scroll-margin-top:calc(var(--franja) + var(--nav))}
-.rotulo{font:700 .8rem/1.3 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--tierra-osc);margin-bottom:16px}
-.titulo{font-size:clamp(2.6rem,9vw,6rem);line-height:.98}
-.titulo em{font-style:italic;font-weight:500;color:var(--principal)}
-.intro{max-width:46ch;margin-top:18px;color:var(--suave);font-size:1.2rem}
+section{scroll-margin-top:calc(var(--franja) + var(--nav) + 8px)}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:300;opacity:.04;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E")}
+
+.rotulo{display:inline-block;font:700 .72rem/1.3 var(--sans);letter-spacing:.3em;text-transform:uppercase;color:var(--acento-osc);padding-top:10px;border-top:1px solid currentColor;margin-bottom:18px}
+.titulo{font-size:clamp(2.3rem,7vw,4.2rem);line-height:1.04}
+.titulo em{font-style:italic;color:var(--principal)}
+.intro{max-width:54ch;margin-top:16px;color:var(--suave)}
 
 /* franja */
-.franja{position:fixed;inset:0 0 auto;height:var(--franja);z-index:90;display:flex;align-items:center;justify-content:center;background:var(--tierra-osc);color:#FBEBD9;
-  font:700 .72rem/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;padding:0 10px;white-space:nowrap;overflow:hidden}
-@media (max-width:420px){.franja{font-size:.64rem;letter-spacing:.05em}}
+.franja{position:fixed;inset:0 0 auto;height:var(--franja);z-index:90;display:flex;align-items:center;justify-content:center;background:var(--principal-osc);color:#F3E7CC;
+  font:600 .68rem/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;padding:0 10px;white-space:nowrap;overflow:hidden}
+@media (max-width:560px){.franja{font-size:.6rem;letter-spacing:.06em}}
 
-/* botones: pocos y con un solo estilo */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:13px 26px;border:0;border-radius:2px;font:700 1.05rem/1.2 var(--sans);text-decoration:none;cursor:pointer;
-  transition:transform .3s var(--salto),background-color .3s,color .3s}
-.btn svg{width:21px;height:21px;flex:none}
-.btn:hover{transform:translateY(-3px)}
-.btn:active{transform:scale(.97)}
-.btn-crema{background:var(--crema);color:var(--principal-osc)}
-.btn-crema:hover{background:#fff}
-.btn-verde{background:var(--principal);color:var(--papel)}
+/* botones */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:12px 24px;border-radius:999px;border:1px solid transparent;
+  font:700 .95rem/1.2 var(--sans);letter-spacing:.02em;text-decoration:none;cursor:pointer;transition:transform .25s var(--salto),box-shadow .25s var(--suave-c),background-color .25s,color .25s,border-color .25s}
+.btn svg{width:20px;height:20px;flex:none}
+.btn:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(30,40,25,.2)}
+.btn:active{transform:translateY(0) scale(.97)}
+.btn-verde{background:var(--principal);color:#FAF5E8;position:relative;overflow:hidden}
 .btn-verde:hover{background:var(--principal-osc)}
-.flecha-link{display:inline-flex;align-items:center;gap:10px;font-weight:700;text-decoration:none;border-bottom:1.5px solid currentColor;padding-bottom:3px}
-.flecha-link span{display:inline-block;transition:transform .35s var(--suave-c)}
-.flecha-link:hover span{transform:translateX(6px)}
+.btn-claro{background:#FAF5E8;color:var(--principal-osc);position:relative;overflow:hidden}
+.btn-claro:hover{background:#fff}
+.btn-verde::after,.btn-claro::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.4) 50%,transparent 70%);transform:translateX(-120%);animation:destello 7s var(--suave-c) infinite 2.5s;pointer-events:none}
+@keyframes destello{18%,100%{transform:translateX(120%)}}
+.btn-linea{border-color:currentColor;background:transparent}
+.btn-linea:hover{background:var(--tinta);color:var(--fondo);border-color:var(--tinta)}
+.portada .btn-linea{color:#FAF5E8;border-color:rgba(250,245,232,.7)}
+.portada .btn-linea:hover{background:#FAF5E8;color:var(--principal-osc)}
+.enlace{color:var(--acento-osc);font-weight:700;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
+.enlace:hover{color:var(--tinta)}
 
 /* navegación */
-.nav{position:fixed;left:0;right:0;top:var(--franja);z-index:80;height:var(--nav);color:#FFF8EA;transition:background-color .4s var(--suave-c),color .4s,box-shadow .4s}
-.nav.solido,.nav.abierto{background:var(--papel);color:var(--tinta);box-shadow:0 1px 0 var(--linea)}
-.nav-in{height:100%;display:flex;align-items:center;gap:22px}
-.marca{margin-right:auto;text-decoration:none;font:700 1.3rem/1 var(--serif)}
-.marca i{font-weight:500}
-@media (max-width:639px){.marca{font-size:1.15rem;line-height:1.05}.marca i{display:block;font-size:.92em}}
-.marca img{height:46px;width:auto}
-.nav-links{display:flex;gap:28px}
-.nav-links a{text-decoration:none;font-weight:700;font-size:1rem;opacity:.9}
-.nav-links a:hover{opacity:1;text-decoration:underline;text-underline-offset:6px}
-.nav .btn{min-height:42px;padding:9px 18px;font-size:.98rem}
-.nav.solido .btn-crema,.nav.abierto .btn-crema{background:var(--principal);color:var(--papel)}
-.nav-boton{display:none;background:transparent;border:0;color:inherit;font:700 1rem/1 var(--sans);cursor:pointer;padding:12px 0;min-height:44px}
+.nav{position:fixed;left:0;right:0;top:var(--franja);z-index:80;height:var(--nav);color:#FAF5E8;transition:background-color .35s var(--suave-c),box-shadow .35s,color .35s}
+.nav.solido,.nav.abierto{background:rgba(250,247,240,.96);color:var(--tinta);box-shadow:0 1px 0 var(--linea),0 8px 30px rgba(30,40,25,.06)}
+.nav-in{height:100%;display:flex;align-items:center;gap:12px}
+.marca{margin-right:auto;text-decoration:none;display:flex;flex-direction:column;line-height:1}
+.marca small{font:700 .58rem/1 var(--sans);letter-spacing:.28em;text-transform:uppercase;opacity:.85;margin-bottom:5px}
+.marca span{font:600 1.45rem/1 var(--serif)}
+.marca span i{font-weight:500}
+.marca img{height:48px;width:auto}
+.nav-links{display:flex;gap:26px}
+.nav-links a{text-decoration:none;font:600 .8rem/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;position:relative;padding:6px 0}
+.nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--acento);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--suave-c)}
+.nav-links a:hover::after{transform:scaleX(1)}
+.nav .btn{min-height:42px;padding:10px 18px;font-size:.85rem}
+.nav:not(.solido):not(.abierto) .btn-verde{background:#FAF5E8;color:var(--principal-osc)}
+.nav-boton{display:none;width:44px;height:44px;border:1px solid currentColor;border-radius:50%;background:transparent;color:inherit;align-items:center;justify-content:center;cursor:pointer;opacity:.85}
+.nav-boton span{display:block;width:18px;height:1.5px;background:currentColor;position:relative}
+.nav-boton span::before,.nav-boton span::after{content:"";position:absolute;left:0;width:18px;height:1.5px;background:currentColor;transition:transform .3s var(--suave-c)}
+.nav-boton span::before{top:-6px}.nav-boton span::after{top:6px}
+.nav.abierto .nav-boton span{background:transparent}
+.nav.abierto .nav-boton span::before{transform:translateY(6px) rotate(45deg)}
+.nav.abierto .nav-boton span::after{transform:translateY(-6px) rotate(-45deg)}
+.progreso{position:absolute;left:0;right:0;bottom:0;height:2px;background:linear-gradient(90deg,var(--acento-claro),var(--acento));transform-origin:0 50%;transform:scaleX(0)}
 @media (max-width:899px){
-  .nav-in{gap:14px}
-  .nav-boton{display:inline-flex;align-items:center}
-  .nav-links{position:fixed;left:0;right:0;top:calc(var(--franja) + var(--nav));flex-direction:column;gap:0;padding:6px var(--gutter) 18px;background:var(--papel);color:var(--tinta);
-    box-shadow:0 20px 30px rgba(20,25,18,.18);opacity:0;transform:translateY(-8px);pointer-events:none;transition:opacity .25s,transform .3s var(--suave-c)}
-  .nav-links a{padding:16px 0;border-bottom:1px solid var(--linea);font-size:1.25rem;font-family:var(--serif)}
+  .nav-boton{display:inline-flex}
+  .nav-links{position:fixed;left:0;right:0;top:calc(var(--franja) + var(--nav));flex-direction:column;gap:0;padding:8px var(--gutter) 18px;background:var(--fondo);color:var(--tinta);
+    box-shadow:0 18px 30px rgba(30,40,25,.12);border-top:1px solid var(--linea);opacity:0;transform:translateY(-8px);pointer-events:none;transition:opacity .25s,transform .3s var(--suave-c)}
+  .nav-links a{padding:15px 0;border-bottom:1px solid var(--linea)}
   .nav.abierto .nav-links{opacity:1;transform:none;pointer-events:auto}
 }
+@media (max-width:420px){.marca small{display:none}.marca span{font-size:1.25rem;line-height:1.02}.marca span i{display:block}.nav .btn{padding:10px 14px}}
 
-/* ---------- portada: cambia con la hora de Santo Domingo ---------- */
-.portada{position:relative;min-height:min(100svh,900px);display:flex;align-items:flex-end;overflow:hidden;background:var(--noche);color:#FFF8EA}
+/* ---------- portada ---------- */
+.portada{position:relative;min-height:min(100svh,880px);display:flex;align-items:flex-end;overflow:hidden;background:var(--noche);color:#FAF5E8}
 .portada-foto{position:absolute;inset:0;overflow:hidden}
 .portada-mover{position:absolute;inset:-7% 0}
-.portada-mover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:acercar 30s ease-in-out infinite alternate}
-.portada-mover .foto-noche{opacity:0;transition:opacity 1.6s var(--suave-c)}
-.portada.es-noche .foto-noche{opacity:1}
-@keyframes acercar{from{transform:scale(1.03)}to{transform:scale(1.13) translate(-1.5%,1%)}}
-.portada-foto::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,20,16,.55) 0%,rgba(14,20,16,.1) 26%,rgba(14,20,16,.35) 55%,rgba(14,20,16,.92) 100%)}
-.portada-in{position:relative;z-index:2;padding-top:calc(var(--franja) + var(--nav) + 60px);padding-bottom:46px}
-.saludo{font:italic 500 clamp(1.15rem,3.6vw,1.5rem)/1.3 var(--serif);color:var(--maiz);text-shadow:0 1px 12px rgba(0,0,0,.7)}
-.ahora{margin-top:6px;font-size:1rem;color:#E6DECC;letter-spacing:.02em;text-shadow:0 1px 10px rgba(0,0,0,.7)}
-.ahora:empty{display:none}
-.portada h1{color:#FFF8EA;font-size:clamp(3.4rem,14.5vw,9.6rem);line-height:.92;margin-top:14px;max-width:9ch;text-shadow:0 4px 40px rgba(0,0,0,.45)}
-.portada h1 em{font-style:italic;font-weight:500;color:#FFF8EA}
-.portada-lema{max-width:36ch;margin-top:22px;font-size:1.22rem;color:#F1EADA;text-shadow:0 1px 12px rgba(0,0,0,.7)}
-.portada-acciones{display:flex;flex-wrap:wrap;align-items:center;gap:16px 28px;margin-top:28px}
-.portada .flecha-link{color:#FFF8EA}
-.google-linea{display:inline-block;margin-top:26px;color:#E6DECC;text-decoration:none;font-size:1rem}
-.google-linea b{color:#FFF8EA}
-.google-linea .est{color:var(--maiz);letter-spacing:.12em;margin-right:8px}
-.google-linea:hover{color:#fff}
-@media (max-width:639px){.portada-acciones .btn{flex:1 1 100%}.portada-in{padding-bottom:34px}}
-@media (min-width:900px){.portada-in{padding-bottom:74px}}
+.portada-mover img{width:100%;height:100%;object-fit:cover;object-position:50% 45%;animation:acercar 28s ease-in-out infinite alternate}
+@keyframes acercar{from{transform:scale(1.02)}to{transform:scale(1.11) translate(-1.5%,1%)}}
+.portada-foto::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,24,19,.55) 0%,rgba(18,24,19,.12) 25%,rgba(18,24,19,.35) 55%,rgba(18,24,19,.88) 100%)}
+@media (min-width:900px){.portada-foto::after{background:linear-gradient(90deg,rgba(18,24,19,.6) 0%,rgba(18,24,19,.15) 55%,transparent 75%),linear-gradient(180deg,rgba(18,24,19,.5) 0%,rgba(18,24,19,.08) 25%,rgba(18,24,19,.2) 55%,rgba(18,24,19,.75) 100%)}}
+.portada-in{position:relative;z-index:2;padding-top:calc(var(--franja) + var(--nav) + 40px);padding-bottom:48px}
+.portada .rotulo{color:var(--acento-claro);text-shadow:0 1px 10px rgba(0,0,0,.6)}
+.portada h1{color:#FFFBF0;font-size:clamp(2.7rem,10.5vw,5.6rem);font-weight:500;line-height:1;max-width:13ch;text-shadow:0 2px 30px rgba(0,0,0,.45);text-wrap:balance}
+.portada h1 em{font-style:italic;color:var(--acento-claro)}
+.portada-lema{max-width:44ch;margin-top:18px;font-size:1.08rem;color:#F0E9D8;text-shadow:0 1px 12px rgba(0,0,0,.6)}
+.portada-google{display:inline-flex;align-items:center;gap:10px;margin-top:18px;color:#F0E9D8;text-decoration:none;font-size:.95rem}
+.portada-google b{color:#FFFBF0}
+.cinco{display:inline-flex;gap:2px;color:var(--acento-claro)}
+.cinco svg{width:14px;height:14px}
+.portada-botones{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+@media (max-width:639px){.portada-botones .btn{flex:1 1 100%}}
+@media (min-width:900px){.portada-in{padding-bottom:80px}}
 
-/* titular por palabras con máscara */
-.js [data-partir] .p{display:inline-block;opacity:0;transform:translateY(.5em);transition:opacity .8s var(--suave-c),transform 1s var(--suave-c);transition-delay:calc(var(--i) * 110ms + 150ms)}
+/* titular por letras */
+.js [data-partir] .p{display:inline-block;opacity:0;transform:translateY(.5em);transition:opacity .7s var(--suave-c),transform .8s var(--suave-c);transition-delay:calc(var(--i) * 28ms + 150ms)}
 .js [data-partir].visible .p{opacity:1;transform:none}
 
+/* separador de montañas (una línea fina) */
+.cumbre{display:flex;justify-content:center;padding:8px 0}
+.cumbre svg{width:min(220px,58vw);height:auto;overflow:visible}
+.cumbre path{fill:none;stroke:var(--acento);stroke-width:1.3;stroke-linejoin:round;stroke-linecap:round}
+.trazo path{stroke-dasharray:1;stroke-dashoffset:0}
+.js .trazo path{stroke-dashoffset:1;transition:stroke-dashoffset 1.8s var(--suave-c)}
+.js .trazo.visible path{stroke-dashoffset:0}
+
 /* revelar */
-.js .revelar{opacity:0;transform:translateY(26px);transition:opacity 1s var(--suave-c),transform 1s var(--suave-c)}
+.js .revelar{opacity:0;transform:translateY(22px);transition:opacity .9s var(--suave-c),transform .9s var(--suave-c)}
 .js .revelar.visible{opacity:1;transform:none}
-.js .revelar-grupo>*{opacity:0;transform:translateY(22px);transition:opacity .8s var(--suave-c),transform .9s var(--suave-c)}
+.js .revelar-grupo>*{opacity:0;transform:translateY(18px);transition:opacity .7s var(--suave-c),transform .7s var(--suave-c)}
 .js .revelar-grupo.visible>*{opacity:1;transform:none}
-.js .revelar-grupo.visible>*:nth-child(2){transition-delay:.1s}
-.js .revelar-grupo.visible>*:nth-child(3){transition-delay:.2s}
-.js .revelar-grupo.visible>*:nth-child(4){transition-delay:.3s}
-.js .revelar-grupo.visible>*:nth-child(5){transition-delay:.4s}
-.js .revelar-grupo.visible>*:nth-child(6){transition-delay:.5s}
+.js .revelar-grupo.visible>*:nth-child(2){transition-delay:.09s}
+.js .revelar-grupo.visible>*:nth-child(3){transition-delay:.18s}
+.js .revelar-grupo.visible>*:nth-child(4){transition-delay:.27s}
+.js .revelar-grupo.visible>*:nth-child(5){transition-delay:.36s}
+.js .revelar-grupo.visible>*:nth-child(6){transition-delay:.45s}
 .js .revelar-grupo.visible.listo>*:nth-child(n){transition-delay:0s}
+/* máscara: la foto se abre de abajo hacia arriba (va en los hijos) */
+.js .revelar-mascara>*{clip-path:inset(100% 0 0 0);transition:clip-path 1.2s var(--suave-c)}
+.js .revelar-mascara.visible>*{clip-path:inset(0 0 0 0)}
 
-/* ---------- un día en el refugio (firma): pantallas que se apilan ---------- */
-.dia-cab{padding-top:110px;padding-bottom:70px}
-.dia-cab .titulo{max-width:10ch}
-.paneles{position:relative}
-.panel{position:sticky;top:0;height:100svh;min-height:600px;overflow:hidden;display:flex;align-items:flex-end;color:#FFF8EA;background:var(--noche)}
-.panel-foto{position:absolute;inset:0}
-.panel-foto img{width:100%;height:100%;object-fit:cover}
-.js .panel-foto img{transform:scale(1.14);transition:transform 2.6s var(--suave-c)}
-.js .panel.activo .panel-foto img{transform:scale(1)}
-.panel-foto::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,20,16,.35) 0%,rgba(14,20,16,.05) 30%,rgba(14,20,16,.45) 60%,rgba(14,20,16,.9) 100%)}
-.panel-sombra{position:absolute;inset:0;background:#0B100D;opacity:0;pointer-events:none;z-index:1}
-.panel-in{position:relative;z-index:2;padding-top:calc(var(--franja) + var(--nav) + 30px);padding-bottom:56px}
-.panel-paso{font:700 .8rem/1.3 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--maiz)}
-.panel-hora{font:800 clamp(5.5rem,26vw,15rem)/.82 var(--serif);letter-spacing:-.03em;margin-top:10px;color:#FFF8EA;text-shadow:0 6px 50px rgba(0,0,0,.4)}
-.panel-hora small{font:italic 500 .22em/1 var(--serif);letter-spacing:0;margin-left:.15em;color:var(--maiz)}
-.panel h3{color:#FFF8EA;font-size:clamp(2rem,6.4vw,3.6rem);margin-top:14px;max-width:16ch}
-.panel p.texto{max-width:40ch;margin-top:12px;font-size:1.2rem;color:#EDE5D3}
-.me-interesa{margin-top:22px;display:inline-flex;align-items:center;gap:12px;min-height:48px;padding:0;border:0;background:none;color:#FFF8EA;font:700 1.1rem/1 var(--sans);cursor:pointer}
-.me-interesa .caja{width:26px;height:26px;border:2px solid currentColor;display:inline-flex;align-items:center;justify-content:center;transition:background .25s,border-color .25s}
-.me-interesa .caja svg{width:16px;height:16px;opacity:0;transform:scale(.3);transition:opacity .2s,transform .35s var(--salto)}
-.me-interesa .txt{border-bottom:1.5px solid transparent;transition:border-color .25s}
+/* ---------- Google ---------- */
+.resenas{padding:80px 0 86px;text-align:center;background:var(--blanco)}
+.nota{display:flex;flex-direction:column;align-items:center;gap:6px}
+.nota-numero{font:500 clamp(5rem,20vw,8.5rem)/.9 var(--serif);color:var(--tinta)}
+.nota .cinco{gap:8px;margin-top:6px;color:var(--acento)}
+.nota .cinco svg{width:24px;height:24px}
+.js .nota .cinco svg{opacity:.18;transform:scale(.6);transition:opacity .5s,transform .6s var(--salto)}
+.js .nota.visible .cinco svg{opacity:1;transform:none}
+.js .nota.visible .cinco svg:nth-child(2){transition-delay:.12s}
+.js .nota.visible .cinco svg:nth-child(3){transition-delay:.24s}
+.js .nota.visible .cinco svg:nth-child(4){transition-delay:.36s}
+.js .nota.visible .cinco svg:nth-child(5){transition-delay:.48s}
+.nota-pie{margin-top:10px;color:var(--suave)}
+.nota-pie b{color:var(--tinta)}
+.resenas h2{margin:30px auto 0;max-width:22ch;font-size:clamp(1.6rem,4.6vw,2.4rem)}
+.resenas .enlace{display:inline-block;margin-top:22px}
+
+/* ---------- experiencias ---------- */
+.experiencias{padding:90px 0 96px}
+.exp-cab{display:grid;gap:18px;align-items:end}
+.exp-lista{list-style:none;padding:0;margin:44px 0 0;display:grid;gap:22px}
+.exp{background:var(--blanco);border:1px solid var(--linea);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;min-width:0;transition:transform .4s var(--suave-c),box-shadow .4s var(--suave-c),border-color .3s}
+.exp:hover{transform:translateY(-4px);box-shadow:0 26px 44px -30px rgba(30,40,25,.5)}
+.exp.elegida{border-color:var(--principal);box-shadow:0 0 0 1px var(--principal)}
+.exp-foto{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--fondo-2)}
+.exp-foto img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--suave-c)}
+.exp:hover .exp-foto img{transform:scale(1.06)}
+.exp-foto::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(18,24,19,.6))}
+.exp-hora{position:absolute;left:18px;bottom:14px;z-index:2;font:700 .72rem/1 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:#FAF5E8}
+.exp-cuerpo{padding:20px 22px 22px;display:flex;flex-direction:column;gap:8px;flex:1}
+.exp h3{font-size:1.75rem;font-weight:600}
+.exp p{color:var(--suave);font-size:.98rem}
+.me-interesa{margin-top:auto;align-self:flex-start;display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:6px 0 0;border:0;background:none;color:var(--principal);font:700 .9rem/1 var(--sans);cursor:pointer}
+.me-interesa .caja{width:20px;height:20px;border:1.5px solid currentColor;border-radius:5px;display:inline-flex;align-items:center;justify-content:center;transition:background .25s}
+.me-interesa .caja svg{width:13px;height:13px;opacity:0;transform:scale(.3);transition:opacity .2s,transform .3s var(--salto)}
+.me-interesa .txt{border-bottom:1px solid transparent;transition:border-color .25s}
 .me-interesa:hover .txt{border-color:currentColor}
-.me-interesa[aria-pressed="true"]{color:var(--maiz)}
-.me-interesa[aria-pressed="true"] .caja{background:var(--maiz);border-color:var(--maiz);color:var(--noche)}
+.me-interesa[aria-pressed="true"] .caja{background:var(--principal);color:#FAF5E8}
 .me-interesa[aria-pressed="true"] .caja svg{opacity:1;transform:none}
-@media (min-width:900px){.panel-in{padding-bottom:84px}.panel-foto::after{background:linear-gradient(90deg,rgba(14,20,16,.7) 0%,rgba(14,20,16,.25) 50%,transparent 75%),linear-gradient(180deg,rgba(14,20,16,.3) 0%,rgba(14,20,16,.05) 30%,rgba(14,20,16,.6) 100%)}}
-.dia-cierre{padding-top:96px;padding-bottom:40px}
-.dia-cierre .grande{font:500 clamp(1.8rem,5vw,3.2rem)/1.15 var(--serif);color:var(--tinta);max-width:22ch}
-.dia-cierre .grande b{font-style:italic;color:var(--principal)}
-.dia-cierre .btn{margin-top:28px}
+.exp-resumen{margin-top:34px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 24px;padding-top:26px;border-top:1px solid var(--linea)}
+.exp-resumen p{font:500 1.45rem/1.3 var(--serif);color:var(--tinta);max-width:36ch}
+.exp-resumen p b{font-style:italic;font-weight:600;color:var(--principal)}
+@media (min-width:700px){.exp-lista{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:1000px){
+  .exp-cab{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px}
+  .exp-lista{grid-template-columns:repeat(6,minmax(0,1fr))}
+  .exp-lista .exp{grid-column:span 2}
+  .exp-lista .exp:nth-child(4),.exp-lista .exp:nth-child(5){grid-column:span 3}
+  .exp-lista .exp:nth-child(4) .exp-foto,.exp-lista .exp:nth-child(5) .exp-foto{aspect-ratio:16/9}
+}
 
-/* Google, solo tipografía */
-.voz{padding:40px 0 110px}
-.voz-in{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 26px;border-top:1px solid var(--linea);padding-top:40px}
-.voz-num{font:800 clamp(5rem,16vw,10rem)/.85 var(--serif);color:var(--tinta);letter-spacing:-.03em}
-.voz-texto{max-width:30ch;font-size:1.3rem}
-.voz-texto .est{display:block;color:#C08A2A;letter-spacing:.2em;font-size:1.3rem;margin-bottom:6px}
-.voz-texto a{color:var(--tierra-osc);font-weight:700}
-
-/* ---------- habitaciones: tira de fotos ---------- */
-.cuartos{background:var(--noche);color:#EFE8D8;padding:100px 0 90px}
-.cuartos .rotulo{color:var(--maiz)}
-.cuartos .titulo{color:#FFF8EA}
-.cuartos .titulo em{color:var(--maiz)}
-.cuartos .intro{color:#BDB6A5}
-.cuartos-cab{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px}
-.tira-flechas{display:none;gap:10px}
-.tira-flechas button{width:54px;height:54px;border:1.5px solid rgba(255,248,234,.5);background:transparent;color:#FFF8EA;font:400 1.4rem/1 var(--sans);cursor:pointer;transition:background .25s,color .25s,opacity .25s}
-.tira-flechas button:hover{background:#FFF8EA;color:var(--noche)}
-.tira-flechas button:disabled{opacity:.3;cursor:default;background:transparent;color:#FFF8EA}
-.tira{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;margin-top:44px;padding:4px max(var(--gutter),calc((100vw - var(--ancho)) / 2 + var(--gutter))) 10px;
-  scroll-padding-inline:max(var(--gutter),calc((100vw - var(--ancho)) / 2 + var(--gutter)));scrollbar-width:none;cursor:grab}
-.tira::-webkit-scrollbar{display:none}
-.tira.arrastrando{cursor:grabbing;scroll-snap-type:none}
-.cuarto{position:relative;flex:0 0 min(84vw,460px);height:min(76svh,660px);min-height:480px;overflow:hidden;scroll-snap-align:start;background:#26302A}
-.cuarto img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--suave-c);pointer-events:none}
-.cuarto:hover img{transform:scale(1.06)}
-.cuarto::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,20,16,0) 35%,rgba(14,20,16,.92) 100%);pointer-events:none}
-.cuarto-texto{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:26px 24px 24px}
-.cuarto-precio{font:800 2.6rem/1 var(--serif);color:#FFF8EA}
-.cuarto-precio small{font:400 1rem/1 var(--sans);color:#D6CFBE;margin-left:6px}
-.cuarto h3{color:#FFF8EA;font-size:2rem;margin-top:8px;overflow-wrap:anywhere}
-.cuarto-datos{margin-top:8px;color:#E3DCCB;font-size:1.02rem}
-.cuarto-incluye{margin-top:4px;color:var(--maiz);font-size:.98rem}
-.cuarto .btn{margin-top:18px}
-.tira-ayuda{margin-top:18px;font-size:.98rem;color:#9E9886}
-@media (hover:hover) and (pointer:fine){.tira-flechas{display:flex}.tira-ayuda{display:none}}
+/* ---------- habitaciones ---------- */
+.habitaciones{padding:90px 0 96px;background:var(--fondo-2)}
+.hab-cabeza{display:grid;gap:26px;align-items:end}
+.fechas{background:var(--blanco);border:1px solid var(--linea);border-radius:22px;padding:18px;box-shadow:0 20px 40px -28px rgba(30,40,25,.4);min-width:0}
+.fechas-titulo{font:700 .74rem/1.2 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--acento-osc);margin-bottom:12px}
+.campos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.campo{display:flex;flex-direction:column;gap:6px;min-width:0}
+.campo>span,.campo legend{font-size:.78rem;font-weight:700;color:var(--suave);letter-spacing:.04em}
+.campo-ancho,.campo-ancho-m{grid-column:1 / -1}
+.campo input,.campo select{width:100%;min-width:0;min-height:48px;padding:10px 12px;border:1px solid var(--linea);border-radius:12px;background:var(--fondo);font:600 .95rem/1.2 var(--sans);color:var(--tinta);
+  transition:border-color .2s,box-shadow .2s;-webkit-appearance:none;appearance:none}
+.campo select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%237A5A1F' stroke-width='1.5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;background-size:12px;padding-right:32px}
+.campo input:focus,.campo select:focus{outline:none;border-color:var(--acento);box-shadow:0 0 0 3px rgba(184,138,62,.22)}
+.contador{display:flex;align-items:center;border:1px solid var(--linea);border-radius:12px;background:var(--fondo);min-height:48px;overflow:hidden}
+.contador button{width:46px;align-self:stretch;border:0;background:transparent;font:500 1.3rem/1 var(--sans);color:var(--acento-osc);cursor:pointer}
+.contador button:hover{background:var(--fondo-2)}
+.contador input{border:0;background:transparent;text-align:center;padding:0;flex:1;min-height:0;box-shadow:none!important}
+.fechas-nota{margin-top:10px;font-size:.84rem;color:var(--suave)}
+.lista-hab{display:grid;gap:30px;margin-top:44px}
+.hab{display:grid;background:var(--blanco);border-radius:24px;overflow:hidden;border:1px solid var(--linea);min-width:0;transition:transform .4s var(--suave-c),box-shadow .4s var(--suave-c)}
+.hab:hover{transform:translateY(-4px);box-shadow:0 30px 50px -30px rgba(30,40,25,.45)}
+.hab-foto{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--fondo-2)}
+.hab-foto>div{position:absolute;inset:0}
+.hab-foto img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--suave-c)}
+.hab:hover .hab-foto img{transform:scale(1.05)}
+.hab-cuerpo{padding:24px 22px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.hab h3{font-size:clamp(1.8rem,5vw,2.4rem);font-weight:600;overflow-wrap:anywhere}
+.hab-texto{color:var(--suave)}
+.hab-meta{font-size:.92rem;color:var(--texto)}
+.hab-meta b{color:var(--tinta)}
+.incluye{margin:0;padding:0;list-style:none;font-size:.92rem;color:var(--suave)}
+.incluye li{display:inline}
+.incluye li+li::before{content:" · ";color:var(--acento)}
+.hab-aviso{font-size:.86rem;color:var(--acento-osc);font-weight:700}
+.hab-aviso:empty{display:none}
+.hab-pie{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;margin-top:auto;padding-top:16px;border-top:1px solid var(--linea)}
+.precio{font:600 2.2rem/1 var(--serif);color:var(--tinta)}
+.precio small{font:500 .82rem/1 var(--sans);color:var(--suave);margin-left:6px}
+@media (min-width:900px){
+  .hab-cabeza{grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:48px}
+  .fechas .campos{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .fechas .campo-ancho-m{grid-column:auto}
+  .hab{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr)}
+  .hab:nth-child(even){grid-template-columns:minmax(0,1fr) minmax(0,1.15fr)}
+  .hab:nth-child(even) .hab-foto{order:2}
+  .hab-foto{aspect-ratio:auto;min-height:380px}
+  .hab-cuerpo{padding:40px;justify-content:center}
+}
 
 /* ---------- Santo Domingo ---------- */
-.pueblo-banda{position:relative;min-height:min(92svh,820px);display:flex;align-items:flex-end;overflow:hidden;color:#FFF8EA;background:#2A3A2E}
-.pueblo-banda .mov{position:absolute;inset:-12% 0}
-.pueblo-banda img{width:100%;height:100%;object-fit:cover}
-.pueblo-banda::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,20,16,.25) 0%,rgba(14,20,16,.2) 40%,rgba(14,20,16,.85) 100%)}
-.pueblo-banda .contenedor{position:relative;z-index:2;padding-bottom:60px}
-.pueblo-banda .rotulo{color:var(--maiz)}
-.altura{font:800 clamp(5rem,20vw,13rem)/.85 var(--serif);letter-spacing:-.03em;color:#FFF8EA;text-shadow:0 4px 40px rgba(0,0,0,.4)}
-.altura small{display:block;font:italic 500 clamp(1.3rem,3.6vw,2rem)/1.2 var(--serif);letter-spacing:0;color:var(--maiz);margin-top:10px}
-.pueblo-banda h2{color:#FFF8EA;font-size:clamp(1.8rem,5vw,3rem);margin-top:22px;max-width:18ch;font-weight:500}
-.pueblo-cuerpo{display:grid;gap:56px;padding-top:90px;padding-bottom:100px}
-.pueblo-cuerpo .intro{margin-top:0;font-size:1.35rem;color:var(--texto);max-width:34ch}
-.pueblo-cuerpo h3{font-size:1.9rem;margin-top:44px}
-.lugares{list-style:none;margin:16px 0 0;padding:0;counter-reset:l}
-.lugares li{display:grid;grid-template-columns:54px minmax(0,1fr);gap:10px;padding:18px 0;border-bottom:1px solid var(--linea);counter-increment:l;transition:padding-left .35s var(--suave-c)}
-.lugares li:hover{padding-left:8px}
-.lugares li::before{content:counter(l,decimal-leading-zero);font:italic 500 1.3rem/1.4 var(--serif);color:var(--tierra)}
-.lugares b{display:block;font:700 1.3rem/1.3 var(--serif);color:var(--tinta)}
-.lugares span{color:var(--suave)}
-.direccion{font:500 clamp(1.8rem,4.6vw,2.6rem)/1.15 var(--serif);font-style:normal;color:var(--tinta)}
-.llegar-lista{margin-top:26px}
-.llegar-lista p{padding:14px 0;border-top:1px solid var(--linea);color:var(--suave)}
-.llegar-lista b{color:var(--tinta);font-family:var(--serif);font-size:1.2rem;margin-right:6px}
-.pueblo-cuerpo .btn{margin-top:26px}
-@media (min-width:900px){.pueblo-cuerpo{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:90px}}
+.banda{position:relative;min-height:clamp(380px,56vw,560px);display:flex;align-items:flex-end;overflow:hidden;background:#2E3A30}
+.banda .mov{position:absolute;inset:-12% 0}
+.banda img{width:100%;height:100%;object-fit:cover}
+.banda::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,24,19,.2) 0%,rgba(18,24,19,.25) 45%,rgba(18,24,19,.82) 100%)}
+.banda .contenedor{position:relative;z-index:2;padding-top:90px;padding-bottom:44px}
+.banda .rotulo{color:var(--acento-claro)}
+.banda h2{color:#FFFBF0;font-size:clamp(2.2rem,7vw,4.2rem);max-width:15ch;text-shadow:0 2px 24px rgba(0,0,0,.35)}
+.banda h2 em{font-style:italic;color:var(--acento-claro)}
+.banda p{color:#F0E9D8;max-width:50ch;margin-top:14px;text-shadow:0 1px 12px rgba(0,0,0,.45)}
+.pueblo-cuerpo{display:grid;gap:56px;padding-top:76px;padding-bottom:96px}
+.lugares{list-style:none;padding:0;margin:22px 0 0;counter-reset:lugar}
+.lugares li{display:grid;grid-template-columns:52px minmax(0,1fr);gap:14px;padding:18px 0;border-bottom:1px solid var(--linea);counter-increment:lugar;min-width:0;transition:padding-left .35s var(--suave-c)}
+.lugares li:hover{padding-left:6px}
+.lugares li::before{content:counter(lugar,upper-roman);font:500 1.35rem/1.3 var(--serif);color:var(--acento-osc)}
+.lugares h3{font-size:1.4rem;font-weight:600}
+.lugares p{margin-top:2px;font-size:.96rem;color:var(--suave)}
+.llegar{background:var(--blanco);border:1px solid var(--linea);border-radius:22px;padding:26px 24px;min-width:0}
+.direccion{font:500 clamp(1.6rem,4vw,2.1rem)/1.2 var(--serif);font-style:normal;color:var(--tinta);margin-top:2px}
+.llegar-lista{margin-top:18px}
+.llegar-lista p{padding:12px 0;border-top:1px solid var(--linea);color:var(--suave);font-size:.96rem}
+.llegar-lista b{color:var(--tinta)}
+.llegar .btn{margin-top:18px;width:100%}
+@media (min-width:900px){.pueblo-cuerpo{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:start}.llegar{position:sticky;top:calc(var(--franja) + var(--nav) + 24px);padding:32px}}
 
-/* ---------- preguntas y reserva ---------- */
-.reservar{background:var(--crema);padding:100px 0 110px}
-.res-in{display:grid;gap:70px}
-.acordeon{margin-top:30px;border-top:1.5px solid var(--tinta)}
+/* ---------- preguntas ---------- */
+.preguntas{padding:90px 0 92px;background:var(--blanco);border-top:1px solid var(--linea)}
+.preg-in{display:grid;gap:30px}
+.acordeon{border-top:1px solid var(--linea)}
 .acordeon details{border-bottom:1px solid var(--linea)}
-.acordeon summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:18px;padding:20px 0;font:700 1.25rem/1.3 var(--serif);color:var(--tinta)}
+.acordeon summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 2px;font:600 1.05rem/1.4 var(--sans);color:var(--tinta);transition:color .2s}
 .acordeon summary::-webkit-details-marker{display:none}
-.acordeon summary::after{content:"+";font:400 1.8rem/1 var(--sans);color:var(--tierra);transition:transform .35s var(--salto)}
-.acordeon details[open] summary::after{transform:rotate(45deg)}
-.acordeon .resp{padding:0 0 22px;color:var(--suave);max-width:58ch}
+.acordeon summary:hover{color:var(--principal)}
+.acordeon .mas{position:relative;width:28px;height:28px;flex:none;border-radius:50%;border:1px solid var(--acento-claro);transition:transform .35s var(--salto),background .3s}
+.acordeon .mas::before,.acordeon .mas::after{content:"";position:absolute;left:50%;top:50%;width:11px;height:1.5px;margin:-.75px 0 0 -5.5px;background:var(--acento-osc)}
+.acordeon .mas::after{transform:rotate(90deg);transition:transform .3s var(--suave-c)}
+.acordeon details[open] .mas{transform:rotate(180deg);background:var(--fondo-2)}
+.acordeon details[open] .mas::after{transform:rotate(0)}
+.acordeon .resp{padding:0 2px 22px;color:var(--suave);max-width:62ch}
 .acordeon details[open] .resp{animation:abrir .45s var(--suave-c)}
 @keyframes abrir{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
-.formulario h2{font-size:clamp(2.4rem,7vw,4rem)}
-.formulario .ayuda{color:var(--suave);margin-top:10px}
-.campos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 18px;margin-top:30px}
-.campo{display:flex;flex-direction:column;gap:4px;min-width:0}
-.campo>span,.campo legend{font-size:.82rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--suave)}
-.campo-ancho{grid-column:1 / -1}
-.campo input,.campo select{width:100%;min-width:0;min-height:48px;padding:8px 0;border:0;border-bottom:1.5px solid var(--tinta);border-radius:0;background:transparent;
-  font:500 1.25rem/1.2 var(--serif);color:var(--tinta);-webkit-appearance:none;appearance:none;transition:border-color .2s}
-.campo select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%231E211B' stroke-width='1.6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 2px center;background-size:12px;padding-right:22px}
-.campo input:focus,.campo select:focus{outline:none;border-color:var(--tierra)}
-.contador{display:flex;align-items:center;border-bottom:1.5px solid var(--tinta);min-height:48px}
-.contador button{width:40px;align-self:stretch;border:0;background:transparent;font:400 1.5rem/1 var(--sans);color:var(--tierra-osc);cursor:pointer}
-.contador input{border:0;text-align:center;flex:1;padding:0;min-height:0}
-fieldset.campo{border:0;padding:0;margin:0}
-.casillas{display:flex;flex-wrap:wrap;gap:6px 22px;margin-top:6px}
-.casillas label{display:inline-flex;align-items:center;gap:10px;min-height:44px;cursor:pointer;font-size:1.08rem;color:var(--texto)}
+@media (min-width:900px){.preg-in{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:72px}.preg-cab{position:sticky;top:calc(var(--franja) + var(--nav) + 30px);align-self:start}}
+
+/* ---------- reservar ---------- */
+.reservar{padding:92px 0 96px;background:var(--fondo-2)}
+.res-in{display:grid;gap:32px;margin-top:36px}
+.formulario{background:var(--blanco);border:1px solid var(--linea);border-radius:24px;padding:22px;box-shadow:0 30px 60px -40px rgba(30,40,25,.5);min-width:0}
+.formulario .btn{width:100%;margin-top:18px}
+.casillas{display:flex;flex-wrap:wrap;gap:4px 18px}
+.casillas label{display:inline-flex;align-items:center;gap:9px;min-height:40px;cursor:pointer;font-size:.95rem;color:var(--texto)}
 .casillas input{position:absolute;opacity:0;pointer-events:none}
-.casillas .caja{width:22px;height:22px;border:1.5px solid var(--tinta);display:inline-flex;align-items:center;justify-content:center;flex:none}
-.casillas .caja svg{width:14px;height:14px;opacity:0;transform:scale(.3);transition:opacity .2s,transform .3s var(--salto)}
-.casillas input:checked+.caja{background:var(--principal);border-color:var(--principal);color:var(--papel)}
+.casillas .caja{width:20px;height:20px;border:1.5px solid var(--principal);border-radius:5px;display:inline-flex;align-items:center;justify-content:center;flex:none;color:#FAF5E8}
+.casillas .caja svg{width:13px;height:13px;opacity:0;transform:scale(.3);transition:opacity .2s,transform .3s var(--salto)}
+.casillas input:checked+.caja{background:var(--principal)}
 .casillas input:checked+.caja svg{opacity:1;transform:none}
-.casillas input:focus-visible+.caja{outline:2.5px solid var(--tierra);outline-offset:2px}
-.formulario .btn{width:100%;margin-top:30px}
-.form-error{margin-top:12px;font-weight:700;color:#9A2E12}
+.casillas input:focus-visible+.caja{outline:2px solid var(--acento-osc);outline-offset:2px}
+fieldset.campo{border:0;padding:0;margin:0}
+.form-error{margin-top:12px;font-size:.88rem;font-weight:700;color:#9A3412}
 .form-error:empty{display:none}
-.tu-mensaje{margin-top:30px;padding-left:20px;border-left:3px solid var(--tierra)}
-.tu-mensaje .rotulo{margin-bottom:8px}
-.tu-mensaje pre{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;font:italic 500 1.2rem/1.55 var(--serif);color:var(--tinta)}
-.tu-mensaje.latido pre{animation:latido .5s var(--suave-c)}
-@keyframes latido{40%{opacity:.55}}
-.estimado{margin-top:14px;color:var(--texto)}
+.vista-msg .rot{font:700 .72rem/1.2 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--acento-osc);margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.vista-msg .rot::after{content:"";flex:1;height:1px;background:var(--acento-claro)}
+.chat{background:#E9E4D4;border-radius:22px;padding:20px 16px 18px}
+.burbuja{margin-left:auto;max-width:92%;background:#DCF8C6;border-radius:16px 4px 16px 16px;padding:12px 14px 8px;color:#1f2a1b;font-size:.93rem;line-height:1.5;box-shadow:0 1px 1px rgba(0,0,0,.08);white-space:pre-line;overflow-wrap:anywhere}
+.burbuja.latido{animation:latido .5s var(--salto)}
+@keyframes latido{40%{transform:scale(1.025)}}
+.burbuja .hora{display:block;text-align:right;font-size:.7rem;color:#5d6b57;margin-top:4px}
+.estimado{margin-top:14px;padding:14px 16px;border-radius:16px;background:var(--blanco);border:1px dashed var(--acento-claro);font-size:.92rem}
 .estimado:empty{display:none}
-.estimado b{font:800 1.3rem/1 var(--serif);color:var(--tinta)}
-@media (min-width:900px){.res-in{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:100px;align-items:start}}
+.estimado b{font:600 1.3rem/1 var(--serif);color:var(--tinta)}
+@media (min-width:900px){.res-in{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:56px;align-items:start}.formulario{padding:32px}.vista-msg{position:sticky;top:calc(var(--franja) + var(--nav) + 30px)}}
 
 /* ---------- pie ---------- */
-.pie{background:var(--principal-osc);color:#EFE8D8;padding:90px 0 120px;overflow:hidden}
-.pie-marca{font:800 clamp(3.2rem,12vw,9rem)/.9 var(--serif);color:#FFF8EA;letter-spacing:-.02em}
-.pie-marca i{font-weight:500;color:var(--maiz)}
-.pie .btn{margin-top:34px}
-.pie-datos{display:grid;gap:24px;margin-top:64px;border-top:1px solid rgba(255,255,255,.2);padding-top:34px}
-.pie-datos b{display:block;font:700 .78rem/1.2 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--maiz);margin-bottom:6px}
-.pie-datos a,.pie-datos span{color:#FFF8EA;text-decoration:none;font-size:1.1rem;overflow-wrap:anywhere}
-.pie-datos a:hover{text-decoration:underline}
-.legal{margin-top:50px;font-size:.92rem;color:#B9B39F}
+.pie{background:var(--fondo);padding:84px 0 110px;text-align:center;border-top:1px solid var(--linea)}
+.pie-marca{font:500 clamp(2.4rem,8vw,3.8rem)/1 var(--serif);color:var(--tinta)}
+.pie-marca i{color:var(--principal)}
+.pie .pre{font:700 .7rem/1 var(--sans);letter-spacing:.3em;text-transform:uppercase;color:var(--acento-osc);margin-bottom:14px}
+.pie .btn{margin-top:26px}
+.pie-datos{display:grid;gap:22px;margin:56px auto 0;max-width:960px}
+.pie-datos b{display:block;font:700 .72rem/1.2 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--acento-osc);margin-bottom:8px}
+.pie-datos a,.pie-datos span{color:var(--tinta);text-decoration:none;font-weight:600;overflow-wrap:anywhere}
+.pie-datos a:hover{color:var(--principal)}
+.legal{margin-top:54px;font-size:.82rem;color:var(--suave)}
 @media (min-width:760px){.pie-datos{grid-template-columns:repeat(4,minmax(0,1fr))}}
 
 /* WhatsApp flotante */
-.wa-flotante{position:fixed;right:16px;bottom:max(16px,env(safe-area-inset-bottom));z-index:85;width:58px;height:58px;border-radius:50%;background:#25D366;color:#fff;
-  display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(0,0,0,.3);transition:transform .25s var(--salto)}
+.wa-flotante{position:fixed;right:16px;bottom:max(16px,env(safe-area-inset-bottom));z-index:85;width:58px;height:58px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 10px 26px rgba(0,0,0,.25);transition:transform .25s var(--salto)}
+.wa-flotante::before{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid #25D366;animation:onda 2.8s var(--suave-c) infinite;pointer-events:none}
+@keyframes onda{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.55);opacity:0}}
 .wa-flotante:hover{transform:scale(1.08)}
 .wa-flotante svg{width:30px;height:30px}
 
 @media (prefers-reduced-motion:reduce){
-  .portada-mover img{animation:none}
-  .js .panel-foto img{transform:none;transition:none}
+  .portada-mover img,.wa-flotante::before,.btn-verde::after,.btn-claro::after{animation:none}
   .js .revelar,.js .revelar-grupo>*{transform:none;transition:opacity .5s linear}
   .js [data-partir] .p{transform:none;transition:opacity .5s}
+  .js .revelar-mascara>*{clip-path:none}
   html{scroll-behavior:auto}
 }
 body.pausado *,body.pausado *::before,body.pausado *::after{animation-play-state:paused!important}
@@ -425,9 +481,9 @@ body.pausado *,body.pausado *::before,body.pausado *::after{animation-play-state
 <div id="app">
 <a class="saltar" href="#main">Saltar al contenido</a>
 <div class="franja" data-franja="" role="note">Vista previa · Fotos, precios y datos de ejemplo</div>
-<header class="nav" data-nav=""><div class="contenedor nav-in"><a class="marca" href="#inicio" aria-label="El Refugio de Tío Lucio, inicio">El Refugio <i>de Tío Lucio</i></a><nav id="menu" class="nav-links" aria-label="Secciones"><a href="#experiencias">Un día aquí</a><a href="#habitaciones">Habitaciones</a><a href="#pueblo">Cómo llegar</a><a href="#reservar">Reservar</a></nav><a class="btn btn-crema" data-wa="general" href="https://wa.me/584143715244?text=Hola%2C%20quisiera%20informaci%C3%B3n%20para%20reservar%20en%20El%20Refugio%20de%20T%C3%ADo%20Lucio." target="_blank" rel="noopener">Reservar</a><button class="nav-boton" type="button" aria-expanded="false" aria-controls="menu">Menú</button></div></header>
-<main id="main"><section class="portada" id="inicio" aria-label="Portada" data-portada=""><div class="portada-foto"><div class="portada-mover" data-prof="0.14"><img class="foto-dia" src="assets/img/portada-900.webp" srcset="assets/img/portada-900.webp 800w, assets/img/portada-1600.webp 1600w" sizes="100vw" width="800" height="533" fetchpriority="high" alt="Casa de madera en una ladera verde de montaña con terrazas sembradas"><img class="foto-noche" src="assets/img/noche-900.webp" srcset="assets/img/noche-900.webp 800w, assets/img/noche-1600.webp 1600w" sizes="100vw" width="800" height="533" loading="lazy" decoding="async" aria-hidden="true" alt=""></div></div><div class="contenedor portada-in"><p class="saludo" data-saludo="">Desde Santo Domingo, Mérida</p><p class="ahora" data-ahora="" aria-live="polite"></p><h1 data-partir="">Vive el <em>campo andino</em></h1><p class="portada-lema">Posada agroturística en Santo Domingo. Un refugio de familia para vivir el campo andino de cerca, sin apuro.</p><div class="portada-acciones"><a class="btn btn-crema" data-wa="general" href="https://wa.me/584143715244?text=Hola%2C%20quisiera%20informaci%C3%B3n%20para%20reservar%20en%20El%20Refugio%20de%20T%C3%ADo%20Lucio." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.31l-.34-.2-3.57.94.95-3.48-.22-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.23-9.43 9.44-9.43a9.43 9.43 0 0 1 9.43 9.44c0 5.2-4.23 9.43-9.44 9.43zm8.03-17.46A11.27 11.27 0 0 0 12.05.72C5.79.72.7 5.81.7 12.07c0 2 .52 3.95 1.52 5.67L.6 23.65l6.05-1.59a11.33 11.33 0 0 0 5.4 1.38h.01c6.26 0 11.35-5.09 11.35-11.35 0-3.03-1.18-5.88-3.33-8.03z"></path></svg>Reservar por WhatsApp</a><a class="flecha-link" href="#experiencias">Cómo es un día aquí <span aria-hidden="true">→</span></a></div><a class="google-linea" href="https://www.google.com/maps/search/?api=1&amp;query=Posada%20Agroturística%20El%20Refugio%20de%20Tío%20Lucio%20Santo%20Domingo%20Mérida" target="_blank" rel="noopener"><span class="est" aria-hidden="true">★★★★★</span><b>5,0</b> en Google</a></div></section><section class="dia" id="experiencias" aria-labelledby="t-dia"><div class="contenedor dia-cab revelar"><p class="rotulo">Experiencias del campo</p><h2 id="t-dia" class="titulo">Un día en <em>el refugio</em></h2><p class="intro">Aquí no se viene solo a dormir. Baja y vive el día completo, del ordeño a la chimenea. Marca lo que te provoque.</p></div><div class="paneles"><article class="panel" data-exp="ordeno" aria-label="6:30 a. m., Ordeño y café recién colado"><div class="panel-foto"><img src="assets/img/dia-ordeno-800.webp" srcset="assets/img/dia-ordeno-800.webp 800w, assets/img/dia-ordeno-1600.webp 1600w" sizes="100vw" width="800" height="533" loading="lazy" decoding="async" alt="Vaca pastando en un potrero con neblina al amanecer"></div><div class="panel-sombra" aria-hidden="true"></div><div class="contenedor panel-in revelar-grupo"><p class="panel-paso">Un día en el refugio · 1 de 5</p><p class="panel-hora">6:30<small>a. m.</small></p><h3>Ordeño y café recién colado</h3><p class="texto">Acompaña el ordeño cuando sale el sol y tómate la leche tibia con café.</p><button class="me-interesa" type="button" aria-pressed="false" data-toggle-exp="ordeno"><span class="caja"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.5l2.5 2.5L10 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span class="txt">Me interesa</span></button></div></article><article class="panel" data-exp="desayuno" aria-label="8:00 a. m., Desayuno andino"><div class="panel-foto"><img src="assets/img/dia-desayuno-800.webp" srcset="assets/img/dia-desayuno-800.webp 800w, assets/img/dia-desayuno-1600.webp 1600w" sizes="100vw" width="800" height="533" loading="lazy" decoding="async" alt="Plato de arepas con un acompañante sobre un mantel de cuadros"></div><div class="panel-sombra" aria-hidden="true"></div><div class="contenedor panel-in revelar-grupo"><p class="panel-paso">Un día en el refugio · 2 de 5</p><p class="panel-hora">8:00<small>a. m.</small></p><h3>Desayuno andino</h3><p class="texto">Arepas de trigo, pisca andina y queso hecho en casa, en la mesa de la familia.</p><button class="me-interesa" type="button" aria-pressed="false" data-toggle-exp="desayuno"><span class="caja"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.5l2.5 2.5L10 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span class="txt">Me interesa</span></button></div></article><article class="panel" data-exp="huerta" aria-label="10:00 a. m., Manos en la huerta"><div class="panel-foto"><img src="assets/img/dia-huerta-800.webp" srcset="assets/img/dia-huerta-800.webp 800w, assets/img/dia-huerta-1600.webp 1600w" sizes="100vw" width="800" height="533" loading="lazy" decoding="async" alt="Manos sacando papas de la tierra en una huerta"></div><div class="panel-sombra" aria-hidden="true"></div><div class="contenedor panel-in revelar-grupo"><p class="panel-paso">Un día en el refugio · 3 de 5</p><p class="panel-hora">10:00<small>a. m.</small></p><h3>Manos en la huerta</h3><p class="texto">Siembra, cosecha y saca tus propias papas. Aquí se aprende cómo se cultiva en la montaña.</p><button class="me-interesa" type="button" aria-pressed="false" data-toggle-exp="huerta"><span class="caja"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.5l2.5 2.5L10 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span class="txt">Me interesa</span></button></div></article><article class="panel" data-exp="caminata" aria-label="3:00 p. m., Caminata por la montaña"><div class="panel-foto"><img src="assets/img/dia-caminata-800.webp" srcset="assets/img/dia-caminata-800.webp 800w, assets/img/dia-caminata-1600.webp 1600w" sizes="100vw" width="800" height="533" loading="lazy" decoding="async" alt="Caminantes en un sendero de páramo entre frailejones"></div><div class="panel-sombra" aria-hidden="true"></div><div class="contenedor panel-in revelar-grupo"><p class="panel-paso">Un día en el refugio · 4 de 5</p><p class="panel-hora">3:00<small>p. m.</small></p><h3>Caminata por la montaña</h3><p class="texto">Senderos entre potreros, quebradas y frailejones, con alguien de la casa.</p><button class="me-interesa" type="button" aria-pressed="false" data-toggle-exp="caminata"><span class="caja"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.5l2.5 2.5L10 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span class="txt">Me interesa</span></button></div></article><article class="panel" data-exp="fogon" aria-label="7:00 p. m., Noche de fogón"><div class="panel-foto"><img src="assets/img/dia-fogon-800.webp" srcset="assets/img/dia-fogon-800.webp 800w, assets/img/dia-fogon-1600.webp 1600w" sizes="100vw" width="800" height="533" loading="lazy" decoding="async" alt="Manos sosteniendo una taza caliente frente a una chimenea encendida"></div><div class="panel-sombra" aria-hidden="true"></div><div class="contenedor panel-in revelar-grupo"><p class="panel-paso">Un día en el refugio · 5 de 5</p><p class="panel-hora">7:00<small>p. m.</small></p><h3>Noche de fogón</h3><p class="texto">Chocolate caliente, cuentos y la chimenea encendida. Afuera hace frío; adentro no.</p><button class="me-interesa" type="button" aria-pressed="false" data-toggle-exp="fogon"><span class="caja"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.5l2.5 2.5L10 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span class="txt">Me interesa</span></button></div></article></div><div class="contenedor dia-cierre revelar"><p class="grande" data-resumen-texto="">¿Qué te provoca? Marca <b>Me interesa</b> en lo que quieras vivir.</p><a class="btn btn-verde" data-wa-exp="" href="https://wa.me/584143715244?text=Hola%2C%20quisiera%20saber%20qu%C3%A9%20experiencias%20del%20campo%20tienen%20en%20El%20Refugio%20de%20T%C3%ADo%20Lucio." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.31l-.34-.2-3.57.94.95-3.48-.22-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.23-9.43 9.44-9.43a9.43 9.43 0 0 1 9.43 9.44c0 5.2-4.23 9.43-9.44 9.43zm8.03-17.46A11.27 11.27 0 0 0 12.05.72C5.79.72.7 5.81.7 12.07c0 2 .52 3.95 1.52 5.67L.6 23.65l6.05-1.59a11.33 11.33 0 0 0 5.4 1.38h.01c6.26 0 11.35-5.09 11.35-11.35 0-3.03-1.18-5.88-3.33-8.03z"></path></svg><span>Preguntar por WhatsApp</span></a></div></section><section class="voz" aria-label="Calificación en Google"><div class="contenedor"><div class="voz-in revelar"><p class="voz-num">5,0</p><p class="voz-texto"><span class="est" aria-hidden="true">★★★★★</span>en Google. La primera reseña ya llegó con cinco estrellas. <a href="https://www.google.com/maps/search/?api=1&amp;query=Posada%20Agroturística%20El%20Refugio%20de%20Tío%20Lucio%20Santo%20Domingo%20Mérida" target="_blank" rel="noopener">Ver la ficha</a></p></div></div></section><section class="cuartos" id="habitaciones" aria-labelledby="t-hab"><div class="contenedor cuartos-cab"><div class="revelar"><p class="rotulo">Habitaciones</p><h2 id="t-hab" class="titulo">Para dormir <em>abrigado</em></h2><p class="intro">Madera, cobijas de lana y agua caliente. Cada botón te abre WhatsApp con la habitación ya escrita.</p></div><div class="tira-flechas"><button type="button" data-tira="-1" aria-label="Habitación anterior">←</button><button type="button" data-tira="1" aria-label="Habitación siguiente">→</button></div></div><div class="tira" tabindex="0" aria-label="Habitaciones"><article class="cuarto" data-hab="fogon"><img src="assets/img/hab-fogon-700.webp" srcset="assets/img/hab-fogon-700.webp 800w, assets/img/hab-fogon-1100.webp 1600w" sizes="(min-width: 900px) 460px, 84vw" width="800" height="533" loading="lazy" decoding="async" alt="Habitación de madera con estufa de leña, cama y una silla junto a la ventana"><div class="cuarto-texto"><p class="cuarto-precio">$65<small>la noche</small></p><h3>Cabaña El Fogón</h3><p class="cuarto-datos">Hasta 5 personas · 2 camas matrimoniales y 1 individual</p><p class="cuarto-incluye">Chimenea · Baño privado con agua caliente · Cocinita · Vista a la montaña</p><a class="btn btn-crema" data-wa-hab="fogon" href="https://wa.me/584143715244?text=Hola%2C%20quiero%20reservar%20la%20caba%C3%B1a%20El%20Fog%C3%B3n%20en%20El%20Refugio%20de%20T%C3%ADo%20Lucio.%20%C2%BFTienen%20disponibilidad%3F" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.31l-.34-.2-3.57.94.95-3.48-.22-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.23-9.43 9.44-9.43a9.43 9.43 0 0 1 9.43 9.44c0 5.2-4.23 9.43-9.44 9.43zm8.03-17.46A11.27 11.27 0 0 0 12.05.72C5.79.72.7 5.81.7 12.07c0 2 .52 3.95 1.52 5.67L.6 23.65l6.05-1.59a11.33 11.33 0 0 0 5.4 1.38h.01c6.26 0 11.35-5.09 11.35-11.35 0-3.03-1.18-5.88-3.33-8.03z"></path></svg>Reservar</a></div></article><article class="cuarto" data-hab="frailejon"><img src="assets/img/hab-frailejon-640.webp" srcset="assets/img/hab-frailejon-640.webp 800w, assets/img/hab-frailejon-1000.webp 1600w" sizes="(min-width: 900px) 460px, 84vw" width="800" height="533" loading="lazy" decoding="async" alt="Habitación de cabaña con paredes de madera, lámparas encendidas y cobija de lana"><div class="cuarto-texto"><p class="cuarto-precio">$30<small>la noche</small></p><h3>Habitación Frailejón</h3><p class="cuarto-datos">Hasta 2 personas · 1 cama matrimonial</p><p class="cuarto-incluye">Baño privado con agua caliente · Cobijas de lana</p><a class="btn btn-crema" data-wa-hab="frailejon" href="https://wa.me/584143715244?text=Hola%2C%20quiero%20reservar%20la%20habitaci%C3%B3n%20Frailej%C3%B3n%20en%20El%20Refugio%20de%20T%C3%ADo%20Lucio.%20%C2%BFTienen%20disponibilidad%3F" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.31l-.34-.2-3.57.94.95-3.48-.22-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.23-9.43 9.44-9.43a9.43 9.43 0 0 1 9.43 9.44c0 5.2-4.23 9.43-9.44 9.43zm8.03-17.46A11.27 11.27 0 0 0 12.05.72C5.79.72.7 5.81.7 12.07c0 2 .52 3.95 1.52 5.67L.6 23.65l6.05-1.59a11.33 11.33 0 0 0 5.4 1.38h.01c6.26 0 11.35-5.09 11.35-11.35 0-3.03-1.18-5.88-3.33-8.03z"></path></svg>Reservar</a></div></article><article class="cuarto" data-hab="trigal"><img src="assets/img/hab-trigal-640.webp" srcset="assets/img/hab-trigal-640.webp 800w, assets/img/hab-trigal-1000.webp 1600w" sizes="(min-width: 900px) 460px, 84vw" width="800" height="533" loading="lazy" decoding="async" alt="Habitación de madera con cama de cobija a cuadros rojos y ventana con cortinas"><div class="cuarto-texto"><p class="cuarto-precio">$40<small>la noche</small></p><h3>Habitación Trigal</h3><p class="cuarto-datos">Hasta 3 personas · 1 cama matrimonial y 1 individual</p><p class="cuarto-incluye">Baño privado con agua caliente · Ventana a la huerta</p><a class="btn btn-crema" data-wa-hab="trigal" href="https://wa.me/584143715244?text=Hola%2C%20quiero%20reservar%20la%20habitaci%C3%B3n%20Trigal%20en%20El%20Refugio%20de%20T%C3%ADo%20Lucio.%20%C2%BFTienen%20disponibilidad%3F" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.31l-.34-.2-3.57.94.95-3.48-.22-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.23-9.43 9.44-9.43a9.43 9.43 0 0 1 9.43 9.44c0 5.2-4.23 9.43-9.44 9.43zm8.03-17.46A11.27 11.27 0 0 0 12.05.72C5.79.72.7 5.81.7 12.07c0 2 .52 3.95 1.52 5.67L.6 23.65l6.05-1.59a11.33 11.33 0 0 0 5.4 1.38h.01c6.26 0 11.35-5.09 11.35-11.35 0-3.03-1.18-5.88-3.33-8.03z"></path></svg>Reservar</a></div></article></div><div class="contenedor"><p class="tira-ayuda">Desliza para ver las 3 habitaciones →</p></div></section><section class="pueblo" id="pueblo" aria-labelledby="t-pue"><div class="pueblo-banda"><div class="mov" data-paralaje="0.1"><img src="assets/img/pueblo-800.webp" srcset="assets/img/pueblo-800.webp 800w, assets/img/pueblo-1600.webp 1600w" sizes="100vw" width="800" height="533" loading="lazy" decoding="async" alt="Montaña verde con casas entre la neblina"></div><div class="contenedor"><p class="rotulo">Santo Domingo y cómo llegar</p><p class="altura"><span data-contar="2173">2.173</span> m<small>sobre el nivel del mar</small></p><h2 id="t-pue" data-partir="">Un pueblo de montaña, con el páramo cerca</h2></div></div><div class="contenedor pueblo-cuerpo"><div class="revelar"><p class="intro">Un pueblo de montaña andino: aire frío, verde por todos lados y gente que te saluda en la calle.</p><h3>Para llenar los días</h3><ol class="lugares"><li><div><b>Laguna de Mucubají</b><span>Agua fría, frailejones y el páramo abierto.</span></div></li><li><div><b>Criaderos de truchas</b><span>Para pescar tu almuerzo o comprar trucha fresca.</span></div></li><li><div><b>La plaza del pueblo</b><span>Para caminar al final de la tarde y comprar dulces andinos.</span></div></li><li><div><b>Caminos de montaña</b><span>Rutas cortas y largas, para todos los niveles.</span></div></li></ol></div><div class="revelar"><p class="rotulo">La dirección</p><address class="direccion">Calle Bolívar con calle Sucre<br>Santo Domingo, estado Mérida</address><div class="llegar-lista"><p><b>Desde Mérida.</b>Unas 2 horas y media por la carretera Trasandina.</p><p><b>Desde Barinas.</b>Cerca de 2 horas subiendo hacia la montaña.</p></div><a class="btn btn-verde" href="https://www.google.com/maps/search/?api=1&amp;query=Posada%20Agroturística%20El%20Refugio%20de%20Tío%20Lucio%2C%20calle%20Bolívar%20con%20calle%20Sucre%2C%20Santo%20Domingo%2C%20Mérida" target="_blank" rel="noopener">Abrir en Google Maps</a></div></div></section><section class="reservar" id="reservar" aria-labelledby="t-res"><div class="contenedor res-in"><div class="revelar"><p class="rotulo">Antes de venir</p><h2 class="titulo" style="font-size:clamp(2.4rem,7vw,4rem)">Preguntas <em>frecuentes</em></h2><div class="acordeon"><details><summary>¿A qué hora es la entrada y la salida?</summary><p class="resp">La entrada es desde las 2:00 p. m. y la salida hasta las 12:00 m.</p></details><details><summary>¿Las experiencias del campo tienen costo aparte?</summary><p class="resp">El ordeño, el desayuno y la huerta están incluidos. La caminata y la noche de fogón se coordinan al llegar.</p></details><details><summary>¿Pueden ir niños?</summary><p class="resp">Sí. El campo es para ellos: animales, huerta y espacio para correr.</p></details><details><summary>¿Hace mucho frío?</summary><p class="resp">En la noche refresca bastante. Trae abrigo, gorro y medias gruesas; las cobijas de lana las ponemos nosotros.</p></details><details><summary>¿Cómo puedo pagar?</summary><p class="resp">Pago móvil, Zelle o efectivo en divisas.</p></details><details><summary>¿Hay que dar un adelanto para reservar?</summary><p class="resp">Sí. Con el 50 % apartamos tus fechas y el resto lo pagas al llegar.</p></details></div><p style="margin-top:24px">¿Otra duda? <a class="flecha-link" data-wa="pregunta" href="https://wa.me/584143715244?text=Hola%2C%20tengo%20una%20pregunta%20sobre%20El%20Refugio%20de%20T%C3%ADo%20Lucio." target="_blank" rel="noopener">Pregúntanos por WhatsApp <span aria-hidden="true">→</span></a></p></div><form class="formulario revelar" data-form-reserva="" action="https://wa.me/584143715244" method="get" target="_blank" novalidate=""><input type="hidden" name="text" value="Hola, quisiera información para reservar en El Refugio de Tío Lucio."><p class="rotulo">Reservar</p><h2 id="t-res">Arma tu estadía</h2><p class="ayuda">Llena lo que sepas y te abrimos WhatsApp con todo escrito. No se guarda nada aquí.</p><div class="campos"><label class="campo"><span>Llegada</span><input type="date" data-campo="llegada"></label><label class="campo"><span>Salida</span><input type="date" data-campo="salida"></label><div class="campo"><span>Personas</span><div class="contador"><button type="button" data-paso="-1" aria-label="Una persona menos">−</button><input type="number" inputmode="numeric" min="1" max="20" value="2" data-campo="personas" aria-label="Personas"><button type="button" data-paso="1" aria-label="Una persona más">+</button></div></div><label class="campo"><span>Tu nombre</span><input type="text" data-campo="nombre" maxlength="40" autocomplete="given-name" placeholder="Opcional"></label><label class="campo campo-ancho"><span>Habitación</span><select data-campo="hab"><option value="">La que esté disponible</option><option value="fogon">Cabaña El Fogón</option><option value="frailejon">Habitación Frailejón</option><option value="trigal">Habitación Trigal</option></select></label><fieldset class="campo campo-ancho"><legend>Me interesa vivir</legend><div class="casillas"><label><input type="checkbox" value="ordeno" data-chip-exp=""><span class="caja"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.5l2.5 2.5L10 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>Ordeño y café recién colado</label><label><input type="checkbox" value="desayuno" data-chip-exp=""><span class="caja"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.5l2.5 2.5L10 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>Desayuno andino</label><label><input type="checkbox" value="huerta" data-chip-exp=""><span class="caja"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.5l2.5 2.5L10 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>Manos en la huerta</label><label><input type="checkbox" value="caminata" data-chip-exp=""><span class="caja"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.5l2.5 2.5L10 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>Caminata por la montaña</label><label><input type="checkbox" value="fogon" data-chip-exp=""><span class="caja"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.5l2.5 2.5L10 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>Noche de fogón</label></div></fieldset></div><p class="form-error" role="alert"></p><button class="btn btn-verde" type="submit"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.31l-.34-.2-3.57.94.95-3.48-.22-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.23-9.43 9.44-9.43a9.43 9.43 0 0 1 9.43 9.44c0 5.2-4.23 9.43-9.44 9.43zm8.03-17.46A11.27 11.27 0 0 0 12.05.72C5.79.72.7 5.81.7 12.07c0 2 .52 3.95 1.52 5.67L.6 23.65l6.05-1.59a11.33 11.33 0 0 0 5.4 1.38h.01c6.26 0 11.35-5.09 11.35-11.35 0-3.03-1.18-5.88-3.33-8.03z"></path></svg>Enviar por WhatsApp</button><div class="tu-mensaje" aria-live="polite"><p class="rotulo">Tu mensaje</p><pre data-nota="">Hola, quisiera información para reservar en El Refugio de Tío Lucio.</pre></div><p class="estimado" data-estimado=""></p></form></div></section></main>
-<footer class="pie"><div class="contenedor"><p class="pie-marca revelar">El Refugio<br><i>de Tío Lucio</i></p><a class="btn btn-crema" data-wa="general" href="https://wa.me/584143715244?text=Hola%2C%20quisiera%20informaci%C3%B3n%20para%20reservar%20en%20El%20Refugio%20de%20T%C3%ADo%20Lucio." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.31l-.34-.2-3.57.94.95-3.48-.22-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.23-9.43 9.44-9.43a9.43 9.43 0 0 1 9.43 9.44c0 5.2-4.23 9.43-9.44 9.43zm8.03-17.46A11.27 11.27 0 0 0 12.05.72C5.79.72.7 5.81.7 12.07c0 2 .52 3.95 1.52 5.67L.6 23.65l6.05-1.59a11.33 11.33 0 0 0 5.4 1.38h.01c6.26 0 11.35-5.09 11.35-11.35 0-3.03-1.18-5.88-3.33-8.03z"></path></svg>Escribir por WhatsApp</a><div class="pie-datos"><div><b>WhatsApp</b><a data-wa="general" href="https://wa.me/584143715244?text=Hola%2C%20quisiera%20informaci%C3%B3n%20para%20reservar%20en%20El%20Refugio%20de%20T%C3%ADo%20Lucio." target="_blank" rel="noopener">0414 371 5244</a></div><div><b>Atención</b><span>Todos los días, de 7:00 a. m. a 8:00 p. m.</span></div><div><b>Dirección</b><a href="https://www.google.com/maps/search/?api=1&amp;query=Posada%20Agroturística%20El%20Refugio%20de%20Tío%20Lucio%2C%20calle%20Bolívar%20con%20calle%20Sucre%2C%20Santo%20Domingo%2C%20Mérida" target="_blank" rel="noopener">Calle Bolívar con calle Sucre, Santo Domingo, estado Mérida</a></div><div><b>Google</b><a href="https://www.google.com/maps/search/?api=1&amp;query=Posada%20Agroturística%20El%20Refugio%20de%20Tío%20Lucio%20Santo%20Domingo%20Mérida" target="_blank" rel="noopener">5,0 estrellas</a></div></div><p class="legal">© 2026 Posada Agroturística El Refugio de Tío Lucio<br>Fotos referenciales mientras llegan las de la posada.</p></div></footer><a class="wa-flotante" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp a El Refugio de Tío Lucio" data-wa="general" href="https://wa.me/584143715244?text=Hola%2C%20quisiera%20informaci%C3%B3n%20para%20reservar%20en%20El%20Refugio%20de%20T%C3%ADo%20Lucio."><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.31l-.34-.2-3.57.94.95-3.48-.22-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.23-9.43 9.44-9.43a9.43 9.43 0 0 1 9.43 9.44c0 5.2-4.23 9.43-9.44 9.43zm8.03-17.46A11.27 11.27 0 0 0 12.05.72C5.79.72.7 5.81.7 12.07c0 2 .52 3.95 1.52 5.67L.6 23.65l6.05-1.59a11.33 11.33 0 0 0 5.4 1.38h.01c6.26 0 11.35-5.09 11.35-11.35 0-3.03-1.18-5.88-3.33-8.03z"></path></svg></a></div>
+<header class="nav" data-nav=""><div class="contenedor nav-in"><a class="marca" href="#inicio" aria-label="El Refugio de Tío Lucio, inicio"><small>Posada agroturística</small><span>El Refugio <i>de Tío Lucio</i></span></a><nav id="menu" class="nav-links" aria-label="Secciones"><a href="#experiencias">Experiencias</a><a href="#habitaciones">Habitaciones</a><a href="#pueblo">Cómo llegar</a><a href="#reservar">Reservar</a></nav><a class="btn btn-verde" data-wa="general" href="https://wa.me/584143715244?text=Hola%2C%20quisiera%20informaci%C3%B3n%20para%20reservar%20en%20El%20Refugio%20de%20T%C3%ADo%20Lucio." target="_blank" rel="noopener">Reservar</a><button class="nav-boton" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú"><span></span></button></div><div class="progreso" aria-hidden="true"></div></header>
+<main id="main"><section class="portada" id="inicio" aria-label="Portada"><div class="portada-foto"><div class="portada-mover" data-prof="0.14"><img src="assets/img/portada-900.webp" srcset="assets/img/portada-900.webp 800w, assets/img/portada-1600.webp 1400w" sizes="100vw" width="800" height="533" fetchpriority="high" alt="Casa de madera en una ladera verde de montaña con terrazas sembradas"></div></div><div class="contenedor portada-in"><span class="rotulo">Posada agroturística · Santo Domingo, Mérida</span><h1 data-partir="letras">Vive el <em>campo andino</em></h1><p class="portada-lema">Un refugio de familia en la montaña para vivir el campo andino de cerca: el ordeño, la huerta, la comida de casa y la chimenea en la noche.</p><a class="portada-google" href="https://www.google.com/maps/search/?api=1&amp;query=Posada%20Agroturística%20El%20Refugio%20de%20Tío%20Lucio%20Santo%20Domingo%20Mérida" target="_blank" rel="noopener"><span class="cinco" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.6l2.83 6.07 6.65.72-4.95 4.5 1.36 6.55L12 17.1l-5.89 3.34 1.36-6.55-4.95-4.5 6.65-.72z"></path></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.6l2.83 6.07 6.65.72-4.95 4.5 1.36 6.55L12 17.1l-5.89 3.34 1.36-6.55-4.95-4.5 6.65-.72z"></path></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.6l2.83 6.07 6.65.72-4.95 4.5 1.36 6.55L12 17.1l-5.89 3.34 1.36-6.55-4.95-4.5 6.65-.72z"></path></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.6l2.83 6.07 6.65.72-4.95 4.5 1.36 6.55L12 17.1l-5.89 3.34 1.36-6.55-4.95-4.5 6.65-.72z"></path></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.6l2.83 6.07 6.65.72-4.95 4.5 1.36 6.55L12 17.1l-5.89 3.34 1.36-6.55-4.95-4.5 6.65-.72z"></path></svg></span><span><b>5,0</b> en Google</span></a><div class="portada-botones"><a class="btn btn-claro" data-wa="general" href="https://wa.me/584143715244?text=Hola%2C%20quisiera%20informaci%C3%B3n%20para%20reservar%20en%20El%20Refugio%20de%20T%C3%ADo%20Lucio." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.31l-.34-.2-3.57.94.95-3.48-.22-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.23-9.43 9.44-9.43a9.43 9.43 0 0 1 9.43 9.44c0 5.2-4.23 9.43-9.44 9.43zm8.03-17.46A11.27 11.27 0 0 0 12.05.72C5.79.72.7 5.81.7 12.07c0 2 .52 3.95 1.52 5.67L.6 23.65l6.05-1.59a11.33 11.33 0 0 0 5.4 1.38h.01c6.26 0 11.35-5.09 11.35-11.35 0-3.03-1.18-5.88-3.33-8.03z"></path></svg>Reservar por WhatsApp</a><a class="btn btn-linea" href="#habitaciones">Ver habitaciones</a></div></div></section><section class="resenas" id="resenas" aria-labelledby="t-res-g"><div class="contenedor"><span class="rotulo">Lo que dicen en Google</span><div class="nota revelar"><span class="nota-numero" data-contar="5">5,0</span><span class="cinco" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.6l2.83 6.07 6.65.72-4.95 4.5 1.36 6.55L12 17.1l-5.89 3.34 1.36-6.55-4.95-4.5 6.65-.72z"></path></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.6l2.83 6.07 6.65.72-4.95 4.5 1.36 6.55L12 17.1l-5.89 3.34 1.36-6.55-4.95-4.5 6.65-.72z"></path></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.6l2.83 6.07 6.65.72-4.95 4.5 1.36 6.55L12 17.1l-5.89 3.34 1.36-6.55-4.95-4.5 6.65-.72z"></path></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.6l2.83 6.07 6.65.72-4.95 4.5 1.36 6.55L12 17.1l-5.89 3.34 1.36-6.55-4.95-4.5 6.65-.72z"></path></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.6l2.83 6.07 6.65.72-4.95 4.5 1.36 6.55L12 17.1l-5.89 3.34 1.36-6.55-4.95-4.5 6.65-.72z"></path></svg></span><p class="nota-pie"><b>1 reseña</b> en Google Maps</p></div><h2 id="t-res-g" class="revelar">La primera reseña en Google ya llegó con cinco estrellas.</h2><a class="enlace" href="https://www.google.com/maps/search/?api=1&amp;query=Posada%20Agroturística%20El%20Refugio%20de%20Tío%20Lucio%20Santo%20Domingo%20Mérida" target="_blank" rel="noopener">Ver la ficha en Google Maps</a></div></section><div class="cumbre"><svg class="trazo revelar" viewBox="0 0 220 40" aria-hidden="true"><path pathLength="1" d="M0 34H58L86 10L104 26L118 14L150 34H220"></path></svg></div><section class="experiencias" id="experiencias" aria-labelledby="t-exp"><div class="contenedor"><div class="exp-cab revelar"><div><span class="rotulo">Experiencias del campo</span><h2 id="t-exp" class="titulo">Aquí no se viene <em>solo a dormir</em></h2></div><p class="intro">Ordeño al amanecer, desayuno de casa, manos en la tierra y fogón en la noche. Marca lo que te provoque y te armamos el mensaje para preguntar.</p></div><ul class="exp-lista revelar-grupo"><li class="exp" data-exp="ordeno"><div class="exp-foto"><img src="assets/img/dia-ordeno-800.webp" width="800" height="533" loading="lazy" decoding="async" alt="Vaca pastando en un potrero con neblina al amanecer"><span class="exp-hora">6:30 a. m.</span></div><div class="exp-cuerpo"><h3>Ordeño al amanecer</h3><p>Acompaña el ordeño y tómate la leche tibia con café recién colado.</p><button class="me-interesa" type="button" aria-pressed="false" data-toggle-exp="ordeno"><span class="caja"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.5l2.5 2.5L10 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span class="txt">Me interesa</span></button></div></li><li class="exp" data-exp="desayuno"><div class="exp-foto"><img src="assets/img/dia-desayuno-800.webp" width="800" height="533" loading="lazy" decoding="async" alt="Plato de arepas con un acompañante sobre un mantel de cuadros"><span class="exp-hora">8:00 a. m.</span></div><div class="exp-cuerpo"><h3>Desayuno andino</h3><p>Arepas de trigo, pisca andina y queso hecho en casa.</p><button class="me-interesa" type="button" aria-pressed="false" data-toggle-exp="desayuno"><span class="caja"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.5l2.5 2.5L10 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span class="txt">Me interesa</span></button></div></li><li class="exp" data-exp="huerta"><div class="exp-foto"><img src="assets/img/dia-huerta-800.webp" width="800" height="533" loading="lazy" decoding="async" alt="Manos sacando papas de la tierra en una huerta"><span class="exp-hora">10:00 a. m.</span></div><div class="exp-cuerpo"><h3>Manos en la huerta</h3><p>Siembra, cosecha y saca tus propias papas.</p><button class="me-interesa" type="button" aria-pressed="false" data-toggle-exp="huerta"><span class="caja"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.5l2.5 2.5L10 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span class="txt">Me interesa</span></button></div></li><li class="exp" data-exp="caminata"><div class="exp-foto"><img src="assets/img/dia-caminata-800.webp" width="800" height="533" loading="lazy" decoding="async" alt="Caminantes en un sendero de páramo entre frailejones"><span class="exp-hora">3:00 p. m.</span></div><div class="exp-cuerpo"><h3>Caminata al páramo</h3><p>Senderos entre potreros, quebradas y frailejones, con alguien de la casa.</p><button class="me-interesa" type="button" aria-pressed="false" data-toggle-exp="caminata"><span class="caja"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.5l2.5 2.5L10 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span class="txt">Me interesa</span></button></div></li><li class="exp" data-exp="fogon"><div class="exp-foto"><img src="assets/img/dia-fogon-800.webp" width="800" height="533" loading="lazy" decoding="async" alt="Manos sosteniendo una taza caliente frente a una chimenea encendida"><span class="exp-hora">7:00 p. m.</span></div><div class="exp-cuerpo"><h3>Noche de fogón</h3><p>Chocolate caliente, cuentos y la chimenea encendida.</p><button class="me-interesa" type="button" aria-pressed="false" data-toggle-exp="fogon"><span class="caja"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.5l2.5 2.5L10 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span class="txt">Me interesa</span></button></div></li></ul><div class="exp-resumen revelar"><p data-resumen-texto="">Marca <b>Me interesa</b> en lo que quieras vivir.</p><a class="btn btn-verde" data-wa-exp="" href="https://wa.me/584143715244?text=Hola%2C%20quisiera%20saber%20qu%C3%A9%20experiencias%20del%20campo%20tienen%20en%20El%20Refugio%20de%20T%C3%ADo%20Lucio." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.31l-.34-.2-3.57.94.95-3.48-.22-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.23-9.43 9.44-9.43a9.43 9.43 0 0 1 9.43 9.44c0 5.2-4.23 9.43-9.44 9.43zm8.03-17.46A11.27 11.27 0 0 0 12.05.72C5.79.72.7 5.81.7 12.07c0 2 .52 3.95 1.52 5.67L.6 23.65l6.05-1.59a11.33 11.33 0 0 0 5.4 1.38h.01c6.26 0 11.35-5.09 11.35-11.35 0-3.03-1.18-5.88-3.33-8.03z"></path></svg><span>Preguntar por WhatsApp</span></a></div></div></section><section class="habitaciones" id="habitaciones" aria-labelledby="t-hab"><div class="contenedor"><div class="hab-cabeza"><div class="revelar"><span class="rotulo">Habitaciones</span><h2 id="t-hab" class="titulo">Para dormir <em>abrigado</em></h2><p class="intro">Madera, cobijas de lana y agua caliente. Elige tus fechas aquí y cada botón de reservar ya las lleva escritas.</p></div><div class="fechas revelar" role="group" aria-label="Tus fechas"><div class="fechas-titulo">¿Cuándo vienes?</div><div class="campos"><label class="campo"><span>Llegada</span><input type="date" data-campo="llegada" aria-label="Fecha de llegada"></label><label class="campo"><span>Salida</span><input type="date" data-campo="salida" aria-label="Fecha de salida"></label><div class="campo campo-ancho-m"><span>Personas</span><div class="contador"><button type="button" data-paso="-1" aria-label="Una persona menos">−</button><input type="number" inputmode="numeric" min="1" max="20" value="2" data-campo="personas" aria-label="Personas"><button type="button" data-paso="1" aria-label="Una persona más">+</button></div></div></div><p class="fechas-nota" data-resumen="">Elige llegada y salida para ver cuántas noches son.</p></div></div><div class="lista-hab"><article class="hab" data-hab="fogon"><div class="hab-foto revelar-mascara"><div><img src="assets/img/hab-fogon-700.webp" srcset="assets/img/hab-fogon-700.webp 800w, assets/img/hab-fogon-1100.webp 1400w" sizes="(min-width: 900px) 600px, 92vw" width="800" height="533" loading="lazy" decoding="async" alt="Habitación de madera con estufa de leña, cama y una silla junto a la ventana"></div></div><div class="hab-cuerpo"><h3>Cabaña El Fogón</h3><p class="hab-texto">La más grande de la casa, con chimenea propia para las noches frías.</p><p class="hab-meta"><b>Hasta 5 personas</b> · 2 camas matrimoniales y 1 individual</p><ul class="incluye"><li>Chimenea</li><li>Baño privado con agua caliente</li><li>Cocinita</li><li>Vista a la montaña</li></ul><p class="hab-aviso" aria-live="polite"></p><div class="hab-pie"><span class="precio">$65<small>la noche</small></span><a class="btn btn-verde" data-wa-hab="fogon" href="https://wa.me/584143715244?text=Hola%2C%20quiero%20reservar%20la%20caba%C3%B1a%20El%20Fog%C3%B3n%20en%20El%20Refugio%20de%20T%C3%ADo%20Lucio.%20%C2%BFTienen%20disponibilidad%3F" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.31l-.34-.2-3.57.94.95-3.48-.22-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.23-9.43 9.44-9.43a9.43 9.43 0 0 1 9.43 9.44c0 5.2-4.23 9.43-9.44 9.43zm8.03-17.46A11.27 11.27 0 0 0 12.05.72C5.79.72.7 5.81.7 12.07c0 2 .52 3.95 1.52 5.67L.6 23.65l6.05-1.59a11.33 11.33 0 0 0 5.4 1.38h.01c6.26 0 11.35-5.09 11.35-11.35 0-3.03-1.18-5.88-3.33-8.03z"></path></svg>Reservar</a></div></div></article><article class="hab" data-hab="frailejon"><div class="hab-foto revelar-mascara"><div><img src="assets/img/hab-frailejon-640.webp" srcset="assets/img/hab-frailejon-640.webp 800w, assets/img/hab-frailejon-1000.webp 1400w" sizes="(min-width: 900px) 600px, 92vw" width="800" height="533" loading="lazy" decoding="async" alt="Habitación de cabaña con paredes de madera, lámparas encendidas y cobija de lana"></div></div><div class="hab-cuerpo"><h3>Habitación Frailejón</h3><p class="hab-texto">Toda de madera, tibia y tranquila. Pensada para parejas.</p><p class="hab-meta"><b>Hasta 2 personas</b> · 1 cama matrimonial</p><ul class="incluye"><li>Baño privado con agua caliente</li><li>Cobijas de lana</li><li>Wifi</li></ul><p class="hab-aviso" aria-live="polite"></p><div class="hab-pie"><span class="precio">$30<small>la noche</small></span><a class="btn btn-verde" data-wa-hab="frailejon" href="https://wa.me/584143715244?text=Hola%2C%20quiero%20reservar%20la%20habitaci%C3%B3n%20Frailej%C3%B3n%20en%20El%20Refugio%20de%20T%C3%ADo%20Lucio.%20%C2%BFTienen%20disponibilidad%3F" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.31l-.34-.2-3.57.94.95-3.48-.22-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.23-9.43 9.44-9.43a9.43 9.43 0 0 1 9.43 9.44c0 5.2-4.23 9.43-9.44 9.43zm8.03-17.46A11.27 11.27 0 0 0 12.05.72C5.79.72.7 5.81.7 12.07c0 2 .52 3.95 1.52 5.67L.6 23.65l6.05-1.59a11.33 11.33 0 0 0 5.4 1.38h.01c6.26 0 11.35-5.09 11.35-11.35 0-3.03-1.18-5.88-3.33-8.03z"></path></svg>Reservar</a></div></div></article><article class="hab" data-hab="trigal"><div class="hab-foto revelar-mascara"><div><img src="assets/img/hab-trigal-640.webp" srcset="assets/img/hab-trigal-640.webp 800w, assets/img/hab-trigal-1000.webp 1400w" sizes="(min-width: 900px) 600px, 92vw" width="800" height="533" loading="lazy" decoding="async" alt="Habitación de madera con cama de cobija a cuadros rojos y ventana con cortinas"></div></div><div class="hab-cuerpo"><h3>Habitación Trigal</h3><p class="hab-texto">Con ventana a la huerta, para despertarte viendo el campo.</p><p class="hab-meta"><b>Hasta 3 personas</b> · 1 cama matrimonial y 1 individual</p><ul class="incluye"><li>Baño privado con agua caliente</li><li>Ventana a la huerta</li><li>Wifi</li></ul><p class="hab-aviso" aria-live="polite"></p><div class="hab-pie"><span class="precio">$40<small>la noche</small></span><a class="btn btn-verde" data-wa-hab="trigal" href="https://wa.me/584143715244?text=Hola%2C%20quiero%20reservar%20la%20habitaci%C3%B3n%20Trigal%20en%20El%20Refugio%20de%20T%C3%ADo%20Lucio.%20%C2%BFTienen%20disponibilidad%3F" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.31l-.34-.2-3.57.94.95-3.48-.22-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.23-9.43 9.44-9.43a9.43 9.43 0 0 1 9.43 9.44c0 5.2-4.23 9.43-9.44 9.43zm8.03-17.46A11.27 11.27 0 0 0 12.05.72C5.79.72.7 5.81.7 12.07c0 2 .52 3.95 1.52 5.67L.6 23.65l6.05-1.59a11.33 11.33 0 0 0 5.4 1.38h.01c6.26 0 11.35-5.09 11.35-11.35 0-3.03-1.18-5.88-3.33-8.03z"></path></svg>Reservar</a></div></div></article></div></div></section><section class="pueblo" id="pueblo" aria-labelledby="t-pue"><div class="banda"><div class="mov" data-paralaje="0.1"><img src="assets/img/pueblo-800.webp" srcset="assets/img/pueblo-800.webp 800w, assets/img/pueblo-1600.webp 1400w" sizes="100vw" width="800" height="533" loading="lazy" decoding="async" alt="Montaña verde con casas entre la neblina"></div><div class="contenedor"><span class="rotulo">Santo Domingo y cómo llegar</span><h2 id="t-pue" class="revelar">A <em>2.173 metros</em>, entre montañas</h2><p class="revelar">Un pueblo de montaña andino, con aire frío, verde por todos lados y el páramo cerca.</p></div></div><div class="contenedor pueblo-cuerpo"><div class="revelar"><span class="rotulo">Qué hacer cerca</span><h2 class="titulo" style="font-size:clamp(2rem,5.4vw,3rem)">Para llenar <em>los días</em></h2><ol class="lugares"><li><div><h3>Laguna de Mucubají</h3><p>Agua fría, frailejones y el páramo abierto.</p></div></li><li><div><h3>Criaderos de truchas</h3><p>Para pescar tu almuerzo o comprar trucha fresca.</p></div></li><li><div><h3>La plaza del pueblo</h3><p>Para caminar al final de la tarde y comprar dulces andinos.</p></div></li><li><div><h3>Caminos de montaña</h3><p>Rutas cortas y largas, para todos los niveles.</p></div></li></ol></div><div class="llegar revelar"><span class="rotulo">La dirección</span><address class="direccion">Calle Bolívar con calle Sucre, Santo Domingo, estado Mérida</address><div class="llegar-lista"><p><b>Desde Mérida:</b> Unas 2 horas y media por la carretera Trasandina.</p><p><b>Desde Barinas:</b> Cerca de 2 horas subiendo hacia la montaña.</p></div><a class="btn btn-linea" href="https://www.google.com/maps/search/?api=1&amp;query=Posada%20Agroturística%20El%20Refugio%20de%20Tío%20Lucio%2C%20calle%20Bolívar%20con%20calle%20Sucre%2C%20Santo%20Domingo%2C%20Mérida" target="_blank" rel="noopener">Abrir en Google Maps</a></div></div></section><section class="preguntas" id="preguntas" aria-labelledby="t-preg"><div class="contenedor preg-in"><div class="preg-cab revelar"><span class="rotulo">Preguntas frecuentes</span><h2 id="t-preg" class="titulo">Antes de <em>venir</em></h2><p class="intro">Si tu duda no está aquí, pregúntanos por WhatsApp.</p><p style="margin-top:18px"><a class="enlace" data-wa="pregunta" href="https://wa.me/584143715244?text=Hola%2C%20tengo%20una%20pregunta%20sobre%20El%20Refugio%20de%20T%C3%ADo%20Lucio." target="_blank" rel="noopener">Hacer una pregunta</a></p></div><div class="acordeon revelar-grupo"><details><summary>¿A qué hora es la entrada y la salida?<span class="mas" aria-hidden="true"></span></summary><p class="resp">La entrada es desde las 2:00 p. m. y la salida hasta las 12:00 m.</p></details><details><summary>¿Las experiencias del campo tienen costo aparte?<span class="mas" aria-hidden="true"></span></summary><p class="resp">El ordeño, el desayuno y la huerta están incluidos. La caminata y la noche de fogón se coordinan al llegar.</p></details><details><summary>¿Pueden ir niños?<span class="mas" aria-hidden="true"></span></summary><p class="resp">Sí. El campo es para ellos: animales, huerta y espacio para correr.</p></details><details><summary>¿Hace mucho frío?<span class="mas" aria-hidden="true"></span></summary><p class="resp">En la noche refresca bastante. Trae abrigo, gorro y medias gruesas; las cobijas de lana las ponemos nosotros.</p></details><details><summary>¿Cómo puedo pagar?<span class="mas" aria-hidden="true"></span></summary><p class="resp">Pago móvil, Zelle o efectivo en divisas.</p></details><details><summary>¿Hay que dar un adelanto para reservar?<span class="mas" aria-hidden="true"></span></summary><p class="resp">Sí. Con el 50 % apartamos tus fechas y el resto lo pagas al llegar.</p></details></div></div></section><section class="reservar" id="reservar" aria-labelledby="t-res"><div class="contenedor"><div class="revelar" style="max-width:640px"><span class="rotulo">Reservar</span><h2 id="t-res" class="titulo">Arma tu <em>estadía</em></h2><p class="intro">Llena lo que sepas. Te abrimos WhatsApp con el mensaje listo para enviar. No se guarda nada en esta página.</p></div><div class="res-in"><form class="formulario revelar" data-form-reserva="" action="https://wa.me/584143715244" method="get" target="_blank" novalidate=""><input type="hidden" name="text" value="Hola, quisiera información para reservar en El Refugio de Tío Lucio."><div class="campos"><label class="campo"><span>Llegada</span><input type="date" data-campo="llegada"></label><label class="campo"><span>Salida</span><input type="date" data-campo="salida"></label><div class="campo"><span>Personas</span><div class="contador"><button type="button" data-paso="-1" aria-label="Una persona menos">−</button><input type="number" inputmode="numeric" min="1" max="20" value="2" data-campo="personas" aria-label="Personas"><button type="button" data-paso="1" aria-label="Una persona más">+</button></div></div><label class="campo"><span>Tu nombre</span><input type="text" data-campo="nombre" maxlength="40" autocomplete="given-name" placeholder="Opcional"></label><label class="campo campo-ancho"><span>Habitación</span><select data-campo="hab"><option value="">La que esté disponible</option><option value="fogon">Cabaña El Fogón</option><option value="frailejon">Habitación Frailejón</option><option value="trigal">Habitación Trigal</option></select></label><fieldset class="campo campo-ancho"><legend>Me interesa vivir</legend><div class="casillas"><label><input type="checkbox" value="ordeno" data-chip-exp=""><span class="caja"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.5l2.5 2.5L10 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>Ordeño al amanecer</label><label><input type="checkbox" value="desayuno" data-chip-exp=""><span class="caja"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.5l2.5 2.5L10 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>Desayuno andino</label><label><input type="checkbox" value="huerta" data-chip-exp=""><span class="caja"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.5l2.5 2.5L10 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>Manos en la huerta</label><label><input type="checkbox" value="caminata" data-chip-exp=""><span class="caja"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.5l2.5 2.5L10 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>Caminata al páramo</label><label><input type="checkbox" value="fogon" data-chip-exp=""><span class="caja"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.5l2.5 2.5L10 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>Noche de fogón</label></div></fieldset></div><p class="form-error" role="alert"></p><button class="btn btn-verde" type="submit"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.31l-.34-.2-3.57.94.95-3.48-.22-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.23-9.43 9.44-9.43a9.43 9.43 0 0 1 9.43 9.44c0 5.2-4.23 9.43-9.44 9.43zm8.03-17.46A11.27 11.27 0 0 0 12.05.72C5.79.72.7 5.81.7 12.07c0 2 .52 3.95 1.52 5.67L.6 23.65l6.05-1.59a11.33 11.33 0 0 0 5.4 1.38h.01c6.26 0 11.35-5.09 11.35-11.35 0-3.03-1.18-5.88-3.33-8.03z"></path></svg>Enviar por WhatsApp</button></form><div class="vista-msg revelar" aria-live="polite"><div class="rot">Así llegará tu mensaje</div><div class="chat"><div class="burbuja" data-burbuja="">Hola, quisiera información para reservar en El Refugio de Tío Lucio.<span class="hora">ahora</span></div></div><div class="estimado" data-estimado=""></div></div></div></div></section></main>
+<footer class="pie"><div class="contenedor"><div class="cumbre"><svg class="trazo revelar" viewBox="0 0 220 40" aria-hidden="true"><path pathLength="1" d="M0 34H58L86 10L104 26L118 14L150 34H220"></path></svg></div><p class="pre">Posada agroturística</p><p class="pie-marca revelar">El Refugio <i>de Tío Lucio</i></p><a class="btn btn-verde" data-wa="general" href="https://wa.me/584143715244?text=Hola%2C%20quisiera%20informaci%C3%B3n%20para%20reservar%20en%20El%20Refugio%20de%20T%C3%ADo%20Lucio." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.31l-.34-.2-3.57.94.95-3.48-.22-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.23-9.43 9.44-9.43a9.43 9.43 0 0 1 9.43 9.44c0 5.2-4.23 9.43-9.44 9.43zm8.03-17.46A11.27 11.27 0 0 0 12.05.72C5.79.72.7 5.81.7 12.07c0 2 .52 3.95 1.52 5.67L.6 23.65l6.05-1.59a11.33 11.33 0 0 0 5.4 1.38h.01c6.26 0 11.35-5.09 11.35-11.35 0-3.03-1.18-5.88-3.33-8.03z"></path></svg>Escribir por WhatsApp</a><div class="pie-datos"><div><b>WhatsApp</b><a data-wa="general" href="https://wa.me/584143715244?text=Hola%2C%20quisiera%20informaci%C3%B3n%20para%20reservar%20en%20El%20Refugio%20de%20T%C3%ADo%20Lucio." target="_blank" rel="noopener">0414 371 5244</a></div><div><b>Atención</b><span>Todos los días, de 7:00 a. m. a 8:00 p. m.</span></div><div><b>Dirección</b><a href="https://www.google.com/maps/search/?api=1&amp;query=Posada%20Agroturística%20El%20Refugio%20de%20Tío%20Lucio%2C%20calle%20Bolívar%20con%20calle%20Sucre%2C%20Santo%20Domingo%2C%20Mérida" target="_blank" rel="noopener">Calle Bolívar con calle Sucre, Santo Domingo, estado Mérida</a></div><div><b>Google</b><a href="https://www.google.com/maps/search/?api=1&amp;query=Posada%20Agroturística%20El%20Refugio%20de%20Tío%20Lucio%20Santo%20Domingo%20Mérida" target="_blank" rel="noopener">5,0 estrellas</a></div></div><p class="legal">© 2026 Posada Agroturística El Refugio de Tío Lucio<br>Fotos referenciales mientras llegan las de la posada.</p></div></footer><a class="wa-flotante" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp a El Refugio de Tío Lucio" data-wa="general" href="https://wa.me/584143715244?text=Hola%2C%20quisiera%20informaci%C3%B3n%20para%20reservar%20en%20El%20Refugio%20de%20T%C3%ADo%20Lucio."><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.31l-.34-.2-3.57.94.95-3.48-.22-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.23-9.43 9.44-9.43a9.43 9.43 0 0 1 9.43 9.44c0 5.2-4.23 9.43-9.44 9.43zm8.03-17.46A11.27 11.27 0 0 0 12.05.72C5.79.72.7 5.81.7 12.07c0 2 .52 3.95 1.52 5.67L.6 23.65l6.05-1.59a11.33 11.33 0 0 0 5.4 1.38h.01c6.26 0 11.35-5.09 11.35-11.35 0-3.03-1.18-5.88-3.33-8.03z"></path></svg></a></div>
 <!--auto-fin-->
 
 <script>
@@ -442,120 +498,124 @@ body.pausado *,body.pausado *::before,body.pausado *::after{animation-play-state
   function $(s, r) { return (r || document).querySelector(s); }
   function $$(s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); }
   function dinero(n) { return "$" + (Math.round(n * 100) / 100).toLocaleString("es-VE"); }
-  function miles(n) { return Math.round(n).toLocaleString("es-VE"); }
   function personasTxt(n) { return n == 1 ? "1 persona" : n + " personas"; }
   function porId(lista, id) { return (lista || []).filter(function (x) { return x.id === id; })[0]; }
   var MSG_GENERAL = "Hola, quisiera información para reservar en " + M.nombre + ".";
+  var ESTRELLA = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.6l2.83 6.07 6.65.72-4.95 4.5 1.36 6.55L12 17.1l-5.89 3.34 1.36-6.55-4.95-4.5 6.65-.72z"/></svg>';
+  var CINCO = '<span class="cinco" aria-hidden="true">' + ESTRELLA + ESTRELLA + ESTRELLA + ESTRELLA + ESTRELLA + '</span>';
   var WA_ICONO = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.31l-.34-.2-3.57.94.95-3.48-.22-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.23-9.43 9.44-9.43a9.43 9.43 0 0 1 9.43 9.44c0 5.2-4.23 9.43-9.44 9.43zm8.03-17.46A11.27 11.27 0 0 0 12.05.72C5.79.72.7 5.81.7 12.07c0 2 .52 3.95 1.52 5.67L.6 23.65l6.05-1.59a11.33 11.33 0 0 0 5.4 1.38h.01c6.26 0 11.35-5.09 11.35-11.35 0-3.03-1.18-5.88-3.33-8.03z"/></svg>';
   var CHECK = '<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.5l2.5 2.5L10 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-  function img(x, sizes, extra, cls, src, grande, alt) {
-    src = src || x.foto; grande = grande || x.fotoGrande; alt = alt == null ? x.alt : alt;
-    var set = grande ? ' srcset="' + esc(src) + ' 800w, ' + esc(grande) + ' 1600w" sizes="' + (sizes || "100vw") + '"' : '';
-    return '<img' + (cls ? ' class="' + cls + '"' : '') + ' src="' + esc(src) + '"' + set + ' width="800" height="533" ' + (extra || 'loading="lazy" decoding="async"') + ' alt="' + esc(alt || "") + '">';
+  var CUMBRE = '<div class="cumbre"><svg class="trazo revelar" viewBox="0 0 220 40" aria-hidden="true"><path pathLength="1" d="M0 34H58L86 10L104 26L118 14L150 34H220"/></svg></div>';
+  function img(x, sizes, extra) {
+    var set = x.fotoGrande ? ' srcset="' + esc(x.foto) + ' 800w, ' + esc(x.fotoGrande) + ' 1400w" sizes="' + (sizes || "100vw") + '"' : '';
+    return '<img src="' + esc(x.foto) + '"' + set + ' width="800" height="533" ' + (extra || 'loading="lazy" decoding="async"') + ' alt="' + esc(x.alt || "") + '">';
   }
 
   /* ---------- PINTAR ---------- */
   function pintar() {
     var G = C.google || {}, P = C.portada || {}, habs = C.habitaciones || [], exps = C.experiencias || [], PU = C.pueblo || {};
     var nota = (G.calificacion || 0).toFixed(1).replace(".", ",");
+    var resTxt = G.total == 1 ? "1 reseña" : G.total + " reseñas";
 
-    var marca = C.logo ? '<img src="' + esc(C.logo) + '" alt="' + esc(M.nombre) + '" width="140" height="46">' : 'El Refugio <i>de Tío Lucio</i>';
+    var marca = C.logo ? '<img src="' + esc(C.logo) + '" alt="' + esc(M.nombre) + '" width="140" height="48">' : '<small>Posada agroturística</small><span>El Refugio <i>de Tío Lucio</i></span>';
     $("[data-nav]").innerHTML = '<div class="contenedor nav-in">' +
       '<a class="marca" href="#inicio" aria-label="' + esc(M.nombre) + ', inicio">' + marca + '</a>' +
-      '<nav id="menu" class="nav-links" aria-label="Secciones"><a href="#experiencias">Un día aquí</a><a href="#habitaciones">Habitaciones</a><a href="#pueblo">Cómo llegar</a><a href="#reservar">Reservar</a></nav>' +
-      '<a class="btn btn-crema" data-wa="general" href="' + esc(wa(MSG_GENERAL)) + '" target="_blank" rel="noopener">Reservar</a>' +
-      '<button class="nav-boton" type="button" aria-expanded="false" aria-controls="menu">Menú</button></div>';
+      '<nav id="menu" class="nav-links" aria-label="Secciones"><a href="#experiencias">Experiencias</a><a href="#habitaciones">Habitaciones</a><a href="#pueblo">Cómo llegar</a><a href="#reservar">Reservar</a></nav>' +
+      '<a class="btn btn-verde" data-wa="general" href="' + esc(wa(MSG_GENERAL)) + '" target="_blank" rel="noopener">Reservar</a>' +
+      '<button class="nav-boton" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú"><span></span></button></div>' +
+      '<div class="progreso" aria-hidden="true"></div>';
 
     var h = "";
     // Portada
-    h += '<section class="portada" id="inicio" aria-label="Portada" data-portada="">' +
-      '<div class="portada-foto"><div class="portada-mover" data-prof="0.14">' +
-      img(P, "100vw", 'fetchpriority="high"', "foto-dia") +
-      (P.fotoNoche ? img(P, "100vw", 'loading="lazy" decoding="async" aria-hidden="true"', "foto-noche", P.fotoNoche, P.fotoNocheGrande, "") : '') +
-      '</div></div>' +
+    h += '<section class="portada" id="inicio" aria-label="Portada">' +
+      '<div class="portada-foto"><div class="portada-mover" data-prof="0.14">' + img(P, "100vw", 'fetchpriority="high"') + '</div></div>' +
       '<div class="contenedor portada-in">' +
-      '<p class="saludo" data-saludo="">Desde ' + esc(M.pueblo) + ', ' + esc(M.estado) + '</p>' +
-      '<p class="ahora" data-ahora="" aria-live="polite"></p>' +
-      '<h1 data-partir="">Vive el <em>campo andino</em></h1>' +
+      '<span class="rotulo">Posada agroturística · ' + esc(M.pueblo) + ', ' + esc(M.estado) + '</span>' +
+      '<h1 data-partir="letras">Vive el <em>campo andino</em></h1>' +
       '<p class="portada-lema">' + esc(P.lema) + '</p>' +
-      '<div class="portada-acciones">' +
-      '<a class="btn btn-crema" data-wa="general" href="' + esc(wa(MSG_GENERAL)) + '" target="_blank" rel="noopener">' + WA_ICONO + 'Reservar por WhatsApp</a>' +
-      '<a class="flecha-link" href="#experiencias">Cómo es un día aquí <span aria-hidden="true">→</span></a></div>' +
-      '<a class="google-linea" href="' + esc(G.enlace) + '" target="_blank" rel="noopener"><span class="est" aria-hidden="true">★★★★★</span><b>' + nota + '</b> en Google</a>' +
-      '</div></section>';
-
-    // Un día en el refugio
-    var total = exps.length;
-    var paneles = exps.map(function (x, i) {
-      return '<article class="panel" data-exp="' + esc(x.id) + '" aria-label="' + esc(x.hora + " " + x.ampm + ", " + x.titulo) + '">' +
-        '<div class="panel-foto">' + img(x, "100vw") + '</div><div class="panel-sombra" aria-hidden="true"></div>' +
-        '<div class="contenedor panel-in revelar-grupo">' +
-        '<p class="panel-paso">Un día en el refugio · ' + (i + 1) + ' de ' + total + '</p>' +
-        '<p class="panel-hora">' + esc(x.hora) + '<small>' + esc(x.ampm) + '</small></p>' +
-        '<h3>' + esc(x.titulo) + '</h3>' +
-        '<p class="texto">' + esc(x.texto) + '</p>' +
-        '<button class="me-interesa" type="button" aria-pressed="false" data-toggle-exp="' + esc(x.id) + '"><span class="caja">' + CHECK + '</span><span class="txt">Me interesa</span></button>' +
-        '</div></article>';
-    }).join("");
-    h += '<section class="dia" id="experiencias" aria-labelledby="t-dia">' +
-      '<div class="contenedor dia-cab revelar"><p class="rotulo">Experiencias del campo</p>' +
-      '<h2 id="t-dia" class="titulo">Un día en <em>el refugio</em></h2>' +
-      '<p class="intro">Aquí no se viene solo a dormir. Baja y vive el día completo, del ordeño a la chimenea. Marca lo que te provoque.</p></div>' +
-      '<div class="paneles">' + paneles + '</div>' +
-      '<div class="contenedor dia-cierre revelar"><p class="grande" data-resumen-texto="">¿Qué te provoca? Marca <b>Me interesa</b> en lo que quieras vivir.</p>' +
-      '<a class="btn btn-verde" data-wa-exp="" href="' + esc(wa("Hola, quisiera saber qué experiencias del campo tienen en " + M.nombre + ".")) + '" target="_blank" rel="noopener">' + WA_ICONO + '<span>Preguntar por WhatsApp</span></a></div>' +
-      '</section>';
-
-    // Google
-    h += '<section class="voz" aria-label="Calificación en Google"><div class="contenedor"><div class="voz-in revelar">' +
-      '<p class="voz-num">' + nota + '</p>' +
-      '<p class="voz-texto"><span class="est" aria-hidden="true">★★★★★</span>' + (G.total == 1 && G.calificacion >= 5 ? 'en Google. La primera reseña ya llegó con cinco estrellas.' : 'en Google, con ' + G.total + ' reseñas.') + ' <a href="' + esc(G.enlace) + '" target="_blank" rel="noopener">Ver la ficha</a></p>' +
+      '<a class="portada-google" href="' + esc(G.enlace) + '" target="_blank" rel="noopener">' + CINCO + '<span><b>' + nota + '</b> en Google</span></a>' +
+      '<div class="portada-botones">' +
+      '<a class="btn btn-claro" data-wa="general" href="' + esc(wa(MSG_GENERAL)) + '" target="_blank" rel="noopener">' + WA_ICONO + 'Reservar por WhatsApp</a>' +
+      '<a class="btn btn-linea" href="#habitaciones">Ver habitaciones</a>' +
       '</div></div></section>';
 
-    // Habitaciones
-    var cuartos = habs.map(function (x) {
-      return '<article class="cuarto" data-hab="' + esc(x.id) + '">' + img(x, "(min-width: 900px) 460px, 84vw") +
-        '<div class="cuarto-texto"><p class="cuarto-precio">' + dinero(x.precio) + '<small>la noche</small></p>' +
-        '<h3>' + esc(x.nombre) + '</h3>' +
-        '<p class="cuarto-datos">Hasta ' + personasTxt(x.capacidad) + ' · ' + esc(x.camas) + '</p>' +
-        '<p class="cuarto-incluye">' + (x.incluye || []).map(esc).join(" · ") + '</p>' +
-        '<a class="btn btn-crema" data-wa-hab="' + esc(x.id) + '" href="' + esc(wa("Hola, quiero reservar " + x.articulo + " en " + M.nombre + ". ¿Tienen disponibilidad?")) + '" target="_blank" rel="noopener">' + WA_ICONO + 'Reservar</a>' +
-        '</div></article>';
-    }).join("");
-    h += '<section class="cuartos" id="habitaciones" aria-labelledby="t-hab">' +
-      '<div class="contenedor cuartos-cab"><div class="revelar"><p class="rotulo">Habitaciones</p><h2 id="t-hab" class="titulo">Para dormir <em>abrigado</em></h2>' +
-      '<p class="intro">Madera, cobijas de lana y agua caliente. Cada botón te abre WhatsApp con la habitación ya escrita.</p></div>' +
-      '<div class="tira-flechas"><button type="button" data-tira="-1" aria-label="Habitación anterior">←</button><button type="button" data-tira="1" aria-label="Habitación siguiente">→</button></div></div>' +
-      '<div class="tira" tabindex="0" aria-label="Habitaciones">' + cuartos + '</div>' +
-      '<div class="contenedor"><p class="tira-ayuda">Desliza para ver las ' + habs.length + ' habitaciones →</p></div>' +
-      '</section>';
-
-    // Santo Domingo
-    var lugares = (C.lugares || []).map(function (l) { return '<li><div><b>' + esc(l.nombre) + '</b><span>' + esc(l.texto) + '</span></div></li>'; }).join("");
-    var llegar = (C.llegar || []).map(function (l) { return '<p><b>' + esc(l.desde) + '.</b>' + esc(l.texto) + '</p>'; }).join("");
-    h += '<section class="pueblo" id="pueblo" aria-labelledby="t-pue">' +
-      '<div class="pueblo-banda"><div class="mov" data-paralaje="0.1">' + img(PU, "100vw") + '</div>' +
-      '<div class="contenedor"><p class="rotulo">' + esc(M.pueblo) + ' y cómo llegar</p>' +
-      '<p class="altura"><span data-contar="' + (PU.altura || 0) + '">' + miles(PU.altura || 0) + '</span> m<small>sobre el nivel del mar</small></p>' +
-      '<h2 id="t-pue" data-partir="">Un pueblo de montaña, con el páramo cerca</h2></div></div>' +
-      '<div class="contenedor pueblo-cuerpo">' +
-      '<div class="revelar"><p class="intro">' + esc(PU.texto) + '</p><h3>Para llenar los días</h3><ol class="lugares">' + lugares + '</ol></div>' +
-      '<div class="revelar"><p class="rotulo">La dirección</p><address class="direccion">' + (M.direccion || []).map(esc).join("<br>") + '</address>' +
-      '<div class="llegar-lista">' + llegar + '</div>' +
-      '<a class="btn btn-verde" href="' + esc(M.mapa) + '" target="_blank" rel="noopener">Abrir en Google Maps</a></div>' +
+    // Google
+    h += '<section class="resenas" id="resenas" aria-labelledby="t-res-g"><div class="contenedor">' +
+      '<span class="rotulo">Lo que dicen en Google</span>' +
+      '<div class="nota revelar"><span class="nota-numero" data-contar="' + (G.calificacion || 0) + '">' + nota + '</span>' + CINCO +
+      '<p class="nota-pie"><b>' + resTxt + '</b> en Google Maps</p></div>' +
+      '<h2 id="t-res-g" class="revelar">' + (G.total == 1 && G.calificacion >= 5 ? 'La primera reseña en Google ya llegó con cinco estrellas.' : 'Así nos califican los huéspedes.') + '</h2>' +
+      '<a class="enlace" href="' + esc(G.enlace) + '" target="_blank" rel="noopener">Ver la ficha en Google Maps</a>' +
       '</div></section>';
 
-    // Preguntas y reserva
-    var pregs = (C.preguntas || []).map(function (q) { return '<details><summary>' + esc(q.p) + '</summary><p class="resp">' + esc(q.r) + '</p></details>'; }).join("");
+    // Experiencias
+    var tarjetas = exps.map(function (x) {
+      return '<li class="exp" data-exp="' + esc(x.id) + '"><div class="exp-foto">' + img(x) + '<span class="exp-hora">' + esc(x.hora) + '</span></div>' +
+        '<div class="exp-cuerpo"><h3>' + esc(x.titulo) + '</h3><p>' + esc(x.texto) + '</p>' +
+        '<button class="me-interesa" type="button" aria-pressed="false" data-toggle-exp="' + esc(x.id) + '"><span class="caja">' + CHECK + '</span><span class="txt">Me interesa</span></button></div></li>';
+    }).join("");
+    h += CUMBRE +
+      '<section class="experiencias" id="experiencias" aria-labelledby="t-exp"><div class="contenedor">' +
+      '<div class="exp-cab revelar"><div><span class="rotulo">Experiencias del campo</span><h2 id="t-exp" class="titulo">Aquí no se viene <em>solo a dormir</em></h2></div>' +
+      '<p class="intro">Ordeño al amanecer, desayuno de casa, manos en la tierra y fogón en la noche. Marca lo que te provoque y te armamos el mensaje para preguntar.</p></div>' +
+      '<ul class="exp-lista revelar-grupo">' + tarjetas + '</ul>' +
+      '<div class="exp-resumen revelar"><p data-resumen-texto="">Marca <b>Me interesa</b> en lo que quieras vivir.</p>' +
+      '<a class="btn btn-verde" data-wa-exp="" href="' + esc(wa("Hola, quisiera saber qué experiencias del campo tienen en " + M.nombre + ".")) + '" target="_blank" rel="noopener">' + WA_ICONO + '<span>Preguntar por WhatsApp</span></a></div>' +
+      '</div></section>';
+
+    // Habitaciones
+    var filas = habs.map(function (x) {
+      return '<article class="hab" data-hab="' + esc(x.id) + '"><div class="hab-foto revelar-mascara"><div>' + img(x, "(min-width: 900px) 600px, 92vw") + '</div></div>' +
+        '<div class="hab-cuerpo"><h3>' + esc(x.nombre) + '</h3>' + (x.texto ? '<p class="hab-texto">' + esc(x.texto) + '</p>' : '') +
+        '<p class="hab-meta"><b>Hasta ' + personasTxt(x.capacidad) + '</b> · ' + esc(x.camas) + '</p>' +
+        '<ul class="incluye">' + (x.incluye || []).map(function (t) { return '<li>' + esc(t) + '</li>'; }).join("") + '</ul>' +
+        '<p class="hab-aviso" aria-live="polite"></p>' +
+        '<div class="hab-pie"><span class="precio">' + dinero(x.precio) + '<small>la noche</small></span>' +
+        '<a class="btn btn-verde" data-wa-hab="' + esc(x.id) + '" href="' + esc(wa("Hola, quiero reservar " + x.articulo + " en " + M.nombre + ". ¿Tienen disponibilidad?")) + '" target="_blank" rel="noopener">' + WA_ICONO + 'Reservar</a></div>' +
+        '</div></article>';
+    }).join("");
+    h += '<section class="habitaciones" id="habitaciones" aria-labelledby="t-hab"><div class="contenedor">' +
+      '<div class="hab-cabeza"><div class="revelar"><span class="rotulo">Habitaciones</span><h2 id="t-hab" class="titulo">Para dormir <em>abrigado</em></h2>' +
+      '<p class="intro">Madera, cobijas de lana y agua caliente. Elige tus fechas aquí y cada botón de reservar ya las lleva escritas.</p></div>' +
+      '<div class="fechas revelar" role="group" aria-label="Tus fechas"><div class="fechas-titulo">¿Cuándo vienes?</div><div class="campos">' +
+      '<label class="campo"><span>Llegada</span><input type="date" data-campo="llegada" aria-label="Fecha de llegada"></label>' +
+      '<label class="campo"><span>Salida</span><input type="date" data-campo="salida" aria-label="Fecha de salida"></label>' +
+      '<div class="campo campo-ancho-m"><span>Personas</span><div class="contador"><button type="button" data-paso="-1" aria-label="Una persona menos">−</button><input type="number" inputmode="numeric" min="1" max="20" value="2" data-campo="personas" aria-label="Personas"><button type="button" data-paso="1" aria-label="Una persona más">+</button></div></div>' +
+      '</div><p class="fechas-nota" data-resumen="">Elige llegada y salida para ver cuántas noches son.</p></div></div>' +
+      '<div class="lista-hab">' + filas + '</div></div></section>';
+
+    // Santo Domingo
+    var lugares = (C.lugares || []).map(function (l) { return '<li><div><h3>' + esc(l.nombre) + '</h3><p>' + esc(l.texto) + '</p></div></li>'; }).join("");
+    var llegar = (C.llegar || []).map(function (l) { return '<p><b>' + esc(l.desde) + ':</b> ' + esc(l.texto) + '</p>'; }).join("");
+    h += '<section class="pueblo" id="pueblo" aria-labelledby="t-pue">' +
+      '<div class="banda"><div class="mov" data-paralaje="0.1">' + img(PU) + '</div><div class="contenedor">' +
+      '<span class="rotulo">' + esc(M.pueblo) + ' y cómo llegar</span>' +
+      '<h2 id="t-pue" class="revelar">A <em>' + esc(PU.altura) + ' metros</em>, entre montañas</h2>' +
+      '<p class="revelar">' + esc(PU.texto) + '</p></div></div>' +
+      '<div class="contenedor pueblo-cuerpo">' +
+      '<div class="revelar"><span class="rotulo">Qué hacer cerca</span><h2 class="titulo" style="font-size:clamp(2rem,5.4vw,3rem)">Para llenar <em>los días</em></h2><ol class="lugares">' + lugares + '</ol></div>' +
+      '<div class="llegar revelar"><span class="rotulo">La dirección</span><address class="direccion">' + esc(M.direccion) + '</address>' +
+      '<div class="llegar-lista">' + llegar + '</div>' +
+      '<a class="btn btn-linea" href="' + esc(M.mapa) + '" target="_blank" rel="noopener">Abrir en Google Maps</a></div>' +
+      '</div></section>';
+
+    // Preguntas
+    var pregs = (C.preguntas || []).map(function (q) { return '<details><summary>' + esc(q.p) + '<span class="mas" aria-hidden="true"></span></summary><p class="resp">' + esc(q.r) + '</p></details>'; }).join("");
+    h += '<section class="preguntas" id="preguntas" aria-labelledby="t-preg"><div class="contenedor preg-in">' +
+      '<div class="preg-cab revelar"><span class="rotulo">Preguntas frecuentes</span><h2 id="t-preg" class="titulo">Antes de <em>venir</em></h2>' +
+      '<p class="intro">Si tu duda no está aquí, pregúntanos por WhatsApp.</p>' +
+      '<p style="margin-top:18px"><a class="enlace" data-wa="pregunta" href="' + esc(wa("Hola, tengo una pregunta sobre " + M.nombre + ".")) + '" target="_blank" rel="noopener">Hacer una pregunta</a></p></div>' +
+      '<div class="acordeon revelar-grupo">' + pregs + '</div></div></section>';
+
+    // Reservar
     var opcHab = habs.map(function (x) { return '<option value="' + esc(x.id) + '">' + esc(x.nombre) + '</option>'; }).join("");
     var casillas = exps.map(function (x) { return '<label><input type="checkbox" value="' + esc(x.id) + '" data-chip-exp=""><span class="caja">' + CHECK + '</span>' + esc(x.titulo) + '</label>'; }).join("");
-    h += '<section class="reservar" id="reservar" aria-labelledby="t-res"><div class="contenedor res-in">' +
-      '<div class="revelar"><p class="rotulo">Antes de venir</p><h2 class="titulo" style="font-size:clamp(2.4rem,7vw,4rem)">Preguntas <em>frecuentes</em></h2>' +
-      '<div class="acordeon">' + pregs + '</div>' +
-      '<p style="margin-top:24px">¿Otra duda? <a class="flecha-link" data-wa="pregunta" href="' + esc(wa("Hola, tengo una pregunta sobre " + M.nombre + ".")) + '" target="_blank" rel="noopener">Pregúntanos por WhatsApp <span aria-hidden="true">→</span></a></p></div>' +
+    h += '<section class="reservar" id="reservar" aria-labelledby="t-res"><div class="contenedor">' +
+      '<div class="revelar" style="max-width:640px"><span class="rotulo">Reservar</span><h2 id="t-res" class="titulo">Arma tu <em>estadía</em></h2>' +
+      '<p class="intro">Llena lo que sepas. Te abrimos WhatsApp con el mensaje listo para enviar. No se guarda nada en esta página.</p></div>' +
+      '<div class="res-in">' +
       '<form class="formulario revelar" data-form-reserva="" action="https://wa.me/' + esc(M.whatsapp) + '" method="get" target="_blank" novalidate>' +
       '<input type="hidden" name="text" value="' + esc(MSG_GENERAL) + '">' +
-      '<p class="rotulo">Reservar</p><h2 id="t-res">Arma tu estadía</h2><p class="ayuda">Llena lo que sepas y te abrimos WhatsApp con todo escrito. No se guarda nada aquí.</p>' +
       '<div class="campos">' +
       '<label class="campo"><span>Llegada</span><input type="date" data-campo="llegada"></label>' +
       '<label class="campo"><span>Salida</span><input type="date" data-campo="salida"></label>' +
@@ -563,26 +623,26 @@ body.pausado *,body.pausado *::before,body.pausado *::after{animation-play-state
       '<label class="campo"><span>Tu nombre</span><input type="text" data-campo="nombre" maxlength="40" autocomplete="given-name" placeholder="Opcional"></label>' +
       '<label class="campo campo-ancho"><span>Habitación</span><select data-campo="hab"><option value="">La que esté disponible</option>' + opcHab + '</select></label>' +
       '<fieldset class="campo campo-ancho"><legend>Me interesa vivir</legend><div class="casillas">' + casillas + '</div></fieldset>' +
-      '</div>' +
-      '<p class="form-error" role="alert"></p>' +
-      '<button class="btn btn-verde" type="submit">' + WA_ICONO + 'Enviar por WhatsApp</button>' +
-      '<div class="tu-mensaje" aria-live="polite"><p class="rotulo">Tu mensaje</p><pre data-nota="">' + esc(MSG_GENERAL) + '</pre></div>' +
-      '<p class="estimado" data-estimado=""></p>' +
-      '</form></div></section>';
+      '</div><p class="form-error" role="alert"></p>' +
+      '<button class="btn btn-verde" type="submit">' + WA_ICONO + 'Enviar por WhatsApp</button></form>' +
+      '<div class="vista-msg revelar" aria-live="polite"><div class="rot">Así llegará tu mensaje</div>' +
+      '<div class="chat"><div class="burbuja" data-burbuja="">' + esc(MSG_GENERAL) + '<span class="hora">ahora</span></div></div>' +
+      '<div class="estimado" data-estimado=""></div></div>' +
+      '</div></div></section>';
 
     $("#main").innerHTML = h;
 
     var pie = $("footer.pie");
     if (!pie) { pie = document.createElement("footer"); pie.className = "pie"; $("#app").appendChild(pie); }
     var V = C.vistaPrevia || {};
-    pie.innerHTML = '<div class="contenedor">' +
-      '<p class="pie-marca revelar">El Refugio<br><i>de Tío Lucio</i></p>' +
-      '<a class="btn btn-crema" data-wa="general" href="' + esc(wa(MSG_GENERAL)) + '" target="_blank" rel="noopener">' + WA_ICONO + 'Escribir por WhatsApp</a>' +
+    pie.innerHTML = '<div class="contenedor">' + CUMBRE +
+      '<p class="pre">Posada agroturística</p><p class="pie-marca revelar">El Refugio <i>de Tío Lucio</i></p>' +
+      '<a class="btn btn-verde" data-wa="general" href="' + esc(wa(MSG_GENERAL)) + '" target="_blank" rel="noopener">' + WA_ICONO + 'Escribir por WhatsApp</a>' +
       '<div class="pie-datos">' +
       '<div><b>WhatsApp</b><a data-wa="general" href="' + esc(wa(MSG_GENERAL)) + '" target="_blank" rel="noopener">' + esc(M.whatsappVisible) + '</a></div>' +
       (M.instagram ? '<div><b>Instagram</b><a href="https://instagram.com/' + esc(M.instagram) + '" target="_blank" rel="noopener">@' + esc(M.instagram) + '</a></div>' : '') +
       '<div><b>Atención</b><span>' + esc(M.horarioAtencion) + '</span></div>' +
-      '<div><b>Dirección</b><a href="' + esc(M.mapa) + '" target="_blank" rel="noopener">' + (M.direccion || []).map(esc).join(", ") + '</a></div>' +
+      '<div><b>Dirección</b><a href="' + esc(M.mapa) + '" target="_blank" rel="noopener">' + esc(M.direccion) + '</a></div>' +
       '<div><b>Google</b><a href="' + esc(G.enlace) + '" target="_blank" rel="noopener">' + nota + ' estrellas</a></div>' +
       '</div><p class="legal">© ' + new Date().getFullYear() + ' ' + esc(M.nombreCompleto) + (V.activa && V.notaFotos ? '<br>' + esc(V.notaFotos) : '') + '</p></div>';
 
@@ -632,17 +692,25 @@ body.pausado *,body.pausado *::before,body.pausado *::after{animation-play-state
   function actualizar(origen) {
     $$("[data-campo]").forEach(function (el) { if (el !== origen && el.value != E[el.dataset.campo]) el.value = E[el.dataset.campo]; });
     $$("[data-campo='salida']").forEach(function (el) { el.min = E.llegada || hoy(); });
-    $$("[data-toggle-exp]").forEach(function (b) { b.setAttribute("aria-pressed", E.exp.indexOf(b.dataset.toggleExp) > -1); });
+    $$("[data-toggle-exp]").forEach(function (b) { var on = E.exp.indexOf(b.dataset.toggleExp) > -1; b.setAttribute("aria-pressed", on); b.closest(".exp").classList.toggle("elegida", on); });
     $$("[data-chip-exp]").forEach(function (c) { c.checked = E.exp.indexOf(c.value) > -1; });
     var rt = $("[data-resumen-texto]"), be = $("[data-wa-exp]");
-    if (rt) rt.innerHTML = E.exp.length ? "Te interesa <b>" + esc(lista(expCortas())) + "</b>. Pregúntale a la familia cómo y cuándo." : "¿Qué te provoca? Marca <b>Me interesa</b> en lo que quieras vivir.";
+    if (rt) rt.innerHTML = E.exp.length ? "Te interesa <b>" + esc(lista(expCortas())) + "</b>." : "Marca <b>Me interesa</b> en lo que quieras vivir.";
     if (be) { be.href = wa(msgExp()); be.querySelector("span").textContent = E.exp.length ? "Consultar estas experiencias" : "Preguntar por WhatsApp"; }
-    $$("[data-wa-hab]").forEach(function (a) { var x = porId(C.habitaciones, a.dataset.waHab); if (x) a.href = wa(msgHab(x)); });
-    var nota = $("[data-nota]");
-    if (nota) { nota.textContent = msgForm(); var c = nota.parentNode; c.classList.remove("latido"); void c.offsetWidth; if (origen) c.classList.add("latido"); }
-    var est = $("[data-estimado]"), x = porId(C.habitaciones, E.hab), n = noches();
-    if (est) est.innerHTML = (x && n > 0 && !errorFechas()) ? "Estimado: " + n + (n == 1 ? " noche" : " noches") + " × " + dinero(x.precio) + " = <b>" + dinero(n * x.precio) + "</b>. La posada te confirma precio y disponibilidad." : "";
-    var fe = $(".form-error"); if (fe) fe.textContent = errorFechas();
+    var n = noches(), err = errorFechas();
+    var res = $("[data-resumen]");
+    if (res) res.textContent = err ? err : (n > 0 ? n + (n == 1 ? " noche" : " noches") + " · " + personasTxt(E.personas) + ". Ya puedes tocar Reservar en la habitación que te guste." : "Elige llegada y salida para ver cuántas noches son.");
+    $$("[data-wa-hab]").forEach(function (a) {
+      var x = porId(C.habitaciones, a.dataset.waHab); if (!x) return;
+      a.href = wa(msgHab(x));
+      var av = a.closest(".hab").querySelector(".hab-aviso");
+      if (av) av.textContent = E.personas > x.capacidad ? "Para " + personasTxt(E.personas) + " te conviene otra habitación." : (n > 0 && !err ? n + (n == 1 ? " noche" : " noches") + ": " + dinero(n * x.precio) + " en total." : "");
+    });
+    var b = $("[data-burbuja]");
+    if (b) { b.firstChild.nodeValue = msgForm(); b.classList.remove("latido"); void b.offsetWidth; if (origen) b.classList.add("latido"); }
+    var est = $("[data-estimado]"), x = porId(C.habitaciones, E.hab);
+    if (est) est.innerHTML = (x && n > 0 && !err) ? "Estimado: " + n + (n == 1 ? " noche" : " noches") + " × " + dinero(x.precio) + " = <b>" + dinero(n * x.precio) + "</b><br><small>La posada te confirma el precio y la disponibilidad.</small>" : "";
+    var fe = $(".form-error"); if (fe) fe.textContent = err;
   }
   function alternar(id) { var i = E.exp.indexOf(id); if (i > -1) E.exp.splice(i, 1); else E.exp.push(id); }
   function initEstadia() {
@@ -673,31 +741,6 @@ body.pausado *,body.pausado *::before,body.pausado *::after{animation-play-state
     actualizar();
   }
 
-  /* ---------- la portada vive a la hora de Santo Domingo ---------- */
-  function initHoraViva() {
-    var port = $("[data-portada]"), saludo = $("[data-saludo]"), ahora = $("[data-ahora]"), temp = null;
-    if (!port || !saludo) return;
-    function partes() {
-      var f = new Intl.DateTimeFormat("es-VE", { timeZone: "America/Caracas", hour: "numeric", minute: "2-digit", hour12: true });
-      var h24 = +new Intl.DateTimeFormat("en-US", { timeZone: "America/Caracas", hour: "numeric", hourCycle: "h23" }).format(new Date());
-      return { texto: f.format(new Date()).replace(/\s+/g, " "), h: h24 };
-    }
-    function pintarHora() {
-      var p = partes(), noche = p.h >= 18 || p.h < 5;
-      saludo.textContent = (p.h >= 5 && p.h < 12 ? "Buenos días" : p.h >= 12 && p.h < 18 ? "Buenas tardes" : "Buenas noches") + " desde " + M.pueblo;
-      if (ahora) ahora.textContent = "Allá son las " + p.texto + (temp != null ? " y hace " + temp + " °C" : "") + ".";
-      port.classList.toggle("es-noche", noche);
-    }
-    pintarHora();
-    setInterval(pintarHora, 30000);
-    if (window.fetch && M.lat != null) {
-      fetch("https://api.open-meteo.com/v1/forecast?latitude=" + M.lat + "&longitude=" + M.lon + "&current=temperature_2m&timezone=America%2FCaracas")
-        .then(function (r) { return r.ok ? r.json() : null; })
-        .then(function (d) { if (d && d.current && typeof d.current.temperature_2m === "number") { temp = Math.round(d.current.temperature_2m); pintarHora(); } })
-        .catch(function () {});
-    }
-  }
-
   /* ---------- EFECTOS ---------- */
   function initPartir() {
     $$("[data-partir]").forEach(function (el) {
@@ -707,109 +750,89 @@ body.pausado *,body.pausado *::before,body.pausado *::after{animation-play-state
         Array.prototype.slice.call(nodo.childNodes).forEach(function (n) {
           if (n.nodeType === 3) {
             var frag = document.createDocumentFragment();
-            n.textContent.split(/(\s+)/).forEach(function (t) {
-              if (!t || /^\s+$/.test(t)) { frag.appendChild(document.createTextNode(t)); return; }
-              var s = document.createElement("span"); s.className = "p"; s.style.setProperty("--i", i++); s.setAttribute("aria-hidden", "true"); s.textContent = t; frag.appendChild(s);
+            n.textContent.split(/(\s+)/).forEach(function (pal) {
+              if (!pal || /^\s+$/.test(pal)) { frag.appendChild(document.createTextNode(pal)); return; }
+              var w = document.createElement("span"); w.style.display = "inline-block"; w.style.whiteSpace = "nowrap"; w.setAttribute("aria-hidden", "true");
+              pal.split("").forEach(function (ch) { var s = document.createElement("span"); s.className = "p"; s.style.setProperty("--i", i++); s.textContent = ch; w.appendChild(s); });
+              frag.appendChild(w);
             });
             nodo.replaceChild(frag, n);
           } else if (n.nodeType === 1 && n.tagName !== "BR") partir(n);
         });
       })(el);
       el.insertBefore(lector, el.firstChild);
-      if (el.closest(".portada")) requestAnimationFrame(function () { requestAnimationFrame(function () { el.classList.add("visible"); }); });
-      else el.classList.add("revelar");
+      requestAnimationFrame(function () { requestAnimationFrame(function () { el.classList.add("visible"); }); });
     });
   }
   function initRevelar() {
-    var els = $$(".revelar,.revelar-grupo");
-    function mostrar(t) {
-      t.classList.add("visible"); setTimeout(function () { t.classList.add("listo"); }, 1300);
-      var panel = t.closest(".panel"); if (panel) panel.classList.add("activo");
-    }
-    if (!("IntersectionObserver" in window)) { els.forEach(mostrar); return; }
+    var els = $$(".revelar,.revelar-grupo,.revelar-mascara");
+    if (!("IntersectionObserver" in window)) { els.forEach(function (e) { e.classList.add("visible", "listo"); }); return; }
     var io = new IntersectionObserver(function (en) {
-      en.forEach(function (x) { if (!x.isIntersecting) return; mostrar(x.target); io.unobserve(x.target); });
-    }, { threshold: 0.01, rootMargin: "0px 0px -8% 0px" });
+      en.forEach(function (x) { if (!x.isIntersecting) return; var t = x.target; t.classList.add("visible"); io.unobserve(t); setTimeout(function () { t.classList.add("listo"); }, 1200); });
+    }, { threshold: 0.01, rootMargin: "0px 0px -4% 0px" });
     els.forEach(function (e) { io.observe(e); });
-    setTimeout(function () { els.forEach(function (e) { if (e.getBoundingClientRect().top < innerHeight * 1.2) mostrar(e); }); }, 6000);
+    setTimeout(function () { els.forEach(function (e) { if (e.getBoundingClientRect().top < innerHeight * 1.2) e.classList.add("visible", "listo"); }); }, 6000);
   }
   function initContar() {
     var el = $("[data-contar]"); if (!el || !MOVIMIENTO || !("IntersectionObserver" in window)) return;
-    var fin = +el.dataset.contar; el.textContent = "0";
+    var fin = parseFloat(el.dataset.contar) || 0, cont = el.closest(".nota");
+    el.textContent = "0,0";
     var io = new IntersectionObserver(function (en) {
-      if (!en[0].isIntersecting) return; io.disconnect();
+      if (!en[0].isIntersecting) return; io.disconnect(); if (cont) cont.classList.add("visible");
       var t0 = performance.now();
-      (function paso(t) { var k = Math.min(1, (t - t0) / 2200), s = 1 - Math.pow(1 - k, 3); el.textContent = miles(fin * s); if (k < 1) requestAnimationFrame(paso); })(t0);
-    }, { threshold: 0.2 });
+      (function paso(t) { var k = Math.min(1, (t - t0) / 1400), s = 1 - Math.pow(1 - k, 3); el.textContent = (fin * s).toFixed(1).replace(".", ","); if (k < 1) requestAnimationFrame(paso); })(t0);
+    }, { threshold: 0.01 });
     io.observe(el);
-    setTimeout(function () { if (el.textContent === "0") el.textContent = miles(fin); }, 12000);
+    setTimeout(function () { el.textContent = fin.toFixed(1).replace(".", ","); }, 9000);
   }
   function initNav() {
     var nav = $("[data-nav]"); if (!nav) return;
-    var boton = nav.querySelector(".nav-boton"), port = $(".portada"), pend = false;
-    function marcar() { pend = false; nav.classList.toggle("solido", !port || port.getBoundingClientRect().bottom < 70); }
+    var boton = nav.querySelector(".nav-boton"), barra = nav.querySelector(".progreso"), port = $(".portada"), pend = false;
+    function marcar() {
+      pend = false;
+      nav.classList.toggle("solido", !port || port.getBoundingClientRect().bottom < 80);
+      var max = document.documentElement.scrollHeight - innerHeight;
+      if (barra) barra.style.transform = "scaleX(" + (max > 0 ? Math.min(1, scrollY / max) : 0) + ")";
+    }
     addEventListener("scroll", function () { if (!pend) { pend = true; requestAnimationFrame(marcar); } }, { passive: true }); marcar();
-    function cerrar() { nav.classList.remove("abierto"); if (boton) { boton.setAttribute("aria-expanded", "false"); boton.textContent = "Menú"; } }
-    if (boton) boton.addEventListener("click", function () { var a = nav.classList.toggle("abierto"); boton.setAttribute("aria-expanded", a); boton.textContent = a ? "Cerrar" : "Menú"; });
+    function cerrar() { nav.classList.remove("abierto"); if (boton) { boton.setAttribute("aria-expanded", "false"); boton.setAttribute("aria-label", "Abrir menú"); } }
+    if (boton) boton.addEventListener("click", function () { var a = nav.classList.toggle("abierto"); boton.setAttribute("aria-expanded", a); boton.setAttribute("aria-label", a ? "Cerrar menú" : "Abrir menú"); });
     $$(".nav-links a", nav).forEach(function (a) { a.addEventListener("click", cerrar); });
     addEventListener("keydown", function (e) { if (e.key === "Escape") cerrar(); });
   }
-  // un solo bucle de scroll: portada, fotos con profundidad y pantallas que se apilan
-  function initScroll() {
-    var capas = $$("[data-prof]"), rel = $$("[data-paralaje]"), paneles = $$(".panel"), pend = false;
+  function initParalaje() {
+    if (!MOVIMIENTO) return;
+    var capas = $$("[data-prof]"), rel = $$("[data-paralaje]"), pend = false;
     function mover() {
       pend = false;
       var y = scrollY, vh = innerHeight;
-      if (MOVIMIENTO && y < vh * 1.4) capas.forEach(function (c) { c.style.transform = "translate3d(0," + (y * c.dataset.prof).toFixed(1) + "px,0)"; });
-      if (MOVIMIENTO) rel.forEach(function (c) {
+      if (y < vh * 1.4) capas.forEach(function (c) { c.style.transform = "translate3d(0," + (y * c.dataset.prof).toFixed(1) + "px,0)"; });
+      rel.forEach(function (c) {
         var r = c.parentElement.getBoundingClientRect(); if (r.bottom < -50 || r.top > vh + 50) return;
         c.style.transform = "translate3d(0," + ((r.top + r.height / 2 - vh / 2) * parseFloat(c.dataset.paralaje)).toFixed(1) + "px,0)";
-      });
-      // la pantalla de abajo se oscurece mientras la siguiente la tapa
-      paneles.forEach(function (p, i) {
-        var sig = paneles[i + 1], sombra = p.querySelector(".panel-sombra"); if (!sombra) return;
-        var k = sig ? Math.min(1, Math.max(0, 1 - sig.getBoundingClientRect().top / vh)) : 0;
-        sombra.style.opacity = (k * .7).toFixed(3);
       });
     }
     addEventListener("scroll", function () { if (!pend) { pend = true; requestAnimationFrame(mover); } }, { passive: true });
     addEventListener("resize", mover); mover();
   }
-  // tira de habitaciones: flechas y arrastre con el mouse
-  function initTira() {
-    var tira = $(".tira"); if (!tira) return;
-    var flechas = $$("[data-tira]");
-    function paso() { var c = tira.querySelector(".cuarto"); return c ? c.getBoundingClientRect().width + 18 : 400; }
-    function estado() {
-      var max = tira.scrollWidth - tira.clientWidth - 2;
-      flechas.forEach(function (b) { b.disabled = +b.dataset.tira < 0 ? tira.scrollLeft <= 2 : tira.scrollLeft >= max; });
-    }
-    flechas.forEach(function (b) { b.addEventListener("click", function () { tira.scrollBy({ left: +b.dataset.tira * paso(), behavior: MOVIMIENTO ? "smooth" : "auto" }); setTimeout(estado, 450); }); });
-    tira.addEventListener("scroll", function () { requestAnimationFrame(estado); }, { passive: true });
-    if ("onscrollend" in window) tira.addEventListener("scrollend", estado);
-    estado();
+  function initMagnetico() {
     if (!matchMedia("(hover: hover) and (pointer: fine)").matches) return;
-    var abajo = false, x0 = 0, s0 = 0, movio = false;
-    tira.addEventListener("pointerdown", function (e) { if (e.target.closest("a,button")) return; abajo = true; movio = false; x0 = e.clientX; s0 = tira.scrollLeft; tira.classList.add("arrastrando"); });
-    addEventListener("pointermove", function (e) { if (!abajo) return; var d = e.clientX - x0; if (Math.abs(d) > 4) movio = true; tira.scrollLeft = s0 - d; });
-    addEventListener("pointerup", function () {
-      if (!abajo) return; abajo = false; tira.classList.remove("arrastrando");
-      var c = paso(), destino = Math.round(tira.scrollLeft / c) * c; tira.scrollTo({ left: destino, behavior: MOVIMIENTO ? "smooth" : "auto" });
+    $$(".portada .btn-claro, .pie .btn-verde").forEach(function (b) {
+      b.addEventListener("pointermove", function (e) { var r = b.getBoundingClientRect(); b.style.transform = "translate(" + ((e.clientX - r.left - r.width / 2) * .18) + "px," + ((e.clientY - r.top - r.height / 2) * .3) + "px)"; });
+      b.addEventListener("pointerleave", function () { b.style.transform = ""; });
     });
-    tira.addEventListener("click", function (e) { if (movio) { e.preventDefault(); movio = false; } }, true);
   }
   function initPausa() { document.addEventListener("visibilitychange", function () { document.body.classList.toggle("pausado", document.hidden); }); }
 
   safe(pintar, "pintar");
   if (HORNEAR) return;
   safe(initEstadia, "estadia");
-  safe(initHoraViva, "hora");
   safe(initPartir, "partir");
   safe(initRevelar, "revelar");
   safe(initContar, "contar");
   safe(initNav, "nav");
-  safe(initScroll, "scroll");
-  safe(initTira, "tira");
+  safe(initParalaje, "paralaje");
+  safe(initMagnetico, "magnetico");
   safe(initPausa, "pausa");
 })();
 </script>
