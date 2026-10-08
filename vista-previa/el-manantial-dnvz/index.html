@@ -194,12 +194,15 @@ document.documentElement.classList.add("js");
   --serif:"Cinzel","Trajan Pro",Georgia,"Times New Roman",serif;
   --sans:"Mulish","Segoe UI",system-ui,-apple-system,Roboto,sans-serif;
   --suave-c:cubic-bezier(.22,.61,.36,1);--salto:cubic-bezier(.34,1.56,.64,1);
-  --franja:30px;--nav:66px;--ancho:1180px;--gutter:clamp(16px,5vw,40px)
+  --seguro:env(safe-area-inset-top,0px);   /* espacio del reloj y la batería en iPhone */
+  --franja:calc(30px + var(--seguro));--nav:66px;--ancho:1180px;--gutter:clamp(16px,5vw,40px)
 }
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth;overflow-x:hidden;overflow-x:clip;-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--fondo);color:var(--texto);font:400 1.0625rem/1.65 var(--sans);overflow-x:hidden;overflow-x:clip;-webkit-font-smoothing:antialiased}
-body.sin-franja{--franja:0px}
+body.sin-franja{--franja:var(--seguro)}
+/* tapa la franja del reloj en iPhone: en Safari y en el navegador de WhatsApp la página se veía detrás */
+.tapa-arriba{position:fixed;left:0;right:0;top:-400px;height:400px;background:var(--verde);z-index:95;pointer-events:none}
 img{max-width:100%;height:auto;display:block}
 a{color:inherit}
 h1,h2,h3{font-family:var(--serif);color:var(--tinta);font-weight:500;line-height:1.12;margin:0;letter-spacing:.01em}
@@ -224,7 +227,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:300;op
 .intro{max-width:56ch;margin-top:14px;color:var(--suave)}
 
 /* ---------- franja de vista previa ---------- */
-.franja{position:fixed;inset:0 0 auto;height:var(--franja);z-index:90;display:flex;align-items:center;justify-content:center;gap:10px;
+.franja{position:fixed;inset:0 0 auto;height:var(--franja);padding-top:var(--seguro)!important;box-sizing:border-box;z-index:90;display:flex;align-items:center;justify-content:center;gap:10px;
   background:var(--verde);color:var(--oro-brillo);font:600 .68rem/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;padding:0 12px;white-space:nowrap;overflow:hidden}
 .franja::before,.franja::after{content:"";width:18px;height:1px;background:var(--oro);flex:none}
 @media (max-width:560px){.franja{font-size:.6rem;letter-spacing:.07em;gap:0}.franja::before,.franja::after{display:none}}
@@ -686,6 +689,7 @@ body.pausado *,body.pausado *::before,body.pausado *::after{animation-play-state
 <!--auto-inicio-->
 <div id="app">
 <a class="saltar" href="#main">Saltar al contenido</a>
+<div class="tapa-arriba" aria-hidden="true"></div>
 <div class="franja" data-franja="" role="note">Vista previa · Precios y datos de ejemplo</div>
 
 <header class="nav" data-nav="">
