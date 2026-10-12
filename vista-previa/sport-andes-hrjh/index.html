@@ -1,0 +1,1258 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>
+/* =====================================================================
+   CONFIGURACIÓN DEL NEGOCIO
+   Todo lo que cambia de una tienda a otra está aquí. El diseño no se toca.
+   - Catálogo: sale de una hoja de Google Sheets publicada como CSV (HOJA_CSV).
+     Mientras HOJA_CSV esté vacío, se usa catalogo-ejemplo.csv (en esta carpeta).
+     Guía paso a paso: clientes/sport-andes/COMO-ACTUALIZAR-CATALOGO.md (carpeta de la agencia)
+   - Logo: pon el archivo en assets/ y escribe la ruta en marca.logo.
+     Vacío = se muestra el nombre escrito.
+   - WhatsApp: código de país + número, sin "+" ni el cero (0414 123 4567 -> 584141234567).
+   - Lo que dice [POR CONFIRMAR] no se muestra en la página hasta que se cambie.
+   Después de editar, corre hornear_web.py (skill webs-carlos) para que el
+   contenido quede escrito también en el HTML.
+   ===================================================================== */
+var CONFIG = {
+  HOJA_CSV: "",
+  catalogoEjemplo: "catalogo-ejemplo.csv",
+  carpetaFotos: "assets/productos/",
+
+  marca: {
+    nombre: "Sport Andes",
+    rubro: "Suplementos deportivos",
+    ciudad: "[POR CONFIRMAR]",
+    logo: "",
+    whatsapp: "580000000000",
+    whatsappVisible: "+58 000 0000000",
+    instagram: "sport.andes",
+    // Colores provisionales: se reemplazan por los del logo.
+    colores: { base: "#0F1A24", acento: "#FF6A2B", fondo: "#F2F0EB" },
+    descripcion: "Suplementos deportivos originales: creatina, proteína, pre-entrenos y accesorios. Arma tu pedido y envíalo por WhatsApp."
+  },
+  textos: {
+    frase: "Suplementos deportivos originales",
+    lema: "Creatina, proteína, pre-entrenos y accesorios. Arma tu pedido aquí y envíalo completo por WhatsApp.",
+    destacadosTitulo: "Empieza por estos",
+    catalogoTitulo: "Todo lo que hay en la tienda",
+    catalogoIntro: "Filtra por categoría o busca por nombre o marca. Agrega lo que quieras y manda el pedido completo de una vez.",
+    cierreTitulo: "¿Dudas con un producto?",
+    cierreTexto: "Escríbenos y te ayudamos a escoger presentación y sabor. Te respondemos por WhatsApp."
+  },
+  portada: { foto: "assets/img/portada-700.webp", fotoGrande: "assets/img/portada-1600.webp", alt: "Mano con magnesio levantando una pesa rusa naranja" },
+  moneda: "$",
+  mensajes: {
+    general: "Hola, {{NOMBRE}}. Quiero información sobre sus productos.",
+    pedido: "Hola, {{NOMBRE}}. Quiero hacer este pedido:",
+    cierre: "¿Me confirman disponibilidad y el total?",
+    delivery: "Lo quiero con delivery.",
+    retiro: "Lo paso a retirar en la tienda.",
+    agotado: "Hola, {{NOMBRE}}. ¿Cuándo les llega {{PRODUCTO}}?",
+    buscar: "Hola, {{NOMBRE}}. ¿Tienen {{BUSQUEDA}}?"
+  },
+  // Todo lo de abajo es de ejemplo.
+  zonas: [
+    { nombre: "Centro", costo: 2 },
+    { nombre: "Zona norte", costo: 3 },
+    { nombre: "Zona sur", costo: 3 },
+    { nombre: "Afueras de la ciudad", costo: null }
+  ],
+  retiro: "Retiro en la tienda sin costo. Te mandamos la ubicación por WhatsApp.",
+  pagos: ["Pago móvil", "Divisas en efectivo", "Zelle"],
+  notaPagos: "Precios en dólares. También puedes pagar en bolívares a la tasa del día.",
+  // dias: 0 = domingo, 1 = lunes ... 6 = sábado. Horas en formato 24 h.
+  horarios: [
+    { texto: "Lunes a viernes", dias: [1, 2, 3, 4, 5], abre: "09:00", cierra: "19:00" },
+    { texto: "Sábado", dias: [6], abre: "09:00", cierra: "15:00" },
+    { texto: "Domingo", dias: [0], cerrado: true }
+  ],
+  pasos: [
+    { titulo: "Elige", texto: "Agrega al pedido lo que quieres, con la cantidad de cada uno." },
+    { titulo: "Envía tu pedido", texto: "Toca tu pedido y se abre WhatsApp con todo escrito: productos, cantidades y total." },
+    { titulo: "Recibe o retira", texto: "Te confirmamos disponibilidad y total. Te lo llevamos o lo pasas buscando." }
+  ],
+  vistaPrevia: "Vista previa · Productos y precios de ejemplo",
+  aviso: "Página de ejemplo con datos ficticios · Fotos referenciales"
+};
+(function(){ try { var c = CONFIG.marca.colores, r = document.documentElement.style;
+  r.setProperty("--base", c.base); r.setProperty("--acento", c.acento); r.setProperty("--fondo", c.fondo);
+  if (c.sobreAcento) r.setProperty("--sobre-acento", c.sobreAcento);
+  document.documentElement.classList.add("js"); } catch (e) {} })();
+</script>
+<meta name="robots" content="noindex, nofollow">
+<meta name="color-scheme" content="only light">
+<title>Sport Andes · Suplementos deportivos</title>
+<meta name="description" content="Suplementos deportivos originales: creatina, proteína, pre-entrenos y accesorios. Arma tu pedido y envíalo por WhatsApp.">
+<meta name="theme-color" content="#0F1A24">
+<meta property="og:title" content="Sport Andes · Suplementos deportivos">
+<meta property="og:description" content="Suplementos deportivos originales: creatina, proteína, pre-entrenos y accesorios. Arma tu pedido y envíalo por WhatsApp.">
+<meta property="og:url" content="https://thecarlos583.github.io/Paginas_webs/vista-previa/sport-andes-hrjh/">
+<meta property="og:image" content="https://thecarlos583.github.io/Paginas_webs/vista-previa/sport-andes-hrjh/assets/compartir.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="preload" href="assets/fuentes/barlow-cond-800i.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fuentes/barlow-400.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Barlow Condensed";src:url("assets/fuentes/barlow-cond-600.woff2") format("woff2");font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:"Barlow Condensed";src:url("assets/fuentes/barlow-cond-800.woff2") format("woff2");font-weight:800;font-style:normal;font-display:swap}
+@font-face{font-family:"Barlow Condensed";src:url("assets/fuentes/barlow-cond-800i.woff2") format("woff2");font-weight:800;font-style:italic;font-display:swap}
+@font-face{font-family:"Barlow";src:url("assets/fuentes/barlow-400.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Barlow";src:url("assets/fuentes/barlow-600.woff2") format("woff2");font-weight:600;font-style:normal;font-display:swap}
+:root{
+  color-scheme:only light;
+  --base:#0F1A24;--acento:#FF6A2B;--fondo:#F2F0EB;--sobre-acento:#0F1A24;
+  /* derivados (se recalculan solos con color-mix si el navegador lo permite) */
+  --base-2:#1A2632;--base-3:#26333F;--papel:#FBFAF7;--tinta:#0F1A24;--suave:#58616A;--acento-osc:#B2481A;
+  --linea:rgba(15,26,36,.12);--linea-f:rgba(15,26,36,.24);--linea-osc:rgba(255,255,255,.12);--claro:#EEF1F4;--claro-suave:rgba(238,241,244,.72);
+  --f-tit:"Barlow Condensed","Bahnschrift","Arial Narrow",sans-serif;
+  --f-texto:"Barlow","Segoe UI",system-ui,-apple-system,Roboto,sans-serif;
+  --suave-c:cubic-bezier(.22,.61,.36,1);--lento:cubic-bezier(.16,1,.3,1);--salto:cubic-bezier(.34,1.56,.64,1);
+  --cab:84px;--franja:26px;
+  --sombra:0 1px 2px rgba(10,18,26,.06),0 18px 40px -16px rgba(10,18,26,.28);
+}
+@supports (color:color-mix(in srgb,red,blue)){
+  :root{
+    --base-2:color-mix(in srgb,var(--base) 91%,#fff);--base-3:color-mix(in srgb,var(--base) 82%,#fff);
+    --papel:color-mix(in srgb,var(--fondo) 35%,#fff);--tinta:var(--base);--suave:color-mix(in srgb,var(--base) 70%,var(--fondo));
+    --acento-osc:color-mix(in srgb,var(--acento) 68%,#000);
+    --linea:color-mix(in srgb,var(--base) 12%,transparent);--linea-f:color-mix(in srgb,var(--base) 24%,transparent);
+  }
+}
+*{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;overflow-x:hidden;overflow-x:clip;background:var(--base);scroll-padding-top:calc(var(--cab) + 12px)}
+body{font-family:var(--f-texto);font-size:1rem;line-height:1.55;color:var(--tinta);background:var(--fondo);overflow-x:hidden;overflow-x:clip;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit;color:inherit}
+h1,h2,h3{line-height:1;font-weight:800}
+.contenedor{width:100%;max-width:1240px;margin:0 auto;padding-left:20px;padding-right:20px}
+@media (min-width:900px){.contenedor{padding-left:40px;padding-right:40px}}
+.seccion{padding-top:84px;padding-bottom:84px;position:relative}
+@media (min-width:900px){.seccion{padding-top:120px;padding-bottom:120px}}
+.solo-lector{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+:focus-visible{outline:2.5px solid var(--acento);outline-offset:3px;border-radius:6px}
+.oscuro{background:var(--base);color:var(--claro)}
+.rotulo{display:inline-flex;align-items:center;gap:10px;font-family:var(--f-tit);font-weight:600;font-size:.95rem;letter-spacing:.2em;text-transform:uppercase;color:var(--acento-osc)}
+.oscuro .rotulo{color:var(--acento)}
+.rotulo svg{width:18px;height:12px;flex-shrink:0}
+.titulo{font-family:var(--f-tit);font-style:italic;font-weight:800;text-transform:uppercase;font-size:clamp(2.6rem,10.5vw,5rem);line-height:.92;letter-spacing:-.01em;margin:10px 0 14px;overflow-wrap:anywhere}
+.intro{color:var(--suave);max-width:52ch;font-size:1.06rem}
+.oscuro .intro{color:var(--claro-suave)}
+
+/* botones */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:14px 22px;border-radius:12px;border:0;cursor:pointer;font-family:var(--f-tit);font-weight:800;font-size:1.12rem;letter-spacing:.06em;text-transform:uppercase;line-height:1.1;
+  transition:transform .3s var(--salto),box-shadow .3s var(--suave-c),background-color .3s,color .3s}
+.btn svg{width:20px;height:20px;flex-shrink:0}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:scale(.97)}
+.btn-acento{background:var(--acento);color:var(--sobre-acento);position:relative;overflow:hidden;box-shadow:0 10px 24px -10px var(--acento)}
+.btn-acento::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.5) 50%,transparent 70%);transform:translateX(-120%);animation:destello 7s var(--suave-c) infinite 2.5s;pointer-events:none}
+@keyframes destello{18%,100%{transform:translateX(120%)}}
+.btn-linea{background:transparent;color:inherit;box-shadow:inset 0 0 0 1.5px currentColor}
+.btn-linea:hover{background:rgba(255,255,255,.08)}
+@media (pointer:coarse){.btn{min-height:48px}}
+
+/* franja de vista previa y cabecera */
+.tapa{position:fixed;left:0;right:0;top:-400px;height:400px;background:var(--base);z-index:90}
+.franja{position:fixed;inset:0 0 auto;z-index:91;background:#000;color:rgba(255,255,255,.78);font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;text-align:center;
+  padding:calc(env(safe-area-inset-top) + 5px) 12px 5px;line-height:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.franja i{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--acento);margin-right:8px;vertical-align:1px}
+.franja:empty{display:none}
+.nav{position:fixed;left:0;right:0;top:calc(var(--franja) + env(safe-area-inset-top));z-index:80;color:#fff;transition:background-color .4s,box-shadow .4s}
+.nav.solido{background:var(--base);box-shadow:0 1px 0 var(--linea-osc)}
+.nav .contenedor{display:flex;align-items:center;justify-content:space-between;gap:14px;height:58px}
+.logo{display:flex;align-items:center;gap:10px;min-width:0}
+.logo img{height:40px;width:auto;max-width:150px;object-fit:contain}
+.logo-txt{display:flex;align-items:center;gap:8px;font-family:var(--f-tit);font-style:italic;font-weight:800;font-size:1.55rem;letter-spacing:.02em;text-transform:uppercase;line-height:1;white-space:nowrap}
+.logo-txt svg{width:30px;height:20px;color:var(--acento);flex-shrink:0;transition:transform .5s var(--salto)}
+.logo:hover .logo-txt svg{transform:translateY(-3px) scale(1.08)}
+.logo-txt b{color:var(--acento);font-weight:800}
+.nav-links{display:none;gap:30px;font-family:var(--f-tit);font-weight:600;font-size:1.05rem;letter-spacing:.12em;text-transform:uppercase}
+.nav-links a{position:relative;padding:4px 0}
+.nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--acento);transform:scaleX(0);transform-origin:right;transition:transform .4s var(--lento)}
+.nav-links a:hover::after{transform:scaleX(1);transform-origin:left}
+.nav .btn{padding:9px 16px;font-size:1rem;border-radius:10px}
+@media (min-width:1000px){.nav-links{display:flex}}
+.progreso{position:fixed;left:0;right:0;top:calc(var(--cab) + env(safe-area-inset-top));height:2px;z-index:81;background:var(--acento);transform-origin:0 50%;transform:scaleX(0)}
+
+/* portada */
+.portada{position:relative;min-height:min(100svh,860px);display:flex;align-items:flex-end;background:var(--base);color:#fff;overflow:hidden;padding:calc(var(--cab) + 40px) 0 104px}
+.portada-foto{position:absolute;inset:-4% 0 0 0;will-change:transform}
+.portada-foto img{width:100%;height:100%;object-fit:cover;object-position:50% 34%;animation:acercar 26s ease-in-out infinite alternate}
+@keyframes acercar{from{transform:scale(1.02)}to{transform:scale(1.14) translate(-1.5%,1%)}}
+.velo{position:absolute;inset:0;background:var(--base);-webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.08) 30%,rgba(0,0,0,.55) 55%,rgba(0,0,0,.94) 78%,#000 100%);mask-image:linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.08) 30%,rgba(0,0,0,.55) 55%,rgba(0,0,0,.94) 78%,#000 100%)}
+.polvo{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.polvo i{position:absolute;bottom:-10px;width:var(--t);height:var(--t);border-radius:50%;background:#fff;opacity:0;animation:polvo var(--d) linear infinite;animation-delay:var(--r)}
+@keyframes polvo{0%{transform:translate(0,0);opacity:0}15%{opacity:var(--o,.35)}100%{transform:translate(var(--x,20px),-92vh);opacity:0}}
+.portada-cont{position:relative;z-index:2;width:100%}
+.estado{display:inline-flex;align-items:center;gap:9px;font-size:.86rem;font-weight:600;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);padding:6px 14px 6px 12px;border-radius:999px;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.estado i{width:8px;height:8px;border-radius:50%;background:#3DDC84;position:relative;flex-shrink:0}
+.estado i::after{content:"";position:absolute;inset:-5px;border-radius:50%;background:#3DDC84;opacity:0;animation:latido 2.4s ease-out infinite}
+.estado.cerrado i,.estado.cerrado i::after{background:var(--acento)}
+@keyframes latido{0%{transform:scale(.4);opacity:.6}100%{transform:scale(1.7);opacity:0}}
+.portada h1{font-family:var(--f-tit);font-style:italic;font-weight:800;text-transform:uppercase;font-size:clamp(4.6rem,25vw,11rem);line-height:.8;letter-spacing:-.015em;margin:18px 0 16px;padding-right:.08em}
+.portada h1 .l2{display:block;color:var(--acento)}
+.portada .frase{font-family:var(--f-tit);font-weight:600;font-size:clamp(1.35rem,5.6vw,1.9rem);text-transform:uppercase;letter-spacing:.04em;line-height:1.1;max-width:24ch}
+.portada .lema{color:rgba(255,255,255,.8);max-width:44ch;margin:10px 0 24px;font-size:1.02rem}
+.portada .botones{display:flex;flex-wrap:wrap;gap:10px}
+@media (max-width:420px){.portada .botones .btn{flex:1 1 auto}}
+@media (max-height:700px) and (max-width:899px){.portada .lema{display:none}.portada h1{font-size:clamp(4rem,21vw,8rem)}}
+.cordillera{position:absolute;left:0;right:0;bottom:-1px;height:clamp(54px,9vw,120px);z-index:1;pointer-events:none}
+.cordillera svg{position:absolute;left:0;bottom:0;width:100%;height:100%;will-change:transform;overflow:visible}
+.cordillera path{fill:var(--base)}
+.cordillera .atras{opacity:.55}
+.dest-portada{display:none}
+@media (min-width:960px){
+  .portada{align-items:center;padding-bottom:140px}
+  .portada-foto img{object-position:60% 40%}
+  .velo{-webkit-mask-image:linear-gradient(90deg,#000 0%,rgba(0,0,0,.86) 30%,rgba(0,0,0,.25) 62%,rgba(0,0,0,.4) 100%);mask-image:linear-gradient(90deg,#000 0%,rgba(0,0,0,.86) 30%,rgba(0,0,0,.25) 62%,rgba(0,0,0,.4) 100%)}
+  .portada-cont{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);align-items:end;gap:40px}
+  .dest-portada{display:block;justify-self:end;width:100%;max-width:330px;background:rgba(15,26,36,.6);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.14);border-radius:20px;padding:14px;color:#fff}
+}
+.dest-portada small{display:flex;justify-content:space-between;font-family:var(--f-tit);font-weight:600;letter-spacing:.18em;text-transform:uppercase;font-size:.8rem;color:var(--acento);margin-bottom:10px}
+.dp-item{display:grid;grid-template-columns:84px minmax(0,1fr);gap:12px;align-items:center;transition:opacity .45s var(--suave-c),transform .45s var(--suave-c)}
+.dp-item.saliendo{opacity:0;transform:translateY(8px)}
+.dp-foto{width:84px;height:84px;border-radius:12px;overflow:hidden;position:relative}
+.dp-item b{display:block;font-family:var(--f-tit);font-weight:800;font-size:1.25rem;text-transform:uppercase;line-height:1;overflow-wrap:anywhere}
+.dp-item span{font-size:.84rem;color:rgba(255,255,255,.7)}
+.dp-item .precio{color:#fff;font-size:1.5rem;display:block;margin-top:2px}
+.dp-pie{display:flex;gap:8px;margin-top:12px}
+.dp-pie .btn{flex:1;padding:10px;font-size:.98rem}
+.dp-pie .btn-linea{flex:0 0 auto;padding:10px 12px;color:#fff}
+
+/* cinta de categorías */
+.cinta{overflow:hidden;white-space:nowrap;background:var(--acento);color:var(--sobre-acento);padding:12px 0;position:relative;z-index:2}
+.cinta-pista{display:inline-flex;animation:correr 48s linear infinite}
+.cinta-pista span{display:inline-flex;align-items:center;gap:1.4rem;padding-right:1.4rem;font-family:var(--f-tit);font-style:italic;font-weight:800;text-transform:uppercase;font-size:clamp(1.4rem,4.6vw,2rem);letter-spacing:.02em;line-height:1.1}
+.cinta-pista svg{width:22px;height:14px}
+@keyframes correr{to{transform:translateX(-50%)}}
+
+/* fotos de producto y su respaldo sin foto */
+.foto{position:relative;overflow:hidden;background:var(--base-2)}
+.foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .9s var(--lento)}
+.vacia{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:12px;color:#fff;
+  background:radial-gradient(120% 90% at 85% 0%,rgba(255,255,255,.12),transparent 60%),linear-gradient(var(--ang,150deg),var(--base-3),var(--base))}
+.vacia::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(var(--ang2,-35deg),rgba(255,255,255,.035) 0 2px,transparent 2px 14px)}
+.vacia svg{position:absolute;right:11%;top:11%;width:30%;height:auto;aspect-ratio:6/7;color:var(--acento);opacity:.9}
+.vacia em{position:relative;font-style:normal;font-family:var(--f-tit);font-weight:600;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--acento);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.vacia strong{position:relative;font-family:var(--f-tit);font-style:italic;font-weight:800;font-size:clamp(1rem,4.4vw,1.4rem);line-height:.95;text-transform:uppercase;overflow-wrap:anywhere}
+
+/* control de pedido (agregar / cantidad) */
+.ctrl{min-height:44px}
+.agregar{display:flex;align-items:center;justify-content:center;gap:7px;width:100%;min-height:44px;padding:10px 12px;border-radius:10px;background:var(--base);color:#fff;font-family:var(--f-tit);font-weight:800;font-size:1.02rem;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;border:0;transition:background-color .3s,color .3s,transform .3s var(--salto)}
+.agregar svg{width:16px;height:16px;flex-shrink:0}
+.agregar .largo{display:none}
+@media (min-width:700px){.agregar .largo{display:inline}}
+.dest .agregar .largo{display:inline}
+.agregar:hover{background:var(--acento);color:var(--sobre-acento)}
+.agregar:active{transform:scale(.96)}
+.oscuro .agregar{background:var(--acento);color:var(--sobre-acento)}
+.oscuro .agregar:hover{background:#fff;color:var(--base)}
+.cantidad{display:grid;grid-template-columns:44px minmax(0,1fr) 44px;align-items:center;min-height:44px;border-radius:10px;background:var(--acento);color:var(--sobre-acento);animation:aparece .35s var(--salto)}
+@keyframes aparece{from{transform:scale(.9);opacity:.4}}
+.cantidad button{height:44px;border:0;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;border-radius:10px;transition:background-color .25s}
+.cantidad button:hover{background:rgba(0,0,0,.1)}
+.cantidad svg{width:16px;height:16px}
+.cantidad output{text-align:center;font-family:var(--f-tit);font-weight:800;font-size:1.2rem;line-height:1}
+.cantidad output small{display:none;font-family:var(--f-texto);font-weight:600;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;opacity:.75;white-space:nowrap}
+@media (min-width:700px){.cantidad output small{display:block}}
+.dest .cantidad output small{display:block}
+.preguntar{display:flex;align-items:center;justify-content:center;min-height:44px;padding:8px;border-radius:10px;font-size:.9rem;font-weight:600;color:var(--suave);box-shadow:inset 0 0 0 1.5px var(--linea-f);text-align:center;line-height:1.2;transition:color .3s,box-shadow .3s}
+.preguntar:hover{color:var(--tinta);box-shadow:inset 0 0 0 1.5px var(--tinta)}
+.precio{font-family:var(--f-tit);font-weight:800;letter-spacing:-.01em;line-height:1}
+.agotado-tag{position:absolute;left:10px;top:10px;z-index:2;background:var(--tinta);color:#fff;font-family:var(--f-tit);font-weight:800;font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;padding:5px 10px;border-radius:6px;transform:rotate(-3deg)}
+
+/* destacados */
+.destacados{padding-top:76px}
+.dest-cab{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 30px;margin-bottom:28px}
+.dest-cab a.ver{font-family:var(--f-tit);font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--acento);display:inline-flex;align-items:center;gap:8px;padding:6px 0}
+.dest-cab a.ver svg{width:18px;height:18px;transition:transform .4s var(--salto)}
+.dest-cab a.ver:hover svg{transform:translateX(4px)}
+.dest-lista{list-style:none;display:grid;grid-auto-flow:column;grid-auto-columns:min(78%,300px);gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 20px 18px;scroll-padding-inline:20px;scrollbar-width:none}
+.dest-lista::-webkit-scrollbar{display:none}
+@media (min-width:900px){.dest-lista{grid-auto-flow:row;grid-template-columns:repeat(4,minmax(0,1fr));overflow:visible;padding:4px 40px 0;max-width:1240px;margin:0 auto}}
+.dest{scroll-snap-align:start;min-width:0;display:flex;flex-direction:column;background:var(--base-2);border:1px solid var(--linea-osc);border-radius:20px;padding:8px;transition:transform .5s var(--lento),border-color .4s}
+.dest:hover{transform:translateY(-6px);border-color:rgba(255,255,255,.28)}
+.dest .foto{aspect-ratio:4/5;border-radius:14px}
+.dest:hover .foto img{transform:scale(1.06)}
+.dest-num{position:absolute;right:10px;top:6px;z-index:2;font-family:var(--f-tit);font-style:italic;font-weight:800;font-size:3rem;line-height:1;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.45)}
+.dest-cuerpo{padding:14px 8px 8px;display:flex;flex-direction:column;gap:6px;flex:1}
+.marca-p{font-family:var(--f-tit);font-weight:600;font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;color:var(--acento-osc)}
+.oscuro .marca-p{color:var(--acento)}
+.dest h3{font-family:var(--f-tit);font-weight:800;font-size:1.55rem;text-transform:uppercase;line-height:.95;overflow-wrap:anywhere}
+.pres{font-size:.88rem;color:var(--suave)}
+.oscuro .pres{color:var(--claro-suave)}
+.dest-pie{display:flex;flex-direction:column;gap:10px;margin-top:auto;padding-top:8px}
+.dest .precio{font-size:2.1rem;color:#fff}
+.js .revelar-mascara .foto{clip-path:inset(100% 0 0 0 round 14px);transition:clip-path 1.2s var(--lento)}
+.js .revelar-mascara.visible .foto{clip-path:inset(0 0 0 0 round 14px)}
+.js .revelar-mascara.visible>li:nth-child(2) .foto{transition-delay:.12s}.js .revelar-mascara.visible>li:nth-child(3) .foto{transition-delay:.24s}.js .revelar-mascara.visible>li:nth-child(4) .foto{transition-delay:.36s}
+
+/* catálogo */
+.catalogo{background:var(--fondo)}
+.cat-cab{margin-bottom:22px}
+.barra-cat{position:sticky;top:calc(var(--cab) + env(safe-area-inset-top));z-index:30;background:var(--fondo);padding:12px 0 10px;margin:0 -20px 18px;padding-left:20px;padding-right:20px;box-shadow:0 1px 0 transparent;transition:box-shadow .3s}
+.barra-cat.pegada{box-shadow:0 1px 0 var(--linea),0 10px 20px -16px rgba(0,0,0,.3)}
+@media (min-width:900px){.barra-cat{margin:0 -40px 22px;padding-left:40px;padding-right:40px;display:flex;align-items:center;gap:18px}}
+.buscar{position:relative;display:block;min-width:0}
+@media (min-width:900px){.buscar{flex:0 0 340px}}
+.buscar svg{position:absolute;left:14px;top:50%;width:19px;height:19px;transform:translateY(-50%);color:var(--suave);pointer-events:none}
+.buscar input{width:100%;height:48px;border-radius:12px;border:1.5px solid var(--linea-f);background:var(--papel);padding:0 40px 0 44px;font-size:1rem;outline:none;transition:border-color .3s,box-shadow .3s}
+.buscar input:focus{border-color:var(--tinta);box-shadow:0 0 0 4px var(--linea)}
+.buscar input::-webkit-search-cancel-button{display:none}
+.limpiar{position:absolute;right:6px;top:50%;transform:translateY(-50%);width:36px;height:36px;border:0;border-radius:8px;background:transparent;cursor:pointer;display:none;align-items:center;justify-content:center}
+.limpiar svg{position:static;transform:none;width:16px;height:16px}
+.buscar.con-texto .limpiar{display:flex}
+.chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin-top:10px;padding-bottom:2px;min-width:0}
+.chips::-webkit-scrollbar{display:none}
+@media (min-width:900px){.chips{margin-top:0;flex-wrap:wrap;overflow:visible}}
+.chip{flex-shrink:0;border:1.5px solid var(--linea-f);background:transparent;border-radius:999px;padding:8px 15px;font-family:var(--f-tit);font-weight:600;font-size:1rem;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:background-color .3s,color .3s,border-color .3s,transform .3s var(--salto);min-height:40px}
+.chip:hover{border-color:var(--tinta)}
+.chip:active{transform:scale(.95)}
+.chip[aria-pressed="true"]{background:var(--tinta);border-color:var(--tinta);color:#fff}
+.chip span{opacity:.6;margin-left:4px;font-weight:600}
+.cuenta{font-size:.9rem;color:var(--suave);margin:-6px 0 14px;min-height:1.4em}
+.productos{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (min-width:700px){.productos{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}}
+@media (min-width:1080px){.productos{grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}}
+.prod{position:relative;min-width:0;display:flex;flex-direction:column;background:var(--papel);border:1px solid var(--linea);border-radius:18px;padding:7px;transition:transform .5s var(--lento),box-shadow .5s var(--suave-c)}
+.prod:hover{transform:translateY(-5px);box-shadow:var(--sombra)}
+.prod[hidden]{display:none}
+.prod .foto{aspect-ratio:1;border-radius:13px}
+.prod:hover .foto img{transform:scale(1.07)}
+.prod.sin-stock .foto img{filter:grayscale(1) brightness(.85)}
+.prod-cuerpo{display:flex;flex-direction:column;gap:4px;padding:12px 5px 5px;flex:1}
+.prod h3{font-family:var(--f-tit);font-weight:800;font-size:1.22rem;line-height:1;text-transform:uppercase;overflow-wrap:anywhere}
+.prod .desc{display:none;font-size:.88rem;color:var(--suave);line-height:1.4}
+@media (min-width:700px){.prod .desc{display:block}}
+.prod-pie{margin-top:auto;padding-top:10px;display:flex;flex-direction:column;gap:9px}
+.prod .precio{font-size:1.75rem}
+.prod .precio small{font-family:var(--f-texto);font-size:.72rem;font-weight:600;color:var(--suave);letter-spacing:.04em;margin-left:3px}
+.vacio-busqueda{display:none;text-align:center;padding:50px 10px;border:1.5px dashed var(--linea-f);border-radius:18px}
+.vacio-busqueda.ver{display:block}
+.vacio-busqueda b{display:block;font-family:var(--f-tit);font-style:italic;font-weight:800;font-size:2rem;text-transform:uppercase;margin-bottom:6px}
+.vacio-busqueda p{color:var(--suave);margin-bottom:16px}
+.js .cascada>li{opacity:0;transform:translateY(26px)}
+.js .cascada.visible>li{opacity:1;transform:none;transition:opacity .8s var(--suave-c),transform .9s var(--lento),box-shadow .5s var(--suave-c);transition-delay:calc(var(--n,0) * 55ms)}
+.js .cascada.visible.listo>li{transition-delay:0s}
+
+/* cómo comprar */
+.comprar{overflow:hidden}
+.comprar-foto{position:absolute;inset:0;opacity:.22;pointer-events:none}
+.comprar-foto img{width:100%;height:120%;object-fit:cover;object-position:50% 30%;will-change:transform}
+.comprar-foto::after{content:"";position:absolute;inset:0;background:var(--base);-webkit-mask-image:linear-gradient(180deg,#000,rgba(0,0,0,.2) 50%,#000);mask-image:linear-gradient(180deg,#000,rgba(0,0,0,.2) 50%,#000)}
+.comprar .contenedor{position:relative}
+.ruta{display:none}
+.pasos{list-style:none;display:grid;gap:34px;margin-top:40px;position:relative}
+.pasos::before{content:"";position:absolute;left:31px;top:30px;bottom:30px;width:2px;background:repeating-linear-gradient(180deg,var(--acento) 0 8px,transparent 8px 16px);transform-origin:top;transition:transform 1.6s var(--lento)}
+.js .pasos::before{transform:scaleY(0)}
+.js .pasos.visible::before{transform:scaleY(1)}
+.paso{display:grid;grid-template-columns:64px minmax(0,1fr);gap:18px;align-items:start;position:relative}
+.paso-num{position:relative;width:64px;height:64px;border-radius:50%;background:var(--base);border:2px solid var(--acento);display:flex;align-items:center;justify-content:center;font-family:var(--f-tit);font-style:italic;font-weight:800;font-size:1.8rem;color:var(--acento)}
+.paso-num::after{content:"";position:absolute;inset:-8px;border-radius:50%;border:1px solid var(--acento);opacity:0;animation:onda 3.6s ease-out infinite;animation-delay:calc(var(--n) * 1.2s)}
+@keyframes onda{0%{transform:scale(.85);opacity:.7}100%{transform:scale(1.35);opacity:0}}
+.paso h3{font-family:var(--f-tit);font-style:italic;font-weight:800;font-size:2rem;text-transform:uppercase;margin:4px 0 6px;color:#fff}
+.paso p{color:var(--claro-suave);max-width:34ch}
+.js .pasos .paso{opacity:0;transform:translateX(-24px)}
+.js .pasos.visible .paso{opacity:1;transform:none;transition:opacity .8s var(--suave-c),transform 1s var(--lento);transition-delay:calc(var(--n) * 180ms + .2s)}
+@media (min-width:900px){
+  .ruta{display:block;position:relative;height:140px;margin-top:40px}
+  .ruta svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+  .ruta path{fill:none;stroke:var(--acento);stroke-width:2.5;stroke-dasharray:7 9;vector-effect:non-scaling-stroke}
+  .js .ruta svg{clip-path:inset(-10px 100% -10px 0)}
+  .pasos{grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;margin-top:-60px}
+  .pasos::before{display:none}
+  .paso{grid-template-columns:1fr;justify-items:center;text-align:center;gap:10px}
+  .js .pasos .paso{transform:translateY(24px)}
+}
+
+/* entregas, pagos y horario */
+.info-grid{display:grid;gap:16px;margin-top:34px;perspective:1200px}
+@media (min-width:900px){.info-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;align-items:stretch}}
+.info{border-radius:22px;padding:24px 22px;min-width:0;background:var(--papel);border:1px solid var(--linea);transition:transform .5s var(--lento),box-shadow .5s}
+.info:hover{transform:translateY(-4px);box-shadow:var(--sombra)}
+.info.oscuro{border-color:transparent;background:var(--base);color:var(--claro)}
+.info-ico{width:48px;height:48px;border-radius:14px;background:var(--acento);color:var(--sobre-acento);display:flex;align-items:center;justify-content:center;margin-bottom:16px;transition:transform .5s var(--salto)}
+.info:hover .info-ico{transform:rotate(-8deg) scale(1.06)}
+.info-ico svg{width:26px;height:26px}
+.info h3{font-family:var(--f-tit);font-style:italic;font-weight:800;font-size:1.9rem;text-transform:uppercase;margin-bottom:10px}
+.lista{list-style:none}
+.lista li{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:11px 0;border-bottom:1px dashed var(--linea-f)}
+.lista li span:first-child{min-width:0}
+.lista li span:last-child{font-weight:600;white-space:nowrap;text-align:right}
+.lista li.hoy{font-weight:600}
+.lista li.hoy span:first-child::after{content:"hoy";margin-left:8px;font-size:.66rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;background:var(--acento);color:var(--sobre-acento);padding:2px 8px;border-radius:999px;vertical-align:2px}
+.nota{font-size:.92rem;color:var(--suave);margin-top:14px}
+.oscuro .nota{color:var(--claro-suave)}
+.pagos{list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.pagos li{border:1.5px solid rgba(255,255,255,.22);border-radius:999px;padding:8px 14px;font-weight:600;transition:border-color .3s,background-color .3s}
+.pagos li:hover{border-color:var(--acento);background:rgba(255,255,255,.05)}
+.info .estado{margin-top:16px;background:var(--fondo);border-color:var(--linea);-webkit-backdrop-filter:none;backdrop-filter:none}
+@media (max-width:399px){.lista li{flex-direction:column;gap:2px}.lista li span:last-child{text-align:left}}
+.js .voltear>*{opacity:0;transform:rotateX(-18deg) translateY(30px);transform-origin:50% 0}
+.js .voltear.visible>*{opacity:1;transform:none;transition:opacity .9s var(--suave-c),transform 1.1s var(--lento)}
+.js .voltear.visible>*:nth-child(2){transition-delay:.14s}.js .voltear.visible>*:nth-child(3){transition-delay:.28s}
+.js .voltear.visible.listo>*{transition-delay:0s}
+
+/* instagram */
+.insta{background:var(--acento);color:var(--sobre-acento);overflow:hidden}
+.insta-grid{display:grid;gap:30px;align-items:center}
+@media (min-width:900px){.insta-grid{grid-template-columns:minmax(0,1fr) auto;gap:60px}}
+.insta .rotulo{color:var(--sobre-acento)}
+.insta-usuario{display:block;font-family:var(--f-tit);font-style:italic;font-weight:800;text-transform:uppercase;font-size:clamp(2.8rem,13vw,7rem);line-height:.9;margin:8px 0 14px;overflow-wrap:anywhere;transition:transform .5s var(--salto)}
+.insta-usuario:hover{transform:skewX(-4deg)}
+.insta p{max-width:44ch;font-size:1.06rem;margin-bottom:22px}
+.insta .btn{background:var(--sobre-acento);color:var(--acento)}
+.anillo{position:relative;width:180px;height:180px;margin:0 auto}
+@media (min-width:900px){.anillo{width:230px;height:230px}}
+.anillo svg.giro{position:absolute;inset:0;width:100%;height:100%;animation:girar 30s linear infinite}
+.anillo text{font-family:var(--f-tit);font-weight:800;font-size:12.5px;letter-spacing:.24em;fill:currentColor;text-transform:uppercase}
+.anillo .ig{position:absolute;inset:30%;display:flex;align-items:center;justify-content:center;border-radius:50%;background:var(--sobre-acento);color:var(--acento);transition:transform .5s var(--salto)}
+.anillo:hover .ig{transform:scale(1.08) rotate(-8deg)}
+.anillo .ig svg{width:48%;height:48%}
+@keyframes girar{to{transform:rotate(360deg)}}
+.js .crecer{opacity:0;transform:scale(.9)}
+.js .crecer.visible{opacity:1;transform:none;transition:opacity .9s var(--suave-c),transform 1.1s var(--salto)}
+
+/* cierre y pie */
+.cierre{text-align:center;overflow:hidden}
+.cierre .titulo{margin-left:auto;margin-right:auto;max-width:16ch}
+.cierre .intro{margin:0 auto 28px}
+.cierre .botones{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.cierre .btn-linea{color:var(--claro)}
+.datos{list-style:none;display:grid;gap:12px;margin:44px auto 0;max-width:860px;text-align:left}
+@media (min-width:720px){.datos{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.datos li{border:1px solid var(--linea-osc);border-radius:16px;padding:16px;min-width:0;transition:border-color .3s,transform .4s var(--salto)}
+.datos li:hover{border-color:var(--acento);transform:translateY(-3px)}
+.datos small{display:block;font-family:var(--f-tit);font-weight:600;font-size:.82rem;letter-spacing:.18em;text-transform:uppercase;color:var(--acento);margin-bottom:4px}
+.datos a,.datos span{font-weight:600;overflow-wrap:anywhere}
+.cordillera-pie{position:absolute;left:0;right:0;top:0;height:60px;opacity:.5;pointer-events:none;overflow:hidden}
+.cordillera-pie svg{width:200%;height:100%;animation:deriva 60s linear infinite}
+.cordillera-pie path{fill:none;stroke:var(--acento);stroke-width:1.5;vector-effect:non-scaling-stroke}
+@keyframes deriva{to{transform:translateX(-50%)}}
+footer{background:var(--base);color:var(--claro-suave);padding:30px 0 120px;font-size:.88rem;border-top:1px solid var(--linea-osc)}
+footer .contenedor{display:grid;gap:14px}
+footer .logo-txt{font-size:1.4rem;color:#fff}
+.aviso{font-size:.8rem;max-width:62ch}
+@media (min-width:1000px){footer{padding-bottom:40px}footer .contenedor{grid-template-columns:1fr auto;align-items:center}}
+
+/* barra del teléfono, botón flotante y pedido */
+.barra-movil{position:fixed;left:0;right:0;bottom:0;z-index:70;display:flex;gap:10px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:var(--base);box-shadow:0 -1px 0 var(--linea-osc)}
+.barra-movil .btn{flex:1;padding:12px 10px;font-size:1rem;min-width:0}
+.barra-movil .btn-linea{color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.4)}
+.barra-movil .lleno{background:#fff;color:var(--base);box-shadow:none}
+@media (min-width:1000px){.barra-movil{display:none}}
+.cuenta-badge{display:inline-flex;align-items:center;justify-content:center;min-width:22px;height:22px;padding:0 6px;border-radius:999px;background:var(--acento);color:var(--sobre-acento);font-size:.85rem;letter-spacing:0}
+.cuenta-badge.salta{animation:salta .5s var(--salto)}
+@keyframes salta{40%{transform:scale(1.35)}}
+.wa-flotante,.pedido-flotante{display:none}
+@media (min-width:1000px){
+  .wa-flotante{position:fixed;right:24px;bottom:24px;z-index:70;width:60px;height:60px;border-radius:50%;background:#25d366;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(0,0,0,.28);transition:transform .4s var(--salto),opacity .3s}
+  .wa-flotante:hover{transform:scale(1.08)}
+  .wa-flotante svg{width:30px;height:30px}
+  .pedido-flotante{position:fixed;right:24px;bottom:24px;z-index:71;display:flex;align-items:center;gap:12px;padding:10px 12px 10px 18px;border-radius:16px;border:0;cursor:pointer;background:var(--base);color:#fff;box-shadow:0 16px 40px -10px rgba(0,0,0,.5);
+    font-family:var(--f-tit);font-weight:800;font-size:1.1rem;letter-spacing:.06em;text-transform:uppercase;transform:translateY(140%);opacity:0;transition:transform .5s var(--salto),opacity .3s}
+  .pedido-flotante svg{width:22px;height:22px;color:var(--acento)}
+  .pedido-flotante .total{background:var(--acento);color:var(--sobre-acento);padding:8px 12px;border-radius:10px}
+  body.con-pedido .pedido-flotante{transform:none;opacity:1}
+  body.con-pedido .wa-flotante{transform:scale(.4);opacity:0;pointer-events:none}
+}
+.vuela{position:fixed;left:0;top:0;width:16px;height:16px;margin:-8px 0 0 -8px;border-radius:50%;background:var(--acento);z-index:200;pointer-events:none;box-shadow:0 0 0 4px rgba(255,255,255,.6)}
+
+.hoja-fondo{position:fixed;inset:0;z-index:150;background:rgba(5,10,15,.55);opacity:0;pointer-events:none;transition:opacity .35s}
+.hoja{position:fixed;left:0;right:0;bottom:0;z-index:151;max-height:88svh;display:flex;flex-direction:column;background:var(--papel);color:var(--tinta);border-radius:22px 22px 0 0;box-shadow:0 -20px 50px -20px rgba(0,0,0,.5);transform:translateY(105%);transition:transform .5s var(--lento),visibility 0s linear .5s;visibility:hidden}
+@media (min-width:760px){.hoja{left:auto;top:0;width:430px;max-height:none;border-radius:0;transform:translateX(105%)}}
+body.hoja-abierta .hoja-fondo{opacity:1;pointer-events:auto}
+body.hoja-abierta .hoja{transform:none;visibility:visible;transition:transform .5s var(--lento),visibility 0s}
+.hoja-cab{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 20px 14px;border-bottom:1px solid var(--linea)}
+.hoja-cab h2{font-family:var(--f-tit);font-style:italic;font-weight:800;font-size:2rem;text-transform:uppercase}
+.cerrar{width:44px;height:44px;border-radius:12px;border:0;background:var(--fondo);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .3s var(--salto)}
+.cerrar:hover{transform:rotate(90deg)}
+.cerrar svg{width:18px;height:18px}
+.hoja-cuerpo{overflow-y:auto;padding:8px 20px;flex:1;overscroll-behavior:contain}
+.items{list-style:none}
+.item{display:grid;grid-template-columns:56px minmax(0,1fr);gap:12px;padding:14px 0;border-bottom:1px solid var(--linea);animation:aparece .35s var(--suave-c)}
+.item .foto{width:56px;height:56px;border-radius:10px}
+.item .vacia{padding:4px}.item .vacia strong,.item .vacia em{display:none}
+.item b{display:block;font-family:var(--f-tit);font-weight:800;font-size:1.15rem;text-transform:uppercase;line-height:1.05;overflow-wrap:anywhere}
+.item .pres{font-size:.84rem}
+.item-pie{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:8px}
+.item .cantidad{grid-template-columns:38px 34px 38px;min-height:38px;animation:none}
+.item .cantidad button{height:38px}
+.item .precio{font-size:1.3rem}
+.hoja-vacia{text-align:center;padding:40px 10px;color:var(--suave)}
+.hoja-vacia b{display:block;font-family:var(--f-tit);font-style:italic;font-weight:800;font-size:1.7rem;text-transform:uppercase;color:var(--tinta);margin-bottom:6px}
+.entrega{margin:16px 0 8px;border:0;min-width:0}
+.entrega legend{font-family:var(--f-tit);font-weight:600;font-size:.85rem;letter-spacing:.16em;text-transform:uppercase;color:var(--suave);margin-bottom:8px}
+.opciones{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.opciones label{position:relative;cursor:pointer}
+.opciones input{position:absolute;opacity:0;pointer-events:none}
+.opciones span{display:flex;align-items:center;justify-content:center;gap:8px;min-height:46px;border-radius:12px;border:1.5px solid var(--linea-f);font-weight:600;transition:background-color .3s,color .3s,border-color .3s}
+.opciones span svg{width:20px;height:20px}
+.opciones input:checked+span{background:var(--tinta);color:#fff;border-color:var(--tinta)}
+.opciones input:focus-visible+span{outline:2.5px solid var(--acento);outline-offset:2px}
+.hoja-pie{padding:16px 20px calc(16px + env(safe-area-inset-bottom));border-top:1px solid var(--linea);background:var(--papel)}
+.total-fila{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:4px}
+.total-fila span:first-child{font-family:var(--f-tit);font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--suave)}
+.total-fila .precio{font-size:2.3rem}
+.hoja-pie .nota{margin:0 0 14px;font-size:.84rem}
+.hoja-pie .btn{width:100%}
+.hoja-pie .btn[aria-disabled="true"]{opacity:.45;pointer-events:none}
+.vaciar{display:block;margin:10px auto 0;border:0;background:none;color:var(--suave);font-size:.88rem;text-decoration:underline;cursor:pointer;padding:6px}
+
+/* revelar general */
+.js .revelar{opacity:0;transform:translateY(26px)}
+.js .revelar.visible{opacity:1;transform:none;transition:opacity 1s var(--suave-c),transform 1.1s var(--lento)}
+.js [data-partir] .p{display:inline-block;opacity:0;transform:translateY(.5em) skewX(-12deg);transition:opacity .6s var(--suave-c),transform .9s var(--salto);transition-delay:calc(var(--i)*55ms + .1s)}
+.js [data-partir].visible .p{opacity:1;transform:none}
+.js .entra{opacity:0;transform:translateY(14px)}
+.js .cargada .entra{opacity:1;transform:none;transition:opacity .9s var(--suave-c),transform 1s var(--lento)}
+.js .cargada .d1{transition-delay:.05s}.js .cargada .d2{transition-delay:.7s}.js .cargada .d3{transition-delay:.85s}.js .cargada .d4{transition-delay:1.1s}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .js .revelar,.js .cascada>li,.js .entra,.js [data-partir] .p,.js .pasos .paso,.js .voltear>*,.js .crecer{transform:none!important}
+  .js .revelar-mascara .foto{clip-path:none}
+  .polvo,.portada-foto img{animation:none}
+  .polvo{display:none}
+  .cinta-pista{animation-duration:160s}
+  .cordillera-pie svg{animation:none}
+  .js .ruta svg{clip-path:none}
+}
+body.pausado *,body.pausado *::before,body.pausado *::after{animation-play-state:paused!important}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.31l-.34-.2-3.57.94.95-3.48-.22-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.23-9.43 9.44-9.43a9.43 9.43 0 0 1 9.43 9.44c0 5.2-4.23 9.43-9.44 9.43zm8.03-17.46A11.27 11.27 0 0 0 12.05.72C5.79.72.7 5.81.7 12.07c0 2 .52 3.95 1.52 5.67L.6 23.65l6.05-1.59a11.33 11.33 0 0 0 5.4 1.38h.01c6.26 0 11.35-5.09 11.35-11.35 0-3.03-1.18-5.88-3.33-8.03z"/></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M7 2.8h10A4.2 4.2 0 0 1 21.2 7v10a4.2 4.2 0 0 1-4.2 4.2H7A4.2 4.2 0 0 1 2.8 17V7A4.2 4.2 0 0 1 7 2.8z"/><circle cx="12" cy="12" r="4.1" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor"/></symbol>
+  <symbol id="i-pico" viewBox="0 0 30 20"><path fill="currentColor" d="M0 20 L9 6 L13 12 L19 2 L30 20 Z"/><path fill="#fff" opacity=".9" d="M19 2 L16.2 6.7 L18 6 L19.6 7.4 L21.3 5.9 Z"/></symbol>
+  <symbol id="i-bolsa" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" d="M5 8h14l-1.2 12.2a1 1 0 0 1-1 .8H7.2a1 1 0 0 1-1-.8L5 8zM9 8V6.5a3 3 0 0 1 6 0V8"/></symbol>
+  <symbol id="i-mas" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-menos" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" d="M5 12h14"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-lupa" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="M16 16l4.5 4.5"/></symbol>
+  <symbol id="i-flecha" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-moto" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="17" r="3"/><circle cx="18.5" cy="17" r="3"/><path d="M8.5 17h6l3-6h-4l-2 3H6M14 6h3l2 5"/></g></symbol>
+  <symbol id="i-tienda" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5V20h16V9.5M3 9.5l2-5.5h14l2 5.5c0 1.4-1.2 2.5-2.6 2.5s-2.6-1.1-2.6-2.5c0 1.4-1.2 2.5-2.8 2.5s-2.8-1.1-2.8-2.5c0 1.4-1.2 2.5-2.6 2.5S3 10.9 3 9.5z"/><path d="M10 20v-5h4v5"/></g></symbol>
+  <symbol id="i-pago" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5.5" width="19" height="13" rx="2"/><path d="M2.5 10h19M6.5 15h4"/></g></symbol>
+  <symbol id="i-reloj" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></g></symbol>
+  <symbol id="i-envase" viewBox="0 0 60 70"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"><rect x="12" y="4" width="36" height="9" rx="3"/><path d="M8 16c0-2 1.5-3 3.5-3h37c2 0 3.5 1 3.5 3v46c0 2.5-2 4-4.5 4h-35C10 66 8 64.5 8 62z"/><path d="M8 28h44M8 50h44" opacity=".55"/><path d="M18 43l7-9 4 5 6-9 8 13" stroke-linecap="round"/></g></symbol>
+</svg>
+
+<div class="tapa" aria-hidden="true"></div>
+
+<!--auto-inicio-->
+<p class="franja" data-franja=""><i aria-hidden="true"></i>Vista previa · Productos y precios de ejemplo</p>
+<div class="progreso" aria-hidden="true"></div>
+<header class="nav" data-nav="">
+  <div class="contenedor">
+    <a class="logo" href="#inicio" data-logo=""><span class="logo-txt"><svg aria-hidden="true"><use href="#i-pico"></use></svg>Sport <b>Andes</b></span></a>
+    <nav class="nav-links" aria-label="Secciones">
+      <a href="#destacados">Destacados</a><a href="#catalogo">Catálogo</a><a href="#como-comprar">Cómo comprar</a><a href="#entregas">Entregas</a>
+    </nav>
+    <a class="btn btn-acento" data-wa="general" href="https://wa.me/580000000000?text=Hola%2C%20Sport%20Andes.%20Quiero%20informaci%C3%B3n%20sobre%20sus%20productos." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"></use></svg>Pedir</a>
+  </div>
+</header>
+<main id="main">
+
+<section class="portada" id="inicio">
+  <div class="portada-foto" data-portada-foto=""><img src="assets/img/portada-700.webp" srcset="assets/img/portada-700.webp 700w, assets/img/portada-1600.webp 1600w" sizes="100vw" width="700" height="1000" alt="Mano con magnesio levantando una pesa rusa naranja" fetchpriority="high"></div>
+  <div class="velo" aria-hidden="true"></div>
+  <div class="polvo" aria-hidden="true"><i style="--t:3px;left:6%;--d:14s;--r:-2s;--x:18px"></i><i style="--t:2px;left:14%;--d:18s;--r:-9s;--x:-14px;--o:.25"></i><i style="--t:4px;left:23%;--d:16s;--r:-5s;--x:24px"></i><i style="--t:2px;left:31%;--d:12s;--r:-1s;--x:-10px;--o:.3"></i><i style="--t:3px;left:42%;--d:20s;--r:-13s;--x:30px;--o:.2"></i><i style="--t:2px;left:51%;--d:15s;--r:-7s;--x:-22px"></i><i style="--t:5px;left:58%;--d:22s;--r:-16s;--x:16px;--o:.18"></i><i style="--t:2px;left:66%;--d:13s;--r:-4s;--x:-8px"></i><i style="--t:3px;left:73%;--d:17s;--r:-11s;--x:20px;--o:.28"></i><i style="--t:2px;left:81%;--d:14s;--r:-6s;--x:-18px"></i><i style="--t:4px;left:88%;--d:19s;--r:-14s;--x:12px;--o:.22"></i><i style="--t:2px;left:95%;--d:16s;--r:-3s;--x:-12px"></i></div>
+  <div class="contenedor portada-cont">
+    <div>
+      <span class="estado entra d1" data-estado=""><i aria-hidden="true"></i><span data-estado-texto="">Pedidos por WhatsApp</span></span>
+      <h1 data-partir="" data-nombre-grande="">Sport <span class="l2">Andes</span></h1>
+      <p class="frase entra d2" data-frase="">Suplementos deportivos originales.</p>
+      <p class="lema entra d3" data-c="textos.lema">Creatina, proteína, pre-entrenos y accesorios. Arma tu pedido aquí y envíalo completo por WhatsApp.</p>
+      <div class="botones entra d4">
+        <a class="btn btn-acento" data-wa="general" href="https://wa.me/580000000000?text=Hola%2C%20Sport%20Andes.%20Quiero%20informaci%C3%B3n%20sobre%20sus%20productos." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"></use></svg>Pedir por WhatsApp</a>
+        <a class="btn btn-linea" href="#catalogo">Ver catálogo</a>
+      </div>
+    </div>
+    <aside class="dest-portada entra d4" data-dest-portada="" aria-label="Productos destacados">
+      <small><span>Destacado</span><span data-dp-num="">1 / 4</span></small>
+      <div class="dp-item" data-dp-item=""><div class="dp-foto foto"><div class="vacia" aria-hidden="true" style="--ang:132deg;--ang2:-38deg"><svg><use href="#i-envase"></use></svg><em>Nutrex</em><strong>Creatina monohidratada</strong></div><img src="assets/productos/creatina-cuchara.webp" width="84" height="84" alt="Creatina monohidratada de Nutrex" data-foto=""></div><div><span>Nutrex</span><b>Creatina monohidratada</b><span class="precio">$28</span></div></div>
+      <div class="dp-pie"><a class="btn btn-acento" data-dp-agregar="" data-agregar="creatina-monohidratada-300-g-60-servicios" href="https://wa.me/580000000000?text=Hola%2C%20Sport%20Andes.%20Quiero%20hacer%20este%20pedido%3A%0A1%20%C3%97%20Creatina%20monohidratada%20(Nutrex%2C%20300%20g%20%C2%B7%2060%20servicios)%3A%20%2428" target="_blank" rel="noopener" aria-label="Agregar Creatina monohidratada al pedido"><svg aria-hidden="true"><use href="#i-mas"></use></svg>Agregar</a><a class="btn btn-linea" href="#destacados" aria-label="Ver todos los destacados"><svg aria-hidden="true"><use href="#i-flecha"></use></svg></a></div>
+    </aside>
+  </div>
+  <div class="cordillera" aria-hidden="true">
+    <svg class="atras" viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0 220V70L110 40L190 62L300 22L380 52L470 30L560 58L660 18L760 50L850 34L950 62L1060 26L1150 54L1250 36L1350 60L1440 44V220Z"></path></svg>
+    <svg class="frente" viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0 120V92L80 78L170 96L260 64L350 88L430 72L520 96L620 60L720 90L800 76L900 98L990 70L1080 92L1180 66L1280 94L1370 80L1440 90V120Z"></path></svg>
+  </div>
+</section>
+
+<div class="cinta" aria-hidden="true"><div class="cinta-pista" data-cinta=""><span>Creatinas <svg aria-hidden="true"><use href="#i-pico"></use></svg> Proteínas <svg aria-hidden="true"><use href="#i-pico"></use></svg> Pre-entrenos <svg aria-hidden="true"><use href="#i-pico"></use></svg> Aminoácidos <svg aria-hidden="true"><use href="#i-pico"></use></svg> Shakers <svg aria-hidden="true"><use href="#i-pico"></use></svg> Accesorios <svg aria-hidden="true"><use href="#i-pico"></use></svg></span><span>Creatinas <svg aria-hidden="true"><use href="#i-pico"></use></svg> Proteínas <svg aria-hidden="true"><use href="#i-pico"></use></svg> Pre-entrenos <svg aria-hidden="true"><use href="#i-pico"></use></svg> Aminoácidos <svg aria-hidden="true"><use href="#i-pico"></use></svg> Shakers <svg aria-hidden="true"><use href="#i-pico"></use></svg> Accesorios <svg aria-hidden="true"><use href="#i-pico"></use></svg></span><span>Creatinas <svg aria-hidden="true"><use href="#i-pico"></use></svg> Proteínas <svg aria-hidden="true"><use href="#i-pico"></use></svg> Pre-entrenos <svg aria-hidden="true"><use href="#i-pico"></use></svg> Aminoácidos <svg aria-hidden="true"><use href="#i-pico"></use></svg> Shakers <svg aria-hidden="true"><use href="#i-pico"></use></svg> Accesorios <svg aria-hidden="true"><use href="#i-pico"></use></svg></span></div></div>
+
+<!-- DESTACADOS -->
+<section class="seccion oscuro destacados" id="destacados" data-seccion-destacados="">
+  <div class="contenedor dest-cab revelar">
+    <div><span class="rotulo"><svg aria-hidden="true"><use href="#i-pico"></use></svg>Destacados</span><h2 class="titulo" data-c="textos.destacadosTitulo">Empieza por estos</h2></div>
+    <a class="ver" href="#catalogo">Ver todo el catálogo<svg aria-hidden="true"><use href="#i-flecha"></use></svg></a>
+  </div>
+  <ul class="dest-lista revelar-mascara" data-destacados=""><li class="dest" data-id="creatina-monohidratada-300-g-60-servicios"><div class="foto"><span class="dest-num" aria-hidden="true">01</span><div class="vacia" aria-hidden="true" style="--ang:132deg;--ang2:-38deg"><svg><use href="#i-envase"></use></svg><em>Nutrex</em><strong>Creatina monohidratada</strong></div><img src="assets/productos/creatina-cuchara.webp" width="600" height="750" alt="Creatina monohidratada de Nutrex" loading="lazy" data-foto=""></div><div class="dest-cuerpo"><span class="marca-p">Nutrex</span><h3>Creatina monohidratada</h3><p class="pres">300 g · 60 servicios</p><div class="dest-pie"><span class="precio">$28</span><div class="ctrl" data-ctrl="creatina-monohidratada-300-g-60-servicios"><a class="agregar" data-agregar="creatina-monohidratada-300-g-60-servicios" href="https://wa.me/580000000000?text=Hola%2C%20Sport%20Andes.%20Quiero%20hacer%20este%20pedido%3A%0A1%20%C3%97%20Creatina%20monohidratada%20(Nutrex%2C%20300%20g%20%C2%B7%2060%20servicios)%3A%20%2428" target="_blank" rel="noopener" aria-label="Agregar Creatina monohidratada al pedido"><svg aria-hidden="true"><use href="#i-mas"></use></svg>Agregar<span class="largo">&nbsp;al pedido</span></a></div></div></div></li><li class="dest" data-id="gold-standard-100-whey-5-lb-chocolate"><div class="foto"><span class="dest-num" aria-hidden="true">02</span><div class="vacia" aria-hidden="true" style="--ang:155deg;--ang2:-15deg"><svg><use href="#i-envase"></use></svg><em>Optimum Nutrition</em><strong>Gold Standard 100% Whey</strong></div><img src="assets/productos/proteina-frasco-oscuro.webp" width="600" height="750" alt="Gold Standard 100% Whey de Optimum Nutrition" loading="lazy" data-foto=""></div><div class="dest-cuerpo"><span class="marca-p">Optimum Nutrition</span><h3>Gold Standard 100% Whey</h3><p class="pres">5 lb · chocolate</p><div class="dest-pie"><span class="precio">$89</span><div class="ctrl" data-ctrl="gold-standard-100-whey-5-lb-chocolate"><a class="agregar" data-agregar="gold-standard-100-whey-5-lb-chocolate" href="https://wa.me/580000000000?text=Hola%2C%20Sport%20Andes.%20Quiero%20hacer%20este%20pedido%3A%0A1%20%C3%97%20Gold%20Standard%20100%25%20Whey%20(Optimum%20Nutrition%2C%205%20lb%20%C2%B7%20chocolate)%3A%20%2489" target="_blank" rel="noopener" aria-label="Agregar Gold Standard 100% Whey al pedido"><svg aria-hidden="true"><use href="#i-mas"></use></svg>Agregar<span class="largo">&nbsp;al pedido</span></a></div></div></div></li><li class="dest" data-id="c4-original-30-servicios-ponche-de-frutas"><div class="foto"><span class="dest-num" aria-hidden="true">03</span><div class="vacia" aria-hidden="true" style="--ang:122deg;--ang2:-48deg"><svg><use href="#i-envase"></use></svg><em>Cellucor</em><strong>C4 Original</strong></div><img src="assets/productos/preentreno.webp" width="600" height="750" alt="C4 Original de Cellucor" loading="lazy" data-foto=""></div><div class="dest-cuerpo"><span class="marca-p">Cellucor</span><h3>C4 Original</h3><p class="pres">30 servicios · ponche de frutas</p><div class="dest-pie"><span class="precio">$32</span><div class="ctrl" data-ctrl="c4-original-30-servicios-ponche-de-frutas"><a class="agregar" data-agregar="c4-original-30-servicios-ponche-de-frutas" href="https://wa.me/580000000000?text=Hola%2C%20Sport%20Andes.%20Quiero%20hacer%20este%20pedido%3A%0A1%20%C3%97%20C4%20Original%20(Cellucor%2C%2030%20servicios%20%C2%B7%20ponche%20de%20frutas)%3A%20%2432" target="_blank" rel="noopener" aria-label="Agregar C4 Original al pedido"><svg aria-hidden="true"><use href="#i-mas"></use></svg>Agregar<span class="largo">&nbsp;al pedido</span></a></div></div></div></li><li class="dest" data-id="shaker-con-resorte-700-ml-bronce"><div class="foto"><span class="dest-num" aria-hidden="true">04</span><div class="vacia" aria-hidden="true" style="--ang:193deg;--ang2:-17deg"><svg><use href="#i-envase"></use></svg><em>BlenderBottle</em><strong>Shaker con resorte</strong></div><img src="assets/productos/shaker.webp" width="600" height="750" alt="Shaker con resorte de BlenderBottle" loading="lazy" data-foto=""></div><div class="dest-cuerpo"><span class="marca-p">BlenderBottle</span><h3>Shaker con resorte</h3><p class="pres">700 ml · bronce</p><div class="dest-pie"><span class="precio">$15</span><div class="ctrl" data-ctrl="shaker-con-resorte-700-ml-bronce"><a class="agregar" data-agregar="shaker-con-resorte-700-ml-bronce" href="https://wa.me/580000000000?text=Hola%2C%20Sport%20Andes.%20Quiero%20hacer%20este%20pedido%3A%0A1%20%C3%97%20Shaker%20con%20resorte%20(BlenderBottle%2C%20700%20ml%20%C2%B7%20bronce)%3A%20%2415" target="_blank" rel="noopener" aria-label="Agregar Shaker con resorte al pedido"><svg aria-hidden="true"><use href="#i-mas"></use></svg>Agregar<span class="largo">&nbsp;al pedido</span></a></div></div></div></li></ul>
+</section>
+
+<!-- CATÁLOGO -->
+<section class="seccion catalogo" id="catalogo">
+  <div class="contenedor">
+    <div class="cat-cab revelar">
+      <span class="rotulo"><svg aria-hidden="true"><use href="#i-pico"></use></svg>Catálogo completo</span>
+      <h2 class="titulo" data-c="textos.catalogoTitulo">Todo lo que hay en la tienda</h2>
+      <p class="intro" data-c="textos.catalogoIntro">Filtra por categoría o busca por nombre o marca. Agrega lo que quieras y manda el pedido completo de una vez.</p>
+    </div>
+    <div class="barra-cat">
+      <div class="buscar">
+        <label class="solo-lector" for="buscar">Buscar por nombre o marca</label>
+        <svg aria-hidden="true"><use href="#i-lupa"></use></svg>
+        <input id="buscar" type="search" data-buscar-input="" placeholder="Busca por nombre o marca" autocomplete="off" enterkeyhint="search">
+        <button class="limpiar" type="button" aria-label="Borrar la búsqueda"><svg aria-hidden="true"><use href="#i-x"></use></svg></button>
+      </div>
+      <div class="chips" data-chips="" role="group" aria-label="Categorías"><button class="chip" type="button" data-cat="" aria-pressed="true">Todo<span>16</span></button><button class="chip" type="button" data-cat="Creatinas" aria-pressed="false">Creatinas<span>3</span></button><button class="chip" type="button" data-cat="Proteínas" aria-pressed="false">Proteínas<span>4</span></button><button class="chip" type="button" data-cat="Pre-entrenos" aria-pressed="false">Pre-entrenos<span>2</span></button><button class="chip" type="button" data-cat="Aminoácidos" aria-pressed="false">Aminoácidos<span>3</span></button><button class="chip" type="button" data-cat="Shakers" aria-pressed="false">Shakers<span>2</span></button><button class="chip" type="button" data-cat="Accesorios" aria-pressed="false">Accesorios<span>2</span></button></div>
+    </div>
+    <p class="cuenta" data-cuenta="" aria-live="polite">16 productos</p>
+    <ul class="productos cascada" data-productos=""><li class="prod" style="--n:0" data-id="creatina-monohidratada-300-g-60-servicios" data-cat="Creatinas" data-buscar="creatina monohidratada nutrex creatinas 300 g · 60 servicios"><div class="foto"><div class="vacia" aria-hidden="true" style="--ang:132deg;--ang2:-38deg"><svg><use href="#i-envase"></use></svg><em>Nutrex</em><strong>Creatina monohidratada</strong></div><img src="assets/productos/creatina-cuchara.webp" width="600" height="600" alt="Creatina monohidratada de Nutrex" loading="lazy" data-foto=""></div><div class="prod-cuerpo"><span class="marca-p">Nutrex</span><h3>Creatina monohidratada</h3><p class="pres">300 g · 60 servicios</p><p class="desc">Polvo sin sabor. Se mezcla con agua, jugo o tu batido.</p><div class="prod-pie"><span class="precio">$28</span><div class="ctrl" data-ctrl="creatina-monohidratada-300-g-60-servicios"><a class="agregar" data-agregar="creatina-monohidratada-300-g-60-servicios" href="https://wa.me/580000000000?text=Hola%2C%20Sport%20Andes.%20Quiero%20hacer%20este%20pedido%3A%0A1%20%C3%97%20Creatina%20monohidratada%20(Nutrex%2C%20300%20g%20%C2%B7%2060%20servicios)%3A%20%2428" target="_blank" rel="noopener" aria-label="Agregar Creatina monohidratada al pedido"><svg aria-hidden="true"><use href="#i-mas"></use></svg>Agregar<span class="largo">&nbsp;al pedido</span></a></div></div></div></li><li class="prod" style="--n:1" data-id="platinum-100-creatine-400-g-80-servicios" data-cat="Creatinas" data-buscar="platinum 100% creatine muscletech creatinas 400 g · 80 servicios"><div class="foto"><div class="vacia" aria-hidden="true" style="--ang:183deg;--ang2:-27deg"><svg><use href="#i-envase"></use></svg><em>MuscleTech</em><strong>Platinum 100% Creatine</strong></div><img src="assets/productos/creatina-negro.webp" width="600" height="600" alt="Platinum 100% Creatine de MuscleTech" loading="lazy" data-foto=""></div><div class="prod-cuerpo"><span class="marca-p">MuscleTech</span><h3>Platinum 100% Creatine</h3><p class="pres">400 g · 80 servicios</p><p class="desc">Creatina monohidratada en polvo sin sabor.</p><div class="prod-pie"><span class="precio">$35</span><div class="ctrl" data-ctrl="platinum-100-creatine-400-g-80-servicios"><a class="agregar" data-agregar="platinum-100-creatine-400-g-80-servicios" href="https://wa.me/580000000000?text=Hola%2C%20Sport%20Andes.%20Quiero%20hacer%20este%20pedido%3A%0A1%20%C3%97%20Platinum%20100%25%20Creatine%20(MuscleTech%2C%20400%20g%20%C2%B7%2080%20servicios)%3A%20%2435" target="_blank" rel="noopener" aria-label="Agregar Platinum 100% Creatine al pedido"><svg aria-hidden="true"><use href="#i-mas"></use></svg>Agregar<span class="largo">&nbsp;al pedido</span></a></div></div></div></li><li class="prod sin-stock" style="--n:2" data-id="creatina-micronizada-500-g-100-servicios" data-cat="Creatinas" data-buscar="creatina micronizada universal nutrition creatinas 500 g · 100 servicios"><div class="foto"><span class="agotado-tag">Agotado</span><div class="vacia" aria-hidden="true" style="--ang:130deg;--ang2:-40deg"><svg><use href="#i-envase"></use></svg><em>Universal Nutrition</em><strong>Creatina micronizada</strong></div><img src="assets/productos/creatina-scoop.webp" width="600" height="600" alt="Creatina micronizada de Universal Nutrition" loading="lazy" data-foto=""></div><div class="prod-cuerpo"><span class="marca-p">Universal Nutrition</span><h3>Creatina micronizada</h3><p class="pres">500 g · 100 servicios</p><p class="desc">Polvo fino sin sabor, frasco de 500 g.</p><div class="prod-pie"><span class="precio">$39</span><div class="ctrl" data-ctrl="creatina-micronizada-500-g-100-servicios"><a class="preguntar" href="https://wa.me/580000000000?text=Hola%2C%20Sport%20Andes.%20%C2%BFCu%C3%A1ndo%20les%20llega%20Creatina%20micronizada%20(Universal%20Nutrition%2C%20500%20g%20%C2%B7%20100%20servicios)%3F" target="_blank" rel="noopener">Preguntar cuándo llega</a></div></div></div></li><li class="prod" style="--n:3" data-id="gold-standard-100-whey-5-lb-chocolate" data-cat="Proteínas" data-buscar="gold standard 100% whey optimum nutrition proteinas 5 lb · chocolate"><div class="foto"><div class="vacia" aria-hidden="true" style="--ang:155deg;--ang2:-15deg"><svg><use href="#i-envase"></use></svg><em>Optimum Nutrition</em><strong>Gold Standard 100% Whey</strong></div><img src="assets/productos/proteina-frasco-oscuro.webp" width="600" height="600" alt="Gold Standard 100% Whey de Optimum Nutrition" loading="lazy" data-foto=""></div><div class="prod-cuerpo"><span class="marca-p">Optimum Nutrition</span><h3>Gold Standard 100% Whey</h3><p class="pres">5 lb · chocolate</p><p class="desc">Proteína de suero en polvo, sabor chocolate.</p><div class="prod-pie"><span class="precio">$89</span><div class="ctrl" data-ctrl="gold-standard-100-whey-5-lb-chocolate"><a class="agregar" data-agregar="gold-standard-100-whey-5-lb-chocolate" href="https://wa.me/580000000000?text=Hola%2C%20Sport%20Andes.%20Quiero%20hacer%20este%20pedido%3A%0A1%20%C3%97%20Gold%20Standard%20100%25%20Whey%20(Optimum%20Nutrition%2C%205%20lb%20%C2%B7%20chocolate)%3A%20%2489" target="_blank" rel="noopener" aria-label="Agregar Gold Standard 100% Whey al pedido"><svg aria-hidden="true"><use href="#i-mas"></use></svg>Agregar<span class="largo">&nbsp;al pedido</span></a></div></div></div></li><li class="prod" style="--n:4" data-id="iso100-5-lb-vainilla" data-cat="Proteínas" data-buscar="iso100 dymatize proteinas 5 lb · vainilla"><div class="foto"><div class="vacia" aria-hidden="true" style="--ang:187deg;--ang2:-23deg"><svg><use href="#i-envase"></use></svg><em>Dymatize</em><strong>ISO100</strong></div><img src="assets/productos/proteina-vainilla.webp" width="600" height="600" alt="ISO100 de Dymatize" loading="lazy" data-foto=""></div><div class="prod-cuerpo"><span class="marca-p">Dymatize</span><h3>ISO100</h3><p class="pres">5 lb · vainilla</p><p class="desc">Proteína aislada de suero, sabor vainilla.</p><div class="prod-pie"><span class="precio">$105</span><div class="ctrl" data-ctrl="iso100-5-lb-vainilla"><a class="agregar" data-agregar="iso100-5-lb-vainilla" href="https://wa.me/580000000000?text=Hola%2C%20Sport%20Andes.%20Quiero%20hacer%20este%20pedido%3A%0A1%20%C3%97%20ISO100%20(Dymatize%2C%205%20lb%20%C2%B7%20vainilla)%3A%20%24105" target="_blank" rel="noopener" aria-label="Agregar ISO100 al pedido"><svg aria-hidden="true"><use href="#i-mas"></use></svg>Agregar<span class="largo">&nbsp;al pedido</span></a></div></div></div></li><li class="prod" style="--n:5" data-id="syntha-6-5-lb-cookies-and-cream" data-cat="Proteínas" data-buscar="syntha-6 bsn proteinas 5 lb · cookies and cream"><div class="foto"><div class="vacia" aria-hidden="true" style="--ang:169deg;--ang2:-41deg"><svg><use href="#i-envase"></use></svg><em>BSN</em><strong>Syntha-6</strong></div><img src="assets/productos/proteina-cuchara.webp" width="600" height="600" alt="Syntha-6 de BSN" loading="lazy" data-foto=""></div><div class="prod-cuerpo"><span class="marca-p">BSN</span><h3>Syntha-6</h3><p class="pres">5 lb · cookies and cream</p><p class="desc">Mezcla de proteínas en polvo, sabor galleta con crema.</p><div class="prod-pie"><span class="precio">$82</span><div class="ctrl" data-ctrl="syntha-6-5-lb-cookies-and-cream"><a class="agregar" data-agregar="syntha-6-5-lb-cookies-and-cream" href="https://wa.me/580000000000?text=Hola%2C%20Sport%20Andes.%20Quiero%20hacer%20este%20pedido%3A%0A1%20%C3%97%20Syntha-6%20(BSN%2C%205%20lb%20%C2%B7%20cookies%20and%20cream)%3A%20%2482" target="_blank" rel="noopener" aria-label="Agregar Syntha-6 al pedido"><svg aria-hidden="true"><use href="#i-mas"></use></svg>Agregar<span class="largo">&nbsp;al pedido</span></a></div></div></div></li><li class="prod" style="--n:6" data-id="nitro-tech-whey-4-lb-fresa" data-cat="Proteínas" data-buscar="nitro-tech whey muscletech proteinas 4 lb · fresa"><div class="foto"><div class="vacia" aria-hidden="true" style="--ang:161deg;--ang2:-49deg"><svg><use href="#i-envase"></use></svg><em>MuscleTech</em><strong>Nitro-Tech Whey</strong></div><img src="assets/productos/proteina-frasco.webp" width="600" height="600" alt="Nitro-Tech Whey de MuscleTech" loading="lazy" data-foto=""></div><div class="prod-cuerpo"><span class="marca-p">MuscleTech</span><h3>Nitro-Tech Whey</h3><p class="pres">4 lb · fresa</p><p class="desc">Proteína de suero en polvo, sabor fresa.</p><div class="prod-pie"><span class="precio">$72</span><div class="ctrl" data-ctrl="nitro-tech-whey-4-lb-fresa"><a class="agregar" data-agregar="nitro-tech-whey-4-lb-fresa" href="https://wa.me/580000000000?text=Hola%2C%20Sport%20Andes.%20Quiero%20hacer%20este%20pedido%3A%0A1%20%C3%97%20Nitro-Tech%20Whey%20(MuscleTech%2C%204%20lb%20%C2%B7%20fresa)%3A%20%2472" target="_blank" rel="noopener" aria-label="Agregar Nitro-Tech Whey al pedido"><svg aria-hidden="true"><use href="#i-mas"></use></svg>Agregar<span class="largo">&nbsp;al pedido</span></a></div></div></div></li><li class="prod" style="--n:7" data-id="c4-original-30-servicios-ponche-de-frutas" data-cat="Pre-entrenos" data-buscar="c4 original cellucor pre-entrenos 30 servicios · ponche de frutas"><div class="foto"><div class="vacia" aria-hidden="true" style="--ang:122deg;--ang2:-48deg"><svg><use href="#i-envase"></use></svg><em>Cellucor</em><strong>C4 Original</strong></div><img src="assets/productos/preentreno.webp" width="600" height="600" alt="C4 Original de Cellucor" loading="lazy" data-foto=""></div><div class="prod-cuerpo"><span class="marca-p">Cellucor</span><h3>C4 Original</h3><p class="pres">30 servicios · ponche de frutas</p><p class="desc">Pre-entreno en polvo, sabor ponche de frutas.</p><div class="prod-pie"><span class="precio">$32</span><div class="ctrl" data-ctrl="c4-original-30-servicios-ponche-de-frutas"><a class="agregar" data-agregar="c4-original-30-servicios-ponche-de-frutas" href="https://wa.me/580000000000?text=Hola%2C%20Sport%20Andes.%20Quiero%20hacer%20este%20pedido%3A%0A1%20%C3%97%20C4%20Original%20(Cellucor%2C%2030%20servicios%20%C2%B7%20ponche%20de%20frutas)%3A%20%2432" target="_blank" rel="noopener" aria-label="Agregar C4 Original al pedido"><svg aria-hidden="true"><use href="#i-mas"></use></svg>Agregar<span class="largo">&nbsp;al pedido</span></a></div></div></div></li><li class="prod" style="--n:8" data-id="outlift-20-servicios-sandia" data-cat="Pre-entrenos" data-buscar="outlift nutrex pre-entrenos 20 servicios · sandia"><div class="foto"><div class="vacia" aria-hidden="true" style="--ang:147deg;--ang2:-23deg"><svg><use href="#i-envase"></use></svg><em>Nutrex</em><strong>Outlift</strong></div><img src="assets/productos/preentreno-claro.webp" width="600" height="600" alt="Outlift de Nutrex" loading="lazy" data-foto=""></div><div class="prod-cuerpo"><span class="marca-p">Nutrex</span><h3>Outlift</h3><p class="pres">20 servicios · sandía</p><p class="desc">Pre-entreno en polvo, sabor sandía.</p><div class="prod-pie"><span class="precio">$38</span><div class="ctrl" data-ctrl="outlift-20-servicios-sandia"><a class="agregar" data-agregar="outlift-20-servicios-sandia" href="https://wa.me/580000000000?text=Hola%2C%20Sport%20Andes.%20Quiero%20hacer%20este%20pedido%3A%0A1%20%C3%97%20Outlift%20(Nutrex%2C%2020%20servicios%20%C2%B7%20sand%C3%ADa)%3A%20%2438" target="_blank" rel="noopener" aria-label="Agregar Outlift al pedido"><svg aria-hidden="true"><use href="#i-mas"></use></svg>Agregar<span class="largo">&nbsp;al pedido</span></a></div></div></div></li><li class="prod" style="--n:9" data-id="xtend-bcaa-30-servicios-mango" data-cat="Aminoácidos" data-buscar="xtend bcaa scivation aminoacidos 30 servicios · mango"><div class="foto"><div class="vacia" aria-hidden="true" style="--ang:137deg;--ang2:-33deg"><svg><use href="#i-envase"></use></svg><em>Scivation</em><strong>Xtend BCAA</strong></div><img src="assets/productos/polvo-claro.webp" width="600" height="600" alt="Xtend BCAA de Scivation" loading="lazy" data-foto=""></div><div class="prod-cuerpo"><span class="marca-p">Scivation</span><h3>Xtend BCAA</h3><p class="pres">30 servicios · mango</p><p class="desc">Aminoácidos en polvo, sabor mango.</p><div class="prod-pie"><span class="precio">$30</span><div class="ctrl" data-ctrl="xtend-bcaa-30-servicios-mango"><a class="agregar" data-agregar="xtend-bcaa-30-servicios-mango" href="https://wa.me/580000000000?text=Hola%2C%20Sport%20Andes.%20Quiero%20hacer%20este%20pedido%3A%0A1%20%C3%97%20Xtend%20BCAA%20(Scivation%2C%2030%20servicios%20%C2%B7%20mango)%3A%20%2430" target="_blank" rel="noopener" aria-label="Agregar Xtend BCAA al pedido"><svg aria-hidden="true"><use href="#i-mas"></use></svg>Agregar<span class="largo">&nbsp;al pedido</span></a></div></div></div></li><li class="prod" style="--n:10" data-id="amino-2222-160-tabletas" data-cat="Aminoácidos" data-buscar="amino 2222 optimum nutrition aminoacidos 160 tabletas"><div class="foto"><div class="vacia" aria-hidden="true" style="--ang:135deg;--ang2:-35deg"><svg><use href="#i-envase"></use></svg><em>Optimum Nutrition</em><strong>Amino 2222</strong></div><img src="assets/productos/capsulas.webp" width="600" height="600" alt="Amino 2222 de Optimum Nutrition" loading="lazy" data-foto=""></div><div class="prod-cuerpo"><span class="marca-p">Optimum Nutrition</span><h3>Amino 2222</h3><p class="pres">160 tabletas</p><p class="desc">Aminoácidos en tabletas.</p><div class="prod-pie"><span class="precio">$29</span><div class="ctrl" data-ctrl="amino-2222-160-tabletas"><a class="agregar" data-agregar="amino-2222-160-tabletas" href="https://wa.me/580000000000?text=Hola%2C%20Sport%20Andes.%20Quiero%20hacer%20este%20pedido%3A%0A1%20%C3%97%20Amino%202222%20(Optimum%20Nutrition%2C%20160%20tabletas)%3A%20%2429" target="_blank" rel="noopener" aria-label="Agregar Amino 2222 al pedido"><svg aria-hidden="true"><use href="#i-mas"></use></svg>Agregar<span class="largo">&nbsp;al pedido</span></a></div></div></div></li><li class="prod" style="--n:11" data-id="glutamina-300-g-sin-sabor" data-cat="Aminoácidos" data-buscar="glutamina universal nutrition aminoacidos 300 g · sin sabor"><div class="foto"><div class="vacia" aria-hidden="true" style="--ang:187deg;--ang2:-23deg"><svg><use href="#i-envase"></use></svg><em>Universal Nutrition</em><strong>Glutamina</strong></div></div><div class="prod-cuerpo"><span class="marca-p">Universal Nutrition</span><h3>Glutamina</h3><p class="pres">300 g · sin sabor</p><p class="desc">Glutamina en polvo, sin sabor.</p><div class="prod-pie"><span class="precio">$24</span><div class="ctrl" data-ctrl="glutamina-300-g-sin-sabor"><a class="agregar" data-agregar="glutamina-300-g-sin-sabor" href="https://wa.me/580000000000?text=Hola%2C%20Sport%20Andes.%20Quiero%20hacer%20este%20pedido%3A%0A1%20%C3%97%20Glutamina%20(Universal%20Nutrition%2C%20300%20g%20%C2%B7%20sin%20sabor)%3A%20%2424" target="_blank" rel="noopener" aria-label="Agregar Glutamina al pedido"><svg aria-hidden="true"><use href="#i-mas"></use></svg>Agregar<span class="largo">&nbsp;al pedido</span></a></div></div></div></li><li class="prod" style="--n:12" data-id="shaker-con-resorte-700-ml-bronce" data-cat="Shakers" data-buscar="shaker con resorte blenderbottle shakers 700 ml · bronce"><div class="foto"><div class="vacia" aria-hidden="true" style="--ang:193deg;--ang2:-17deg"><svg><use href="#i-envase"></use></svg><em>BlenderBottle</em><strong>Shaker con resorte</strong></div><img src="assets/productos/shaker.webp" width="600" height="600" alt="Shaker con resorte de BlenderBottle" loading="lazy" data-foto=""></div><div class="prod-cuerpo"><span class="marca-p">BlenderBottle</span><h3>Shaker con resorte</h3><p class="pres">700 ml · bronce</p><p class="desc">Tapa de rosca y bola mezcladora de acero.</p><div class="prod-pie"><span class="precio">$15</span><div class="ctrl" data-ctrl="shaker-con-resorte-700-ml-bronce"><a class="agregar" data-agregar="shaker-con-resorte-700-ml-bronce" href="https://wa.me/580000000000?text=Hola%2C%20Sport%20Andes.%20Quiero%20hacer%20este%20pedido%3A%0A1%20%C3%97%20Shaker%20con%20resorte%20(BlenderBottle%2C%20700%20ml%20%C2%B7%20bronce)%3A%20%2415" target="_blank" rel="noopener" aria-label="Agregar Shaker con resorte al pedido"><svg aria-hidden="true"><use href="#i-mas"></use></svg>Agregar<span class="largo">&nbsp;al pedido</span></a></div></div></div></li><li class="prod" style="--n:12" data-id="shaker-con-compartimiento-600-ml-negro" data-cat="Shakers" data-buscar="shaker con compartimiento smartshake shakers 600 ml · negro"><div class="foto"><div class="vacia" aria-hidden="true" style="--ang:184deg;--ang2:-26deg"><svg><use href="#i-envase"></use></svg><em>SmartShake</em><strong>Shaker con compartimiento</strong></div></div><div class="prod-cuerpo"><span class="marca-p">SmartShake</span><h3>Shaker con compartimiento</h3><p class="pres">600 ml · negro</p><p class="desc">Trae un compartimiento para llevar una toma de polvo.</p><div class="prod-pie"><span class="precio">$13</span><div class="ctrl" data-ctrl="shaker-con-compartimiento-600-ml-negro"><a class="agregar" data-agregar="shaker-con-compartimiento-600-ml-negro" href="https://wa.me/580000000000?text=Hola%2C%20Sport%20Andes.%20Quiero%20hacer%20este%20pedido%3A%0A1%20%C3%97%20Shaker%20con%20compartimiento%20(SmartShake%2C%20600%20ml%20%C2%B7%20negro)%3A%20%2413" target="_blank" rel="noopener" aria-label="Agregar Shaker con compartimiento al pedido"><svg aria-hidden="true"><use href="#i-mas"></use></svg>Agregar<span class="largo">&nbsp;al pedido</span></a></div></div></div></li><li class="prod" style="--n:12" data-id="guantes-de-entrenamiento-tallas-s-a-xl" data-cat="Accesorios" data-buscar="guantes de entrenamiento harbinger accesorios tallas s a xl"><div class="foto"><div class="vacia" aria-hidden="true" style="--ang:190deg;--ang2:-20deg"><svg><use href="#i-envase"></use></svg><em>Harbinger</em><strong>Guantes de entrenamiento</strong></div><img src="assets/productos/guantes.webp" width="600" height="600" alt="Guantes de entrenamiento de Harbinger" loading="lazy" data-foto=""></div><div class="prod-cuerpo"><span class="marca-p">Harbinger</span><h3>Guantes de entrenamiento</h3><p class="pres">Tallas S a XL</p><p class="desc">Palma acolchada y cierre de velcro.</p><div class="prod-pie"><span class="precio">$18</span><div class="ctrl" data-ctrl="guantes-de-entrenamiento-tallas-s-a-xl"><a class="agregar" data-agregar="guantes-de-entrenamiento-tallas-s-a-xl" href="https://wa.me/580000000000?text=Hola%2C%20Sport%20Andes.%20Quiero%20hacer%20este%20pedido%3A%0A1%20%C3%97%20Guantes%20de%20entrenamiento%20(Harbinger%2C%20Tallas%20S%20a%20XL)%3A%20%2418" target="_blank" rel="noopener" aria-label="Agregar Guantes de entrenamiento al pedido"><svg aria-hidden="true"><use href="#i-mas"></use></svg>Agregar<span class="largo">&nbsp;al pedido</span></a></div></div></div></li><li class="prod" style="--n:12" data-id="straps-para-levantamiento-par-talla-unica" data-cat="Accesorios" data-buscar="straps para levantamiento harbinger accesorios par · talla unica"><div class="foto"><div class="vacia" aria-hidden="true" style="--ang:143deg;--ang2:-27deg"><svg><use href="#i-envase"></use></svg><em>Harbinger</em><strong>Straps para levantamiento</strong></div></div><div class="prod-cuerpo"><span class="marca-p">Harbinger</span><h3>Straps para levantamiento</h3><p class="pres">Par · talla única</p><p class="desc">Correas de algodón para el agarre.</p><div class="prod-pie"><span class="precio">$12</span><div class="ctrl" data-ctrl="straps-para-levantamiento-par-talla-unica"><a class="agregar" data-agregar="straps-para-levantamiento-par-talla-unica" href="https://wa.me/580000000000?text=Hola%2C%20Sport%20Andes.%20Quiero%20hacer%20este%20pedido%3A%0A1%20%C3%97%20Straps%20para%20levantamiento%20(Harbinger%2C%20Par%20%C2%B7%20talla%20%C3%BAnica)%3A%20%2412" target="_blank" rel="noopener" aria-label="Agregar Straps para levantamiento al pedido"><svg aria-hidden="true"><use href="#i-mas"></use></svg>Agregar<span class="largo">&nbsp;al pedido</span></a></div></div></div></li></ul>
+    <div class="vacio-busqueda" data-vacio="">
+      <b>No lo encontramos</b>
+      <p>Puede que lo tengamos y todavía no esté en la lista. Pregúntanos.</p>
+      <a class="btn btn-acento" href="https://wa.me/580000000000?text=Hola%2C%20Sport%20Andes.%20Quiero%20informaci%C3%B3n%20sobre%20sus%20productos." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"></use></svg>Preguntar por WhatsApp</a>
+    </div>
+    <script type="application/json" id="catalogo-datos">[{"producto":"Creatina monohidratada","marca":"Nutrex","categoria":"Creatinas","presentacion":"300 g · 60 servicios","precio":28,"disponible":true,"destacado":true,"foto":"assets/productos/creatina-cuchara.webp","descripcion":"Polvo sin sabor. Se mezcla con agua, jugo o tu batido.","id":"creatina-monohidratada-300-g-60-servicios"},{"producto":"Platinum 100% Creatine","marca":"MuscleTech","categoria":"Creatinas","presentacion":"400 g · 80 servicios","precio":35,"disponible":true,"destacado":false,"foto":"assets/productos/creatina-negro.webp","descripcion":"Creatina monohidratada en polvo sin sabor.","id":"platinum-100-creatine-400-g-80-servicios"},{"producto":"Creatina micronizada","marca":"Universal Nutrition","categoria":"Creatinas","presentacion":"500 g · 100 servicios","precio":39,"disponible":false,"destacado":false,"foto":"assets/productos/creatina-scoop.webp","descripcion":"Polvo fino sin sabor, frasco de 500 g.","id":"creatina-micronizada-500-g-100-servicios"},{"producto":"Gold Standard 100% Whey","marca":"Optimum Nutrition","categoria":"Proteínas","presentacion":"5 lb · chocolate","precio":89,"disponible":true,"destacado":true,"foto":"assets/productos/proteina-frasco-oscuro.webp","descripcion":"Proteína de suero en polvo, sabor chocolate.","id":"gold-standard-100-whey-5-lb-chocolate"},{"producto":"ISO100","marca":"Dymatize","categoria":"Proteínas","presentacion":"5 lb · vainilla","precio":105,"disponible":true,"destacado":false,"foto":"assets/productos/proteina-vainilla.webp","descripcion":"Proteína aislada de suero, sabor vainilla.","id":"iso100-5-lb-vainilla"},{"producto":"Syntha-6","marca":"BSN","categoria":"Proteínas","presentacion":"5 lb · cookies and cream","precio":82,"disponible":true,"destacado":false,"foto":"assets/productos/proteina-cuchara.webp","descripcion":"Mezcla de proteínas en polvo, sabor galleta con crema.","id":"syntha-6-5-lb-cookies-and-cream"},{"producto":"Nitro-Tech Whey","marca":"MuscleTech","categoria":"Proteínas","presentacion":"4 lb · fresa","precio":72,"disponible":true,"destacado":false,"foto":"assets/productos/proteina-frasco.webp","descripcion":"Proteína de suero en polvo, sabor fresa.","id":"nitro-tech-whey-4-lb-fresa"},{"producto":"C4 Original","marca":"Cellucor","categoria":"Pre-entrenos","presentacion":"30 servicios · ponche de frutas","precio":32,"disponible":true,"destacado":true,"foto":"assets/productos/preentreno.webp","descripcion":"Pre-entreno en polvo, sabor ponche de frutas.","id":"c4-original-30-servicios-ponche-de-frutas"},{"producto":"Outlift","marca":"Nutrex","categoria":"Pre-entrenos","presentacion":"20 servicios · sandía","precio":38,"disponible":true,"destacado":false,"foto":"assets/productos/preentreno-claro.webp","descripcion":"Pre-entreno en polvo, sabor sandía.","id":"outlift-20-servicios-sandia"},{"producto":"Xtend BCAA","marca":"Scivation","categoria":"Aminoácidos","presentacion":"30 servicios · mango","precio":30,"disponible":true,"destacado":false,"foto":"assets/productos/polvo-claro.webp","descripcion":"Aminoácidos en polvo, sabor mango.","id":"xtend-bcaa-30-servicios-mango"},{"producto":"Amino 2222","marca":"Optimum Nutrition","categoria":"Aminoácidos","presentacion":"160 tabletas","precio":29,"disponible":true,"destacado":false,"foto":"assets/productos/capsulas.webp","descripcion":"Aminoácidos en tabletas.","id":"amino-2222-160-tabletas"},{"producto":"Glutamina","marca":"Universal Nutrition","categoria":"Aminoácidos","presentacion":"300 g · sin sabor","precio":24,"disponible":true,"destacado":false,"foto":"","descripcion":"Glutamina en polvo, sin sabor.","id":"glutamina-300-g-sin-sabor"},{"producto":"Shaker con resorte","marca":"BlenderBottle","categoria":"Shakers","presentacion":"700 ml · bronce","precio":15,"disponible":true,"destacado":true,"foto":"assets/productos/shaker.webp","descripcion":"Tapa de rosca y bola mezcladora de acero.","id":"shaker-con-resorte-700-ml-bronce"},{"producto":"Shaker con compartimiento","marca":"SmartShake","categoria":"Shakers","presentacion":"600 ml · negro","precio":13,"disponible":true,"destacado":false,"foto":"","descripcion":"Trae un compartimiento para llevar una toma de polvo.","id":"shaker-con-compartimiento-600-ml-negro"},{"producto":"Guantes de entrenamiento","marca":"Harbinger","categoria":"Accesorios","presentacion":"Tallas S a XL","precio":18,"disponible":true,"destacado":false,"foto":"assets/productos/guantes.webp","descripcion":"Palma acolchada y cierre de velcro.","id":"guantes-de-entrenamiento-tallas-s-a-xl"},{"producto":"Straps para levantamiento","marca":"Harbinger","categoria":"Accesorios","presentacion":"Par · talla única","precio":12,"disponible":true,"destacado":false,"foto":"","descripcion":"Correas de algodón para el agarre.","id":"straps-para-levantamiento-par-talla-unica"}]</script>
+  </div>
+</section>
+
+<!-- CÓMO COMPRAR -->
+<section class="seccion oscuro comprar" id="como-comprar">
+  <div class="comprar-foto" aria-hidden="true"><img src="assets/img/atleta-900.webp" width="900" height="1100" alt="" loading="lazy"></div>
+  <div class="contenedor">
+    <div class="revelar"><span class="rotulo"><svg aria-hidden="true"><use href="#i-pico"></use></svg>Cómo comprar</span><h2 class="titulo">Así de simple</h2></div>
+    <div class="ruta" aria-hidden="true"><svg viewBox="0 0 1000 140" preserveAspectRatio="none"><path d="M0 64L80 92L155 112L240 40L330 72L420 18L500 112L580 50L680 78L760 22L845 112L920 58L1000 36"></path></svg></div>
+    <ol class="pasos" data-pasos=""><li class="paso" style="--n:0"><span class="paso-num" style="--n:0" aria-hidden="true">01</span><div><h3>Elige</h3><p>Agrega al pedido lo que quieres, con la cantidad de cada uno.</p></div></li><li class="paso" style="--n:1"><span class="paso-num" style="--n:1" aria-hidden="true">02</span><div><h3>Envía tu pedido</h3><p>Toca tu pedido y se abre WhatsApp con todo escrito: productos, cantidades y total.</p></div></li><li class="paso" style="--n:2"><span class="paso-num" style="--n:2" aria-hidden="true">03</span><div><h3>Recibe o retira</h3><p>Te confirmamos disponibilidad y total. Te lo llevamos o lo pasas buscando.</p></div></li></ol>
+  </div>
+</section>
+
+<!-- ENTREGAS, PAGOS Y HORARIO -->
+<section class="seccion" id="entregas">
+  <div class="contenedor">
+    <div class="revelar"><span class="rotulo"><svg aria-hidden="true"><use href="#i-pico"></use></svg>Entregas, pagos y horario</span><h2 class="titulo">Cuándo, cómo y dónde</h2></div>
+    <div class="info-grid voltear">
+      <article class="info">
+        <div class="info-ico"><svg aria-hidden="true"><use href="#i-moto"></use></svg></div>
+        <h3>Entregas</h3>
+        <ul class="lista" data-zonas=""><li><span>Centro</span><span>$2</span></li><li><span>Zona norte</span><span>$3</span></li><li><span>Zona sur</span><span>$3</span></li><li><span>Afueras de la ciudad</span><span>Consultar</span></li></ul>
+        <p class="nota" data-c="retiro">Retiro en la tienda sin costo. Te mandamos la ubicación por WhatsApp.</p>
+      </article>
+      <article class="info oscuro">
+        <div class="info-ico"><svg aria-hidden="true"><use href="#i-pago"></use></svg></div>
+        <h3>Pagos</h3>
+        <ul class="pagos" data-pagos=""><li>Pago móvil</li><li>Divisas en efectivo</li><li>Zelle</li></ul>
+        <p class="nota" data-c="notaPagos">Precios en dólares. También puedes pagar en bolívares a la tasa del día.</p>
+      </article>
+      <article class="info">
+        <div class="info-ico"><svg aria-hidden="true"><use href="#i-reloj"></use></svg></div>
+        <h3>Horario</h3>
+        <ul class="lista" data-horarios=""><li data-dias="1,2,3,4,5"><span>Lunes a viernes</span><span>9:00 a. m. a 7:00 p. m.</span></li><li data-dias="6"><span>Sábado</span><span>9:00 a. m. a 3:00 p. m.</span></li><li data-dias="0"><span>Domingo</span><span>Cerrado</span></li></ul>
+        <span class="estado" data-estado=""><i aria-hidden="true"></i><span data-estado-texto="">Pedidos por WhatsApp</span></span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- INSTAGRAM -->
+<section class="seccion insta" id="instagram">
+  <div class="contenedor insta-grid">
+    <div class="revelar">
+      <span class="rotulo"><svg aria-hidden="true"><use href="#i-pico"></use></svg>Instagram</span>
+      <a class="insta-usuario" data-ig="" href="https://instagram.com/sport.andes" target="_blank" rel="noopener"><span data-ig-usuario="">@sport.andes</span></a>
+      <p>Mira las novedades y lo que va llegando a la tienda.</p>
+      <a class="btn" data-ig="" href="https://instagram.com/sport.andes" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-ig"></use></svg>Ver Instagram</a>
+    </div>
+    <a class="anillo crecer" data-ig="" href="https://instagram.com/sport.andes" target="_blank" rel="noopener" aria-label="Abrir Instagram">
+      <svg class="giro" viewBox="0 0 200 200" aria-hidden="true"><defs><path id="anillo-c" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"></path></defs><text><textPath href="#anillo-c" data-anillo="">Síguenos · Sport Andes · Síguenos · Sport Andes · </textPath></text></svg>
+      <span class="ig"><svg aria-hidden="true"><use href="#i-ig"></use></svg></span>
+    </a>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section class="seccion oscuro cierre" id="contacto">
+  <div class="cordillera-pie" aria-hidden="true"><svg viewBox="0 0 2880 60" preserveAspectRatio="none"><path d="M0 40L120 22L200 34L320 8L420 30L520 18L640 44L760 14L860 32L980 20L1100 42L1220 12L1340 30L1440 40L1560 22L1640 34L1760 8L1860 30L1960 18L2080 44L2200 14L2300 32L2420 20L2540 42L2660 12L2780 30L2880 40"></path></svg></div>
+  <div class="contenedor revelar">
+    <span class="rotulo"><svg aria-hidden="true"><use href="#i-pico"></use></svg>Contacto</span>
+    <h2 class="titulo" data-c="textos.cierreTitulo">¿Dudas con un producto?</h2>
+    <p class="intro" data-c="textos.cierreTexto">Escríbenos y te ayudamos a escoger presentación y sabor. Te respondemos por WhatsApp.</p>
+    <div class="botones">
+      <a class="btn btn-acento" data-wa="general" href="https://wa.me/580000000000?text=Hola%2C%20Sport%20Andes.%20Quiero%20informaci%C3%B3n%20sobre%20sus%20productos." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"></use></svg>Escribir por WhatsApp</a>
+      <a class="btn btn-linea" data-ig="" href="https://instagram.com/sport.andes" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-ig"></use></svg>Ver Instagram</a>
+    </div>
+    <ul class="datos">
+      <li><small>WhatsApp</small><a data-wa="general" href="https://wa.me/580000000000?text=Hola%2C%20Sport%20Andes.%20Quiero%20informaci%C3%B3n%20sobre%20sus%20productos." target="_blank" rel="noopener" data-c="marca.whatsappVisible">+58 000 0000000</a></li>
+      <li><small>Instagram</small><a data-ig="" href="https://instagram.com/sport.andes" target="_blank" rel="noopener"><span data-ig-usuario="">@sport.andes</span></a></li>
+      
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="contenedor">
+    <div><a class="logo" href="#inicio" data-logo=""><span class="logo-txt"><svg aria-hidden="true"><use href="#i-pico"></use></svg>Sport <b>Andes</b></span></a><p style="margin-top:8px" data-c="marca.rubro">Suplementos deportivos</p></div>
+    <p class="aviso" data-c="aviso">Página de ejemplo con datos ficticios · Fotos referenciales</p>
+  </div>
+</footer>
+
+<div class="barra-movil">
+  <a class="btn btn-acento" data-wa="general" href="https://wa.me/580000000000?text=Hola%2C%20Sport%20Andes.%20Quiero%20informaci%C3%B3n%20sobre%20sus%20productos." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"></use></svg>WhatsApp</a>
+  <a class="btn btn-linea" data-pedido-boton="" href="#catalogo">Ver catálogo</a>
+</div>
+<a class="wa-flotante" data-wa="general" href="https://wa.me/580000000000?text=Hola%2C%20Sport%20Andes.%20Quiero%20informaci%C3%B3n%20sobre%20sus%20productos." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><svg aria-hidden="true"><use href="#i-wa"></use></svg></a>
+<!--auto-fin-->
+
+<button class="pedido-flotante" type="button" data-pedido-flotante="" aria-label="Ver tu pedido"><svg aria-hidden="true"><use href="#i-bolsa"></use></svg><span class="cantidad-f">0 productos</span><span class="total">$0</span></button>
+<div class="hoja-fondo" data-cerrar-hoja="" aria-hidden="true"></div>
+<aside class="hoja" data-hoja="" role="dialog" aria-modal="true" aria-labelledby="hoja-titulo" aria-hidden="true">
+  <div class="hoja-cab"><h2 id="hoja-titulo">Tu pedido</h2><button class="cerrar" type="button" data-cerrar-hoja="" aria-label="Cerrar el pedido"><svg aria-hidden="true"><use href="#i-x"></use></svg></button></div>
+  <div class="hoja-cuerpo">
+    <ul class="items" data-items=""></ul>
+    <fieldset class="entrega">
+      <legend>¿Cómo lo recibes?</legend>
+      <div class="opciones">
+        <label><input type="radio" name="entrega" value="delivery" checked><span><svg aria-hidden="true"><use href="#i-moto"></use></svg>Delivery</span></label>
+        <label><input type="radio" name="entrega" value="retiro"><span><svg aria-hidden="true"><use href="#i-tienda"></use></svg>Retiro en tienda</span></label>
+      </div>
+    </fieldset>
+  </div>
+  <div class="hoja-pie">
+    <div class="total-fila"><span>Total aproximado</span><span class="precio" data-total="">$0</span></div>
+    <p class="nota">Precios en dólares. Te confirmamos disponibilidad y total por WhatsApp.</p>
+    <a class="btn btn-acento" data-enviar="" href="https://wa.me/580000000000" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"></use></svg>Enviar pedido por WhatsApp</a>
+    <button class="vaciar" type="button" data-vaciar="">Vaciar pedido</button>
+  </div>
+</aside>
+
+<script>
+(function(){
+  "use strict";
+  var C = window.CONFIG || {}, M = C.marca || {}, T = C.textos || {};
+  var HORNEAR = /[?&]hornear\b/.test(location.search);
+  var reducido = false;
+  try { reducido = matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) {}
+  function safe(fn, n){ try { fn(); } catch (e) { if (window.console) console.warn("[" + n + "]", e); } }
+  function $(s, r){ return (r || document).querySelector(s); }
+  function $$(s, r){ return Array.prototype.slice.call((r || document).querySelectorAll(s)); }
+  function esc(s){ return String(s == null ? "" : s).replace(/[&<>"']/g, function(c){ return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+  function pendiente(v){ return !v || /^\s*\[/.test(String(v)); }   // vacío o "[POR CONFIRMAR]"
+  function nombre(t){ return String(t || "").split("{{NOMBRE}}").join(M.nombre || ""); }
+  function wa(t){ return "https://wa.me/" + M.whatsapp + "?text=" + encodeURIComponent(t); }
+  function dinero(n){
+    if (n == null || isNaN(n)) return "Consultar";
+    var ent = Math.floor(Math.round(n * 100) / 100), dec = Math.round((n - ent) * 100);
+    var s = String(ent).replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    return (C.moneda || "$") + s + (dec ? "," + (dec < 10 ? "0" : "") + dec : "");
+  }
+  function hora(h){ var p = h.split(":"), H = +p[0], m = p[1]; if (H === 12) return "12:" + m + " m."; return (H % 12 || 12) + ":" + m + (H < 12 ? " a. m." : " p. m."); }
+  function enRaf(fn){ var p = false; return function(){ if (p) return; p = true; requestAnimationFrame(function(){ p = false; fn(); }); }; }
+  function sinAcentos(s){ return String(s || "").normalize ? String(s).normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase() : String(s || "").toLowerCase(); }
+  function guardar(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+  function leerGuardado(k){ try { var v = localStorage.getItem(k); return v ? JSON.parse(v) : null; } catch (e) { return null; } }
+
+  /* =================== LECTURA DEL CATÁLOGO (CSV) =================== */
+  // CSV con comillas, comas o punto y coma, saltos de línea dentro de comillas y BOM.
+  function leerCSV(txt){
+    txt = String(txt || "").replace(/^﻿/, "");
+    var primera = txt.split(/\r?\n/)[0] || "", sep = (primera.split(";").length > primera.split(",").length) ? ";" : ",";
+    var filas = [], fila = [], campo = "", q = false;
+    for (var i = 0; i < txt.length; i++) {
+      var c = txt.charAt(i);
+      if (q) {
+        if (c === '"') { if (txt.charAt(i + 1) === '"') { campo += '"'; i++; } else q = false; }
+        else campo += c;
+      } else if (c === '"') q = true;
+      else if (c === sep) { fila.push(campo); campo = ""; }
+      else if (c === "\n" || c === "\r") {
+        if (c === "\r" && txt.charAt(i + 1) === "\n") i++;
+        fila.push(campo); filas.push(fila); fila = []; campo = "";
+      } else campo += c;
+    }
+    if (campo !== "" || fila.length) { fila.push(campo); filas.push(fila); }
+    return filas;
+  }
+  var COLUMNAS = ["producto", "marca", "categoria", "presentacion", "precio", "disponible", "destacado", "foto", "descripcion"];
+  function limpio(v, max){ return String(v == null ? "" : v).replace(/\s+/g, " ").trim().slice(0, max || 120); }
+  function siNo(v, porDefecto){
+    var s = sinAcentos(limpio(v));
+    if (!s) return porDefecto;
+    if (/^(si|s|yes|y|x|1|true|verdadero|ok)$/.test(s)) return true;
+    if (/^(no|n|0|false|falso|agotado)$/.test(s)) return false;
+    return porDefecto;
+  }
+  function numero(v){
+    var s = limpio(v).replace(/usd|us\$|\$|bs\.?|\s/gi, "");
+    if (!s) return null;
+    if (s.indexOf(",") > -1 && s.indexOf(".") > -1) s = s.lastIndexOf(",") > s.lastIndexOf(".") ? s.replace(/\./g, "").replace(",", ".") : s.replace(/,/g, "");
+    else if (s.indexOf(",") > -1) s = s.replace(",", ".");
+    if (!/^\d+(\.\d+)?$/.test(s)) return null;
+    var n = parseFloat(s); return isFinite(n) && n >= 0 ? n : null;
+  }
+  function rutaFoto(v){
+    var s = limpio(v, 600);
+    if (!s) return "";
+    var drive = s.match(/drive\.google\.com\/(?:file\/d\/|open\?id=|uc\?(?:export=\w+&)?id=)([\w-]{10,})/);
+    if (drive) return "https://drive.google.com/thumbnail?id=" + drive[1] + "&sz=w800";
+    if (/^https?:\/\//i.test(s)) return s;
+    if (/[:\\]|\.\./.test(s)) return "";
+    s = s.replace(/^\.?\/+/, "").replace(/^assets\/productos\//i, "");
+    return (C.carpetaFotos || "assets/productos/") + encodeURI(s);
+  }
+  function slug(s){ return sinAcentos(s).replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 60) || "p"; }
+  function aProductos(txt){
+    var filas = leerCSV(txt).filter(function(f){ return f.some(function(c){ return limpio(c) !== ""; }); });
+    if (!filas.length) return [];
+    var cab = filas[0].map(function(h){ return sinAcentos(limpio(h)).replace(/[^a-z]/g, ""); });
+    var idx = {};
+    COLUMNAS.forEach(function(col, k){ var j = cab.indexOf(col); idx[col] = j > -1 ? j : (cab.indexOf("producto") > -1 ? -1 : k); });
+    var cuerpo = cab.indexOf("producto") > -1 ? filas.slice(1) : filas;
+    var lista = [], vistos = {}, cats = {};   // "proteinas" y "Proteínas" van al mismo filtro
+    cuerpo.forEach(function(f, n){
+      function col(k){ return idx[k] > -1 ? f[idx[k]] : ""; }
+      var p = { producto: limpio(col("producto"), 90), marca: limpio(col("marca"), 50), categoria: limpio(col("categoria"), 40) || "Otros",
+        presentacion: limpio(col("presentacion"), 70), precio: numero(col("precio")),
+        disponible: siNo(col("disponible"), true), destacado: siNo(col("destacado"), false),
+        foto: rutaFoto(col("foto")), descripcion: limpio(col("descripcion"), 220) };
+      if (!p.producto || p.precio == null) { if (window.console) console.warn("[catálogo] fila " + (n + 2) + " saltada: falta el producto o el precio no es un número", f); return; }
+      var clave = sinAcentos(p.categoria).replace(/[^a-z0-9]/g, "");
+      p.categoria = cats[clave] || (cats[clave] = p.categoria.charAt(0).toUpperCase() + p.categoria.slice(1));
+      var id = slug(p.producto + "-" + p.presentacion), base = id, k = 2;
+      while (vistos[id]) id = base + "-" + (k++);
+      vistos[id] = true; p.id = id;
+      lista.push(p);
+    });
+    return lista;
+  }
+  function traer(url, ms, ok, mal){
+    try {
+      var x = new XMLHttpRequest();
+      x.open("GET", url, true); x.timeout = ms;
+      x.onload = function(){ if ((x.status === 200 || x.status === 0) && x.responseText) ok(x.responseText); else mal(x.status); };
+      x.onerror = x.ontimeout = function(){ mal("red"); };
+      x.send();
+    } catch (e) { mal(e); }
+  }
+
+  /* =================== PINTAR: contenido desde CONFIG y el catálogo =================== */
+  var productos = [];
+  function porId(id){ for (var i = 0; i < productos.length; i++) if (productos[i].id === id) return productos[i]; return null; }
+  function nombreLargo(p){ return p.producto + (p.marca || p.presentacion ? " (" + [p.marca, p.presentacion].filter(Boolean).join(", ") + ")" : ""); }
+  function hash(s){ var h = 0; for (var i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) | 0; return Math.abs(h); }
+  function foto(p, ancho, alto, cargaPrimero){
+    var h = hash(p.categoria + p.producto);
+    var vacia = '<div class="vacia" aria-hidden="true" style="--ang:' + (120 + h % 80) + 'deg;--ang2:' + (-50 + h % 40) + 'deg"><svg><use href="#i-envase"/></svg><em>' + esc(p.marca || p.categoria) + "</em><strong>" + esc(p.producto) + "</strong></div>";
+    var img = p.foto ? '<img src="' + esc(p.foto) + '" width="' + ancho + '" height="' + alto + '" alt="' + esc(p.producto + (p.marca ? " de " + p.marca : "")) + '"' + (cargaPrimero ? "" : ' loading="lazy"') + ' data-foto="">' : "";
+    return vacia + img;
+  }
+  var ICON = { mas: '<svg aria-hidden="true"><use href="#i-mas"/></svg>', menos: '<svg aria-hidden="true"><use href="#i-menos"/></svg>' };
+  function control(p, cant){
+    if (!p.disponible) return '<a class="preguntar" href="' + esc(wa(nombre(C.mensajes.agotado).split("{{PRODUCTO}}").join(nombreLargo(p)))) + '" target="_blank" rel="noopener">Preguntar cuándo llega</a>';
+    if (cant > 0) return '<div class="cantidad" role="group" aria-label="Cantidad de ' + esc(p.producto) + '"><button type="button" data-menos="' + esc(p.id) + '" aria-label="Quitar uno">' + ICON.menos + '</button><output aria-live="polite">' + cant + "<small>en tu pedido</small></output>" +
+      '<button type="button" data-mas="' + esc(p.id) + '" aria-label="Agregar uno más">' + ICON.mas + "</button></div>";
+    return '<a class="agregar" data-agregar="' + esc(p.id) + '" href="' + esc(wa(nombre(C.mensajes.pedido) + "\n1 × " + nombreLargo(p) + ": " + dinero(p.precio))) + '" target="_blank" rel="noopener" aria-label="Agregar ' + esc(p.producto) + ' al pedido">' + ICON.mas + "Agregar<span class=\"largo\">&nbsp;al pedido</span></a>";
+  }
+  function tarjeta(p, i){
+    return '<li class="prod' + (p.disponible ? "" : " sin-stock") + '" style="--n:' + Math.min(i, 12) + '" data-id="' + esc(p.id) + '" data-cat="' + esc(p.categoria) + '" data-buscar="' + esc(sinAcentos([p.producto, p.marca, p.categoria, p.presentacion].join(" "))) + '">' +
+      '<div class="foto">' + (p.disponible ? "" : '<span class="agotado-tag">Agotado</span>') + foto(p, 600, 600) + "</div>" +
+      '<div class="prod-cuerpo">' + (p.marca ? '<span class="marca-p">' + esc(p.marca) + "</span>" : "") + "<h3>" + esc(p.producto) + "</h3>" +
+      (p.presentacion ? '<p class="pres">' + esc(p.presentacion) + "</p>" : "") + (p.descripcion ? '<p class="desc">' + esc(p.descripcion) + "</p>" : "") +
+      '<div class="prod-pie"><span class="precio">' + dinero(p.precio) + "</span>" + '<div class="ctrl" data-ctrl="' + esc(p.id) + '">' + control(p, 0) + "</div></div></div></li>";
+  }
+  function destacada(p, i){
+    return '<li class="dest" data-id="' + esc(p.id) + '"><div class="foto"><span class="dest-num" aria-hidden="true">0' + (i + 1) + "</span>" + foto(p, 600, 750) + "</div>" +
+      '<div class="dest-cuerpo">' + (p.marca ? '<span class="marca-p">' + esc(p.marca) + "</span>" : "") + "<h3>" + esc(p.producto) + "</h3>" + (p.presentacion ? '<p class="pres">' + esc(p.presentacion) + "</p>" : "") +
+      '<div class="dest-pie"><span class="precio">' + dinero(p.precio) + '</span><div class="ctrl" data-ctrl="' + esc(p.id) + '">' + control(p, 0) + "</div></div></div></li>";
+  }
+  function categorias(){ var v = []; productos.forEach(function(p){ if (v.indexOf(p.categoria) < 0) v.push(p.categoria); }); return v; }
+  var PICO = '<svg aria-hidden="true"><use href="#i-pico"/></svg>';
+
+  function pintarTextos(){
+    var f = $("[data-franja]"); if (f) f.innerHTML = C.vistaPrevia ? '<i aria-hidden="true"></i>' + esc(C.vistaPrevia) : "";
+    $$("[data-logo]").forEach(function(a){
+      a.innerHTML = M.logo ? '<img src="' + esc(M.logo) + '" alt="' + esc(M.nombre) + '" width="150" height="40">' : logoTexto();
+    });
+    $$("[data-c]").forEach(function(el){ var v = el.dataset.c.split(".").reduce(function(o, k){ return o == null ? o : o[k]; }, C); if (v != null) el.textContent = v; });
+    var ciudad = pendiente(M.ciudad) ? "" : M.ciudad;
+    $$("[data-frase]").forEach(function(el){ el.textContent = (T.frase || M.rubro) + (ciudad ? " en " + ciudad : "") + "."; });
+    $$("[data-ciudad]").forEach(function(el){ var li = el.closest("li"); if (ciudad) el.textContent = ciudad; else if (li) li.parentNode.removeChild(li); });
+    $$("[data-wa=general]").forEach(function(a){ a.href = wa(nombre(C.mensajes.general)); });
+    $$("[data-ig]").forEach(function(a){ a.href = "https://instagram.com/" + M.instagram; });
+    $$("[data-ig-usuario]").forEach(function(el){ el.textContent = "@" + M.instagram; });
+    $$("[data-anillo]").forEach(function(el){ var s = "Síguenos · " + M.nombre + " · "; el.textContent = s + s; });
+    var titulo = M.nombre + " · " + M.rubro + (ciudad ? " en " + ciudad : "");
+    document.title = titulo;
+    var d = $('meta[name="description"]'); if (d && M.descripcion) d.setAttribute("content", M.descripcion);
+    var ot = $('meta[property="og:title"]'); if (ot) ot.setAttribute("content", titulo);
+    var od = $('meta[property="og:description"]'); if (od && M.descripcion) od.setAttribute("content", M.descripcion);
+  }
+  function logoTexto(){
+    var partes = String(M.nombre || "").split(" "), ult = partes.length > 1 ? partes.pop() : "";
+    return '<span class="logo-txt">' + PICO + esc(partes.join(" ")) + (ult ? " <b>" + esc(ult) + "</b>" : "") + "</span>";
+  }
+  function pintarPortada(){
+    var pf = $("[data-portada-foto]"), P = C.portada || {};
+    var actual = pf && $("img", pf);
+    if (pf && P.foto && !(actual && actual.getAttribute("src") === P.foto)) pf.innerHTML = '<img src="' + esc(P.foto) + '" srcset="' + esc(P.foto) + " 700w, " + esc(P.fotoGrande || P.foto) + ' 1600w" sizes="100vw" width="700" height="1000" alt="' + esc(P.alt || "") + '" fetchpriority="high">';
+    var h = $("[data-nombre-grande]");
+    if (h) { var partes = String(M.nombre || "").split(" "), ult = partes.length > 1 ? partes.pop() : "";
+      h.innerHTML = esc(partes.join(" ")) + (ult ? ' <span class="l2">' + esc(ult) + "</span>" : ""); }
+  }
+  function pintarCatalogo(){
+    var cats = categorias();
+    var cinta = $("[data-cinta]");
+    if (cinta) { var uno = "<span>" + cats.map(function(c){ return esc(c) + " " + PICO; }).join(" ") + "</span>"; cinta.innerHTML = uno + uno + uno; }
+    var dest = productos.filter(function(p){ return p.destacado; }).slice(0, 8);
+    var sd = $("[data-seccion-destacados]"); if (sd) sd.hidden = !dest.length;
+    var dl = $("[data-destacados]"); if (dl) dl.innerHTML = dest.map(destacada).join("");
+    pintarDestPortada(0);
+    var ch = $("[data-chips]");
+    if (ch) ch.innerHTML = '<button class="chip" type="button" data-cat="" aria-pressed="true">Todo<span>' + productos.length + "</span></button>" +
+      cats.map(function(c){ var n = productos.filter(function(p){ return p.categoria === c; }).length;
+        return '<button class="chip" type="button" data-cat="' + esc(c) + '" aria-pressed="false">' + esc(c) + "<span>" + n + "</span></button>"; }).join("");
+    var ul = $("[data-productos]"); if (ul) ul.innerHTML = productos.map(tarjeta).join("");
+    var cu = $("[data-cuenta]"); if (cu) cu.textContent = productos.length + (productos.length === 1 ? " producto" : " productos");
+    var js = $("#catalogo-datos"); if (js) js.textContent = JSON.stringify(productos).replace(/</g, "\\u003c");
+  }
+  // tarjeta flotante de la portada (computadora): un destacado disponible a la vez
+  function destPortada(){ return productos.filter(function(p){ return p.destacado && p.disponible; }); }
+  function pintarDestPortada(k){
+    var caja = $("[data-dest-portada]"); if (!caja) return;
+    var lista = destPortada(); caja.hidden = !lista.length; if (!lista.length) return;
+    var p = lista[k % lista.length], item = $("[data-dp-item]", caja), num = $("[data-dp-num]", caja), btn = $("[data-dp-agregar]", caja);
+    item.innerHTML = '<div class="dp-foto foto">' + foto(p, 84, 84, true) + "</div><div>" + (p.marca ? "<span>" + esc(p.marca) + "</span>" : "") + "<b>" + esc(p.producto) + '</b><span class="precio">' + dinero(p.precio) + "</span></div>";
+    btn.setAttribute("data-agregar", p.id);
+    btn.setAttribute("aria-label", "Agregar " + p.producto + " al pedido");
+    btn.href = wa(nombre(C.mensajes.pedido) + "\n1 × " + nombreLargo(p) + ": " + dinero(p.precio));
+    if (num) num.textContent = (k % lista.length + 1) + " / " + lista.length;
+  }
+  function pintarInfo(){
+    var z = $("[data-zonas]");
+    if (z) z.innerHTML = (C.zonas || []).map(function(x){ return "<li><span>" + esc(x.nombre) + "</span><span>" + (x.costo == null ? "Consultar" : dinero(x.costo)) + "</span></li>"; }).join("");
+    var pg = $("[data-pagos]"); if (pg) pg.innerHTML = (C.pagos || []).map(function(x){ return "<li>" + esc(x) + "</li>"; }).join("");
+    var h = $("[data-horarios]");
+    if (h) h.innerHTML = (C.horarios || []).map(function(x){
+      return '<li data-dias="' + x.dias.join(",") + '"><span>' + esc(x.texto) + "</span><span>" + (x.cerrado ? "Cerrado" : hora(x.abre) + " a " + hora(x.cierra)) + "</span></li>"; }).join("");
+    var ps = $("[data-pasos]");
+    if (ps) ps.innerHTML = (C.pasos || []).map(function(x, i){
+      return '<li class="paso" style="--n:' + i + '"><span class="paso-num" style="--n:' + i + '" aria-hidden="true">0' + (i + 1) + "</span><div><h3>" + esc(x.titulo) + "</h3><p>" + esc(x.texto) + "</p></div></li>"; }).join("");
+  }
+  function pintarTodo(){ safe(pintarTextos, "textos"); safe(pintarPortada, "portada"); safe(pintarCatalogo, "catalogo"); safe(pintarInfo, "info"); }
+
+  /* =================== ARRANQUE DEL CATÁLOGO =================== */
+  var FUENTE = C.HOJA_CSV ? String(C.HOJA_CSV).trim() : (C.catalogoEjemplo || "catalogo-ejemplo.csv");
+  var CLAVE = "sa-catalogo:" + FUENTE;
+  var huella = "";
+  function aplicar(lista, origen){
+    if (!lista || !lista.length) return false;
+    var nueva = JSON.stringify(lista);
+    if (nueva === huella) return true;
+    huella = nueva; productos = lista;
+    safe(pintarCatalogo, "catalogo");
+    if (!HORNEAR) { safe(alCambiarCatalogo, "catalogo-vivo"); }
+    document.documentElement.setAttribute("data-catalogo", origen);
+    return true;
+  }
+  function cargarCatalogo(listo){
+    traer(FUENTE, 10000, function(txt){
+      var lista = aProductos(txt);
+      if (aplicar(lista, C.HOJA_CSV ? "hoja" : "ejemplo")) { if (!HORNEAR) guardar(CLAVE, { t: Date.now(), csv: txt }); }
+      else if (C.HOJA_CSV) respaldo();
+      if (listo) listo();
+    }, function(){ respaldo(); if (listo) listo(); });
+    function respaldo(){
+      if (productos.length) return;   // ya se ve algo (guardado u horneado)
+      traer(C.catalogoEjemplo || "catalogo-ejemplo.csv", 10000, function(txt){ aplicar(aProductos(txt), "ejemplo"); }, function(){});
+    }
+  }
+
+  /* =================== VIVIR: pedido, filtros y efectos =================== */
+  var pedido = {}, entrega = "delivery";
+  function contar(){ var n = 0, t = 0; Object.keys(pedido).forEach(function(id){ var p = porId(id); if (p) { n += pedido[id]; t += pedido[id] * p.precio; } }); return { n: n, t: Math.round(t * 100) / 100 }; }
+  function limpiarPedido(){ Object.keys(pedido).forEach(function(id){ var p = porId(id); if (!p || !p.disponible || !(pedido[id] > 0)) delete pedido[id]; else pedido[id] = Math.min(99, Math.floor(pedido[id])); }); }
+  function guardarPedido(){ guardar("sa-pedido", { items: pedido, entrega: entrega }); }
+  function mensajePedido(){
+    var lineas = [nombre(C.mensajes.pedido), ""];
+    Object.keys(pedido).forEach(function(id){ var p = porId(id); if (!p) return; var q = pedido[id];
+      lineas.push("• " + q + " × " + nombreLargo(p) + ": " + (q > 1 ? dinero(p.precio) + " c/u = " + dinero(p.precio * q) : dinero(p.precio))); });
+    var r = contar();
+    lineas.push("", "Total aproximado: " + dinero(r.t));
+    lineas.push(entrega === "retiro" ? C.mensajes.retiro : C.mensajes.delivery);
+    lineas.push(C.mensajes.cierre);
+    return lineas.join("\n");
+  }
+  function refrescarControles(id){
+    $$('[data-ctrl="' + (window.CSS && CSS.escape ? CSS.escape(id) : id) + '"]').forEach(function(c){ var p = porId(id); if (p) c.innerHTML = control(p, pedido[id] || 0); });
+  }
+  function refrescarTodo(){ productos.forEach(function(p){ if (pedido[p.id]) refrescarControles(p.id); }); resumen(); }
+  function resumen(saltar){
+    var r = contar();
+    document.body.classList.toggle("con-pedido", r.n > 0);
+    $$("[data-pedido-boton]").forEach(function(b){
+      b.classList.toggle("lleno", r.n > 0);
+      b.innerHTML = r.n > 0 ? '<svg aria-hidden="true"><use href="#i-bolsa"/></svg>Pedido <span class="cuenta-badge">' + r.n + "</span>" : "Ver catálogo";
+      b.setAttribute("aria-label", r.n > 0 ? "Ver tu pedido: " + r.n + " productos, " + dinero(r.t) : "Ver catálogo");
+    });
+    var pf = $("[data-pedido-flotante]");
+    if (pf) { $(".cantidad-f", pf).textContent = r.n + (r.n === 1 ? " producto" : " productos"); $(".total", pf).textContent = dinero(r.t); }
+    if (saltar) $$(".cuenta-badge").forEach(function(b){ b.classList.remove("salta"); void b.offsetWidth; b.classList.add("salta"); });
+    pintarHoja();
+  }
+  function pintarHoja(){
+    var ul = $("[data-items]"), r = contar(), envia = $("[data-enviar]"); if (!ul) return;
+    var ids = Object.keys(pedido);
+    ul.innerHTML = ids.length ? ids.map(function(id){ var p = porId(id); if (!p) return ""; var q = pedido[id];
+      return '<li class="item"><div class="foto">' + foto(p, 56, 56, true) + "</div><div><b>" + esc(p.producto) + '</b><span class="pres">' + esc([p.marca, p.presentacion].filter(Boolean).join(" · ")) + "</span>" +
+        '<div class="item-pie"><div class="cantidad" role="group" aria-label="Cantidad de ' + esc(p.producto) + '"><button type="button" data-menos="' + esc(id) + '" aria-label="Quitar uno">' + ICON.menos + "</button><output>" + q + '</output><button type="button" data-mas="' + esc(id) + '" aria-label="Agregar uno más">' + ICON.mas + "</button></div>" +
+        '<span class="precio">' + dinero(p.precio * q) + "</span></div></div></li>"; }).join("")
+      : '<li class="hoja-vacia"><b>Tu pedido está vacío</b>Agrega productos desde el catálogo.</li>';
+    $("[data-total]").textContent = dinero(r.t);
+    if (envia) { envia.href = wa(mensajePedido()); envia.setAttribute("aria-disabled", r.n ? "false" : "true"); }
+    var vac = $("[data-vaciar]"); if (vac) vac.hidden = !r.n;
+  }
+  function cambiar(id, d, origen){
+    var p = porId(id); if (!p || !p.disponible) return;
+    var antes = pedido[id] || 0, q = Math.max(0, Math.min(99, antes + d));
+    if (q) pedido[id] = q; else delete pedido[id];
+    guardarPedido(); refrescarControles(id); resumen(d > 0);
+    if (d > 0 && origen) volar(origen);
+    if (!antes && q) { var foco = $('[data-ctrl="' + id + '"] [data-mas]'); if (foco && origen && origen.closest && !origen.closest(".hoja")) foco.focus({ preventScroll: true }); }
+  }
+  function volar(el){
+    if (reducido || !el.getBoundingClientRect || !document.body.animate) return;
+    var a = el.getBoundingClientRect(), destino = $(innerWidth >= 1000 ? "[data-pedido-flotante]" : ".barra-movil [data-pedido-boton]");
+    var bx = innerWidth - 120, by = innerHeight - 40;
+    if (destino && innerWidth < 1000) { var b = destino.getBoundingClientRect(); bx = b.left + b.width / 2; by = b.top + b.height / 2; }
+    var punto = document.createElement("span"); punto.className = "vuela"; document.body.appendChild(punto);
+    var x0 = a.left + a.width / 2, y0 = a.top + a.height / 2, mx = (x0 + bx) / 2, my = Math.min(y0, by) - 120;
+    var anim = punto.animate([
+      { transform: "translate(" + x0 + "px," + y0 + "px) scale(1)", opacity: 1 },
+      { transform: "translate(" + mx + "px," + my + "px) scale(1.2)", opacity: 1, offset: .45 },
+      { transform: "translate(" + bx + "px," + by + "px) scale(.4)", opacity: .3 }
+    ], { duration: 700, easing: "cubic-bezier(.45,0,.2,1)" });
+    anim.onfinish = function(){ punto.remove(); };
+  }
+  var ultimoFoco = null;
+  function abrirHoja(){
+    if (!contar().n) { var cat = $("#catalogo"); if (cat) cat.scrollIntoView({ behavior: reducido ? "auto" : "smooth" }); return; }
+    ultimoFoco = document.activeElement; pintarHoja();
+    document.body.classList.add("hoja-abierta"); document.documentElement.style.overflow = "hidden";
+    var h = $("[data-hoja]"); h.removeAttribute("aria-hidden"); setTimeout(function(){ var c = $(".cerrar", h); if (c) c.focus(); }, 60);
+  }
+  function cerrarHoja(){
+    document.body.classList.remove("hoja-abierta"); document.documentElement.style.overflow = "";
+    $("[data-hoja]").setAttribute("aria-hidden", "true");
+    if (ultimoFoco && ultimoFoco.focus) ultimoFoco.focus({ preventScroll: true });
+  }
+  function initPedido(){
+    var g = leerGuardado("sa-pedido");
+    if (g && g.items && typeof g.items === "object") { Object.keys(g.items).forEach(function(k){ var v = +g.items[k]; if (v > 0) pedido[k] = v; }); }
+    if (g && (g.entrega === "retiro" || g.entrega === "delivery")) entrega = g.entrega;
+    var r = $('input[name="entrega"][value="' + entrega + '"]'); if (r) r.checked = true;
+    limpiarPedido(); refrescarTodo();
+    document.addEventListener("click", function(e){
+      var t = e.target.closest ? e.target.closest("[data-agregar],[data-mas],[data-menos],[data-pedido-boton],[data-pedido-flotante],[data-cerrar-hoja],[data-vaciar]") : null;
+      if (!t) return;
+      if (t.hasAttribute("data-agregar")) { e.preventDefault(); cambiar(t.getAttribute("data-agregar"), 1, t); }
+      else if (t.hasAttribute("data-mas")) cambiar(t.getAttribute("data-mas"), 1, t);
+      else if (t.hasAttribute("data-menos")) cambiar(t.getAttribute("data-menos"), -1, t);
+      else if (t.hasAttribute("data-pedido-boton") || t.hasAttribute("data-pedido-flotante")) { e.preventDefault(); abrirHoja(); }
+      else if (t.hasAttribute("data-cerrar-hoja")) cerrarHoja();
+      else if (t.hasAttribute("data-vaciar")) { pedido = {}; guardarPedido(); productos.forEach(function(p){ refrescarControles(p.id); }); resumen(); }
+    });
+    document.addEventListener("keydown", function(e){
+      if (!document.body.classList.contains("hoja-abierta")) return;
+      if (e.key === "Escape") cerrarHoja();
+      if (e.key === "Tab") { var f = $$("[data-hoja] button, [data-hoja] a[href], [data-hoja] input").filter(function(x){ return x.offsetParent !== null; });
+        if (!f.length) return; var a = f[0], z = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === a) { e.preventDefault(); z.focus(); } else if (!e.shiftKey && document.activeElement === z) { e.preventDefault(); a.focus(); } }
+    });
+    $$('input[name="entrega"]').forEach(function(i){ i.addEventListener("change", function(){ entrega = i.value; guardarPedido(); pintarHoja(); }); });
+  }
+
+  var filtro = { cat: "", q: "" };
+  function aplicarFiltro(){
+    var q = sinAcentos(filtro.q).trim(), partes = q.split(/\s+/).filter(Boolean), vis = 0;
+    $$("[data-productos] .prod").forEach(function(li){
+      var ok = (!filtro.cat || li.getAttribute("data-cat") === filtro.cat) && partes.every(function(w){ return li.getAttribute("data-buscar").indexOf(w) > -1; });
+      li.hidden = !ok; if (ok) vis++;
+    });
+    $$("[data-chips] .chip").forEach(function(b){ b.setAttribute("aria-pressed", String(b.getAttribute("data-cat") === filtro.cat)); });
+    var cu = $("[data-cuenta]");
+    if (cu) cu.textContent = (filtro.cat || q) ? "Mostrando " + vis + " de " + productos.length : productos.length + (productos.length === 1 ? " producto" : " productos");
+    var v = $("[data-vacio]");
+    if (v) { v.classList.toggle("ver", !vis);
+      var a = $("a", v), qq = filtro.q.trim();
+      if (a) a.href = wa(qq ? nombre(C.mensajes.buscar).split("{{BUSQUEDA}}").join(qq) : nombre(C.mensajes.general)); }
+  }
+  function initFiltros(){
+    var ch = $("[data-chips]"), inp = $("[data-buscar-input]"), caja = $(".buscar");
+    if (ch) ch.addEventListener("click", function(e){ var b = e.target.closest(".chip"); if (!b) return; filtro.cat = b.getAttribute("data-cat") || ""; aplicarFiltro(); });
+    if (inp) {
+      var espera;
+      inp.addEventListener("input", function(){ caja.classList.toggle("con-texto", !!inp.value); clearTimeout(espera); espera = setTimeout(function(){ filtro.q = inp.value; aplicarFiltro(); }, 120); });
+      $(".limpiar", caja).addEventListener("click", function(){ inp.value = ""; caja.classList.remove("con-texto"); filtro.q = ""; aplicarFiltro(); inp.focus(); });
+      // sugerencias que rotan en el buscador
+      var k = 0;
+      setInterval(function(){
+        if (document.hidden || inp.value || document.activeElement === inp || !productos.length) return;
+        var p = productos[k++ % productos.length]; inp.placeholder = "Busca: " + (k % 2 ? p.producto : p.marca || p.producto);
+      }, 3200);
+    }
+    var barra = $(".barra-cat");
+    if (barra && "IntersectionObserver" in window) {
+      var s = document.createElement("div"); s.style.height = "1px"; barra.parentNode.insertBefore(s, barra);
+      new IntersectionObserver(function(en){ barra.classList.toggle("pegada", !en[0].isIntersecting && en[0].boundingClientRect.top < 200); }, { rootMargin: "-" + (parseInt(getComputedStyle(document.documentElement).getPropertyValue("--cab"), 10) + 2) + "px 0px 0px 0px" }).observe(s);
+    }
+  }
+  function alCambiarCatalogo(){
+    limpiarPedido(); guardarPedido();
+    productos.forEach(function(p){ if (pedido[p.id]) refrescarControles(p.id); });
+    if (filtro.cat && categorias().indexOf(filtro.cat) < 0) filtro.cat = "";
+    aplicarFiltro(); resumen(); initFotos(); initDestPortada(true);
+    $$(".cascada,.revelar-mascara").forEach(function(el){ if (el.classList.contains("visible")) el.classList.add("listo"); });
+  }
+  // una foto que no carga se quita y queda a la vista el respaldo con el nombre del producto
+  var vigilando = false;
+  function initFotos(){
+    if (!vigilando) { vigilando = true;
+      document.addEventListener("error", function(e){ var t = e.target; if (t && t.tagName === "IMG" && t.hasAttribute("data-foto")) t.remove(); }, true); }
+    $$("img[data-foto]").forEach(function(img){ if (img.complete && img.naturalWidth === 0) img.remove(); });
+  }
+  var dpTimer = null;
+  function initDestPortada(){
+    var caja = $("[data-dest-portada]"); if (!caja) return;
+    var i = 0, item = $("[data-dp-item]", caja);
+    pintarDestPortada(0);
+    if (dpTimer) clearInterval(dpTimer);
+    if (reducido || destPortada().length < 2 || !matchMedia("(min-width: 960px)").matches) return;
+    dpTimer = setInterval(function(){
+      if (document.hidden || caja.matches(":hover") || caja.contains(document.activeElement)) return;
+      item.classList.add("saliendo");
+      setTimeout(function(){ i++; pintarDestPortada(i); item.classList.remove("saliendo"); initFotos(); }, 450);
+    }, 4200);
+  }
+  function initEstado(){
+    var ahora = new Date(), dia = ahora.getDay(), min = ahora.getHours() * 60 + ahora.getMinutes();
+    function aMin(h){ var p = h.split(":"); return +p[0] * 60 + +p[1]; }
+    var hoy = (C.horarios || []).filter(function(h){ return h.dias.indexOf(dia) > -1; })[0];
+    $$("[data-horarios] li").forEach(function(li){ li.classList.toggle("hoy", li.getAttribute("data-dias").split(",").indexOf(String(dia)) > -1); });
+    var abierto = hoy && !hoy.cerrado && min >= aMin(hoy.abre) && min < aMin(hoy.cierra);
+    var texto = abierto ? "Abierto ahora, hasta las " + hora(hoy.cierra) : "Ahora cerrado. Deja tu pedido por WhatsApp";
+    $$("[data-estado]").forEach(function(e){ e.classList.toggle("cerrado", !abierto); $("[data-estado-texto]", e).textContent = texto; });
+  }
+  function initNav(){
+    var nav = $("[data-nav]"), barra = $(".progreso"), franja = $("[data-franja]");
+    var hay = !!(franja && franja.textContent.trim()), r = document.documentElement.style;
+    r.setProperty("--franja", (hay ? 26 : 0) + "px"); r.setProperty("--cab", ((hay ? 26 : 0) + 58) + "px");
+    var mover = function(){
+      if (nav) nav.classList.toggle("solido", scrollY > 40);
+      if (barra) { var max = document.documentElement.scrollHeight - innerHeight; barra.style.transform = "scaleX(" + (max > 0 ? scrollY / max : 0) + ")"; }
+    };
+    addEventListener("scroll", enRaf(mover), { passive: true }); mover();
+  }
+  function initPartir(){
+    $$("[data-partir]").forEach(function(el){
+      if (el.querySelector(".p")) return;
+      var i = 0, lector = document.createElement("span");
+      lector.className = "solo-lector"; lector.textContent = el.textContent;
+      (function partir(nodo){
+        Array.prototype.slice.call(nodo.childNodes).forEach(function(n){
+          if (n.nodeType === 3) {
+            var frag = document.createDocumentFragment();
+            Array.prototype.forEach.call(n.textContent, function(ch){
+              if (/\s/.test(ch)) { frag.appendChild(document.createTextNode(ch)); return; }
+              var s = document.createElement("span"); s.className = "p"; s.style.setProperty("--i", i++); s.setAttribute("aria-hidden", "true"); s.textContent = ch; frag.appendChild(s);
+            });
+            nodo.replaceChild(frag, n);
+          } else if (n.nodeType === 1) { n.setAttribute("aria-hidden", "true"); partir(n); }
+        });
+      })(el);
+      el.insertBefore(lector, el.firstChild);
+      requestAnimationFrame(function(){ requestAnimationFrame(function(){ el.classList.add("visible"); }); });
+    });
+    var portada = $(".portada");
+    requestAnimationFrame(function(){ requestAnimationFrame(function(){ if (portada) portada.classList.add("cargada"); }); });
+  }
+  function initRevelar(){
+    var els = $$(".revelar,.cascada,.revelar-mascara,.pasos,.voltear,.crecer");
+    if (!("IntersectionObserver" in window)) { els.forEach(function(e){ e.classList.add("visible", "listo"); }); return; }
+    var io = new IntersectionObserver(function(en){
+      en.forEach(function(e){
+        if (!e.isIntersecting) return;
+        var t = e.target; t.classList.add("visible"); io.unobserve(t);
+        setTimeout(function(){ t.classList.add("listo"); }, 1800);
+      });
+    }, { threshold: 0.01, rootMargin: "0px 0px -5% 0px" });
+    els.forEach(function(e){ io.observe(e); });
+    setTimeout(function(){ var pt = $(".portada"); if (pt) pt.classList.add("cargada");
+      els.forEach(function(e){ if (e.getBoundingClientRect().top < innerHeight * 1.2) e.classList.add("visible", "listo"); }); }, 6000);
+  }
+  function initScroll(){
+    if (reducido) return;
+    var foto = $(".portada-foto"), atras = $(".cordillera .atras"), cf = $(".comprar-foto img"), ruta = $(".ruta"), trazo = $(".ruta svg");
+    function mover(){
+      var y = scrollY, vh = innerHeight;
+      if (y < vh * 1.4) {
+        if (foto) foto.style.transform = "translate3d(0," + (y * 0.32).toFixed(1) + "px,0)";
+        // la cordillera de atrás sube más lento que la foto; la de adelante queda fija para tapar el borde
+        if (atras) atras.style.transform = "translate3d(0," + Math.max(-28, y * -0.08).toFixed(1) + "px,0)";
+      }
+      if (cf) { var r = cf.parentNode.getBoundingClientRect(); if (r.bottom > 0 && r.top < vh) cf.style.transform = "translate3d(0," + (((r.top + r.height / 2) - vh / 2) / vh * -60).toFixed(1) + "px,0)"; }
+      // el camino de cumbres se dibuja a medida que bajas
+      if (ruta && trazo && ruta.offsetParent) { var rr = ruta.getBoundingClientRect();
+        var k = Math.min(1, Math.max(0, (vh * 0.95 - rr.top) / (vh * 0.55))); trazo.style.clipPath = "inset(-10px " + ((1 - k) * 100).toFixed(1) + "% -10px 0)"; }
+    }
+    addEventListener("scroll", enRaf(mover), { passive: true }); addEventListener("resize", enRaf(mover)); mover();
+  }
+  function initArrastre(){
+    var g = $("[data-destacados]"); if (!g || !matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+    var x0 = 0, s0 = 0, abajo = false, movio = false;
+    g.addEventListener("pointerdown", function(e){ if (e.pointerType !== "mouse" || e.button !== 0) return; abajo = true; movio = false; x0 = e.clientX; s0 = g.scrollLeft; });
+    addEventListener("pointermove", function(e){ if (!abajo) return; var dx = e.clientX - x0; if (Math.abs(dx) > 5) movio = true; if (movio) g.scrollLeft = s0 - dx; });
+    addEventListener("pointerup", function(){ abajo = false; });
+    g.addEventListener("click", function(e){ if (movio) { e.preventDefault(); e.stopPropagation(); movio = false; } }, true);
+  }
+  function initPausa(){ document.addEventListener("visibilitychange", function(){ document.body.classList.toggle("pausado", document.hidden); }); }
+  // copia para abrir sin internet (solo en https o en la PC de pruebas)
+  function initSinInternet(){
+    if (!("serviceWorker" in navigator)) return;
+    if (location.protocol !== "https:" && !/^(localhost|127\.0\.0\.1)$/.test(location.hostname)) return;
+    addEventListener("load", function(){ navigator.serviceWorker.register("sw.js").catch(function(){}); });
+  }
+
+  /* =================== ARRANQUE =================== */
+  if (HORNEAR) {
+    pintarTodo();
+    cargarCatalogo(function(){});
+    return;
+  }
+  // 1) lo horneado en el HTML, 2) lo último que cargó bien en este teléfono, 3) la hoja (o el ejemplo)
+  var horneado = null;
+  try { var j = $("#catalogo-datos"); horneado = j && j.textContent.trim() ? JSON.parse(j.textContent) : null; } catch (e) {}
+  safe(pintarTextos, "textos"); safe(pintarPortada, "portada"); safe(pintarInfo, "info");
+  if (horneado && horneado.length) { productos = horneado; huella = JSON.stringify(horneado); }
+  else safe(pintarCatalogo, "catalogo");
+  var g = leerGuardado(CLAVE);
+  if (g && g.csv) aplicar(aProductos(g.csv), "guardado");
+  safe(initNav, "nav"); safe(initPedido, "pedido"); safe(initFiltros, "filtros"); safe(aplicarFiltro, "filtro"); safe(initFotos, "fotos");
+  safe(initDestPortada, "dest-portada"); safe(initEstado, "estado"); safe(initPartir, "partir"); safe(initRevelar, "revelar");
+  safe(initScroll, "scroll"); safe(initArrastre, "arrastre"); safe(initPausa, "pausa"); safe(initSinInternet, "sin-internet");
+  cargarCatalogo();
+})();
+</script>
+</body>
+</html>
