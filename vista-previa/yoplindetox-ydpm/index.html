@@ -1,0 +1,1050 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>
+/* =====================================================================
+   CONFIGURACIÓN DEL NEGOCIO (Yoplindetox, vista previa)
+   Todo lo que cambia está aquí. El diseño no se toca.
+   - WhatsApp: código de país + número, sin "+" ni el cero (0426 123 4567 -> 584261234567).
+   - Precios: números (2.5 se muestra como $2,50).
+   - En un texto, *así* marca la palabra que lleva el trazo verde.
+   - Lo marcado [POR CONFIRMAR] espera respuesta de Yanis.
+   Después de editar, corre hornear_web.py (skill webs-carlos) para que el
+   contenido quede escrito también en el HTML.
+   ===================================================================== */
+var CONFIG = {
+  vistaPrevia: { activa: true, texto: "Vista previa · Algunos datos por confirmar" },
+  marca: {
+    nombre: "Yoplindetox",
+    rubro: "Jugos naturales",
+    ciudad: "Mérida",
+    logo: "assets/logo-yoplindetox.webp",
+    logoOscuro: "assets/logo-yoplindetox-2.webp",   // verde más oscuro, para la placa del cierre
+    icono: "assets/icono-192.png",
+    whatsapp: "580000000000",            // [POR CONFIRMAR] número real para pedidos
+    whatsappVisible: "+58 000 0000000",  // [POR CONFIRMAR]
+    instagram: "yoplindetox",
+    tiktok: "",                          // [POR CONFIRMAR] usuario de TikTok sin @ (vacío = no se muestra)
+    colores: { principal: "#1B4521", acento: "#7CB73F", fondo: "#FAFCF7" },
+    descripcion: "Packs de jugos naturales hechos en casa, listos para licuar. Arme su pack de 5 y pídalo por WhatsApp. Entregas en Mérida y Ejido."
+  },
+  pack: {
+    porciones: 5,
+    precio: 12,
+    gramos: 211,
+    maxPacks: 6,
+    mezclar: true   // [POR CONFIRMAR] si se pueden mezclar sabores dentro del pack (false = un sabor por pack)
+  },
+  textos: {
+    rotulo: "Pedidos por WhatsApp · Mérida y Ejido",
+    titulo: "Jugos naturales *hechos en casa*",
+    lema: "Frutas y vegetales frescos, picados y congelados en bolsitas. Saque una, licúela y tiene su jugo natural.",
+    ofertaTitulo: "Pack de 5 jugos",
+    ofertaTexto: "Una bolsita para cada día",
+    saboresTitulo: "Escoja sus sabores",
+    saboresIntro: "Cada bolsita trae unos 211 g de frutas y vegetales ya picados y congelados. Toque Agregar y va directo a su pack.",
+    packTitulo: "Arme su pack de 5",
+    packIntro: "Toque + en cada sabor hasta llenar las 5 bolsitas. Puede mezclar como quiera.",
+    packIntroSinMezcla: "Cada pack trae 5 bolsitas del mismo sabor. Toque + para sumar un pack de ese sabor.",
+    cierreTitulo: "¿Le armamos su pack?",
+    cierreTexto: "Escríbanos por WhatsApp y le confirmamos su pedido."
+  },
+  mensajeGeneral: "Hola, quiero hacer un pedido en {{NOMBRE}}.",
+  moneda: "$",
+  // Sabores. "corto" es como sale en botones pequeños. La primera foto es la principal.
+  // posicion: qué parte de la foto se ve al recortarla (como object-position).
+  sabores: [
+    { id: "verde", nombre: "Jugo Verde", corto: "Verde", uno: "un Jugo Verde", color: "#5E9E3A",
+      ingredientes: ["Manzana verde", "Pepino", "Espinaca", "Piña", "Apio España (celeri)", "Limón", "Jengibre"],
+      nota: "Siete ingredientes picados a mano, con el toque del jengibre.",
+      fotos: [
+        { foto: "assets/img/verde-ingredientes-con-nombres.webp", alt: "Ingredientes del Jugo Verde con sus nombres: pepino, manzana verde, jengibre, limón, piña, celeri y espinaca", posicion: "0% 50%" },
+        { foto: "assets/img/verde-ingredientes.webp", alt: "Piña, celeri, manzana verde y pepino picados" },
+        { foto: "assets/img/pack-verde.webp", alt: "Pack de Jugo Verde con 5 bolsitas y la etiqueta Yoplindetox" }
+      ] },
+    { id: "naranja", nombre: "Naranja, zanahoria y cúrcuma", corto: "Naranja y cúrcuma", uno: "un Naranja y cúrcuma", color: "#EE8A1E",
+      ingredientes: ["Naranja", "Zanahoria", "Jengibre", "Cúrcuma", "Pimienta"],
+      nota: "Con naranja, que aporta vitamina C, y jengibre y cúrcuma para un sabor intenso.",
+      fotos: [
+        { foto: "assets/img/pack-naranja-curcuma.webp", alt: "Pack de naranja, zanahoria y cúrcuma con 5 bolsitas congeladas" },
+        { foto: "assets/img/naranja-zanahoria-ingredientes.webp", alt: "Naranja, zanahoria y jengibre picados sobre una tabla", posicion: "50% 62%" }
+      ] },
+    { id: "tres", nombre: "3 en 1", corto: "3 en 1", uno: "un 3 en 1", color: "#A62042",
+      ingredientes: ["Remolacha", "Naranja", "Zanahoria"],
+      nota: "Tres ingredientes y un color que se nota desde lejos.",
+      fotos: [
+        { foto: "assets/img/pack-remolacha-zanahoria.webp", alt: "Pack 3 en 1 con remolacha y zanahoria en bolsitas" },
+        { foto: "assets/img/pack-naranja-remolacha-bolsa.webp", alt: "Bolsita con zanahoria, remolacha y naranja picadas", posicion: "50% 55%" }
+      ] }
+  ],
+  // Sabor libre: el cliente escribe qué ingredientes quiere.  [POR CONFIRMAR] que cueste lo mismo dentro del pack
+  aSuGusto: { activo: true, id: "gusto", nombre: "A su gusto", corto: "A su gusto", color: "#D9A21B",
+    texto: "Díganos qué frutas y vegetales quiere y se lo preparamos. Hay muchos sabores más.",
+    campo: "¿Qué ingredientes quiere?", ejemplo: "Ej.: piña, fresa y hierbabuena",
+    fotos: [{ foto: "assets/img/ingredientes-picados.webp", alt: "Piña, zanahoria y pepino recién picados en un envase" }] },
+  // Los sabores que rotan en la portada (id de un sabor + foto).
+  portada: [
+    { sabor: "naranja", foto: "assets/img/pack-naranja-curcuma.webp", alt: "Pack de naranja, zanahoria y cúrcuma con 5 bolsitas" },
+    { sabor: "tres", foto: "assets/img/pack-remolacha-zanahoria.webp", alt: "Pack 3 en 1 de remolacha, naranja y zanahoria" },
+    { sabor: "verde", foto: "assets/img/pack-verde.webp", alt: "Pack de Jugo Verde con 5 bolsitas" }
+  ],
+  burbujas: [
+    { foto: "assets/img/verde-ingredientes.webp", alt: "" },
+    { foto: "assets/img/naranja-zanahoria-ingredientes.webp", alt: "" }
+  ],
+  zonas: ["Casco central de Mérida", "Todo Ejido"],
+  notaEntrega: "¿Está en otra zona? Pregúntenos por WhatsApp.",
+  pagos: [
+    { nombre: "Pago móvil", icono: "movil" },
+    { nombre: "Efectivo", icono: "billete" },
+    { nombre: "Divisas", icono: "divisa" }
+  ],
+  notaPagos: "No se paga en la página. El pago se coordina por WhatsApp.",
+  pasos: [
+    { icono: "vaso", titulo: "Elija", texto: "Escoja sus 5 jugos: de un solo sabor o mezclados." },
+    { icono: "chat", titulo: "Pida", texto: "Toque Pedir por WhatsApp y el mensaje sale escrito. Solo lo envía." },
+    { icono: "moto", titulo: "Reciba", texto: "Le llevamos su pack congelado, con sus 5 bolsitas." },
+    { icono: "licuadora", titulo: "Licúe", texto: "Cada día saque una bolsita del congelador, licúela y listo." }
+  ],
+  ventajas: [
+    { icono: "casa", titulo: "Hechos en casa", texto: "Cada pack se prepara en casa, bolsita por bolsita." },
+    { icono: "cuchillo", titulo: "Picados a mano", texto: "Frutas y vegetales frescos, picados a mano y listos para la licuadora." },
+    { icono: "copo", titulo: "Congelados para que duren", texto: "Cada bolsita va al congelador apenas se arma." },
+    { icono: "calendario", titulo: "Uno para cada día", texto: "Cinco bolsitas, una para cada día de la semana." }
+  ],
+  // Venta de jugo ya listo en botella: [POR CONFIRMAR]. Las fotos van solo en la galería, sin precio.
+  galeria: [
+    { foto: "assets/img/verde-botellas-nevera.webp", alt: "Botellas de Jugo Verde con la etiqueta Yoplindetox en la nevera", pie: "Recién hechos" },
+    { foto: "assets/img/ingredientes-picados.webp", alt: "Piña, zanahoria y pepino recién picados", pie: "Picados a mano" },
+    { foto: "assets/img/verde-botella.webp", alt: "Botella de Jugo Verde junto a una planta", pie: "Verde de verdad" },
+    { foto: "assets/img/pack-naranja-remolacha-bolsa.webp", alt: "Bolsita con zanahoria, remolacha y naranja", pie: "Una bolsita, un jugo" },
+    { foto: "assets/img/naranja-zanahoria-ingredientes.webp", alt: "Naranja, zanahoria y jengibre picados", pie: "Naranja y zanahoria" },
+    { foto: "assets/img/pack-remolacha-zanahoria.webp", alt: "Pack 3 en 1 con remolacha y zanahoria", pie: "El 3 en 1" },
+    { foto: "assets/img/verde-ingredientes.webp", alt: "Ingredientes del Jugo Verde picados", pie: "Todo fresco" }
+  ]
+};
+(function(){ try { var c = CONFIG.marca.colores, r = document.documentElement.style;
+  r.setProperty("--verde", c.principal); r.setProperty("--lima", c.acento); r.setProperty("--crema", c.fondo);
+  document.documentElement.classList.add("js");
+  if (!(CONFIG.vistaPrevia && CONFIG.vistaPrevia.activa)) document.documentElement.classList.add("sin-franja"); } catch (e) {} })();
+</script>
+<meta name="color-scheme" content="only light">
+<meta name="robots" content="noindex, nofollow">
+<title>Yoplindetox · Jugos naturales en Mérida</title>
+<meta name="description" content="Packs de jugos naturales hechos en casa, listos para licuar. Arme su pack de 5 y pídalo por WhatsApp. Entregas en Mérida y Ejido.">
+<meta name="theme-color" content="#FAFCF7">
+<meta property="og:title" content="Yoplindetox · Jugos naturales en Mérida">
+<meta property="og:description" content="Packs de jugos naturales hechos en casa, listos para licuar. Arme su pack de 5 y pídalo por WhatsApp. Entregas en Mérida y Ejido.">
+<meta property="og:url" content="https://thecarlos583.github.io/Paginas_webs/vista-previa/yoplindetox-ydpm/">
+<meta property="og:image" content="https://thecarlos583.github.io/Paginas_webs/vista-previa/yoplindetox-ydpm/assets/img/pack-naranja-curcuma.webp">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/icono-192.png">
+<link rel="preload" href="assets/fuentes/great-vibes.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fuentes/figtree.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Great Vibes";src:url("assets/fuentes/great-vibes.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Figtree";src:url("assets/fuentes/figtree.woff2") format("woff2");font-weight:400 700;font-style:normal;font-display:swap}
+:root{
+  color-scheme:only light;
+  --verde:#1B4521;--lima:#7CB73F;--crema:#FAFCF7;
+  --verde-2:#2C6634;--verde-osc:#10301A;--lima-claro:#D4EAB0;--sobre-lima:#0F2610;
+  --crema-2:#EDF5E4;--papel:#FFFFFF;--tinta:#22301F;--suave:#58664F;
+  --linea:rgba(27,69,33,.13);--linea-f:rgba(27,69,33,.26);
+  --f-script:"Great Vibes","Segoe Script","Brush Script MT",cursive;
+  --f-texto:"Figtree","Segoe UI",system-ui,-apple-system,Roboto,sans-serif;
+  --suave-c:cubic-bezier(.22,.61,.36,1);--lento:cubic-bezier(.16,1,.3,1);--salto:cubic-bezier(.34,1.56,.64,1);
+  --radio:22px;--sombra:0 1px 2px rgba(16,48,26,.06),0 16px 36px -12px rgba(16,48,26,.18);
+  --franja:30px;--nav:72px;
+}
+html.sin-franja{--franja:0px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:hidden;overflow-x:clip;background:var(--crema)}
+body{font-family:var(--f-texto);font-size:1rem;line-height:1.6;color:var(--tinta);background:var(--crema);overflow-x:hidden;overflow-x:clip;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit;color:inherit}
+h1,h2,h3{font-weight:400;line-height:1.05}
+section{scroll-margin-top:calc(var(--franja) + var(--nav) - 8px)}
+.contenedor{width:100%;max-width:1200px;margin:0 auto;padding:0 20px}
+@media (min-width:900px){.contenedor{padding:0 40px}}
+.seccion{padding:88px 0;position:relative}
+@media (min-width:900px){.seccion{padding:124px 0}}
+.solo-lector{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+:focus-visible{outline:2.5px solid var(--lima);outline-offset:3px;border-radius:8px}
+.rotulo{display:inline-flex;align-items:center;gap:9px;font-size:.74rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--verde-2)}
+.rotulo svg{width:11px;height:14px;color:var(--lima);flex-shrink:0}
+.titulo{font-family:var(--f-script);font-size:clamp(3.1rem,11vw,5.2rem);color:var(--verde);margin:6px 0 14px;line-height:1.08;padding-bottom:.08em}
+.intro{color:var(--suave);max-width:50ch;font-size:1.05rem}
+
+/* velo cálido igual para todas las fotos */
+.calida{position:relative;overflow:hidden;background:var(--crema-2)}
+.calida::after{content:"";position:absolute;inset:0;background:rgba(255,186,110,.09);mix-blend-mode:multiply;pointer-events:none;z-index:1}
+
+/* trazo verde bajo la palabra marcada */
+.marca{position:relative;display:inline-block;white-space:nowrap}
+.marca svg{position:absolute;left:-2%;right:-2%;bottom:-.04em;width:104%;height:.32em;overflow:visible;pointer-events:none}
+.marca path{fill:none;stroke:var(--lima);stroke-width:5;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:0}
+.js .marca path{stroke-dashoffset:1;transition:stroke-dashoffset 1.4s var(--suave-c) .9s}
+.js .marca.visible path,.js .visible .marca path{stroke-dashoffset:0}
+
+/* botones */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:14px 24px;border-radius:999px;border:0;cursor:pointer;font-weight:700;font-size:.97rem;line-height:1.2;
+  transition:transform .3s var(--salto),box-shadow .3s var(--suave-c),background-color .3s,color .3s}
+.btn svg{width:19px;height:19px;flex-shrink:0}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:scale(.97)}
+.btn-lima{background:var(--lima);color:var(--sobre-lima);position:relative;overflow:hidden;box-shadow:0 8px 20px -8px rgba(80,140,40,.6)}
+.btn-lima:hover{box-shadow:0 14px 28px -10px rgba(80,140,40,.7)}
+.btn-lima::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.45) 50%,transparent 70%);transform:translateX(-120%);animation:destello 7s var(--suave-c) infinite 2.5s;pointer-events:none}
+@keyframes destello{18%,100%{transform:translateX(120%)}}
+.btn-linea{background:transparent;color:var(--verde);box-shadow:inset 0 0 0 1.5px var(--linea-f)}
+.btn-linea:hover{box-shadow:inset 0 0 0 1.5px var(--verde)}
+@media (pointer:coarse){.btn{min-height:48px}}
+
+/* franja de vista previa */
+.franja{position:fixed;inset:0 0 auto;height:var(--franja);z-index:90;display:flex;align-items:center;justify-content:center;padding:0 12px;background:var(--verde-osc);color:var(--lima-claro);font-size:.78rem;font-weight:600;letter-spacing:.04em;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+html.sin-franja .franja{display:none}
+
+/* menú superior */
+.progreso{position:fixed;left:0;right:0;top:var(--franja);height:3px;z-index:80;background:var(--lima);transform-origin:0 50%;transform:scaleX(0)}
+.nav{position:fixed;left:0;right:0;top:var(--franja);z-index:60;transition:background-color .4s,box-shadow .4s}
+.nav.solido{background:rgba(250,252,247,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--linea)}
+.nav .contenedor{display:flex;align-items:center;justify-content:space-between;gap:14px;height:var(--nav)}
+.logo{display:flex;align-items:center;min-width:0}
+.logo img{height:42px;width:auto;transition:transform .5s var(--salto)}
+.logo:hover img{transform:rotate(-3deg) scale(1.04)}
+.nav-links{display:none;gap:26px;font-size:.93rem;font-weight:600}
+.nav-links a{position:relative;padding:4px 0}
+.nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;border-radius:2px;background:var(--lima);transform:scaleX(0);transform-origin:right;transition:transform .4s var(--lento)}
+.nav-links a:hover::after{transform:scaleX(1);transform-origin:left}
+.nav .btn{padding:10px 18px;font-size:.9rem}
+@media (min-width:1040px){.nav-links{display:flex}}
+@media (max-width:359px){.logo img{height:34px}}
+
+/* portada */
+.portada{position:relative;padding:calc(var(--franja) + 92px) 0 40px;overflow:hidden}
+.portada-grid{display:grid;gap:34px}
+.estado{display:inline-flex;align-items:center;gap:9px;font-size:.84rem;font-weight:600;color:var(--verde);background:var(--papel);border:1px solid var(--linea);padding:6px 14px 6px 12px;border-radius:999px}
+.estado i{width:8px;height:8px;border-radius:50%;background:var(--lima);position:relative;flex-shrink:0}
+.estado i::after{content:"";position:absolute;inset:-5px;border-radius:50%;background:var(--lima);opacity:0;animation:latido 2.4s ease-out infinite}
+@keyframes latido{0%{transform:scale(.4);opacity:.6}100%{transform:scale(1.6);opacity:0}}
+.portada h1{font-family:var(--f-script);font-size:clamp(3.5rem,14.5vw,6.6rem);color:var(--verde);line-height:1.04;margin:16px 0 16px;padding-bottom:.1em;text-wrap:balance}
+.portada .lema{font-size:1.08rem;color:var(--suave);max-width:42ch;margin-bottom:22px}
+.oferta{display:inline-flex;align-items:center;gap:16px;background:var(--papel);border:1px solid var(--linea);border-radius:22px;padding:10px 22px 10px 16px;box-shadow:var(--sombra);margin-bottom:24px;position:relative}
+.oferta b{font-family:var(--f-script);font-weight:400;font-size:3.4rem;line-height:1;color:var(--verde);padding:4px 14px 0 4px;border-right:1.5px dashed var(--linea-f)}
+.oferta span{display:flex;flex-direction:column;font-size:.92rem;color:var(--suave);line-height:1.35}
+.oferta strong{color:var(--verde);font-size:1.08rem}
+.portada .botones{display:flex;flex-wrap:wrap;gap:10px}
+@media (max-width:399px){.portada .botones .btn{flex:1 1 auto}}
+
+/* firma de la portada: el pack que cambia de sabor */
+.vitrina{position:relative;max-width:470px;width:100%;margin:0 auto}
+.manchas{position:absolute;inset:4% -8% 14% -8%;pointer-events:none}
+.mancha{position:absolute;inset:0;opacity:0;transform:scale(1.32);transition:opacity 1.2s var(--suave-c)}
+.mancha.activa{opacity:.3}
+.mancha svg{width:100%;height:100%;animation:girar 46s linear infinite}
+@keyframes girar{to{transform:rotate(360deg)}}
+.arco{position:relative;aspect-ratio:4/5;border-radius:999px 999px 30px 30px;box-shadow:0 30px 60px -28px rgba(16,48,26,.5);transform:translateZ(0)}
+.arco img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.08);transition:opacity 1.1s var(--suave-c),transform 7s linear}
+.arco img.activa{opacity:1;transform:scale(1)}
+.arco img:first-child{opacity:1}
+.js .arco img:first-child:not(.activa){opacity:0}
+.sello{position:absolute;left:-12px;top:16%;width:112px;height:112px;z-index:3}
+.sello img{position:absolute;inset:21px;width:70px;height:70px;border-radius:50%;box-shadow:0 8px 20px -6px rgba(0,0,0,.35)}
+.sello svg{position:absolute;inset:0;width:100%;height:100%;animation:girar 28s linear infinite}
+.sello text{font-family:var(--f-texto);font-size:10.4px;font-weight:700;letter-spacing:.21em;fill:var(--verde);text-transform:uppercase}
+.sello circle{fill:var(--papel)}
+.burbuja{position:absolute;z-index:2;pointer-events:none}
+.burbuja .mecer{animation:flotar 7s ease-in-out infinite}
+.burbuja .calida{border-radius:50%;border:4px solid var(--papel);box-shadow:0 12px 26px -10px rgba(16,48,26,.45);width:100%;height:100%}
+.burbuja img{width:100%;height:100%;object-fit:cover}
+.bu1{width:96px;height:96px;right:-12px;top:5%}
+.bu2{width:76px;height:76px;right:8%;bottom:22%}.bu2 .mecer{animation-duration:9s;animation-delay:-3s}
+@keyframes flotar{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-10px) rotate(6deg)}}
+.selector{position:relative;z-index:3;margin:-30px auto 0;width:max-content;max-width:100%;background:var(--papel);border-radius:999px;padding:6px;display:flex;gap:4px;box-shadow:var(--sombra);border:1px solid var(--linea)}
+.sabor-btn{border:0;background:transparent;border-radius:999px;padding:9px 13px;font-size:.88rem;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:7px;color:var(--suave);transition:background-color .35s,color .35s;white-space:nowrap}
+.sabor-btn i{width:10px;height:10px;border-radius:50%;background:var(--c);transition:transform .4s var(--salto);flex-shrink:0}
+.sabor-btn:hover i{transform:scale(1.35)}
+.sabor-btn[aria-pressed="true"]{background:var(--verde);color:#fff}
+@media (max-width:389px){.sabor-btn{padding:8px 9px;font-size:.8rem;gap:5px}}
+.antojo{text-align:center;margin-top:14px;font-size:.95rem;color:var(--suave)}
+.antojo button,.antojo a{border:0;background:none;cursor:pointer;font-weight:700;color:var(--verde);border-bottom:2px solid var(--lima);padding:0 0 1px;transition:border-color .3s}
+.antojo button:hover,.antojo a:hover{border-color:var(--verde)}
+@media (min-width:960px){
+  .portada{padding:calc(var(--franja) + 120px) 0 80px}
+  .portada-grid{grid-template-columns:1.08fr .92fr;align-items:center;gap:56px}
+  .sello{left:-46px;width:132px;height:132px}.sello img{inset:24px;width:84px;height:84px}
+  .bu1{width:118px;height:118px;right:-40px}
+}
+
+/* cinta */
+.cinta{overflow:hidden;white-space:nowrap;background:var(--verde);color:var(--lima-claro);padding:16px 0}
+.cinta-pista{display:inline-flex;animation:correr 50s linear infinite}
+.cinta-pista span{display:inline-flex;align-items:center;gap:2rem;padding-right:2rem;font-family:var(--f-script);font-size:clamp(1.7rem,4.4vw,2.3rem);line-height:1.3}
+.cinta-pista b{color:var(--lima);font-family:var(--f-texto);font-size:.9rem}
+@keyframes correr{to{transform:translateX(-50%)}}
+
+/* sabores */
+.cab{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:10px 30px;margin-bottom:34px}
+.sabores{list-style:none;display:grid;gap:18px}
+@media (min-width:720px){.sabores{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}}
+.tarjeta-sabor{position:relative;min-width:0;display:flex;flex-direction:column;background:var(--papel);border:1px solid var(--linea);border-radius:var(--radio);padding:8px;transition:transform .45s var(--lento),box-shadow .45s var(--suave-c)}
+.tarjeta-sabor:hover{transform:translateY(-5px);box-shadow:var(--sombra)}
+.sabor-foto{aspect-ratio:3/2;border-radius:16px}
+.sabor-foto>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .7s var(--suave-c),transform 1s var(--lento)}
+.sabor-foto>img.activa{opacity:1}
+.sabor-foto>img:first-child{opacity:1}
+.js .sabor-foto>img:first-child:not(.activa){opacity:0}
+.tarjeta-sabor:hover .sabor-foto>img.activa{transform:scale(1.04)}
+.miniaturas{position:absolute;left:12px;bottom:12px;z-index:2;display:flex;gap:6px}
+.mini{width:38px;height:38px;border-radius:50%;border:2px solid rgba(255,255,255,.8);padding:0;overflow:hidden;cursor:pointer;background:var(--crema-2);box-shadow:0 4px 10px rgba(0,0,0,.25);transition:transform .35s var(--salto),border-color .3s}
+.mini img{width:100%;height:100%;object-fit:cover}
+.mini:hover{transform:scale(1.1)}
+.mini[aria-pressed="true"]{border-color:var(--lima);transform:scale(1.12)}
+@media (pointer:coarse){.mini{width:44px;height:44px}}
+.en-pack{position:absolute;top:12px;right:12px;z-index:2;background:var(--verde);color:#fff;font-size:.8rem;font-weight:700;padding:5px 11px;border-radius:999px;opacity:0;transform:scale(.6);transition:opacity .3s,transform .4s var(--salto)}
+.en-pack.si{opacity:1;transform:none}
+.sabor-cuerpo{display:flex;flex-direction:column;gap:10px;padding:16px 10px 10px;flex:1}
+.sabor-cuerpo h3{font-family:var(--f-script);font-size:2.5rem;color:var(--verde);line-height:1.05;overflow-wrap:anywhere;display:flex;align-items:center;gap:10px}
+.sabor-cuerpo h3 i{width:12px;height:12px;border-radius:50%;background:var(--c);flex-shrink:0}
+.ingredientes{list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+.ingredientes li{font-size:.84rem;font-weight:600;color:var(--verde);background:var(--crema-2);padding:4px 11px;border-radius:999px}
+.sabor-cuerpo p{color:var(--suave);font-size:.95rem;flex:1}
+.sabor-pie{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:4px}
+.sabor-pie small{font-size:.86rem;color:var(--suave)}
+.sabor-pie small b{color:var(--verde);font-size:1.05rem}
+.js .sabores.revelar-grupo>*{transition-delay:calc(var(--n,0) * 90ms)}
+.js .sabores.revelar-grupo.visible.listo>*{transition-delay:0s}
+
+/* arme su pack */
+.arme{background:var(--crema-2)}
+.arme-grid{display:grid;gap:22px;align-items:start}
+@media (min-width:960px){.arme-grid{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:34px}}
+.tarjeta{background:var(--papel);border:1px solid var(--linea);border-radius:26px;padding:22px 18px;min-width:0}
+@media (min-width:900px){.tarjeta{padding:30px 32px}}
+.tarjeta h3{font-family:var(--f-script);font-size:2.4rem;color:var(--verde);margin-bottom:10px;line-height:1.1}
+.opciones{list-style:none;display:grid}
+.opcion{display:grid;grid-template-columns:52px minmax(0,1fr) auto;gap:12px;align-items:center;padding:14px 0;border-bottom:1px dashed var(--linea-f)}
+.opcion:last-child{border-bottom:0}
+.opcion-foto{display:block;width:52px;height:52px;border-radius:16px}
+.opcion-foto img{width:100%;height:100%;object-fit:cover}
+.opcion-foto::before{content:"";position:absolute;inset:0;border-radius:16px;box-shadow:inset 0 0 0 3px var(--c);z-index:2}
+.opcion-texto{min-width:0}
+.opcion-texto b{display:block;color:var(--verde);font-size:1.02rem;line-height:1.25}
+.opcion-texto small{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;color:var(--suave);font-size:.82rem;line-height:1.4;margin-top:2px}
+.contador-n{display:flex;align-items:center;gap:4px;background:var(--crema-2);border-radius:999px;padding:3px}
+.contador-n button{width:38px;height:38px;border-radius:50%;border:0;cursor:pointer;background:var(--papel);color:var(--verde);font-size:1.3rem;font-weight:700;line-height:1;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 4px rgba(16,48,26,.14);transition:transform .3s var(--salto),background-color .3s,opacity .3s}
+.contador-n button:hover{transform:scale(1.08);background:var(--lima-claro)}
+.contador-n button:disabled{opacity:.35;cursor:default;transform:none;background:var(--papel)}
+.contador-n output{min-width:26px;text-align:center;font-weight:700;font-size:1.05rem;color:var(--verde)}
+.contador-n output.cambio{animation:salta .45s var(--salto)}
+@keyframes salta{40%{transform:translateY(-4px) scale(1.15)}}
+@media (pointer:coarse){.contador-n button{width:42px;height:42px}}
+.gusto-campo{grid-column:1/-1;display:grid;gap:6px;font-size:.88rem;font-weight:600;color:var(--verde)}
+.js .gusto-campo{display:none}
+.js .gusto-campo.abierto{display:grid;animation:aparecer .5s var(--lento)}
+@keyframes aparecer{from{opacity:0;transform:translateY(-6px)}}
+.gusto-campo input{width:100%;border:1.5px solid var(--linea-f);border-radius:14px;padding:12px 14px;background:var(--crema);font-weight:500;font-size:1rem;color:var(--tinta)}
+.gusto-campo input:focus{outline:none;border-color:var(--lima);box-shadow:0 0 0 3px rgba(124,183,63,.25)}
+
+.resumen{position:relative}
+@media (min-width:960px){.resumen{position:sticky;top:calc(var(--franja) + var(--nav) + 14px)}}
+.resumen-cab{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.contador{font-weight:600;color:var(--suave);white-space:nowrap}
+.contador b{font-family:var(--f-script);font-weight:400;font-size:3rem;line-height:1;color:var(--verde);display:inline-block}
+.contador.cambio b{animation:salta .45s var(--salto)}
+.contador.lleno b{color:var(--verde-2)}
+.temblor{animation:temblor .45s}
+@keyframes temblor{20%,60%{transform:translateX(-6px)}40%,80%{transform:translateX(6px)}}
+.envases{display:grid;gap:10px;margin:8px 0 12px}
+.envase{position:relative;border:2px solid rgba(27,69,33,.16);border-radius:18px;padding:8px;background:linear-gradient(180deg,#fff,var(--crema));display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}
+.envase::before{content:attr(data-n);position:absolute;top:-9px;left:14px;background:var(--papel);padding:0 6px;font-size:.66rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--suave)}
+.bolsa{aspect-ratio:3/4;border-radius:10px;border:1.5px dashed var(--linea-f);position:relative;display:flex;align-items:flex-end;justify-content:center;padding:4px;font-size:.62rem;font-weight:700;color:#fff;text-align:center;line-height:1.1;overflow:hidden;transition:background-color .4s,border-color .4s}
+.envases.varios .bolsa{aspect-ratio:1/1}
+.bolsa.llena{border:0;background:var(--c);box-shadow:inset 0 -10px 18px -8px rgba(0,0,0,.25)}
+.bolsa.llena::before{content:"";position:absolute;left:12%;right:12%;top:8px;height:4px;border-radius:4px;background:rgba(255,255,255,.55)}
+.bolsa.llena::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,rgba(255,255,255,.35) 0 18%,transparent 34%)}
+.bolsa span{position:relative;z-index:1;text-shadow:0 1px 2px rgba(0,0,0,.35);overflow-wrap:anywhere}
+.bolsa.cae{animation:caer .55s var(--salto)}
+@keyframes caer{from{transform:translateY(-22px) scale(.7);opacity:0}}
+.progreso-pack{height:6px;border-radius:6px;background:var(--crema-2);overflow:hidden}
+.progreso-pack i{display:block;height:100%;background:var(--lima);border-radius:6px;transform-origin:0 50%;transform:scaleX(0);transition:transform .5s var(--lento)}
+.fila{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 0;border-bottom:1px dashed var(--linea-f)}
+.fila>span{font-weight:700;color:var(--verde);line-height:1.3}
+.fila>span small{display:block;font-weight:500;color:var(--suave);font-size:.84rem}
+.chips{border:0;padding:14px 0 4px;min-width:0}
+.chips legend{font-weight:700;color:var(--verde);margin-bottom:8px;font-size:.95rem}
+.chips div{display:flex;flex-wrap:wrap;gap:8px}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0;width:1px;height:1px}
+.chip span{display:inline-flex;align-items:center;min-height:42px;padding:8px 16px;border-radius:999px;border:1.5px solid var(--linea-f);font-weight:600;font-size:.92rem;cursor:pointer;transition:background-color .3s,border-color .3s,color .3s,transform .3s var(--salto)}
+.chip span:hover{border-color:var(--verde)}
+.chip input:checked+span{background:var(--verde);border-color:var(--verde);color:#fff}
+.chip input:focus-visible+span{outline:2.5px solid var(--lima);outline-offset:2px}
+.chips.falta legend{color:#B5452B}
+.total{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:18px 0 14px;border-top:1px solid var(--linea);margin-top:14px}
+.total span{font-weight:700;color:var(--suave);text-transform:uppercase;letter-spacing:.16em;font-size:.78rem}
+.total b{font-family:var(--f-script);font-weight:400;font-size:3rem;line-height:1;color:var(--verde)}
+.btn-pedir{width:100%}
+.btn-pedir.incompleto{background:#C9D9B4;box-shadow:none}
+.btn-pedir.incompleto::after{display:none}
+.pista{margin-top:10px;font-size:.9rem;font-weight:600;color:var(--verde-2);text-align:center;min-height:1.4em}
+.pista.alerta{color:#B5452B}
+.nota{font-size:.88rem;color:var(--suave);margin-top:10px}
+.resumen .nota{text-align:center}
+
+/* olas */
+.ola{display:block;height:46px;overflow:hidden;line-height:0;position:relative;z-index:1;margin-bottom:-2px;background:var(--fondo-ola,var(--crema))}
+.ola svg{display:block;width:200%;height:58px;animation:oleaje 18s linear infinite}
+.ola path{fill:var(--verde)}
+.ola.abajo{transform:scaleY(-1);margin-bottom:0;margin-top:-2px}
+@keyframes oleaje{to{transform:translateX(-50%)}}
+
+/* cómo funciona */
+.pedir{background:var(--verde);color:#F2F8EC;overflow:hidden}
+.pedir .rotulo{color:var(--lima-claro)}
+.pedir .titulo{color:#FFFFFF}
+.pasos{list-style:none;display:grid;gap:36px;margin-top:40px;position:relative}
+.pasos::before{content:"";position:absolute;left:31px;top:20px;bottom:30px;width:2px;background:repeating-linear-gradient(to bottom,var(--lima) 0 8px,transparent 8px 16px);transform-origin:top;transform:scaleY(1);transition:transform 1.8s var(--lento)}
+.js .pasos::before{transform:scaleY(0)}
+.js .pasos.visible::before{transform:scaleY(1)}
+.paso{display:grid;grid-template-columns:64px minmax(0,1fr);gap:18px;align-items:start;position:relative}
+.paso-num{width:64px;height:64px;border-radius:50%;background:var(--verde-osc);border:2px solid var(--lima);display:flex;align-items:center;justify-content:center;font-family:var(--f-script);font-size:2.4rem;color:var(--lima);line-height:1;padding-top:6px}
+.paso h3{font-family:var(--f-script);font-size:2.5rem;color:#FFFFFF;line-height:1.1;margin-bottom:4px}
+.paso p{color:rgba(242,248,236,.84);max-width:34ch}
+.paso .icono{width:46px;height:46px;color:var(--lima);margin-top:12px}
+@media (min-width:900px){
+  .pasos{grid-template-columns:repeat(4,minmax(0,1fr));gap:32px}
+  .pasos::before{left:32px;right:14%;top:31px;bottom:auto;width:auto;height:2px;background:repeating-linear-gradient(to right,var(--lima) 0 8px,transparent 8px 16px);transform-origin:left}
+  .js .pasos::before{transform:scaleX(0)}.js .pasos.visible::before{transform:scaleX(1)}
+  .paso{grid-template-columns:1fr;gap:20px}
+}
+.burbujas{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.burbujas i{position:absolute;bottom:-20px;width:var(--t);height:var(--t);border-radius:50%;border:1.5px solid rgba(212,234,176,.35);animation:subir-b var(--d) linear infinite;animation-delay:var(--r)}
+@keyframes subir-b{0%{transform:translateY(0);opacity:0}10%{opacity:1}100%{transform:translateY(-110vh);opacity:0}}
+
+/* íconos que se dibujan */
+.icono{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.icono use{stroke-dasharray:1;stroke-dashoffset:0}
+.js .dibujar .icono use{stroke-dashoffset:1;transition:stroke-dashoffset 1.6s var(--suave-c) .3s}
+.js .dibujar.visible .icono use{stroke-dashoffset:0}
+
+/* hechos en casa */
+.porque-grid{display:grid;gap:40px;align-items:center}
+@media (min-width:900px){.porque-grid{grid-template-columns:1fr 1fr;gap:80px}}
+.porque-foto{position:relative}
+.porque-foto .marco{border-radius:30px 30px 200px 30px;aspect-ratio:4/5}
+.porque-foto .marco img{position:absolute;left:0;top:-8%;width:100%;height:116%;object-fit:cover;will-change:transform}
+.porque-foto .chapa{position:absolute;right:-6px;bottom:-14px;background:var(--lima);color:var(--sobre-lima);border-radius:20px;padding:14px 18px;font-weight:700;font-size:.92rem;line-height:1.3;max-width:200px;box-shadow:var(--sombra);transform:rotate(3deg);z-index:2}
+.porque-foto .chapa b{display:block;font-family:var(--f-script);font-weight:400;font-size:2.4rem;line-height:1}
+.ventajas{list-style:none;display:grid;gap:4px;margin-top:22px}
+.ventaja{display:grid;grid-template-columns:52px minmax(0,1fr);gap:16px;padding:16px 0;border-bottom:1px solid var(--linea);align-items:start}
+.ventaja .icono{width:52px;height:52px;padding:10px;border-radius:16px;background:var(--crema-2);color:var(--verde);transition:transform .4s var(--salto),background-color .3s}
+.ventaja:hover .icono{transform:rotate(-8deg) scale(1.06);background:var(--lima-claro)}
+.ventaja h3{font-size:1.1rem;font-weight:700;color:var(--verde);margin-bottom:2px;line-height:1.3}
+.ventaja p{color:var(--suave);font-size:.95rem}
+.js .revelar-mascara>*{clip-path:inset(100% 0 0 0 round 30px);transition:clip-path 1.3s var(--lento)}
+.js .revelar-mascara.visible>*{clip-path:inset(0 0 0 0 round 0)}
+
+/* entregas y pagos */
+.entregas{background:var(--crema-2)}
+.entregas-grid{display:grid;gap:22px;margin-top:34px}
+@media (min-width:900px){.entregas-grid{grid-template-columns:1fr 1fr;gap:30px}}
+.lista-iconos{list-style:none;display:grid}
+.lista-iconos li{display:flex;align-items:center;gap:14px;padding:13px 0;border-bottom:1px dashed var(--linea-f);font-weight:600;font-size:1.05rem;color:var(--verde)}
+.lista-iconos li:last-child{border-bottom:0}
+.lista-iconos .icono{width:40px;height:40px;padding:8px;border-radius:12px;background:var(--crema-2);color:var(--verde);flex-shrink:0;transition:transform .4s var(--salto),background-color .3s}
+.lista-iconos li:hover .icono{transform:rotate(-8deg) scale(1.08);background:var(--lima-claro)}
+.ruta{position:relative;height:56px;margin-top:40px}
+.ruta::before{content:"";position:absolute;left:0;right:0;top:40px;height:2px;background:repeating-linear-gradient(to right,var(--linea-f) 0 10px,transparent 10px 20px)}
+.moto{position:absolute;left:0;top:0;width:64px;height:44px;color:var(--verde);will-change:transform}
+.moto svg{width:100%;height:100%}
+.moto .rueda{transform-box:fill-box;transform-origin:center;animation:girar 1.2s linear infinite}
+.casita{position:absolute;right:0;top:4px;width:40px;height:40px;color:var(--verde-2)}
+
+/* galería */
+.galeria-cab{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px}
+.galeria{display:grid;grid-auto-flow:column;grid-auto-columns:min(72%,320px);gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 20px 18px;margin-top:30px;scrollbar-width:none;scroll-padding-inline:20px;list-style:none}
+.galeria::-webkit-scrollbar{display:none}
+.flechas{display:none;gap:10px}
+.flecha{width:48px;height:48px;border-radius:50%;border:1.5px solid var(--linea-f);background:var(--papel);color:var(--verde);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background-color .3s,color .3s,transform .3s var(--salto),opacity .3s}
+.flecha:hover{background:var(--verde);color:#fff;transform:scale(1.06)}
+.flecha:disabled{opacity:.35;cursor:default;transform:none;background:var(--papel);color:var(--verde)}
+.flecha svg{width:20px;height:20px}
+.galeria-acciones{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+@media (hover:hover) and (pointer:fine){
+  .flechas{display:flex}
+  .galeria{scrollbar-width:thin;scrollbar-color:var(--lima) var(--crema-2);padding-bottom:26px;cursor:grab}
+  .galeria::-webkit-scrollbar{display:block;height:8px}
+  .galeria::-webkit-scrollbar-track{background:var(--crema-2);border-radius:999px;margin-inline:40px}
+  .galeria::-webkit-scrollbar-thumb{background:var(--lima);border-radius:999px}
+  .galeria.arrastrando{cursor:grabbing;scroll-snap-type:none;scroll-behavior:auto}
+  .galeria.arrastrando img{pointer-events:none}
+}
+@media (min-width:900px){.galeria{grid-auto-columns:calc((100% - 56px)/4.2);padding:6px 40px 18px;scroll-padding-inline:40px}}
+@media (min-width:1200px){.galeria{padding-left:calc((100vw - 1200px)/2 + 40px);scroll-padding-left:calc((100vw - 1200px)/2 + 40px)}}
+.galeria li{scroll-snap-align:start;min-width:0}
+.galeria figure{margin:0}
+.galeria .foto{border-radius:20px;aspect-ratio:4/5}
+.galeria img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--lento)}
+.galeria li:hover img{transform:scale(1.06)}
+.galeria figcaption{font-family:var(--f-script);font-size:1.6rem;color:var(--verde);margin-top:6px;line-height:1.2}
+.galeria li:nth-child(even){margin-top:26px}
+.red-tarjeta{display:flex;flex-direction:column;justify-content:space-between;gap:14px;height:100%;min-height:260px;aspect-ratio:4/5;border-radius:20px;background:var(--lima);color:var(--sobre-lima);padding:22px;transition:transform .4s var(--salto)}
+.red-tarjeta.oscura{background:var(--verde);color:#F2F8EC}
+.red-tarjeta:hover{transform:rotate(-1.5deg) scale(1.02)}
+.red-tarjeta svg{width:40px;height:40px}
+.red-tarjeta b{font-family:var(--f-script);font-weight:400;font-size:2.4rem;line-height:1.05;display:block}
+.red-tarjeta span{font-weight:700;overflow-wrap:anywhere}
+
+/* cierre */
+.cierre{background:var(--verde);color:#F2F8EC;text-align:center;overflow:hidden}
+.cierre .titulo{color:#FFFFFF;margin-left:auto;margin-right:auto}
+.cierre p.intro{color:rgba(242,248,236,.84);margin:0 auto 28px}
+.cierre .botones{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.cierre .btn-linea{color:#F2F8EC;box-shadow:inset 0 0 0 1.5px rgba(242,248,236,.45)}
+.cierre .btn-linea:hover{box-shadow:inset 0 0 0 1.5px #F2F8EC}
+.placa{display:inline-block;background:var(--papel);border-radius:999px;padding:14px 30px;margin:0 auto 18px;box-shadow:0 14px 30px -10px rgba(0,0,0,.45)}
+.placa img{height:56px;width:auto}
+.datos{list-style:none;display:grid;gap:12px;margin:44px auto 0;max-width:900px}
+@media (min-width:720px){.datos{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.datos li{border:1px solid rgba(212,234,176,.25);border-radius:18px;padding:16px;min-width:0;transition:border-color .3s,transform .4s var(--salto)}
+.datos li:hover{border-color:var(--lima);transform:translateY(-3px)}
+.datos small{display:block;font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--lima-claro);margin-bottom:4px}
+.datos a,.datos span{font-weight:600;overflow-wrap:anywhere}
+
+footer{padding:34px 0 120px;font-size:.88rem;color:var(--suave)}
+footer .contenedor{display:grid;gap:14px}
+.redes{display:flex;gap:10px;flex-wrap:wrap}
+.redes a{display:inline-flex;align-items:center;gap:8px;font-weight:600;color:var(--verde);padding:8px 14px;border-radius:999px;box-shadow:inset 0 0 0 1.5px var(--linea-f);transition:box-shadow .3s,transform .3s var(--salto)}
+.redes a:hover{box-shadow:inset 0 0 0 1.5px var(--verde);transform:translateY(-2px)}
+.redes svg{width:18px;height:18px}
+.aviso{font-size:.76rem;opacity:.9;max-width:60ch}
+@media (min-width:900px){footer{padding-bottom:40px}footer .contenedor{grid-template-columns:1fr auto;align-items:center}}
+
+/* barra del teléfono, botón flotante y aviso */
+.barra-movil{position:fixed;left:0;right:0;bottom:0;z-index:70;display:flex;gap:10px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(250,252,247,.95);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 -1px 0 var(--linea)}
+.barra-movil .btn{flex:1;padding:12px;font-size:.93rem;white-space:nowrap}
+.barra-movil .btn-lima{flex:1.3}
+@media (min-width:1000px){.barra-movil{display:none}}
+.wa-flotante{display:none}
+@media (min-width:1000px){.wa-flotante{position:fixed;right:24px;bottom:24px;z-index:70;width:60px;height:60px;border-radius:50%;background:#25d366;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(0,0,0,.25);transition:transform .3s var(--salto)}.wa-flotante:hover{transform:scale(1.08)}.wa-flotante svg{width:30px;height:30px}}
+.aviso-pack{position:fixed;left:50%;bottom:calc(84px + env(safe-area-inset-bottom));z-index:75;width:max-content;max-width:calc(100% - 28px);display:flex;align-items:center;gap:12px;background:var(--verde-osc);color:#F2F8EC;padding:10px 10px 10px 18px;border-radius:999px;box-shadow:0 14px 30px -10px rgba(0,0,0,.45);font-size:.92rem;font-weight:600;opacity:0;transform:translate(-50%,16px);pointer-events:none;transition:opacity .35s var(--suave-c),transform .45s var(--salto)}
+.aviso-pack.ver{opacity:1;transform:translate(-50%,0);pointer-events:auto}
+.aviso-pack a{background:var(--lima);color:var(--sobre-lima);padding:7px 14px;border-radius:999px;font-weight:700;white-space:nowrap}
+.aviso-pack span{min-width:0}
+@media (min-width:1000px){.aviso-pack{bottom:32px}}
+
+/* revelar */
+.js .revelar{opacity:0;transform:translateY(26px);transition:opacity 1s var(--suave-c),transform 1.1s var(--lento)}
+.js .revelar.visible{opacity:1;transform:none}
+.js .revelar-grupo>*{opacity:0;transform:translateY(24px) scale(.98);transition:opacity .9s var(--suave-c),transform 1s var(--lento)}
+.js .revelar-grupo.visible>*{opacity:1;transform:none}
+.js .revelar-grupo.visible>*:nth-child(2){transition-delay:.1s}.js .revelar-grupo.visible>*:nth-child(3){transition-delay:.2s}
+.js .revelar-grupo.visible>*:nth-child(4){transition-delay:.3s}.js .revelar-grupo.visible>*:nth-child(5){transition-delay:.4s}
+.js .revelar-grupo.visible>*:nth-child(6){transition-delay:.5s}.js .revelar-grupo.visible>*:nth-child(7){transition-delay:.6s}
+.js .revelar-grupo.visible.listo>*:nth-child(n){transition-delay:0s}
+.js [data-partir] .p{display:inline-block;opacity:0;transform:translateY(.45em) rotate(3deg);transition:opacity .8s var(--suave-c),transform 1s var(--salto);transition-delay:calc(var(--i)*90ms + .15s)}
+.js [data-partir].visible .p{opacity:1;transform:none}
+.js .entra{opacity:0;transform:translateY(14px);transition:opacity .9s var(--suave-c),transform 1s var(--lento)}
+.js .cargada .entra{opacity:1;transform:none}
+.js .cargada .d1{transition-delay:.1s}.js .cargada .d2{transition-delay:.55s}.js .cargada .d3{transition-delay:.75s}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .js .revelar,.js .revelar-grupo>*,.js .entra,.js [data-partir] .p{transform:none;transition:opacity .4s linear}
+  .js .revelar-mascara>*{clip-path:none}
+  .burbujas,.burbuja .mecer{animation:none}
+  .burbujas{display:none}
+  .cinta-pista{animation-duration:180s}.ola svg{animation:none}
+  .arco img{transform:none!important}
+  .bolsa.cae{animation:none}
+}
+body.pausado *,body.pausado *::before,body.pausado *::after{animation-play-state:paused!important}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.31l-.34-.2-3.57.94.95-3.48-.22-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.23-9.43 9.44-9.43a9.43 9.43 0 0 1 9.43 9.44c0 5.2-4.23 9.43-9.44 9.43zm8.03-17.46A11.27 11.27 0 0 0 12.05.72C5.79.72.7 5.81.7 12.07c0 2 .52 3.95 1.52 5.67L.6 23.65l6.05-1.59a11.33 11.33 0 0 0 5.4 1.38h.01c6.26 0 11.35-5.09 11.35-11.35 0-3.03-1.18-5.88-3.33-8.03z"/></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M7 2.8h10A4.2 4.2 0 0 1 21.2 7v10a4.2 4.2 0 0 1-4.2 4.2H7A4.2 4.2 0 0 1 2.8 17V7A4.2 4.2 0 0 1 7 2.8z"/><circle cx="12" cy="12" r="4.1" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor"/></symbol>
+  <symbol id="i-tt" viewBox="0 0 24 24"><path fill="currentColor" d="M16.6 5.8a4.3 4.3 0 0 1-1-2.8h-3.1v12.4a2.6 2.6 0 1 1-2.6-2.6c.3 0 .5 0 .8.1V9.7a5.7 5.7 0 0 0-.8-.1 5.7 5.7 0 1 0 5.7 5.7V9.1a7.3 7.3 0 0 0 4.3 1.4V7.4a4.3 4.3 0 0 1-3.3-1.6z"/></symbol>
+  <symbol id="i-gota" viewBox="0 0 22 28"><path fill="currentColor" d="M11 1C11 1 2 12.2 2 18a9 9 0 0 0 18 0C20 12.2 11 1 11 1z"/></symbol>
+  <!-- íconos de línea (pathLength=1 para que se dibujen) -->
+  <symbol id="ic-vaso" viewBox="0 0 48 48"><path pathLength="1" d="M12 14h24l-3 28H15L12 14zM13 22h22M30 14l5-9h5M17 30c3 2 6 2 9 0s6-2 8 0"/></symbol>
+  <symbol id="ic-chat" viewBox="0 0 48 48"><path pathLength="1" d="M8 10h32v22H22l-9 8v-8H8V10zM15 19h18M15 25h11"/></symbol>
+  <symbol id="ic-moto" viewBox="0 0 48 48"><path pathLength="1" d="M12 36a5 5 0 1 0 0-.1M36 36a5 5 0 1 0 0-.1M17 35h13l6-12h-8l-4 6h-9M30 16h6l3 7M8 23h12v6H8z"/></symbol>
+  <symbol id="ic-licuadora" viewBox="0 0 48 48"><path pathLength="1" d="M13 7h22l-3 23H16L13 7zM12 7h24M15 30h18v11H15zM24 35.5h.1M20 21l8-5M20 16l8 5M33 12h4"/></symbol>
+  <symbol id="ic-casa" viewBox="0 0 48 48"><path pathLength="1" d="M7 22L24 8l17 14M11 19v21h26V19M20 40V29h8v11"/></symbol>
+  <symbol id="ic-cuchillo" viewBox="0 0 48 48"><path pathLength="1" d="M8 40l11-11M19 29L39 9c2 5 0 11-5 16l-9 9-6-5zM14 35l-3-3"/></symbol>
+  <symbol id="ic-copo" viewBox="0 0 48 48"><path pathLength="1" d="M24 6v36M8.4 15l31.2 18M8.4 33l31.2-18M20 9l4 4 4-4M20 39l4-4 4 4M9 20l5-1-1-5M39 28l-5 1 1 5M9 28l5 1-1 5M39 20l-5-1 1-5"/></symbol>
+  <symbol id="ic-calendario" viewBox="0 0 48 48"><path pathLength="1" d="M9 11h30v29H9zM9 19h30M17 6v9M31 6v9M15 26h4M22 26h4M29 26h4M15 33h4M22 33h4"/></symbol>
+  <symbol id="ic-pin" viewBox="0 0 48 48"><path pathLength="1" d="M24 43S11 31 11 20a13 13 0 0 1 26 0c0 11-13 23-13 23zM24 15a5 5 0 1 0 .1 0"/></symbol>
+  <symbol id="ic-movil" viewBox="0 0 48 48"><path pathLength="1" d="M16 5h16a3 3 0 0 1 3 3v32a3 3 0 0 1-3 3H16a3 3 0 0 1-3-3V8a3 3 0 0 1 3-3zM21 37h6M19 18l5 5 5-5M24 12v11"/></symbol>
+  <symbol id="ic-billete" viewBox="0 0 48 48"><path pathLength="1" d="M5 14h38v20H5zM24 19a5 5 0 1 0 .1 0M11 19v10M37 19v10"/></symbol>
+  <symbol id="ic-divisa" viewBox="0 0 48 48"><path pathLength="1" d="M24 6v36M31 14c-2-3-5-4-8-4-4 0-7 2-7 6s4 5 8 6 8 3 8 7-3 6-8 6c-4 0-7-2-9-5"/></symbol>
+</svg>
+
+<!--auto-inicio--><div class="franja" role="note">Vista previa · Algunos datos por confirmar</div>
+<div class="progreso" aria-hidden="true"></div>
+<header class="nav" data-nav=""><div class="contenedor"><a class="logo" href="#inicio"><img src="assets/logo-yoplindetox.webp" width="480" height="152" alt="Yoplindetox"></a><nav class="nav-links" aria-label="Secciones"><a href="#sabores">Sabores</a><a href="#pack">Arme su pack</a><a href="#como-funciona">Cómo funciona</a><a href="#entregas">Entregas y pagos</a><a href="#galeria">Galería</a></nav><a class="btn btn-lima" data-wa="general" href="https://wa.me/580000000000?text=Hola%2C%20quiero%20hacer%20un%20pedido%20en%20Yoplindetox." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"></use></svg>Pedir</a></div></header>
+<main id="main">
+<section class="portada" id="inicio"><div class="contenedor portada-grid"><div class="portada-texto"><span class="estado entra d1"><i aria-hidden="true"></i><span>Pedidos por WhatsApp · Mérida y Ejido</span></span><h1 data-partir="">Jugos naturales <span class="marca">hechos en casa<svg viewBox="0 0 200 20" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M3 14 C 50 4, 120 4, 197 10"></path></svg></span></h1><p class="lema entra d2">Frutas y vegetales frescos, picados y congelados en bolsitas. Saque una, licúela y tiene su jugo natural.</p><div class="oferta entra d2"><b>$12</b><span><strong>Pack de 5 jugos</strong>Una bolsita para cada día</span></div><div class="botones entra d3"><a class="btn btn-lima" href="#pack">Arme su pack</a><a class="btn btn-linea" data-wa="general" href="https://wa.me/580000000000?text=Hola%2C%20quiero%20hacer%20un%20pedido%20en%20Yoplindetox." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"></use></svg>Pedir por WhatsApp</a></div></div><div class="vitrina entra d2" data-vitrina=""><div class="manchas" aria-hidden="true" data-manchas=""><div class="mancha activa"><svg viewBox="0 0 200 200"><path fill="#EE8A1E" d="M44.7,-58.5C57.1,-50.3,65.9,-36.2,70.5,-20.6C75.1,-5,75.4,12.1,68.6,25.7C61.8,39.3,47.8,49.4,32.8,57.2C17.8,65,1.8,70.5,-15.9,69.4C-33.6,68.3,-53,60.6,-63.8,46.5C-74.6,32.4,-76.8,11.9,-72.7,-6.4C-68.6,-24.7,-58.2,-40.8,-44.4,-48.9C-30.6,-57,-15.3,-57.1,0.6,-57.9C16.5,-58.7,32.3,-66.7,44.7,-58.5Z" transform="translate(100 100)"></path></svg></div><div class="mancha"><svg viewBox="0 0 200 200"><path fill="#A62042" d="M44.7,-58.5C57.1,-50.3,65.9,-36.2,70.5,-20.6C75.1,-5,75.4,12.1,68.6,25.7C61.8,39.3,47.8,49.4,32.8,57.2C17.8,65,1.8,70.5,-15.9,69.4C-33.6,68.3,-53,60.6,-63.8,46.5C-74.6,32.4,-76.8,11.9,-72.7,-6.4C-68.6,-24.7,-58.2,-40.8,-44.4,-48.9C-30.6,-57,-15.3,-57.1,0.6,-57.9C16.5,-58.7,32.3,-66.7,44.7,-58.5Z" transform="translate(100 100)"></path></svg></div><div class="mancha"><svg viewBox="0 0 200 200"><path fill="#5E9E3A" d="M44.7,-58.5C57.1,-50.3,65.9,-36.2,70.5,-20.6C75.1,-5,75.4,12.1,68.6,25.7C61.8,39.3,47.8,49.4,32.8,57.2C17.8,65,1.8,70.5,-15.9,69.4C-33.6,68.3,-53,60.6,-63.8,46.5C-74.6,32.4,-76.8,11.9,-72.7,-6.4C-68.6,-24.7,-58.2,-40.8,-44.4,-48.9C-30.6,-57,-15.3,-57.1,0.6,-57.9C16.5,-58.7,32.3,-66.7,44.7,-58.5Z" transform="translate(100 100)"></path></svg></div></div><div class="arco calida" data-arco=""><img src="assets/img/pack-naranja-curcuma.webp" alt="Pack de naranja, zanahoria y cúrcuma con 5 bolsitas" width="700" height="875" class="activa" fetchpriority="high"><img src="assets/img/pack-remolacha-zanahoria.webp" alt="Pack 3 en 1 de remolacha, naranja y zanahoria" width="700" height="875" loading="lazy"><img src="assets/img/pack-verde.webp" alt="Pack de Jugo Verde con 5 bolsitas" width="700" height="875" loading="lazy"></div><div class="sello" aria-hidden="true"><svg viewBox="0 0 112 112"><circle cx="56" cy="56" r="55"></circle><defs><path id="anillo" d="M56,56 m-43,0 a43,43 0 1,1 86,0 a43,43 0 1,1 -86,0"></path></defs><text><textPath href="#anillo">Jugos naturales · hechos en casa ·</textPath></text></svg><img src="assets/icono-192.png" width="84" height="84" alt=""></div><div class="burbuja bu1" data-prof="-0.12" aria-hidden="true"><div class="mecer"><div class="calida"><img src="assets/img/verde-ingredientes.webp" alt="" width="120" height="120" loading="lazy"></div></div></div><div class="burbuja bu2" data-prof="-0.2" aria-hidden="true"><div class="mecer"><div class="calida"><img src="assets/img/naranja-zanahoria-ingredientes.webp" alt="" width="120" height="120" loading="lazy"></div></div></div><div class="selector" role="group" aria-label="Sabores" data-selector=""><button class="sabor-btn" type="button" aria-pressed="true" data-ver="0" style="--c:#EE8A1E"><i aria-hidden="true"></i>Naranja y cúrcuma</button><button class="sabor-btn" type="button" aria-pressed="false" data-ver="1" style="--c:#A62042"><i aria-hidden="true"></i>3 en 1</button><button class="sabor-btn" type="button" aria-pressed="false" data-ver="2" style="--c:#5E9E3A"><i aria-hidden="true"></i>Verde</button></div><p class="antojo">¿Se le antojó? <a href="#pack" data-antojo="" data-agregar="naranja">Agregar un Naranja y cúrcuma al pack</a></p></div></div></section>
+<div class="cinta" aria-hidden="true"><div class="cinta-pista"><span>Jugo Verde <b>●</b> Naranja, zanahoria y cúrcuma <b>●</b> 3 en 1 <b>●</b> A su gusto <b>●</b> Pack de 5 jugos por $12 <b>●</b></span><span>Jugo Verde <b>●</b> Naranja, zanahoria y cúrcuma <b>●</b> 3 en 1 <b>●</b> A su gusto <b>●</b> Pack de 5 jugos por $12 <b>●</b></span></div></div>
+<section class="seccion" id="sabores"><div class="contenedor"><div class="cab revelar"><div><span class="rotulo"><svg aria-hidden="true"><use href="#i-gota"></use></svg>Los sabores</span><h2 class="titulo">Escoja sus sabores</h2></div><p class="intro">Cada bolsita trae unos 211 g de frutas y vegetales ya picados y congelados. Toque Agregar y va directo a su pack.</p></div><ul class="sabores revelar-grupo"><li class="tarjeta-sabor" style="--c:#5E9E3A;--n:0" data-tarjeta="verde"><div class="sabor-foto calida"><img src="assets/img/verde-ingredientes-con-nombres.webp" alt="Ingredientes del Jugo Verde con sus nombres: pepino, manzana verde, jengibre, limón, piña, celeri y espinaca" style="object-position:0% 50%" width="800" height="533" loading="lazy" class="activa"><img src="assets/img/verde-ingredientes.webp" alt="Piña, celeri, manzana verde y pepino picados" width="800" height="533" loading="lazy"><img src="assets/img/pack-verde.webp" alt="Pack de Jugo Verde con 5 bolsitas y la etiqueta Yoplindetox" width="800" height="533" loading="lazy"><div class="miniaturas" role="group" aria-label="Fotos de Jugo Verde"><button class="mini" type="button" aria-pressed="true" data-foto="0" aria-label="Ver foto 1 de Jugo Verde"><img src="assets/img/verde-ingredientes-con-nombres.webp" alt="" width="44" height="44" loading="lazy" style="object-position:0% 50%"></button><button class="mini" type="button" aria-pressed="false" data-foto="1" aria-label="Ver foto 2 de Jugo Verde"><img src="assets/img/verde-ingredientes.webp" alt="" width="44" height="44" loading="lazy"></button><button class="mini" type="button" aria-pressed="false" data-foto="2" aria-label="Ver foto 3 de Jugo Verde"><img src="assets/img/pack-verde.webp" alt="" width="44" height="44" loading="lazy"></button></div><span class="en-pack" data-en-pack="" aria-hidden="true"></span></div><div class="sabor-cuerpo"><h3><i aria-hidden="true"></i>Jugo Verde</h3><ul class="ingredientes" aria-label="Ingredientes"><li>Manzana verde</li><li>Pepino</li><li>Espinaca</li><li>Piña</li><li>Apio España (celeri)</li><li>Limón</li><li>Jengibre</li></ul><p>Siete ingredientes picados a mano, con el toque del jengibre.</p><div class="sabor-pie"><small>Bolsita de unos <b>211 g</b></small><a class="btn btn-lima" href="#pack" data-agregar="verde">+ Agregar al pack</a></div></div></li><li class="tarjeta-sabor" style="--c:#EE8A1E;--n:1" data-tarjeta="naranja"><div class="sabor-foto calida"><img src="assets/img/pack-naranja-curcuma.webp" alt="Pack de naranja, zanahoria y cúrcuma con 5 bolsitas congeladas" width="800" height="533" loading="lazy" class="activa"><img src="assets/img/naranja-zanahoria-ingredientes.webp" alt="Naranja, zanahoria y jengibre picados sobre una tabla" style="object-position:50% 62%" width="800" height="533" loading="lazy"><div class="miniaturas" role="group" aria-label="Fotos de Naranja, zanahoria y cúrcuma"><button class="mini" type="button" aria-pressed="true" data-foto="0" aria-label="Ver foto 1 de Naranja, zanahoria y cúrcuma"><img src="assets/img/pack-naranja-curcuma.webp" alt="" width="44" height="44" loading="lazy"></button><button class="mini" type="button" aria-pressed="false" data-foto="1" aria-label="Ver foto 2 de Naranja, zanahoria y cúrcuma"><img src="assets/img/naranja-zanahoria-ingredientes.webp" alt="" width="44" height="44" loading="lazy" style="object-position:50% 62%"></button></div><span class="en-pack" data-en-pack="" aria-hidden="true"></span></div><div class="sabor-cuerpo"><h3><i aria-hidden="true"></i>Naranja, zanahoria y cúrcuma</h3><ul class="ingredientes" aria-label="Ingredientes"><li>Naranja</li><li>Zanahoria</li><li>Jengibre</li><li>Cúrcuma</li><li>Pimienta</li></ul><p>Con naranja, que aporta vitamina C, y jengibre y cúrcuma para un sabor intenso.</p><div class="sabor-pie"><small>Bolsita de unos <b>211 g</b></small><a class="btn btn-lima" href="#pack" data-agregar="naranja">+ Agregar al pack</a></div></div></li><li class="tarjeta-sabor" style="--c:#A62042;--n:2" data-tarjeta="tres"><div class="sabor-foto calida"><img src="assets/img/pack-remolacha-zanahoria.webp" alt="Pack 3 en 1 con remolacha y zanahoria en bolsitas" width="800" height="533" loading="lazy" class="activa"><img src="assets/img/pack-naranja-remolacha-bolsa.webp" alt="Bolsita con zanahoria, remolacha y naranja picadas" style="object-position:50% 55%" width="800" height="533" loading="lazy"><div class="miniaturas" role="group" aria-label="Fotos de 3 en 1"><button class="mini" type="button" aria-pressed="true" data-foto="0" aria-label="Ver foto 1 de 3 en 1"><img src="assets/img/pack-remolacha-zanahoria.webp" alt="" width="44" height="44" loading="lazy"></button><button class="mini" type="button" aria-pressed="false" data-foto="1" aria-label="Ver foto 2 de 3 en 1"><img src="assets/img/pack-naranja-remolacha-bolsa.webp" alt="" width="44" height="44" loading="lazy" style="object-position:50% 55%"></button></div><span class="en-pack" data-en-pack="" aria-hidden="true"></span></div><div class="sabor-cuerpo"><h3><i aria-hidden="true"></i>3 en 1</h3><ul class="ingredientes" aria-label="Ingredientes"><li>Remolacha</li><li>Naranja</li><li>Zanahoria</li></ul><p>Tres ingredientes y un color que se nota desde lejos.</p><div class="sabor-pie"><small>Bolsita de unos <b>211 g</b></small><a class="btn btn-lima" href="#pack" data-agregar="tres">+ Agregar al pack</a></div></div></li><li class="tarjeta-sabor" style="--c:#D9A21B;--n:3" data-tarjeta="gusto"><div class="sabor-foto calida"><img src="assets/img/ingredientes-picados.webp" alt="Piña, zanahoria y pepino recién picados en un envase" width="800" height="533" loading="lazy" class="activa"><span class="en-pack" data-en-pack="" aria-hidden="true"></span></div><div class="sabor-cuerpo"><h3><i aria-hidden="true"></i>A su gusto</h3><p>Díganos qué frutas y vegetales quiere y se lo preparamos. Hay muchos sabores más.</p><div class="sabor-pie"><small>Bolsita de unos <b>211 g</b></small><a class="btn btn-lima" href="#pack" data-agregar="gusto">+ Agregar al pack</a></div></div></li></ul></div></section>
+<section class="seccion arme" id="pack"><div class="contenedor"><div class="cab revelar"><div><span class="rotulo"><svg aria-hidden="true"><use href="#i-gota"></use></svg>Su pedido</span><h2 class="titulo">Arme su pack de 5</h2></div><p class="intro">Toque + en cada sabor hasta llenar las 5 bolsitas. Puede mezclar como quiera.</p></div><div class="arme-grid revelar-grupo"><div class="tarjeta"><h3>Los sabores</h3><ul class="opciones"><li class="opcion" style="--c:#5E9E3A" data-opcion="verde"><span class="opcion-foto calida"><img src="assets/img/verde-ingredientes-con-nombres.webp" alt="" style="object-position:0% 50%" width="52" height="52" loading="lazy"></span><span class="opcion-texto"><b>Jugo Verde</b><small>Manzana verde, pepino, espinaca, piña, apio España (celeri), limón y jengibre.</small></span><span class="contador-n" role="group" aria-label="Cantidad de Jugo Verde"><button type="button" data-menos="" aria-label="Quitar Jugo Verde">−</button><output data-cant="">0</output><button type="button" data-mas="" aria-label="Agregar Jugo Verde">+</button></span></li><li class="opcion" style="--c:#EE8A1E" data-opcion="naranja"><span class="opcion-foto calida"><img src="assets/img/pack-naranja-curcuma.webp" alt="" width="52" height="52" loading="lazy"></span><span class="opcion-texto"><b>Naranja, zanahoria y cúrcuma</b><small>Naranja, zanahoria, jengibre, cúrcuma y pimienta.</small></span><span class="contador-n" role="group" aria-label="Cantidad de Naranja, zanahoria y cúrcuma"><button type="button" data-menos="" aria-label="Quitar Naranja, zanahoria y cúrcuma">−</button><output data-cant="">0</output><button type="button" data-mas="" aria-label="Agregar Naranja, zanahoria y cúrcuma">+</button></span></li><li class="opcion" style="--c:#A62042" data-opcion="tres"><span class="opcion-foto calida"><img src="assets/img/pack-remolacha-zanahoria.webp" alt="" width="52" height="52" loading="lazy"></span><span class="opcion-texto"><b>3 en 1</b><small>Remolacha, naranja y zanahoria.</small></span><span class="contador-n" role="group" aria-label="Cantidad de 3 en 1"><button type="button" data-menos="" aria-label="Quitar 3 en 1">−</button><output data-cant="">0</output><button type="button" data-mas="" aria-label="Agregar 3 en 1">+</button></span></li><li class="opcion" style="--c:#D9A21B" data-opcion="gusto"><span class="opcion-foto calida"><img src="assets/img/ingredientes-picados.webp" alt="" width="52" height="52" loading="lazy"></span><span class="opcion-texto"><b>A su gusto</b><small>Díganos qué frutas y vegetales quiere y se lo preparamos. Hay muchos sabores más.</small></span><span class="contador-n" role="group" aria-label="Cantidad de A su gusto"><button type="button" data-menos="" aria-label="Quitar A su gusto">−</button><output data-cant="">0</output><button type="button" data-mas="" aria-label="Agregar A su gusto">+</button></span><label class="gusto-campo" data-gusto-campo="">¿Qué ingredientes quiere?<input type="text" maxlength="120" autocomplete="off" placeholder="Ej.: piña, fresa y hierbabuena" data-gusto-texto=""></label></li></ul></div><div class="tarjeta resumen" data-resumen=""><div class="resumen-cab"><h3>Su pack</h3><p class="contador" data-contador="" aria-live="polite"><b data-lleva="">0</b> de <span data-cupo="">5</span></p></div><div class="envases" data-envases="" aria-hidden="true"><div class="envase" data-n="Pack 1"><span class="bolsa"></span><span class="bolsa"></span><span class="bolsa"></span><span class="bolsa"></span><span class="bolsa"></span></div></div><div class="progreso-pack" aria-hidden="true"><i data-barra=""></i></div><div class="fila"><span>Packs de 5<small>$12 cada uno</small></span><span class="contador-n" role="group" aria-label="Número de packs"><button type="button" data-packs-menos="" aria-label="Un pack menos">−</button><output data-packs="">1</output><button type="button" data-packs-mas="" aria-label="Un pack más">+</button></span></div><fieldset class="chips" data-grupo="zona"><legend>Zona de entrega</legend><div><label class="chip"><input type="radio" name="zona" value="Casco central de Mérida"><span>Casco central de Mérida</span></label><label class="chip"><input type="radio" name="zona" value="Todo Ejido"><span>Todo Ejido</span></label></div></fieldset><fieldset class="chips" data-grupo="pago"><legend>Forma de pago</legend><div><label class="chip"><input type="radio" name="pago" value="Pago móvil"><span>Pago móvil</span></label><label class="chip"><input type="radio" name="pago" value="Efectivo"><span>Efectivo</span></label><label class="chip"><input type="radio" name="pago" value="Divisas"><span>Divisas</span></label></div></fieldset><div class="total"><span>Total</span><b data-total="">$12</b></div><a class="btn btn-lima btn-pedir" data-wa="general" href="https://wa.me/580000000000?text=Hola%2C%20quiero%20hacer%20un%20pedido%20en%20Yoplindetox." target="_blank" rel="noopener" data-pedir-pack=""><svg aria-hidden="true"><use href="#i-wa"></use></svg>Pedir por WhatsApp</a><p class="pista" data-pista="" aria-live="polite">Elija 5 jugos para completar su pack.</p><p class="nota">Sin pagos en la página ni registro. Todo se confirma por WhatsApp.</p></div></div></div></section>
+<div class="ola" style="--fondo-ola:var(--crema-2)" aria-hidden="true"><svg viewBox="0 0 1440 58" preserveAspectRatio="none"><path d="M0 30 C120 10 240 10 360 30 S600 50 720 30 S960 10 1080 30 S1320 50 1440 30 V58 H0Z"></path></svg></div>
+<section class="seccion pedir" id="como-funciona"><div class="burbujas" aria-hidden="true"><i style="--t:14px;left:8%;--d:16s;--r:-2s"></i><i style="--t:8px;left:22%;--d:12s;--r:-7s"></i><i style="--t:18px;left:47%;--d:20s;--r:-11s"></i><i style="--t:10px;left:66%;--d:14s;--r:-4s"></i><i style="--t:12px;left:84%;--d:18s;--r:-9s"></i><i style="--t:7px;left:93%;--d:11s;--r:-1s"></i></div><div class="contenedor"><div class="revelar"><span class="rotulo"><svg aria-hidden="true"><use href="#i-gota"></use></svg>Cómo funciona</span><h2 class="titulo">Del congelador al vaso</h2></div><ol class="pasos revelar-grupo dibujar"><li class="paso"><span class="paso-num" aria-hidden="true">1</span><div><h3>Elija</h3><p>Escoja sus 5 jugos: de un solo sabor o mezclados.</p><svg class="icono" aria-hidden="true"><use href="#ic-vaso"></use></svg></div></li><li class="paso"><span class="paso-num" aria-hidden="true">2</span><div><h3>Pida</h3><p>Toque Pedir por WhatsApp y el mensaje sale escrito. Solo lo envía.</p><svg class="icono" aria-hidden="true"><use href="#ic-chat"></use></svg></div></li><li class="paso"><span class="paso-num" aria-hidden="true">3</span><div><h3>Reciba</h3><p>Le llevamos su pack congelado, con sus 5 bolsitas.</p><svg class="icono" aria-hidden="true"><use href="#ic-moto"></use></svg></div></li><li class="paso"><span class="paso-num" aria-hidden="true">4</span><div><h3>Licúe</h3><p>Cada día saque una bolsita del congelador, licúela y listo.</p><svg class="icono" aria-hidden="true"><use href="#ic-licuadora"></use></svg></div></li></ol></div></section>
+<div class="ola abajo" aria-hidden="true"><svg viewBox="0 0 1440 58" preserveAspectRatio="none"><path d="M0 30 C120 10 240 10 360 30 S600 50 720 30 S960 10 1080 30 S1320 50 1440 30 V58 H0Z"></path></svg></div>
+<section class="seccion" id="hechos"><div class="contenedor porque-grid"><div class="porque-foto"><div class="revelar-mascara"><div class="marco calida"><img src="assets/img/ingredientes-picados.webp" alt="Piña, zanahoria y pepino recién picados en un envase" data-paralaje-interno="" width="640" height="800" loading="lazy"></div></div><div class="chapa revelar"><b>211 g</b>por bolsita, aproximadamente</div></div><div class="dibujar revelar-grupo"><span class="rotulo"><svg aria-hidden="true"><use href="#i-gota"></use></svg>Hechos en casa</span><h2 class="titulo">Así se preparan</h2><ul class="ventajas"><li class="ventaja"><svg class="icono" aria-hidden="true"><use href="#ic-casa"></use></svg><div><h3>Hechos en casa</h3><p>Cada pack se prepara en casa, bolsita por bolsita.</p></div></li><li class="ventaja"><svg class="icono" aria-hidden="true"><use href="#ic-cuchillo"></use></svg><div><h3>Picados a mano</h3><p>Frutas y vegetales frescos, picados a mano y listos para la licuadora.</p></div></li><li class="ventaja"><svg class="icono" aria-hidden="true"><use href="#ic-copo"></use></svg><div><h3>Congelados para que duren</h3><p>Cada bolsita va al congelador apenas se arma.</p></div></li><li class="ventaja"><svg class="icono" aria-hidden="true"><use href="#ic-calendario"></use></svg><div><h3>Uno para cada día</h3><p>Cinco bolsitas, una para cada día de la semana.</p></div></li></ul></div></div></section>
+<div class="ola" style="--fondo-ola:var(--crema)" aria-hidden="true"><svg viewBox="0 0 1440 58" preserveAspectRatio="none"><path style="fill:var(--crema-2)" d="M0 30 C120 10 240 10 360 30 S600 50 720 30 S960 10 1080 30 S1320 50 1440 30 V58 H0Z"></path></svg></div>
+<section class="seccion entregas" id="entregas"><div class="contenedor"><div class="revelar"><span class="rotulo"><svg aria-hidden="true"><use href="#i-gota"></use></svg>Entregas y pagos</span><h2 class="titulo">Se lo llevamos</h2></div><div class="ruta" aria-hidden="true" data-ruta=""><div class="moto" data-moto=""><svg viewBox="0 0 64 44"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle class="rueda" cx="13" cy="34" r="7" stroke-dasharray="4 3"></circle><circle class="rueda" cx="51" cy="34" r="7" stroke-dasharray="4 3"></circle><path d="M20 34h20l8-14h-9l-5 8H17M40 13h6l5 9"></path></g><rect x="4" y="15" width="16" height="13" rx="3" fill="#7CB73F"></rect><circle cx="12" cy="21.5" r="3" fill="#FFFFFF"></circle></svg></div><svg class="casita" viewBox="0 0 40 40" aria-hidden="true"><path d="M5 19L20 6l15 13v16H5z" fill="#D4EAB0" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path><path d="M16 35V25h8v10" fill="none" stroke="currentColor" stroke-width="2"></path></svg></div><div class="entregas-grid revelar-grupo dibujar"><div class="tarjeta"><h3>Zonas de entrega</h3><ul class="lista-iconos"><li><svg class="icono" aria-hidden="true"><use href="#ic-pin"></use></svg><span>Casco central de Mérida</span></li><li><svg class="icono" aria-hidden="true"><use href="#ic-pin"></use></svg><span>Todo Ejido</span></li></ul><p class="nota">¿Está en otra zona? Pregúntenos por WhatsApp.</p></div><div class="tarjeta"><h3>Formas de pago</h3><ul class="lista-iconos"><li><svg class="icono" aria-hidden="true"><use href="#ic-movil"></use></svg><span>Pago móvil</span></li><li><svg class="icono" aria-hidden="true"><use href="#ic-billete"></use></svg><span>Efectivo</span></li><li><svg class="icono" aria-hidden="true"><use href="#ic-divisa"></use></svg><span>Divisas</span></li></ul><p class="nota">No se paga en la página. El pago se coordina por WhatsApp.</p></div></div></div></section>
+<div class="ola abajo" aria-hidden="true"><svg viewBox="0 0 1440 58" preserveAspectRatio="none"><path style="fill:var(--crema-2)" d="M0 30 C120 10 240 10 360 30 S600 50 720 30 S960 10 1080 30 S1320 50 1440 30 V58 H0Z"></path></svg></div>
+<section class="seccion" id="galeria"><div class="contenedor galeria-cab revelar"><div><span class="rotulo"><svg aria-hidden="true"><use href="#i-gota"></use></svg>Galería</span><h2 class="titulo">Así se ven</h2></div><div class="galeria-acciones"><div class="flechas"><button class="flecha" type="button" data-gal-ir="-1" aria-label="Fotos anteriores"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></button><button class="flecha" type="button" data-gal-ir="1" aria-label="Fotos siguientes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></button></div><a class="btn btn-linea" href="https://www.instagram.com/yoplindetox" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-ig"></use></svg>Instagram</a></div></div><ul class="galeria revelar-grupo" data-galeria=""><li><figure><div class="foto calida"><img src="assets/img/verde-botellas-nevera.webp" alt="Botellas de Jugo Verde con la etiqueta Yoplindetox en la nevera" width="640" height="800" loading="lazy"></div><figcaption>Recién hechos</figcaption></figure></li><li><figure><div class="foto calida"><img src="assets/img/ingredientes-picados.webp" alt="Piña, zanahoria y pepino recién picados" width="640" height="800" loading="lazy"></div><figcaption>Picados a mano</figcaption></figure></li><li><figure><div class="foto calida"><img src="assets/img/verde-botella.webp" alt="Botella de Jugo Verde junto a una planta" width="640" height="800" loading="lazy"></div><figcaption>Verde de verdad</figcaption></figure></li><li><figure><div class="foto calida"><img src="assets/img/pack-naranja-remolacha-bolsa.webp" alt="Bolsita con zanahoria, remolacha y naranja" width="640" height="800" loading="lazy"></div><figcaption>Una bolsita, un jugo</figcaption></figure></li><li><figure><div class="foto calida"><img src="assets/img/naranja-zanahoria-ingredientes.webp" alt="Naranja, zanahoria y jengibre picados" width="640" height="800" loading="lazy"></div><figcaption>Naranja y zanahoria</figcaption></figure></li><li><figure><div class="foto calida"><img src="assets/img/pack-remolacha-zanahoria.webp" alt="Pack 3 en 1 con remolacha y zanahoria" width="640" height="800" loading="lazy"></div><figcaption>El 3 en 1</figcaption></figure></li><li><figure><div class="foto calida"><img src="assets/img/verde-ingredientes.webp" alt="Ingredientes del Jugo Verde picados" width="640" height="800" loading="lazy"></div><figcaption>Todo fresco</figcaption></figure></li><li><a class="red-tarjeta" href="https://www.instagram.com/yoplindetox" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-ig"></use></svg><div><b>Más en Instagram</b><span>@yoplindetox</span></div></a></li></ul></section>
+<div class="ola" aria-hidden="true"><svg viewBox="0 0 1440 58" preserveAspectRatio="none"><path d="M0 30 C120 10 240 10 360 30 S600 50 720 30 S960 10 1080 30 S1320 50 1440 30 V58 H0Z"></path></svg></div>
+<section class="seccion cierre" id="contacto"><div class="burbujas" aria-hidden="true"><i style="--t:12px;left:12%;--d:15s;--r:-3s"></i><i style="--t:20px;left:30%;--d:22s;--r:-12s"></i><i style="--t:9px;left:55%;--d:13s;--r:-6s"></i><i style="--t:15px;left:76%;--d:19s;--r:-1s"></i><i style="--t:8px;left:90%;--d:12s;--r:-8s"></i></div><div class="contenedor revelar"><span class="placa"><img src="assets/logo-yoplindetox-2.webp" width="480" height="152" alt="Yoplindetox" loading="lazy"></span><h2 class="titulo">¿Le armamos su pack?</h2><p class="intro">Escríbanos por WhatsApp y le confirmamos su pedido.</p><div class="botones"><a class="btn btn-lima" href="#pack">Arme su pack</a><a class="btn btn-linea" data-wa="general" href="https://wa.me/580000000000?text=Hola%2C%20quiero%20hacer%20un%20pedido%20en%20Yoplindetox." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"></use></svg>Escribir por WhatsApp</a></div><ul class="datos"><li><small>WhatsApp</small><a data-wa="general" href="https://wa.me/580000000000?text=Hola%2C%20quiero%20hacer%20un%20pedido%20en%20Yoplindetox." target="_blank" rel="noopener">+58 000 0000000</a></li><li><small>Instagram</small><a href="https://www.instagram.com/yoplindetox" target="_blank" rel="noopener">@yoplindetox</a></li><li><small>Entregas</small><span>Casco central de Mérida y Todo Ejido</span></li></ul></div></section>
+</main>
+<footer><div class="contenedor"><div><a class="logo" href="#inicio"><img src="assets/logo-yoplindetox.webp" width="480" height="152" alt="Yoplindetox" loading="lazy"></a><p style="margin-top:10px">Jugos naturales hechos en casa · Casco central de Mérida y Todo Ejido</p></div><div class="redes"><a href="https://www.instagram.com/yoplindetox" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-ig"></use></svg>@yoplindetox</a><a data-wa="general" href="https://wa.me/580000000000?text=Hola%2C%20quiero%20hacer%20un%20pedido%20en%20Yoplindetox." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"></use></svg>WhatsApp</a></div></div></footer>
+<div class="barra-movil"><a class="btn btn-linea" data-wa="general" href="https://wa.me/580000000000?text=Hola%2C%20quiero%20hacer%20un%20pedido%20en%20Yoplindetox." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"></use></svg>WhatsApp</a><a class="btn btn-lima" href="#pack" data-barra-pack=""><span>Arme su pack · <span data-barra-n="">0</span>/<span data-barra-cupo="">5</span></span></a></div>
+<a class="wa-flotante" data-wa="general" href="https://wa.me/580000000000?text=Hola%2C%20quiero%20hacer%20un%20pedido%20en%20Yoplindetox." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><svg aria-hidden="true"><use href="#i-wa"></use></svg></a>
+<div class="aviso-pack" role="status" data-aviso=""><span data-aviso-texto=""></span><a href="#pack">Ver pack</a></div><!--auto-fin-->
+
+<script>
+(function(){
+  "use strict";
+  var C = window.CONFIG || {}, M = C.marca || {}, T = C.textos || {}, P = C.pack || { porciones: 5, precio: 0, maxPacks: 6, mezclar: true };
+  var HORNEAR = /[?&]hornear\b/.test(location.search);
+  var reducido = false;
+  try { reducido = matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) {}
+  function safe(fn, n){ try { fn(); } catch (e) { if (window.console) console.warn("[" + n + "]", e); } }
+  function $(s, r){ return (r || document).querySelector(s); }
+  function $$(s, r){ return Array.prototype.slice.call((r || document).querySelectorAll(s)); }
+  function esc(s){ return String(s == null ? "" : s).replace(/[&<>"']/g, function(c){ return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+  function leer(ruta){ return ruta.split(".").reduce(function(o, k){ return o == null ? o : o[k]; }, C); }
+  function wa(t){ return "https://wa.me/" + M.whatsapp + "?text=" + encodeURIComponent(t); }
+  function dinero(n){ var s = Number.isInteger(n) ? String(n) : n.toFixed(2).replace(".", ","); return (C.moneda || "$") + s; }
+  function general(){ return wa(String(C.mensajeGeneral).split("{{NOMBRE}}").join(M.nombre)); }
+  function todos(){ return (C.sabores || []).concat(C.aSuGusto && C.aSuGusto.activo ? [C.aSuGusto] : []); }
+  function sabor(id){ return todos().filter(function(s){ return s.id === id; })[0]; }
+  function marcado(s){ return esc(s).replace(/\*(.+?)\*/g, '<span class="marca">$1<svg viewBox="0 0 200 20" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M3 14 C 50 4, 120 4, 197 10"/></svg></span>'); }
+  function ico(n){ return '<svg class="icono" aria-hidden="true"><use href="#ic-' + esc(n) + '"/></svg>'; }
+  function rotulo(t){ return '<span class="rotulo"><svg aria-hidden="true"><use href="#i-gota"/></svg>' + esc(t) + "</span>"; }
+  function waA(clase, texto, extra){ return '<a class="' + clase + '" data-wa="general" href="' + esc(general()) + '" target="_blank" rel="noopener"' + (extra || "") + '><svg aria-hidden="true"><use href="#i-wa"/></svg>' + texto + "</a>"; }
+  // ["Manzana verde", "Pepino", "Limón"] -> "Manzana verde, pepino y limón."
+  function frase(l){ l = (l || []).map(function(x, i){ return i ? x.charAt(0).toLowerCase() + x.slice(1) : x; });
+    return (l.length > 1 ? l.slice(0, -1).join(", ") + " y " + l[l.length - 1] : l.join("")) + "."; }
+  function ig(){ return "https://www.instagram.com/" + M.instagram; }
+  function tt(){ return M.tiktok ? "https://www.tiktok.com/@" + M.tiktok : ""; }
+  function img(f, extra){ return '<img src="' + esc(f.foto) + '" alt="' + esc(f.alt || "") + '"' + (f.posicion ? ' style="object-position:' + esc(f.posicion) + '"' : "") + (extra || "") + ">"; }
+  var MANCHA = 'M44.7,-58.5C57.1,-50.3,65.9,-36.2,70.5,-20.6C75.1,-5,75.4,12.1,68.6,25.7C61.8,39.3,47.8,49.4,32.8,57.2C17.8,65,1.8,70.5,-15.9,69.4C-33.6,68.3,-53,60.6,-63.8,46.5C-74.6,32.4,-76.8,11.9,-72.7,-6.4C-68.6,-24.7,-58.2,-40.8,-44.4,-48.9C-30.6,-57,-15.3,-57.1,0.6,-57.9C16.5,-58.7,32.3,-66.7,44.7,-58.5Z';
+  var OLA = '<svg viewBox="0 0 1440 58" preserveAspectRatio="none"><path d="M0 30 C120 10 240 10 360 30 S600 50 720 30 S960 10 1080 30 S1320 50 1440 30 V58 H0Z"/></svg>';
+
+  /* ---------- PINTAR: todo el contenido sale de CONFIG ---------- */
+  function pintar(){
+    var dest = document.createElement("div"), h = [];
+    var V = C.vistaPrevia || {};
+    if (V.activa) h.push('<div class="franja" role="note">' + esc(V.texto) + "</div>");
+    h.push('<div class="progreso" aria-hidden="true"></div>');
+    h.push('<header class="nav" data-nav><div class="contenedor">' +
+      '<a class="logo" href="#inicio"><img src="' + esc(M.logo) + '" width="480" height="152" alt="' + esc(M.nombre) + '"></a>' +
+      '<nav class="nav-links" aria-label="Secciones"><a href="#sabores">Sabores</a><a href="#pack">Arme su pack</a><a href="#como-funciona">Cómo funciona</a><a href="#entregas">Entregas y pagos</a><a href="#galeria">Galería</a></nav>' +
+      waA("btn btn-lima", "Pedir") + "</div></header>");
+    h.push('<main id="main">');
+
+    // portada
+    var sab = C.portada || [];
+    var s0 = sabor((sab[0] || {}).sabor) || {};
+    h.push('<section class="portada" id="inicio"><div class="contenedor portada-grid"><div class="portada-texto">' +
+      '<span class="estado entra d1"><i aria-hidden="true"></i><span>' + esc(T.rotulo) + "</span></span>" +
+      "<h1 data-partir>" + marcado(T.titulo) + "</h1>" +
+      '<p class="lema entra d2">' + esc(T.lema) + "</p>" +
+      '<div class="oferta entra d2"><b>' + dinero(P.precio) + "</b><span><strong>" + esc(T.ofertaTitulo) + "</strong>" + esc(T.ofertaTexto) + "</span></div>" +
+      '<div class="botones entra d3"><a class="btn btn-lima" href="#pack">Arme su pack</a>' + waA("btn btn-linea", "Pedir por WhatsApp") + "</div></div>" +
+      '<div class="vitrina entra d2" data-vitrina>' +
+      '<div class="manchas" aria-hidden="true" data-manchas>' + sab.map(function(s, i){ var c = (sabor(s.sabor) || {}).color;
+        return '<div class="mancha' + (i === 0 ? " activa" : "") + '"><svg viewBox="0 0 200 200"><path fill="' + esc(c) + '" d="' + MANCHA + '" transform="translate(100 100)"/></svg></div>'; }).join("") + "</div>" +
+      '<div class="arco calida" data-arco>' + sab.map(function(s, i){
+        return img(s, ' width="700" height="875"' + (i === 0 ? ' class="activa" fetchpriority="high"' : ' loading="lazy"')); }).join("") + "</div>" +
+      '<div class="sello" aria-hidden="true"><svg viewBox="0 0 112 112"><circle cx="56" cy="56" r="55"/><defs><path id="anillo" d="M56,56 m-43,0 a43,43 0 1,1 86,0 a43,43 0 1,1 -86,0"/></defs><text><textPath href="#anillo">' + esc(M.rubro) + " · hechos en casa ·</textPath></text></svg>" +
+        '<img src="' + esc(M.icono) + '" width="84" height="84" alt=""></div>' +
+      (C.burbujas || []).map(function(b, i){ return '<div class="burbuja bu' + (i + 1) + '" data-prof="' + (i ? "-0.2" : "-0.12") + '" aria-hidden="true"><div class="mecer"><div class="calida">' + img(b, ' width="120" height="120" loading="lazy"') + "</div></div></div>"; }).join("") +
+      '<div class="selector" role="group" aria-label="Sabores" data-selector>' + sab.map(function(s, i){ var x = sabor(s.sabor) || {};
+        return '<button class="sabor-btn" type="button" aria-pressed="' + (i === 0) + '" data-ver="' + i + '" style="--c:' + esc(x.color) + '"><i aria-hidden="true"></i>' + esc(x.corto) + "</button>"; }).join("") + "</div>" +
+      '<p class="antojo">¿Se le antojó? <a href="#pack" data-antojo data-agregar="' + esc(s0.id) + '">Agregar ' + esc(s0.uno) + " al pack</a></p>" +
+      "</div></div></section>");
+
+    // cinta
+    var uno = "<span>" + todos().map(function(s){ return esc(s.nombre) + " <b>●</b>"; }).join(" ") + " " + esc(T.ofertaTitulo) + " por " + dinero(P.precio) + " <b>●</b></span>";
+    h.push('<div class="cinta" aria-hidden="true"><div class="cinta-pista">' + uno + uno + "</div></div>");
+
+    // sabores
+    h.push('<section class="seccion" id="sabores"><div class="contenedor"><div class="cab revelar"><div>' + rotulo("Los sabores") +
+      '<h2 class="titulo">' + esc(T.saboresTitulo) + '</h2></div><p class="intro">' + esc(T.saboresIntro) + "</p></div>" +
+      '<ul class="sabores revelar-grupo">' + todos().map(function(s, i){
+        var fotos = s.fotos || [], gusto = C.aSuGusto && s.id === C.aSuGusto.id;
+        return '<li class="tarjeta-sabor" style="--c:' + esc(s.color) + ";--n:" + i + '" data-tarjeta="' + esc(s.id) + '">' +
+          '<div class="sabor-foto calida">' + fotos.map(function(f, j){ return img(f, ' width="800" height="533" loading="lazy"' + (j === 0 ? ' class="activa"' : "")); }).join("") +
+          (fotos.length > 1 ? '<div class="miniaturas" role="group" aria-label="Fotos de ' + esc(s.nombre) + '">' + fotos.map(function(f, j){
+            return '<button class="mini" type="button" aria-pressed="' + (j === 0) + '" data-foto="' + j + '" aria-label="Ver foto ' + (j + 1) + " de " + esc(s.nombre) + '"><img src="' + esc(f.foto) + '" alt="" width="44" height="44" loading="lazy"' + (f.posicion ? ' style="object-position:' + esc(f.posicion) + '"' : "") + "></button>"; }).join("") + "</div>" : "") +
+          '<span class="en-pack" data-en-pack aria-hidden="true"></span></div>' +
+          '<div class="sabor-cuerpo"><h3><i aria-hidden="true"></i>' + esc(s.nombre) + "</h3>" +
+          (s.ingredientes ? '<ul class="ingredientes" aria-label="Ingredientes">' + s.ingredientes.map(function(x){ return "<li>" + esc(x) + "</li>"; }).join("") + "</ul>" : "") +
+          "<p>" + esc(gusto ? s.texto : s.nota) + "</p>" +
+          '<div class="sabor-pie"><small>Bolsita de unos <b>' + esc(P.gramos) + " g</b></small>" +
+          '<a class="btn btn-lima" href="#pack" data-agregar="' + esc(s.id) + '">+ Agregar al pack</a></div></div></li>';
+      }).join("") + "</ul></div></section>");
+
+    // arme su pack
+    var cupo = P.porciones;
+    h.push('<section class="seccion arme" id="pack"><div class="contenedor"><div class="cab revelar"><div>' + rotulo("Su pedido") +
+      '<h2 class="titulo">' + esc(T.packTitulo) + '</h2></div><p class="intro">' + esc(P.mezclar ? T.packIntro : T.packIntroSinMezcla) + "</p></div>" +
+      '<div class="arme-grid revelar-grupo"><div class="tarjeta"><h3>Los sabores</h3><ul class="opciones">' + todos().map(function(s){
+        var gusto = C.aSuGusto && s.id === C.aSuGusto.id, f = (s.fotos || [])[0] || {};
+        return '<li class="opcion" style="--c:' + esc(s.color) + '" data-opcion="' + esc(s.id) + '">' +
+          '<span class="opcion-foto calida">' + img({ foto: f.foto, alt: "", posicion: f.posicion }, ' width="52" height="52" loading="lazy"') + "</span>" +
+          '<span class="opcion-texto"><b>' + esc(s.nombre) + "</b><small>" + esc(gusto ? s.texto : frase(s.ingredientes)) + "</small></span>" +
+          '<span class="contador-n" role="group" aria-label="Cantidad de ' + esc(s.nombre) + '">' +
+          '<button type="button" data-menos aria-label="Quitar ' + esc(s.nombre) + '">−</button><output data-cant>0</output>' +
+          '<button type="button" data-mas aria-label="Agregar ' + esc(s.nombre) + '">+</button></span>' +
+          (gusto ? '<label class="gusto-campo" data-gusto-campo>' + esc(s.campo) + '<input type="text" maxlength="120" autocomplete="off" placeholder="' + esc(s.ejemplo) + '" data-gusto-texto></label>' : "") +
+          "</li>";
+      }).join("") + "</ul></div>" +
+      '<div class="tarjeta resumen" data-resumen><div class="resumen-cab"><h3>Su pack</h3><p class="contador" data-contador aria-live="polite"><b data-lleva>0</b> de <span data-cupo>' + cupo + "</span></p></div>" +
+      '<div class="envases" data-envases aria-hidden="true"><div class="envase" data-n="Pack 1">' + new Array(cupo + 1).join('<span class="bolsa"></span>') + "</div></div>" +
+      '<div class="progreso-pack" aria-hidden="true"><i data-barra></i></div>' +
+      '<div class="fila"><span>Packs de ' + cupo + "<small>" + dinero(P.precio) + ' cada uno</small></span><span class="contador-n" role="group" aria-label="Número de packs">' +
+        '<button type="button" data-packs-menos aria-label="Un pack menos">−</button><output data-packs>1</output><button type="button" data-packs-mas aria-label="Un pack más">+</button></span></div>' +
+      '<fieldset class="chips" data-grupo="zona"><legend>Zona de entrega</legend><div>' + (C.zonas || []).map(function(z){
+        return '<label class="chip"><input type="radio" name="zona" value="' + esc(z) + '"><span>' + esc(z) + "</span></label>"; }).join("") + "</div></fieldset>" +
+      '<fieldset class="chips" data-grupo="pago"><legend>Forma de pago</legend><div>' + (C.pagos || []).map(function(p){
+        return '<label class="chip"><input type="radio" name="pago" value="' + esc(p.nombre) + '"><span>' + esc(p.nombre) + "</span></label>"; }).join("") + "</div></fieldset>" +
+      '<div class="total"><span>Total</span><b data-total>' + dinero(P.precio) + "</b></div>" +
+      waA("btn btn-lima btn-pedir", "Pedir por WhatsApp", " data-pedir-pack") +
+      '<p class="pista" data-pista aria-live="polite">Elija ' + cupo + " jugos para completar su pack.</p>" +
+      '<p class="nota">Sin pagos en la página ni registro. Todo se confirma por WhatsApp.</p></div></div></div></section>');
+
+    // cómo funciona
+    h.push('<div class="ola" style="--fondo-ola:var(--crema-2)" aria-hidden="true">' + OLA + "</div>");
+    h.push('<section class="seccion pedir" id="como-funciona"><div class="burbujas" aria-hidden="true"><i style="--t:14px;left:8%;--d:16s;--r:-2s"></i><i style="--t:8px;left:22%;--d:12s;--r:-7s"></i><i style="--t:18px;left:47%;--d:20s;--r:-11s"></i><i style="--t:10px;left:66%;--d:14s;--r:-4s"></i><i style="--t:12px;left:84%;--d:18s;--r:-9s"></i><i style="--t:7px;left:93%;--d:11s;--r:-1s"></i></div>' +
+      '<div class="contenedor"><div class="revelar">' + rotulo("Cómo funciona") + '<h2 class="titulo">Del congelador al vaso</h2></div>' +
+      '<ol class="pasos revelar-grupo dibujar">' + (C.pasos || []).map(function(p, i){
+        return '<li class="paso"><span class="paso-num" aria-hidden="true">' + (i + 1) + "</span><div><h3>" + esc(p.titulo) + "</h3><p>" + esc(p.texto) + "</p>" + ico(p.icono) + "</div></li>"; }).join("") +
+      "</ol></div></section>");
+    h.push('<div class="ola abajo" aria-hidden="true">' + OLA + "</div>");
+
+    // hechos en casa
+    var fh = (C.aSuGusto && C.aSuGusto.fotos || [])[0] || (C.galeria || [])[0] || {};
+    h.push('<section class="seccion" id="hechos"><div class="contenedor porque-grid"><div class="porque-foto">' +
+      '<div class="revelar-mascara"><div class="marco calida">' + img(fh, ' data-paralaje-interno width="640" height="800" loading="lazy"') + "</div></div>" +
+      '<div class="chapa revelar"><b>' + esc(P.gramos) + " g</b>por bolsita, aproximadamente</div></div>" +
+      '<div class="dibujar revelar-grupo">' + rotulo("Hechos en casa") + '<h2 class="titulo">Así se preparan</h2>' +
+      '<ul class="ventajas">' + (C.ventajas || []).map(function(v){ return '<li class="ventaja">' + ico(v.icono) + "<div><h3>" + esc(v.titulo) + "</h3><p>" + esc(v.texto) + "</p></div></li>"; }).join("") +
+      "</ul></div></div></section>");
+
+    // entregas y pagos
+    h.push('<div class="ola" style="--fondo-ola:var(--crema)" aria-hidden="true"><svg viewBox="0 0 1440 58" preserveAspectRatio="none"><path style="fill:var(--crema-2)" d="M0 30 C120 10 240 10 360 30 S600 50 720 30 S960 10 1080 30 S1320 50 1440 30 V58 H0Z"/></svg></div>');
+    h.push('<section class="seccion entregas" id="entregas"><div class="contenedor"><div class="revelar">' + rotulo("Entregas y pagos") + '<h2 class="titulo">Se lo llevamos</h2></div>' +
+      '<div class="ruta" aria-hidden="true" data-ruta><div class="moto" data-moto><svg viewBox="0 0 64 44"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle class="rueda" cx="13" cy="34" r="7" stroke-dasharray="4 3"/><circle class="rueda" cx="51" cy="34" r="7" stroke-dasharray="4 3"/><path d="M20 34h20l8-14h-9l-5 8H17M40 13h6l5 9"/></g><rect x="4" y="15" width="16" height="13" rx="3" fill="#7CB73F"/><circle cx="12" cy="21.5" r="3" fill="#FFFFFF"/></svg></div>' +
+      '<svg class="casita" viewBox="0 0 40 40" aria-hidden="true"><path d="M5 19L20 6l15 13v16H5z" fill="#D4EAB0" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M16 35V25h8v10" fill="none" stroke="currentColor" stroke-width="2"/></svg></div>' +
+      '<div class="entregas-grid revelar-grupo dibujar"><div class="tarjeta"><h3>Zonas de entrega</h3><ul class="lista-iconos">' + (C.zonas || []).map(function(z){ return "<li>" + ico("pin") + "<span>" + esc(z) + "</span></li>"; }).join("") +
+      '</ul><p class="nota">' + esc(C.notaEntrega) + "</p></div>" +
+      '<div class="tarjeta"><h3>Formas de pago</h3><ul class="lista-iconos">' + (C.pagos || []).map(function(p){ return "<li>" + ico(p.icono) + "<span>" + esc(p.nombre) + "</span></li>"; }).join("") +
+      '</ul><p class="nota">' + esc(C.notaPagos) + "</p></div></div></div></section>");
+    h.push('<div class="ola abajo" aria-hidden="true"><svg viewBox="0 0 1440 58" preserveAspectRatio="none"><path style="fill:var(--crema-2)" d="M0 30 C120 10 240 10 360 30 S600 50 720 30 S960 10 1080 30 S1320 50 1440 30 V58 H0Z"/></svg></div>');
+
+    // galería
+    var redesBtn = '<a class="btn btn-linea" href="' + esc(ig()) + '" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-ig"/></svg>Instagram</a>' +
+      (tt() ? '<a class="btn btn-linea" href="' + esc(tt()) + '" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-tt"/></svg>TikTok</a>' : "");
+    h.push('<section class="seccion" id="galeria"><div class="contenedor galeria-cab revelar"><div>' + rotulo("Galería") + '<h2 class="titulo">Así se ven</h2></div>' +
+      '<div class="galeria-acciones"><div class="flechas"><button class="flecha" type="button" data-gal-ir="-1" aria-label="Fotos anteriores"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button class="flecha" type="button" data-gal-ir="1" aria-label="Fotos siguientes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>' + redesBtn + "</div></div>" +
+      '<ul class="galeria revelar-grupo" data-galeria>' + (C.galeria || []).map(function(f){
+        return '<li><figure><div class="foto calida">' + img(f, ' width="640" height="800" loading="lazy"') + "</div><figcaption>" + esc(f.pie) + "</figcaption></figure></li>"; }).join("") +
+      '<li><a class="red-tarjeta" href="' + esc(ig()) + '" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-ig"/></svg><div><b>Más en Instagram</b><span>@' + esc(M.instagram) + "</span></div></a></li>" +
+      (tt() ? '<li><a class="red-tarjeta oscura" href="' + esc(tt()) + '" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-tt"/></svg><div><b>Videos en TikTok</b><span>@' + esc(M.tiktok) + "</span></div></a></li>" : "") +
+      "</ul></section>");
+
+    // cierre
+    h.push('<div class="ola" aria-hidden="true">' + OLA + "</div>");
+    h.push('<section class="seccion cierre" id="contacto"><div class="burbujas" aria-hidden="true"><i style="--t:12px;left:12%;--d:15s;--r:-3s"></i><i style="--t:20px;left:30%;--d:22s;--r:-12s"></i><i style="--t:9px;left:55%;--d:13s;--r:-6s"></i><i style="--t:15px;left:76%;--d:19s;--r:-1s"></i><i style="--t:8px;left:90%;--d:12s;--r:-8s"></i></div>' +
+      '<div class="contenedor revelar"><span class="placa"><img src="' + esc(M.logoOscuro || M.logo) + '" width="480" height="152" alt="' + esc(M.nombre) + '" loading="lazy"></span>' +
+      '<h2 class="titulo">' + esc(T.cierreTitulo) + '</h2><p class="intro">' + esc(T.cierreTexto) + "</p>" +
+      '<div class="botones"><a class="btn btn-lima" href="#pack">Arme su pack</a>' + waA("btn btn-linea", "Escribir por WhatsApp") + "</div>" +
+      '<ul class="datos"><li><small>WhatsApp</small>' + '<a data-wa="general" href="' + esc(general()) + '" target="_blank" rel="noopener">' + esc(M.whatsappVisible) + "</a></li>" +
+      '<li><small>Instagram</small><a href="' + esc(ig()) + '" target="_blank" rel="noopener">@' + esc(M.instagram) + "</a></li>" +
+      (tt() ? '<li><small>TikTok</small><a href="' + esc(tt()) + '" target="_blank" rel="noopener">@' + esc(M.tiktok) + "</a></li>" : "") +
+      "<li><small>Entregas</small><span>" + esc((C.zonas || []).join(" y ")) + "</span></li></ul></div></section>");
+    h.push("</main>");
+
+    // pie
+    h.push('<footer><div class="contenedor"><div><a class="logo" href="#inicio"><img src="' + esc(M.logo) + '" width="480" height="152" alt="' + esc(M.nombre) + '" loading="lazy"></a>' +
+      '<p style="margin-top:10px">' + esc(M.rubro) + " hechos en casa · " + esc((C.zonas || []).join(" y ")) + "</p></div>" +
+      '<div class="redes"><a href="' + esc(ig()) + '" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-ig"/></svg>@' + esc(M.instagram) + "</a>" +
+      (tt() ? '<a href="' + esc(tt()) + '" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-tt"/></svg>TikTok</a>' : "") +
+      '<a data-wa="general" href="' + esc(general()) + '" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a></div></div></footer>');
+
+    h.push('<div class="barra-movil">' + waA("btn btn-linea", "WhatsApp") + '<a class="btn btn-lima" href="#pack" data-barra-pack><span>Arme su pack · <span data-barra-n>0</span>/<span data-barra-cupo>' + cupo + "</span></span></a></div>");
+    h.push(waA("wa-flotante", "", ' aria-label="Escribir por WhatsApp"'));
+    h.push('<div class="aviso-pack" role="status" data-aviso><span data-aviso-texto></span><a href="#pack">Ver pack</a></div>');
+
+    // reemplaza lo que haya entre los marcadores
+    var ini = null, fin = null;
+    Array.prototype.forEach.call(document.body.childNodes, function(n){ if (n.nodeType === 8) { if (n.nodeValue === "auto-inicio") ini = n; if (n.nodeValue === "auto-fin") fin = n; } });
+    if (!ini || !fin) return;
+    while (ini.nextSibling && ini.nextSibling !== fin) document.body.removeChild(ini.nextSibling);
+    dest.innerHTML = h.join("\n");
+    while (dest.firstChild) document.body.insertBefore(dest.firstChild, fin);
+
+    var titulo = M.nombre + " · " + M.rubro + " en " + M.ciudad;
+    document.title = titulo;
+    var d = $('meta[name="description"]'); if (d && M.descripcion) d.setAttribute("content", M.descripcion);
+    var ot = $('meta[property="og:title"]'); if (ot) ot.setAttribute("content", titulo);
+    var od = $('meta[property="og:description"]'); if (od && M.descripcion) od.setAttribute("content", M.descripcion);
+  }
+
+  /* ---------- EL PACK ---------- */
+  var cant = {}, orden = [], packs = 1, avisoT = null;
+  function paso(){ return P.mezclar ? 1 : P.porciones; }
+  function cupo(){ return packs * P.porciones; }
+  function lleva(){ return orden.length; }
+  function aviso(t){
+    var a = $("[data-aviso]"); if (!a) return;
+    $("[data-aviso-texto]", a).textContent = t; a.classList.add("ver");
+    clearTimeout(avisoT); avisoT = setTimeout(function(){ a.classList.remove("ver"); }, 2600);
+  }
+  function temblar(el){ if (!el) return; el.classList.remove("temblor"); void el.offsetWidth; el.classList.add("temblor"); }
+  function agregar(id, desdeLejos){
+    var s = sabor(id); if (!s) return false;
+    if (lleva() + paso() > cupo()) {
+      temblar($("[data-contador]"));
+      var msg = "Su pack ya tiene sus " + cupo() + " jugos." + (packs < P.maxPacks ? " Sume otro pack si quiere más." : "");
+      if (desdeLejos) aviso(msg); else pista(msg, true);
+      return false;
+    }
+    for (var k = 0; k < paso(); k++) orden.push(id);
+    cant[id] = (cant[id] || 0) + paso();
+    pintarPack(true);
+    if (desdeLejos) aviso(s.nombre + " agregado · " + lleva() + " de " + cupo());
+    return true;
+  }
+  function quitar(id){
+    if ((cant[id] || 0) < paso()) return;
+    for (var k = 0; k < paso(); k++) { var i = orden.lastIndexOf(id); if (i > -1) orden.splice(i, 1); }
+    cant[id] -= paso();
+    pintarPack(false);
+  }
+  function cambiarPacks(d){
+    packs = Math.max(1, Math.min(P.maxPacks || 6, packs + d));
+    while (orden.length > cupo()) { var id = orden.pop(); cant[id]--; }
+    pintarPack(false);
+  }
+  function elegido(n){ var r = $('input[name="' + n + '"]:checked'); return r ? r.value : ""; }
+  function textoGusto(){ var i = $("[data-gusto-texto]"); return i ? i.value.replace(/\s+/g, " ").trim().slice(0, 120) : ""; }
+  function mensajePack(){
+    var g = C.aSuGusto || {};
+    var l = ["Hola, quiero hacer un pedido en " + M.nombre + ":", "",
+      packs + (packs === 1 ? " pack" : " packs") + " de " + P.porciones + " jugos (" + dinero(P.precio * packs) + ")"];
+    todos().forEach(function(s){
+      if (!cant[s.id]) return;
+      l.push("• " + s.nombre + ": " + cant[s.id] + (s.id === g.id ? " (" + (textoGusto() || "ingredientes por conversar") + ")" : ""));
+    });
+    l.push("", "Total: " + dinero(P.precio * packs), "Zona de entrega: " + elegido("zona"), "Forma de pago: " + elegido("pago"));
+    return l.join("\n");
+  }
+  function falta(){
+    var f = cupo() - lleva();
+    if (f > 0) return { t: "Le " + (f === 1 ? "falta 1 jugo" : "faltan " + f + " jugos") + " para completar " + (packs === 1 ? "su pack." : "sus " + packs + " packs."), el: "[data-contador]" };
+    if (!elegido("zona")) return { t: "Elija la zona de entrega.", el: '[data-grupo="zona"]' };
+    if (!elegido("pago")) return { t: "Elija la forma de pago.", el: '[data-grupo="pago"]' };
+    return null;
+  }
+  function pista(t, alerta){ var p = $("[data-pista]"); if (!p) return; p.textContent = t; p.classList.toggle("alerta", !!alerta); }
+  function pintarPack(nuevo){
+    var tope = cupo(), n = lleva();
+    $$("[data-opcion]").forEach(function(li){
+      var id = li.dataset.opcion, c = cant[id] || 0, out = $("[data-cant]", li);
+      if (out && out.textContent !== String(c)) { out.textContent = c; out.classList.remove("cambio"); void out.offsetWidth; out.classList.add("cambio"); }
+      $("[data-menos]", li).disabled = c < paso();
+      $("[data-mas]", li).disabled = n + paso() > tope;
+    });
+    var campo = $("[data-gusto-campo]"); if (campo && C.aSuGusto) campo.classList.toggle("abierto", (cant[C.aSuGusto.id] || 0) > 0);
+    $$("[data-tarjeta]").forEach(function(t){ var c = cant[t.dataset.tarjeta] || 0, b = $("[data-en-pack]", t);
+      if (b) { b.textContent = c ? c + " en su pack" : ""; b.classList.toggle("si", c > 0); } });
+    var env = $("[data-envases]");
+    if (env) {
+      var html = "";
+      for (var p = 0; p < packs; p++) {
+        html += '<div class="envase" data-n="Pack ' + (p + 1) + '">';
+        for (var k = 0; k < P.porciones; k++) {
+          var i = p * P.porciones + k, s = sabor(orden[i]);
+          html += s ? '<span class="bolsa llena' + (nuevo && i === n - 1 ? " cae" : "") + '" style="--c:' + esc(s.color) + '"><span>' + esc(s.corto) + "</span></span>" : '<span class="bolsa"></span>';
+        }
+        html += "</div>";
+      }
+      env.innerHTML = html; env.classList.toggle("varios", packs > 1);
+    }
+    var cont = $("[data-contador]");
+    if (cont) { $("[data-lleva]", cont).textContent = n; $("[data-cupo]", cont).textContent = tope; cont.classList.toggle("lleno", n === tope);
+      if (nuevo) { cont.classList.remove("cambio"); void cont.offsetWidth; cont.classList.add("cambio"); } }
+    var barra = $("[data-barra]"); if (barra) barra.style.transform = "scaleX(" + (n / tope) + ")";
+    var out = $("[data-packs]"); if (out) out.textContent = packs;
+    var pm = $("[data-packs-menos]"), pM = $("[data-packs-mas]"); if (pm) pm.disabled = packs <= 1; if (pM) pM.disabled = packs >= (P.maxPacks || 6);
+    var tot = $("[data-total]"); if (tot) tot.textContent = dinero(P.precio * packs);
+    var bn = $("[data-barra-n]"), bc = $("[data-barra-cupo]"); if (bn) bn.textContent = n; if (bc) bc.textContent = tope;
+    actualizarPedido();
+  }
+  function actualizarPedido(){
+    var btn = $("[data-pedir-pack]"); if (!btn) return;
+    var f = falta();
+    btn.classList.toggle("incompleto", !!f);
+    btn.href = f ? general() : wa(mensajePack());
+    $$(".chips").forEach(function(g){ g.classList.remove("falta"); });
+    pista(f ? f.t : "Listo. Toque el botón y envíe el mensaje.", false);
+  }
+  function initPack(){
+    $$("[data-opcion]").forEach(function(li){
+      $("[data-mas]", li).addEventListener("click", function(){ agregar(li.dataset.opcion, false); });
+      $("[data-menos]", li).addEventListener("click", function(){ quitar(li.dataset.opcion); });
+    });
+    var pm = $("[data-packs-menos]"), pM = $("[data-packs-mas]");
+    if (pm) pm.addEventListener("click", function(){ cambiarPacks(-1); });
+    if (pM) pM.addEventListener("click", function(){ cambiarPacks(1); });
+    $$('input[name="zona"],input[name="pago"]').forEach(function(r){ r.addEventListener("change", actualizarPedido); });
+    var g = $("[data-gusto-texto]"); if (g) g.addEventListener("input", actualizarPedido);
+    var btn = $("[data-pedir-pack]");
+    if (btn) btn.addEventListener("click", function(e){
+      var f = falta(); if (!f) { btn.href = wa(mensajePack()); return; }
+      e.preventDefault(); pista(f.t, true);
+      var el = $(f.el); temblar(el); if (el && el.classList.contains("chips")) el.classList.add("falta");
+    });
+    $$("[data-agregar]").forEach(function(a){
+      a.addEventListener("click", function(e){
+        e.preventDefault();
+        var ok = agregar(a.dataset.agregar, true);
+        if (ok && C.aSuGusto && a.dataset.agregar === C.aSuGusto.id) aviso("Escriba en su pack qué ingredientes quiere");
+      });
+    });
+    pintarPack(false);
+  }
+
+  /* ---------- VIVIR: efectos ---------- */
+  var verActual = 0, verTimer = null;
+  function initVitrina(){
+    var sab = C.portada || [], imgs = $$("[data-arco] img"), manchas = $$("[data-manchas] .mancha"), botones = $$("[data-ver]"), antojo = $("[data-antojo]");
+    if (sab.length < 2) return;
+    function poner(i){
+      verActual = i;
+      imgs.forEach(function(im, k){ im.classList.toggle("activa", k === i); if (k === i) im.removeAttribute("loading"); });
+      manchas.forEach(function(m, k){ m.classList.toggle("activa", k === i); });
+      botones.forEach(function(b, k){ b.setAttribute("aria-pressed", k === i); });
+      var s = sabor(sab[i].sabor);
+      if (antojo && s) { antojo.dataset.agregar = s.id; antojo.textContent = "Agregar " + s.uno + " al pack"; }
+    }
+    addEventListener("load", function(){ setTimeout(function(){ imgs.forEach(function(im){ im.removeAttribute("loading"); }); }, 1200); });
+    botones.forEach(function(b){ b.addEventListener("click", function(){ clearInterval(verTimer); verTimer = null; poner(+b.dataset.ver); }); });
+    if (reducido) return;
+    var visible = true, v = $("[data-vitrina]");
+    if (v && "IntersectionObserver" in window) new IntersectionObserver(function(en){ visible = en[0].isIntersecting; }).observe(v);
+    verTimer = setInterval(function(){ if (visible && !document.hidden) poner((verActual + 1) % sab.length); }, 5200);
+  }
+  function initFotosSabor(){
+    $$("[data-tarjeta]").forEach(function(t){
+      var imgs = $$(".sabor-foto > img", t), minis = $$("[data-foto]", t);
+      minis.forEach(function(b){ b.addEventListener("click", function(){
+        var i = +b.dataset.foto;
+        imgs.forEach(function(im, k){ im.classList.toggle("activa", k === i); if (k === i) im.removeAttribute("loading"); });
+        minis.forEach(function(m, k){ m.setAttribute("aria-pressed", k === i); });
+      }); });
+    });
+  }
+  function enRaf(fn){ var p = false; return function(){ if (p) return; p = true; requestAnimationFrame(function(){ p = false; fn(); }); }; }
+  function initNav(){
+    var nav = $("[data-nav]"), barra = $(".progreso");
+    var mover = function(){
+      if (nav) nav.classList.toggle("solido", scrollY > 30);
+      if (barra) { var max = document.documentElement.scrollHeight - innerHeight; barra.style.transform = "scaleX(" + (max > 0 ? scrollY / max : 0) + ")"; }
+    };
+    addEventListener("scroll", enRaf(mover), { passive: true }); mover();
+  }
+  function initPartir(){
+    $$("[data-partir]").forEach(function(el){
+      if (el.querySelector(".p")) return;
+      var i = 0, lector = document.createElement("span");
+      lector.className = "solo-lector"; lector.textContent = el.textContent;
+      (function partir(nodo){
+        Array.prototype.slice.call(nodo.childNodes).forEach(function(n){
+          if (n.nodeType === 3) {
+            var frag = document.createDocumentFragment();
+            n.textContent.split(/(\s+)/).forEach(function(t){
+              if (t === "" || /^\s+$/.test(t)) { frag.appendChild(document.createTextNode(t)); return; }
+              var s = document.createElement("span"); s.className = "p"; s.style.setProperty("--i", i++); s.setAttribute("aria-hidden", "true"); s.textContent = t; frag.appendChild(s);
+            });
+            nodo.replaceChild(frag, n);
+          } else if (n.nodeType === 1 && n.tagName.toLowerCase() !== "svg" && n.tagName !== "BR") { if (n.classList.contains("marca")) n.setAttribute("aria-hidden", "true"); partir(n); }
+        });
+      })(el);
+      el.insertBefore(lector, el.firstChild);
+      requestAnimationFrame(function(){ requestAnimationFrame(function(){ el.classList.add("visible"); }); });
+    });
+    var portada = $(".portada");
+    requestAnimationFrame(function(){ requestAnimationFrame(function(){ if (portada) portada.classList.add("cargada"); }); });
+  }
+  function initRevelar(){
+    var els = $$(".revelar,.revelar-grupo,.revelar-mascara,.dibujar");
+    if (!("IntersectionObserver" in window)) { els.forEach(function(e){ e.classList.add("visible", "listo"); }); return; }
+    var io = new IntersectionObserver(function(en){
+      en.forEach(function(e){
+        if (!e.isIntersecting) return;
+        var t = e.target; t.classList.add("visible"); io.unobserve(t);
+        setTimeout(function(){ t.classList.add("listo"); }, 1400);
+      });
+    }, { threshold: 0.01, rootMargin: "0px 0px -6% 0px" });
+    els.forEach(function(e){ io.observe(e); });
+    setTimeout(function(){ els.forEach(function(e){ if (e.getBoundingClientRect().top < innerHeight * 1.2) e.classList.add("visible", "listo"); }); }, 6000);
+  }
+  function initScroll(){
+    if (reducido) return;
+    var capas = $$("[data-prof]"), interno = $$("[data-paralaje-interno]"), ruta = $("[data-ruta]"), moto = $("[data-moto]");
+    function mover(){
+      var y = scrollY, vh = innerHeight;
+      if (y < vh * 1.3) capas.forEach(function(c){ c.style.transform = "translateY(" + (y * c.dataset.prof).toFixed(1) + "px)"; });
+      interno.forEach(function(im){
+        var r = im.parentNode.getBoundingClientRect(); if (r.bottom < 0 || r.top > vh) return;
+        var k = (r.top + r.height / 2 - vh / 2) / vh; im.style.transform = "translateY(" + (k * -40).toFixed(1) + "px)";
+      });
+      if (ruta && moto) {
+        var rr = ruta.getBoundingClientRect(); if (rr.bottom < 0 || rr.top > vh) return;
+        var k2 = Math.min(1, Math.max(0, (vh - rr.top) / (vh * 0.85)));
+        moto.style.transform = "translateX(" + (k2 * (ruta.clientWidth - 64 - 46)).toFixed(1) + "px)";
+      }
+    }
+    addEventListener("scroll", enRaf(mover), { passive: true }); addEventListener("resize", enRaf(mover)); mover();
+  }
+  function initGaleria(){
+    var g = $("[data-galeria]"), ant = $('[data-gal-ir="-1"]'), sig = $('[data-gal-ir="1"]'); if (!g) return;
+    function ancho(){ var li = g.querySelector("li"); return li ? li.getBoundingClientRect().width + 14 : 300; }
+    function marcar(){ var max = g.scrollWidth - g.clientWidth - 4;
+      if (ant) ant.disabled = g.scrollLeft <= 4; if (sig) sig.disabled = g.scrollLeft >= max; }
+    [ant, sig].forEach(function(b){ if (b) b.addEventListener("click", function(){ g.scrollBy({ left: +b.dataset.galIr * ancho() * 2, behavior: reducido ? "auto" : "smooth" }); setTimeout(marcar, 60); setTimeout(marcar, 700); }); });
+    var espera; g.addEventListener("scroll", function(){ clearTimeout(espera); espera = setTimeout(marcar, 80); }, { passive: true });
+    g.addEventListener("scrollend", marcar); addEventListener("resize", enRaf(marcar)); marcar();
+    if (!matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+    var x0 = 0, s0 = 0, abajo = false, movio = false;
+    g.addEventListener("pointerdown", function(e){ if (e.pointerType !== "mouse" || e.button !== 0) return; abajo = true; movio = false; x0 = e.clientX; s0 = g.scrollLeft; });
+    addEventListener("pointermove", function(e){ if (!abajo) return; var dx = e.clientX - x0;
+      if (Math.abs(dx) > 4) { movio = true; g.classList.add("arrastrando"); } if (movio) g.scrollLeft = s0 - dx; });
+    addEventListener("pointerup", function(){ if (!abajo) return; abajo = false;
+      if (movio) { var p = ancho(), destino = Math.round(g.scrollLeft / p) * p; g.classList.remove("arrastrando"); g.scrollTo({ left: destino, behavior: "smooth" }); } });
+    g.addEventListener("click", function(e){ if (movio) { e.preventDefault(); e.stopPropagation(); movio = false; } }, true);
+    g.addEventListener("dragstart", function(e){ e.preventDefault(); });
+  }
+  function initPausa(){ document.addEventListener("visibilitychange", function(){ document.body.classList.toggle("pausado", document.hidden); }); }
+
+  safe(pintar, "pintar");
+  if (HORNEAR) return;   // solo se pinta el contenido, para dejarlo escrito en el HTML
+  safe(initPack, "pack"); safe(initVitrina, "vitrina"); safe(initFotosSabor, "fotos"); safe(initNav, "nav");
+  safe(initPartir, "partir"); safe(initRevelar, "revelar"); safe(initScroll, "scroll"); safe(initPausa, "pausa"); safe(initGaleria, "galeria");
+})();
+</script>
+</body>
+</html>
