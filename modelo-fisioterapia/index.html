@@ -1,0 +1,909 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Movimiento Fisioterapia · Mérida</title>
+<meta name="description" content="Fisioterapia en Mérida: evaluación de una hora, terapia manual y ejercicios para casa. Consultorio y domicilio. Pide tu cita por WhatsApp.">
+<meta name="theme-color" content="#12223A">
+<meta name="color-scheme" content="only light">
+<meta property="og:title" content="Movimiento Fisioterapia · Mérida">
+<meta property="og:description" content="Vuelve a moverte sin miedo. Evaluación de una hora y plan con ejercicios para casa.">
+<meta property="og:url" content="https://thecarlos583.github.io/Paginas_webs/modelo-fisioterapia/">
+<meta property="og:image" content="https://thecarlos583.github.io/Paginas_webs/modelo-fisioterapia/assets/img/portada-1600.webp">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2312223A'/%3E%3Crect x='10' y='27' width='44' height='10' rx='4' fill='%23EF6F84' transform='rotate(-35 32 32)'/%3E%3Crect x='10' y='27' width='44' height='10' rx='4' fill='%2333AFCB' transform='rotate(35 32 32)' opacity='.9'/%3E%3C/svg%3E">
+<link rel="preload" href="assets/fuentes/instrument.woff2" as="font" type="font/woff2" crossorigin>
+<script>document.documentElement.classList.add("js")</script>
+<style>
+@font-face{font-family:"Instrument Serif";src:url("assets/fuentes/instrument.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Instrument Serif";src:url("assets/fuentes/instrument-italica.woff2") format("woff2");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:"Manrope";src:url("assets/fuentes/manrope.woff2") format("woff2");font-weight:200 800;font-style:normal;font-display:swap}
+
+:root{
+  color-scheme:only light;
+  --hueso:#F4F1EC;--hueso-2:#EAE4DB;--papel:#FBFAF7;
+  --tinta:#13233A;--tinta-suave:#4B5A6E;
+  --noche:#12223A;--noche-2:#1A2F4E;--noche-3:#243C60;
+  --coral:#CC3D55;--coral-osc:#B32F47;
+  --rosa:#EF6F84;--cian:#33AFCB;
+  --linea:rgba(19,35,58,.13);
+  --serif:"Instrument Serif","Cambria",Georgia,serif;
+  --sans:"Manrope","Segoe UI",system-ui,-apple-system,Roboto,sans-serif;
+  --suave:cubic-bezier(.22,.61,.36,1);--salto:cubic-bezier(.34,1.56,.64,1);
+  --radio:22px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{overflow-x:hidden;overflow-x:clip;scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;overflow-x:hidden;overflow-x:clip;background:var(--hueso);color:var(--tinta);font-family:var(--sans);font-size:17px;line-height:1.6}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1;margin:0;letter-spacing:-.01em}
+h2{font-size:clamp(2.5rem,9vw,4.6rem)}
+h2 em,h1 em{font-style:italic}
+p{margin:0}
+.contenedor{width:min(1180px,100% - 32px);margin-inline:auto}
+.pre{display:inline-flex;align-items:center;gap:10px;font-size:.78rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--tinta-suave)}
+.pre::before{content:"";width:26px;height:8px;border-radius:3px;background:var(--rosa);transform:rotate(-8deg)}
+.solo-lector{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+:focus-visible{outline:3px solid var(--coral);outline-offset:3px;border-radius:6px}
+
+/* grano */
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;opacity:.045;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E")}
+
+/* botones */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:12px 24px;border-radius:999px;font:700 1rem/1.1 var(--sans);text-decoration:none;border:0;cursor:pointer;
+  transition:transform .25s var(--salto),box-shadow .25s var(--suave),background-color .25s}
+.btn svg{width:20px;height:20px;flex:none}
+.btn-principal{position:relative;overflow:hidden;background:var(--coral);color:#fff;box-shadow:0 10px 26px rgba(204,61,85,.28)}
+.btn-principal::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%);transform:translateX(-120%);animation:destello 6s var(--suave) infinite 2.5s}
+@keyframes destello{20%,100%{transform:translateX(120%)}}
+.btn-principal:hover{background:var(--coral-osc);transform:translateY(-3px);box-shadow:0 14px 30px rgba(204,61,85,.34)}
+.btn-linea{background:transparent;color:var(--tinta);box-shadow:inset 0 0 0 1.5px var(--tinta)}
+.btn-linea:hover{transform:translateY(-3px);background:var(--tinta);color:var(--hueso)}
+.btn:active{transform:translateY(0) scale(.97)}
+@media (pointer:coarse){.btn{min-height:48px}}
+
+/* vendaje kinesio: el hilo visual */
+.tape{position:absolute;height:24px;width:var(--l,180px);border-radius:7px;pointer-events:none;
+  background:var(--c,var(--rosa)) repeating-linear-gradient(90deg,rgba(255,255,255,.0) 0 9px,rgba(255,255,255,.16) 9px 10px);
+  box-shadow:0 3px 8px rgba(19,35,58,.18);opacity:.94;transform-origin:0 50%;
+  transform:rotate(var(--r,0deg)) scaleX(1)}
+.tape::before{content:"";position:absolute;inset:7px 12px;border-top:1.5px dashed rgba(255,255,255,.45);border-bottom:1.5px dashed rgba(255,255,255,.3)}
+.js .tape{transform:rotate(var(--r,0deg)) scaleX(0);transition:transform 1s var(--suave) var(--d,0s)}
+.js .visible .tape{transform:rotate(var(--r,0deg)) scaleX(1)}
+
+/* revelar */
+.js .revelar{opacity:0;transform:translateY(24px);transition:opacity .8s var(--suave),transform .8s var(--suave)}
+.js .revelar.visible{opacity:1;transform:none}
+.js .revelar-grupo>*{opacity:0;transform:translateY(18px);transition:opacity .7s var(--suave),transform .7s var(--suave)}
+.js .revelar-grupo.visible>*{opacity:1;transform:none}
+.js .revelar-grupo.visible>*:nth-child(2){transition-delay:.08s}
+.js .revelar-grupo.visible>*:nth-child(3){transition-delay:.16s}
+.js .revelar-grupo.visible>*:nth-child(4){transition-delay:.24s}
+.js .revelar-grupo.visible>*:nth-child(5){transition-delay:.32s}
+.js .revelar-grupo.visible>*:nth-child(6){transition-delay:.4s}
+.js .revelar-grupo.visible.listo>*:nth-child(n){transition-delay:0s}
+.js .revelar-mascara>*{clip-path:inset(100% 0 0 0 round var(--radio));transition:clip-path 1.1s var(--suave)}
+.js .revelar-mascara>*:nth-child(2){transition-delay:.12s}
+.js .revelar-mascara>*:nth-child(3){transition-delay:.24s}
+.js .revelar-mascara>*:nth-child(4){transition-delay:.36s}
+.js .revelar-mascara>*:nth-child(5){transition-delay:.48s}
+.js .revelar-mascara>*:nth-child(6){transition-delay:.6s}
+.js .revelar-mascara.visible>*{clip-path:inset(0 0 0 0 round var(--radio))}
+.js [data-partir] .p{display:inline-block;opacity:0;transform:translateY(.55em) rotate(3deg);transition:opacity .6s var(--suave),transform .8s var(--salto);transition-delay:calc(var(--i)*70ms + .1s)}
+.js [data-partir].visible .p{opacity:1;transform:none}
+
+/* cabecera */
+.nav{position:fixed;inset:0 0 auto;z-index:50;background:rgba(244,241,236,.94);transition:box-shadow .3s}
+.nav::before{content:"";position:absolute;left:0;right:0;top:-400px;height:400px;background:var(--hueso)}
+.nav-in{display:flex;align-items:center;gap:16px;height:64px;padding-top:env(safe-area-inset-top)}
+.nav.solido{box-shadow:0 1px 0 var(--linea),0 8px 24px rgba(19,35,58,.06)}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;min-width:0}
+.logo-marca{width:34px;height:34px;flex:none}
+.logo-txt{font-family:var(--serif);font-size:1.25rem;line-height:1.02;max-width:11ch;overflow-wrap:anywhere}
+@media (min-width:900px){.logo-txt{font-size:1.45rem;max-width:none;white-space:nowrap}}
+.nav-links{display:none;gap:28px;margin-left:auto;font-weight:600;font-size:.95rem}
+.nav-links a{text-decoration:none;position:relative}
+.nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:-5px;height:3px;border-radius:2px;background:var(--rosa);transform:scaleX(0);transform-origin:0 50%;transition:transform .35s var(--suave)}
+.nav-links a:hover::after{transform:scaleX(1)}
+.nav .btn{margin-left:auto;min-height:42px;padding:10px 18px;font-size:.92rem;white-space:nowrap;flex:none}
+@media (min-width:900px){.nav-links{display:flex}.nav .btn{margin-left:8px}}
+
+/* portada */
+.hero{position:relative;padding-top:64px}
+.hero-grid{display:grid;gap:18px}
+.hero-foto{position:relative;order:-1;margin-inline:-16px;height:clamp(210px,34svh,400px);border-radius:0 0 30px 30px;overflow:hidden;background:var(--hueso-2)}
+.hero-foto picture{position:absolute;inset:0}
+@media (min-width:900px){.hero-foto picture{top:-64px;bottom:-64px}}
+.hero-foto img{width:100%;height:100%}
+.hero-foto img{object-fit:cover;object-position:50% 6%;animation:zoom 26s ease-in-out infinite alternate;will-change:transform}
+@keyframes zoom{from{transform:scale(1.02)}to{transform:scale(1.12)}}
+.hero-foto .tape{z-index:2}
+.hero-ficha{position:absolute;right:14px;bottom:14px;z-index:3;background:rgba(251,250,247,.9);border-radius:16px;padding:10px 14px;box-shadow:0 10px 30px rgba(19,35,58,.18);font-size:.8rem;line-height:1.3;animation:flotar 6s ease-in-out infinite}
+.hero-ficha strong{display:block;font-family:var(--serif);font-weight:400;font-size:1.5rem;line-height:1}
+@keyframes flotar{50%{transform:translateY(-6px)}}
+.hero-texto{display:flex;flex-direction:column;gap:14px;padding-bottom:36px;min-width:0}
+.hero h1{font-size:clamp(2.85rem,13vw,6.6rem);line-height:.94}
+.hero h1 em{position:relative;display:inline-block;white-space:nowrap;z-index:0}
+.hero h1 em::before{content:"";position:absolute;z-index:-1;left:-.08em;right:-.1em;bottom:.08em;height:.36em;border-radius:6px;background:var(--rosa);opacity:.55;transform:rotate(-2deg) scaleX(1);transform-origin:0 50%}
+.js .hero h1 em::before{transform:rotate(-2deg) scaleX(0);transition:transform .9s var(--suave) 1.15s}
+.js .hero h1.visible em::before{transform:rotate(-2deg) scaleX(1)}
+.hero-sub{font-size:1.05rem;color:var(--tinta-suave);max-width:36ch}
+.hero-sub .largo{display:none}
+.hero-acciones{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
+.hero-acciones .btn{flex:1 1 auto}
+.hero-datos{display:none}
+@media (min-width:900px){
+  .hero{padding-top:0}
+  .hero-grid{grid-template-columns:minmax(0,1.02fr) minmax(0,1fr);align-items:stretch;min-height:min(100svh,860px)}
+  .hero-texto{justify-content:center;padding:120px 0 64px;gap:22px}
+  .hero-foto{order:0;margin:0 calc((100vw - min(1180px,100vw - 32px)) / -2) 0 0;height:auto;border-radius:0 0 0 220px}
+  .hero-foto img{object-position:46% 30%}
+  .hero-sub{font-size:1.15rem}
+  .hero-sub .largo{display:inline}
+  .hero-acciones .btn{flex:0 0 auto}
+  .hero-datos{display:flex;gap:28px;margin-top:18px;padding-top:22px;border-top:1px solid var(--linea);font-size:.9rem;color:var(--tinta-suave)}
+  .hero-datos b{display:block;color:var(--tinta);font-family:var(--serif);font-weight:400;font-size:1.7rem;line-height:1.1}
+  .hero-ficha{left:72px;right:auto;bottom:56px}
+}
+
+/* marquesina */
+.marquesina{overflow:hidden;white-space:nowrap;background:var(--noche);color:var(--hueso);padding:14px 0;transform:rotate(-1.2deg);margin:10px -10px 0;position:relative;z-index:2}
+.marquesina-pista{display:inline-flex;animation:correr 45s linear infinite}
+.marquesina-pista span{font-family:var(--serif);font-size:1.5rem;padding-right:.4em}
+.marquesina-pista i{font-style:normal;color:var(--rosa);padding:0 .5em}
+.marquesina:hover .marquesina-pista{animation-play-state:paused}
+@keyframes correr{to{transform:translateX(-50%)}}
+
+/* quién te atiende */
+.quien{padding:96px 0 90px}
+.quien-grid{display:grid;gap:44px}
+.quien-foto{position:relative;margin:0 6px}
+.quien-foto img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:60% 50%;border-radius:var(--radio)}
+.quien-foto .tape{z-index:2}
+.quien-texto{display:flex;flex-direction:column;gap:20px;min-width:0}
+.quien-texto p{color:var(--tinta-suave);max-width:52ch}
+.quien-texto p strong{color:var(--tinta)}
+.cifras{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:10px}
+.cifra{border-top:2px solid var(--tinta);padding-top:12px;min-width:0}
+.cifra b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(2.4rem,10vw,3.6rem);line-height:1;overflow-wrap:anywhere}
+.cifra span{display:block;font-size:.82rem;line-height:1.35;color:var(--tinta-suave);margin-top:6px}
+@media (min-width:900px){.quien-grid{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);align-items:center;gap:80px}.quien-foto img{aspect-ratio:4/5}}
+
+/* firma: dónde te duele */
+.duele{background:var(--noche);color:var(--hueso);padding:92px 0 96px;position:relative;overflow:hidden}
+.duele::before{content:"";position:absolute;width:620px;height:620px;right:-220px;top:-200px;border-radius:50%;background:radial-gradient(circle,rgba(51,175,203,.18),transparent 65%);pointer-events:none;animation:respira 12s ease-in-out infinite}
+@keyframes respira{50%{transform:scale(1.15)}}
+.duele .pre{color:#B8C4D6}
+.duele h2{margin:14px 0 14px}
+.duele-intro{color:#C9D2DF;max-width:48ch}
+.duele-grid{display:grid;gap:28px;margin-top:40px}
+.mapa{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1fr);gap:14px;align-items:center}
+.cuerpo{position:relative;aspect-ratio:200/440;width:100%;max-width:260px;justify-self:center}
+.cuerpo svg{position:absolute;inset:0;width:100%;height:100%}
+.cuerpo .silueta{fill:var(--noche-3)}
+.cuerpo .contorno{fill:none;stroke:rgba(244,241,236,.22);stroke-width:1.2}
+.punto{position:absolute;width:36px;height:36px;margin:-18px 0 0 -18px;border:0;padding:0;background:none;cursor:pointer;border-radius:50%;-webkit-tap-highlight-color:transparent}
+.punto::before{content:"";position:absolute;inset:11px;border-radius:50%;background:var(--cian);box-shadow:0 0 0 3px rgba(18,34,58,.9);transition:background-color .3s,transform .35s var(--salto)}
+.punto::after{content:"";position:absolute;inset:6px;border-radius:50%;border:2px solid var(--cian);opacity:0;animation:latido 2.6s var(--suave) infinite}
+.punto:nth-of-type(2n)::after{animation-delay:-.9s}.punto:nth-of-type(3n)::after{animation-delay:-1.7s}
+@keyframes latido{0%{opacity:.8;transform:scale(.6)}100%{opacity:0;transform:scale(1.7)}}
+.punto:hover::before{transform:scale(1.25)}
+.punto.activo::before{background:var(--rosa);transform:scale(calc(1.15 + var(--dolor,5) * .045))}
+.punto.activo::after{border-color:var(--rosa);animation-duration:calc(2.8s - var(--dolor,5) * .18s)}
+.zonas{display:flex;flex-direction:column;gap:6px;min-width:0}
+.zona{display:flex;align-items:center;gap:10px;width:100%;text-align:left;font:600 .95rem/1.2 var(--sans);color:#D5DDE8;background:transparent;border:1px solid rgba(244,241,236,.14);border-radius:12px;padding:10px 12px;cursor:pointer;min-height:44px;transition:background-color .25s,border-color .25s,color .25s,transform .25s var(--salto)}
+.zona::before{content:"";width:10px;height:10px;border-radius:50%;flex:none;background:var(--cian);transition:background-color .25s,transform .3s var(--salto)}
+.zona:hover{border-color:rgba(244,241,236,.4);transform:translateX(3px)}
+.zona[aria-pressed="true"]{background:var(--hueso);color:var(--tinta);border-color:var(--hueso)}
+.zona[aria-pressed="true"]::before{background:var(--coral);transform:scale(1.3)}
+.panel{background:var(--noche-2);border:1px solid rgba(244,241,236,.1);border-radius:26px;padding:24px 20px;display:flex;flex-direction:column;gap:22px;min-width:0}
+.info{min-height:5.4em}
+.info>div{display:none}
+.info>div.activa{display:block;animation:entrar .5s var(--suave)}
+.no-js-info .info>div:first-child{display:block}
+@keyframes entrar{from{opacity:0;transform:translateY(8px)}}
+.info h3{font-size:2rem;margin-bottom:6px}
+.info p{color:#C9D2DF;font-size:.97rem}
+.campo{display:flex;flex-direction:column;gap:10px}
+.campo-titulo{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-weight:700;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:#B8C4D6}
+.campo-titulo.vertical{flex-direction:column;align-items:flex-start;gap:4px}
+.campo-titulo output{font-family:var(--serif);font-size:1.55rem;letter-spacing:0;text-transform:none;color:var(--hueso);font-weight:400;white-space:nowrap}
+.rango{-webkit-appearance:none;appearance:none;width:100%;height:12px;border-radius:999px;margin:8px 0;cursor:pointer;
+  background:linear-gradient(90deg,var(--cian),#9C8FD0 50%,var(--rosa) 80%,#E5484D)}
+.rango::-webkit-slider-thumb{-webkit-appearance:none;width:30px;height:30px;border-radius:50%;background:var(--hueso);border:4px solid var(--noche);box-shadow:0 0 0 2px var(--hueso),0 6px 16px rgba(0,0,0,.35);transition:transform .2s var(--salto)}
+.rango::-moz-range-thumb{width:24px;height:24px;border-radius:50%;background:var(--hueso);border:4px solid var(--noche);box-shadow:0 0 0 2px var(--hueso)}
+.rango:active::-webkit-slider-thumb{transform:scale(1.15)}
+.rango-escala{display:flex;justify-content:space-between;font-size:.75rem;color:#8E9CB2;margin-top:-4px}
+.opciones{display:flex;flex-wrap:wrap;gap:8px}
+.opcion{font:600 .9rem/1.2 var(--sans);color:#D5DDE8;background:transparent;border:1px solid rgba(244,241,236,.2);border-radius:999px;padding:10px 15px;cursor:pointer;min-height:42px;transition:background-color .25s,color .25s,border-color .25s,transform .25s var(--salto)}
+.opcion:hover{border-color:rgba(244,241,236,.5);transform:translateY(-2px)}
+.opcion[aria-pressed="true"]{background:var(--cian);border-color:var(--cian);color:var(--noche)}
+.burbuja-caja{background:#0E1B2E;border-radius:20px;padding:18px 14px 14px;position:relative}
+.burbuja-caja .campo-titulo{margin-bottom:10px}
+.burbuja{position:relative;margin-left:auto;max-width:94%;background:#D9FDD3;color:#111B21;border-radius:14px 4px 14px 14px;padding:10px 12px 18px;font-size:.92rem;line-height:1.45;white-space:pre-line;overflow-wrap:anywhere;box-shadow:0 2px 0 rgba(0,0,0,.15)}
+.burbuja::after{content:"✓✓";position:absolute;right:10px;bottom:3px;font-size:.66rem;letter-spacing:-2px;color:#53BDEB}
+.burbuja.pulso{animation:pulso .45s var(--salto)}
+@keyframes pulso{40%{transform:scale(1.025)}}
+.panel .btn{width:100%}
+.aviso-medico{font-size:.82rem;color:#8E9CB2;line-height:1.45}
+@media (min-width:900px){
+  .duele-grid{grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:56px;align-items:start}
+  .mapa{position:sticky;top:96px;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:28px}
+  .cuerpo{max-width:300px}
+  .panel{padding:32px}
+}
+
+/* tratamientos */
+.trat{padding:96px 0 80px}
+.trat-cabeza{display:grid;gap:16px;margin-bottom:40px}
+.trat-cabeza p{color:var(--tinta-suave);max-width:46ch}
+.trat-lista{display:grid;gap:14px}
+.trat-item{display:grid;grid-template-columns:104px minmax(0,1fr);gap:16px;align-items:center;background:var(--papel);border-radius:var(--radio);padding:10px;box-shadow:0 1px 0 var(--linea);transition:transform .35s var(--suave),box-shadow .35s var(--suave)}
+.trat-item img{width:104px;height:104px;object-fit:cover;border-radius:16px}
+.trat-item h3{font-size:1.7rem}
+.trat-item p{font-size:.92rem;color:var(--tinta-suave);margin-top:4px}
+.trat-pie{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:8px;flex-wrap:wrap}
+.precio{font-weight:800;font-size:.95rem}
+.precio small{font-weight:600;color:var(--tinta-suave);font-size:.78rem}
+.preguntar{font-weight:700;font-size:.9rem;color:var(--coral);text-decoration:none;display:inline-flex;align-items:center;gap:6px;min-height:40px}
+.preguntar span{transition:transform .3s var(--salto)}
+.preguntar:hover span{transform:translateX(4px)}
+.trat-item.destacado{grid-template-columns:1fr;padding:0;overflow:hidden;background:var(--noche);color:var(--hueso)}
+.trat-item.destacado .foto{position:relative;height:300px;overflow:hidden}
+.trat-item.destacado img{width:100%;height:100%;border-radius:0;object-position:50% 62%;transition:transform 1.2s var(--suave)}
+.trat-item.destacado .cuerpo-t{padding:4px 22px 22px}
+.trat-item.destacado p,.trat-item.destacado .precio small{color:#C9D2DF}
+.trat-item.destacado .preguntar{color:var(--rosa)}
+.trat-item.destacado .etiqueta{position:absolute;left:14px;top:14px;background:var(--rosa);color:var(--noche);font-weight:800;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;padding:7px 12px;border-radius:6px;transform:rotate(-3deg)}
+.extras{display:grid;gap:10px;margin-top:22px;padding:22px;border-radius:var(--radio);background:var(--hueso-2)}
+.extras div{display:flex;justify-content:space-between;gap:14px;align-items:baseline;border-bottom:1px dashed rgba(19,35,58,.2);padding-bottom:10px;min-width:0}
+.extras div:last-child{border:0;padding-bottom:0}
+.extras b{font-family:var(--serif);font-weight:400;font-size:1.5rem;white-space:nowrap}
+@media (hover:hover) and (pointer:fine){
+  .trat-item:hover{transform:translateY(-6px);box-shadow:0 22px 40px rgba(19,35,58,.12)}
+  .trat-item.destacado:hover img{transform:scale(1.05)}
+}
+@media (min-width:700px){
+  .trat-lista{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .trat-item:not(.destacado){grid-template-columns:1fr;align-items:start;align-content:start;padding:0;overflow:hidden}
+  .trat-item.destacado .foto img{position:absolute;inset:0;width:100%;height:100%}
+  .trat-item:not(.destacado) img{width:100%;height:200px;border-radius:0}
+  .trat-item:not(.destacado) .cuerpo-t{padding:6px 22px 18px}
+  .trat-item.destacado{grid-row:span 2}
+  .trat-item.destacado .foto{height:auto;flex:1;min-height:360px}
+  .trat-item.destacado{display:flex;flex-direction:column;align-items:stretch}
+}
+@media (min-width:700px) and (max-width:999px){
+  .trat-lista>.trat-item:last-child{grid-column:1/-1;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center}
+  .trat-lista>.trat-item:last-child img{height:100%;min-height:200px}
+}
+@media (min-width:1000px){
+  .trat-cabeza{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);align-items:end}
+  .trat-lista{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .trat-item.destacado{grid-column:span 2}
+  .trat-item.destacado .foto img{object-position:50% 38%}
+  .extras{grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+  .extras div{border:0;border-left:1px dashed rgba(19,35,58,.25);padding:0 0 0 20px;flex-direction:column;gap:2px}
+  .extras div:first-child{border:0;padding-left:0}
+}
+
+/* cómo funciona */
+.pasos{padding:40px 0 100px}
+.pasos-caja{background:var(--papel);border-radius:34px;padding:56px 22px 46px;position:relative;overflow:hidden}
+.pasos-caja h2{max-width:14ch}
+.pasos-cuerpo{position:relative;margin-top:40px}
+.pasos-lista{list-style:none;margin:0;padding:0;display:grid;gap:34px;position:relative}
+.riel{position:absolute;left:23px;top:8px;bottom:8px;width:10px;border-radius:5px;background:var(--hueso-2);overflow:hidden}
+.riel i{position:absolute;inset:0;border-radius:5px;background:var(--cian) repeating-linear-gradient(180deg,transparent 0 9px,rgba(255,255,255,.2) 9px 10px);transform-origin:50% 0;transform:scaleY(var(--avance,1))}
+.paso{display:grid;grid-template-columns:56px minmax(0,1fr);gap:18px;position:relative;align-content:start}
+.paso-num{width:56px;height:56px;border-radius:50%;background:var(--noche);color:var(--hueso);display:grid;place-items:center;font-family:var(--serif);font-size:1.7rem;position:relative;z-index:1;transition:transform .5s var(--salto),background-color .4s}
+.paso.encendido .paso-num{background:var(--coral);transform:scale(1.08)}
+.paso h3{font-size:1.9rem;margin:6px 0 6px}
+.paso p{color:var(--tinta-suave);max-width:44ch}
+@media (min-width:900px){
+  .pasos-caja{padding:72px 64px 64px}
+  .pasos-lista{grid-template-columns:repeat(3,minmax(0,1fr));gap:36px}
+  .riel{left:28px;right:28px;top:23px;bottom:auto;width:auto;height:10px}
+  .riel i{transform-origin:0 50%;transform:scaleX(var(--avance,1))}
+  .paso{grid-template-columns:1fr;gap:14px}
+}
+
+/* horario */
+.lugar{padding:0 0 100px}
+.lugar-grid{display:grid;gap:18px}
+.lugar-bloque{border-radius:var(--radio);padding:28px 22px;background:var(--hueso-2);min-width:0}
+.lugar-bloque h3{font-size:2.1rem;margin-bottom:12px}
+.lugar-bloque p{color:var(--tinta-suave)}
+.horas{list-style:none;margin:0;padding:0}
+.horas li{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--linea);font-weight:600}
+.horas li span:last-child{color:var(--tinta-suave);font-weight:500;text-align:right;white-space:nowrap}
+.horas li span:first-child{min-width:0}
+.horas li.hoy{color:var(--coral)}
+.estado{display:inline-flex;align-items:center;gap:8px;margin-top:14px;font-weight:700;font-size:.9rem;min-height:1.6em}
+.estado::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--tinta-suave)}
+.estado.abierto::before{background:#1FA855;box-shadow:0 0 0 0 rgba(31,168,85,.5);animation:vivo 2s infinite}
+@keyframes vivo{70%{box-shadow:0 0 0 9px rgba(31,168,85,0)}100%{box-shadow:0 0 0 0 rgba(31,168,85,0)}}
+.lugar-bloque.oscuro{background:var(--noche);color:var(--hueso)}
+.lugar-bloque.oscuro p{color:#C9D2DF}
+.lugar-bloque.oscuro ul{margin:14px 0 0;padding-left:1.1em;color:#C9D2DF}
+@media (min-width:900px){.lugar-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.lugar-bloque{padding:40px}}
+
+/* preguntas */
+.faq{padding:0 0 100px}
+.faq-grid{display:grid;gap:30px}
+.faq details{border-bottom:1px solid var(--linea)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:16px;align-items:center;padding:20px 0;font-weight:700;font-size:1.06rem;min-height:44px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary i{flex:none;width:30px;height:30px;border-radius:50%;box-shadow:inset 0 0 0 1.5px var(--tinta);position:relative;transition:transform .4s var(--salto),background-color .3s}
+.faq summary i::before,.faq summary i::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:2px;margin:-1px 0 0 -6px;background:currentColor;border-radius:1px}
+.faq summary i::after{transform:rotate(90deg);transition:transform .3s var(--suave)}
+.faq details[open] summary i{transform:rotate(180deg);background:var(--rosa);box-shadow:none}
+.faq details[open] summary i::after{transform:rotate(0)}
+.faq details p{padding:0 0 22px;color:var(--tinta-suave);max-width:60ch}
+.faq details[open] p{animation:entrar .45s var(--suave)}
+@media (min-width:900px){.faq-grid{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:80px}}
+
+/* cierre */
+.cierre{position:relative;background:var(--noche);color:var(--hueso);padding:110px 0 120px;overflow:hidden;text-align:center}
+.cierre h2{font-size:clamp(2.8rem,11vw,6rem);max-width:13ch;margin:0 auto 22px}
+.cierre p{color:#C9D2DF;max-width:42ch;margin:0 auto 32px}
+.cierre .tape{opacity:.85}
+.cierre .btn{font-size:1.06rem;padding:16px 30px}
+
+/* pie */
+footer{background:#0C1829;color:#A9B5C7;padding:42px 0 110px;font-size:.88rem}
+.pie{display:grid;gap:18px}
+.pie .logo-txt{color:var(--hueso);font-size:1.6rem}
+.pie a{color:var(--hueso)}
+.aviso{font-size:.8rem;color:#8391A6}
+@media (min-width:900px){.pie{grid-template-columns:1fr auto;align-items:end}}
+
+/* WhatsApp flotante */
+.wa-flotante{position:fixed;right:16px;bottom:max(16px,env(safe-area-inset-bottom));z-index:60;width:58px;height:58px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,.25);transition:transform .25s var(--salto)}
+.wa-flotante:hover{transform:scale(1.08)}
+.wa-flotante svg{width:30px;height:30px}
+
+body.pausado *,body.pausado *::before,body.pausado *::after{animation-play-state:paused!important}
+@media (prefers-reduced-motion:reduce){
+  .hero-foto img,.hero-ficha,.marquesina-pista,.duele::before,.punto::after{animation:none}
+  .js .revelar,.js .revelar-grupo>*{transform:none;transition:opacity .4s linear}
+  .js .revelar-mascara>*{clip-path:none}
+  .js [data-partir] .p{transform:none;transition:opacity .4s}
+  .btn-principal::after{animation:none}
+}
+@media (max-height:560px){.hero-ficha{display:none}}
+</style>
+</head>
+<body data-negocio="Movimiento Fisioterapia">
+
+<header class="nav" data-nav>
+  <div class="contenedor nav-in">
+    <a class="logo" href="#inicio" aria-label="Inicio">
+      <svg class="logo-marca" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#12223A"/><rect x="10" y="27" width="44" height="10" rx="4" fill="#EF6F84" transform="rotate(-35 32 32)"/><rect x="10" y="27" width="44" height="10" rx="4" fill="#33AFCB" opacity=".9" transform="rotate(35 32 32)"/></svg>
+      <span class="logo-txt" data-nombre>Movimiento Fisioterapia</span>
+    </a>
+    <nav class="nav-links" aria-label="Secciones">
+      <a href="#duele">¿Dónde te duele?</a>
+      <a href="#tratamientos">Tratamientos</a>
+      <a href="#como">Cómo trabajo</a>
+      <a href="#preguntas">Preguntas</a>
+    </nav>
+    <a class="btn btn-principal" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20pedir%20una%20cita%20con%20Movimiento%20Fisioterapia." target="_blank" rel="noopener" data-wa-plantilla="Hola, quisiera pedir una cita con {{NOMBRE}}.">Pedir cita</a>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero" id="inicio">
+  <div class="contenedor hero-grid">
+    <div class="hero-texto">
+      <span class="pre"><span>Fisioterapia en <span data-zona>Mérida</span></span></span>
+      <h1 data-partir="palabras">Vuelve a moverte <em>sin miedo.</em></h1>
+      <p class="hero-sub">Una hora de evaluación, tratamiento con las manos y ejercicios que sí puedes hacer en casa.<span class="largo"> En consultorio o a domicilio.</span></p>
+      <div class="hero-acciones">
+        <a class="btn btn-principal" data-magnetico href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20pedir%20una%20evaluaci%C3%B3n%20con%20Movimiento%20Fisioterapia." target="_blank" rel="noopener" data-wa-plantilla="Hola, quisiera pedir una evaluación con {{NOMBRE}}.">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.31l-.34-.2-3.57.94.95-3.48-.22-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.23-9.43 9.44-9.43a9.43 9.43 0 0 1 9.43 9.44c0 5.2-4.23 9.43-9.44 9.43zm8.03-17.46A11.27 11.27 0 0 0 12.05.72C5.79.72.7 5.81.7 12.07c0 2 .52 3.95 1.52 5.67L.6 23.65l6.05-1.59a11.33 11.33 0 0 0 5.4 1.38h.01c6.26 0 11.35-5.09 11.35-11.35 0-3.03-1.18-5.88-3.33-8.03z"/></svg>
+          Pedir evaluación
+        </a>
+        <a class="btn btn-linea" href="#duele">¿Dónde te duele?</a>
+      </div>
+      <div class="hero-datos" aria-label="Datos del consultorio">
+        <div><b>60 min</b>primera evaluación</div>
+        <div><b>1 a 1</b>un paciente a la vez</div>
+        <div><b>Domicilio</b>dentro de <span data-zona>Mérida</span></div>
+      </div>
+    </div>
+    <div class="hero-foto pegar">
+      <picture>
+        <source media="(max-width:899px)" srcset="assets/img/portada-movil.webp" width="720" height="1180">
+        <img src="assets/img/portada-1600.webp" srcset="assets/img/portada-800.webp 800w, assets/img/portada-1600.webp 1600w" sizes="(min-width:900px) 52vw, 100vw" width="1600" height="1067" alt="Fisioterapeuta movilizando el hombro de una paciente en la camilla" fetchpriority="high" data-paralaje>
+      </picture>
+      <span class="tape" style="--c:var(--rosa);--l:150px;--r:-38deg;left:-24px;bottom:34px;--d:.9s" aria-hidden="true"></span>
+      <span class="tape" style="--c:var(--cian);--l:130px;--r:-12deg;left:-30px;bottom:18px;--d:1.15s" aria-hidden="true"></span>
+      <div class="hero-ficha" aria-hidden="true"><strong>60 min</strong>primera evaluación</div>
+    </div>
+  </div>
+</section>
+
+<div class="marquesina" aria-hidden="true">
+  <div class="marquesina-pista">
+    <span>Cuello <i>✦</i> Hombro <i>✦</i> Espalda baja <i>✦</i> Rodilla <i>✦</i> Tobillo <i>✦</i> Post operatorio <i>✦</i> Lesiones deportivas <i>✦</i></span>
+    <span>Cuello <i>✦</i> Hombro <i>✦</i> Espalda baja <i>✦</i> Rodilla <i>✦</i> Tobillo <i>✦</i> Post operatorio <i>✦</i> Lesiones deportivas <i>✦</i></span>
+  </div>
+</div>
+
+<section class="quien" id="quien">
+  <div class="contenedor quien-grid">
+    <div class="quien-foto revelar">
+      <img src="assets/img/banda-1000.webp" srcset="assets/img/banda-600.webp 600w, assets/img/banda-1000.webp 1000w" sizes="(min-width:900px) 44vw, 100vw" width="1000" height="667" loading="lazy" alt="Fisioterapeuta guiando a una paciente en un ejercicio con banda elástica">
+      <span class="tape" style="--c:var(--rosa);--l:120px;--r:-28deg;left:-22px;top:26px;--d:.5s" aria-hidden="true"></span>
+      <span class="tape" style="--c:var(--cian);--l:120px;--r:-28deg;right:-26px;bottom:30px;--d:.75s" aria-hidden="true"></span>
+    </div>
+    <div class="quien-texto revelar-grupo">
+      <span class="pre">Quién te atiende</span>
+      <h2>Una hora contigo. <em>Sin apuro.</em></h2>
+      <p>Soy fisioterapeuta y atiendo a <strong>un paciente a la vez</strong>. Nada de dejarte con una compresa caliente mientras atiendo a tres más.</p>
+      <p>No te prometo milagros: te explico qué está pasando con palabras normales, armamos un plan y te enseño qué hacer en casa para que no dependas de mí.</p>
+      <div class="cifras">
+        <div class="cifra"><b data-contar="60">60</b><span>minutos de primera evaluación</span></div>
+        <div class="cifra"><b data-contar="45">45</b><span>minutos por sesión</span></div>
+        <div class="cifra"><b data-contar="1">1</b><span>paciente a la vez</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="duele" id="duele" aria-labelledby="duele-t">
+  <div class="contenedor">
+    <span class="pre">Antes de escribirme</span>
+    <h2 id="duele-t" class="revelar">¿Dónde te <em>duele?</em></h2>
+    <p class="duele-intro revelar">Toca la zona, dime qué tanto y desde cuándo. Yo te armo el mensaje para que llegues con todo explicado.</p>
+
+    <div class="duele-grid no-js-info" data-mapa>
+      <div class="mapa revelar">
+        <div class="cuerpo">
+          <svg viewBox="0 0 200 440" aria-hidden="true">
+            <g class="silueta">
+              <circle cx="100" cy="38" r="23"/>
+              <rect x="91" y="56" width="18" height="24" rx="7"/>
+              <path d="M70 84 Q100 76 130 84 Q146 88 145 108 L131 206 Q129 232 135 252 L65 252 Q71 232 69 206 L55 108 Q54 88 70 84 Z"/>
+              <path d="M58 92 Q46 96 44 118 L36 186 Q35 196 37 214 L34 252 Q34 262 42 262 Q48 260 48 250 L52 214 Q56 196 56 186 L64 128 Z"/>
+              <path d="M142 92 Q154 96 156 118 L164 186 Q165 196 163 214 L166 252 Q166 262 158 262 Q152 260 152 250 L148 214 Q144 196 144 186 L136 128 Z"/>
+              <path d="M66 246 L98 246 L96 330 Q95 344 94 356 L90 412 Q90 420 96 424 L96 432 L70 432 Q68 424 74 412 L74 356 Q72 344 72 330 Z"/>
+              <path d="M134 246 L102 246 L104 330 Q105 344 106 356 L110 412 Q110 420 104 424 L104 432 L130 432 Q132 424 126 412 L126 356 Q128 344 128 330 Z"/>
+            </g>
+            <g class="contorno">
+              <path d="M70 84 Q100 76 130 84 Q146 88 145 108 L131 206 Q129 232 135 252 L65 252 Q71 232 69 206 L55 108 Q54 88 70 84 Z"/>
+            </g>
+          </svg>
+          <button type="button" class="punto" style="left:50%;top:16%" data-zona-btn="cuello" aria-label="Cuello"></button>
+          <button type="button" class="punto" style="left:69%;top:21.5%" data-zona-btn="hombro" aria-label="Hombro"></button>
+          <button type="button" class="punto" style="left:21%;top:44%" data-zona-btn="muneca" aria-label="Codo o muñeca"></button>
+          <button type="button" class="punto" style="left:50%;top:47%" data-zona-btn="espalda" aria-label="Espalda baja"></button>
+          <button type="button" class="punto" style="left:62%;top:57%" data-zona-btn="cadera" aria-label="Cadera"></button>
+          <button type="button" class="punto" style="left:42.5%;top:76%" data-zona-btn="rodilla" aria-label="Rodilla"></button>
+          <button type="button" class="punto" style="left:58.5%;top:94%" data-zona-btn="tobillo" aria-label="Tobillo o pie"></button>
+        </div>
+        <div class="zonas" role="group" aria-label="Zona del dolor">
+          <button type="button" class="zona" data-zona-btn="cuello" aria-pressed="false">Cuello</button>
+          <button type="button" class="zona" data-zona-btn="hombro" aria-pressed="false">Hombro</button>
+          <button type="button" class="zona" data-zona-btn="muneca" aria-pressed="false">Codo o muñeca</button>
+          <button type="button" class="zona" data-zona-btn="espalda" aria-pressed="false">Espalda baja</button>
+          <button type="button" class="zona" data-zona-btn="cadera" aria-pressed="false">Cadera</button>
+          <button type="button" class="zona" data-zona-btn="rodilla" aria-pressed="true">Rodilla</button>
+          <button type="button" class="zona" data-zona-btn="tobillo" aria-pressed="false">Tobillo o pie</button>
+          <button type="button" class="zona" data-zona-btn="otra" aria-pressed="false">Otra zona</button>
+        </div>
+      </div>
+
+      <div class="panel revelar">
+        <div class="info" aria-live="polite">
+          <div data-info="rodilla" data-articulo="la rodilla"><h3>Rodilla</h3><p>Lo que más me cuentan: duele al subir escaleras, al ponerse de cuclillas, después de correr o tras una operación de ligamentos o menisco.</p></div>
+          <div data-info="cuello" data-articulo="el cuello"><h3>Cuello</h3><p>Lo que más me cuentan: rigidez al voltear, dolor que sube a la cabeza y muchas horas frente a la computadora o el celular.</p></div>
+          <div data-info="hombro" data-articulo="el hombro"><h3>Hombro</h3><p>Lo que más me cuentan: duele al levantar el brazo, al vestirse o al dormir de ese lado.</p></div>
+          <div data-info="muneca" data-articulo="el codo o la muñeca"><h3>Codo o muñeca</h3><p>Lo que más me cuentan: molesta al agarrar cosas, escribir, cargar bolsas o entrenar.</p></div>
+          <div data-info="espalda" data-articulo="la espalda baja"><h3>Espalda baja</h3><p>Lo que más me cuentan: duele al agacharse, al levantarse de la silla o después de cargar peso.</p></div>
+          <div data-info="cadera" data-articulo="la cadera"><h3>Cadera</h3><p>Lo que más me cuentan: molesta al caminar un rato, al subir escaleras o al acostarse de lado.</p></div>
+          <div data-info="tobillo" data-articulo="el tobillo o el pie"><h3>Tobillo o pie</h3><p>Lo que más me cuentan: un esguince que no termina de sanar o dolor en el talón con los primeros pasos de la mañana.</p></div>
+          <div data-info="otra" data-articulo="otra zona"><h3>Otra zona</h3><p>Cuéntame por WhatsApp qué sientes y dónde. Si no es algo que yo deba atender, te lo digo con sinceridad.</p></div>
+        </div>
+
+        <div class="campo">
+          <label class="campo-titulo vertical" for="dolor">Qué tanto duele <output id="dolor-txt" for="dolor">5 de 10 · Molesta bastante</output></label>
+          <input class="rango" id="dolor" type="range" min="0" max="10" step="1" value="5">
+          <div class="rango-escala" aria-hidden="true"><span>Casi nada</span><span>Insoportable</span></div>
+        </div>
+
+        <div class="campo">
+          <span class="campo-titulo" id="desde-t">Desde cuándo</span>
+          <div class="opciones" role="group" aria-labelledby="desde-t" data-grupo="desde">
+            <button type="button" class="opcion" aria-pressed="false" data-valor="hace unos días">Unos días</button>
+            <button type="button" class="opcion" aria-pressed="true" data-valor="hace unas semanas">Semanas</button>
+            <button type="button" class="opcion" aria-pressed="false" data-valor="hace varios meses">Meses</button>
+            <button type="button" class="opcion" aria-pressed="false" data-valor="después de una operación">Después de operarme</button>
+          </div>
+        </div>
+
+        <div class="campo">
+          <span class="campo-titulo" id="donde-t">Dónde prefieres</span>
+          <div class="opciones" role="group" aria-labelledby="donde-t" data-grupo="donde">
+            <button type="button" class="opcion" aria-pressed="true" data-valor="en el consultorio">Consultorio</button>
+            <button type="button" class="opcion" aria-pressed="false" data-valor="a domicilio">A domicilio</button>
+          </div>
+        </div>
+
+        <div class="burbuja-caja">
+          <span class="campo-titulo">Así me llega tu mensaje</span>
+          <p class="burbuja" id="burbuja">Hola, quisiera una evaluación con Movimiento Fisioterapia.
+Me duele la rodilla, 5 de 10.
+Empezó hace unas semanas.
+Prefiero en el consultorio.
+¿Qué día tienes disponible?</p>
+        </div>
+
+        <a class="btn btn-principal" id="enviar-dolor" data-magnetico href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20una%20evaluaci%C3%B3n%20con%20Movimiento%20Fisioterapia.%0AMe%20duele%20la%20rodilla%2C%205%20de%2010.%0AEmpez%C3%B3%20hace%20unas%20semanas.%0APrefiero%20en%20el%20consultorio.%0A%C2%BFQu%C3%A9%20d%C3%ADa%20tienes%20disponible%3F" target="_blank" rel="noopener" data-wa-plantilla="Hola, quisiera una evaluación con {{NOMBRE}}.
+Me duele la rodilla, 5 de 10.
+Empezó hace unas semanas.
+Prefiero en el consultorio.
+¿Qué día tienes disponible?">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg>
+          Enviar por WhatsApp
+        </a>
+        <p class="aviso-medico">Esto no es un diagnóstico. Sirve para que la primera consulta rinda más.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="trat" id="tratamientos">
+  <div class="contenedor">
+    <div class="trat-cabeza revelar-grupo">
+      <div><span class="pre">Lo que atiendo</span><h2 style="margin-top:14px">Seis motivos <em>frecuentes.</em></h2></div>
+      <p>Cada plan sale de la evaluación. Estos son los casos que más llegan, con su precio por sesión para que sepas a qué atenerte.</p>
+    </div>
+
+    <div class="trat-lista revelar-mascara">
+      <article class="trat-item destacado">
+        <div class="foto"><img src="assets/img/deporte-1000.webp" srcset="assets/img/deporte-600.webp 600w, assets/img/deporte-1000.webp 1000w" sizes="(min-width:1000px) 30vw, (min-width:700px) 46vw, 100vw" width="1000" height="1778" loading="lazy" alt="Corredora en una carrera con vendaje kinesiológico en las piernas"><span class="etiqueta">El que más piden</span></div>
+        <div class="cuerpo-t">
+          <h3>Lesiones deportivas</h3>
+          <p>Para volver a correr, entrenar o jugar sin estar pendiente de la lesión. Incluye vendaje neuromuscular cuando hace falta.</p>
+          <div class="trat-pie"><span class="precio">$18 <small>por sesión</small></span><a class="preguntar" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20la%20rehabilitaci%C3%B3n%20de%20lesiones%20deportivas%20con%20Movimiento%20Fisioterapia." target="_blank" rel="noopener" data-wa-plantilla="Hola, quisiera información sobre la rehabilitación de lesiones deportivas con {{NOMBRE}}.">Preguntar <span aria-hidden="true">→</span></a></div>
+        </div>
+      </article>
+      <article class="trat-item">
+        <img src="assets/img/espalda-1000.webp" srcset="assets/img/espalda-600.webp 600w, assets/img/espalda-1000.webp 1000w" sizes="(min-width:700px) 32vw, 104px" width="1000" height="668" loading="lazy" alt="Manos de fisioterapeuta trabajando la espalda de un paciente">
+        <div class="cuerpo-t">
+          <h3>Espalda y cuello</h3>
+          <p>Contracturas, dolor lumbar y la tensión de pasar el día sentado.</p>
+          <div class="trat-pie"><span class="precio">$15 <small>por sesión</small></span><a class="preguntar" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20el%20tratamiento%20de%20espalda%20y%20cuello%20con%20Movimiento%20Fisioterapia." target="_blank" rel="noopener" data-wa-plantilla="Hola, quisiera información sobre el tratamiento de espalda y cuello con {{NOMBRE}}.">Preguntar <span aria-hidden="true">→</span></a></div>
+        </div>
+      </article>
+      <article class="trat-item">
+        <img src="assets/img/rodilla-1100.webp" srcset="assets/img/rodilla-640.webp 640w, assets/img/rodilla-1100.webp 1100w" sizes="(min-width:700px) 32vw, 104px" width="1100" height="734" loading="lazy" alt="Fisioterapeuta evaluando la rodilla de un paciente en la camilla">
+        <div class="cuerpo-t">
+          <h3>Rodilla y post operatorio</h3>
+          <p>Después de ligamentos, menisco o prótesis, paso a paso y de la mano con tu traumatólogo.</p>
+          <div class="trat-pie"><span class="precio">$18 <small>por sesión</small></span><a class="preguntar" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20la%20rehabilitaci%C3%B3n%20post%20operatoria%20con%20Movimiento%20Fisioterapia." target="_blank" rel="noopener" data-wa-plantilla="Hola, quisiera información sobre la rehabilitación post operatoria con {{NOMBRE}}.">Preguntar <span aria-hidden="true">→</span></a></div>
+        </div>
+      </article>
+      <article class="trat-item">
+        <img src="assets/img/hombro-1000.webp" srcset="assets/img/hombro-600.webp 600w, assets/img/hombro-1000.webp 1000w" sizes="(min-width:700px) 32vw, 104px" width="1000" height="667" loading="lazy" alt="Fisioterapeuta movilizando el hombro de un paciente">
+        <div class="cuerpo-t">
+          <h3>Hombro</h3>
+          <p>Para volver a levantar el brazo, vestirte y dormir de ese lado sin pensarlo dos veces.</p>
+          <div class="trat-pie"><span class="precio">$15 <small>por sesión</small></span><a class="preguntar" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20el%20tratamiento%20de%20hombro%20con%20Movimiento%20Fisioterapia." target="_blank" rel="noopener" data-wa-plantilla="Hola, quisiera información sobre el tratamiento de hombro con {{NOMBRE}}.">Preguntar <span aria-hidden="true">→</span></a></div>
+        </div>
+      </article>
+      <article class="trat-item">
+        <img src="assets/img/ejercicio-1000.webp" srcset="assets/img/ejercicio-600.webp 600w, assets/img/ejercicio-1000.webp 1000w" sizes="(min-width:700px) 32vw, 104px" width="1000" height="667" loading="lazy" alt="Paciente haciendo ejercicio con mancuernas guiada por el fisioterapeuta">
+        <div class="cuerpo-t">
+          <h3>Ejercicio terapéutico</h3>
+          <p>Fuerza y movilidad con una rutina corta que sí vas a repetir en casa.</p>
+          <div class="trat-pie"><span class="precio">$15 <small>por sesión</small></span><a class="preguntar" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20el%20ejercicio%20terap%C3%A9utico%20con%20Movimiento%20Fisioterapia." target="_blank" rel="noopener" data-wa-plantilla="Hola, quisiera información sobre el ejercicio terapéutico con {{NOMBRE}}.">Preguntar <span aria-hidden="true">→</span></a></div>
+        </div>
+      </article>
+      <article class="trat-item">
+        <img src="assets/img/pie-1000.webp" srcset="assets/img/pie-600.webp 600w, assets/img/pie-1000.webp 1000w" sizes="(min-width:700px) 32vw, 104px" width="1000" height="804" loading="lazy" alt="Fisioterapeuta con guantes revisando el tobillo y el pie de un paciente">
+        <div class="cuerpo-t">
+          <h3>Tobillo y pie</h3>
+          <p>Esguinces que se repiten, fascitis plantar y dolor en el talón.</p>
+          <div class="trat-pie"><span class="precio">$15 <small>por sesión</small></span><a class="preguntar" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20el%20tratamiento%20de%20tobillo%20y%20pie%20con%20Movimiento%20Fisioterapia." target="_blank" rel="noopener" data-wa-plantilla="Hola, quisiera información sobre el tratamiento de tobillo y pie con {{NOMBRE}}.">Preguntar <span aria-hidden="true">→</span></a></div>
+        </div>
+      </article>
+    </div>
+
+    <div class="extras revelar">
+      <div><span>Primera evaluación (60 min)</span><b>$20</b></div>
+      <div><span>Paquete de 10 sesiones</span><b>$130</b></div>
+      <div><span>Recargo a domicilio, por sesión</span><b>+$7</b></div>
+    </div>
+  </div>
+</section>
+
+<section class="pasos" id="como">
+  <div class="contenedor">
+    <div class="pasos-caja">
+      <span class="pre">Cómo trabajo</span>
+      <h2 class="revelar" style="margin-top:14px">De un mensaje a tu <em>primera sesión.</em></h2>
+      <div class="pasos-cuerpo" data-pasos>
+        <span class="riel" aria-hidden="true"><i></i></span>
+        <ol class="pasos-lista">
+        <li class="paso revelar"><span class="paso-num" aria-hidden="true">1</span><div><h3>Me escribes</h3><p>Me cuentas qué te duele y desde cuándo. Te respondo con los horarios libres de la semana.</p></div></li>
+        <li class="paso revelar"><span class="paso-num" aria-hidden="true">2</span><div><h3>Te evalúo</h3><p>Una hora para revisarte, explicarte qué pasa y decirte cuántas sesiones calculo, sin compromiso.</p></div></li>
+        <li class="paso revelar"><span class="paso-num" aria-hidden="true">3</span><div><h3>Trabajamos</h3><p>Sesiones de 45 minutos y una rutina en tu celular para los días que no nos vemos.</p></div></li>
+      </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="lugar" id="horario">
+  <div class="contenedor lugar-grid revelar-grupo">
+    <div class="lugar-bloque">
+      <h3>Horario</h3>
+      <ul class="horas" data-horas>
+        <li data-dias="1,2,3,4,5" data-abre="8" data-cierra="18"><span>Lun. a vie.</span><span>8 a. m. a 6 p. m.</span></li>
+        <li data-dias="6" data-abre="8" data-cierra="12"><span>Sábado</span><span>8 a. m. a 12 m.</span></li>
+        <li data-dias="0"><span>Domingo</span><span>Cerrado</span></li>
+      </ul>
+      <span class="estado" data-estado></span>
+    </div>
+    <div class="lugar-bloque oscuro">
+      <h3>Consultorio y domicilio</h3>
+      <p>Consultorio en <span data-zona>Mérida</span>. Te mando la ubicación exacta por WhatsApp al confirmar la cita.</p>
+      <ul>
+        <li>A domicilio con camilla portátil.</li>
+        <li>Pago móvil, Zelle o efectivo en divisas.</li>
+        <li>En bolívares, a la tasa del día.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="faq" id="preguntas">
+  <div class="contenedor faq-grid">
+    <div class="revelar"><span class="pre">Lo que siempre me preguntan</span><h2 style="margin-top:14px">Antes de la <em>primera cita.</em></h2></div>
+    <div class="revelar">
+      <details open><summary>¿Necesito orden médica?<i aria-hidden="true"></i></summary><p>No es obligatoria para la evaluación. Si tienes informes, resonancias o rayos X, tráelos: ayudan mucho a entender tu caso.</p></details>
+      <details><summary>¿Qué ropa llevo?<i aria-hidden="true"></i></summary><p>Ropa cómoda que deje ver la zona: short si es rodilla o tobillo, franelilla si es hombro o espalda.</p></details>
+      <details><summary>¿Cuántas sesiones voy a necesitar?<i aria-hidden="true"></i></summary><p>Depende de cada caso. Después de la evaluación te doy un estimado honesto y lo vamos ajustando según cómo respondas.</p></details>
+      <details><summary>¿Vas a domicilio?<i aria-hidden="true"></i></summary><p>Sí, dentro de <span data-zona>Mérida</span>, con camilla portátil. Tiene un recargo de $7 por sesión por el traslado.</p></details>
+      <details><summary>¿Y si me operaron hace poco?<i aria-hidden="true"></i></summary><p>Trae el informe de la operación. Trabajo con las indicaciones de tu traumatólogo y no avanzamos más rápido de lo que él autorice.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="cierre pegar" id="cita">
+  <span class="tape" style="--c:var(--rosa);--l:260px;--r:-18deg;left:-40px;top:46px" aria-hidden="true"></span>
+  <span class="tape" style="--c:var(--cian);--l:240px;--r:-18deg;right:-50px;bottom:56px;--d:.3s" aria-hidden="true"></span>
+  <div class="contenedor">
+    <h2 class="revelar">Moverte bien empieza con <em>un mensaje.</em></h2>
+    <p class="revelar">Cuéntame qué te pasa y te digo qué día te puedo ver. Respondo el mismo día.</p>
+    <a class="btn btn-principal revelar" data-magnetico href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20pedir%20una%20evaluaci%C3%B3n%20con%20Movimiento%20Fisioterapia.%20%C2%BFQu%C3%A9%20d%C3%ADa%20tienes%20disponible%3F" target="_blank" rel="noopener" data-wa-plantilla="Hola, quisiera pedir una evaluación con {{NOMBRE}}. ¿Qué día tienes disponible?">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg>
+      Escribir por WhatsApp
+    </a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="contenedor pie">
+    <div>
+      <span class="logo-txt" data-nombre>Movimiento Fisioterapia</span>
+      <p style="margin-top:8px">Fisioterapia en <span data-zona>Mérida</span> · WhatsApp <a href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20Movimiento%20Fisioterapia." target="_blank" rel="noopener" data-wa-plantilla="Hola, quisiera información sobre {{NOMBRE}}.">+58 000 0000000</a></p>
+    </div>
+    <p class="aviso">Página de ejemplo con datos ficticios · Fotos referenciales</p>
+  </div>
+</footer>
+
+<a class="wa-flotante" aria-label="Escribir por WhatsApp" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20pedir%20una%20cita%20con%20Movimiento%20Fisioterapia." target="_blank" rel="noopener" data-wa-plantilla="Hola, quisiera pedir una cita con {{NOMBRE}}.">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.31l-.34-.2-3.57.94.95-3.48-.22-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.23-9.43 9.44-9.43a9.43 9.43 0 0 1 9.43 9.44c0 5.2-4.23 9.43-9.44 9.43zm8.03-17.46A11.27 11.27 0 0 0 12.05.72C5.79.72.7 5.81.7 12.07c0 2 .52 3.95 1.52 5.67L.6 23.65l6.05-1.59a11.33 11.33 0 0 0 5.4 1.38h.01c6.26 0 11.35-5.09 11.35-11.35 0-3.03-1.18-5.88-3.33-8.03z"/></svg>
+</a>
+
+<script>
+(function () {
+  function safe(fn, nombre) { try { fn(); } catch (e) { console.warn("[" + nombre + "]", e); } }
+  var reducir = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var finoMouse = matchMedia("(hover: hover) and (pointer: fine)").matches;
+  var NEGOCIO = document.body.getAttribute("data-negocio");
+  var NUMERO = "580000000000";
+
+  function initModelo() {
+    var q = new URLSearchParams(location.search);
+    var limpiar = function (v) { return (v || "").replace(/\s+/g, " ").trim().slice(0, 60); };
+    var nombre = limpiar(q.get("n")), zona = limpiar(q.get("z"));
+    if (zona) document.querySelectorAll("[data-zona]").forEach(function (el) { el.textContent = zona; });
+    if (nombre) {
+      NEGOCIO = nombre;
+      document.querySelectorAll("[data-nombre]").forEach(function (el) { el.textContent = nombre; });
+      document.title = nombre + " · " + (zona || "Fisioterapia");
+      document.querySelectorAll("a[data-wa-plantilla]").forEach(function (a) {
+        a.href = a.href.split("?")[0] + "?text=" + encodeURIComponent(a.dataset.waPlantilla.split("{{NOMBRE}}").join(nombre));
+      });
+    }
+  }
+
+  function initNav() {
+    var nav = document.querySelector("[data-nav]"); if (!nav) return;
+    var marcar = function () { nav.classList.toggle("solido", scrollY > 30); };
+    addEventListener("scroll", marcar, { passive: true }); marcar();
+  }
+
+  function initPartir() {
+    document.querySelectorAll("[data-partir]").forEach(function (el) {
+      if (el.querySelector(".p")) return;
+      var i = 0;
+      var lector = document.createElement("span"); lector.className = "solo-lector"; lector.textContent = el.textContent;
+      (function partir(nodo) {
+        Array.prototype.slice.call(nodo.childNodes).forEach(function (n) {
+          if (n.nodeType === 3) {
+            var frag = document.createDocumentFragment();
+            n.textContent.split(/(\s+)/).forEach(function (t) {
+              if (/^\s+$/.test(t) || t === "") { frag.appendChild(document.createTextNode(t)); return; }
+              var s = document.createElement("span"); s.className = "p"; s.style.setProperty("--i", i++);
+              s.setAttribute("aria-hidden", "true"); s.textContent = t; frag.appendChild(s);
+            });
+            nodo.replaceChild(frag, n);
+          } else if (n.nodeType === 1 && n.tagName !== "BR") partir(n);
+        });
+      })(el);
+      el.insertBefore(lector, el.firstChild);
+      requestAnimationFrame(function () { requestAnimationFrame(function () { el.classList.add("visible"); }); });
+    });
+  }
+
+  function initRevelar() {
+    var els = document.querySelectorAll(".revelar,.revelar-grupo,.revelar-mascara,.pegar");
+    if (!("IntersectionObserver" in window)) { els.forEach(function (e) { e.classList.add("visible", "listo"); }); return; }
+    var io = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        var t = en.target; t.classList.add("visible"); io.unobserve(t);
+        setTimeout(function () { t.classList.add("listo"); }, 1000);
+      });
+    }, { threshold: 0.01, rootMargin: "0px 0px -4% 0px" });
+    els.forEach(function (e) { io.observe(e); });
+    setTimeout(function () {
+      els.forEach(function (e) { if (e.getBoundingClientRect().top < innerHeight * 1.2) e.classList.add("visible", "listo"); });
+    }, 6000);
+  }
+
+  function initContadores() {
+    if (reducir || !("IntersectionObserver" in window)) return;
+    var io = new IntersectionObserver(function (en) {
+      en.forEach(function (e) {
+        if (!e.isIntersecting) return; io.unobserve(e.target);
+        var el = e.target, fin = +el.dataset.contar, t0 = performance.now();
+        if (fin < 2) return;
+        (function paso(t) {
+          var k = Math.min(1, (t - t0) / 1400), s = 1 - Math.pow(1 - k, 3);
+          el.textContent = Math.round(fin * s);
+          if (k < 1) requestAnimationFrame(paso);
+        })(t0);
+      });
+    }, { threshold: 0.01 });
+    document.querySelectorAll("[data-contar]").forEach(function (e) { io.observe(e); });
+  }
+
+  // la foto de portada baja más lento que la página, y el riel de pasos se "pega" con el scroll
+  function initScroll() {
+    var foto = document.querySelector("[data-paralaje]");
+    var pasos = document.querySelector("[data-pasos]");
+    var riel = pasos && pasos.querySelector(".riel");
+    var items = pasos ? pasos.querySelectorAll(".paso") : [];
+    var pendiente = false;
+    function mover() {
+      pendiente = false;
+      if (foto && !reducir && innerWidth >= 900 && scrollY < innerHeight * 1.2) foto.parentNode.style.transform = "translateY(" + Math.min(60, scrollY * 0.12).toFixed(1) + "px)";
+      if (riel) {
+        var r = pasos.getBoundingClientRect();
+        var k = Math.min(1, Math.max(0, (innerHeight * 0.75 - r.top) / (r.height || 1)));
+        riel.style.setProperty("--avance", k.toFixed(3));
+        items.forEach(function (it, i) { it.classList.toggle("encendido", k >= (i + 0.35) / items.length); });
+      }
+    }
+    addEventListener("scroll", function () { if (!pendiente) { pendiente = true; requestAnimationFrame(mover); } }, { passive: true });
+    addEventListener("resize", mover);
+    mover();
+  }
+
+  // firma: ¿dónde te duele? arma el mensaje de WhatsApp
+  function initMapa() {
+    var raiz = document.querySelector("[data-mapa]"); if (!raiz) return;
+    raiz.classList.remove("no-js-info");
+    var estado = { zona: "rodilla", dolor: 5, desde: "hace unas semanas", donde: "en el consultorio" };
+    var rango = raiz.querySelector("#dolor"), salida = raiz.querySelector("#dolor-txt");
+    var burbuja = raiz.querySelector("#burbuja"), enviar = raiz.querySelector("#enviar-dolor");
+    var palabras = ["Casi nada", "Muy leve", "Leve", "Molesta", "Molesta", "Molesta bastante", "Molesta bastante", "Fuerte", "Fuerte", "Muy fuerte", "Insoportable"];
+
+    function mensaje() {
+      var info = raiz.querySelector('[data-info="' + estado.zona + '"]');
+      var lineas = ["Hola, quisiera una evaluación con " + NEGOCIO + "."];
+      if (estado.zona === "otra") lineas.push("Me duele otra zona (te explico por aquí), " + estado.dolor + " de 10.");
+      else lineas.push("Me duele " + info.dataset.articulo + ", " + estado.dolor + " de 10.");
+      lineas.push(estado.desde === "después de una operación" ? "Empezó después de una operación." : "Empezó " + estado.desde + ".");
+      lineas.push("Prefiero " + estado.donde + ".");
+      lineas.push("¿Qué día tienes disponible?");
+      return lineas.join("\n");
+    }
+    function pintar(animar) {
+      raiz.querySelectorAll("[data-info]").forEach(function (d) { d.classList.toggle("activa", d.dataset.info === estado.zona); });
+      raiz.querySelectorAll(".zona").forEach(function (b) { b.setAttribute("aria-pressed", b.dataset.zonaBtn === estado.zona); });
+      raiz.querySelectorAll(".punto").forEach(function (b) {
+        b.classList.toggle("activo", b.dataset.zonaBtn === estado.zona);
+        b.style.setProperty("--dolor", estado.dolor);
+      });
+      salida.textContent = estado.dolor + " de 10 · " + palabras[estado.dolor];
+      var m = mensaje();
+      burbuja.textContent = m;
+      enviar.href = "https://wa.me/" + NUMERO + "?text=" + encodeURIComponent(m);
+      if (animar) { burbuja.classList.remove("pulso"); void burbuja.offsetWidth; burbuja.classList.add("pulso"); }
+    }
+    raiz.querySelectorAll("[data-zona-btn]").forEach(function (b) {
+      b.addEventListener("click", function () { estado.zona = b.dataset.zonaBtn; pintar(true); });
+    });
+    rango.addEventListener("input", function () { estado.dolor = +rango.value; pintar(false); });
+    rango.addEventListener("change", function () { pintar(true); });
+    raiz.querySelectorAll("[data-grupo]").forEach(function (g) {
+      g.querySelectorAll(".opcion").forEach(function (b) {
+        b.addEventListener("click", function () {
+          g.querySelectorAll(".opcion").forEach(function (o) { o.setAttribute("aria-pressed", o === b); });
+          estado[g.dataset.grupo] = b.dataset.valor; pintar(true);
+        });
+      });
+    });
+    estado.dolor = +rango.value;
+    pintar(false);
+  }
+
+  function initHorario() {
+    var lista = document.querySelector("[data-horas]"), marca = document.querySelector("[data-estado]");
+    if (!lista || !marca) return;
+    // hora de Venezuela (UTC-4) sin depender de la zona del visitante
+    var ahora = new Date(Date.now() - 4 * 3600 * 1000);
+    var dia = ahora.getUTCDay(), hora = ahora.getUTCHours() + ahora.getUTCMinutes() / 60;
+    var abierto = false;
+    lista.querySelectorAll("li").forEach(function (li) {
+      var dias = li.dataset.dias.split(",").map(Number);
+      if (dias.indexOf(dia) === -1) return;
+      li.classList.add("hoy");
+      if (li.dataset.abre && hora >= +li.dataset.abre && hora < +li.dataset.cierra) abierto = true;
+    });
+    marca.textContent = abierto ? "Atendiendo ahora" : "Ahora cerrado · escríbeme y te respondo al abrir";
+    marca.classList.toggle("abierto", abierto);
+  }
+
+  function initMagnetico() {
+    if (!finoMouse || reducir) return;
+    document.querySelectorAll("[data-magnetico]").forEach(function (b) {
+      b.addEventListener("pointermove", function (e) {
+        var r = b.getBoundingClientRect();
+        b.style.transform = "translate(" + ((e.clientX - r.left - r.width / 2) * .18) + "px," + ((e.clientY - r.top - r.height / 2) * .3) + "px)";
+      });
+      b.addEventListener("pointerleave", function () { b.style.transform = ""; });
+    });
+  }
+
+  function initPausa() {
+    document.addEventListener("visibilitychange", function () { document.body.classList.toggle("pausado", document.hidden); });
+  }
+
+  safe(initModelo, "modelo");
+  safe(initNav, "nav");
+  safe(initPartir, "partir");
+  safe(initRevelar, "revelar");
+  safe(initContadores, "contadores");
+  safe(initScroll, "scroll");
+  safe(initMapa, "mapa");
+  safe(initHorario, "horario");
+  safe(initMagnetico, "magnetico");
+  safe(initPausa, "pausa");
+})();
+</script>
+</body>
+</html>
