@@ -1,0 +1,1124 @@
+<!doctype html>
+<html lang="es-VE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>
+/* =====================================================================
+   CONFIGURACIÓN DE LA TIENDA
+   Todo lo que cambia está aquí. El diseño no se toca.
+   - Catálogo: sale de una hoja de Google Sheets publicada como CSV (HOJA_CSV).
+     Mientras HOJA_CSV esté vacío, se usa catalogo-ejemplo.csv (en esta carpeta).
+     Guía: clientes/nua/COMO-ACTUALIZAR-CATALOGO.md (carpeta de la agencia).
+   - WhatsApp: código de país + número, sin "+" ni el cero (0414 123 4567 -> 584141234567).
+   - Lo que dice [POR CONFIRMAR] no se muestra como dato: sale "Por confirmar"
+     o se oculta, hasta que se cambie.
+   Después de editar, corre hornear_web.py (skill webs-carlos).
+   ===================================================================== */
+var CONFIG = {
+  HOJA_CSV: "",
+  catalogoEjemplo: "catalogo-ejemplo.csv",
+  carpetaFotos: "assets/productos/",
+  // true mientras las fotos del catálogo sean de referencia (no de la tienda)
+  fotosReferenciales: true,
+
+  marca: {
+    nombre: "Nua",
+    logo: "assets/logo.png",
+    logoClaro: "assets/logo-claro.png",
+    tipoRopa: "[POR CONFIRMAR]",          // ej.: "Ropa de dama"
+    ciudad: "[POR CONFIRMAR]",
+    whatsapp: "580000000000",            // [POR CONFIRMAR] número real
+    instagram: "[POR CONFIRMAR]",         // usuario sin @
+    descripcion: "Ropa bajo pedido: elige el modelo, tu talla y tu color, y encárgalo por WhatsApp."
+  },
+  tiempoEntrega: "[POR CONFIRMAR]",      // tiempo general, ej.: "5 a 7 días"
+  moneda: "$",
+  mensajes: {
+    general: "Hola, {{NOMBRE}}. Vi el catálogo y quiero información.",
+    pedido: "Hola, {{NOMBRE}}. Quiero encargar:",
+    bajoPedido: "Entiendo que es bajo pedido.",
+    cierre: "¿Me confirman el tiempo de entrega y cómo pago?",
+    uno: "Hola, {{NOMBRE}}. Quiero encargar el modelo {{MODELO}}. ¿Qué tallas y colores tienen?",
+    agotado: "Hola, {{NOMBRE}}. ¿Van a volver a hacer el modelo {{MODELO}}?",
+    tallas: "Hola, {{NOMBRE}}. No sé cuál es mi talla. Estas son mis medidas: busto __ cm, cintura __ cm, cadera __ cm."
+  },
+  guiaTallas: {
+    columnas: ["Busto", "Cintura", "Cadera"],
+    filas: [
+      { talla: "XS", medidas: ["[POR CONFIRMAR]", "[POR CONFIRMAR]", "[POR CONFIRMAR]"] },
+      { talla: "S",  medidas: ["[POR CONFIRMAR]", "[POR CONFIRMAR]", "[POR CONFIRMAR]"] },
+      { talla: "M",  medidas: ["[POR CONFIRMAR]", "[POR CONFIRMAR]", "[POR CONFIRMAR]"] },
+      { talla: "L",  medidas: ["[POR CONFIRMAR]", "[POR CONFIRMAR]", "[POR CONFIRMAR]"] },
+      { talla: "XL", medidas: ["[POR CONFIRMAR]", "[POR CONFIRMAR]", "[POR CONFIRMAR]"] }
+    ]
+  },
+  preguntas: [
+    { p: "¿Cuánto tarda mi pedido?", r: "Depende del modelo: el tiempo aparece en cada prenda del catálogo. Te lo confirmamos cuando encargas." },
+    { p: "¿Cómo se paga?", r: "[POR CONFIRMAR]" },
+    { p: "¿Se paga por adelantado?", r: "[POR CONFIRMAR]" },
+    { p: "¿Hacen entregas o envíos?", r: "[POR CONFIRMAR]" },
+    { p: "¿Puedo cambiar la talla si no me queda?", r: "[POR CONFIRMAR]" }
+  ],
+  vistaPrevia: "Vista previa · Catálogo de ejemplo",
+  aviso: "Catálogo y fotos de ejemplo. Las fotos son referenciales: no son prendas de la tienda."
+};
+document.documentElement.classList.add("js");
+</script>
+<meta name="robots" content="noindex, nofollow">
+<meta name="color-scheme" content="only light">
+<title>Nua · Ropa bajo pedido</title>
+<meta name="description" content="Ropa bajo pedido: elige el modelo, tu talla y tu color, y encárgalo por WhatsApp.">
+<meta name="theme-color" content="#F4ECE0">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://thecarlos583.github.io/Paginas_webs/vista-previa/tienda-dzqk/">
+<meta property="og:image" content="https://thecarlos583.github.io/Paginas_webs/vista-previa/tienda-dzqk/assets/compartir.jpg">
+<meta property="og:title" content="Nua · Ropa bajo pedido">
+<meta property="og:description" content="Ropa bajo pedido: elige el modelo, tu talla y tu color, y encárgalo por WhatsApp.">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/icono-180.png">
+<link rel="preload" href="assets/fuentes/gloock.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Gloock";src:url("assets/fuentes/gloock.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Schibsted Grotesk";src:url("assets/fuentes/schibsted.woff2") format("woff2");font-weight:400 700;font-style:normal;font-display:swap}
+
+:root{
+  color-scheme:only light;
+  --crema:#F4ECE0; --papel:#ECE1D1; --lino:#E2D4C0; --arena:#C8B39A;
+  --tinta:#4B3127; --tinta-2:#6F5546; --espresso:#2B1B15; --sobre-oscuro:#F4ECE0; --suave-oscuro:#CDBBA8;
+  --cinta:#EBDDBF;
+  --serif:"Gloock","Didot","Bodoni MT",Georgia,serif;
+  --sans:"Schibsted Grotesk","Segoe UI",system-ui,-apple-system,Roboto,sans-serif;
+  --suave:cubic-bezier(.22,.61,.36,1); --salto:cubic-bezier(.34,1.56,.64,1);
+  --franja:28px; --cab:88px;
+  --borde:rgba(75,49,39,.16);
+  --picos:polygon(0% 0%,8.3% 7%,16.7% 0%,25% 7%,33.3% 0%,41.7% 7%,50% 0%,58.3% 7%,66.7% 0%,75% 7%,83.3% 0%,91.7% 7%,100% 0%,93% 8.3%,100% 16.7%,93% 25%,100% 33.3%,93% 41.7%,100% 50%,93% 58.3%,100% 66.7%,93% 75%,100% 83.3%,93% 91.7%,100% 100%,91.7% 93%,83.3% 100%,75% 93%,66.7% 100%,58.3% 93%,50% 100%,41.7% 93%,33.3% 100%,25% 93%,16.7% 100%,8.3% 93%,0% 100%,7% 91.7%,0% 83.3%,7% 75%,0% 66.7%,7% 58.3%,0% 50%,7% 41.7%,0% 33.3%,7% 25%,0% 16.7%,7% 8.3%);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--cab) + 12px);overflow-x:hidden;overflow-x:clip;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--crema);color:var(--tinta);font-family:var(--sans);font-size:16px;line-height:1.6;overflow-x:hidden;overflow-x:clip;-webkit-font-smoothing:antialiased}
+/* tejido de lino muy suave sobre toda la página */
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.5;
+  background:repeating-linear-gradient(0deg,rgba(75,49,39,.022) 0 1px,transparent 1px 3px),repeating-linear-gradient(90deg,rgba(75,49,39,.02) 0 1px,transparent 1px 4px)}
+img{max-width:100%;display:block}
+a{color:inherit}
+button{font:inherit;color:inherit}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.02;margin:0;letter-spacing:-.01em}
+p{margin:0}
+.contenedor{width:100%;max-width:1200px;margin-inline:auto;padding-inline:16px}
+@media (min-width:700px){.contenedor{padding-inline:32px}}
+.solo-lector{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+:focus-visible{outline:2px solid var(--tinta);outline-offset:3px}
+::selection{background:var(--tinta);color:var(--crema)}
+.precio,.chip span,.tabla td,.cant output,.bolsa .n{font-variant-numeric:tabular-nums}
+main,footer,header{position:relative;z-index:1}
+svg.i{width:20px;height:20px;flex:none}
+
+/* ---------- botones ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:12px 22px;border-radius:999px;border:1.5px solid var(--tinta);
+  font-weight:600;font-size:15px;letter-spacing:.01em;text-decoration:none;cursor:pointer;position:relative;overflow:hidden;isolation:isolate;
+  transition:transform .35s var(--salto),color .3s var(--suave)}
+.btn-lleno{background:var(--tinta);color:var(--crema)}
+.btn-linea{background:transparent;color:var(--tinta)}
+/* al pasar, una capa de tela sube desde abajo */
+.btn::after{content:"";position:absolute;inset:0;z-index:-1;background:var(--espresso);transform:translateY(101%);transition:transform .45s var(--suave)}
+.btn-linea::after{background:var(--tinta)}
+@media (hover:hover) and (pointer:fine){.btn:hover::after{transform:none}.btn-linea:hover{color:var(--crema)}}
+.btn:active{transform:scale(.97)}
+.btn svg{width:19px;height:19px}
+
+/* ---------- franja y cabecera ---------- */
+.tapa{position:fixed;left:0;right:0;top:-400px;height:400px;background:var(--espresso);z-index:60}
+.franja{position:fixed;top:0;left:0;right:0;z-index:60;height:calc(var(--franja) + env(safe-area-inset-top));padding-top:env(safe-area-inset-top);margin:0;
+  display:flex;align-items:center;justify-content:center;gap:8px;background:var(--espresso);color:var(--sobre-oscuro);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.franja i{width:6px;height:6px;border-radius:50%;background:var(--cinta)}
+.cab{position:fixed;top:calc(var(--franja) + env(safe-area-inset-top));left:0;right:0;z-index:50;height:60px;background:rgba(244,236,224,.92);
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .3s}
+.cab.solida{border-color:var(--borde)}
+.cab .contenedor{height:100%;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{display:inline-flex;align-items:center;text-decoration:none}
+.logo img{height:34px;width:auto}
+.cab-links{display:none;gap:28px;font-size:14px;font-weight:500}
+.cab-links a{text-decoration:none;position:relative;padding:6px 0}
+.cab-links a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .4s var(--suave)}
+.cab-links a:hover::after{transform:scaleX(1);transform-origin:left}
+@media (min-width:900px){.cab-links{display:flex}}
+.bolsa{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:8px 14px;border-radius:999px;border:1.5px solid var(--tinta);background:transparent;cursor:pointer;font-weight:600;font-size:14px}
+.bolsa svg{width:19px;height:19px}
+.bolsa .n{min-width:22px;height:22px;padding:0 6px;border-radius:999px;background:var(--tinta);color:var(--crema);font-size:12px;display:inline-grid;place-items:center}
+.bolsa .n.salta{animation:salta .5s var(--salto)}
+@keyframes salta{40%{transform:scale(1.35)}100%{transform:none}}
+
+/* ---------- portada: el probador ---------- */
+.portada{padding-top:calc(var(--cab) + env(safe-area-inset-top) + 22px);padding-bottom:56px}
+.portada .contenedor{display:grid;gap:30px}
+.rotulo{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--tinta-2)}
+.rotulo::before{content:"";width:22px;height:1px;background:currentColor}
+.portada h1{font-size:clamp(3.4rem,15.5vw,7.4rem);line-height:.93;margin:14px 0 18px;perspective:600px}
+.portada h1 .linea{display:block}
+.portada h1 .linea span{display:inline-block;transform-origin:50% 0}
+.portada h1 .linea:nth-child(2){padding-left:.42em}
+.portada h1 .linea:nth-child(3){position:relative}
+.puntada{display:block;width:3.15em;height:8px;margin-top:-.02em;overflow:hidden}
+.puntada i{display:block;height:100%;
+  background:repeating-linear-gradient(90deg,var(--tinta) 0 9px,transparent 9px 15px) 0 50%/100% 2px no-repeat}
+/* el titular se despliega línea por línea, como una prenda que se desdobla */
+.js .portada h1 .linea span{animation:desdobla 1.05s var(--suave) both}
+.js .portada h1 .linea:nth-child(1) span{animation-delay:.1s}
+.js .portada h1 .linea:nth-child(2) span{animation-delay:.28s}
+.js .portada h1 .linea:nth-child(3) span{animation-delay:.46s}
+.js .puntada i{animation:cose 1.2s var(--suave) 1s both}
+@keyframes desdobla{from{opacity:0;transform:rotateX(-88deg) translateY(.12em)}to{opacity:1;transform:none}}
+@keyframes cose{from{transform:translateX(-101%)}to{transform:none}}
+.lema{font-size:17px;max-width:30em;color:var(--tinta-2)}
+.js .entra{animation:entra .9s var(--suave) both}
+.js .entra.d1{animation-delay:.55s}.js .entra.d2{animation-delay:.7s}
+@keyframes entra{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.botones{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.botones .btn{flex:1 1 auto}
+@media (min-width:480px){.botones .btn{flex:0 0 auto}}
+
+.probador{position:relative;max-width:470px;width:100%;justify-self:center}
+.barral{position:relative;height:14px;margin:0 -6px}
+.barral::before{content:"";position:absolute;left:0;right:0;top:5px;height:3px;border-radius:3px;background:var(--tinta)}
+.marco{position:relative;aspect-ratio:4/5;background:var(--papel);border-radius:2px}
+.looks{position:absolute;inset:0;overflow:hidden}
+.cortina-caja{position:absolute;top:-14px;left:0;right:0;bottom:0;overflow:hidden;z-index:3;pointer-events:none}
+.look{position:absolute;inset:-6% 0 -6% 0;opacity:0;transition:opacity .01s linear .3s}
+.look.activo{opacity:1;transition:none}
+.look img,.look .vacia{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.look img{z-index:1}
+/* cortina del probador: en reposo queda recogida a la izquierda */
+.cortina{position:absolute;inset:0;transform:translateX(calc(-100% + 22px));transition:transform .62s cubic-bezier(.65,0,.35,1)}
+.cortina .tela{position:absolute;inset:14px 0 0 0;background:
+  linear-gradient(90deg,rgba(43,27,21,.18),transparent 18%,transparent 82%,rgba(43,27,21,.22)),
+  repeating-linear-gradient(90deg,#D8C7AF 0 9px,#CDB99E 9px 15px,#E2D3BE 15px 24px,#C9B497 24px 30px);
+  transform-origin:0 0;animation:mece 7s ease-in-out infinite alternate}
+@keyframes mece{to{transform:scaleX(1.025) skewY(.4deg)}}
+.cortina .aros{position:absolute;top:0;left:0;right:0;height:16px;background:radial-gradient(circle at 50% 7px,transparent 4px,var(--tinta) 4.5px 6px,transparent 6.5px) 0 0/30px 16px repeat-x}
+.cortina.cerrada{transform:none}
+.marco .ref{left:32px;top:10px}
+.cinta-metrica{position:absolute;top:0;bottom:0;right:0;width:26px;overflow:hidden;z-index:2;background:var(--cinta);box-shadow:-1px 0 0 rgba(75,49,39,.18)}
+.cinta-metrica .pista{position:absolute;left:0;right:0;top:0;height:300%;will-change:transform;
+  background:repeating-linear-gradient(180deg,var(--tinta) 0 1px,transparent 1px 40px) 0 0/14px 100% no-repeat,
+             repeating-linear-gradient(180deg,rgba(75,49,39,.7) 0 1px,transparent 1px 8px) 0 0/7px 100% no-repeat}
+.cinta-metrica .pista span{position:absolute;right:3px;font-size:9px;font-weight:600;line-height:1;color:var(--tinta);transform:rotate(90deg);transform-origin:100% 0}
+.ref{position:absolute;z-index:2;left:8px;top:8px;padding:3px 8px;border-radius:2px;background:rgba(244,236,224,.86);font-size:10.5px;font-weight:600;letter-spacing:.04em;color:var(--tinta)}
+/* etiqueta colgante con el modelo del probador */
+.etiqueta{position:relative;z-index:4;margin:-46px 34px 0 auto;width:min(230px,70%);padding:16px 16px 14px;background:var(--crema);border:1px solid var(--borde);
+  border-radius:4px 4px 10px 10px;box-shadow:0 14px 30px -18px rgba(43,27,21,.55);transform-origin:50% -10px;transform:rotate(-2deg)}
+.etiqueta::before{content:"";position:absolute;top:8px;left:50%;width:9px;height:9px;margin-left:-4.5px;border-radius:50%;border:1.5px solid var(--tinta);background:var(--papel)}
+.etiqueta::after{content:"";position:absolute;bottom:100%;left:50%;width:1px;height:26px;background:var(--tinta);transform:rotate(14deg);transform-origin:bottom}
+.etiqueta.columpia{animation:columpia 1.1s var(--salto)}
+@keyframes columpia{0%{transform:rotate(-2deg)}30%{transform:rotate(5deg)}60%{transform:rotate(-4deg)}100%{transform:rotate(-2deg)}}
+.etiqueta small{display:block;margin-top:8px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--tinta-2)}
+.etiqueta b{display:block;font-family:var(--serif);font-weight:400;font-size:22px;line-height:1.1;margin:4px 0 6px;overflow-wrap:anywhere}
+.etiqueta .fila{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.etiqueta .precio{font-size:17px;font-weight:600}
+.etiqueta a{font-size:14px;font-weight:600;text-underline-offset:4px;min-height:44px;display:inline-flex;align-items:center}
+.muestras{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:18px}
+.muestras p{font-size:13px;color:var(--tinta-2);margin-right:4px}
+.muestra{width:36px;height:36px;padding:0;border:0;background:var(--c,#ccc);clip-path:var(--picos);cursor:pointer;position:relative;transition:transform .35s var(--salto)}
+.muestra[aria-pressed="true"]{transform:scale(1.18) rotate(8deg)}
+.muestra::after{content:"";position:absolute;inset:7px;border:1px dashed rgba(255,255,255,.65)}
+.muestra.clara::after{border-color:rgba(75,49,39,.45)}
+@media (pointer:coarse){.muestra{width:44px;height:44px}}
+@media (min-width:960px){
+  .portada{padding-top:calc(var(--cab) + 46px);padding-bottom:90px}
+  .portada .contenedor{grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);align-items:center;gap:56px}
+  .probador{justify-self:end}
+  .cinta-metrica{right:auto;left:100%;margin-left:14px;box-shadow:none}
+}
+
+/* ---------- secciones ---------- */
+.seccion{padding:84px 0;position:relative}
+@media (min-width:960px){.seccion{padding:120px 0}}
+.titulo{font-size:clamp(2.4rem,9.5vw,4.6rem)}
+.intro{font-size:17px;color:var(--tinta-2);max-width:34em;margin-top:14px}
+.js .revelar{opacity:0;transform:translateY(22px);transition:opacity .8s var(--suave),transform .8s var(--suave)}
+.js .revelar.visible{opacity:1;transform:none}
+
+/* cómo funciona: una costura que avanza con el scroll */
+.funciona{background:var(--papel)}
+.funciona .cabeza{display:grid;gap:8px;margin-bottom:46px}
+.pasos{list-style:none;margin:0;padding:0;position:relative;display:grid;gap:38px}
+.costura{position:absolute;left:21px;top:22px;bottom:22px;width:2px;overflow:hidden}
+.costura i{position:absolute;inset:0;background:repeating-linear-gradient(180deg,var(--tinta) 0 9px,transparent 9px 16px);transform:translateY(calc((var(--k,1) - 1) * 100%))}
+/* la aguja va delante de la costura; su punta queda justo donde termina el hilo */
+.aguja{position:absolute;z-index:2;left:-1px;top:-22px;width:46px;height:46px;display:grid;place-items:center;color:var(--tinta);transform:translateY(calc(var(--y,0) * 1px));will-change:transform}
+.aguja svg{width:20px;height:46px}
+.paso{position:relative;display:grid;grid-template-columns:44px minmax(0,1fr);gap:18px;align-items:start}
+.boton-cos{width:44px;height:44px;border-radius:50%;background:var(--crema);border:1.5px solid var(--tinta);display:grid;place-items:center;position:relative;z-index:1;
+  transition:transform .6s var(--salto),background .4s}
+.boton-cos::before{content:"";width:12px;height:12px;background:radial-gradient(circle,var(--tinta) 1.6px,transparent 2px) 0 0/6px 6px}
+.paso.cosido .boton-cos{background:var(--lino);transform:rotate(90deg)}
+.paso small{font-size:12px;font-weight:600;letter-spacing:.14em;color:var(--tinta-2)}
+.paso h3{font-size:28px;margin:4px 0 6px}
+.paso p{color:var(--tinta-2);max-width:26em}
+@media (min-width:960px){
+  .funciona .cabeza{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:end}
+  .pasos{grid-template-columns:repeat(4,minmax(0,1fr));gap:28px}
+  .costura{left:22px;right:22px;top:21px;bottom:auto;width:auto;height:2px}
+  .costura i{background:repeating-linear-gradient(90deg,var(--tinta) 0 9px,transparent 9px 16px);transform:translateX(calc((var(--k,1) - 1) * 100%))}
+  .aguja{top:-1px;left:-22px;transform:translateX(calc(var(--x,0) * 1px))}
+  .aguja svg{transform:rotate(-90deg)}
+  .paso{grid-template-columns:1fr;gap:20px}
+}
+
+/* ---------- catálogo ---------- */
+.catalogo .cabeza{display:grid;gap:6px}
+.barra-cat{position:sticky;top:calc(var(--cab) + env(safe-area-inset-top));z-index:20;margin:28px -16px 26px;padding:10px 16px;background:rgba(244,236,224,.94);
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid transparent;transition:border-color .3s}
+.barra-cat.pegada{border-color:var(--borde)}
+.chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;scroll-padding-inline:16px;-webkit-overflow-scrolling:touch}
+.chips::-webkit-scrollbar{display:none}
+/* filtros como etiquetas tejidas de ropa */
+.chip{flex:none;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:8px 16px;border:1px solid var(--tinta);border-radius:2px;background:transparent;cursor:pointer;
+  font-size:14px;font-weight:500;position:relative;transition:background .3s,color .3s}
+.chip::before,.chip::after{content:"";position:absolute;top:50%;width:5px;height:5px;margin-top:-2.5px;border-radius:50%;background:currentColor;opacity:.35}
+.chip::before{left:6px}.chip::after{right:6px}
+.chip span{font-size:11px;opacity:.7}
+.chip[aria-pressed="true"]{background:var(--tinta);color:var(--crema)}
+.cuenta{font-size:13px;color:var(--tinta-2);margin-top:10px}
+@media (min-width:700px){.barra-cat{margin-inline:-32px;padding-inline:32px}}
+
+.prendas{list-style:none;margin:0;padding:0;display:grid;gap:52px 22px;grid-template-columns:minmax(0,1fr)}
+@media (min-width:600px){.prendas{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.prenda{position:relative;min-width:0}
+.prenda[hidden]{display:none}
+/* computadora: los destacados van de dos en dos y más grandes; el resto, de tres en tres */
+@media (min-width:1000px){
+  .prendas{grid-template-columns:repeat(6,minmax(0,1fr));gap:64px 30px}
+  .prenda{grid-column:span 2}
+  .prenda.grande{grid-column:span 3}
+  .prenda.grande h3{font-size:40px}
+  .prenda.grande.ancho{grid-column:1 / -1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:center}
+  .prenda.grande.ancho .prenda-cuerpo{padding-top:0}
+}
+.js .cuelga .prenda{opacity:0;transform:translateY(-26px) rotate(-2.2deg);transform-origin:50% 0;transition:opacity .7s var(--suave),transform .9s var(--salto);transition-delay:calc(var(--n,0) * 70ms)}
+.js .cuelga.visible .prenda{opacity:1;transform:none}
+.js .cuelga.visible.listo .prenda{transition-delay:0s}
+.prenda-foto{position:relative;margin:0;aspect-ratio:4/5;overflow:hidden;background:var(--papel)}
+.prenda-foto img,.vacia{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.prenda-foto img{transition:transform 1.1s var(--suave)}
+@media (hover:hover) and (pointer:fine){.prenda:hover .prenda-foto img{transform:scale(1.04)}}
+.vacia{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:24px;text-align:center;color:var(--tinta);
+  background:repeating-linear-gradient(0deg,rgba(75,49,39,.04) 0 1px,transparent 1px 3px),repeating-linear-gradient(90deg,rgba(75,49,39,.035) 0 1px,transparent 1px 4px),linear-gradient(160deg,var(--lino),var(--papel))}
+.vacia svg{width:58px;height:40px;opacity:.6}
+.vacia strong{font-family:var(--serif);font-weight:400;font-size:clamp(26px,7vw,34px);line-height:1.05;overflow-wrap:anywhere}
+.vacia em{font-style:normal;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--tinta-2)}
+/* etiqueta tejida "bajo pedido" cosida en la foto */
+.tejida{position:absolute;z-index:2;left:0;bottom:16px;padding:7px 12px 7px 14px;background:var(--crema);font-size:12px;font-weight:600;letter-spacing:.02em;border-radius:0 2px 2px 0;
+  box-shadow:inset 3px 0 0 var(--tinta)}
+.tejida::after{content:"";position:absolute;right:6px;top:4px;bottom:4px;border-right:1px dashed rgba(75,49,39,.4)}
+.tejida span{padding-right:8px}
+/* etiqueta colgante con el precio */
+.colgante{position:absolute;z-index:2;top:-4px;right:18px;padding:22px 10px 10px;min-width:62px;text-align:center;background:var(--crema);border-radius:0 0 30px 30px / 0 0 14px 14px;
+  font-weight:600;font-size:16px;transform-origin:50% 0;transition:transform .7s var(--salto);box-shadow:0 10px 18px -12px rgba(43,27,21,.6)}
+.colgante::before{content:"";position:absolute;top:9px;left:50%;width:8px;height:8px;margin-left:-4px;border-radius:50%;border:1.5px solid var(--tinta)}
+@media (hover:hover) and (pointer:fine){.prenda:hover .colgante{transform:rotate(6deg)}}
+.prenda.elegida .colgante{animation:columpia 1s var(--salto)}
+.prenda-cuerpo{padding-top:18px;min-width:0}
+.cat-p{font-size:11.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--tinta-2)}
+.prenda h3{font-size:30px;margin:6px 0 8px;overflow-wrap:anywhere}
+.desc{font-size:15px;color:var(--tinta-2);max-width:32em}
+.opc{border:0;padding:0;margin:18px 0 0;min-width:0}
+.opc legend{padding:0;font-size:13px;font-weight:600;margin-bottom:8px}
+.opc legend span{font-weight:400;color:var(--tinta-2)}
+.tallas-b{display:flex;flex-wrap:wrap;gap:8px}
+.t{min-width:46px;height:44px;padding:0 10px;border:1px solid var(--borde);border-radius:2px;background:transparent;cursor:pointer;font-weight:600;font-size:14px;
+  transition:background .25s,color .25s,border-color .25s,transform .3s var(--salto)}
+.t:hover{border-color:var(--tinta)}
+.t[aria-pressed="true"]{background:var(--tinta);color:var(--crema);border-color:var(--tinta)}
+.colores-b{display:flex;flex-wrap:wrap;gap:12px}
+.sw{width:40px;height:40px;padding:0;border:0;background:transparent;cursor:pointer;position:relative;display:grid;place-items:center}
+.sw i{width:32px;height:32px;background:var(--c,#bbb);clip-path:var(--picos);transition:transform .35s var(--salto)}
+.sw.clara i{background:linear-gradient(var(--c),var(--c)) padding-box;box-shadow:inset 0 0 0 1px rgba(75,49,39,.35)}
+.sw::after{content:"";position:absolute;inset:0;border:1.5px solid var(--tinta);border-radius:50%;opacity:0;transform:scale(.7);transition:opacity .25s,transform .35s var(--salto)}
+.sw[aria-pressed="true"]::after{opacity:1;transform:none}
+.sw[aria-pressed="true"] i{transform:rotate(12deg) scale(.86)}
+@media (pointer:coarse){.sw{width:44px;height:44px}}
+.falta{min-height:0;font-size:13.5px;font-weight:600;color:#8A2F1E;margin-top:8px}
+.falta:empty{display:none}
+.opc.sacude{animation:sacude .45s var(--suave)}
+@keyframes sacude{20%{transform:translateX(-6px)}40%{transform:translateX(5px)}60%{transform:translateX(-3px)}80%{transform:translateX(2px)}}
+.prenda-pie{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:22px;padding-top:16px;border-top:1px solid var(--borde)}
+.precio{font-size:20px;font-weight:600;white-space:nowrap}
+.agregar{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:10px 20px;border-radius:999px;background:var(--tinta);color:var(--crema);
+  text-decoration:none;font-weight:600;font-size:15px;border:0;cursor:pointer;transition:transform .35s var(--salto),background .3s}
+.agregar svg{width:18px;height:18px}
+.agregar:active{transform:scale(.96)}
+.agregar.hecho{background:#5E6B4A}
+.preguntar{font-weight:600;font-size:15px;text-underline-offset:4px;min-height:44px;display:inline-flex;align-items:center}
+.no-disp{margin-top:16px;font-size:14px;font-weight:600;color:var(--tinta-2)}
+.prenda.sin .prenda-foto img{filter:grayscale(.6)}
+.prenda.sin .prenda-foto::after{content:"";position:absolute;inset:0;z-index:1;background:rgba(244,236,224,.3)}
+.prenda.resalta .prenda-foto{animation:resalta 1.6s var(--suave)}
+@keyframes resalta{0%,100%{box-shadow:0 0 0 0 rgba(75,49,39,0)}30%{box-shadow:0 0 0 6px rgba(75,49,39,.5)}}
+
+/* ---------- guía de tallas ---------- */
+.tallas{background:var(--espresso);color:var(--sobre-oscuro)}
+.tallas .rotulo,.tallas .intro{color:var(--suave-oscuro)}
+.tallas .grid{display:grid;gap:40px}
+.metro{position:relative;height:46px;margin:34px 0 8px;overflow:hidden}
+.metro .rollo{position:absolute;inset:0;background:var(--cinta);color:var(--tinta);transform-origin:0 50%;
+  background-image:repeating-linear-gradient(90deg,var(--tinta) 0 1px,transparent 1px 50px),repeating-linear-gradient(90deg,rgba(75,49,39,.65) 0 1px,transparent 1px 10px);
+  background-size:100% 18px,100% 9px;background-repeat:no-repeat;background-position:0 0,0 0}
+.metro .rollo span{position:absolute;bottom:6px;font-size:11px;font-weight:600;transform:translateX(-50%)}
+.js .metro .rollo{transform:translateX(-100%);transition:transform 1.6s cubic-bezier(.65,0,.35,1)}
+.js .metro.visible .rollo{transform:none}
+.tabla-envuelta{overflow-x:auto}
+.tabla{width:100%;border-collapse:collapse;font-size:15px;min-width:300px}
+.tabla th,.tabla td{padding:13px 8px;text-align:left;border-bottom:1px solid rgba(244,236,224,.16)}
+.tabla thead th{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--suave-oscuro);font-weight:600}
+.tabla tbody th{font-family:var(--serif);font-weight:400;font-size:24px}
+.pend{display:inline-block;padding:2px 9px;border-radius:999px;border:1px dashed rgba(244,236,224,.45);font-size:12px;color:var(--suave-oscuro);white-space:nowrap}
+.medir{list-style:none;margin:0;padding:0;display:grid;gap:18px}
+.medir li{display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px;align-items:baseline}
+.medir b{font-family:var(--serif);font-weight:400;font-size:22px}
+.medir p{color:var(--suave-oscuro)}
+.tallas .btn-linea{border-color:var(--sobre-oscuro);color:var(--sobre-oscuro)}
+.tallas .btn-linea::after{background:var(--sobre-oscuro)}
+@media (hover:hover) and (pointer:fine){.tallas .btn-linea:hover{color:var(--espresso)}}
+@media (min-width:960px){.tallas .grid{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:70px;align-items:start}}
+
+/* ---------- preguntas ---------- */
+.preguntas .grid{display:grid;gap:30px}
+.lista-p{margin:0;padding:0;list-style:none;border-top:1px solid var(--borde)}
+.lista-p li{border-bottom:1px solid var(--borde);overflow:hidden}
+.lista-p .in{padding:20px 0;display:grid;gap:6px}
+.js .lista-p.revelar{opacity:1;transform:none}
+.js .lista-p .in{transform:translateY(102%);transition:transform .8s var(--suave);transition-delay:calc(var(--n,0) * 90ms)}
+.js .lista-p.visible .in{transform:none}
+.lista-p h3{font-size:24px}
+.lista-p p{color:var(--tinta-2)}
+.lista-p .pend{border-color:rgba(75,49,39,.4);color:var(--tinta-2)}
+@media (min-width:960px){.preguntas .grid{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:70px}}
+
+/* ---------- cierre ---------- */
+.cierre{background:var(--tinta);color:var(--sobre-oscuro);overflow:hidden;text-align:center}
+.cierre::before{content:"";position:absolute;inset:-40px;opacity:.5;pointer-events:none;
+  background:repeating-linear-gradient(0deg,rgba(244,236,224,.035) 0 1px,transparent 1px 3px),repeating-linear-gradient(90deg,rgba(244,236,224,.03) 0 1px,transparent 1px 4px);
+  animation:deriva 22s linear infinite alternate}
+@keyframes deriva{to{transform:translate(18px,12px)}}
+.cierre .contenedor{position:relative;display:grid;justify-items:center;gap:16px}
+.cierre-logo{width:min(320px,70%);height:auto}
+.js .cierre-logo{opacity:0;transform:scale(1.08);transition:opacity 1.2s var(--suave),transform 1.6s var(--suave)}
+.js .visible .cierre-logo{opacity:1;transform:none}
+.cierre h2{font-size:clamp(2rem,7.5vw,3.4rem)}
+.cierre p{color:var(--suave-oscuro);max-width:28em}
+.cierre .botones{justify-content:center}
+.cierre .btn-lleno{background:var(--crema);color:var(--tinta);border-color:var(--crema)}
+.cierre .btn-lleno::after{background:var(--papel)}
+.cierre .btn-linea{border-color:var(--crema);color:var(--crema)}
+.cierre .btn-linea::after{background:var(--crema)}
+@media (hover:hover) and (pointer:fine){.cierre .btn-linea:hover{color:var(--tinta)}}
+
+footer{padding:40px 0 calc(110px + env(safe-area-inset-bottom));background:var(--crema)}
+footer .contenedor{display:grid;gap:14px;font-size:14px;color:var(--tinta-2)}
+footer .logo img{height:30px}
+footer .aviso{font-size:12.5px;max-width:40em}
+@media (min-width:900px){footer{padding-bottom:40px}footer .contenedor{grid-template-columns:auto 1fr;align-items:center;gap:30px}footer .aviso{justify-self:end;text-align:right}}
+
+/* ---------- barra del teléfono, flotantes y ficha de pedido ---------- */
+.barra-movil{position:fixed;left:0;right:0;bottom:0;z-index:40;display:flex;gap:8px;padding:10px 12px max(10px,env(safe-area-inset-bottom));
+  background:rgba(244,236,224,.95);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-top:1px solid var(--borde)}
+.barra-movil .btn{flex:1 1 0;min-height:48px;padding:10px 12px;font-size:14.5px}
+.barra-movil .n{min-width:20px;height:20px;padding:0 5px;border-radius:999px;background:var(--crema);color:var(--tinta);font-size:11.5px;display:inline-grid;place-items:center}
+.wa-flotante,.pedido-flotante{display:none}
+@media (min-width:900px){
+  .barra-movil{display:none}
+  .wa-flotante{display:grid;place-items:center;position:fixed;right:24px;bottom:24px;z-index:40;width:58px;height:58px;border-radius:50%;background:var(--tinta);color:var(--crema);
+    box-shadow:0 12px 26px -12px rgba(43,27,21,.7);transition:transform .35s var(--salto)}
+  .wa-flotante:hover{transform:scale(1.07)}
+  .wa-flotante svg{width:27px;height:27px}
+  .pedido-flotante{display:flex;align-items:center;gap:12px;position:fixed;right:96px;bottom:28px;z-index:40;min-height:50px;padding:8px 20px 8px 10px;border-radius:999px;border:1.5px solid var(--tinta);
+    background:var(--crema);cursor:pointer;font-weight:600;transform:translateY(160%);transition:transform .6s var(--salto);box-shadow:0 12px 26px -14px rgba(43,27,21,.6)}
+  .con-pedido .pedido-flotante{transform:none}
+  .pedido-flotante .mini{width:34px;height:34px;border-radius:50%;overflow:hidden;background:var(--papel);position:relative}
+  .pedido-flotante .mini img{width:100%;height:100%;object-fit:cover}
+}
+.toast{position:fixed;left:12px;right:12px;bottom:calc(84px + env(safe-area-inset-bottom));z-index:45;display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:6px;
+  background:var(--espresso);color:var(--crema);font-size:14px;box-shadow:0 16px 30px -16px rgba(0,0,0,.6);transform:translateY(calc(100% + 120px));
+  transition:transform .55s var(--salto),visibility 0s linear .55s;pointer-events:none;visibility:hidden}
+.toast.ver{transform:none;pointer-events:auto;visibility:visible;transition:transform .55s var(--salto),visibility 0s}
+.toast .mini{width:40px;height:50px;flex:none;overflow:hidden;background:var(--papel);border-radius:2px}
+.toast .mini img{width:100%;height:100%;object-fit:cover}
+.toast div{min-width:0;flex:1}
+.toast b{display:block;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.toast span{color:var(--suave-oscuro);font-size:13px}
+.toast button{background:none;border:0;color:var(--crema);font-weight:600;text-decoration:underline;text-underline-offset:3px;cursor:pointer;min-height:44px;padding:0 6px}
+@media (min-width:900px){.toast{left:auto;right:24px;width:360px;bottom:96px}}
+
+.hoja-fondo{position:fixed;inset:0;z-index:70;background:rgba(43,27,21,.45);opacity:0;pointer-events:none;transition:opacity .35s}
+.hoja-abierta .hoja-fondo{opacity:1;pointer-events:auto}
+.hoja{position:fixed;z-index:71;left:0;right:0;bottom:0;max-height:88svh;display:flex;flex-direction:column;background:var(--crema);border-radius:14px 14px 0 0;
+  transform:translateY(105%);transition:transform .55s cubic-bezier(.65,0,.35,1),visibility 0s linear .55s;visibility:hidden}
+.hoja-abierta .hoja{transform:none;visibility:visible;transition:transform .55s cubic-bezier(.65,0,.35,1),visibility 0s}
+.hoja-cab{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 18px 12px;border-bottom:1px dashed var(--borde)}
+.hoja-cab h2{font-size:30px}
+.hoja-cab small{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--tinta-2);font-family:var(--sans);margin-bottom:4px}
+.cerrar{width:44px;height:44px;border-radius:50%;border:1px solid var(--borde);background:transparent;cursor:pointer;display:grid;place-items:center}
+.cerrar svg{width:18px;height:18px}
+.hoja-cuerpo{overflow-y:auto;padding:6px 18px;flex:1;overscroll-behavior:contain}
+.items{list-style:none;margin:0;padding:0}
+.item{display:grid;grid-template-columns:56px minmax(0,1fr);gap:14px;padding:14px 0;border-bottom:1px solid var(--borde)}
+.item .mini{width:56px;height:70px;overflow:hidden;background:var(--papel);position:relative}
+.item .mini img{width:100%;height:100%;object-fit:cover}
+.item b{display:block;font-weight:600;line-height:1.3}
+.item .var{font-size:13.5px;color:var(--tinta-2)}
+.item-pie{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:8px}
+.cant{display:inline-flex;align-items:center;border:1px solid var(--borde);border-radius:999px}
+.cant button{width:44px;height:44px;border:0;background:transparent;cursor:pointer;display:grid;place-items:center}
+.cant button svg{width:16px;height:16px}
+.cant output{min-width:24px;text-align:center;font-weight:600}
+.item .precio{font-size:16px}
+.hoja-vacia{padding:34px 0;text-align:center;color:var(--tinta-2)}
+.hoja-vacia b{display:block;font-family:var(--serif);font-weight:400;font-size:26px;color:var(--tinta);margin-bottom:6px}
+.hoja-pie{padding:14px 18px max(16px,env(safe-area-inset-bottom));border-top:1px dashed var(--borde);display:grid;gap:10px}
+.total-fila{display:flex;justify-content:space-between;align-items:baseline;font-weight:600}
+.total-fila .precio{font-size:24px}
+.hoja-pie .nota{font-size:13px;color:var(--tinta-2)}
+.hoja-pie .btn{width:100%}
+.hoja-pie .btn[aria-disabled="true"]{opacity:.45;pointer-events:none}
+.vaciar{background:none;border:0;color:var(--tinta-2);text-decoration:underline;text-underline-offset:3px;cursor:pointer;min-height:44px;font-size:14px}
+@media (min-width:900px){
+  .hoja{left:auto;top:0;width:430px;max-height:none;border-radius:0;transform:translateX(105%)}
+  .hoja-cab{padding:26px 26px 16px}.hoja-cuerpo{padding:6px 26px}.hoja-pie{padding:18px 26px 26px}
+}
+
+/* ---------- movimiento reducido y pausa ---------- */
+body.pausado *,body.pausado *::before,body.pausado *::after{animation-play-state:paused!important}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .cortina .tela,.cierre::before{animation:none}
+  .js .portada h1 .linea span{animation:entra-suave .6s linear both}
+  @keyframes entra-suave{from{opacity:0}to{opacity:1}}
+  .js .cuelga .prenda{transform:none;transition:opacity .5s linear}
+  .js .revelar{transform:none;transition:opacity .5s linear}
+}
+@media (max-height:560px) and (orientation:landscape){.cinta-metrica{display:none}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></symbol>
+  <symbol id="i-bolsa" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1.2 12H6.2z"/><path d="M9 10V6.5a3 3 0 0 1 6 0V10"/></g></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></g></symbol>
+  <symbol id="i-mas" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-menos" viewBox="0 0 24 24"><path d="M5 12h14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-gancho" viewBox="0 0 58 40"><path d="M29 12c0-3 2-5 4.5-5S38 9 38 11.5 35 15 32 16.5L29 18 3 33.5c-1.6 1-1 3.5 1 3.5h50c2 0 2.6-2.5 1-3.5L29 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-aguja" viewBox="0 0 20 46"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M10 2c-1.6 0-2.4 1.2-2.4 3v24L10 44l2.4-15V5c0-1.8-.8-3-2.4-3Z" fill="var(--crema)"/><path d="M10 5.5v5"/><path d="M10 8c4 2 7 6 6 12"/></g></symbol>
+</svg>
+
+<div class="tapa" aria-hidden="true"></div>
+
+<!--auto-inicio-->
+<p class="franja" data-franja=""><i aria-hidden="true"></i>Vista previa · Catálogo de ejemplo</p>
+<header class="cab" data-cab="">
+  <div class="contenedor">
+    <a class="logo" href="#inicio" data-logo=""><img src="assets/logo.png" alt="Nua" width="82" height="40"></a>
+    <nav class="cab-links" aria-label="Secciones"><a href="#funciona">Cómo funciona</a><a href="#catalogo">Catálogo</a><a href="#tallas">Tallas</a><a href="#preguntas">Preguntas</a></nav>
+    <button class="bolsa" type="button" data-abrir-pedido="" aria-label="Ver tu pedido"><svg aria-hidden="true"><use href="#i-bolsa"></use></svg>Pedido <span class="n" data-cuenta-n="">0</span></button>
+  </div>
+</header>
+<main id="main">
+
+<section class="portada" id="inicio">
+  <div class="contenedor">
+    <div>
+      <span class="rotulo entra d1" data-eyebrow="">Ropa bajo pedido</span>
+      <h1><span class="linea"><span>Elige.</span></span><span class="linea"><span>Encarga.</span></span><span class="linea"><span>Estrena.</span><span class="puntada" aria-hidden="true"><i></i></span></span></h1>
+      <p class="lema entra d1">Ves el modelo, escoges tu talla y tu color, y lo encargas por WhatsApp. Lo preparamos para ti.</p>
+      <div class="botones entra d2">
+        <a class="btn btn-lleno" data-wa="general" href="https://wa.me/580000000000?text=Hola%2C%20Nua.%20Vi%20el%20cat%C3%A1logo%20y%20quiero%20informaci%C3%B3n." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"></use></svg>Escribir por WhatsApp</a>
+        <a class="btn btn-linea" href="#catalogo">Ver el catálogo</a>
+      </div>
+    </div>
+    <div class="probador entra d2" data-probador=""><div class="barral" aria-hidden="true"></div><div class="marco"><div class="looks"><div class="look activo" data-look="0"><div class="vacia" aria-hidden="true"><svg><use href="#i-gancho"></use></svg><strong>Conjunto palazzo</strong><em>Foto del modelo pronto</em></div><img src="assets/productos/conjunto-palazzo.webp" width="640" height="800" alt="Conjunto palazzo" fetchpriority="high" data-foto=""></div><div class="look" data-look="1"><div class="vacia" aria-hidden="true"><svg><use href="#i-gancho"></use></svg><strong>Falda satinada midi</strong><em>Foto del modelo pronto</em></div><img src="assets/productos/falda-satinada.webp" width="640" height="800" alt="Falda satinada midi" data-foto=""></div><div class="look" data-look="2"><div class="vacia" aria-hidden="true"><svg><use href="#i-gancho"></use></svg><strong>Vestido lencero</strong><em>Foto del modelo pronto</em></div><img src="assets/productos/vestido-lencero.webp" width="640" height="800" alt="Vestido lencero" data-foto=""></div><div class="look" data-look="3"><div class="vacia" aria-hidden="true"><svg><use href="#i-gancho"></use></svg><strong>Blusa bordada de volantes</strong><em>Foto del modelo pronto</em></div><img src="assets/productos/blusa-bordada.webp" width="640" height="800" alt="Blusa bordada de volantes" data-foto=""></div></div><div class="cortina-caja" aria-hidden="true"><div class="cortina"><div class="tela"></div><div class="aros"></div></div></div><span class="ref">Foto referencial</span><div class="cinta-metrica" aria-hidden="true"><div class="pista"></div></div></div><div class="etiqueta" data-etiqueta=""><small data-look-num="">Destacado 1 de 4</small><b data-look-nombre="">Conjunto palazzo</b><div class="fila"><span class="precio" data-look-precio="">$45</span><a href="#p-conjunto-palazzo" data-look-ir="">Lo quiero</a></div></div><div class="muestras" role="group" aria-label="Ver otro modelo"><p>Mira otro:</p><button class="muestra clara" type="button" data-ver-look="0" aria-pressed="true" aria-label="Ver Conjunto palazzo" style="--c:#EEE4D2"></button><button class="muestra" type="button" data-ver-look="1" aria-pressed="false" aria-label="Ver Falda satinada midi" style="--c:#4B3127"></button><button class="muestra" type="button" data-ver-look="2" aria-pressed="false" aria-label="Ver Vestido lencero" style="--c:#1F1A17"></button><button class="muestra clara" type="button" data-ver-look="3" aria-pressed="false" aria-label="Ver Blusa bordada de volantes" style="--c:#FBF8F2"></button></div></div>
+  </div>
+</section>
+
+<section class="seccion funciona" id="funciona">
+  <div class="contenedor">
+    <div class="cabeza revelar">
+      <div><span class="rotulo">Cómo funciona</span><h2 class="titulo">Bajo pedido, sin enredos</h2></div>
+      <p class="intro">No tenemos cientos de prendas guardadas: cada modelo se encarga en tu talla y tu color. Así funciona.</p>
+    </div>
+    <ol class="pasos" data-pasos=""><span class="costura" aria-hidden="true"><i></i></span><span class="aguja" aria-hidden="true"><svg viewBox="0 0 20 46" width="20" height="46"><use href="#i-aguja"></use></svg></span><li class="paso"><span class="boton-cos" aria-hidden="true"></span><div><small>PASO 1</small><h3>Elige tu modelo</h3><p>Mira el catálogo y quédate con la prenda que te guste.</p></div></li><li class="paso"><span class="boton-cos" aria-hidden="true"></span><div><small>PASO 2</small><h3>Escoge talla y color</h3><p>Cada modelo muestra sus tallas y sus colores. Si dudas, revisa la guía de tallas.</p></div></li><li class="paso"><span class="boton-cos" aria-hidden="true"></span><div><small>PASO 3</small><h3>Encarga por WhatsApp</h3><p>Tu pedido llega escrito: modelo, talla, color, cantidad y total aproximado.</p></div></li><li class="paso"><span class="boton-cos" aria-hidden="true"></span><div><small>PASO 4</small><h3>Recibe tu prenda</h3><p>En el tiempo que indica cada modelo. Te confirmamos la fecha y el pago por WhatsApp.</p></div></li></ol>
+  </div>
+</section>
+
+<section class="seccion catalogo" id="catalogo">
+  <div class="contenedor">
+    <div class="cabeza revelar">
+      <span class="rotulo">Catálogo</span>
+      <h2 class="titulo">Lo que puedes encargar</h2>
+      <p class="intro">Toca tu talla y tu color, agrégalo al pedido y mándalo completo por WhatsApp.</p>
+    </div>
+    <div class="barra-cat" data-barra-cat="">
+      <div class="chips" data-chips="" role="group" aria-label="Categorías"><button class="chip" type="button" data-cat="" aria-pressed="true">Todo<span>12</span></button><button class="chip" type="button" data-cat="Conjuntos" aria-pressed="false">Conjuntos<span>3</span></button><button class="chip" type="button" data-cat="Faldas" aria-pressed="false">Faldas<span>1</span></button><button class="chip" type="button" data-cat="Vestidos" aria-pressed="false">Vestidos<span>3</span></button><button class="chip" type="button" data-cat="Blusas" aria-pressed="false">Blusas<span>4</span></button><button class="chip" type="button" data-cat="Pantalones" aria-pressed="false">Pantalones<span>1</span></button></div>
+      <p class="cuenta" data-cuenta="" aria-live="polite">12 modelos</p>
+    </div>
+    <ul class="prendas cuelga" data-prendas=""><li class="prenda grande" id="p-conjunto-palazzo" style="--n:0" data-id="conjunto-palazzo" data-categoria="Conjuntos"><figure class="prenda-foto"><div class="vacia" aria-hidden="true"><svg><use href="#i-gancho"></use></svg><strong>Conjunto palazzo</strong><em>Foto del modelo pronto</em></div><img src="assets/productos/conjunto-palazzo.webp" width="640" height="800" alt="Conjunto palazzo" loading="lazy" data-foto=""><span class="ref">Foto referencial</span><span class="tejida"><span>Bajo pedido</span>7 a 10 días</span><span class="colgante" aria-hidden="true">$45</span></figure><div class="prenda-cuerpo"><p class="cat-p">Conjuntos</p><h3>Conjunto palazzo</h3><p class="desc">Suéter de punto suave y pantalón palazzo de tiro alto. Se encarga el conjunto completo.</p><fieldset class="opc" data-opc="talla"><legend>Talla <span data-leyenda="talla">· elige una</span></legend><div class="tallas-b"><button class="t" type="button" data-talla="S" data-para="conjunto-palazzo" aria-pressed="false">S</button><button class="t" type="button" data-talla="M" data-para="conjunto-palazzo" aria-pressed="false">M</button><button class="t" type="button" data-talla="L" data-para="conjunto-palazzo" aria-pressed="false">L</button><button class="t" type="button" data-talla="XL" data-para="conjunto-palazzo" aria-pressed="false">XL</button></div></fieldset><fieldset class="opc" data-opc="color"><legend>Color <span data-leyenda="color">· elige uno</span></legend><div class="colores-b"><button class="sw clara" type="button" data-color="crudo" data-para="conjunto-palazzo" aria-pressed="false" aria-label="Color crudo" title="crudo" style="--c:#EEE4D2"><i></i></button><button class="sw" type="button" data-color="chocolate" data-para="conjunto-palazzo" aria-pressed="false" aria-label="Color chocolate" title="chocolate" style="--c:#4B3127"><i></i></button><button class="sw" type="button" data-color="negro" data-para="conjunto-palazzo" aria-pressed="false" aria-label="Color negro" title="negro" style="--c:#1F1A17"><i></i></button></div></fieldset><p class="falta" data-falta="" aria-live="polite"></p><div class="prenda-pie"><span class="precio">$45</span><a class="agregar" data-agregar="conjunto-palazzo" href="https://wa.me/580000000000?text=Hola%2C%20Nua.%20Quiero%20encargar%20el%20modelo%20Conjunto%20palazzo.%20%C2%BFQu%C3%A9%20tallas%20y%20colores%20tienen%3F" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-bolsa"></use></svg>Agregar al pedido</a></div></div></li><li class="prenda grande" id="p-falda-satinada-midi" style="--n:1" data-id="falda-satinada-midi" data-categoria="Faldas"><figure class="prenda-foto"><div class="vacia" aria-hidden="true"><svg><use href="#i-gancho"></use></svg><strong>Falda satinada midi</strong><em>Foto del modelo pronto</em></div><img src="assets/productos/falda-satinada.webp" width="640" height="800" alt="Falda satinada midi" loading="lazy" data-foto=""><span class="ref">Foto referencial</span><span class="tejida"><span>Bajo pedido</span>5 a 7 días</span><span class="colgante" aria-hidden="true">$26</span></figure><div class="prenda-cuerpo"><p class="cat-p">Faldas</p><h3>Falda satinada midi</h3><p class="desc">Falda al bies con elástico escondido en la cintura. Cae suelta y no marca.</p><fieldset class="opc" data-opc="talla"><legend>Talla <span data-leyenda="talla">· elige una</span></legend><div class="tallas-b"><button class="t" type="button" data-talla="XS" data-para="falda-satinada-midi" aria-pressed="false">XS</button><button class="t" type="button" data-talla="S" data-para="falda-satinada-midi" aria-pressed="false">S</button><button class="t" type="button" data-talla="M" data-para="falda-satinada-midi" aria-pressed="false">M</button><button class="t" type="button" data-talla="L" data-para="falda-satinada-midi" aria-pressed="false">L</button></div></fieldset><fieldset class="opc" data-opc="color"><legend>Color <span data-leyenda="color">· elige uno</span></legend><div class="colores-b"><button class="sw" type="button" data-color="chocolate" data-para="falda-satinada-midi" aria-pressed="false" aria-label="Color chocolate" title="chocolate" style="--c:#4B3127"><i></i></button><button class="sw" type="button" data-color="negro" data-para="falda-satinada-midi" aria-pressed="false" aria-label="Color negro" title="negro" style="--c:#1F1A17"><i></i></button><button class="sw clara" type="button" data-color="champaña" data-para="falda-satinada-midi" aria-pressed="false" aria-label="Color champaña" title="champaña" style="--c:#E7D5B5"><i></i></button></div></fieldset><p class="falta" data-falta="" aria-live="polite"></p><div class="prenda-pie"><span class="precio">$26</span><a class="agregar" data-agregar="falda-satinada-midi" href="https://wa.me/580000000000?text=Hola%2C%20Nua.%20Quiero%20encargar%20el%20modelo%20Falda%20satinada%20midi.%20%C2%BFQu%C3%A9%20tallas%20y%20colores%20tienen%3F" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-bolsa"></use></svg>Agregar al pedido</a></div></div></li><li class="prenda grande" id="p-vestido-lencero" style="--n:2" data-id="vestido-lencero" data-categoria="Vestidos"><figure class="prenda-foto"><div class="vacia" aria-hidden="true"><svg><use href="#i-gancho"></use></svg><strong>Vestido lencero</strong><em>Foto del modelo pronto</em></div><img src="assets/productos/vestido-lencero.webp" width="640" height="800" alt="Vestido lencero" loading="lazy" data-foto=""><span class="ref">Foto referencial</span><span class="tejida"><span>Bajo pedido</span>5 a 7 días</span><span class="colgante" aria-hidden="true">$32</span></figure><div class="prenda-cuerpo"><p class="cat-p">Vestidos</p><h3>Vestido lencero</h3><p class="desc">Escote drapeado y tiras finas que se ajustan. Largo hasta el tobillo.</p><fieldset class="opc" data-opc="talla"><legend>Talla <span data-leyenda="talla">· elige una</span></legend><div class="tallas-b"><button class="t" type="button" data-talla="XS" data-para="vestido-lencero" aria-pressed="false">XS</button><button class="t" type="button" data-talla="S" data-para="vestido-lencero" aria-pressed="false">S</button><button class="t" type="button" data-talla="M" data-para="vestido-lencero" aria-pressed="false">M</button><button class="t" type="button" data-talla="L" data-para="vestido-lencero" aria-pressed="false">L</button></div></fieldset><fieldset class="opc" data-opc="color"><legend>Color <span data-leyenda="color">· elige uno</span></legend><div class="colores-b"><button class="sw" type="button" data-color="negro" data-para="vestido-lencero" aria-pressed="false" aria-label="Color negro" title="negro" style="--c:#1F1A17"><i></i></button><button class="sw" type="button" data-color="chocolate" data-para="vestido-lencero" aria-pressed="false" aria-label="Color chocolate" title="chocolate" style="--c:#4B3127"><i></i></button><button class="sw clara" type="button" data-color="champaña" data-para="vestido-lencero" aria-pressed="false" aria-label="Color champaña" title="champaña" style="--c:#E7D5B5"><i></i></button></div></fieldset><p class="falta" data-falta="" aria-live="polite"></p><div class="prenda-pie"><span class="precio">$32</span><a class="agregar" data-agregar="vestido-lencero" href="https://wa.me/580000000000?text=Hola%2C%20Nua.%20Quiero%20encargar%20el%20modelo%20Vestido%20lencero.%20%C2%BFQu%C3%A9%20tallas%20y%20colores%20tienen%3F" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-bolsa"></use></svg>Agregar al pedido</a></div></div></li><li class="prenda grande" id="p-blusa-bordada-de-volantes" style="--n:3" data-id="blusa-bordada-de-volantes" data-categoria="Blusas"><figure class="prenda-foto"><div class="vacia" aria-hidden="true"><svg><use href="#i-gancho"></use></svg><strong>Blusa bordada de volantes</strong><em>Foto del modelo pronto</em></div><img src="assets/productos/blusa-bordada.webp" width="640" height="800" alt="Blusa bordada de volantes" loading="lazy" data-foto=""><span class="ref">Foto referencial</span><span class="tejida"><span>Bajo pedido</span>7 a 10 días</span><span class="colgante" aria-hidden="true">$28</span></figure><div class="prenda-cuerpo"><p class="cat-p">Blusas</p><h3>Blusa bordada de volantes</h3><p class="desc">Algodón bordado con volantes al frente y puños con elástico.</p><fieldset class="opc" data-opc="talla"><legend>Talla <span data-leyenda="talla">· elige una</span></legend><div class="tallas-b"><button class="t" type="button" data-talla="S" data-para="blusa-bordada-de-volantes" aria-pressed="false">S</button><button class="t" type="button" data-talla="M" data-para="blusa-bordada-de-volantes" aria-pressed="false">M</button><button class="t" type="button" data-talla="L" data-para="blusa-bordada-de-volantes" aria-pressed="false">L</button></div></fieldset><fieldset class="opc" data-opc="color"><legend>Color <span data-leyenda="color">blanco</span></legend><div class="colores-b"><button class="sw clara" type="button" data-color="blanco" data-para="blusa-bordada-de-volantes" aria-pressed="true" aria-label="Color blanco" title="blanco" style="--c:#FBF8F2"><i></i></button></div></fieldset><p class="falta" data-falta="" aria-live="polite"></p><div class="prenda-pie"><span class="precio">$28</span><a class="agregar" data-agregar="blusa-bordada-de-volantes" href="https://wa.me/580000000000?text=Hola%2C%20Nua.%20Quiero%20encargar%20el%20modelo%20Blusa%20bordada%20de%20volantes.%20%C2%BFQu%C3%A9%20tallas%20y%20colores%20tienen%3F" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-bolsa"></use></svg>Agregar al pedido</a></div></div></li><li class="prenda" id="p-conjunto-tejido" style="--n:4" data-id="conjunto-tejido" data-categoria="Conjuntos"><figure class="prenda-foto"><div class="vacia" aria-hidden="true"><svg><use href="#i-gancho"></use></svg><strong>Conjunto tejido</strong><em>Foto del modelo pronto</em></div><img src="assets/productos/conjunto-tejido.webp" width="640" height="800" alt="Conjunto tejido" loading="lazy" data-foto=""><span class="ref">Foto referencial</span><span class="tejida"><span>Bajo pedido</span>7 a 10 días</span><span class="colgante" aria-hidden="true">$38</span></figure><div class="prenda-cuerpo"><p class="cat-p">Conjuntos</p><h3>Conjunto tejido</h3><p class="desc">Suéter de manga ranglan y pantalón recto en tejido de punto.</p><fieldset class="opc" data-opc="talla"><legend>Talla <span data-leyenda="talla">· elige una</span></legend><div class="tallas-b"><button class="t" type="button" data-talla="S" data-para="conjunto-tejido" aria-pressed="false">S</button><button class="t" type="button" data-talla="M" data-para="conjunto-tejido" aria-pressed="false">M</button><button class="t" type="button" data-talla="L" data-para="conjunto-tejido" aria-pressed="false">L</button></div></fieldset><fieldset class="opc" data-opc="color"><legend>Color <span data-leyenda="color">· elige uno</span></legend><div class="colores-b"><button class="sw" type="button" data-color="beige" data-para="conjunto-tejido" aria-pressed="false" aria-label="Color beige" title="beige" style="--c:#D9C4A6"><i></i></button><button class="sw" type="button" data-color="gris" data-para="conjunto-tejido" aria-pressed="false" aria-label="Color gris" title="gris" style="--c:#8E8A85"><i></i></button><button class="sw" type="button" data-color="negro" data-para="conjunto-tejido" aria-pressed="false" aria-label="Color negro" title="negro" style="--c:#1F1A17"><i></i></button></div></fieldset><p class="falta" data-falta="" aria-live="polite"></p><div class="prenda-pie"><span class="precio">$38</span><a class="agregar" data-agregar="conjunto-tejido" href="https://wa.me/580000000000?text=Hola%2C%20Nua.%20Quiero%20encargar%20el%20modelo%20Conjunto%20tejido.%20%C2%BFQu%C3%A9%20tallas%20y%20colores%20tienen%3F" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-bolsa"></use></svg>Agregar al pedido</a></div></div></li><li class="prenda" id="p-conjunto-polo" style="--n:5" data-id="conjunto-polo" data-categoria="Conjuntos"><figure class="prenda-foto"><div class="vacia" aria-hidden="true"><svg><use href="#i-gancho"></use></svg><strong>Conjunto polo</strong><em>Foto del modelo pronto</em></div><img src="assets/productos/conjunto-polo.webp" width="640" height="800" alt="Conjunto polo" loading="lazy" data-foto=""><span class="ref">Foto referencial</span><span class="tejida"><span>Bajo pedido</span>7 a 10 días</span><span class="colgante" aria-hidden="true">$42</span></figure><div class="prenda-cuerpo"><p class="cat-p">Conjuntos</p><h3>Conjunto polo</h3><p class="desc">Suéter de cuello polo y pantalón ancho a juego.</p><fieldset class="opc" data-opc="talla"><legend>Talla <span data-leyenda="talla">· elige una</span></legend><div class="tallas-b"><button class="t" type="button" data-talla="S" data-para="conjunto-polo" aria-pressed="false">S</button><button class="t" type="button" data-talla="M" data-para="conjunto-polo" aria-pressed="false">M</button><button class="t" type="button" data-talla="L" data-para="conjunto-polo" aria-pressed="false">L</button></div></fieldset><fieldset class="opc" data-opc="color"><legend>Color <span data-leyenda="color">· elige uno</span></legend><div class="colores-b"><button class="sw" type="button" data-color="beige" data-para="conjunto-polo" aria-pressed="false" aria-label="Color beige" title="beige" style="--c:#D9C4A6"><i></i></button><button class="sw clara" type="button" data-color="blanco" data-para="conjunto-polo" aria-pressed="false" aria-label="Color blanco" title="blanco" style="--c:#FBF8F2"><i></i></button></div></fieldset><p class="falta" data-falta="" aria-live="polite"></p><div class="prenda-pie"><span class="precio">$42</span><a class="agregar" data-agregar="conjunto-polo" href="https://wa.me/580000000000?text=Hola%2C%20Nua.%20Quiero%20encargar%20el%20modelo%20Conjunto%20polo.%20%C2%BFQu%C3%A9%20tallas%20y%20colores%20tienen%3F" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-bolsa"></use></svg>Agregar al pedido</a></div></div></li><li class="prenda" id="p-camisa-clasica" style="--n:6" data-id="camisa-clasica" data-categoria="Blusas"><figure class="prenda-foto"><div class="vacia" aria-hidden="true"><svg><use href="#i-gancho"></use></svg><strong>Camisa clásica</strong><em>Foto del modelo pronto</em></div><img src="assets/productos/camisa-clasica.webp" width="640" height="800" alt="Camisa clásica" loading="lazy" data-foto=""><span class="ref">Foto referencial</span><span class="tejida"><span>Bajo pedido</span>5 a 7 días</span><span class="colgante" aria-hidden="true">$25</span></figure><div class="prenda-cuerpo"><p class="cat-p">Blusas</p><h3>Camisa clásica</h3><p class="desc">Corte amplio con botones y puños. Se lleva por dentro o por fuera.</p><fieldset class="opc" data-opc="talla"><legend>Talla <span data-leyenda="talla">· elige una</span></legend><div class="tallas-b"><button class="t" type="button" data-talla="S" data-para="camisa-clasica" aria-pressed="false">S</button><button class="t" type="button" data-talla="M" data-para="camisa-clasica" aria-pressed="false">M</button><button class="t" type="button" data-talla="L" data-para="camisa-clasica" aria-pressed="false">L</button><button class="t" type="button" data-talla="XL" data-para="camisa-clasica" aria-pressed="false">XL</button></div></fieldset><fieldset class="opc" data-opc="color"><legend>Color <span data-leyenda="color">· elige uno</span></legend><div class="colores-b"><button class="sw clara" type="button" data-color="blanco" data-para="camisa-clasica" aria-pressed="false" aria-label="Color blanco" title="blanco" style="--c:#FBF8F2"><i></i></button><button class="sw" type="button" data-color="celeste" data-para="camisa-clasica" aria-pressed="false" aria-label="Color celeste" title="celeste" style="--c:#AFC9DF"><i></i></button></div></fieldset><p class="falta" data-falta="" aria-live="polite"></p><div class="prenda-pie"><span class="precio">$25</span><a class="agregar" data-agregar="camisa-clasica" href="https://wa.me/580000000000?text=Hola%2C%20Nua.%20Quiero%20encargar%20el%20modelo%20Camisa%20cl%C3%A1sica.%20%C2%BFQu%C3%A9%20tallas%20y%20colores%20tienen%3F" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-bolsa"></use></svg>Agregar al pedido</a></div></div></li><li class="prenda" id="p-blusa-de-lino" style="--n:7" data-id="blusa-de-lino" data-categoria="Blusas"><figure class="prenda-foto"><div class="vacia" aria-hidden="true"><svg><use href="#i-gancho"></use></svg><strong>Blusa de lino</strong><em>Foto del modelo pronto</em></div><img src="assets/productos/blusa-lino.webp" width="640" height="800" alt="Blusa de lino" loading="lazy" data-foto=""><span class="ref">Foto referencial</span><span class="tejida"><span>Bajo pedido</span>3 a 5 días</span><span class="colgante" aria-hidden="true">$20</span></figure><div class="prenda-cuerpo"><p class="cat-p">Blusas</p><h3>Blusa de lino</h3><p class="desc">Sin mangas, cuello en V y caída suelta.</p><fieldset class="opc" data-opc="talla"><legend>Talla <span data-leyenda="talla">· elige una</span></legend><div class="tallas-b"><button class="t" type="button" data-talla="S" data-para="blusa-de-lino" aria-pressed="false">S</button><button class="t" type="button" data-talla="M" data-para="blusa-de-lino" aria-pressed="false">M</button><button class="t" type="button" data-talla="L" data-para="blusa-de-lino" aria-pressed="false">L</button><button class="t" type="button" data-talla="XL" data-para="blusa-de-lino" aria-pressed="false">XL</button></div></fieldset><fieldset class="opc" data-opc="color"><legend>Color <span data-leyenda="color">· elige uno</span></legend><div class="colores-b"><button class="sw clara" type="button" data-color="blanco" data-para="blusa-de-lino" aria-pressed="false" aria-label="Color blanco" title="blanco" style="--c:#FBF8F2"><i></i></button><button class="sw" type="button" data-color="beige" data-para="blusa-de-lino" aria-pressed="false" aria-label="Color beige" title="beige" style="--c:#D9C4A6"><i></i></button></div></fieldset><p class="falta" data-falta="" aria-live="polite"></p><div class="prenda-pie"><span class="precio">$20</span><a class="agregar" data-agregar="blusa-de-lino" href="https://wa.me/580000000000?text=Hola%2C%20Nua.%20Quiero%20encargar%20el%20modelo%20Blusa%20de%20lino.%20%C2%BFQu%C3%A9%20tallas%20y%20colores%20tienen%3F" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-bolsa"></use></svg>Agregar al pedido</a></div></div></li><li class="prenda" id="p-top-peplum" style="--n:8" data-id="top-peplum" data-categoria="Blusas"><figure class="prenda-foto"><div class="vacia" aria-hidden="true"><svg><use href="#i-gancho"></use></svg><strong>Top peplum</strong><em>Foto del modelo pronto</em></div><img src="assets/productos/top-peplum.webp" width="640" height="800" alt="Top peplum" loading="lazy" data-foto=""><span class="ref">Foto referencial</span><span class="tejida"><span>Bajo pedido</span>5 a 7 días</span><span class="colgante" aria-hidden="true">$24</span></figure><div class="prenda-cuerpo"><p class="cat-p">Blusas</p><h3>Top peplum</h3><p class="desc">Escote cruzado y volante en la cintura.</p><fieldset class="opc" data-opc="talla"><legend>Talla <span data-leyenda="talla">· elige una</span></legend><div class="tallas-b"><button class="t" type="button" data-talla="S" data-para="top-peplum" aria-pressed="false">S</button><button class="t" type="button" data-talla="M" data-para="top-peplum" aria-pressed="false">M</button><button class="t" type="button" data-talla="L" data-para="top-peplum" aria-pressed="false">L</button></div></fieldset><fieldset class="opc" data-opc="color"><legend>Color <span data-leyenda="color">· elige uno</span></legend><div class="colores-b"><button class="sw" type="button" data-color="camel" data-para="top-peplum" aria-pressed="false" aria-label="Color camel" title="camel" style="--c:#B98A5A"><i></i></button><button class="sw" type="button" data-color="negro" data-para="top-peplum" aria-pressed="false" aria-label="Color negro" title="negro" style="--c:#1F1A17"><i></i></button></div></fieldset><p class="falta" data-falta="" aria-live="polite"></p><div class="prenda-pie"><span class="precio">$24</span><a class="agregar" data-agregar="top-peplum" href="https://wa.me/580000000000?text=Hola%2C%20Nua.%20Quiero%20encargar%20el%20modelo%20Top%20peplum.%20%C2%BFQu%C3%A9%20tallas%20y%20colores%20tienen%3F" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-bolsa"></use></svg>Agregar al pedido</a></div></div></li><li class="prenda" id="p-vestido-de-botones" style="--n:8" data-id="vestido-de-botones" data-categoria="Vestidos"><figure class="prenda-foto"><div class="vacia" aria-hidden="true"><svg><use href="#i-gancho"></use></svg><strong>Vestido de botones</strong><em>Foto del modelo pronto</em></div><img src="assets/productos/vestido-botones.webp" width="640" height="800" alt="Vestido de botones" loading="lazy" data-foto=""><span class="ref">Foto referencial</span><span class="tejida"><span>Bajo pedido</span>7 a 10 días</span><span class="colgante" aria-hidden="true">$35</span></figure><div class="prenda-cuerpo"><p class="cat-p">Vestidos</p><h3>Vestido de botones</h3><p class="desc">Vestido midi con botones al frente y escote cuadrado.</p><fieldset class="opc" data-opc="talla"><legend>Talla <span data-leyenda="talla">· elige una</span></legend><div class="tallas-b"><button class="t" type="button" data-talla="S" data-para="vestido-de-botones" aria-pressed="false">S</button><button class="t" type="button" data-talla="M" data-para="vestido-de-botones" aria-pressed="false">M</button><button class="t" type="button" data-talla="L" data-para="vestido-de-botones" aria-pressed="false">L</button></div></fieldset><fieldset class="opc" data-opc="color"><legend>Color <span data-leyenda="color">· elige uno</span></legend><div class="colores-b"><button class="sw" type="button" data-color="terracota" data-para="vestido-de-botones" aria-pressed="false" aria-label="Color terracota" title="terracota" style="--c:#B5603E"><i></i></button><button class="sw" type="button" data-color="chocolate" data-para="vestido-de-botones" aria-pressed="false" aria-label="Color chocolate" title="chocolate" style="--c:#4B3127"><i></i></button></div></fieldset><p class="falta" data-falta="" aria-live="polite"></p><div class="prenda-pie"><span class="precio">$35</span><a class="agregar" data-agregar="vestido-de-botones" href="https://wa.me/580000000000?text=Hola%2C%20Nua.%20Quiero%20encargar%20el%20modelo%20Vestido%20de%20botones.%20%C2%BFQu%C3%A9%20tallas%20y%20colores%20tienen%3F" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-bolsa"></use></svg>Agregar al pedido</a></div></div></li><li class="prenda sin" id="p-vestido-satinado" style="--n:8" data-id="vestido-satinado" data-categoria="Vestidos"><figure class="prenda-foto"><div class="vacia" aria-hidden="true"><svg><use href="#i-gancho"></use></svg><strong>Vestido satinado</strong><em>Foto del modelo pronto</em></div><img src="assets/productos/vestido-satinado.webp" width="640" height="800" alt="Vestido satinado" loading="lazy" data-foto=""><span class="ref">Foto referencial</span><span class="tejida"><span>Bajo pedido</span>10 a 15 días</span><span class="colgante" aria-hidden="true">$48</span></figure><div class="prenda-cuerpo"><p class="cat-p">Vestidos</p><h3>Vestido satinado</h3><p class="desc">Sin mangas, largo hasta el tobillo y botones al costado.</p><p class="no-disp">Por ahora no lo estamos haciendo.</p><div class="prenda-pie"><span class="precio">$48</span><a class="preguntar" href="https://wa.me/580000000000?text=Hola%2C%20Nua.%20%C2%BFVan%20a%20volver%20a%20hacer%20el%20modelo%20Vestido%20satinado%3F" target="_blank" rel="noopener">Preguntar por este modelo</a></div></div></li><li class="prenda" id="p-pantalon-sastre-ancho" style="--n:8" data-id="pantalon-sastre-ancho" data-categoria="Pantalones"><figure class="prenda-foto"><div class="vacia" aria-hidden="true"><svg><use href="#i-gancho"></use></svg><strong>Pantalón sastre ancho</strong><em>Foto del modelo pronto</em></div><span class="tejida"><span>Bajo pedido</span>5 a 7 días</span><span class="colgante" aria-hidden="true">$30</span></figure><div class="prenda-cuerpo"><p class="cat-p">Pantalones</p><h3>Pantalón sastre ancho</h3><p class="desc">Tiro alto, pinzas al frente y bolsillos a los lados.</p><fieldset class="opc" data-opc="talla"><legend>Talla <span data-leyenda="talla">· elige una</span></legend><div class="tallas-b"><button class="t" type="button" data-talla="S" data-para="pantalon-sastre-ancho" aria-pressed="false">S</button><button class="t" type="button" data-talla="M" data-para="pantalon-sastre-ancho" aria-pressed="false">M</button><button class="t" type="button" data-talla="L" data-para="pantalon-sastre-ancho" aria-pressed="false">L</button><button class="t" type="button" data-talla="XL" data-para="pantalon-sastre-ancho" aria-pressed="false">XL</button></div></fieldset><fieldset class="opc" data-opc="color"><legend>Color <span data-leyenda="color">· elige uno</span></legend><div class="colores-b"><button class="sw" type="button" data-color="negro" data-para="pantalon-sastre-ancho" aria-pressed="false" aria-label="Color negro" title="negro" style="--c:#1F1A17"><i></i></button><button class="sw" type="button" data-color="beige" data-para="pantalon-sastre-ancho" aria-pressed="false" aria-label="Color beige" title="beige" style="--c:#D9C4A6"><i></i></button><button class="sw" type="button" data-color="gris" data-para="pantalon-sastre-ancho" aria-pressed="false" aria-label="Color gris" title="gris" style="--c:#8E8A85"><i></i></button></div></fieldset><p class="falta" data-falta="" aria-live="polite"></p><div class="prenda-pie"><span class="precio">$30</span><a class="agregar" data-agregar="pantalon-sastre-ancho" href="https://wa.me/580000000000?text=Hola%2C%20Nua.%20Quiero%20encargar%20el%20modelo%20Pantal%C3%B3n%20sastre%20ancho.%20%C2%BFQu%C3%A9%20tallas%20y%20colores%20tienen%3F" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-bolsa"></use></svg>Agregar al pedido</a></div></div></li></ul>
+    <script type="application/json" id="catalogo-datos">[{"modelo":"Conjunto palazzo","categoria":"Conjuntos","tallas":["S","M","L","XL"],"colores":["crudo","chocolate","negro"],"precio":45,"disponible":true,"destacado":true,"foto":"assets/productos/conjunto-palazzo.webp","descripcion":"Suéter de punto suave y pantalón palazzo de tiro alto. Se encarga el conjunto completo.","tiempo":"7 a 10 días","id":"conjunto-palazzo"},{"modelo":"Falda satinada midi","categoria":"Faldas","tallas":["XS","S","M","L"],"colores":["chocolate","negro","champaña"],"precio":26,"disponible":true,"destacado":true,"foto":"assets/productos/falda-satinada.webp","descripcion":"Falda al bies con elástico escondido en la cintura. Cae suelta y no marca.","tiempo":"5 a 7 días","id":"falda-satinada-midi"},{"modelo":"Vestido lencero","categoria":"Vestidos","tallas":["XS","S","M","L"],"colores":["negro","chocolate","champaña"],"precio":32,"disponible":true,"destacado":true,"foto":"assets/productos/vestido-lencero.webp","descripcion":"Escote drapeado y tiras finas que se ajustan. Largo hasta el tobillo.","tiempo":"5 a 7 días","id":"vestido-lencero"},{"modelo":"Blusa bordada de volantes","categoria":"Blusas","tallas":["S","M","L"],"colores":["blanco"],"precio":28,"disponible":true,"destacado":true,"foto":"assets/productos/blusa-bordada.webp","descripcion":"Algodón bordado con volantes al frente y puños con elástico.","tiempo":"7 a 10 días","id":"blusa-bordada-de-volantes"},{"modelo":"Conjunto tejido","categoria":"Conjuntos","tallas":["S","M","L"],"colores":["beige","gris","negro"],"precio":38,"disponible":true,"destacado":false,"foto":"assets/productos/conjunto-tejido.webp","descripcion":"Suéter de manga ranglan y pantalón recto en tejido de punto.","tiempo":"7 a 10 días","id":"conjunto-tejido"},{"modelo":"Conjunto polo","categoria":"Conjuntos","tallas":["S","M","L"],"colores":["beige","blanco"],"precio":42,"disponible":true,"destacado":false,"foto":"assets/productos/conjunto-polo.webp","descripcion":"Suéter de cuello polo y pantalón ancho a juego.","tiempo":"7 a 10 días","id":"conjunto-polo"},{"modelo":"Camisa clásica","categoria":"Blusas","tallas":["S","M","L","XL"],"colores":["blanco","celeste"],"precio":25,"disponible":true,"destacado":false,"foto":"assets/productos/camisa-clasica.webp","descripcion":"Corte amplio con botones y puños. Se lleva por dentro o por fuera.","tiempo":"5 a 7 días","id":"camisa-clasica"},{"modelo":"Blusa de lino","categoria":"Blusas","tallas":["S","M","L","XL"],"colores":["blanco","beige"],"precio":20,"disponible":true,"destacado":false,"foto":"assets/productos/blusa-lino.webp","descripcion":"Sin mangas, cuello en V y caída suelta.","tiempo":"3 a 5 días","id":"blusa-de-lino"},{"modelo":"Top peplum","categoria":"Blusas","tallas":["S","M","L"],"colores":["camel","negro"],"precio":24,"disponible":true,"destacado":false,"foto":"assets/productos/top-peplum.webp","descripcion":"Escote cruzado y volante en la cintura.","tiempo":"5 a 7 días","id":"top-peplum"},{"modelo":"Vestido de botones","categoria":"Vestidos","tallas":["S","M","L"],"colores":["terracota","chocolate"],"precio":35,"disponible":true,"destacado":false,"foto":"assets/productos/vestido-botones.webp","descripcion":"Vestido midi con botones al frente y escote cuadrado.","tiempo":"7 a 10 días","id":"vestido-de-botones"},{"modelo":"Vestido satinado","categoria":"Vestidos","tallas":["S","M","L"],"colores":["negro","vino"],"precio":48,"disponible":false,"destacado":false,"foto":"assets/productos/vestido-satinado.webp","descripcion":"Sin mangas, largo hasta el tobillo y botones al costado.","tiempo":"10 a 15 días","id":"vestido-satinado"},{"modelo":"Pantalón sastre ancho","categoria":"Pantalones","tallas":["S","M","L","XL"],"colores":["negro","beige","gris"],"precio":30,"disponible":true,"destacado":false,"foto":"","descripcion":"Tiro alto, pinzas al frente y bolsillos a los lados.","tiempo":"5 a 7 días","id":"pantalon-sastre-ancho"}]</script>
+  </div>
+</section>
+
+<section class="seccion tallas" id="tallas">
+  <div class="contenedor">
+    <div class="revelar"><span class="rotulo">Guía de tallas</span><h2 class="titulo">¿Cuál es tu talla?</h2>
+      <p class="intro">Mídete con una cinta métrica, sin apretar, y compara con la tabla. Medidas en centímetros.</p></div>
+    <div class="metro" data-metro="" aria-hidden="true"><div class="rollo"></div></div>
+    <div class="grid">
+      <div class="tabla-envuelta revelar"><table class="tabla" data-tabla-tallas=""><caption class="solo-lector">Guía de tallas en centímetros</caption><thead><tr><th scope="col">Talla</th><th scope="col">Busto</th><th scope="col">Cintura</th><th scope="col">Cadera</th></tr></thead><tbody><tr><th scope="row">XS</th><td><span class="pend">Por confirmar</span></td><td><span class="pend">Por confirmar</span></td><td><span class="pend">Por confirmar</span></td></tr><tr><th scope="row">S</th><td><span class="pend">Por confirmar</span></td><td><span class="pend">Por confirmar</span></td><td><span class="pend">Por confirmar</span></td></tr><tr><th scope="row">M</th><td><span class="pend">Por confirmar</span></td><td><span class="pend">Por confirmar</span></td><td><span class="pend">Por confirmar</span></td></tr><tr><th scope="row">L</th><td><span class="pend">Por confirmar</span></td><td><span class="pend">Por confirmar</span></td><td><span class="pend">Por confirmar</span></td></tr><tr><th scope="row">XL</th><td><span class="pend">Por confirmar</span></td><td><span class="pend">Por confirmar</span></td><td><span class="pend">Por confirmar</span></td></tr></tbody></table></div>
+      <div class="revelar">
+        <ul class="medir">
+          <li><b>Busto</b><p>Alrededor de la parte más llena del pecho, con la cinta derecha por la espalda.</p></li>
+          <li><b>Cintura</b><p>En la parte más angosta, un poco arriba del ombligo.</p></li>
+          <li><b>Cadera</b><p>Alrededor de la parte más ancha, con los pies juntos.</p></li>
+        </ul>
+        <div class="botones"><a class="btn btn-linea" data-wa="tallas" href="https://wa.me/580000000000?text=Hola%2C%20Nua.%20No%20s%C3%A9%20cu%C3%A1l%20es%20mi%20talla.%20Estas%20son%20mis%20medidas%3A%20busto%20__%20cm%2C%20cintura%20__%20cm%2C%20cadera%20__%20cm." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"></use></svg>¿Dudas? Mándanos tus medidas</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="seccion preguntas" id="preguntas">
+  <div class="contenedor grid">
+    <div class="revelar"><span class="rotulo">Antes de encargar</span><h2 class="titulo">Preguntas de siempre</h2>
+      <p class="intro">Si no ves tu duda aquí, escríbenos.</p></div>
+    <ul class="lista-p revelar" data-preguntas=""><li style="--n:0"><div class="in"><h3>¿Cuánto tarda mi pedido?</h3><p>Depende del modelo: el tiempo aparece en cada prenda del catálogo. Te lo confirmamos cuando encargas.</p></div></li><li style="--n:1"><div class="in"><h3>¿Cómo se paga?</h3><p><span class="pend">Por confirmar</span> Pregúntanos por WhatsApp.</p></div></li><li style="--n:2"><div class="in"><h3>¿Se paga por adelantado?</h3><p><span class="pend">Por confirmar</span> Pregúntanos por WhatsApp.</p></div></li><li style="--n:3"><div class="in"><h3>¿Hacen entregas o envíos?</h3><p><span class="pend">Por confirmar</span> Pregúntanos por WhatsApp.</p></div></li><li style="--n:4"><div class="in"><h3>¿Puedo cambiar la talla si no me queda?</h3><p><span class="pend">Por confirmar</span> Pregúntanos por WhatsApp.</p></div></li></ul>
+  </div>
+</section>
+
+<section class="seccion cierre" id="contacto">
+  <div class="contenedor revelar">
+    <img class="cierre-logo" src="assets/logo-claro.png" alt="Nua" width="489" height="240" loading="lazy">
+    <h2>¿Te gustó algo?</h2>
+    <p>Escríbenos y te ayudamos a escoger el modelo, la talla y el color.</p>
+    <div class="botones">
+      <a class="btn btn-lleno" data-wa="general" href="https://wa.me/580000000000?text=Hola%2C%20Nua.%20Vi%20el%20cat%C3%A1logo%20y%20quiero%20informaci%C3%B3n." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"></use></svg>Escribir por WhatsApp</a>
+      
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="contenedor">
+    <a class="logo" href="#inicio"><img src="assets/logo.png" alt="Nua" width="62" height="30" loading="lazy"></a>
+    <p class="aviso" data-aviso="">Catálogo y fotos de ejemplo. Las fotos son referenciales: no son prendas de la tienda.</p>
+  </div>
+</footer>
+
+<div class="barra-movil">
+  <a class="btn btn-linea" data-wa="general" href="https://wa.me/580000000000?text=Hola%2C%20Nua.%20Vi%20el%20cat%C3%A1logo%20y%20quiero%20informaci%C3%B3n." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"></use></svg>WhatsApp</a>
+  <a class="btn btn-lleno" href="#catalogo" data-abrir-pedido=""><svg aria-hidden="true"><use href="#i-bolsa"></use></svg><span data-barra-texto="">Ver catálogo</span></a>
+</div>
+<a class="wa-flotante" data-wa="general" href="https://wa.me/580000000000?text=Hola%2C%20Nua.%20Vi%20el%20cat%C3%A1logo%20y%20quiero%20informaci%C3%B3n." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><svg aria-hidden="true"><use href="#i-wa"></use></svg></a>
+<!--auto-fin-->
+
+<button class="pedido-flotante" type="button" data-abrir-pedido="" aria-label="Ver tu pedido"><span class="mini" data-mini=""></span><span data-flotante-texto="">0 prendas</span></button>
+<div class="toast" data-toast="" role="status" aria-live="polite"><span class="mini" data-toast-mini=""></span><div><b data-toast-titulo="">Agregado</b><span data-toast-detalle=""></span></div><button type="button" data-abrir-pedido="">Ver pedido</button></div>
+<div class="hoja-fondo" data-cerrar-hoja="" aria-hidden="true"></div>
+<aside class="hoja" data-hoja="" role="dialog" aria-modal="true" aria-labelledby="hoja-titulo" aria-hidden="true">
+  <div class="hoja-cab"><h2 id="hoja-titulo"><small>Ficha de pedido</small>Tu pedido</h2><button class="cerrar" type="button" data-cerrar-hoja="" aria-label="Cerrar el pedido"><svg aria-hidden="true"><use href="#i-x"></use></svg></button></div>
+  <div class="hoja-cuerpo"><ul class="items" data-items=""></ul></div>
+  <div class="hoja-pie">
+    <div class="total-fila"><span>Total aproximado</span><span class="precio" data-total="">$0</span></div>
+    <p class="nota">Es bajo pedido: el mensaje lo dice y te confirmamos el tiempo de entrega y el pago por WhatsApp.</p>
+    <a class="btn btn-lleno" data-enviar="" href="https://wa.me/580000000000" target="_blank" rel="noopener" aria-disabled="true"><svg aria-hidden="true"><use href="#i-wa"></use></svg>Encargar por WhatsApp</a>
+    <button class="vaciar" type="button" data-vaciar="">Vaciar pedido</button>
+  </div>
+</aside>
+
+<script>
+(function(){
+  "use strict";
+  var C = window.CONFIG || {}, M = C.marca || {};
+  var HORNEAR = /[?&]hornear\b/.test(location.search);
+  var reducido = false;
+  try { reducido = matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) {}
+  function safe(fn, n){ try { fn(); } catch (e) { if (window.console) console.warn("[" + n + "]", e); } }
+  function $(s, r){ return (r || document).querySelector(s); }
+  function $$(s, r){ return Array.prototype.slice.call((r || document).querySelectorAll(s)); }
+  function esc(s){ return String(s == null ? "" : s).replace(/[&<>"']/g, function(c){ return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+  function pendiente(v){ return !v || /^\s*\[/.test(String(v)); }
+  function nombre(t){ return String(t || "").split("{{NOMBRE}}").join(M.nombre || ""); }
+  function wa(t){ return "https://wa.me/" + M.whatsapp + (t ? "?text=" + encodeURIComponent(t) : ""); }
+  function dinero(n){
+    if (n == null || isNaN(n)) return "Consultar";
+    var ent = Math.floor(Math.round(n * 100) / 100), dec = Math.round((n - ent) * 100);
+    return (C.moneda || "$") + String(ent).replace(/\B(?=(\d{3})+(?!\d))/g, ".") + (dec ? "," + (dec < 10 ? "0" : "") + dec : "");
+  }
+  function enRaf(fn){ var p = false; return function(){ if (p) return; p = true; requestAnimationFrame(function(){ p = false; fn(); }); }; }
+  function sinAcentos(s){ s = String(s || ""); return (s.normalize ? s.normalize("NFD").replace(/[̀-ͯ]/g, "") : s).toLowerCase(); }
+  function guardar(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+  function leerGuardado(k){ try { var v = localStorage.getItem(k); return v ? JSON.parse(v) : null; } catch (e) { return null; } }
+  function plural(n, a, b){ return n + " " + (n === 1 ? a : b); }
+
+  /* =================== COLORES DE TELA =================== */
+  var TELAS = { negro: "#1F1A17", blanco: "#FBF8F2", crudo: "#EEE4D2", hueso: "#EFE7D8", beige: "#D9C4A6", arena: "#CDB79A", nude: "#D9B9A0",
+    camel: "#B98A5A", caramelo: "#A8703F", chocolate: "#4B3127", marron: "#6B4532", cafe: "#6B4532", terracota: "#B5603E", oxido: "#9C4A2B",
+    vino: "#6A1E2B", rojo: "#A8282B", rosa: "#E6B8B2", "palo de rosa": "#D8A79C", fucsia: "#C2357A", lila: "#B9A6C9", morado: "#5E3A6E",
+    azul: "#2F4A7A", "azul marino": "#1F2A44", marino: "#1F2A44", celeste: "#AFC9DF", turquesa: "#3E9A9A", verde: "#4F6B45", oliva: "#6B6A3A",
+    "verde oliva": "#6B6A3A", salvia: "#A3B09A", menta: "#BFDCCB", gris: "#8E8A85", "gris claro": "#C9C5BF", plata: "#C4C4C4", champana: "#E7D5B5",
+    dorado: "#C2A061", amarillo: "#E9C85A", mostaza: "#C99A2E", naranja: "#D9783A", coral: "#E07A62", jean: "#4A6585", denim: "#4A6585" };
+  function tela(nom){
+    var k = sinAcentos(nom).trim(), hex = TELAS[k];
+    if (!hex) { var p = k.split(" "); for (var i = p.length; i > 0 && !hex; i--) hex = TELAS[p.slice(0, i).join(" ")]; }
+    hex = hex || "#BBA894";
+    var r = parseInt(hex.substr(1, 2), 16), g = parseInt(hex.substr(3, 2), 16), b = parseInt(hex.substr(5, 2), 16);
+    return { hex: hex, clara: (0.2126 * r + 0.7152 * g + 0.0722 * b) > 205 };
+  }
+
+  /* =================== LECTURA DEL CATÁLOGO (CSV) =================== */
+  function leerCSV(txt){
+    txt = String(txt || "").replace(/^﻿/, "");
+    var primera = txt.split(/\r?\n/)[0] || "", sep = (primera.split(";").length > primera.split(",").length) ? ";" : ",";
+    var filas = [], fila = [], campo = "", q = false;
+    for (var i = 0; i < txt.length; i++) {
+      var c = txt.charAt(i);
+      if (q) { if (c === '"') { if (txt.charAt(i + 1) === '"') { campo += '"'; i++; } else q = false; } else campo += c; }
+      else if (c === '"') q = true;
+      else if (c === sep) { fila.push(campo); campo = ""; }
+      else if (c === "\n" || c === "\r") { if (c === "\r" && txt.charAt(i + 1) === "\n") i++; fila.push(campo); filas.push(fila); fila = []; campo = ""; }
+      else campo += c;
+    }
+    if (campo !== "" || fila.length) { fila.push(campo); filas.push(fila); }
+    return filas;
+  }
+  var COLUMNAS = ["modelo", "categoria", "tallas", "colores", "precio", "disponible", "destacado", "foto", "descripcion", "tiempoentrega"];
+  function limpio(v, max){ return String(v == null ? "" : v).replace(/\s+/g, " ").trim().slice(0, max || 120); }
+  function siNo(v, porDefecto){
+    var s = sinAcentos(limpio(v));
+    if (!s) return porDefecto;
+    if (/^(si|s|yes|y|x|1|true|verdadero|ok)$/.test(s)) return true;
+    if (/^(no|n|0|false|falso|agotado)$/.test(s)) return false;
+    return porDefecto;
+  }
+  function numero(v){
+    var s = limpio(v).replace(/usd|us\$|\$|bs\.?|\s/gi, "");
+    if (!s) return null;
+    if (s.indexOf(",") > -1 && s.indexOf(".") > -1) s = s.lastIndexOf(",") > s.lastIndexOf(".") ? s.replace(/\./g, "").replace(",", ".") : s.replace(/,/g, "");
+    else if (s.indexOf(",") > -1) s = s.replace(",", ".");
+    if (!/^\d+(\.\d+)?$/.test(s)) return null;
+    var n = parseFloat(s); return isFinite(n) && n >= 0 ? n : null;
+  }
+  function lista(v, max){
+    var vistos = {}, out = [];
+    limpio(v, 300).split(/[,;\/|]| y /).forEach(function(x){ x = limpio(x, 30); var k = sinAcentos(x); if (x && !vistos[k]) { vistos[k] = 1; out.push(x); } });
+    return out.slice(0, max || 10);
+  }
+  function rutaFoto(v){
+    var s = limpio(v, 600);
+    if (!s) return "";
+    var drive = s.match(/drive\.google\.com\/(?:file\/d\/|open\?id=|uc\?(?:export=\w+&)?id=)([\w-]{10,})/);
+    if (drive) return "https://drive.google.com/thumbnail?id=" + drive[1] + "&sz=w900";
+    if (/^https?:\/\//i.test(s)) return s;
+    if (/[:\\]|\.\./.test(s)) return "";
+    s = s.replace(/^\.?\/+/, "").replace(/^assets\/productos\//i, "");
+    return (C.carpetaFotos || "assets/productos/") + encodeURI(s);
+  }
+  function slug(s){ return sinAcentos(s).replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 60) || "p"; }
+  function aPrendas(txt){
+    var filas = leerCSV(txt).filter(function(f){ return f.some(function(c){ return limpio(c) !== ""; }); });
+    if (!filas.length) return [];
+    var cab = filas[0].map(function(h){ return sinAcentos(limpio(h)).replace(/[^a-z]/g, ""); });
+    var hayCab = cab.indexOf("modelo") > -1, idx = {};
+    COLUMNAS.forEach(function(col, k){ var j = cab.indexOf(col); idx[col] = j > -1 ? j : (hayCab ? -1 : k); });
+    var cuerpo = hayCab ? filas.slice(1) : filas;
+    var out = [], vistos = {}, cats = {};
+    cuerpo.forEach(function(f, n){
+      function col(k){ return idx[k] > -1 ? f[idx[k]] : ""; }
+      var p = { modelo: limpio(col("modelo"), 80), categoria: limpio(col("categoria"), 40) || "Otros",
+        tallas: lista(col("tallas"), 10), colores: lista(col("colores"), 10), precio: numero(col("precio")),
+        disponible: siNo(col("disponible"), true), destacado: siNo(col("destacado"), false),
+        foto: rutaFoto(col("foto")), descripcion: limpio(col("descripcion"), 240), tiempo: limpio(col("tiempoentrega"), 40) };
+      if (!p.modelo || p.precio == null) { if (window.console) console.warn("[catálogo] fila " + (n + 2) + " saltada: falta el modelo o el precio no es un número", f); return; }
+      var clave = sinAcentos(p.categoria).replace(/[^a-z0-9]/g, "");
+      p.categoria = cats[clave] || (cats[clave] = p.categoria.charAt(0).toUpperCase() + p.categoria.slice(1));
+      var id = slug(p.modelo), base = id, k = 2;
+      while (vistos[id]) id = base + "-" + (k++);
+      vistos[id] = true; p.id = id;
+      out.push(p);
+    });
+    return out;
+  }
+  function traer(url, ms, ok, mal){
+    try {
+      var x = new XMLHttpRequest();
+      x.open("GET", url, true); x.timeout = ms;
+      x.onload = function(){ if ((x.status === 200 || x.status === 0) && x.responseText) ok(x.responseText); else mal(x.status); };
+      x.onerror = x.ontimeout = function(){ mal("red"); };
+      x.send();
+    } catch (e) { mal(e); }
+  }
+
+  /* =================== PINTAR =================== */
+  var prendas = [];
+  function porId(id){ for (var i = 0; i < prendas.length; i++) if (prendas[i].id === id) return prendas[i]; return null; }
+  function vacia(p){ return '<div class="vacia" aria-hidden="true"><svg><use href="#i-gancho"/></svg><strong>' + esc(p.modelo) + "</strong><em>Foto del modelo pronto</em></div>"; }
+  function foto(p, w, h, primero){
+    return vacia(p) + (p.foto ? '<img src="' + esc(p.foto) + '" width="' + w + '" height="' + h + '" alt="' + esc(p.modelo) + '"' + (primero === true ? ' fetchpriority="high"' : primero === 2 ? "" : ' loading="lazy"') + ' data-foto="">' : "");
+  }
+  function refTag(p){ return C.fotosReferenciales && p.foto ? '<span class="ref">Foto referencial</span>' : ""; }
+  function msgUno(p, plantilla){ return nombre(C.mensajes[plantilla]).split("{{MODELO}}").join(p.modelo); }
+  var nDest = 0;
+  function tarjeta(p, i){
+    // si los destacados son impares, el último va a lo ancho para no dejar un hueco
+    var g = p.destacado ? " grande" + (nDest % 2 && i === nDest - 1 ? " ancho" : "") : "", s = p.disponible ? "" : " sin";
+    var h = '<li class="prenda' + g + s + '" id="p-' + esc(p.id) + '" style="--n:' + Math.min(i, 8) + '" data-id="' + esc(p.id) + '" data-categoria="' + esc(p.categoria) + '">' +
+      '<figure class="prenda-foto">' + foto(p, 640, 800) + refTag(p) +
+      (p.tiempo ? '<span class="tejida"><span>Bajo pedido</span>' + esc(p.tiempo) + "</span>" : '<span class="tejida"><span>Bajo pedido</span></span>') +
+      '<span class="colgante" aria-hidden="true">' + dinero(p.precio) + "</span></figure>" +
+      '<div class="prenda-cuerpo"><p class="cat-p">' + esc(p.categoria) + "</p><h3>" + esc(p.modelo) + "</h3>" + (p.descripcion ? '<p class="desc">' + esc(p.descripcion) + "</p>" : "");
+    if (!p.disponible) {
+      h += '<p class="no-disp">Por ahora no lo estamos haciendo.</p><div class="prenda-pie"><span class="precio">' + dinero(p.precio) + '</span><a class="preguntar" href="' + esc(wa(msgUno(p, "agotado"))) + '" target="_blank" rel="noopener">Preguntar por este modelo</a></div></div></li>';
+      return h;
+    }
+    if (p.tallas.length) h += '<fieldset class="opc" data-opc="talla"><legend>Talla <span data-leyenda="talla">' + (p.tallas.length === 1 ? esc(p.tallas[0]) : "· elige una") + '</span></legend><div class="tallas-b">' +
+      p.tallas.map(function(t){ return '<button class="t" type="button" data-talla="' + esc(t) + '" data-para="' + esc(p.id) + '" aria-pressed="' + (p.tallas.length === 1) + '">' + esc(t) + "</button>"; }).join("") + "</div></fieldset>";
+    if (p.colores.length) h += '<fieldset class="opc" data-opc="color"><legend>Color <span data-leyenda="color">' + (p.colores.length === 1 ? esc(p.colores[0]) : "· elige uno") + '</span></legend><div class="colores-b">' +
+      p.colores.map(function(c){ var t = tela(c); return '<button class="sw' + (t.clara ? " clara" : "") + '" type="button" data-color="' + esc(c) + '" data-para="' + esc(p.id) + '" aria-pressed="' + (p.colores.length === 1) + '" aria-label="Color ' + esc(c) + '" title="' + esc(c) + '" style="--c:' + t.hex + '"><i></i></button>'; }).join("") + "</div></fieldset>";
+    h += '<p class="falta" data-falta="" aria-live="polite"></p><div class="prenda-pie"><span class="precio">' + dinero(p.precio) + '</span><a class="agregar" data-agregar="' + esc(p.id) + '" href="' + esc(wa(msgUno(p, "uno"))) + '" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-bolsa"/></svg>Agregar al pedido</a></div></div></li>';
+    return h;
+  }
+  function categorias(){ var v = []; prendas.forEach(function(p){ if (v.indexOf(p.categoria) < 0) v.push(p.categoria); }); return v; }
+  function looks(){ return prendas.filter(function(p){ return p.destacado && p.disponible && p.foto; }).slice(0, 5); }
+
+  function pintarTextos(){
+    var f = $("[data-franja]"); if (f) f.innerHTML = C.vistaPrevia ? '<i aria-hidden="true"></i>' + esc(C.vistaPrevia) : "";
+    if (f && !C.vistaPrevia) f.style.display = "none";
+    var tipo = pendiente(M.tipoRopa) ? "Ropa" : M.tipoRopa, ciudad = pendiente(M.ciudad) ? "" : M.ciudad;
+    var eb = $("[data-eyebrow]"); if (eb) eb.textContent = tipo + " bajo pedido" + (ciudad ? " · " + ciudad : "");
+    $$("[data-wa=general]").forEach(function(a){ a.href = wa(nombre(C.mensajes.general)); });
+    $$("[data-wa=tallas]").forEach(function(a){ a.href = wa(nombre(C.mensajes.tallas)); });
+    $$("[data-ig]").forEach(function(a){ if (pendiente(M.instagram)) a.parentNode && a.parentNode.removeChild(a); else a.href = "https://instagram.com/" + M.instagram; });
+    var av = $("[data-aviso]"); if (av) av.textContent = C.aviso || "";
+    var titulo = M.nombre + " · " + tipo + " bajo pedido" + (ciudad ? " en " + ciudad : "");
+    document.title = titulo;
+    var d = $('meta[name="description"]'); if (d && M.descripcion) d.setAttribute("content", M.descripcion);
+    var ot = $('meta[property="og:title"]'); if (ot) ot.setAttribute("content", titulo);
+    var od = $('meta[property="og:description"]'); if (od && M.descripcion) od.setAttribute("content", M.descripcion);
+  }
+  function pintarPasos(){
+    var t = pendiente(C.tiempoEntrega) ? "" : C.tiempoEntrega;
+    var pasos = [
+      { h: "Elige tu modelo", p: "Mira el catálogo y quédate con la prenda que te guste." },
+      { h: "Escoge talla y color", p: "Cada modelo muestra sus tallas y sus colores. Si dudas, revisa la guía de tallas." },
+      { h: "Encarga por WhatsApp", p: "Tu pedido llega escrito: modelo, talla, color, cantidad y total aproximado." },
+      { h: t ? "Recíbelo en " + t : "Recibe tu prenda", p: t ? "Te confirmamos la fecha y el pago por WhatsApp." : "En el tiempo que indica cada modelo. Te confirmamos la fecha y el pago por WhatsApp." }
+    ];
+    var ol = $("[data-pasos]"); if (!ol) return;
+    ol.innerHTML = '<span class="costura" aria-hidden="true"><i></i></span><span class="aguja" aria-hidden="true"><svg viewBox="0 0 20 46" width="20" height="46"><use href="#i-aguja"/></svg></span>' +
+      pasos.map(function(x, i){ return '<li class="paso"><span class="boton-cos" aria-hidden="true"></span><div><small>PASO ' + (i + 1) + "</small><h3>" + esc(x.h) + "</h3><p>" + esc(x.p) + "</p></div></li>"; }).join("");
+  }
+  function pintarTallas(){
+    var g = C.guiaTallas || {}, t = $("[data-tabla-tallas]"); if (!t) return;
+    t.innerHTML = "<caption class=\"solo-lector\">Guía de tallas en centímetros</caption><thead><tr><th scope=\"col\">Talla</th>" + (g.columnas || []).map(function(c){ return '<th scope="col">' + esc(c) + "</th>"; }).join("") + "</tr></thead><tbody>" +
+      (g.filas || []).map(function(f){ return '<tr><th scope="row">' + esc(f.talla) + "</th>" + f.medidas.map(function(m){ return "<td>" + (pendiente(m) ? '<span class="pend">Por confirmar</span>' : esc(m)) + "</td>"; }).join("") + "</tr>"; }).join("") + "</tbody>";
+  }
+  function pintarPreguntas(){
+    var ul = $("[data-preguntas]"); if (!ul) return;
+    ul.innerHTML = (C.preguntas || []).map(function(x, i){
+      return '<li style="--n:' + i + '"><div class="in"><h3>' + esc(x.p) + "</h3>" + (pendiente(x.r) ? '<p><span class="pend">Por confirmar</span> Pregúntanos por WhatsApp.</p>' : "<p>" + esc(x.r) + "</p>") + "</div></li>"; }).join("");
+  }
+  function pintarProbador(){
+    var box = $("[data-probador]"); if (!box) return;
+    var L = looks(); box.hidden = !L.length; if (!L.length) { box.innerHTML = ""; return; }
+    box.innerHTML = '<div class="barral" aria-hidden="true"></div><div class="marco"><div class="looks">' +
+      L.map(function(p, i){ return '<div class="look' + (i ? "" : " activo") + '" data-look="' + i + '">' + foto(p, 640, 800, i ? 2 : true) + "</div>"; }).join("") +
+      '</div><div class="cortina-caja" aria-hidden="true"><div class="cortina"><div class="tela"></div><div class="aros"></div></div></div>' + (C.fotosReferenciales ? '<span class="ref">Foto referencial</span>' : "") +
+      '<div class="cinta-metrica" aria-hidden="true"><div class="pista"></div></div></div>' +
+      '<div class="etiqueta" data-etiqueta=""><small data-look-num="">Destacado 1 de ' + L.length + '</small><b data-look-nombre="">' + esc(L[0].modelo) + '</b><div class="fila"><span class="precio" data-look-precio="">' + dinero(L[0].precio) +
+      '</span><a href="#p-' + esc(L[0].id) + '" data-look-ir="">Lo quiero</a></div></div>' +
+      (L.length > 1 ? '<div class="muestras" role="group" aria-label="Ver otro modelo"><p>Mira otro:</p>' + L.map(function(p, i){ var t = tela(p.colores[0] || ""); return '<button class="muestra' + (t.clara ? " clara" : "") + '" type="button" data-ver-look="' + i + '" aria-pressed="' + (!i) + '" aria-label="Ver ' + esc(p.modelo) + '" style="--c:' + t.hex + '"></button>'; }).join("") + "</div>" : "");
+  }
+  function pintarCatalogo(){
+    var cats = categorias(), ch = $("[data-chips]");
+    if (ch) ch.innerHTML = '<button class="chip" type="button" data-cat="" aria-pressed="true">Todo<span>' + prendas.length + "</span></button>" +
+      cats.map(function(c){ var n = prendas.filter(function(p){ return p.categoria === c; }).length; return '<button class="chip" type="button" data-cat="' + esc(c) + '" aria-pressed="false">' + esc(c) + "<span>" + n + "</span></button>"; }).join("");
+    // destacados primero, luego el orden de la hoja
+    var dest = prendas.filter(function(p){ return p.destacado; }); nDest = dest.length;
+    var orden = dest.concat(prendas.filter(function(p){ return !p.destacado; }));
+    var ul = $("[data-prendas]"); if (ul) ul.innerHTML = orden.map(tarjeta).join("");
+    var cu = $("[data-cuenta]"); if (cu) cu.textContent = plural(prendas.length, "modelo", "modelos");
+    var js = $("#catalogo-datos"); if (js) js.textContent = JSON.stringify(prendas).replace(/</g, "\\u003c");
+    safe(pintarProbador, "probador");
+  }
+  function pintarTodo(){ safe(pintarTextos, "textos"); safe(pintarPasos, "pasos"); safe(pintarTallas, "tallas"); safe(pintarPreguntas, "preguntas"); safe(pintarCatalogo, "catalogo"); }
+
+  /* =================== CARGA DEL CATÁLOGO =================== */
+  var FUENTE = C.HOJA_CSV ? String(C.HOJA_CSV).trim() : (C.catalogoEjemplo || "catalogo-ejemplo.csv");
+  var CLAVE = "nua-catalogo:" + FUENTE, huella = "";
+  function aplicar(l, origen){
+    if (!l || !l.length) return false;
+    var nueva = JSON.stringify(l);
+    if (nueva === huella) return true;
+    huella = nueva; prendas = l;
+    safe(pintarCatalogo, "catalogo");
+    if (!HORNEAR) safe(alCambiarCatalogo, "catalogo-vivo");
+    document.documentElement.setAttribute("data-catalogo", origen);
+    return true;
+  }
+  function cargarCatalogo(listo){
+    traer(FUENTE, 10000, function(txt){
+      if (aplicar(aPrendas(txt), C.HOJA_CSV ? "hoja" : "ejemplo")) { if (!HORNEAR) guardar(CLAVE, { t: Date.now(), csv: txt }); }
+      else if (C.HOJA_CSV) respaldo();
+      if (listo) listo();
+    }, function(){ respaldo(); if (listo) listo(); });
+    function respaldo(){
+      if (prendas.length) return;
+      traer(C.catalogoEjemplo || "catalogo-ejemplo.csv", 10000, function(txt){ aplicar(aPrendas(txt), "ejemplo"); }, function(){});
+    }
+  }
+
+  /* =================== PEDIDO =================== */
+  var pedido = [], sel = {};   // pedido: [{id, talla, color, q}]
+  function linea(it){ var p = porId(it.id); return p ? p : null; }
+  function contar(){ var n = 0, t = 0; pedido.forEach(function(it){ var p = linea(it); if (p) { n += it.q; t += it.q * p.precio; } }); return { n: n, t: Math.round(t * 100) / 100 }; }
+  function limpiarPedido(){ pedido = pedido.filter(function(it){ var p = porId(it.id); return p && p.disponible && it.q > 0; }).map(function(it){ it.q = Math.min(20, Math.floor(it.q)); return it; }); }
+  function guardarPedido(){ guardar("nua-pedido", pedido); }
+  function variante(it){ return [it.talla ? "talla " + it.talla : "", it.color ? "color " + it.color : ""].filter(Boolean).join(" · "); }
+  function mensajePedido(){
+    var l = [nombre(C.mensajes.pedido), ""];
+    pedido.forEach(function(it){ var p = linea(it); if (!p) return;
+      var v = variante(it);
+      l.push("• " + it.q + " × " + p.modelo + (v ? " · " + v : "") + ": " + (it.q > 1 ? dinero(p.precio) + " c/u = " + dinero(p.precio * it.q) : dinero(p.precio))); });
+    l.push("", "Total aproximado: " + dinero(contar().t), C.mensajes.bajoPedido, C.mensajes.cierre);
+    return l.join("\n");
+  }
+  function miniFoto(p){ return p && p.foto ? '<img src="' + esc(p.foto) + '" alt="" width="56" height="70">' : ""; }
+  function resumen(saltar){
+    var r = contar();
+    document.body.classList.toggle("con-pedido", r.n > 0);
+    $$("[data-cuenta-n]").forEach(function(b){ b.textContent = r.n; if (saltar) { b.classList.remove("salta"); void b.offsetWidth; b.classList.add("salta"); } });
+    var bt = $("[data-barra-texto]"); if (bt) bt.textContent = r.n ? "Tu pedido (" + r.n + ")" : "Ver catálogo";
+    var ft = $("[data-flotante-texto]"); if (ft) ft.textContent = plural(r.n, "prenda", "prendas") + " · " + dinero(r.t);
+    var mini = $("[data-mini]"); if (mini) { var u = pedido[pedido.length - 1]; mini.innerHTML = u ? miniFoto(porId(u.id)) : ""; }
+    $$("[data-abrir-pedido]").forEach(function(b){ if (b.classList.contains("bolsa") || b.classList.contains("pedido-flotante")) b.setAttribute("aria-label", r.n ? "Ver tu pedido: " + plural(r.n, "prenda", "prendas") + ", " + dinero(r.t) : "Ver tu pedido"); });
+    pintarHoja();
+  }
+  var ICON = { mas: '<svg aria-hidden="true"><use href="#i-mas"/></svg>', menos: '<svg aria-hidden="true"><use href="#i-menos"/></svg>' };
+  function pintarHoja(){
+    var ul = $("[data-items]"), r = contar(), envia = $("[data-enviar]"); if (!ul) return;
+    ul.innerHTML = pedido.length ? pedido.map(function(it, k){ var p = linea(it); if (!p) return "";
+      return '<li class="item"><div class="mini">' + miniFoto(p) + "</div><div><b>" + esc(p.modelo) + '</b><span class="var">' + esc(variante(it)) + "</span>" +
+        '<div class="item-pie"><div class="cant" role="group" aria-label="Cantidad de ' + esc(p.modelo) + '"><button type="button" data-menos="' + k + '" aria-label="Quitar una">' + ICON.menos + "</button><output>" + it.q + "</output>" +
+        '<button type="button" data-mas="' + k + '" aria-label="Agregar una más">' + ICON.mas + '</button></div><span class="precio">' + dinero(p.precio * it.q) + "</span></div></div></li>"; }).join("")
+      : '<li class="hoja-vacia"><b>Todavía no hay prendas</b>Elige talla y color en el catálogo y toca «Agregar al pedido».</li>';
+    $("[data-total]").textContent = dinero(r.t);
+    if (envia) { envia.href = wa(mensajePedido()); envia.setAttribute("aria-disabled", r.n ? "false" : "true"); }
+    var v = $("[data-vaciar]"); if (v) v.hidden = !r.n;
+  }
+  function falta(li, que){
+    var f = $("[data-falta]", li), op = $('[data-opc="' + que + '"]', li);
+    if (f) f.textContent = que === "talla" ? "Elige tu talla para agregarlo." : "Elige el color para agregarlo.";
+    if (op && !reducido) { op.classList.remove("sacude"); void op.offsetWidth; op.classList.add("sacude"); }
+    var b = op && $("button", op); if (b) b.focus({ preventScroll: false });
+  }
+  function agregar(id, boton){
+    var p = porId(id), li = boton.closest(".prenda"); if (!p || !p.disponible || !li) return;
+    var s = sel[id] || {};
+    var talla = p.tallas.length === 1 ? p.tallas[0] : s.talla, color = p.colores.length === 1 ? p.colores[0] : s.color;
+    if (p.tallas.length && !talla) return falta(li, "talla");
+    if (p.colores.length && !color) return falta(li, "color");
+    var f = $("[data-falta]", li); if (f) f.textContent = "";
+    var it = pedido.filter(function(x){ return x.id === id && x.talla === (talla || "") && x.color === (color || ""); })[0];
+    if (it) it.q = Math.min(20, it.q + 1); else pedido.push({ id: id, talla: talla || "", color: color || "", q: 1 });
+    guardarPedido(); resumen(true);
+    boton.classList.add("hecho"); boton.innerHTML = '<svg aria-hidden="true"><use href="#i-check"/></svg>Agregado';
+    clearTimeout(boton._t); boton._t = setTimeout(function(){ boton.classList.remove("hecho"); boton.innerHTML = '<svg aria-hidden="true"><use href="#i-bolsa"/></svg>Agregar al pedido'; }, 1600);
+    li.classList.remove("elegida"); void li.offsetWidth; li.classList.add("elegida");
+    toast(p, [talla, color].filter(Boolean).join(" · "));
+  }
+  var tT;
+  function toast(p, det){
+    var t = $("[data-toast]"); if (!t) return;
+    $("[data-toast-mini]", t).innerHTML = miniFoto(p);
+    $("[data-toast-titulo]", t).textContent = "Agregado: " + p.modelo;
+    $("[data-toast-detalle]", t).textContent = det || "";
+    t.classList.add("ver"); clearTimeout(tT); tT = setTimeout(function(){ t.classList.remove("ver"); }, 2800);
+  }
+  var ultimoFoco = null;
+  function abrirHoja(){
+    if (!contar().n) { var cat = $("#catalogo"); if (cat) cat.scrollIntoView({ behavior: reducido ? "auto" : "smooth" }); return; }
+    ultimoFoco = document.activeElement; pintarHoja();
+    var t = $("[data-toast]"); if (t) t.classList.remove("ver");
+    document.body.classList.add("hoja-abierta"); document.documentElement.style.overflow = "hidden";
+    var h = $("[data-hoja]"); h.removeAttribute("aria-hidden"); setTimeout(function(){ var c = $(".cerrar", h); if (c) c.focus(); }, 60);
+  }
+  function cerrarHoja(){
+    document.body.classList.remove("hoja-abierta"); document.documentElement.style.overflow = "";
+    $("[data-hoja]").setAttribute("aria-hidden", "true");
+    if (ultimoFoco && ultimoFoco.focus) ultimoFoco.focus({ preventScroll: true });
+  }
+  function elegir(boton, tipo){
+    var id = boton.getAttribute("data-para"), v = boton.getAttribute(tipo === "talla" ? "data-talla" : "data-color"), li = boton.closest(".prenda");
+    sel[id] = sel[id] || {}; sel[id][tipo] = v;
+    $$('[data-para="' + id.replace(/"/g, "") + '"][data-' + tipo + "]", li).forEach(function(b){ b.setAttribute("aria-pressed", String(b === boton)); });
+    var ley = $('[data-leyenda="' + tipo + '"]', li); if (ley) ley.textContent = v;
+    var f = $("[data-falta]", li); if (f) f.textContent = "";
+  }
+  function initPedido(){
+    var g = leerGuardado("nua-pedido");
+    if (g && g.forEach) g.forEach(function(it){ if (it && it.id && +it.q > 0) pedido.push({ id: String(it.id), talla: String(it.talla || ""), color: String(it.color || ""), q: +it.q }); });
+    limpiarPedido(); resumen();
+    document.addEventListener("click", function(e){
+      var t = e.target.closest ? e.target.closest("[data-agregar],[data-talla],[data-color],[data-mas],[data-menos],[data-abrir-pedido],[data-cerrar-hoja],[data-vaciar],[data-cat],[data-ver-look],[data-look-ir]") : null;
+      if (!t) return;
+      if (t.hasAttribute("data-agregar")) { e.preventDefault(); agregar(t.getAttribute("data-agregar"), t); }
+      else if (t.hasAttribute("data-talla")) elegir(t, "talla");
+      else if (t.hasAttribute("data-color")) elegir(t, "color");
+      else if (t.hasAttribute("data-mas") || t.hasAttribute("data-menos")) {
+        var k = +(t.getAttribute("data-mas") || t.getAttribute("data-menos")), it = pedido[k]; if (!it) return;
+        it.q += t.hasAttribute("data-mas") ? 1 : -1; it.q = Math.min(20, it.q);
+        if (it.q <= 0) pedido.splice(k, 1);
+        guardarPedido(); resumen(); if (!pedido.length) cerrarHoja();
+      }
+      else if (t.hasAttribute("data-abrir-pedido")) { e.preventDefault(); abrirHoja(); }
+      else if (t.hasAttribute("data-cerrar-hoja")) cerrarHoja();
+      else if (t.hasAttribute("data-vaciar")) { pedido = []; guardarPedido(); resumen(); cerrarHoja(); }
+      else if (t.hasAttribute("data-cat")) { filtro = t.getAttribute("data-cat") || ""; aplicarFiltro(); }
+      else if (t.hasAttribute("data-ver-look")) { verLook(+t.getAttribute("data-ver-look"), true); }
+      else if (t.hasAttribute("data-look-ir")) {
+        var li = document.getElementById(t.getAttribute("href").slice(1)); if (!li) return;
+        e.preventDefault(); if (li.hidden) { filtro = ""; aplicarFiltro(); }
+        li.scrollIntoView({ behavior: reducido ? "auto" : "smooth", block: "start" });
+        li.classList.remove("resalta"); void li.offsetWidth; li.classList.add("resalta");
+      }
+    });
+    document.addEventListener("keydown", function(e){
+      if (!document.body.classList.contains("hoja-abierta")) return;
+      if (e.key === "Escape") cerrarHoja();
+      if (e.key === "Tab") { var f = $$("[data-hoja] button, [data-hoja] a[href]").filter(function(x){ return x.offsetParent !== null && x.getAttribute("aria-disabled") !== "true"; });
+        if (!f.length) return; var a = f[0], z = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === a) { e.preventDefault(); z.focus(); } else if (!e.shiftKey && document.activeElement === z) { e.preventDefault(); a.focus(); } }
+    });
+  }
+
+  /* =================== FILTROS =================== */
+  var filtro = "";
+  function aplicarFiltro(){
+    var vis = 0;
+    $$("[data-prendas] .prenda").forEach(function(li){ var ok = !filtro || li.getAttribute("data-categoria") === filtro; li.hidden = !ok; if (ok) vis++; });
+    $$("[data-chips] .chip").forEach(function(b){ b.setAttribute("aria-pressed", String((b.getAttribute("data-cat") || "") === filtro)); });
+    var cu = $("[data-cuenta]"); if (cu) cu.textContent = filtro ? "Mostrando " + vis + " de " + prendas.length : plural(prendas.length, "modelo", "modelos");
+  }
+  function initBarraCat(){
+    var barra = $("[data-barra-cat]"); if (!barra || !("IntersectionObserver" in window)) return;
+    var s = document.createElement("div"); s.style.height = "1px"; barra.parentNode.insertBefore(s, barra);
+    var cab = parseInt(getComputedStyle(document.documentElement).getPropertyValue("--cab"), 10) || 88;
+    new IntersectionObserver(function(en){ barra.classList.toggle("pegada", !en[0].isIntersecting && en[0].boundingClientRect.top < 200); }, { rootMargin: "-" + (cab + 2) + "px 0px 0px 0px" }).observe(s);
+  }
+
+  /* =================== PROBADOR (firma de la portada) =================== */
+  var lookActual = 0, lookTimer = null, cambiando = false, probadorVisible = true;
+  function verLook(k, manual){
+    var L = looks(), box = $("[data-probador]"); if (!box || L.length < 2) return;
+    k = (k + L.length) % L.length; if (k === lookActual || cambiando) return;
+    var cort = $(".cortina", box), et = $("[data-etiqueta]", box);
+    cambiando = true;
+    var cambiar = function(){
+      $$(".look", box).forEach(function(l, i){ l.classList.toggle("activo", i === k); });
+      var p = L[k];
+      $("[data-look-nombre]", box).textContent = p.modelo; $("[data-look-precio]", box).textContent = dinero(p.precio);
+      $("[data-look-num]", box).textContent = "Destacado " + (k + 1) + " de " + L.length;
+      var ir = $("[data-look-ir]", box); ir.setAttribute("href", "#p-" + p.id);
+      $$("[data-ver-look]", box).forEach(function(b){ b.setAttribute("aria-pressed", String(+b.getAttribute("data-ver-look") === k)); });
+      if (et && !reducido) { et.classList.remove("columpia"); void et.offsetWidth; et.classList.add("columpia"); }
+      lookActual = k;
+    };
+    if (reducido || !cort) { cambiar(); cambiando = false; return; }
+    cort.classList.add("cerrada");
+    setTimeout(function(){ cambiar(); setTimeout(function(){ cort.classList.remove("cerrada"); cambiando = false; }, 180); }, 640);
+    if (manual) reiniciarLooks();
+  }
+  function reiniciarLooks(){
+    clearInterval(lookTimer); if (reducido) return;
+    lookTimer = setInterval(function(){
+      var box = $("[data-probador]");
+      if (document.hidden || !probadorVisible || !box || box.matches(":hover") || box.contains(document.activeElement)) return;
+      verLook(lookActual + 1);
+    }, 6000);
+  }
+  function initProbador(){
+    lookActual = 0; cambiando = false;
+    var box = $("[data-probador]"); if (!box) return;
+    var pista = $(".cinta-metrica .pista", box);
+    if (pista && !pista.children.length) { var h = ""; for (var i = 1; i <= 60; i++) h += '<span style="top:' + (i * 40 - 4) + 'px">' + i * 5 + "</span>"; pista.innerHTML = h; }
+    if ("IntersectionObserver" in window && !box._io) { box._io = new IntersectionObserver(function(en){ probadorVisible = en[0].isIntersecting; }); box._io.observe(box); }
+    reiniciarLooks();
+  }
+
+  /* =================== SCROLL: cinta métrica, costura y parallax =================== */
+  function initScroll(){
+    var pasos = $("[data-pasos]"), cab = $("[data-cab]");
+    function mover(){
+      var y = scrollY, vh = innerHeight;
+      if (cab) cab.classList.toggle("solida", y > 30);
+      if (reducido) return;
+      var pista = $(".cinta-metrica .pista"); if (pista && y < vh * 1.6) pista.style.transform = "translate3d(0," + (-y * 0.35).toFixed(1) + "px,0)";
+      var look = $(".look.activo img"); if (look && y < vh * 1.6) look.style.transform = "translate3d(0," + (y * 0.06).toFixed(1) + "px,0)";
+      if (pasos && pasos.offsetParent) {
+        var r = pasos.getBoundingClientRect(), ancho = innerWidth >= 960;
+        var k = Math.min(1, Math.max(0, (vh * 0.78 - r.top) / (r.height * (ancho ? 0.6 : 1) || 1)));
+        pasos.style.setProperty("--k", k.toFixed(3));
+        var largo = ancho ? r.width - 44 : r.height - 44;
+        pasos.style.setProperty(ancho ? "--x" : "--y", (k * Math.max(0, largo)).toFixed(1));
+        pasos.style.setProperty(ancho ? "--y" : "--x", "0");
+        var items = $$(".paso", pasos);
+        items.forEach(function(li, i){ li.classList.toggle("cosido", k >= (i / Math.max(1, items.length - 1)) - 0.02); });
+      }
+    }
+    addEventListener("scroll", enRaf(mover), { passive: true }); addEventListener("resize", enRaf(mover)); mover();
+  }
+  function initMetro(){
+    var r = $("[data-metro] .rollo"); if (!r || r.children.length) return;
+    var h = ""; for (var i = 1; i <= 40; i++) h += '<span style="left:' + (i * 50) + 'px">' + i * 5 + "</span>"; r.innerHTML = h;
+  }
+
+  /* =================== REVELAR =================== */
+  function initRevelar(){
+    var els = $$(".revelar,.cuelga,.metro,.cierre .contenedor");
+    if (!("IntersectionObserver" in window)) { els.forEach(function(e){ e.classList.add("visible", "listo"); }); return; }
+    var io = new IntersectionObserver(function(en){
+      en.forEach(function(e){ if (!e.isIntersecting) return; var t = e.target; t.classList.add("visible"); io.unobserve(t); setTimeout(function(){ t.classList.add("listo"); }, 1600); });
+    }, { threshold: 0.01, rootMargin: "0px 0px -4% 0px" });
+    els.forEach(function(e){ io.observe(e); });
+    setTimeout(function(){ els.forEach(function(e){ if (e.getBoundingClientRect().top < innerHeight * 1.2) e.classList.add("visible", "listo"); }); }, 6000);
+  }
+  var vigilando = false;
+  function initFotos(){
+    if (!vigilando) { vigilando = true; document.addEventListener("error", function(e){ var t = e.target; if (t && t.tagName === "IMG" && t.hasAttribute("data-foto")) t.remove(); }, true); }
+    $$("img[data-foto]").forEach(function(img){ if (img.complete && img.naturalWidth === 0) img.remove(); });
+  }
+  function alCambiarCatalogo(){
+    limpiarPedido(); guardarPedido(); sel = {};
+    if (filtro && categorias().indexOf(filtro) < 0) filtro = "";
+    aplicarFiltro(); resumen(); initFotos(); initProbador();
+    $$(".cuelga").forEach(function(el){ if (el.classList.contains("visible")) el.classList.add("listo"); });
+  }
+  function initPausa(){ document.addEventListener("visibilitychange", function(){ document.body.classList.toggle("pausado", document.hidden); }); }
+
+  /* =================== ARRANQUE =================== */
+  if (HORNEAR) { pintarTodo(); cargarCatalogo(function(){}); return; }
+  // 1) lo horneado en el HTML, 2) lo último que cargó bien en este teléfono, 3) la hoja (o el ejemplo)
+  var horneado = null;
+  try { var j = $("#catalogo-datos"); horneado = j && j.textContent.trim() ? JSON.parse(j.textContent) : null; } catch (e) {}
+  safe(pintarTextos, "textos"); safe(pintarPasos, "pasos"); safe(pintarTallas, "tallas"); safe(pintarPreguntas, "preguntas");
+  if (horneado && horneado.length) { prendas = horneado; huella = JSON.stringify(horneado); if (!$("[data-prendas] .prenda")) safe(pintarCatalogo, "catalogo"); }
+  var g = leerGuardado(CLAVE);
+  if (g && g.csv) aplicar(aPrendas(g.csv), "guardado");
+  safe(initPedido, "pedido"); safe(aplicarFiltro, "filtro"); safe(initBarraCat, "barra"); safe(initFotos, "fotos"); safe(initProbador, "probador");
+  safe(initMetro, "metro"); safe(initRevelar, "revelar"); safe(initScroll, "scroll"); safe(initPausa, "pausa");
+  cargarCatalogo();
+})();
+</script>
+</body>
+</html>

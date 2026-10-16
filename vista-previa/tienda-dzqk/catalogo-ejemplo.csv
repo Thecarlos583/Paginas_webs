@@ -1,0 +1,13 @@
+modelo,categoria,tallas,colores,precio,disponible,destacado,foto,descripcion,tiempo_entrega
+Conjunto palazzo,Conjuntos,"S, M, L, XL","crudo, chocolate, negro",45,si,si,conjunto-palazzo.webp,Suéter de punto suave y pantalón palazzo de tiro alto. Se encarga el conjunto completo.,7 a 10 días
+Falda satinada midi,Faldas,"XS, S, M, L","chocolate, negro, champaña",26,si,si,falda-satinada.webp,Falda al bies con elástico escondido en la cintura. Cae suelta y no marca.,5 a 7 días
+Vestido lencero,Vestidos,"XS, S, M, L","negro, chocolate, champaña",32,si,si,vestido-lencero.webp,Escote drapeado y tiras finas que se ajustan. Largo hasta el tobillo.,5 a 7 días
+Blusa bordada de volantes,Blusas,"S, M, L",blanco,28,si,si,blusa-bordada.webp,Algodón bordado con volantes al frente y puños con elástico.,7 a 10 días
+Conjunto tejido,Conjuntos,"S, M, L","beige, gris, negro",38,si,no,conjunto-tejido.webp,Suéter de manga ranglan y pantalón recto en tejido de punto.,7 a 10 días
+Conjunto polo,Conjuntos,"S, M, L","beige, blanco",42,si,no,conjunto-polo.webp,Suéter de cuello polo y pantalón ancho a juego.,7 a 10 días
+Camisa clásica,Blusas,"S, M, L, XL","blanco, celeste",25,si,no,camisa-clasica.webp,Corte amplio con botones y puños. Se lleva por dentro o por fuera.,5 a 7 días
+Blusa de lino,Blusas,"S, M, L, XL","blanco, beige",20,si,no,blusa-lino.webp,"Sin mangas, cuello en V y caída suelta.",3 a 5 días
+Top peplum,Blusas,"S, M, L","camel, negro",24,si,no,top-peplum.webp,Escote cruzado y volante en la cintura.,5 a 7 días
+Vestido de botones,Vestidos,"S, M, L","terracota, chocolate",35,si,no,vestido-botones.webp,Vestido midi con botones al frente y escote cuadrado.,7 a 10 días
+Vestido satinado,Vestidos,"S, M, L","negro, vino",48,no,no,vestido-satinado.webp,"Sin mangas, largo hasta el tobillo y botones al costado.",10 a 15 días
+Pantalón sastre ancho,Pantalones,"S, M, L, XL","negro, beige, gris",30,si,no,,"Tiro alto, pinzas al frente y bolsillos a los lados.",5 a 7 días
