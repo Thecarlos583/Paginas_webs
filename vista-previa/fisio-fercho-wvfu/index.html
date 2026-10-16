@@ -307,34 +307,71 @@ section{position:relative}
 .faq .resp{padding:0 48px 24px 0;color:var(--tinta-2);max-width:62ch}
 @media (min-width:900px){.preguntas-grid{grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:72px}}
 
-/* ---------- Agendar ---------- */
-.agendar{background:var(--hueso-claro);border-top:1px solid var(--linea)}
-.agendar-grid{display:grid;gap:36px;margin-top:36px}
-.form{display:grid;gap:26px}
-fieldset{border:0;margin:0;padding:0;min-width:0}
-.grupo-titulo,.campo label{display:block;font:600 .8rem/1.2 var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--oliva);margin:0 0 12px;padding:0}
-.campo input,.campo textarea{width:100%;font:400 1rem/1.5 var(--sans);color:var(--tinta);background:var(--hueso);border:1px solid rgba(74,85,48,.3);border-radius:12px;padding:13px 14px;transition:border-color .2s,background-color .2s}
-.campo textarea{min-height:100px;resize:vertical}
-.campo input:focus,.campo textarea:focus{outline:none;border-color:var(--verde);background:#fff}
-.campo input::placeholder,.campo textarea::placeholder{color:#5E604F}
-.fichas{display:flex;flex-wrap:wrap;gap:8px}
-.ficha{position:relative}
-.ficha input{position:absolute;opacity:0;width:1px;height:1px}
-.ficha span{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border:1px solid rgba(74,85,48,.32);border-radius:999px;font:500 .93rem/1.2 var(--sans);color:var(--tinta-2);background:var(--hueso);cursor:pointer;transition:background-color .25s,color .25s,border-color .25s,transform .25s var(--salto)}
-.ficha input:checked+span{background:var(--verde);border-color:var(--verde);color:var(--hueso-claro)}
-.ficha input:focus-visible+span{outline:2px solid var(--verde);outline-offset:2px}
-.ficha span:hover{border-color:var(--verde);transform:translateY(-1px)}
-.mensaje{background:var(--hueso);border:1px solid var(--linea);border-radius:var(--radio);padding:22px 20px 20px}
-.mensaje-titulo{display:flex;align-items:center;gap:8px;font:600 .8rem/1 var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--oliva);margin-bottom:14px}
-.mensaje-titulo svg{width:18px;height:18px}
-.burbuja{position:relative;background:#fff;border-radius:4px 14px 14px 14px;padding:14px 16px;box-shadow:0 10px 26px -20px rgba(43,50,26,.6)}
-.burbuja pre{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;font:400 .97rem/1.55 var(--sans);color:var(--tinta)}
-.mensaje .btn{margin-top:18px;width:100%}
-.mensaje-nota{margin-top:12px;font-size:.86rem;color:var(--tinta-2)}
+/* ---------- ¿Dónde te duele? (firma) ---------- */
+.duele{background:var(--verde);color:var(--hueso-claro);overflow:hidden}
+.duele::before{content:"";position:absolute;width:620px;height:620px;right:-220px;top:-200px;border-radius:50%;background:radial-gradient(circle,rgba(213,216,190,.16),transparent 65%);pointer-events:none}
+.duele .titulo{color:var(--hueso-claro)}
+.duele .intro{color:#CACDB3}
+.duele-grid{display:grid;gap:28px;margin-top:40px;position:relative}
+.mapa{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1fr);gap:14px;align-items:center}
+.cuerpo{position:relative;aspect-ratio:200/440;width:100%;max-width:260px;justify-self:center}
+.cuerpo svg{position:absolute;inset:0;width:100%;height:100%}
+.cuerpo .silueta{fill:#56613A}
+.cuerpo .contorno{fill:none;stroke:rgba(250,247,240,.22);stroke-width:1.2}
+.punto{position:absolute;width:38px;height:38px;margin:-19px 0 0 -19px;border:0;padding:0;background:none;cursor:pointer;border-radius:50%;-webkit-tap-highlight-color:transparent}
+.punto::before{content:"";position:absolute;inset:12px;border-radius:50%;background:var(--salvia);box-shadow:0 0 0 3px rgba(43,50,26,.85);transition:background-color .3s,transform .35s var(--salto)}
+.punto::after{content:"";position:absolute;inset:6px;border-radius:50%;border:2px solid var(--dolor-c,#E0A458);opacity:0}
+.punto:hover::before{transform:scale(1.25)}
+.punto.activo::before{background:var(--dolor-c,#E0A458);transform:scale(calc(1.15 + var(--dolor,5) * .045))}
+.punto.activo::after{animation:aviso calc(2.8s - var(--dolor,5) * .16s) var(--suave) infinite}
+@keyframes aviso{0%{opacity:.85;transform:scale(.6)}100%{opacity:0;transform:scale(1.8)}}
+.zonas{display:flex;flex-direction:column;gap:6px;min-width:0}
+.zona{display:flex;align-items:center;gap:10px;width:100%;text-align:left;font:500 .95rem/1.2 var(--sans);color:#E3E5D2;background:transparent;border:1px solid rgba(250,247,240,.16);border-radius:12px;padding:10px 12px;cursor:pointer;min-height:44px;transition:background-color .25s,border-color .25s,color .25s,transform .25s var(--salto)}
+.zona::before{content:"";width:10px;height:10px;border-radius:50%;flex:none;background:var(--salvia);transition:background-color .25s,transform .3s var(--salto)}
+.zona:hover{border-color:rgba(250,247,240,.45);transform:translateX(3px)}
+.zona[aria-pressed="true"]{background:var(--hueso-claro);color:var(--verde-hondo);border-color:var(--hueso-claro)}
+.zona[aria-pressed="true"]::before{background:var(--dolor-c,#E0A458);transform:scale(1.3)}
+.panel{background:var(--verde-hondo);border:1px solid rgba(250,247,240,.1);border-radius:24px;padding:24px 20px;display:flex;flex-direction:column;gap:22px;min-width:0}
+.info{min-height:5.4em}
+.info>div{display:none}
+.info>div.activa{display:block;animation:entrar .5s var(--suave)}
+.no-js-info .info>div:first-child{display:block}
+@keyframes entrar{from{opacity:0;transform:translateY(8px)}}
+.info h3{font-size:2rem;margin-bottom:6px;color:var(--hueso-claro)}
+.info p{color:#CACDB3;font-size:.97rem}
+.campo-m{display:flex;flex-direction:column;gap:10px}
+.campo-titulo{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font:600 .8rem/1.2 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:#BFC3A6}
+.campo-titulo.vertical{flex-direction:column;align-items:flex-start;gap:4px}
+.campo-titulo output{font:400 1.55rem/1.2 var(--serif);letter-spacing:0;text-transform:none;color:var(--hueso-claro);white-space:nowrap}
+.rango{-webkit-appearance:none;appearance:none;width:100%;height:12px;border-radius:999px;margin:8px 0;cursor:pointer;background:linear-gradient(90deg,var(--salvia),#E0C27A 45%,#E0A458 70%,#C8553D)}
+.rango::-webkit-slider-thumb{-webkit-appearance:none;width:30px;height:30px;border-radius:50%;background:var(--hueso-claro);border:4px solid var(--verde-hondo);box-shadow:0 0 0 2px var(--hueso-claro),0 6px 16px rgba(0,0,0,.35);transition:transform .2s var(--salto)}
+.rango::-moz-range-thumb{width:24px;height:24px;border-radius:50%;background:var(--hueso-claro);border:4px solid var(--verde-hondo);box-shadow:0 0 0 2px var(--hueso-claro)}
+.rango:active::-webkit-slider-thumb{transform:scale(1.15)}
+.rango-escala{display:flex;justify-content:space-between;font-size:.75rem;color:#A9AD8F;margin-top:-4px}
+.opciones{display:flex;flex-wrap:wrap;gap:8px}
+.opcion{font:500 .9rem/1.2 var(--sans);color:#E3E5D2;background:transparent;border:1px solid rgba(250,247,240,.22);border-radius:999px;padding:10px 15px;cursor:pointer;min-height:44px;transition:background-color .25s,color .25s,border-color .25s,transform .25s var(--salto)}
+.opcion:hover{border-color:rgba(250,247,240,.55);transform:translateY(-2px)}
+.opcion[aria-pressed="true"]{background:var(--salvia);border-color:var(--salvia);color:var(--verde-hondo)}
+.entrada{width:100%;font:400 1rem/1.5 var(--sans);color:var(--hueso-claro);background:rgba(250,247,240,.06);border:1px solid rgba(250,247,240,.22);border-radius:12px;padding:12px 14px;transition:border-color .2s}
+.entrada::placeholder{color:#A9AD8F}
+.entrada:focus{outline:none;border-color:var(--salvia)}
+.burbuja-caja{background:#232913;border-radius:18px;padding:16px 14px 14px}
+.burbuja-caja .campo-titulo{margin-bottom:10px}
+.burbuja{position:relative;margin-left:auto;max-width:94%;background:#D9FDD3;color:#111B21;border-radius:14px 4px 14px 14px;padding:10px 12px 18px;font-size:.92rem;line-height:1.45;white-space:pre-line;overflow-wrap:anywhere;box-shadow:0 2px 0 rgba(0,0,0,.15)}
+.burbuja::after{content:"✓✓";position:absolute;right:10px;bottom:3px;font-size:.66rem;letter-spacing:-2px;color:#53BDEB}
+.burbuja.pulso{animation:pulso .45s var(--salto)}
+@keyframes pulso{40%{transform:scale(1.025)}}
+.panel .btn{width:100%}
+.btn-claro{background:var(--hueso-claro);color:var(--verde-hondo)}
+.btn-claro:hover{background:#fff;transform:translateY(-2px)}
+.aviso-medico{font-size:.82rem;color:#A9AD8F;line-height:1.45}
 @media (min-width:900px){
-  .agendar-grid{grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:64px;align-items:start}
-  .mensaje{position:sticky;top:calc(var(--cab) + 32px)}
+  .duele-grid{grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:56px;align-items:start}
+  .mapa{position:sticky;top:calc(var(--cab) + 32px);grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:28px}
+  .cuerpo{max-width:300px}
+  .panel{padding:32px}
 }
+@media (prefers-reduced-motion:reduce){.punto.activo::after{animation:none}}
 
 /* ---------- Pie ---------- */
 .pie{background:var(--verde-hondo);color:#CACDB3;padding:72px 0 calc(110px + env(safe-area-inset-bottom))}
@@ -373,14 +410,14 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
         <span class="marca-texto"><span class="marca-nombre" data-c-nombre="">Fisioterapia</span><span class="marca-sub">Mérida</span></span>
       </a>
       <nav class="nav-links" aria-label="Secciones">
-        <a href="#servicios">Servicios</a><a href="#sobre">Sobre mí</a><a href="#agua">En el agua</a><a href="#consulta">Primera consulta</a><a href="#preguntas">Preguntas</a>
+        <a href="#servicios">Servicios</a><a href="#agendar">¿Dónde te duele?</a><a href="#sobre">Sobre mí</a><a href="#agua">En el agua</a><a href="#preguntas">Preguntas</a>
       </nav>
       <a class="btn btn-verde" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20agendar%20una%20evaluaci%C3%B3n%20de%20fisioterapia." target="_blank" rel="noopener" data-wa=""><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-wa"></use></svg><span>Agendar</span></a>
       <button class="boton-menu" type="button" aria-expanded="false" aria-controls="menu-movil" aria-label="Abrir menú" data-menu=""><i aria-hidden="true"></i></button>
     </div>
   </div>
   <nav class="menu-movil" id="menu-movil" aria-label="Menú">
-    <a href="#servicios">Servicios</a><a href="#sobre">Sobre mí</a><a href="#agua">Terapia en el agua</a><a href="#consulta">Primera consulta</a><a href="#preguntas">Preguntas</a><a href="#agendar">Agendar</a>
+    <a href="#servicios">Servicios</a><a href="#agendar">¿Dónde te duele?</a><a href="#sobre">Sobre mí</a><a href="#agua">Terapia en el agua</a><a href="#consulta">Primera consulta</a><a href="#preguntas">Preguntas</a>
     <a class="btn btn-verde" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20agendar%20una%20evaluaci%C3%B3n%20de%20fisioterapia." target="_blank" rel="noopener" data-wa=""><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-wa"></use></svg>Escribir por WhatsApp</a>
   </nav>
 </header>
@@ -396,7 +433,7 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
         <p class="portada-lema">Dolor de espalda y cuello, lesiones deportivas, rehabilitación después de una operación y terapia en el agua, en Mérida. Para deportistas y para cualquier persona que quiera moverse mejor.</p>
         <div class="portada-acciones">
           <a class="btn btn-verde" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20agendar%20una%20evaluaci%C3%B3n%20de%20fisioterapia." target="_blank" rel="noopener" data-wa=""><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-wa"></use></svg>Agendar por WhatsApp</a>
-          <a class="btn btn-linea" href="#servicios">Ver servicios</a>
+          <a class="btn btn-linea" href="#agendar">¿Dónde te duele?</a>
         </div>
         <ul class="portada-datos">
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><use href="#ico-check"></use></svg>Evaluación antes de tratar</li>
@@ -488,6 +525,105 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
   </div>
 </section>
 
+<!-- ===== ¿Dónde te duele? (agendar) ===== -->
+<section class="duele seccion" id="agendar" aria-labelledby="duele-t">
+  <div class="contenedor">
+    <h2 id="duele-t" class="titulo revelar">¿Dónde te <em>duele?</em></h2>
+    <p class="intro revelar">Toca la zona, dime qué tanto y desde cuándo. La página te arma el mensaje para que llegues a la consulta con todo explicado. Aquí no se guarda nada.</p>
+
+    <div class="duele-grid no-js-info" data-mapa="">
+      <div class="mapa revelar">
+        <div class="cuerpo">
+          <svg viewBox="0 0 200 440" aria-hidden="true">
+            <g class="silueta">
+              <circle cx="100" cy="38" r="23"></circle>
+              <rect x="91" y="56" width="18" height="24" rx="7"></rect>
+              <path d="M70 84 Q100 76 130 84 Q146 88 145 108 L131 206 Q129 232 135 252 L65 252 Q71 232 69 206 L55 108 Q54 88 70 84 Z"></path>
+              <path d="M58 92 Q46 96 44 118 L36 186 Q35 196 37 214 L34 252 Q34 262 42 262 Q48 260 48 250 L52 214 Q56 196 56 186 L64 128 Z"></path>
+              <path d="M142 92 Q154 96 156 118 L164 186 Q165 196 163 214 L166 252 Q166 262 158 262 Q152 260 152 250 L148 214 Q144 196 144 186 L136 128 Z"></path>
+              <path d="M66 246 L98 246 L96 330 Q95 344 94 356 L90 412 Q90 420 96 424 L96 432 L70 432 Q68 424 74 412 L74 356 Q72 344 72 330 Z"></path>
+              <path d="M134 246 L102 246 L104 330 Q105 344 106 356 L110 412 Q110 420 104 424 L104 432 L130 432 Q132 424 126 412 L126 356 Q128 344 128 330 Z"></path>
+            </g>
+            <g class="contorno"><path d="M70 84 Q100 76 130 84 Q146 88 145 108 L131 206 Q129 232 135 252 L65 252 Q71 232 69 206 L55 108 Q54 88 70 84 Z"></path></g>
+          </svg>
+          <button type="button" class="punto" style="left:50%;top:16%" data-zona-btn="cuello" aria-label="Cuello"></button>
+          <button type="button" class="punto" style="left:69%;top:21.5%" data-zona-btn="hombro" aria-label="Hombro"></button>
+          <button type="button" class="punto" style="left:21%;top:44%" data-zona-btn="muneca" aria-label="Codo o muñeca"></button>
+          <button type="button" class="punto" style="left:50%;top:47%" data-zona-btn="espalda" aria-label="Espalda baja"></button>
+          <button type="button" class="punto" style="left:62%;top:57%" data-zona-btn="cadera" aria-label="Cadera"></button>
+          <button type="button" class="punto activo" style="left:42.5%;top:76%" data-zona-btn="rodilla" aria-label="Rodilla"></button>
+          <button type="button" class="punto" style="left:58.5%;top:94%" data-zona-btn="tobillo" aria-label="Tobillo o pie"></button>
+        </div>
+        <div class="zonas" role="group" aria-label="Zona del dolor">
+          <button type="button" class="zona" data-zona-btn="cuello" aria-pressed="false">Cuello</button>
+          <button type="button" class="zona" data-zona-btn="hombro" aria-pressed="false">Hombro</button>
+          <button type="button" class="zona" data-zona-btn="muneca" aria-pressed="false">Codo o muñeca</button>
+          <button type="button" class="zona" data-zona-btn="espalda" aria-pressed="false">Espalda baja</button>
+          <button type="button" class="zona" data-zona-btn="cadera" aria-pressed="false">Cadera</button>
+          <button type="button" class="zona" data-zona-btn="rodilla" aria-pressed="true">Rodilla</button>
+          <button type="button" class="zona" data-zona-btn="tobillo" aria-pressed="false">Tobillo o pie</button>
+          <button type="button" class="zona" data-zona-btn="otra" aria-pressed="false">Otra zona</button>
+        </div>
+      </div>
+
+      <div class="panel revelar">
+        <div class="info" aria-live="polite">
+          <div data-info="rodilla" data-articulo="la rodilla"><h3>Rodilla</h3><p>Lo que más me cuentan: duele al subir escaleras, al ponerse de cuclillas, después de correr o tras una operación de ligamentos o menisco.</p></div>
+          <div data-info="cuello" data-articulo="el cuello"><h3>Cuello</h3><p>Lo que más me cuentan: rigidez al voltear, dolor que sube a la cabeza y muchas horas frente a la computadora o el celular.</p></div>
+          <div data-info="hombro" data-articulo="el hombro"><h3>Hombro</h3><p>Lo que más me cuentan: duele al levantar el brazo, al vestirse, al nadar o al dormir de ese lado.</p></div>
+          <div data-info="muneca" data-articulo="el codo o la muñeca"><h3>Codo o muñeca</h3><p>Lo que más me cuentan: molesta al agarrar cosas, escribir, cargar bolsas o entrenar.</p></div>
+          <div data-info="espalda" data-articulo="la espalda baja"><h3>Espalda baja</h3><p>Lo que más me cuentan: duele al agacharse, al levantarse de la silla o después de cargar peso.</p></div>
+          <div data-info="cadera" data-articulo="la cadera"><h3>Cadera</h3><p>Lo que más me cuentan: molesta al caminar un rato, al subir escaleras o al acostarse de lado.</p></div>
+          <div data-info="tobillo" data-articulo="el tobillo o el pie"><h3>Tobillo o pie</h3><p>Lo que más me cuentan: un esguince que no termina de sanar o dolor en el talón con los primeros pasos de la mañana.</p></div>
+          <div data-info="otra" data-articulo="otra zona"><h3>Otra zona</h3><p>Cuéntame por WhatsApp qué sientes y dónde. Si no es algo que yo deba atender, te lo digo con sinceridad.</p></div>
+        </div>
+
+        <div class="campo-m">
+          <label class="campo-titulo vertical" for="dolor">Qué tanto duele <output id="dolor-txt" for="dolor">5 de 10 · Molesta bastante</output></label>
+          <input class="rango" id="dolor" type="range" min="0" max="10" step="1" value="5">
+          <div class="rango-escala" aria-hidden="true"><span>Casi nada</span><span>Insoportable</span></div>
+        </div>
+
+        <div class="campo-m">
+          <span class="campo-titulo" id="desde-t">Desde cuándo</span>
+          <div class="opciones" role="group" aria-labelledby="desde-t" data-grupo="desde">
+            <button type="button" class="opcion" aria-pressed="false" data-valor="hace unos días">Unos días</button>
+            <button type="button" class="opcion" aria-pressed="true" data-valor="hace unas semanas">Semanas</button>
+            <button type="button" class="opcion" aria-pressed="false" data-valor="hace varios meses">Meses</button>
+            <button type="button" class="opcion" aria-pressed="false" data-valor="después de una operación">Después de operarme</button>
+          </div>
+        </div>
+
+        <div class="campo-m">
+          <span class="campo-titulo" id="donde-t">Dónde prefieres trabajar</span>
+          <div class="opciones" role="group" aria-labelledby="donde-t" data-grupo="donde">
+            <button type="button" class="opcion" aria-pressed="false" data-valor="en seco">En seco</button>
+            <button type="button" class="opcion" aria-pressed="false" data-valor="en el agua">En el agua</button>
+            <button type="button" class="opcion" aria-pressed="true" data-valor="lo que me recomiendes">Lo que me recomiendes</button>
+          </div>
+        </div>
+
+        <div class="campo-m">
+          <label class="campo-titulo" for="f-nombre">Tu nombre (opcional)</label>
+          <input class="entrada" id="f-nombre" type="text" autocomplete="name" placeholder="¿Cómo te llamas?" maxlength="60">
+        </div>
+
+        <div class="burbuja-caja">
+          <span class="campo-titulo">Así me llega tu mensaje</span>
+          <p class="burbuja" id="burbuja">Hola, quisiera agendar una evaluación de fisioterapia.
+Me duele la rodilla, 5 de 10.
+Empezó hace unas semanas.
+Prefiero trabajar: lo que me recomiendes.
+¿Qué día tienes disponible?</p>
+        </div>
+
+        <a class="btn btn-claro" id="enviar-dolor" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20agendar%20una%20evaluaci%C3%B3n%20de%20fisioterapia.%0AMe%20duele%20la%20rodilla%2C%205%20de%2010.%0AEmpez%C3%B3%20hace%20unas%20semanas.%0APrefiero%20trabajar%3A%20lo%20que%20me%20recomiendes.%0A%C2%BFQu%C3%A9%20d%C3%ADa%20tienes%20disponible%3F" target="_blank" rel="noopener" data-wa=""><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-wa"></use></svg>Enviar por WhatsApp</a>
+        <p class="aviso-medico">Esto no es un diagnóstico. Sirve para que la primera consulta rinda más.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ===== Sobre él ===== -->
 <section class="sobre seccion" id="sobre">
   <div class="contenedor">
@@ -567,44 +703,7 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
   </div>
 </section>
 
-<!-- ===== Agendar ===== -->
-<section class="agendar seccion" id="agendar">
-  <div class="contenedor">
-    <h2 class="titulo revelar">Agenda tu <em>evaluación.</em></h2>
-    <p class="intro revelar">Marca lo que te trae y la página te escribe el mensaje. Se abre WhatsApp y tú decides si lo envías. Aquí no se guarda nada.</p>
-    <form class="agendar-grid" action="https://wa.me/580000000000" method="get" target="_blank" data-wa-form="580000000000">
-      <input type="hidden" name="text" value="Hola, quisiera agendar una evaluación de fisioterapia.">
-      <div class="form">
-        <fieldset>
-          <legend class="grupo-titulo">¿Qué te trae?</legend>
-          <div class="fichas">
-            <label class="ficha"><input type="radio" name="motivo" value="Dolor de espalda o cuello"><span>Espalda o cuello</span></label>
-            <label class="ficha"><input type="radio" name="motivo" value="Una lesión deportiva"><span>Lesión deportiva</span></label>
-            <label class="ficha"><input type="radio" name="motivo" value="Rehabilitación después de una operación"><span>Después de una operación</span></label>
-            <label class="ficha"><input type="radio" name="motivo" value="Terapia en el agua"><span>Terapia en el agua</span></label>
-            <label class="ficha"><input type="radio" name="motivo" value="Otra molestia"><span>Otra molestia</span></label>
-          </div>
-        </fieldset>
-        <div class="campo"><label for="f-nombre">Tu nombre</label><input id="f-nombre" name="nombre" type="text" autocomplete="name" placeholder="¿Cómo te llamas?"></div>
-        <div class="campo"><label for="f-cuenta">Cuéntame en una frase</label><textarea id="f-cuenta" name="cuenta" placeholder="Ej.: me duele la espalda baja cuando paso mucho rato sentado"></textarea></div>
-        <fieldset>
-          <legend class="grupo-titulo">¿Desde cuándo?</legend>
-          <div class="fichas">
-            <label class="ficha"><input type="radio" name="desde" value="Desde esta semana"><span>Esta semana</span></label>
-            <label class="ficha"><input type="radio" name="desde" value="Desde hace unas semanas"><span>Hace unas semanas</span></label>
-            <label class="ficha"><input type="radio" name="desde" value="Desde hace meses"><span>Hace meses</span></label>
-          </div>
-        </fieldset>
-      </div>
-      <div class="mensaje revelar">
-        <p class="mensaje-titulo"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-wa"></use></svg>Así llega tu mensaje</p>
-        <div class="burbuja"><pre data-vista="" aria-live="polite">Hola, quisiera agendar una evaluación de fisioterapia.</pre></div>
-        <button class="btn btn-verde" type="submit"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-wa"></use></svg>Enviar por WhatsApp</button>
-        <p class="mensaje-nota">Te respondo por WhatsApp para confirmar el día y la hora.</p>
-      </div>
-    </form>
-  </div>
-</section>
+
 
 </main>
 
@@ -646,6 +745,7 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
   function safe(fn, nombre) { try { fn(); } catch (e) { console.warn("[" + nombre + "]", e); } }
   var reducido = matchMedia("(prefers-reduced-motion: reduce)").matches;
   var NUM_EJEMPLO = "580000000000";
+  function numeroWA() { return ((CONFIG.marca || {}).whatsapp || "").replace(/\D/g, "") || NUM_EJEMPLO; }
 
   /* ---------- Pintar desde CONFIG (idempotente) ---------- */
   function pintar() {
@@ -656,7 +756,6 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
 
     var num = (m.whatsapp || "").replace(/\D/g, "") || NUM_EJEMPLO;
     document.querySelectorAll("a[data-wa]").forEach(function (a) { a.href = a.href.replace(/wa\.me\/\d+/, "wa.me/" + num); });
-    document.querySelectorAll("[data-wa-form]").forEach(function (f) { f.setAttribute("data-wa-form", num); f.setAttribute("action", "https://wa.me/" + num); });
     var visible = m.whatsappVisible || (num === NUM_EJEMPLO ? "+58 000 0000000" : "+" + num);
     document.querySelectorAll("[data-c-telefono]").forEach(function (el) { el.textContent = visible; });
 
@@ -751,33 +850,62 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
     paso();
   }
 
-  /* ---------- Formulario: arma el mensaje y abre WhatsApp ---------- */
-  function initFormulario() {
-    var f = document.querySelector("[data-wa-form]"); if (!f) return;
-    var vista = f.querySelector("[data-vista]");
+  /* ---------- ¿Dónde te duele? arma el mensaje de WhatsApp ---------- */
+  function initMapa() {
+    var raiz = document.querySelector("[data-mapa]"); if (!raiz) return;
+    raiz.classList.remove("no-js-info");
+    var estado = { zona: "rodilla", dolor: 5, desde: "hace unas semanas", donde: "lo que me recomiendes" };
+    var rango = raiz.querySelector("#dolor"), salida = raiz.querySelector("#dolor-txt");
+    var burbuja = raiz.querySelector("#burbuja"), enviar = raiz.querySelector("#enviar-dolor"), nombre = raiz.querySelector("#f-nombre");
+    var palabras = ["Casi nada", "Muy leve", "Leve", "Molesta", "Molesta", "Molesta bastante", "Molesta bastante", "Fuerte", "Fuerte", "Muy fuerte", "Insoportable"];
+    var colores = ["#D5D8BE", "#D5D8BE", "#DCCF96", "#E0C27A", "#E0B46A", "#E0A458", "#DE9450", "#D98049", "#D26C43", "#CB5E3F", "#C8553D"];
     function mensaje() {
-      var d = new FormData(f), l = ["Hola, quisiera agendar una evaluación de fisioterapia."];
-      var limpiar = function (v) { return (v || "").replace(/\s+/g, " ").trim().slice(0, 300); };
-      if (d.get("motivo")) l.push("Motivo: " + d.get("motivo"));
-      if (limpiar(d.get("nombre"))) l.push("Me llamo " + limpiar(d.get("nombre")) + ".");
-      if (limpiar(d.get("cuenta"))) l.push("Lo que me pasa: " + limpiar(d.get("cuenta")));
-      if (d.get("desde")) l.push(d.get("desde") + ".");
+      var info = raiz.querySelector('[data-info="' + estado.zona + '"]');
+      var l = ["Hola, quisiera agendar una evaluación de fisioterapia."];
+      if (estado.zona === "otra") l.push("Me duele otra zona (te explico por aquí), " + estado.dolor + " de 10.");
+      else l.push("Me duele " + info.dataset.articulo + ", " + estado.dolor + " de 10.");
+      l.push(estado.desde === "después de una operación" ? "Empezó después de una operación." : "Empezó " + estado.desde + ".");
+      l.push("Prefiero trabajar: " + estado.donde + ".");
+      var n = (nombre.value || "").replace(/\s+/g, " ").trim().slice(0, 60);
+      if (n) l.push("Me llamo " + n + ".");
+      l.push("¿Qué día tienes disponible?");
       return l.join("\n");
     }
-    var actualizar = function () { vista.textContent = mensaje(); };
-    f.addEventListener("input", actualizar); f.addEventListener("change", actualizar);
-    f.addEventListener("submit", function (ev) {
-      ev.preventDefault();
-      window.open("https://wa.me/" + f.getAttribute("data-wa-form") + "?text=" + encodeURIComponent(mensaje()), "_blank", "noopener");
+    function pintarMapa(animar) {
+      raiz.querySelectorAll("[data-info]").forEach(function (d) { d.classList.toggle("activa", d.dataset.info === estado.zona); });
+      raiz.querySelectorAll(".zona").forEach(function (b) { b.setAttribute("aria-pressed", b.dataset.zonaBtn === estado.zona ? "true" : "false"); });
+      raiz.querySelectorAll(".punto").forEach(function (b) { b.classList.toggle("activo", b.dataset.zonaBtn === estado.zona); });
+      raiz.style.setProperty("--dolor", estado.dolor);
+      raiz.style.setProperty("--dolor-c", colores[estado.dolor]);
+      salida.textContent = estado.dolor + " de 10 · " + palabras[estado.dolor];
+      var m = mensaje();
+      burbuja.textContent = m;
+      enviar.href = "https://wa.me/" + numeroWA() + "?text=" + encodeURIComponent(m);
+      if (animar) { burbuja.classList.remove("pulso"); void burbuja.offsetWidth; burbuja.classList.add("pulso"); }
+    }
+    raiz.querySelectorAll("[data-zona-btn]").forEach(function (b) {
+      b.addEventListener("click", function () { estado.zona = b.dataset.zonaBtn; pintarMapa(true); });
     });
-    actualizar();
+    rango.addEventListener("input", function () { estado.dolor = +rango.value; pintarMapa(false); });
+    rango.addEventListener("change", function () { pintarMapa(true); });
+    nombre.addEventListener("input", function () { pintarMapa(false); });
+    raiz.querySelectorAll("[data-grupo]").forEach(function (g) {
+      g.querySelectorAll(".opcion").forEach(function (b) {
+        b.addEventListener("click", function () {
+          g.querySelectorAll(".opcion").forEach(function (o) { o.setAttribute("aria-pressed", o === b ? "true" : "false"); });
+          estado[g.dataset.grupo] = b.dataset.valor; pintarMapa(true);
+        });
+      });
+    });
+    estado.dolor = +rango.value;
+    pintarMapa(false);
   }
 
   safe(initCabecera, "cabecera");
   safe(initPortada, "portada");
   safe(initRevelar, "revelar");
   safe(initScroll, "scroll");
-  safe(initFormulario, "formulario");
+  safe(initMapa, "mapa");
 })();
 </script>
 </body>
