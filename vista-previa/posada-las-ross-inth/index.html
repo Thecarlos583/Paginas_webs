@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Posada Las Ross · La Mira, isla de Margarita</title>
+<meta name="description" content="Posada Las Ross, en La Mira, isla de Margarita, a pocos minutos de Playa del Agua. Piscina, desayuno con café y trato de sus dueños.">
+<meta name="theme-color" content="#12302B">
+<link rel="preload" href="assets/fuentes/besley.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="assets/img/portada-700.webp" media="(max-width: 760px)">
+<style>
+@font-face{font-family:"Besley";font-style:normal;font-weight:600;font-display:swap;src:url(assets/fuentes/besley.woff2) format("woff2")}
+@font-face{font-family:"Besley";font-style:italic;font-weight:600;font-display:swap;src:url(assets/fuentes/besley-italica.woff2) format("woff2")}
+@font-face{font-family:"Vietnam";font-style:normal;font-weight:400;font-display:swap;src:url(assets/fuentes/vietnam.woff2) format("woff2")}
+@font-face{font-family:"Vietnam";font-style:normal;font-weight:600;font-display:swap;src:url(assets/fuentes/vietnam-600.woff2) format("woff2")}
+
+/* Paleta sacada de las fotos de referencia: agua de la piscina, palma, teja y pared de arena */
+:root{
+  --arena:#F6F0E4;      /* pared de arena */
+  --sal:#FFFBF3;        /* cal clara */
+  --tinta:#12302B;      /* verde noche de la palma */
+  --agua:#0B7285;       /* piscina (única variable de color fuerte) */
+  --agua-claro:#BFE6EA;
+  --teja:#B5532B;       /* teja del techo, solo detalles */
+  --palma:#3E7B4F;
+  --suave:#4D625D;
+  --cielo:#DCEFF2;      /* el cielo cambia con el día (lo mueve el JS) */
+  --serif:"Besley",Georgia,serif;
+  --sans:"Vietnam",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --r:20px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);font-size:17px;line-height:1.6;color:var(--tinta);background:var(--arena);overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.08;text-wrap:balance}
+p{text-wrap:pretty}
+:focus-visible{outline:3px solid var(--teja);outline-offset:3px;border-radius:6px}
+.wrap{width:min(1120px,100% - 40px);margin-inline:auto}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* ---------- franja de vista previa ---------- */
+.franja{position:sticky;top:0;z-index:60;background:var(--tinta);color:#F3EBD8;font-size:13px;text-align:center;padding:8px 14px;letter-spacing:.01em}
+.franja b{color:#F5C88B;font-weight:600}
+
+/* ---------- reloj del día (sol que cruza el cielo) ---------- */
+.dia{position:sticky;top:34px;z-index:50;height:34px;background:linear-gradient(90deg,#F8D9A8,#BFE6EA 40%,#F3B987 72%,#1F3B4C);overflow:hidden;border-bottom:1px solid rgba(18,48,43,.15)}
+.dia .arco{position:absolute;left:0;right:0;bottom:-26px;height:56px;border-radius:50% 50% 0 0/100% 100% 0 0;border:1.5px dashed rgba(18,48,43,.28);border-bottom:0;margin-inline:4%}
+.dia .sol{position:absolute;left:4%;top:4px;width:22px;height:22px;border-radius:50%;background:#FFF3C9;box-shadow:0 0 0 4px rgba(255,243,201,.55),0 0 22px 6px rgba(255,224,150,.8);transition:background .6s,box-shadow .6s;will-change:transform}
+.dia .hora{position:absolute;right:14px;top:50%;transform:translateY(-50%);font-size:12.5px;font-weight:600;letter-spacing:.02em;color:var(--tinta);background:rgba(255,251,243,.82);padding:2px 10px;border-radius:99px;transition:opacity .3s}
+.dia[data-n="3"] .hora{background:rgba(255,251,243,.9)}
+.dia[data-n="3"] .sol{background:#E8EEF2;box-shadow:0 0 0 4px rgba(232,238,242,.35),0 0 18px 4px rgba(200,220,240,.55)}
+
+/* ---------- botones ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border-radius:99px;border:0;font:600 16.5px/1 var(--sans);text-decoration:none;cursor:pointer;background:var(--agua);color:#fff;transition:transform .2s,background .2s,box-shadow .2s;box-shadow:0 8px 22px -10px rgba(11,114,133,.8)}
+.btn:hover{background:#09606F;transform:translateY(-2px)}
+.btn:active{transform:translateY(0) scale(.98)}
+.btn svg{width:20px;height:20px;flex:none}
+.btn.claro{background:var(--sal);color:var(--tinta);box-shadow:none;border:1.5px solid rgba(18,48,43,.25)}
+.btn.claro:hover{background:#fff}
+.etiq{display:inline-block;font:600 12.5px/1 var(--sans);letter-spacing:.04em;color:var(--teja);margin-bottom:14px}
+
+/* ---------- portada: el sol sale ---------- */
+.portada{position:relative;padding:34px 0 56px;background:linear-gradient(#F8E4C0 0,var(--arena) 70%)}
+.portada .wrap{display:grid;gap:30px}
+.portada h1{font-size:clamp(2.3rem,9.4vw,4rem);letter-spacing:-.01em}
+.portada h1 em{font-style:italic;color:var(--agua)}
+.portada h1 .l{display:block;overflow:hidden}
+.portada h1 .l>span{display:block}
+.portada .sub{margin-top:18px;font-size:1.08rem;color:var(--suave);max-width:34em}
+.portada .acciones{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px;list-style:none}
+.chips li{font-size:13.5px;font-weight:600;padding:7px 13px;border-radius:99px;background:rgba(255,251,243,.85);border:1px solid rgba(18,48,43,.14)}
+.solfoto{position:relative;justify-self:center;width:min(86vw,440px);aspect-ratio:1;border-radius:50%;overflow:hidden;box-shadow:0 0 0 10px rgba(255,251,243,.75),0 0 0 11px rgba(181,83,43,.35),0 30px 60px -28px rgba(18,48,43,.55);clip-path:circle(0% at 50% 100%);animation:sale 1.5s .15s cubic-bezier(.2,.7,.2,1) forwards;background:var(--agua-claro)}
+.solfoto img{width:100%;height:100%;object-fit:cover;transform:scale(1.14);animation:asienta 14s 1.2s ease-out forwards}
+@keyframes sale{to{clip-path:circle(75% at 50% 50%)}}
+@keyframes asienta{to{transform:scale(1.02)}}
+.solfoto .pie{position:absolute;left:0;right:0;bottom:0;padding:34px 18px 16px;background:linear-gradient(transparent,rgba(10,30,28,.62));color:#fff;font-size:12.5px;text-align:center}
+@media(min-width:900px){
+  .portada{padding:64px 0 90px}
+  .portada .wrap{grid-template-columns:1.1fr .9fr;align-items:center;gap:56px}
+  .solfoto{width:min(100%,500px)}
+}
+
+/* ---------- secciones ---------- */
+section{padding:72px 0}
+.cab{max-width:640px;margin-bottom:38px}
+.cab h2{font-size:clamp(1.9rem,6.4vw,3rem)}
+.cab p{margin-top:14px;color:var(--suave)}
+.cab.centro{margin-inline:auto;text-align:center}
+.ejemplo{display:inline-block;margin-top:10px;font:600 11.5px/1 var(--sans);letter-spacing:.05em;padding:5px 9px;border-radius:6px;background:#F6E2D5;color:#8A3B1B}
+
+/* ---------- un día en Las Ross ---------- */
+#dia-las-ross{background:var(--sal)}
+.momentos{display:grid;gap:26px;list-style:none}
+.mom{display:grid;gap:14px;opacity:0;transform:translateY(28px);transition:opacity .8s,transform .8s cubic-bezier(.2,.7,.2,1)}
+.mom.on{opacity:1;transform:none}
+.mom .foto{border-radius:var(--r);overflow:hidden;aspect-ratio:4/3;background:var(--agua-claro)}
+.mom .foto img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s}
+.mom:hover .foto img{transform:scale(1.05)}
+.mom .reloj{font:600 13px/1 var(--sans);letter-spacing:.04em;color:var(--teja)}
+.mom h3{font-size:1.55rem;margin:6px 0 6px}
+.mom p{color:var(--suave)}
+@media(min-width:860px){.momentos{grid-template-columns:repeat(4,1fr);gap:20px}.mom .foto{aspect-ratio:3/4}}
+
+/* ---------- habitaciones ---------- */
+.habs{display:grid;gap:26px}
+.hab{background:var(--sal);border-radius:var(--r);overflow:hidden;border:1px solid rgba(18,48,43,.1);display:flex;flex-direction:column;transition:transform .3s,box-shadow .3s}
+.hab:hover{transform:translateY(-4px);box-shadow:0 22px 40px -28px rgba(18,48,43,.5)}
+.hab .foto{aspect-ratio:16/11;overflow:hidden}
+.hab .foto img{width:100%;height:100%;object-fit:cover}
+.hab .cuerpo{padding:22px 22px 26px;display:flex;flex-direction:column;gap:12px;flex:1}
+.hab h3{font-size:1.5rem}
+.hab .cap{font-weight:600;color:var(--agua);font-size:.95rem}
+.hab ul{list-style:none;display:grid;gap:6px;color:var(--suave);font-size:.98rem;margin-bottom:6px}
+.hab li{padding-left:22px;position:relative}
+.hab li::before{content:"";position:absolute;left:2px;top:.62em;width:10px;height:6px;border-left:2px solid var(--palma);border-bottom:2px solid var(--palma);transform:rotate(-45deg)}
+.hab .btn{margin-top:auto;min-height:48px;font-size:15.5px}
+@media(min-width:860px){.habs{grid-template-columns:repeat(3,1fr)}}
+
+/* ---------- piscina ---------- */
+#piscina{background:var(--tinta);color:#F3EBD8}
+#piscina .cab p{color:#C5D6CF}
+#piscina .etiq{color:#F5C88B}
+.mosaico{display:grid;gap:14px}
+.mosaico figure{border-radius:var(--r);overflow:hidden;position:relative;background:#1d443d}
+.mosaico img{width:100%;height:100%;object-fit:cover}
+.mosaico figcaption{position:absolute;left:14px;bottom:12px;background:rgba(255,251,243,.92);color:var(--tinta);font:600 12.5px/1 var(--sans);padding:7px 11px;border-radius:99px}
+.m1{aspect-ratio:3/2}.m2,.m3{aspect-ratio:4/5}
+.m2 img,.m3 img{transition:transform 1.4s}
+.m2:hover img,.m3:hover img{transform:scale(1.06)}
+.mosaico .dos{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(min-width:860px){.mosaico{grid-template-columns:1.5fr 1fr;grid-template-rows:auto}.m1{aspect-ratio:auto;min-height:440px}.mosaico .dos{grid-template-columns:1fr}.m2,.m3{aspect-ratio:3/2}}
+.reflejo{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px;list-style:none}
+.reflejo li{font-size:14px;font-weight:600;padding:9px 15px;border-radius:99px;border:1px solid rgba(243,235,216,.3)}
+
+/* ---------- cerca ---------- */
+.cerca{display:grid;gap:20px}
+.pl{display:grid;gap:0;border-radius:var(--r);overflow:hidden;background:var(--sal);border:1px solid rgba(18,48,43,.1)}
+.pl .foto{aspect-ratio:16/10;overflow:hidden}
+.pl .foto img{width:100%;height:100%;object-fit:cover}
+.pl .cuerpo{padding:24px}
+.pl h3{font-size:1.6rem;margin-bottom:8px}
+.pl .tiempo{display:inline-block;margin-top:12px;font:600 12.5px/1 var(--sans);padding:6px 10px;border-radius:6px;background:#F6E2D5;color:#8A3B1B}
+.otros{display:grid;gap:14px}
+.otro{padding:20px 22px;border-radius:var(--r);border:1px dashed rgba(18,48,43,.3);background:rgba(255,251,243,.55)}
+.otro h3{font-size:1.2rem;margin-bottom:4px}
+.otro p{font-size:.97rem;color:var(--suave)}
+@media(min-width:860px){.cerca{grid-template-columns:1.4fr 1fr;align-items:stretch}.pl{grid-template-columns:1fr}.pl .foto{aspect-ratio:16/9}}
+
+/* ---------- reservar (de noche) ---------- */
+#reservar{background:linear-gradient(#1A3A4D,#0F2230);color:#F3EBD8;position:relative;overflow:hidden}
+#reservar .cab p{color:#C9D6DD}
+#reservar .etiq{color:#F5C88B}
+#reservar .estrellas{position:absolute;inset:0;pointer-events:none;opacity:.7;background-image:radial-gradient(1.5px 1.5px at 12% 18%,#fff 50%,transparent 51%),radial-gradient(1.2px 1.2px at 38% 8%,#fff 50%,transparent 51%),radial-gradient(1.6px 1.6px at 72% 14%,#fff 50%,transparent 51%),radial-gradient(1.2px 1.2px at 88% 30%,#fff 50%,transparent 51%),radial-gradient(1.4px 1.4px at 56% 26%,#fff 50%,transparent 51%),radial-gradient(1.2px 1.2px at 24% 36%,#fff 50%,transparent 51%)}
+.form{position:relative;background:var(--sal);color:var(--tinta);border-radius:var(--r);padding:24px;display:grid;gap:18px}
+.campo{display:grid;gap:6px}
+.campo label,.campo .t{font-weight:600;font-size:.95rem}
+.campo input,.campo select{width:100%;min-height:50px;padding:0 14px;border-radius:12px;border:1.5px solid rgba(18,48,43,.28);background:#fff;font:400 16px var(--sans);color:var(--tinta)}
+.fila{display:grid;gap:14px}
+@media(min-width:560px){.fila{grid-template-columns:1fr 1fr}}
+.busco{display:flex;flex-wrap:wrap;gap:8px}
+.busco input{position:absolute;opacity:0;pointer-events:none}
+.busco label{display:inline-flex;align-items:center;min-height:44px;padding:0 15px;border-radius:99px;border:1.5px solid rgba(18,48,43,.28);font-weight:600;font-size:.93rem;cursor:pointer;transition:background .2s,color .2s}
+.busco input:checked+label{background:var(--agua);border-color:var(--agua);color:#fff}
+.busco input:focus-visible+label{outline:3px solid var(--teja);outline-offset:2px}
+.nota{font-size:.88rem;color:var(--suave)}
+.msg{background:#E9F3F3;border-left:4px solid var(--agua);border-radius:10px;padding:14px 16px;font-size:.95rem;white-space:pre-line;color:var(--tinta)}
+@media(min-width:900px){#reservar .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:start}#reservar .cab{margin-bottom:0}}
+
+footer{background:#0A1B22;color:#B6C6CC;padding:34px 0 40px;font-size:.9rem}
+footer .wrap{display:grid;gap:8px}
+footer b{color:#F3EBD8;font-family:var(--serif);font-size:1.2rem;font-weight:600}
+
+/* ---------- entradas ---------- */
+.rev{opacity:0;transform:translateY(22px);transition:opacity .8s,transform .8s cubic-bezier(.2,.7,.2,1)}
+.rev.on{opacity:1;transform:none}
+.sin-js .rev,.sin-js .mom{opacity:1;transform:none}
+.sin-js .solfoto{clip-path:none;animation:none}
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms!important;transition-duration:.01ms!important}
+  .solfoto{clip-path:none}
+  .rev,.mom{opacity:1;transform:none}
+}
+</style>
+</head>
+<body class="sin-js">
+
+<div class="franja" role="note"><b>Vista previa</b> · datos por confirmar</div>
+
+<div class="dia" id="dia" data-n="0" aria-hidden="true">
+  <div class="arco"></div>
+  <div class="sol" id="sol"></div>
+  <div class="hora" id="hora">7:00 a. m. · el café</div>
+</div>
+
+<header class="portada" id="inicio">
+  <div class="wrap">
+    <div>
+      <span class="etiq">La Mira · isla de Margarita</span>
+      <h1 id="titular">
+        <span class="l"><span>Posada Las Ross</span></span>
+        <span class="l"><span>en <em>La Mira</em></span></span>
+      </h1>
+      <p class="sub">A minutos de Playa del Agua. Lo atienden sus dueños: amanezca con café, pase la tarde en la piscina y duerma tranquilo.</p>
+      <div class="acciones">
+        <a class="btn" data-wa="hola" href="https://wa.me/584247632008?text=Hola%2C%20quiero%20reservar%20en%20Posada%20Las%20Ross.%20%C2%BFTienen%20disponibilidad%3F" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5-4.5-.2-.2-1.2-1.6-1.2-3s.8-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.4.6-.3.4c-.1.2-.3.3-.1.6.2.3.7 1.2 1.5 1.9 1 .9 1.9 1.2 2.2 1.3.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.2.1.8-.1 1.4Z"/></svg>
+          Reservar por WhatsApp
+        </a>
+        <a class="btn claro" href="#habitaciones">Ver habitaciones</a>
+      </div>
+      <ul class="chips" aria-label="Lo que más destacan los huéspedes">
+        <li>Piscina</li><li>Desayuno con café</li><li>Aire acondicionado</li><li>Agua caliente</li><li>Tranquila</li>
+      </ul>
+    </div>
+    <div class="solfoto">
+      <img src="assets/img/portada-1200.webp" srcset="assets/img/portada-700.webp 700w, assets/img/portada-1200.webp 1200w" sizes="(max-width:900px) 86vw, 500px" width="1200" height="900" alt="Piscina azul rodeada de palmeras con las montañas de la isla al fondo" fetchpriority="high">
+      <div class="pie">Fotos referenciales</div>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- ======= Un día en Las Ross ======= -->
+<section id="dia-las-ross" data-hora="0">
+  <div class="wrap">
+    <div class="cab rev">
+      <span class="etiq">Un día en Las Ross</span>
+      <h2>Así se pasa el día en la posada</h2>
+      <p>Del primer café a la noche tranquila. Mientras baja por la página, el sol de arriba va cruzando el cielo.</p>
+    </div>
+    <ol class="momentos">
+      <li class="mom" data-h="0">
+        <div class="foto"><img src="assets/img/desayuno-700.webp" loading="lazy" width="700" height="933" alt="Desayuno con café servido en una terraza con vista al mar"></div>
+        <div><span class="reloj">7:00 a. m.</span><h3>El café de la mañana</h3><p>El desayuno con café es de lo que más recuerdan los huéspedes.</p></div>
+      </li>
+      <li class="mom" data-h="1">
+        <div class="foto"><img src="assets/img/piscina-700.webp" loading="lazy" width="700" height="467" alt="Piscina de la posada entre palmeras y techos de palma"></div>
+        <div><span class="reloj">11:00 a. m.</span><h3>La piscina</h3><p>Un rato de agua y sombra antes del almuerzo, sin multitudes.</p></div>
+      </li>
+      <li class="mom" data-h="2">
+        <div class="foto"><img src="assets/img/playa-700.webp" loading="lazy" width="700" height="466" alt="Playa de arena clara con palmeras y mar turquesa"></div>
+        <div><span class="reloj">4:00 p. m.</span><h3>Playa del Agua</h3><p>A pocos minutos de la posada. Tiempo exacto por confirmar.</p></div>
+      </li>
+      <li class="mom" data-h="3">
+        <div class="foto"><img src="assets/img/terraza-700.webp" loading="lazy" width="700" height="933" alt="Terraza con sillas y mesa frente a las palmeras al caer la tarde"></div>
+        <div><span class="reloj">8:00 p. m.</span><h3>La calma de La Mira</h3><p>Una zona tranquila para descansar, con aire acondicionado y agua caliente.</p></div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ======= Habitaciones ======= -->
+<section id="habitaciones" data-hora="1">
+  <div class="wrap">
+    <div class="cab rev">
+      <span class="etiq">Habitaciones</span>
+      <h2>Para descansar bien</h2>
+      <p>Nombres, capacidad y lo que incluye cada una. Los precios se conversan por WhatsApp.</p>
+      <span class="ejemplo">EJEMPLO · datos por confirmar</span>
+    </div>
+    <div class="habs" id="habs"><!-- se llena desde CONFIG --></div>
+  </div>
+</section>
+
+<!-- ======= Piscina y áreas comunes ======= -->
+<section id="piscina" data-hora="1">
+  <div class="wrap">
+    <div class="cab rev">
+      <span class="etiq">Piscina y áreas comunes</span>
+      <h2>La piscina es el corazón de la casa</h2>
+      <p>Agua, sombra y un lugar donde sentarse a conversar. Aquí se viene a bajar el ritmo.</p>
+    </div>
+    <div class="mosaico rev">
+      <figure class="m1"><img src="assets/img/piscina-1200.webp" srcset="assets/img/piscina-700.webp 700w, assets/img/piscina-1200.webp 1200w" sizes="(max-width:860px) 100vw, 60vw" loading="lazy" width="1200" height="800" alt="Piscina y jardín de la posada vistos desde arriba, con palmeras"><figcaption>La piscina</figcaption></figure>
+      <div class="dos">
+        <figure class="m2"><img src="assets/img/agua-700.webp" loading="lazy" width="700" height="875" alt="Agua turquesa de la piscina con hojas de palma"><figcaption>El agua</figcaption></figure>
+        <figure class="m3"><img src="assets/img/terraza-700.webp" loading="lazy" width="700" height="933" alt="Terraza con mesa y sillas frente a palmeras"><figcaption>La terraza</figcaption></figure>
+      </div>
+    </div>
+    <ul class="reflejo rev"><li>Piscina</li><li>Terraza</li><li>Desayuno con café</li><li>Zona tranquila</li></ul>
+  </div>
+</section>
+
+<!-- ======= Cerca ======= -->
+<section id="cerca" data-hora="2">
+  <div class="wrap">
+    <div class="cab rev">
+      <span class="etiq">Qué hay cerca</span>
+      <h2>La playa y la zona, a un paso</h2>
+    </div>
+    <div class="cerca rev">
+      <article class="pl">
+        <div class="foto"><img src="assets/img/playa-1200.webp" loading="lazy" width="1200" height="800" alt="Playa de arena clara con palmeras y mar turquesa"></div>
+        <div class="cuerpo">
+          <h3>Playa del Agua</h3>
+          <p>Una de las playas más conocidas de la isla de Margarita, a pocos minutos de la posada.</p>
+          <span class="tiempo">Tiempo y cómo llegar: por confirmar</span>
+        </div>
+      </article>
+      <div class="otros">
+        <div class="otro"><h3>Restaurantes de la zona</h3><p>Lugares para comer cerca de la posada. Por confirmar con los dueños.</p></div>
+        <div class="otro"><h3>Comercios y servicios</h3><p>Lo que queda a mano en La Mira. Por confirmar con los dueños.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= Reservar ======= -->
+<section id="reservar" data-hora="3">
+  <div class="estrellas" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="cab rev">
+      <span class="etiq">Reservar</span>
+      <h2>Cuándo quiere venir</h2>
+      <p>Llene lo que sepa y se abre WhatsApp con el mensaje listo. Los dueños le confirman disponibilidad y precio.</p>
+    </div>
+    <form class="form rev" id="form" onsubmit="return false">
+      <div class="fila">
+        <div class="campo"><label for="llega">Llega</label><input type="date" id="llega"></div>
+        <div class="campo"><label for="sale">Sale</label><input type="date" id="sale"></div>
+      </div>
+      <div class="fila">
+        <div class="campo"><label for="pers">Personas</label>
+          <select id="pers"><option value="1">1 persona</option><option value="2" selected>2 personas</option><option value="3">3 personas</option><option value="4">4 personas</option><option value="5">5 o más</option></select></div>
+        <div class="campo"><label for="hab">Habitación</label><select id="hab"></select></div>
+      </div>
+      <div class="campo"><label for="nombre">Su nombre (opcional)</label><input type="text" id="nombre" autocomplete="given-name" placeholder="Como quiera que lo llamen"></div>
+      <div class="campo"><span class="t" id="tb">Lo que más busca</span>
+        <div class="busco" role="group" aria-labelledby="tb">
+          <input type="checkbox" id="b1" value="la piscina"><label for="b1">La piscina</label>
+          <input type="checkbox" id="b2" value="el desayuno con café"><label for="b2">El desayuno</label>
+          <input type="checkbox" id="b3" value="un lugar tranquilo"><label for="b3">Tranquilidad</label>
+          <input type="checkbox" id="b4" value="estar cerca de Playa del Agua"><label for="b4">Cerca de la playa</label>
+        </div>
+      </div>
+      <div class="msg" id="msg" aria-live="polite"></div>
+      <a class="btn" id="enviar" data-wa="form" href="https://wa.me/584247632008" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5-4.5-.2-.2-1.2-1.6-1.2-3s.8-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.4.6-.3.4c-.1.2-.3.3-.1.6.2.3.7 1.2 1.5 1.9 1 .9 1.9 1.2 2.2 1.3.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.2.1.8-.1 1.4Z"/></svg>
+        Enviar por WhatsApp
+      </a>
+      <p class="nota">Esta reserva no se confirma sola: la posada le responde con disponibilidad y precio.</p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <b>Posada Las Ross</b>
+    <span>La Mira, isla de Margarita · dirección exacta por confirmar</span>
+    <span>Vista previa con datos por confirmar. Fotos referenciales.</span>
+  </div>
+</footer>
+
+<script>
+/* =====================================================================
+   CONFIGURACIÓN · todo lo marcado EJEMPLO o POR CONFIRMAR se cambia aquí
+   ===================================================================== */
+var CONFIG = {
+  nombre: "Posada Las Ross",
+  /* Número del negocio de Carlos para la muestra (NO el de la posada). Cambiar al de la posada al cerrar. */
+  whatsapp: "584247632008",
+  // EJEMPLO: nombres, capacidad e incluye no son reales
+  habitaciones: [
+    { nombre: "Habitación doble", cap: "Hasta 2 personas · EJEMPLO", foto: "hab-vista", alt: "Habitación con cama matrimonial, madera y puertas al jardín",
+      incluye: ["Aire acondicionado", "Agua caliente", "Acceso a la piscina"] },
+    { nombre: "Habitación con dos camas", cap: "Hasta 3 personas · EJEMPLO", foto: "hab-doble", alt: "Habitación con dos camas y ventana a las palmeras",
+      incluye: ["Aire acondicionado", "Agua caliente", "Desayuno con café"] },
+    { nombre: "Habitación con vista al jardín", cap: "Hasta 2 personas · EJEMPLO", foto: "hab-selva", alt: "Habitación con gran ventana frente a las palmeras",
+      incluye: ["Aire acondicionado", "Agua caliente", "Zona tranquila"] }
+  ]
+};
+
+(function(){
+  var d=document, $=function(s){return d.querySelector(s)};
+  d.body.classList.remove("sin-js");
+  var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* habitaciones */
+  var H=$("#habs"), S=$("#hab"), html="", opts="";
+  CONFIG.habitaciones.forEach(function(h,i){
+    html+='<article class="hab rev"><div class="foto"><img src="assets/img/'+h.foto+'-700.webp" srcset="assets/img/'+h.foto+'-700.webp 700w, assets/img/'+h.foto+'-1200.webp 1200w" sizes="(max-width:860px) 100vw, 360px" loading="lazy" width="700" height="467" alt="'+h.alt+'"></div>'+
+      '<div class="cuerpo"><h3>'+h.nombre+'</h3><span class="cap">'+h.cap+'</span><ul>'+h.incluye.map(function(x){return "<li>"+x+"</li>"}).join("")+'</ul>'+
+      '<a class="btn" data-wa="hab" data-i="'+i+'" href="https://wa.me/584247632008" target="_blank" rel="noopener">Preguntar por esta</a></div></article>';
+    opts+='<option value="'+i+'">'+h.nombre+'</option>';
+  });
+  H.innerHTML=html; S.innerHTML='<option value="-1">Aún no sé, que me recomienden</option>'+opts;
+
+  /* WhatsApp */
+  function wa(t){return "https://wa.me/"+CONFIG.whatsapp+"?text="+encodeURIComponent(t)}
+  function fecha(v){if(!v)return "";var p=v.split("-");return p[2]+"/"+p[1]+"/"+p[0]}
+  function armar(){
+    var n=$("#nombre").value.trim(), l=fecha($("#llega").value), s=fecha($("#sale").value), p=$("#pers").value, hi=+$("#hab").value;
+    var b=[].slice.call(d.querySelectorAll(".busco input:checked")).map(function(x){return x.value});
+    var t="Hola, quiero reservar en "+CONFIG.nombre+"."+(n?" Soy "+n+".":"");
+    t+="\n"+(l&&s?"Del "+l+" al "+s+".":l?"Llegaría el "+l+".":"Aún no tengo fechas fijas.");
+    t+="\nSomos "+(p==="5"?"5 o más personas":p==="1"?"1 persona":p+" personas")+".";
+    if(hi>=0) t+="\nMe interesa la "+CONFIG.habitaciones[hi].nombre.toLowerCase()+".";
+    if(b.length) t+="\nBusco "+b.join(", ").replace(/, ([^,]*)$/," y $1")+".";
+    t+="\n¿Tienen disponibilidad y cuál es el precio?";
+    return t;
+  }
+  function pinta(){var t=armar();$("#msg").textContent=t;$("#enviar").href=wa(t)}
+  d.querySelectorAll("#form input,#form select").forEach(function(e){e.addEventListener("input",pinta);e.addEventListener("change",pinta)});
+  var hoy=new Date().toISOString().slice(0,10);$("#llega").min=hoy;$("#sale").min=hoy;
+  $("#llega").addEventListener("change",function(){var v=$("#llega").value;if(v){$("#sale").min=v;if($("#sale").value&&$("#sale").value<v)$("#sale").value=v}});
+  pinta();
+  d.querySelector('[data-wa="hola"]').href=wa("Hola, quiero reservar en "+CONFIG.nombre+". ¿Tienen disponibilidad?");
+  d.addEventListener("click",function(e){
+    var a=e.target.closest('[data-wa="hab"]');if(!a)return;
+    var h=CONFIG.habitaciones[+a.dataset.i];
+    a.href=wa("Hola, quiero reservar en "+CONFIG.nombre+". Me interesa la "+h.nombre.toLowerCase()+". ¿Tienen disponibilidad y cuál es el precio?");
+  });
+
+  /* entradas al hacer scroll */
+  var els=d.querySelectorAll(".rev,.mom");
+  if(reduce||!("IntersectionObserver" in window)){els.forEach(function(e){e.classList.add("on")})}
+  else{
+    var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){
+      var m=x.target.classList.contains("mom");
+      if(m){var i=[].indexOf.call(x.target.parentNode.children,x.target);x.target.style.transitionDelay=(i*120)+"ms"}
+      x.target.classList.add("on");io.unobserve(x.target)}})},{threshold:.12,rootMargin:"0px 0px -6% 0px"});
+    els.forEach(function(e){io.observe(e)});
+    setTimeout(function(){els.forEach(function(e){if(e.getBoundingClientRect().top<innerHeight)e.classList.add("on")})},300);
+  }
+
+  /* titular: cada línea sube desde abajo */
+  if(!reduce){
+    d.querySelectorAll("#titular .l>span").forEach(function(s,i){
+      s.style.transform="translateY(105%)";
+      s.style.transition="transform 1s cubic-bezier(.2,.7,.2,1) "+(.5+i*.18)+"s";
+      requestAnimationFrame(function(){requestAnimationFrame(function(){s.style.transform="none"})});
+    });
+  }
+
+  /* el sol cruza el cielo con el scroll, y la hora cambia por sección */
+  var sol=$("#sol"), dia=$("#dia"), hora=$("#hora");
+  var horas=["7:00 a. m. · el café","11:00 a. m. · la piscina","4:00 p. m. · la playa","8:00 p. m. · la calma"];
+  var cielos=["#F8E4C0","#DCEFF2","#F6D9B8","#1A3A4D"];
+  var secs=[].slice.call(d.querySelectorAll("[data-hora]")), actual=-1, tick=false;
+  function frame(){
+    tick=false;
+    var max=d.documentElement.scrollHeight-innerHeight, p=max>0?Math.min(1,Math.max(0,scrollY/max)):0;
+    var w=dia.clientWidth*.92-22, x=p*w, y=-Math.sin(p*Math.PI)*16;
+    sol.style.transform="translate("+x+"px,"+y+"px)";
+    var h=0;
+    secs.forEach(function(s){if(s.getBoundingClientRect().top<innerHeight*.45)h=+s.dataset.hora});
+    if(p>.985)h=3;
+    if(h!==actual){actual=h;hora.textContent=horas[h];dia.dataset.n=h}
+  }
+  addEventListener("scroll",function(){if(!tick){tick=true;requestAnimationFrame(frame)}},{passive:true});
+  addEventListener("resize",frame);frame();
+})();
+</script>
+</body>
+</html>
