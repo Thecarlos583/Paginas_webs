@@ -76,7 +76,7 @@ section{scroll-margin-top:calc(var(--seguro) + var(--franja) + var(--nav))}
 .pc{display:inline-block;font:700 .64rem/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:#7A5200;background:#F7E2AE;border-radius:999px;padding:5px 9px;vertical-align:middle;white-space:nowrap}
 
 /* portada */
-.portada{position:relative;background:var(--mar);color:#fff;padding:calc(var(--seguro) + var(--franja) + var(--nav) + 26px) 0 0;overflow:hidden}
+.portada{position:relative;background:linear-gradient(var(--mar),var(--mar)) top/100% calc(100% - 3px) no-repeat var(--arena);color:#fff;padding:calc(var(--seguro) + var(--franja) + var(--nav) + 26px) 0 0;overflow:hidden}
 .portada-in{display:grid;gap:30px;position:relative;z-index:2}
 .portada .rotulo{color:var(--turq-claro)}
 .portada h1{color:#fff;font-size:clamp(3rem,15vw,6.4rem);font-weight:300;line-height:.94;letter-spacing:-.02em}
@@ -109,11 +109,11 @@ section{scroll-margin-top:calc(var(--seguro) + var(--franja) + var(--nav))}
 .js [data-partir].visible .p{opacity:1;transform:none}
 
 /* onda de arena al pie de la portada */
-.orilla{display:block;width:100%;height:46px;margin-top:-1px;position:relative;z-index:3}
+.orilla{display:block;width:100%;height:46px;margin-top:-1px;margin-bottom:-1px;position:relative;z-index:3}
 .orilla path{fill:var(--arena)}
 
 /* bloque del dueño */
-.dueno{padding:74px 0 40px}
+.dueno{padding:74px 0 40px;position:relative;z-index:4;background:var(--arena);margin-top:-1px}
 .dueno-in{display:grid;gap:26px}
 .dueno blockquote{margin:0;font:300 clamp(1.7rem,5.6vw,3rem)/1.18 var(--serif);color:var(--tinta);max-width:22ch;letter-spacing:-.01em}
 .dueno blockquote em{color:var(--coral);font-style:italic}
