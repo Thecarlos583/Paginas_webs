@@ -377,10 +377,10 @@ fieldset.campo{border:0;margin:0;padding:0}
 <section class="donde" id="ubicacion" aria-label="Ubicación">
   <div class="contenedor donde-in">
     <div>
-      <h2 class="titulo" style="max-width:18ch">Posada El Ingenio, <em>Adícora</em></h2>
-      <address style="margin-top:16px">Adícora, municipio Falcón, estado Falcón.<br>Dirección exacta y cómo llegar: <span class="pc">Por confirmar</span></address>
+      <h2 class="titulo" style="max-width:18ch">¿Dónde <em>queda</em>?</h2>
+      <address style="margin-top:16px"><b style="font:500 1.3rem var(--serif);color:var(--tinta)">Posada El Ingenio</b><br><span id="direccion">Adícora, municipio Falcón, estado Falcón.<br>Dirección exacta: <span class="pc">Por confirmar</span></span></address>
     </div>
-    <a class="btn btn-claro" style="background:var(--mar);color:#fff" href="https://www.google.com/maps/search/?api=1&amp;query=Posada%20El%20Ingenio%20Adicora%20Falc%C3%B3n" target="_blank" rel="noopener">Ver en Google Maps</a>
+    <a class="btn" id="mapa" href="https://www.google.com/maps/search/?api=1&amp;query=Posada%20El%20Ingenio%20Adicora%20Falc%C3%B3n" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.800 7-13a7 7 0 0 0-7-7Zm0 9.500A2.500 2.500 0 1 1 12 6.500a2.500 2.500 0 0 1 0 5Z"/></svg>Ver dirección en Google Maps</a>
   </div>
 </section>
 </main>
@@ -399,10 +399,15 @@ fieldset.campo{border:0;margin:0;padding:0}
 (function () {
   var NUM = "584247632008"; /* POR CONFIRMAR: WhatsApp del Sr. José Félix. Por ahora, el del negocio de Carlos. */
   var BASE = "Hola, quiero reservar en Posada El Ingenio.";
+  /* POR CONFIRMAR: cuando el Sr. José Félix dé la dirección, escríbala aquí y pegue el link de su ficha de Google Maps. */
+  var DIRECCION = "";
+  var MAPA = "";
   function $(s, r) { return (r || document).querySelector(s); }
   function $$(s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); }
   function wa(m) { return "https://wa.me/" + NUM + "?text=" + encodeURIComponent(m); }
   document.documentElement.classList.add("js");
+  if (DIRECCION) $("#direccion").textContent = DIRECCION;
+  if (MAPA) $("#mapa").href = MAPA;
   $$("[data-wa]").forEach(function (a) { a.href = wa(a.getAttribute("data-msg") || BASE); });
 
   /* titular por letras */
