@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="es-VE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="only light">
+<meta name="robots" content="noindex, nofollow">
+<title>Posada El Ingenio · Adícora, Falcón</title>
+<meta name="description" content="Posada El Ingenio en Adícora, estado Falcón. Atendida por su dueño. Reserve por WhatsApp.">
+<meta name="theme-color" content="#0C3547">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_VE">
+<meta property="og:title" content="Posada El Ingenio · Adícora">
+<meta property="og:description" content="Descanse en Adícora, donde sopla el viento. Reserve por WhatsApp.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230C3547'/%3E%3Cpath d='M12 24h30a6 6 0 1 0-6-6M12 34h40a6 6 0 1 1-6 6M12 44h22' fill='none' stroke='%23F4ECDD' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preload" href="assets/fuentes/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fuentes/instrument-sans.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Fraunces";src:url("assets/fuentes/fraunces.woff2") format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
+@font-face{font-family:"Fraunces";src:url("assets/fuentes/fraunces-italica.woff2") format("woff2");font-weight:100 900;font-style:italic;font-display:swap}
+@font-face{font-family:"Instrument Sans";src:url("assets/fuentes/instrument-sans.woff2") format("woff2");font-weight:400 700;font-display:swap}
+:root{
+  color-scheme:only light;
+  --mar:#0C3547;--mar-2:#134559;--turq:#138A9C;--turq-claro:#8FD0D8;
+  --arena:#F4ECDD;--arena-2:#EADFC9;--sal:#FBF7EF;
+  --coral:#B9411F;--coral-osc:#9A3418;--sol:#E9A53B;
+  --tinta:#10222B;--texto:#33454D;--suave:#5C6B70;--linea:#DCCFB6;
+  --serif:"Fraunces",Georgia,"Times New Roman",serif;
+  --sans:"Instrument Sans","Segoe UI",system-ui,-apple-system,Roboto,sans-serif;
+  --suave-c:cubic-bezier(.22,.61,.36,1);
+  --franja:30px;--nav:60px;--ancho:1140px;--gutter:clamp(18px,5.5vw,44px);
+  --seguro:env(safe-area-inset-top,0px)
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:hidden;overflow-x:clip;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--arena);color:var(--texto);font:400 1.0625rem/1.7 var(--sans);overflow-x:hidden;overflow-x:clip;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+p{margin:0}
+h1,h2,h3{font-family:var(--serif);font-weight:400;color:var(--tinta);margin:0;line-height:1.05;font-variation-settings:"opsz" 120}
+:focus-visible{outline:3px solid var(--sol);outline-offset:3px;border-radius:4px}
+section{scroll-margin-top:calc(var(--seguro) + var(--franja) + var(--nav))}
+.contenedor{width:100%;max-width:var(--ancho);margin:0 auto;padding-inline:var(--gutter)}
+.saltar{position:absolute;left:12px;top:-60px;z-index:200;background:var(--tinta);color:#fff;padding:10px 14px;border-radius:8px}
+.saltar:focus{top:calc(var(--seguro) + var(--franja) + 8px)}
+
+/* franja de vista previa */
+.franja{position:fixed;inset:0 0 auto;height:calc(var(--seguro) + var(--franja));padding:var(--seguro) 10px 0;z-index:90;display:flex;align-items:center;justify-content:center;background:var(--tinta);color:#F4E3B8;font:600 .68rem/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;white-space:nowrap;overflow:hidden}
+@media (max-width:560px){.franja{font-size:.6rem;letter-spacing:.06em}}
+
+/* menú */
+.nav{position:fixed;left:0;right:0;top:calc(var(--seguro) + var(--franja));height:var(--nav);z-index:80;transition:background-color .3s,box-shadow .3s}
+.nav.fondo{background:rgba(12,53,71,.94);box-shadow:0 6px 24px rgba(8,30,41,.25)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:14px;height:100%}
+.marca{font:500 1.25rem/1 var(--serif);color:#fff;text-decoration:none;letter-spacing:.01em}
+.marca small{display:block;font:600 .6rem/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--turq-claro);margin-bottom:5px}
+.nav-links{display:none;gap:28px}
+.nav-links a{color:#E7F2F3;text-decoration:none;font:600 .88rem/1 var(--sans);letter-spacing:.04em;padding:8px 0;border-bottom:2px solid transparent;transition:border-color .25s}
+.nav-links a:hover{border-color:var(--sol)}
+@media (min-width:860px){.nav-links{display:flex}}
+
+/* botones */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:13px 26px;border-radius:999px;border:0;background:var(--coral);color:#fff;font:700 1rem/1.2 var(--sans);text-decoration:none;cursor:pointer;transition:transform .25s var(--suave-c),background-color .25s,box-shadow .25s}
+.btn svg{width:21px;height:21px;flex:none}
+.btn:hover{background:var(--coral-osc);transform:translateY(-3px);box-shadow:0 14px 28px rgba(185,65,31,.32)}
+.btn:active{transform:scale(.97)}
+.btn-chico{min-height:42px;padding:9px 18px;font-size:.88rem}
+.btn-claro{background:var(--sal);color:var(--mar)}
+.btn-claro:hover{background:#fff;box-shadow:0 14px 28px rgba(0,0,0,.2)}
+
+.rotulo{display:inline-flex;align-items:center;gap:12px;font:700 .72rem/1.3 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--turq);margin-bottom:16px}
+.rotulo::before{content:"";width:28px;height:2px;background:currentColor}
+.titulo{font-size:clamp(2.25rem,7.6vw,4rem);letter-spacing:-.015em;max-width:15ch}
+.titulo em{font-style:italic;color:var(--turq)}
+.intro{max-width:50ch;margin-top:18px;color:var(--suave)}
+.pc{display:inline-block;font:700 .64rem/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:#7A5200;background:#F7E2AE;border-radius:999px;padding:5px 9px;vertical-align:middle;white-space:nowrap}
+
+/* portada */
+.portada{position:relative;background:var(--mar);color:#fff;padding:calc(var(--seguro) + var(--franja) + var(--nav) + 26px) 0 0;overflow:hidden}
+.portada-in{display:grid;gap:30px;position:relative;z-index:2}
+.portada .rotulo{color:var(--turq-claro)}
+.portada h1{color:#fff;font-size:clamp(3rem,15vw,6.4rem);font-weight:300;line-height:.94;letter-spacing:-.02em}
+.portada h1 em{font-weight:400;color:var(--sol);display:block}
+.portada-frase{font:300 italic clamp(1.2rem,4.6vw,1.65rem)/1.35 var(--serif);color:#DCEEF0;max-width:26ch;margin-top:20px}
+.portada-acc{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:26px}
+.portada-nota{font:600 .78rem/1.4 var(--sans);letter-spacing:.06em;color:var(--turq-claro)}
+.portada-foto{position:relative;margin:0 calc(var(--gutter) * -1);aspect-ratio:4/3.6;overflow:hidden}
+.portada-foto img{position:absolute;inset:-6% 0;width:100%;height:112%;object-fit:cover;animation:deriva 26s ease-in-out infinite alternate;will-change:transform}
+.portada-foto::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,var(--mar) 0%,rgba(12,53,71,0) 32%)}
+@keyframes deriva{from{transform:scale(1.03) translateX(-1.5%)}to{transform:scale(1.1) translateX(1.5%)}}
+.etiqueta-foto{position:absolute;right:12px;bottom:10px;z-index:3;font:600 .62rem/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:#fff;background:rgba(10,30,40,.6);padding:6px 9px;border-radius:999px}
+/* rachas de viento: líneas finas que cruzan, solo transform y opacity */
+.viento{position:absolute;inset:0 0 70px 0;z-index:1;pointer-events:none;overflow:hidden}
+.viento i{position:absolute;left:-40%;height:2px;width:60%;border-radius:2px;background:linear-gradient(90deg,transparent,rgba(143,208,216,.65),transparent);opacity:0;animation:racha 9s linear infinite}
+.viento i:nth-child(1){top:22%;animation-delay:0s}
+.viento i:nth-child(2){top:41%;width:46%;animation-delay:3.2s;animation-duration:11s}
+.viento i:nth-child(3){top:63%;width:70%;animation-delay:6s;animation-duration:8s}
+.viento i:nth-child(4){top:80%;width:40%;animation-delay:1.6s;animation-duration:12s}
+@keyframes racha{0%{transform:translateX(0);opacity:0}15%{opacity:.9}70%{opacity:.7}100%{transform:translateX(280%);opacity:0}}
+@media (min-width:900px){
+  .portada{padding-bottom:0}
+  .portada-in{grid-template-columns:1.05fr .95fr;align-items:end;gap:0}
+  .portada-texto{padding-bottom:70px}
+  .portada-foto{margin:0;aspect-ratio:auto;height:min(78vh,680px);border-radius:240px 240px 0 0}
+  .portada-foto::after{background:linear-gradient(180deg,rgba(12,53,71,.35),rgba(12,53,71,0) 30%)}
+}
+.entra{display:inline-block;overflow:hidden;vertical-align:top;padding:0 .14em .22em 0;margin:0 -.14em -.22em 0}
+.js [data-partir] .p{display:inline-block;opacity:0;transform:translateY(60%) rotate(4deg);transition:transform .8s var(--suave-c),opacity .6s;transition-delay:calc(var(--i) * 45ms + 150ms)}
+.js [data-partir].visible .p{opacity:1;transform:none}
+
+/* onda de arena al pie de la portada */
+.orilla{display:block;width:100%;height:46px;margin-top:-1px;position:relative;z-index:3}
+.orilla path{fill:var(--arena)}
+
+/* bloque del dueño */
+.dueno{padding:74px 0 40px}
+.dueno-in{display:grid;gap:26px}
+.dueno blockquote{margin:0;font:300 clamp(1.7rem,5.6vw,3rem)/1.18 var(--serif);color:var(--tinta);max-width:22ch;letter-spacing:-.01em}
+.dueno blockquote em{color:var(--coral);font-style:italic}
+.dueno-nota{max-width:44ch;color:var(--suave)}
+.dueno-firma{display:flex;align-items:center;gap:14px;margin-top:6px;font:600 .9rem/1.3 var(--sans);color:var(--tinta)}
+.dueno-firma::before{content:"";width:42px;height:2px;background:var(--coral)}
+@media (min-width:900px){.dueno-in{grid-template-columns:1.2fr .8fr;align-items:end;gap:60px}}
+
+/* habitaciones */
+.habs{padding:56px 0 80px}
+.habs-lista{display:grid;gap:34px;margin-top:40px}
+.hab{display:grid;gap:18px}
+.hab-foto{position:relative;overflow:hidden;border-radius:22px;aspect-ratio:4/3.1;background:var(--arena-2)}
+.hab-foto img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--suave-c)}
+.hab:hover .hab-foto img{transform:scale(1.05)}
+.telon{position:absolute;inset:0;background:var(--arena);z-index:2;transform-origin:right;transition:transform 1.1s var(--suave-c)}
+.js .hab:not(.visible) .telon{transform:none}
+.hab.visible .telon{transform:scaleX(0)}
+html:not(.js) .telon{display:none}
+.hab h3{font-size:1.9rem}
+.hab dl{margin:12px 0 0;display:grid;gap:8px}
+.hab dl div{display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:1px dashed var(--linea);padding-bottom:8px;font-size:.96rem}
+.hab dt{color:var(--suave)}
+.hab dd{margin:0;color:var(--tinta);font-weight:600}
+.hab .btn{margin-top:16px}
+@media (min-width:820px){
+  .habs-lista{grid-template-columns:1fr 1fr;gap:44px}
+  .hab:nth-child(2){margin-top:70px}
+}
+
+/* servicios */
+.servicios{background:var(--mar);color:#DCEEF0;padding:80px 0;position:relative;overflow:hidden}
+.servicios .titulo{color:#fff}.servicios .titulo em{color:var(--sol)}
+.servicios .intro{color:#B8D4D8}
+.serv-lista{list-style:none;margin:40px 0 0;padding:0;display:grid;gap:0;border-top:1px solid rgba(143,208,216,.28)}
+.serv-lista li{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:18px 4px;border-bottom:1px solid rgba(143,208,216,.28);font:400 1.2rem/1.3 var(--serif);color:#fff;transition:padding-left .3s var(--suave-c)}
+.serv-lista li:hover{padding-left:14px}
+.js .serv-lista li{opacity:0;transform:translateX(-18px);transition:opacity .6s,transform .7s var(--suave-c),padding-left .3s var(--suave-c);transition-delay:calc(var(--i) * 80ms)}
+.js .serv-lista.visible li{opacity:1;transform:none}
+@media (min-width:820px){.serv-lista{grid-template-columns:1fr 1fr;column-gap:56px}}
+
+/* adícora */
+.adicora{padding:84px 0}
+.adi-grid{display:grid;gap:36px;margin-top:38px}
+.adi-fotos{position:relative}
+.adi-fotos .a{border-radius:22px;overflow:hidden;aspect-ratio:4/3.2;position:relative}
+.adi-fotos .b{position:absolute;right:-6px;bottom:-34px;width:46%;aspect-ratio:3/4;border-radius:18px;overflow:hidden;border:6px solid var(--arena);box-shadow:0 18px 40px rgba(8,30,41,.25)}
+.adi-fotos img{width:100%;height:100%;object-fit:cover}
+.adi-fotos .a .etiqueta-foto{right:auto;left:12px}
+.cerca{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.cerca li{display:grid;grid-template-columns:1fr auto;gap:4px 16px;padding:18px 0;border-bottom:1px solid var(--linea)}
+.cerca h3{font-size:1.35rem}
+.cerca p{grid-column:1/-1;color:var(--suave);font-size:.98rem}
+.cerca .pc{grid-column:2;grid-row:1;align-self:center}
+@media (min-width:900px){.adi-grid{grid-template-columns:1fr 1fr;gap:70px;align-items:center}.adi-fotos{margin-bottom:34px}}
+
+/* reservar */
+.reservar{background:var(--arena-2);padding:84px 0}
+.res-in{display:grid;gap:40px}
+.form{display:grid;gap:18px;background:var(--sal);border-radius:26px;padding:clamp(20px,5vw,34px);box-shadow:0 24px 50px rgba(12,53,71,.12)}
+.campos{display:grid;gap:16px}
+.campo label,.campo legend{display:block;font:700 .78rem/1.2 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--suave);margin-bottom:8px;padding:0}
+.campo input[type=date],.campo input[type=text]{width:100%;min-height:50px;padding:12px 14px;border:1.5px solid var(--linea);border-radius:14px;background:#fff;font:500 1rem var(--sans);color:var(--tinta)}
+.campo input:focus{outline:3px solid var(--turq-claro);border-color:var(--turq)}
+fieldset.campo{border:0;margin:0;padding:0}
+.contador{display:flex;align-items:center;gap:12px}
+.contador button{width:50px;height:50px;border-radius:50%;border:1.5px solid var(--linea);background:#fff;font:600 1.4rem var(--sans);color:var(--mar);cursor:pointer;transition:background-color .2s,transform .2s}
+.contador button:hover{background:var(--turq-claro)}
+.contador button:active{transform:scale(.92)}
+.contador output{min-width:2.4ch;text-align:center;font:500 1.8rem var(--serif);color:var(--tinta)}
+.motivos{display:flex;flex-wrap:wrap;gap:10px}
+.motivos label{margin:0;letter-spacing:.02em;text-transform:none;font:600 .95rem/1 var(--sans);color:var(--texto);cursor:pointer}
+.motivos input{position:absolute;opacity:0;pointer-events:none}
+.motivos span{display:inline-block;padding:12px 18px;border-radius:999px;border:1.5px solid var(--linea);background:#fff;transition:background-color .2s,color .2s,border-color .2s,transform .2s}
+.motivos input:checked+span{background:var(--mar);color:#fff;border-color:var(--mar);transform:translateY(-2px)}
+.motivos input:focus-visible+span{outline:3px solid var(--sol);outline-offset:2px}
+.burbuja{position:relative;background:#DDF3E3;border-radius:18px 18px 18px 4px;padding:16px 18px;font-size:.98rem;line-height:1.55;color:#173B27;min-height:5.5em;transition:transform .3s var(--suave-c)}
+.burbuja.pulso{transform:scale(1.015)}
+.burbuja small{display:block;font:700 .68rem/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:#3F7A55;margin-bottom:8px}
+.form .btn{width:100%}
+.res-lado{align-self:center}
+.res-lado p{margin-top:16px;max-width:42ch;color:var(--texto)}
+.res-lado .pasos{list-style:none;margin:26px 0 0;padding:0;display:grid;gap:14px;counter-reset:p}
+.res-lado .pasos li{counter-increment:p;display:grid;grid-template-columns:36px 1fr;gap:14px;align-items:start}
+.res-lado .pasos li::before{content:counter(p);display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--mar);color:#fff;font:500 1.05rem var(--serif)}
+@media (min-width:900px){.res-in{grid-template-columns:.9fr 1.1fr;gap:70px}}
+@media (min-width:560px){.campos{grid-template-columns:1fr 1fr}.campos .ancho{grid-column:1/-1}}
+
+/* ubicación y pie */
+.donde{padding:70px 0 60px}
+.donde-in{display:grid;gap:24px}
+.donde address{font-style:normal;color:var(--texto)}
+.pie{background:var(--tinta);color:#B8C7CB;padding:44px 0 calc(40px + env(safe-area-inset-bottom,0px));font-size:.92rem}
+.pie-in{display:grid;gap:16px}
+.pie b{font:500 1.35rem var(--serif);color:#fff;display:block}
+.pie a{color:#fff}
+@media (min-width:820px){.donde-in{grid-template-columns:1fr auto;align-items:center}}
+
+/* botón flotante en celular */
+.flota{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:70;width:58px;height:58px;border-radius:50%;background:var(--coral);display:grid;place-items:center;box-shadow:0 12px 28px rgba(8,30,41,.35);transform:translateY(90px);opacity:0;transition:transform .45s var(--suave-c),opacity .3s}
+.flota.ver{transform:none;opacity:1}
+.flota svg{width:28px;height:28px;color:#fff}
+@media (min-width:860px){.flota{display:none}}
+
+/* revelados */
+.js .rev{opacity:0;transform:translateY(26px);transition:opacity .8s var(--suave-c),transform .9s var(--suave-c);transition-delay:calc(var(--d,0) * 1ms)}
+.js .rev.visible{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .rev,.js [data-partir] .p,.js .serv-lista li{opacity:1;transform:none}
+  .telon{display:none}
+}
+.pausado *{animation-play-state:paused!important}
+</style>
+</head>
+<body>
+<a class="saltar" href="#main">Saltar al contenido</a>
+<div class="franja" role="note">Vista previa · Datos por confirmar</div>
+
+<header class="nav" data-nav>
+  <div class="contenedor nav-in">
+    <a class="marca" href="#inicio" aria-label="Posada El Ingenio, inicio"><small>Adícora · Falcón</small>El Ingenio</a>
+    <nav class="nav-links" aria-label="Secciones"><a href="#habitaciones">Habitaciones</a><a href="#servicios">Servicios</a><a href="#adicora">Adícora</a><a href="#reservar">Reservar</a></nav>
+    <a class="btn btn-chico" data-wa href="#" target="_blank" rel="noopener">Reservar</a>
+  </div>
+</header>
+
+<main id="main">
+<section class="portada" id="inicio" aria-label="Portada">
+  <div class="viento" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  <div class="contenedor portada-in">
+    <div class="portada-texto">
+      <span class="rotulo">Posada en Adícora, Falcón</span>
+      <h1 data-partir>Posada <em>El Ingenio</em></h1>
+      <p class="portada-frase">Descanse en Adícora, donde sopla el viento y lo atiende su dueño.</p>
+      <div class="portada-acc">
+        <a class="btn" data-wa href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.5A11 11 0 0 0 3.2 17.1L2 22l5-1.3A11 11 0 1 0 20.5 3.5Zm-8.4 17a9.1 9.1 0 0 1-4.6-1.3l-.3-.2-3 .8.8-2.9-.2-.3a9.1 9.1 0 1 1 7.3 3.9Zm5-6.8c-.3-.1-1.6-.8-1.9-.9s-.5-.1-.7.1-.8.9-.9 1.1-.3.2-.6.1a7.4 7.4 0 0 1-3.7-3.2c-.3-.5.3-.5.8-1.5a.6.6 0 0 0 0-.5c-.1-.1-.7-1.6-.9-2.2s-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.9.4 3.700 3.700 0 0 0-1.100 2.700 6.400 6.400 0 0 0 1.400 3.400 14.700 14.700 0 0 0 5.600 4.900c2.100.9 2.100.6 2.500.6a2.100 2.100 0 0 0 1.400-1 1.700 1.700 0 0 0 .1-1c0-.1-.3-.2-.6-.3Zm5-6.8c-.3-.1-1.6-.8-1.9-.9s-.5-.1-.7.1-.8.9-.9 1.1-.3.2-.6.1a7.4 7.4 0 0 1-3.7-3.2c-.3-.5.3-.5.8-1.5a.6.6 0 0 0 0-.5c-.1-.1-.7-1.6-.9-2.2s-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.9.4 3.700 3.700 0 0 0-1.100 2.700 6.400 6.400 0 0 0 1.400 3.400 14.700 14.700 0 0 0 5.600 4.900c2.100.9 2.100.6 2.500.6a2.100 2.100 0 0 0 1.400-1 1.700 1.700 0 0 0 .1-1c0-.1-.3-.2-.6-.3Z"/></svg>Reservar por WhatsApp</a>
+        <span class="portada-nota">Respuesta directa del dueño</span>
+      </div>
+    </div>
+    <figure class="portada-foto" style="margin-bottom:0">
+      <img data-prof="0.08" src="assets/img/portada-900.webp" srcset="assets/img/portada-700.webp 700w, assets/img/portada-900.webp 900w" sizes="(min-width:900px) 520px, 100vw" width="900" height="1125" alt="Vista aérea de un kitesurfista sobre el mar turquesa del Caribe venezolano" fetchpriority="high">
+      <span class="etiqueta-foto">Foto de referencia</span>
+    </figure>
+  </div>
+  <svg class="orilla" viewBox="0 0 1200 46" preserveAspectRatio="none" aria-hidden="true"><path d="M0 46V26C100 4 200 4 300 22s200 24 300 4 200-26 300-6 200 24 300 6V46Z"/></svg>
+</section>
+
+<section class="dueno" aria-label="Atención del dueño">
+  <div class="contenedor dueno-in">
+    <blockquote class="rev">Aquí lo recibe el propio <em>dueño</em>, de principio a fin.</blockquote>
+    <div class="rev" style="--d:150">
+      <p class="dueno-nota">Los huéspedes que han pasado por la posada destacan la atención del Sr. José Félix: lo esperan, lo orientan y lo atienden personalmente.</p>
+      <p class="dueno-firma">Sr. José Félix, anfitrión</p>
+    </div>
+  </div>
+</section>
+
+<section class="habs" id="habitaciones" aria-label="Habitaciones">
+  <div class="contenedor">
+    <h2 class="titulo rev">Las <em>habitaciones</em></h2>
+    <p class="intro rev">Nombres, capacidad y lo que incluye cada una los confirma el dueño. Pregunte por la que mejor le sirva.</p>
+    <div class="habs-lista">
+      <article class="hab" data-rev-hab>
+        <div class="hab-foto"><div class="telon" aria-hidden="true"></div><img src="assets/img/hab-madera-900.webp" srcset="assets/img/hab-madera-700.webp 700w, assets/img/hab-madera-900.webp 900w" sizes="(min-width:820px) 520px, 100vw" width="900" height="1350" loading="lazy" alt="Habitación con techo y paredes de madera y dos camas con sábanas blancas"><span class="etiqueta-foto">Foto de referencia</span></div>
+        <div>
+          <h3>Habitación 1</h3>
+          <dl>
+            <div><dt>Nombre</dt><dd><span class="pc">Por confirmar</span></dd></div>
+            <div><dt>Capacidad</dt><dd><span class="pc">Por confirmar</span></dd></div>
+            <div><dt>Incluye</dt><dd><span class="pc">Por confirmar</span></dd></div>
+          </dl>
+          <a class="btn btn-chico" data-wa data-msg="Hola, quiero información de las habitaciones de Posada El Ingenio." href="#" target="_blank" rel="noopener">Preguntar por WhatsApp</a>
+        </div>
+      </article>
+      <article class="hab" data-rev-hab>
+        <div class="hab-foto"><div class="telon" aria-hidden="true"></div><img src="assets/img/hab-luz-900.webp" srcset="assets/img/hab-luz-700.webp 700w, assets/img/hab-luz-900.webp 900w" sizes="(min-width:820px) 520px, 100vw" width="900" height="601" loading="lazy" alt="Habitación luminosa con cama de madera, ventiladores de techo y ventanas con vista a las matas"><span class="etiqueta-foto">Foto de referencia</span></div>
+        <div>
+          <h3>Habitación 2</h3>
+          <dl>
+            <div><dt>Nombre</dt><dd><span class="pc">Por confirmar</span></dd></div>
+            <div><dt>Capacidad</dt><dd><span class="pc">Por confirmar</span></dd></div>
+            <div><dt>Incluye</dt><dd><span class="pc">Por confirmar</span></dd></div>
+          </dl>
+          <a class="btn btn-chico" data-wa data-msg="Hola, quiero información de las habitaciones de Posada El Ingenio." href="#" target="_blank" rel="noopener">Preguntar por WhatsApp</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="servicios" id="servicios" aria-label="Servicios y áreas comunes">
+  <div class="contenedor">
+    <h2 class="titulo rev">Servicios y <em>áreas comunes</em></h2>
+    <p class="intro rev">Esto es lo que la posada nos va a confirmar. Mientras tanto, pregunte por lo que le haga falta.</p>
+    <ul class="serv-lista" data-lista>
+      <li style="--i:0">Aire acondicionado y ventilador <span class="pc">Por confirmar</span></li>
+      <li style="--i:1">Baño privado <span class="pc">Por confirmar</span></li>
+      <li style="--i:2">Wifi <span class="pc">Por confirmar</span></li>
+      <li style="--i:3">Estacionamiento <span class="pc">Por confirmar</span></li>
+      <li style="--i:4">Desayuno <span class="pc">Por confirmar</span></li>
+      <li style="--i:5">Áreas comunes <span class="pc">Por confirmar</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="adicora" id="adicora" aria-label="Adícora">
+  <div class="contenedor">
+    <h2 class="titulo rev">Adícora, un pueblo con <em>viento</em></h2>
+    <div class="adi-grid">
+      <div class="adi-fotos rev">
+        <div class="a"><img src="assets/img/costa-900.webp" srcset="assets/img/costa-700.webp 700w, assets/img/costa-900.webp 900w" sizes="(min-width:900px) 520px, 100vw" width="900" height="600" loading="lazy" alt="Vista aérea de la costa con arena, olas y botes de pescadores" data-prof="0.04"><span class="etiqueta-foto">Foto de referencia</span></div>
+        <div class="b"><img src="assets/img/viento-700.webp" width="700" height="933" loading="lazy" alt="Kites de colores sobre la arena blanca de la playa"></div>
+      </div>
+      <div>
+        <p class="intro rev" style="margin-top:0">Adícora queda en la costa de la península de Paraguaná, en el estado Falcón. Lo que hay para hacer cerca lo confirma el dueño.</p>
+        <ul class="cerca rev" style="margin-top:20px">
+          <li><h3>La playa</h3><span class="pc">Distancia por confirmar</span><p>Para caminar, bañarse o ver el atardecer.</p></li>
+          <li><h3>Kitesurf y windsurf</h3><span class="pc">Por confirmar</span><p>Adícora es conocida por el viento. Pregunte por escuelas y alquiler de equipos.</p></li>
+          <li><h3>El pueblo</h3><span class="pc">Por confirmar</span><p>Calles, comida y paseos a pocos pasos.</p></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reservar" id="reservar" aria-label="Reservar">
+  <div class="contenedor res-in">
+    <div class="res-lado rev">
+      <span class="rotulo">Reservar</span>
+      <h2 class="titulo">Cuéntenos <em>cuándo</em> viene</h2>
+      <p>Elija sus fechas y cuántos son. Le armamos el mensaje y lo envía directo al Sr. José Félix por WhatsApp.</p>
+      <ol class="pasos">
+        <li>Escoja fechas y personas.</li>
+        <li>Toque el botón y se abre WhatsApp con el mensaje listo.</li>
+        <li>El dueño le confirma disponibilidad y precio.</li>
+      </ol>
+    </div>
+    <form class="form rev" id="form" style="--d:120" novalidate>
+      <div class="campos">
+        <div class="campo"><label for="llegada">Llegada</label><input type="date" id="llegada" data-c="llegada"></div>
+        <div class="campo"><label for="salida">Salida</label><input type="date" id="salida" data-c="salida"></div>
+        <fieldset class="campo"><legend>Personas</legend>
+          <div class="contador"><button type="button" data-paso="-1" aria-label="Una persona menos">−</button><output id="personas" aria-live="polite">2</output><button type="button" data-paso="1" aria-label="Una persona más">+</button></div>
+        </fieldset>
+        <div class="campo"><label for="nombre">Su nombre (opcional)</label><input type="text" id="nombre" data-c="nombre" autocomplete="given-name"></div>
+        <fieldset class="campo ancho"><legend>Viene a</legend>
+          <div class="motivos">
+            <label><input type="radio" name="motivo" value="Descansar en la playa" data-c="motivo"><span>Descansar</span></label>
+            <label><input type="radio" name="motivo" value="Practicar kitesurf o windsurf" data-c="motivo"><span>Kitesurf</span></label>
+            <label><input type="radio" name="motivo" value="Paseo en familia" data-c="motivo"><span>Paseo en familia</span></label>
+          </div>
+        </fieldset>
+      </div>
+      <div class="burbuja" id="burbuja" aria-live="polite"><small>Su mensaje</small><span id="texto"></span></div>
+      <a class="btn" id="enviar" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.5A11 11 0 0 0 3.2 17.1L2 22l5-1.3A11 11 0 1 0 20.5 3.5Zm-8.4 17a9.1 9.1 0 0 1-4.6-1.3l-.3-.2-3 .8.8-2.9-.2-.3a9.1 9.1 0 1 1 7.3 3.9Zm5-6.8c-.3-.1-1.6-.8-1.9-.9s-.5-.1-.7.1-.8.9-.9 1.1-.3.2-.6.1a7.4 7.4 0 0 1-3.7-3.2c-.3-.5.3-.5.8-1.5a.6.6 0 0 0 0-.5c-.1-.1-.7-1.6-.9-2.2s-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.9.4 3.700 3.700 0 0 0-1.100 2.700 6.400 6.400 0 0 0 1.400 3.400 14.700 14.700 0 0 0 5.600 4.900c2.100.9 2.100.6 2.500.6a2.100 2.100 0 0 0 1.400-1 1.700 1.700 0 0 0 .1-1c0-.1-.3-.2-.6-.3Z"/></svg>Enviar por WhatsApp</a>
+    </form>
+  </div>
+</section>
+
+<section class="donde" id="ubicacion" aria-label="Ubicación">
+  <div class="contenedor donde-in">
+    <div>
+      <h2 class="titulo" style="max-width:18ch">Posada El Ingenio, <em>Adícora</em></h2>
+      <address style="margin-top:16px">Adícora, municipio Falcón, estado Falcón.<br>Dirección exacta y cómo llegar: <span class="pc">Por confirmar</span></address>
+    </div>
+    <a class="btn btn-claro" style="background:var(--mar);color:#fff" href="https://www.google.com/maps/search/?api=1&amp;query=Posada%20El%20Ingenio%20Adicora%20Falc%C3%B3n" target="_blank" rel="noopener">Ver en Google Maps</a>
+  </div>
+</section>
+</main>
+
+<footer class="pie">
+  <div class="contenedor pie-in">
+    <b>Posada El Ingenio</b>
+    <p>Adícora, estado Falcón. Atendida por su dueño, el Sr. José Félix.</p>
+    <p>Reservas por <a data-wa href="#" target="_blank" rel="noopener">WhatsApp</a>. Vista previa: las fotos son referenciales mientras llegan las de la posada.</p>
+  </div>
+</footer>
+
+<a class="flota" data-wa href="#" target="_blank" rel="noopener" aria-label="Reservar por WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.5A11 11 0 0 0 3.2 17.1L2 22l5-1.3A11 11 0 1 0 20.5 3.5Zm-8.4 17a9.1 9.1 0 0 1-4.6-1.3l-.3-.2-3 .8.8-2.9-.2-.3a9.1 9.1 0 1 1 7.3 3.9Zm5-6.8c-.3-.1-1.6-.8-1.9-.9s-.5-.1-.7.1-.8.9-.9 1.1-.3.2-.6.1a7.4 7.4 0 0 1-3.7-3.2c-.3-.5.3-.5.8-1.5a.6.6 0 0 0 0-.5c-.1-.1-.7-1.6-.9-2.2s-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.9.4 3.700 3.700 0 0 0-1.100 2.700 6.400 6.400 0 0 0 1.400 3.400 14.700 14.700 0 0 0 5.600 4.900c2.100.9 2.100.6 2.500.6a2.100 2.100 0 0 0 1.400-1 1.700 1.700 0 0 0 .1-1c0-.1-.3-.2-.6-.3Z"/></svg></a>
+
+<script>
+(function () {
+  var NUM = "584247632008"; /* POR CONFIRMAR: WhatsApp del Sr. José Félix. Por ahora, el del negocio de Carlos. */
+  var BASE = "Hola, quiero reservar en Posada El Ingenio.";
+  function $(s, r) { return (r || document).querySelector(s); }
+  function $$(s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); }
+  function wa(m) { return "https://wa.me/" + NUM + "?text=" + encodeURIComponent(m); }
+  document.documentElement.classList.add("js");
+  $$("[data-wa]").forEach(function (a) { a.href = wa(a.getAttribute("data-msg") || BASE); });
+
+  /* titular por letras */
+  $$("[data-partir]").forEach(function (el) {
+    var i = 0;
+    (function partir(n) {
+      Array.prototype.slice.call(n.childNodes).forEach(function (c) {
+        if (c.nodeType === 3) {
+          var f = document.createDocumentFragment();
+          c.textContent.split(/(\s+)/).forEach(function (t) {
+            if (/^\s+$/.test(t) || !t) { f.appendChild(document.createTextNode(t)); return; }
+            var w = document.createElement("span"); w.className = "entra";
+            t.split("").forEach(function (ch) { var s = document.createElement("span"); s.className = "p"; s.style.setProperty("--i", i++); s.textContent = ch; w.appendChild(s); });
+            f.appendChild(w);
+          });
+          n.replaceChild(f, c);
+        } else if (c.nodeType === 1) partir(c);
+      });
+    })(el);
+    requestAnimationFrame(function () { requestAnimationFrame(function () { el.classList.add("visible"); }); });
+  });
+
+  /* revelados */
+  var objetivos = $$(".rev, [data-rev-hab], [data-lista]");
+  function ver(e) { e.classList.add("visible"); }
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (en) { en.forEach(function (x) { if (x.isIntersecting) { ver(x.target); io.unobserve(x.target); } }); }, { threshold: .15, rootMargin: "0px 0px -6% 0px" });
+    objetivos.forEach(function (e) { io.observe(e); });
+    setTimeout(function () { objetivos.forEach(function (e) { if (e.getBoundingClientRect().top < innerHeight) ver(e); }); }, 600);
+  } else objetivos.forEach(ver);
+
+  /* scroll: menú con fondo, botón flotante, parallax suave */
+  var nav = $("[data-nav]"), flota = $(".flota"), capas = $$("[data-prof]"), pend = false;
+  function cuadro() {
+    pend = false;
+    var y = window.pageYOffset || 0;
+    nav.classList.toggle("fondo", y > 40);
+    flota.classList.toggle("ver", y > innerHeight * .7);
+    capas.forEach(function (c) {
+      var r = c.getBoundingClientRect();
+      if (r.bottom < -100 || r.top > innerHeight + 100) return;
+      var d = (r.top + r.height / 2 - innerHeight / 2) * parseFloat(c.getAttribute("data-prof"));
+      c.style.translate = "0 " + (-d).toFixed(1) + "px";
+    });
+  }
+  addEventListener("scroll", function () { if (!pend) { pend = true; requestAnimationFrame(cuadro); } }, { passive: true });
+  cuadro();
+  document.addEventListener("visibilitychange", function () { document.body.classList.toggle("pausado", document.hidden); });
+
+  /* armador del mensaje */
+  var E = { llegada: "", salida: "", personas: 2, nombre: "", motivo: "" };
+  function hoy() { var d = new Date(); d.setMinutes(d.getMinutes() - d.getTimezoneOffset()); return d.toISOString().slice(0, 10); }
+  function corta(v) { var p = v.split("-"); return p[2] + "/" + p[1] + "/" + p[0]; }
+  function mensaje() {
+    var l = [];
+    l.push((E.nombre ? "Hola, soy " + E.nombre + ". " : "Hola. ") + "Quiero reservar en Posada El Ingenio.");
+    if (E.llegada && E.salida && E.salida > E.llegada) l.push("Llegaría el " + corta(E.llegada) + " y saldría el " + corta(E.salida) + ".");
+    else if (E.llegada) l.push("Llegaría el " + corta(E.llegada) + ".");
+    l.push("Seríamos " + E.personas + (E.personas === 1 ? " persona." : " personas."));
+    if (E.motivo) l.push("Vamos a " + E.motivo.charAt(0).toLowerCase() + E.motivo.slice(1) + ".");
+    l.push("¿Tienen disponibilidad y cuál sería el precio?");
+    return l.join(" ");
+  }
+  var burbuja = $("#burbuja"), texto = $("#texto"), enviar = $("#enviar"), salida = $("#salida"), llegada = $("#llegada");
+  llegada.min = hoy(); salida.min = hoy();
+  function pintar() {
+    var m = mensaje(); texto.textContent = m; enviar.href = wa(m);
+    burbuja.classList.add("pulso"); setTimeout(function () { burbuja.classList.remove("pulso"); }, 220);
+  }
+  $$("[data-c]").forEach(function (el) {
+    el.addEventListener(el.type === "text" ? "input" : "change", function () {
+      E[el.getAttribute("data-c")] = el.value;
+      if (el === llegada) salida.min = el.value || hoy();
+      pintar();
+    });
+  });
+  $$("[data-paso]").forEach(function (b) {
+    b.addEventListener("click", function () { E.personas = Math.max(1, Math.min(20, E.personas + parseInt(b.getAttribute("data-paso"), 10))); $("#personas").textContent = E.personas; pintar(); });
+  });
+  $("#form").addEventListener("submit", function (e) { e.preventDefault(); });
+  texto.textContent = mensaje(); enviar.href = wa(mensaje());
+})();
+</script>
+</body>
+</html>
