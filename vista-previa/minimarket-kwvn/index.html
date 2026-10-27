@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Minimarket EJEMPLO | Pedidos por WhatsApp en Adícora, Falcón</title>
+<meta name="description" content="Catálogo del minimarket y pedidos por WhatsApp en Adícora, Falcón. Vista previa con datos de ejemplo.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#1F6B3A">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<style>
+@font-face{font-family:"Fraunces";src:url("assets/fuentes/fraunces.woff2") format("woff2");font-weight:400 700;font-style:normal;font-display:swap}
+@font-face{font-family:"Work Sans";src:url("assets/fuentes/worksans.woff2") format("woff2");font-weight:400 600;font-style:normal;font-display:swap}
+:root{--verde:#1F6B3A;--verde-o:#14472A;--noche:#16301F;--crema:#FBF5E4;--papel:#FFFDF6;--amarillo:#F2B632;--oferta:#FFE08A;--tomate:#C8361F;--linea:#E4D9B8;--r:16px}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:"Work Sans",system-ui,sans-serif;background:var(--crema);color:var(--noche);line-height:1.5;font-size:1rem;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3,h4{font-family:"Fraunces",Georgia,serif;line-height:1.08;font-weight:700}
+:focus-visible{outline:3px solid var(--tomate);outline-offset:2px}
+.contenedor{width:min(1120px,100% - 2.5rem);margin-inline:auto}
+.franja{background:var(--noche);color:var(--amarillo);font-size:.8125rem;text-align:center;padding:.45rem 1rem;letter-spacing:.02em}
+
+/* cabecera */
+.cab{position:sticky;top:0;z-index:30;background:rgba(251,245,228,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--linea)}
+.cab .contenedor{display:flex;align-items:center;justify-content:space-between;min-height:60px;gap:1rem}
+.marca{white-space:nowrap;font-family:"Fraunces",serif;font-weight:700;font-size:1.02rem;text-decoration:none;display:flex;align-items:center;gap:.5rem}
+.marca svg{width:24px;height:24px;color:var(--verde);flex:none}
+.marca{min-width:0}
+section[id]{scroll-margin-top:70px}
+.btn-bolsa{white-space:nowrap;display:inline-flex;align-items:center;gap:.4rem;min-height:44px;padding:0 .8rem;flex:none;border-radius:999px;border:2px solid var(--verde);background:transparent;color:var(--verde);font:600 .95rem "Work Sans",sans-serif;cursor:pointer}
+.btn-bolsa svg{width:22px;height:22px}
+.btn-bolsa b{display:inline-grid;place-items:center;min-width:24px;height:24px;border-radius:99px;background:var(--tomate);color:#fff;font-size:.8rem;padding:0 6px}
+.btn-bolsa b[hidden]{display:none}
+
+/* portada */
+.portada{padding:2rem 0 3rem;position:relative}
+.portada .contenedor{display:grid;gap:2rem}
+.zona{display:inline-flex;align-items:center;gap:.4rem;font-weight:600;font-size:.95rem;color:var(--verde-o);background:var(--oferta);padding:.35rem .8rem;border-radius:99px}
+.zona svg{width:16px;height:16px}
+h1{font-size:clamp(2.7rem,12.5vw,5.6rem);letter-spacing:-.02em;margin:.9rem 0 .8rem;color:var(--verde-o)}
+h1 .pal{display:inline-block;white-space:nowrap}
+h1 .let{display:inline-block}
+.js h1 .let{opacity:0;transform:translateY(.5em);animation:letra .6s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:calc(var(--i)*38ms + 120ms)}
+@keyframes letra{to{opacity:1;transform:none}}
+.lema{font-size:1.125rem;max-width:30ch}
+.botones{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.4rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;min-height:56px;padding:0 1.6rem;border-radius:999px;font:600 1.05rem "Work Sans",sans-serif;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:transform .15s,box-shadow .15s}
+.btn-wa{background:var(--verde);color:#fff;box-shadow:0 6px 0 var(--verde-o)}
+.btn-wa:hover{transform:translateY(2px);box-shadow:0 4px 0 var(--verde-o)}
+.btn-wa:active{transform:translateY(6px);box-shadow:0 0 0 var(--verde-o)}
+.btn-wa svg{width:24px;height:24px}
+.btn-sec{border-color:var(--noche);color:var(--noche);background:transparent}
+.btn-sec:hover{background:var(--noche);color:var(--crema)}
+.nota-p{font-size:.9rem;margin-top:1rem;color:#3d5444}
+
+/* etiqueta de góndola */
+.etq{background:var(--papel);border-radius:10px;padding:14px 14px 12px;box-shadow:0 18px 40px rgba(22,48,31,.18),0 0 0 1px var(--linea);transform:rotate(-1.6deg);max-width:420px;width:100%;margin-inline:auto;position:relative}
+.etq .fo{border-radius:6px;overflow:hidden;aspect-ratio:4/4.4;background:#e9dfc4}
+.etq .fo img{width:100%;height:112%;object-fit:cover;will-change:transform}
+.etq .linea{display:flex;justify-content:space-between;align-items:flex-end;gap:.5rem;padding:.7rem .2rem .5rem}
+.etq .linea strong{font-family:"Fraunces",serif;font-size:1.25rem}
+.etq .linea small{display:block;font-size:.8rem;color:#3d5444}
+.etq .linea .pp{font-family:"Fraunces",serif;font-size:2rem;font-weight:700;color:var(--tomate);line-height:1}
+.barras{position:relative;height:46px;overflow:hidden;border-radius:3px;background:repeating-linear-gradient(90deg,var(--noche) 0 2px,transparent 2px 5px,var(--noche) 5px 6px,transparent 6px 8px,var(--noche) 8px 11px,transparent 11px 13px,var(--noche) 13px 14px,transparent 14px 17px)}
+.barras::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 86%,rgba(255,50,30,.35) 94%,#ff2a14 98%,transparent 99%);transform:translateX(-100%);animation:barrido 4.8s ease-in-out infinite}
+@keyframes barrido{0%{transform:translateX(-100%)}55%,100%{transform:translateX(105%)}}
+.etq .ej{position:absolute;top:-12px;right:14px;background:var(--amarillo);color:var(--noche);font-weight:600;font-size:.75rem;padding:.25rem .6rem;border-radius:4px;transform:rotate(3deg)}
+
+/* secciones */
+section{padding:3.2rem 0}
+h2{font-size:clamp(1.9rem,7vw,3rem);color:var(--verde-o)}
+.sub{margin-top:.6rem;max-width:46ch}
+
+/* ofertas */
+.ofertas{background:var(--amarillo)}
+.ofertas h2{color:var(--noche)}
+.tags{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:1.6rem}
+.tag{position:relative;background:var(--oferta);border-radius:12px 12px 14px 14px;padding:1.9rem .9rem .9rem;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 5px 0 rgba(22,48,31,.18)}
+.ojal{position:absolute;top:9px;left:50%;width:16px;height:16px;margin-left:-8px;border-radius:50%;background:var(--amarillo);box-shadow:inset 0 2px 3px rgba(0,0,0,.3)}
+.sello{position:absolute;top:8px;right:8px;background:var(--tomate);color:#fff;font-weight:600;font-size:.8rem;padding:.15rem .5rem;border-radius:99px}
+.gl{width:48px;height:48px}
+.gl.grande{width:64px;height:64px;margin:.2rem auto .4rem}
+.tag h4{font-size:1.1rem;text-align:center}
+.tag .uni{text-align:center;font-size:.85rem;color:#4a3d12}
+.antes{text-align:center;margin-top:.5rem;color:#6a5a1e;font-size:.95rem}
+.antes s{text-decoration:none;position:relative}
+.antes s::after{content:"";position:absolute;left:-2px;right:-2px;top:52%;height:2px;background:var(--tomate);transform-origin:left;transform:scaleX(1)}
+.ahora{font-family:"Fraunces",serif;font-weight:700;font-size:2.1rem;text-align:center;line-height:1.1;color:var(--noche)}
+.js .tag:not(.vista) .ahora{opacity:0;transform:scale(.8)}
+.js .tag:not(.vista) .antes s::after{transform:scaleX(0)}
+.tag.vista .ahora{transition:opacity .3s .55s,transform .35s .55s cubic-bezier(.3,1.6,.5,1)}
+.tag.vista .antes s::after{transition:transform .35s .75s}
+.laser{position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,transparent 88%,rgba(255,50,30,.3) 95%,#ff2a14 99%,transparent 100%);transform:translateX(-105%)}
+.tag.vista .laser{animation:pasa .9s ease-in-out var(--d,0s) 1 both}
+@keyframes pasa{0%{transform:translateX(-105%)}100%{transform:translateX(105%)}}
+.tag .acc{margin-top:auto;padding-top:.7rem;display:flex;justify-content:center}
+
+/* botones de pedir */
+.pedir{display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:92px;padding:0 1.1rem;border-radius:99px;background:var(--verde);color:#fff;font-weight:600;text-decoration:none;font-size:.95rem;transition:transform .12s}
+.pedir:active{transform:scale(.94)}
+.paso{display:inline-flex;align-items:center;border:2px solid var(--verde);border-radius:99px;background:var(--papel);overflow:hidden}
+.paso button{width:44px;height:44px;border:0;background:transparent;color:var(--verde);font-size:1.4rem;font-weight:600;cursor:pointer}
+.paso button:active{background:var(--oferta)}
+.paso output{min-width:28px;text-align:center;font-weight:600}
+.paso[hidden],.pedir[hidden]{display:none}
+
+/* catálogo */
+.chips{position:sticky;top:60px;z-index:20;background:rgba(251,245,228,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--linea)}
+.chips .contenedor{display:flex;gap:.5rem;overflow-x:auto;padding:.5rem 0;scrollbar-width:none}
+.chips .contenedor::-webkit-scrollbar{display:none}
+.chips a{flex:none;display:inline-flex;align-items:center;min-height:44px;padding:0 1rem;border-radius:99px;border:1.5px solid var(--linea);background:var(--papel);text-decoration:none;font-weight:600;font-size:.92rem}
+.chips a.act{background:var(--noche);color:var(--crema);border-color:var(--noche)}
+.cat{padding:2rem 0 .5rem;scroll-margin-top:145px}
+.cat h3{font-size:1.7rem;display:inline-block;position:relative;padding-bottom:.35rem;color:var(--verde-o)}
+.cat h3::after{content:"";position:absolute;left:0;bottom:0;height:5px;width:100%;background:var(--amarillo);border-radius:3px;transform-origin:left;transform:scaleX(0);transition:transform .6s .1s}
+.cat.vista h3::after,html:not(.js) .cat h3::after{transform:scaleX(1)}
+.lista{list-style:none;padding:0;display:grid;gap:.6rem;margin-top:1rem}
+.prod{display:grid;grid-template-columns:60px 1fr auto;grid-template-areas:"foto txt acc" "foto pr acc";column-gap:.9rem;align-items:center;background:var(--papel);border:1px solid var(--linea);border-radius:var(--r);padding:.7rem .8rem;transition:transform .15s,box-shadow .15s}
+.prod:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(22,48,31,.1)}
+.prod.en{border-color:var(--verde);box-shadow:inset 4px 0 0 var(--verde)}
+.foto{grid-area:foto;width:60px;height:60px;border-radius:12px;object-fit:cover;background:#f3ead0}
+.foto.glifo{display:grid;place-items:center}
+.foto .gl{width:44px;height:44px}
+.prod .txt{grid-area:txt;align-self:end}
+.prod h4{font-size:1.05rem;font-family:"Work Sans",sans-serif;font-weight:600}
+.uni{font-size:.85rem;color:#4b5f50}
+.prod .pr{grid-area:pr;align-self:start;font-family:"Fraunces",serif;font-weight:700;font-size:1.2rem;color:var(--verde-o)}
+.prod .acc{grid-area:acc}
+
+/* cómo pedir */
+.pasos{list-style:none;padding:0;display:grid;gap:1rem;margin-top:1.6rem}
+.pasos li{display:flex;gap:1rem;align-items:flex-start;background:var(--papel);border:1px solid var(--linea);border-radius:var(--r);padding:1.1rem}
+.pasos .ic{flex:none;width:52px;height:52px;border-radius:50%;background:var(--verde);color:#fff;display:grid;place-items:center}
+.pasos .ic svg{width:28px;height:28px}
+.pasos h3{font-size:1.25rem}
+
+/* datos */
+.datos{background:var(--noche);color:var(--crema)}
+.datos h2{color:var(--amarillo)}
+.rejilla{display:grid;gap:1.2rem;margin-top:1.6rem}
+.caja{border:1px solid rgba(251,245,228,.25);border-radius:var(--r);padding:1.2rem}
+.caja h3{font-size:1.2rem;color:var(--amarillo);margin-bottom:.6rem}
+.caja ul{list-style:none;padding:0;display:grid;gap:.4rem}
+.caja li{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.caja a{color:var(--amarillo)}
+.pend{font-size:.85rem;opacity:.85;margin-top:.6rem}
+
+footer{background:var(--verde-o);color:var(--crema);padding:1.6rem 0 6rem;font-size:.9rem}
+footer p+p{margin-top:.4rem;opacity:.85}
+
+/* barra de pedido y bolsa */
+.barra{position:fixed;left:0;right:0;bottom:0;z-index:40;padding:.7rem 1rem calc(.7rem + env(safe-area-inset-bottom));display:flex;justify-content:center;pointer-events:none}
+.barra[hidden]{display:none}
+.barra button{pointer-events:auto;position:relative;overflow:hidden;width:min(560px,100%);min-height:56px;border:0;border-radius:99px;background:var(--noche);color:var(--crema);font:600 1rem "Work Sans",sans-serif;display:flex;align-items:center;justify-content:space-between;padding:0 1.4rem;box-shadow:0 10px 26px rgba(22,48,31,.35);cursor:pointer}
+.barra button strong{color:var(--amarillo);font-family:"Fraunces",serif;font-size:1.2rem}
+.barra.bip button{animation:bip .35s}
+.barra button::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 88%,rgba(255,50,30,.4) 96%,#ff2a14 99%,transparent);transform:translateX(-105%);pointer-events:none}
+.barra.bip button::after{animation:pasa .5s ease-out}
+@keyframes bip{50%{transform:scale(1.03)}}
+
+.velo{position:fixed;inset:0;background:rgba(22,48,31,.55);z-index:50;opacity:0;visibility:hidden;transition:opacity .25s,visibility .25s}
+.velo.abierto{opacity:1;visibility:visible}
+.hoja{position:fixed;left:0;right:0;bottom:0;z-index:60;max-height:92vh;overflow-y:auto;background:var(--crema);border-radius:22px 22px 0 0;padding:1.2rem 1.2rem calc(1.2rem + env(safe-area-inset-bottom));transform:translateY(105%);visibility:hidden;transition:transform .3s,visibility .3s;max-width:640px;margin-inline:auto}
+.hoja.abierto{transform:none;visibility:visible}
+.hoja header{display:flex;justify-content:space-between;align-items:center;margin-bottom:.8rem}
+.hoja h2{font-size:1.7rem}
+.cerrar{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--linea);background:var(--papel);font-size:1.4rem;cursor:pointer}
+.lineas{list-style:none;padding:0;display:grid;gap:.5rem}
+.lineas li{display:grid;grid-template-columns:1fr auto;gap:.2rem .8rem;align-items:center;background:var(--papel);border:1px solid var(--linea);border-radius:12px;padding:.6rem .8rem}
+.lineas .nm{font-weight:600;font-size:.95rem}
+.lineas .sb{font-size:.85rem;color:#4b5f50}
+.vacio{padding:1.2rem 0;text-align:center}
+.form{display:grid;gap:.8rem;margin-top:1rem}
+.form fieldset{border:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:.5rem}
+.form legend{font-weight:600;margin-bottom:.4rem}
+.op{position:relative}
+.op input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.op span{display:flex;align-items:center;justify-content:center;min-height:48px;text-align:center;border:2px solid var(--linea);border-radius:12px;background:var(--papel);font-weight:600;font-size:.92rem;padding:.3rem}
+.op input:checked+span{border-color:var(--verde);background:var(--verde);color:#fff}
+.op input:focus-visible+span{outline:3px solid var(--tomate);outline-offset:2px}
+.form label{display:grid;gap:.25rem;font-weight:600;font-size:.92rem}
+.form input[type=text]{min-height:48px;border:2px solid var(--linea);border-radius:12px;padding:0 .9rem;font:1rem "Work Sans",sans-serif;background:var(--papel);color:var(--noche)}
+.total{display:flex;justify-content:space-between;align-items:baseline;margin-top:1rem;font-weight:600}
+.total strong{font-family:"Fraunces",serif;font-size:1.8rem;color:var(--verde-o)}
+.aviso-p{font-size:.82rem;color:#4b5f50;margin-top:.3rem}
+.enviar{width:100%;margin-top:1rem}
+.enviar[aria-disabled=true]{opacity:.45;pointer-events:none}
+.vaciar{display:block;margin:.8rem auto 0;background:none;border:0;color:var(--tomate);font:600 .95rem "Work Sans",sans-serif;min-height:44px;cursor:pointer;text-decoration:underline}
+
+/* revelado */
+.js .rev{opacity:0;transform:translateY(22px);transition:opacity .6s,transform .6s}
+.js .rev.vista{opacity:1;transform:none}
+
+@media (min-width:760px){
+  .portada .contenedor{grid-template-columns:1.1fr .9fr;align-items:center;gap:3rem}
+  .tags{grid-template-columns:repeat(4,1fr)}
+  .lista{grid-template-columns:1fr 1fr}
+  .pasos{grid-template-columns:repeat(3,1fr)}
+  .pasos li{flex-direction:column}
+  .rejilla{grid-template-columns:repeat(3,1fr)}
+  .hoja{bottom:auto;top:50%;border-radius:22px;max-height:86vh;transform:translate(0,-40%);left:50%;right:auto;width:600px;margin-left:-300px;opacity:0}
+  .hoja.abierto{transform:translate(0,-50%);opacity:1}
+  .barra{padding-bottom:1rem}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js h1 .let,.js .rev,.js .tag:not(.vista) .ahora{opacity:1!important;transform:none!important}
+  .js .tag:not(.vista) .antes s::after,.cat h3::after{transform:scaleX(1)!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="g-botella" viewBox="0 0 48 48"><path d="M19 4h10v6l3 5v27a3 3 0 0 1-3 3H19a3 3 0 0 1-3-3V15l3-5z" fill="var(--c)"/><rect x="16" y="23" width="16" height="12" fill="#fff" opacity=".85"/><rect x="19" y="4" width="10" height="4" fill="#000" opacity=".25"/></symbol>
+<symbol id="g-lata" viewBox="0 0 48 48"><rect x="14" y="6" width="20" height="36" rx="4" fill="var(--c)"/><rect x="14" y="17" width="20" height="14" fill="#fff" opacity=".85"/><rect x="14" y="6" width="20" height="4" rx="2" fill="#000" opacity=".2"/></symbol>
+<symbol id="g-bolsa" viewBox="0 0 48 48"><path d="M12 12l4-6h16l4 6 2 30H10z" fill="var(--c)"/><path d="M16 12h16" stroke="#fff" stroke-width="2" opacity=".6"/><rect x="17" y="22" width="14" height="11" rx="2" fill="#fff" opacity=".85"/></symbol>
+<symbol id="g-caja" viewBox="0 0 48 48"><rect x="9" y="10" width="30" height="32" rx="3" fill="var(--c)"/><rect x="9" y="10" width="30" height="8" rx="3" fill="#000" opacity=".2"/><rect x="15" y="25" width="18" height="10" fill="#fff" opacity=".85"/></symbol>
+<symbol id="g-frasco" viewBox="0 0 48 48"><rect x="13" y="5" width="22" height="9" rx="2" fill="#000" opacity=".35"/><rect x="11" y="13" width="26" height="29" rx="6" fill="var(--c)"/><rect x="15" y="22" width="18" height="12" fill="#fff" opacity=".85"/></symbol>
+<symbol id="g-paquete" viewBox="0 0 48 48"><path d="M5 17l4-5h30l4 5v14l-4 5H9l-4-5z" fill="var(--c)"/><path d="M9 12v24M39 12v24" stroke="#000" stroke-width="2" opacity=".18"/><rect x="14" y="19" width="20" height="10" fill="#fff" opacity=".85"/></symbol>
+<symbol id="g-rollo" viewBox="0 0 48 48"><rect x="11" y="10" width="26" height="28" rx="3" fill="var(--c)"/><ellipse cx="24" cy="10" rx="13" ry="4.5" fill="#fff" opacity=".6"/><ellipse cx="24" cy="10" rx="4.5" ry="1.8" fill="var(--c)"/><path d="M11 20h26M11 28h26" stroke="#fff" stroke-width="1.5" opacity=".5"/></symbol>
+<symbol id="g-spray" viewBox="0 0 48 48"><rect x="14" y="20" width="20" height="24" rx="4" fill="var(--c)"/><rect x="18" y="28" width="12" height="9" fill="#fff" opacity=".85"/><path d="M18 20v-9h10l7-4v9l-5 2v2z" fill="#000" opacity=".4"/></symbol>
+<symbol id="g-tomate" viewBox="0 0 48 48"><circle cx="24" cy="28" r="15" fill="var(--c)"/><path d="M24 14c-1-4-5-6-9-5 3 1 4 3 5 5-3-1-6 0-8 2 4 0 6 1 8 3 2-2 4-3 8-3-2-2-5-3-8-2z" fill="#2E7D32"/><ellipse cx="18" cy="24" rx="3" ry="5" fill="#fff" opacity=".25"/></symbol>
+<symbol id="g-fruta" viewBox="0 0 48 48"><circle cx="24" cy="28" r="15" fill="var(--c)"/><path d="M24 13c1-4 4-6 8-6-1 4-3 6-8 6z" fill="#2E7D32"/></symbol>
+<symbol id="g-bolsa-mercado" viewBox="0 0 48 48"><path d="M10 16h28l-2 26H12z" fill="currentColor"/><path d="M17 16v-4a7 7 0 0 1 14 0v4" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/></symbol>
+</defs></svg>
+<div class="franja">Vista previa · datos de ejemplo</div>
+
+<header class="cab">
+  <div class="contenedor">
+    <a class="marca" href="#inicio"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#g-bolsa-mercado"/></svg>Minimarket EJEMPLO</a>
+    <button type="button" class="btn-bolsa" data-abrir aria-label="Ver mi pedido"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#g-bolsa-mercado"/></svg>Pedido <b data-cuenta hidden>0</b></button>
+  </div>
+</header>
+
+<main id="inicio">
+<section class="portada" style="padding-top:2rem">
+  <div class="contenedor">
+    <div>
+      <span class="zona"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.500a2.500 2.500 0 0 1 0 5z"/></svg>Adícora, Falcón</span>
+      <h1 data-letras aria-label="Minimarket EJEMPLO">Minimarket EJEMPLO</h1>
+      <p class="lema">Escoja lo que necesita, arme su pedido y nos lo envía por WhatsApp. Se lo dejamos listo.</p>
+      <div class="botones">
+        <a class="btn btn-wa" id="btn-hero" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20hacer%20un%20pedido%20en%20Minimarket%20EJEMPLO." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.200 14.200c-.2.600-1.300 1.200-1.800 1.200-.5.100-1 .2-3.300-.7-2.800-1.100-4.600-4-4.700-4.200-.1-.2-1.100-1.500-1.100-2.800 0-1.300.7-2 .9-2.200.2-.3.500-.3.700-.3h.5c.2 0 .4 0 .6.500l.8 2c.1.200.1.300 0 .500l-.3.400-.4.500c-.1.100-.3.300-.1.600.2.300.8 1.300 1.700 2.100 1.200 1 2.100 1.300 2.400 1.500.3.100.5.100.600-.1l.9-1.100c.2-.3.400-.2.700-.1l1.900.9c.3.100.5.200.5.300.1.200.1.800-.1 1.400z"/></svg>Pedir por WhatsApp</a>
+        <a class="btn btn-sec" href="#catalogo">Ver el catálogo</a>
+      </div>
+      <p class="nota-p">Sin pagos en línea. El pago y la entrega los confirmamos por WhatsApp.</p>
+    </div>
+    <div class="etq" aria-hidden="false">
+      <span class="ej">Foto referencial</span>
+      <div class="fo"><img data-par src="assets/img/citricos-640.webp" alt="Cítricos frescos, foto referencial" width="640" height="800" fetchpriority="high"></div>
+      <div class="linea"><div><strong>Cítricos</strong><small>por kilo · precio de ejemplo</small></div><span class="pp">$1,00</span></div>
+      <div class="barras" role="presentation"></div>
+    </div>
+  </div>
+</section>
+
+<section class="ofertas" id="ofertas" aria-labelledby="h-of">
+  <div class="contenedor">
+    <h2 id="h-of" class="rev">Ofertas de la semana</h2>
+    <p class="sub rev">Aquí se anuncian las ofertas que cambian cada semana. Estas son de ejemplo.</p>
+    <ul class="tags">
+<li class="tag" data-id="o-arroz" data-n="Arroz (1 kg) oferta" data-p="1.35" data-cat="Ofertas">
+  <span class="ojal" aria-hidden="true"></span>
+  <span class="sello">-16%</span>
+  <svg class="gl grande" style="--c:#C98F2B" viewBox="0 0 48 48" aria-hidden="true"><use href="#g-paquete"/></svg>
+  <h4>Arroz</h4><p class="uni">1 kg</p>
+  <p class="antes"><s>$1,60</s></p>
+  <p class="ahora">$1,35</p>
+  <div class="acc"><a class="pedir" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20pedir%20en%20Minimarket%20EJEMPLO%3A%201%20x%20Arroz%20%281%20kg%29%20en%20oferta." target="_blank" rel="noopener" data-add aria-label="Pedir Arroz en oferta">Pedir</a>
+  <div class="paso" hidden><button type="button" data-menos aria-label="Quitar uno">−</button><output>0</output><button type="button" data-mas aria-label="Agregar uno">+</button></div></div>
+  <i class="laser" aria-hidden="true"></i>
+</li>
+<li class="tag" data-id="o-aceite" data-n="Aceite vegetal (1 litro) oferta" data-p="2.8" data-cat="Ofertas">
+  <span class="ojal" aria-hidden="true"></span>
+  <span class="sello">-13%</span>
+  <svg class="gl grande" style="--c:#D9A21B" viewBox="0 0 48 48" aria-hidden="true"><use href="#g-botella"/></svg>
+  <h4>Aceite vegetal</h4><p class="uni">1 litro</p>
+  <p class="antes"><s>$3,20</s></p>
+  <p class="ahora">$2,80</p>
+  <div class="acc"><a class="pedir" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20pedir%20en%20Minimarket%20EJEMPLO%3A%201%20x%20Aceite%20vegetal%20%281%20litro%29%20en%20oferta." target="_blank" rel="noopener" data-add aria-label="Pedir Aceite vegetal en oferta">Pedir</a>
+  <div class="paso" hidden><button type="button" data-menos aria-label="Quitar uno">−</button><output>0</output><button type="button" data-mas aria-label="Agregar uno">+</button></div></div>
+  <i class="laser" aria-hidden="true"></i>
+</li>
+<li class="tag" data-id="o-huevos" data-n="Huevos (cartón de 30) oferta" data-p="4.9" data-cat="Ofertas">
+  <span class="ojal" aria-hidden="true"></span>
+  <span class="sello">-11%</span>
+  <svg class="gl grande" style="--c:#C9A36B" viewBox="0 0 48 48" aria-hidden="true"><use href="#g-caja"/></svg>
+  <h4>Huevos</h4><p class="uni">cartón de 30</p>
+  <p class="antes"><s>$5,50</s></p>
+  <p class="ahora">$4,90</p>
+  <div class="acc"><a class="pedir" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20pedir%20en%20Minimarket%20EJEMPLO%3A%201%20x%20Huevos%20%28cart%C3%B3n%20de%2030%29%20en%20oferta." target="_blank" rel="noopener" data-add aria-label="Pedir Huevos en oferta">Pedir</a>
+  <div class="paso" hidden><button type="button" data-menos aria-label="Quitar uno">−</button><output>0</output><button type="button" data-mas aria-label="Agregar uno">+</button></div></div>
+  <i class="laser" aria-hidden="true"></i>
+</li>
+<li class="tag" data-id="o-refresco" data-n="Refresco de cola (2 litros) oferta" data-p="1.8" data-cat="Ofertas">
+  <span class="ojal" aria-hidden="true"></span>
+  <span class="sello">-14%</span>
+  <svg class="gl grande" style="--c:#7A2E1F" viewBox="0 0 48 48" aria-hidden="true"><use href="#g-botella"/></svg>
+  <h4>Refresco de cola</h4><p class="uni">2 litros</p>
+  <p class="antes"><s>$2,10</s></p>
+  <p class="ahora">$1,80</p>
+  <div class="acc"><a class="pedir" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20pedir%20en%20Minimarket%20EJEMPLO%3A%201%20x%20Refresco%20de%20cola%20%282%20litros%29%20en%20oferta." target="_blank" rel="noopener" data-add aria-label="Pedir Refresco de cola en oferta">Pedir</a>
+  <div class="paso" hidden><button type="button" data-menos aria-label="Quitar uno">−</button><output>0</output><button type="button" data-mas aria-label="Agregar uno">+</button></div></div>
+  <i class="laser" aria-hidden="true"></i>
+</li>
+    </ul>
+  </div>
+</section>
+
+<section id="catalogo" style="padding-bottom:1rem" aria-labelledby="h-cat">
+  <div class="contenedor">
+    <h2 id="h-cat" class="rev">Catálogo</h2>
+    <p class="sub rev">Toque «Pedir» en lo que necesite. Puede sumar la cantidad que quiera y revisar todo antes de enviar.</p>
+  </div>
+</section>
+<nav class="chips" aria-label="Categorías"><div class="contenedor"><a href="#viveres">Víveres</a><a href="#bebidas">Bebidas</a><a href="#frutas">Frutas y verduras</a><a href="#aseo">Aseo del hogar</a><a href="#otros">Otros</a></div></nav>
+<div class="contenedor">
+<section class="cat" id="viveres" aria-labelledby="h-viveres"><h3 id="h-viveres">Víveres</h3><ul class="lista">
+<li class="prod" data-id="arroz" data-n="Arroz (1 kg)" data-p="1.6" data-cat="Víveres">
+  <span class="foto glifo"><svg class="gl" style="--c:#C98F2B" viewBox="0 0 48 48" aria-hidden="true"><use href="#g-paquete"/></svg></span>
+  <div class="txt"><h4>Arroz</h4><p class="uni">1 kg</p></div>
+  <p class="pr">$1,60</p>
+  <div class="acc"><a class="pedir" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20pedir%20en%20Minimarket%20EJEMPLO%3A%201%20x%20Arroz%20%281%20kg%29." target="_blank" rel="noopener" data-add aria-label="Pedir Arroz">Pedir</a>
+  <div class="paso" hidden><button type="button" data-menos aria-label="Quitar uno de Arroz">−</button><output>0</output><button type="button" data-mas aria-label="Agregar uno de Arroz">+</button></div></div>
+</li>
+<li class="prod" data-id="harina" data-n="Harina de maíz precocida (1 kg)" data-p="1.5" data-cat="Víveres">
+  <span class="foto glifo"><svg class="gl" style="--c:#E3B93C" viewBox="0 0 48 48" aria-hidden="true"><use href="#g-paquete"/></svg></span>
+  <div class="txt"><h4>Harina de maíz precocida</h4><p class="uni">1 kg</p></div>
+  <p class="pr">$1,50</p>
+  <div class="acc"><a class="pedir" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20pedir%20en%20Minimarket%20EJEMPLO%3A%201%20x%20Harina%20de%20ma%C3%ADz%20precocida%20%281%20kg%29." target="_blank" rel="noopener" data-add aria-label="Pedir Harina de maíz precocida">Pedir</a>
+  <div class="paso" hidden><button type="button" data-menos aria-label="Quitar uno de Harina de maíz precocida">−</button><output>0</output><button type="button" data-mas aria-label="Agregar uno de Harina de maíz precocida">+</button></div></div>
+</li>
+<li class="prod" data-id="pasta" data-n="Pasta larga (500 g)" data-p="1.3" data-cat="Víveres">
+  <span class="foto glifo"><svg class="gl" style="--c:#D9A441" viewBox="0 0 48 48" aria-hidden="true"><use href="#g-paquete"/></svg></span>
+  <div class="txt"><h4>Pasta larga</h4><p class="uni">500 g</p></div>
+  <p class="pr">$1,30</p>
+  <div class="acc"><a class="pedir" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20pedir%20en%20Minimarket%20EJEMPLO%3A%201%20x%20Pasta%20larga%20%28500%20g%29." target="_blank" rel="noopener" data-add aria-label="Pedir Pasta larga">Pedir</a>
+  <div class="paso" hidden><button type="button" data-menos aria-label="Quitar uno de Pasta larga">−</button><output>0</output><button type="button" data-mas aria-label="Agregar uno de Pasta larga">+</button></div></div>
+</li>
+<li class="prod" data-id="aceite" data-n="Aceite vegetal (1 litro)" data-p="3.2" data-cat="Víveres">
+  <span class="foto glifo"><svg class="gl" style="--c:#D9A21B" viewBox="0 0 48 48" aria-hidden="true"><use href="#g-botella"/></svg></span>
+  <div class="txt"><h4>Aceite vegetal</h4><p class="uni">1 litro</p></div>
+  <p class="pr">$3,20</p>
+  <div class="acc"><a class="pedir" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20pedir%20en%20Minimarket%20EJEMPLO%3A%201%20x%20Aceite%20vegetal%20%281%20litro%29." target="_blank" rel="noopener" data-add aria-label="Pedir Aceite vegetal">Pedir</a>
+  <div class="paso" hidden><button type="button" data-menos aria-label="Quitar uno de Aceite vegetal">−</button><output>0</output><button type="button" data-mas aria-label="Agregar uno de Aceite vegetal">+</button></div></div>
+</li>
+<li class="prod" data-id="azucar" data-n="Azúcar (1 kg)" data-p="1.4" data-cat="Víveres">
+  <span class="foto glifo"><svg class="gl" style="--c:#6C8FB5" viewBox="0 0 48 48" aria-hidden="true"><use href="#g-bolsa"/></svg></span>
+  <div class="txt"><h4>Azúcar</h4><p class="uni">1 kg</p></div>
+  <p class="pr">$1,40</p>
+  <div class="acc"><a class="pedir" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20pedir%20en%20Minimarket%20EJEMPLO%3A%201%20x%20Az%C3%BAcar%20%281%20kg%29." target="_blank" rel="noopener" data-add aria-label="Pedir Azúcar">Pedir</a>
+  <div class="paso" hidden><button type="button" data-menos aria-label="Quitar uno de Azúcar">−</button><output>0</output><button type="button" data-mas aria-label="Agregar uno de Azúcar">+</button></div></div>
+</li>
+<li class="prod" data-id="atun" data-n="Atún en lata (140 g)" data-p="1.8" data-cat="Víveres">
+  <span class="foto glifo"><svg class="gl" style="--c:#C8361F" viewBox="0 0 48 48" aria-hidden="true"><use href="#g-lata"/></svg></span>
+  <div class="txt"><h4>Atún en lata</h4><p class="uni">140 g</p></div>
+  <p class="pr">$1,80</p>
+  <div class="acc"><a class="pedir" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20pedir%20en%20Minimarket%20EJEMPLO%3A%201%20x%20At%C3%BAn%20en%20lata%20%28140%20g%29." target="_blank" rel="noopener" data-add aria-label="Pedir Atún en lata">Pedir</a>
+  <div class="paso" hidden><button type="button" data-menos aria-label="Quitar uno de Atún en lata">−</button><output>0</output><button type="button" data-mas aria-label="Agregar uno de Atún en lata">+</button></div></div>
+</li>
+</ul></section>
+<section class="cat" id="bebidas" aria-labelledby="h-bebidas"><h3 id="h-bebidas">Bebidas</h3><ul class="lista">
+<li class="prod" data-id="agua" data-n="Agua mineral (5 litros)" data-p="1.5" data-cat="Bebidas">
+  <span class="foto glifo"><svg class="gl" style="--c:#3E8FC4" viewBox="0 0 48 48" aria-hidden="true"><use href="#g-botella"/></svg></span>
+  <div class="txt"><h4>Agua mineral</h4><p class="uni">5 litros</p></div>
+  <p class="pr">$1,50</p>
+  <div class="acc"><a class="pedir" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20pedir%20en%20Minimarket%20EJEMPLO%3A%201%20x%20Agua%20mineral%20%285%20litros%29." target="_blank" rel="noopener" data-add aria-label="Pedir Agua mineral">Pedir</a>
+  <div class="paso" hidden><button type="button" data-menos aria-label="Quitar uno de Agua mineral">−</button><output>0</output><button type="button" data-mas aria-label="Agregar uno de Agua mineral">+</button></div></div>
+</li>
+<li class="prod" data-id="refresco" data-n="Refresco de cola (2 litros)" data-p="2.1" data-cat="Bebidas">
+  <span class="foto glifo"><svg class="gl" style="--c:#7A2E1F" viewBox="0 0 48 48" aria-hidden="true"><use href="#g-botella"/></svg></span>
+  <div class="txt"><h4>Refresco de cola</h4><p class="uni">2 litros</p></div>
+  <p class="pr">$2,10</p>
+  <div class="acc"><a class="pedir" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20pedir%20en%20Minimarket%20EJEMPLO%3A%201%20x%20Refresco%20de%20cola%20%282%20litros%29." target="_blank" rel="noopener" data-add aria-label="Pedir Refresco de cola">Pedir</a>
+  <div class="paso" hidden><button type="button" data-menos aria-label="Quitar uno de Refresco de cola">−</button><output>0</output><button type="button" data-mas aria-label="Agregar uno de Refresco de cola">+</button></div></div>
+</li>
+<li class="prod" data-id="jugo" data-n="Jugo de naranja (1 litro)" data-p="1.9" data-cat="Bebidas">
+  <span class="foto glifo"><svg class="gl" style="--c:#E8892B" viewBox="0 0 48 48" aria-hidden="true"><use href="#g-caja"/></svg></span>
+  <div class="txt"><h4>Jugo de naranja</h4><p class="uni">1 litro</p></div>
+  <p class="pr">$1,90</p>
+  <div class="acc"><a class="pedir" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20pedir%20en%20Minimarket%20EJEMPLO%3A%201%20x%20Jugo%20de%20naranja%20%281%20litro%29." target="_blank" rel="noopener" data-add aria-label="Pedir Jugo de naranja">Pedir</a>
+  <div class="paso" hidden><button type="button" data-menos aria-label="Quitar uno de Jugo de naranja">−</button><output>0</output><button type="button" data-mas aria-label="Agregar uno de Jugo de naranja">+</button></div></div>
+</li>
+<li class="prod" data-id="malta" data-n="Malta (355 ml)" data-p="0.9" data-cat="Bebidas">
+  <span class="foto glifo"><svg class="gl" style="--c:#4A2E1B" viewBox="0 0 48 48" aria-hidden="true"><use href="#g-botella"/></svg></span>
+  <div class="txt"><h4>Malta</h4><p class="uni">355 ml</p></div>
+  <p class="pr">$0,90</p>
+  <div class="acc"><a class="pedir" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20pedir%20en%20Minimarket%20EJEMPLO%3A%201%20x%20Malta%20%28355%20ml%29." target="_blank" rel="noopener" data-add aria-label="Pedir Malta">Pedir</a>
+  <div class="paso" hidden><button type="button" data-menos aria-label="Quitar uno de Malta">−</button><output>0</output><button type="button" data-mas aria-label="Agregar uno de Malta">+</button></div></div>
+</li>
+<li class="prod" data-id="cafe" data-n="Café molido (250 g)" data-p="2.8" data-cat="Bebidas">
+  <span class="foto glifo"><svg class="gl" style="--c:#6B4226" viewBox="0 0 48 48" aria-hidden="true"><use href="#g-bolsa"/></svg></span>
+  <div class="txt"><h4>Café molido</h4><p class="uni">250 g</p></div>
+  <p class="pr">$2,80</p>
+  <div class="acc"><a class="pedir" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20pedir%20en%20Minimarket%20EJEMPLO%3A%201%20x%20Caf%C3%A9%20molido%20%28250%20g%29." target="_blank" rel="noopener" data-add aria-label="Pedir Café molido">Pedir</a>
+  <div class="paso" hidden><button type="button" data-menos aria-label="Quitar uno de Café molido">−</button><output>0</output><button type="button" data-mas aria-label="Agregar uno de Café molido">+</button></div></div>
+</li>
+</ul></section>
+<section class="cat" id="frutas" aria-labelledby="h-frutas"><h3 id="h-frutas">Frutas y verduras</h3><ul class="lista">
+<li class="prod" data-id="naranja" data-n="Naranja (kilo)" data-p="1.0" data-cat="Frutas y verduras">
+  <img class="foto" src="assets/img/naranjas-640.webp" alt="Naranja (foto referencial)" width="72" height="72" loading="lazy">
+  <div class="txt"><h4>Naranja</h4><p class="uni">kilo</p></div>
+  <p class="pr">$1,00</p>
+  <div class="acc"><a class="pedir" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20pedir%20en%20Minimarket%20EJEMPLO%3A%201%20x%20Naranja%20%28kilo%29." target="_blank" rel="noopener" data-add aria-label="Pedir Naranja">Pedir</a>
+  <div class="paso" hidden><button type="button" data-menos aria-label="Quitar uno de Naranja">−</button><output>0</output><button type="button" data-mas aria-label="Agregar uno de Naranja">+</button></div></div>
+</li>
+<li class="prod" data-id="mango" data-n="Mango (kilo)" data-p="1.5" data-cat="Frutas y verduras">
+  <span class="foto glifo"><svg class="gl" style="--c:#E3A21B" viewBox="0 0 48 48" aria-hidden="true"><use href="#g-fruta"/></svg></span>
+  <div class="txt"><h4>Mango</h4><p class="uni">kilo</p></div>
+  <p class="pr">$1,50</p>
+  <div class="acc"><a class="pedir" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20pedir%20en%20Minimarket%20EJEMPLO%3A%201%20x%20Mango%20%28kilo%29." target="_blank" rel="noopener" data-add aria-label="Pedir Mango">Pedir</a>
+  <div class="paso" hidden><button type="button" data-menos aria-label="Quitar uno de Mango">−</button><output>0</output><button type="button" data-mas aria-label="Agregar uno de Mango">+</button></div></div>
+</li>
+<li class="prod" data-id="fresa" data-n="Fresa (bandeja)" data-p="2.0" data-cat="Frutas y verduras">
+  <span class="foto glifo"><svg class="gl" style="--c:#C8361F" viewBox="0 0 48 48" aria-hidden="true"><use href="#g-fruta"/></svg></span>
+  <div class="txt"><h4>Fresa</h4><p class="uni">bandeja</p></div>
+  <p class="pr">$2,00</p>
+  <div class="acc"><a class="pedir" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20pedir%20en%20Minimarket%20EJEMPLO%3A%201%20x%20Fresa%20%28bandeja%29." target="_blank" rel="noopener" data-add aria-label="Pedir Fresa">Pedir</a>
+  <div class="paso" hidden><button type="button" data-menos aria-label="Quitar uno de Fresa">−</button><output>0</output><button type="button" data-mas aria-label="Agregar uno de Fresa">+</button></div></div>
+</li>
+<li class="prod" data-id="mora" data-n="Mora (bandeja)" data-p="2.2" data-cat="Frutas y verduras">
+  <span class="foto glifo"><svg class="gl" style="--c:#5B2A5E" viewBox="0 0 48 48" aria-hidden="true"><use href="#g-fruta"/></svg></span>
+  <div class="txt"><h4>Mora</h4><p class="uni">bandeja</p></div>
+  <p class="pr">$2,20</p>
+  <div class="acc"><a class="pedir" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20pedir%20en%20Minimarket%20EJEMPLO%3A%201%20x%20Mora%20%28bandeja%29." target="_blank" rel="noopener" data-add aria-label="Pedir Mora">Pedir</a>
+  <div class="paso" hidden><button type="button" data-menos aria-label="Quitar uno de Mora">−</button><output>0</output><button type="button" data-mas aria-label="Agregar uno de Mora">+</button></div></div>
+</li>
+<li class="prod" data-id="tomate" data-n="Tomate (kilo)" data-p="1.4" data-cat="Frutas y verduras">
+  <span class="foto glifo"><svg class="gl" style="--c:#C8361F" viewBox="0 0 48 48" aria-hidden="true"><use href="#g-tomate"/></svg></span>
+  <div class="txt"><h4>Tomate</h4><p class="uni">kilo</p></div>
+  <p class="pr">$1,40</p>
+  <div class="acc"><a class="pedir" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20pedir%20en%20Minimarket%20EJEMPLO%3A%201%20x%20Tomate%20%28kilo%29." target="_blank" rel="noopener" data-add aria-label="Pedir Tomate">Pedir</a>
+  <div class="paso" hidden><button type="button" data-menos aria-label="Quitar uno de Tomate">−</button><output>0</output><button type="button" data-mas aria-label="Agregar uno de Tomate">+</button></div></div>
+</li>
+</ul></section>
+<section class="cat" id="aseo" aria-labelledby="h-aseo"><h3 id="h-aseo">Aseo del hogar</h3><ul class="lista">
+<li class="prod" data-id="detergente" data-n="Detergente en polvo (1 kg)" data-p="3.5" data-cat="Aseo del hogar">
+  <span class="foto glifo"><svg class="gl" style="--c:#2F7FC1" viewBox="0 0 48 48" aria-hidden="true"><use href="#g-bolsa"/></svg></span>
+  <div class="txt"><h4>Detergente en polvo</h4><p class="uni">1 kg</p></div>
+  <p class="pr">$3,50</p>
+  <div class="acc"><a class="pedir" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20pedir%20en%20Minimarket%20EJEMPLO%3A%201%20x%20Detergente%20en%20polvo%20%281%20kg%29." target="_blank" rel="noopener" data-add aria-label="Pedir Detergente en polvo">Pedir</a>
+  <div class="paso" hidden><button type="button" data-menos aria-label="Quitar uno de Detergente en polvo">−</button><output>0</output><button type="button" data-mas aria-label="Agregar uno de Detergente en polvo">+</button></div></div>
+</li>
+<li class="prod" data-id="cloro" data-n="Cloro (1 litro)" data-p="1.2" data-cat="Aseo del hogar">
+  <span class="foto glifo"><svg class="gl" style="--c:#6BB3D9" viewBox="0 0 48 48" aria-hidden="true"><use href="#g-botella"/></svg></span>
+  <div class="txt"><h4>Cloro</h4><p class="uni">1 litro</p></div>
+  <p class="pr">$1,20</p>
+  <div class="acc"><a class="pedir" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20pedir%20en%20Minimarket%20EJEMPLO%3A%201%20x%20Cloro%20%281%20litro%29." target="_blank" rel="noopener" data-add aria-label="Pedir Cloro">Pedir</a>
+  <div class="paso" hidden><button type="button" data-menos aria-label="Quitar uno de Cloro">−</button><output>0</output><button type="button" data-mas aria-label="Agregar uno de Cloro">+</button></div></div>
+</li>
+<li class="prod" data-id="papel" data-n="Papel higiénico (4 rollos)" data-p="2.3" data-cat="Aseo del hogar">
+  <span class="foto glifo"><svg class="gl" style="--c:#8FA6B5" viewBox="0 0 48 48" aria-hidden="true"><use href="#g-rollo"/></svg></span>
+  <div class="txt"><h4>Papel higiénico</h4><p class="uni">4 rollos</p></div>
+  <p class="pr">$2,30</p>
+  <div class="acc"><a class="pedir" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20pedir%20en%20Minimarket%20EJEMPLO%3A%201%20x%20Papel%20higi%C3%A9nico%20%284%20rollos%29." target="_blank" rel="noopener" data-add aria-label="Pedir Papel higiénico">Pedir</a>
+  <div class="paso" hidden><button type="button" data-menos aria-label="Quitar uno de Papel higiénico">−</button><output>0</output><button type="button" data-mas aria-label="Agregar uno de Papel higiénico">+</button></div></div>
+</li>
+<li class="prod" data-id="lavaplatos" data-n="Lavaplatos (500 ml)" data-p="1.9" data-cat="Aseo del hogar">
+  <span class="foto glifo"><svg class="gl" style="--c:#2E9E5B" viewBox="0 0 48 48" aria-hidden="true"><use href="#g-spray"/></svg></span>
+  <div class="txt"><h4>Lavaplatos</h4><p class="uni">500 ml</p></div>
+  <p class="pr">$1,90</p>
+  <div class="acc"><a class="pedir" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20pedir%20en%20Minimarket%20EJEMPLO%3A%201%20x%20Lavaplatos%20%28500%20ml%29." target="_blank" rel="noopener" data-add aria-label="Pedir Lavaplatos">Pedir</a>
+  <div class="paso" hidden><button type="button" data-menos aria-label="Quitar uno de Lavaplatos">−</button><output>0</output><button type="button" data-mas aria-label="Agregar uno de Lavaplatos">+</button></div></div>
+</li>
+<li class="prod" data-id="jabon" data-n="Jabón de baño (unidad)" data-p="0.8" data-cat="Aseo del hogar">
+  <span class="foto glifo"><svg class="gl" style="--c:#C97FA8" viewBox="0 0 48 48" aria-hidden="true"><use href="#g-caja"/></svg></span>
+  <div class="txt"><h4>Jabón de baño</h4><p class="uni">unidad</p></div>
+  <p class="pr">$0,80</p>
+  <div class="acc"><a class="pedir" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20pedir%20en%20Minimarket%20EJEMPLO%3A%201%20x%20Jab%C3%B3n%20de%20ba%C3%B1o%20%28unidad%29." target="_blank" rel="noopener" data-add aria-label="Pedir Jabón de baño">Pedir</a>
+  <div class="paso" hidden><button type="button" data-menos aria-label="Quitar uno de Jabón de baño">−</button><output>0</output><button type="button" data-mas aria-label="Agregar uno de Jabón de baño">+</button></div></div>
+</li>
+</ul></section>
+<section class="cat" id="otros" aria-labelledby="h-otros"><h3 id="h-otros">Otros</h3><ul class="lista">
+<li class="prod" data-id="huevos" data-n="Huevos (cartón de 30)" data-p="5.5" data-cat="Otros">
+  <span class="foto glifo"><svg class="gl" style="--c:#C9A36B" viewBox="0 0 48 48" aria-hidden="true"><use href="#g-caja"/></svg></span>
+  <div class="txt"><h4>Huevos</h4><p class="uni">cartón de 30</p></div>
+  <p class="pr">$5,50</p>
+  <div class="acc"><a class="pedir" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20pedir%20en%20Minimarket%20EJEMPLO%3A%201%20x%20Huevos%20%28cart%C3%B3n%20de%2030%29." target="_blank" rel="noopener" data-add aria-label="Pedir Huevos">Pedir</a>
+  <div class="paso" hidden><button type="button" data-menos aria-label="Quitar uno de Huevos">−</button><output>0</output><button type="button" data-mas aria-label="Agregar uno de Huevos">+</button></div></div>
+</li>
+<li class="prod" data-id="pan" data-n="Pan de sándwich (paquete)" data-p="2.2" data-cat="Otros">
+  <span class="foto glifo"><svg class="gl" style="--c:#C98F2B" viewBox="0 0 48 48" aria-hidden="true"><use href="#g-bolsa"/></svg></span>
+  <div class="txt"><h4>Pan de sándwich</h4><p class="uni">paquete</p></div>
+  <p class="pr">$2,20</p>
+  <div class="acc"><a class="pedir" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20pedir%20en%20Minimarket%20EJEMPLO%3A%201%20x%20Pan%20de%20s%C3%A1ndwich%20%28paquete%29." target="_blank" rel="noopener" data-add aria-label="Pedir Pan de sándwich">Pedir</a>
+  <div class="paso" hidden><button type="button" data-menos aria-label="Quitar uno de Pan de sándwich">−</button><output>0</output><button type="button" data-mas aria-label="Agregar uno de Pan de sándwich">+</button></div></div>
+</li>
+<li class="prod" data-id="galletas" data-n="Galletas de soda (paquete)" data-p="1.1" data-cat="Otros">
+  <span class="foto glifo"><svg class="gl" style="--c:#B84A2E" viewBox="0 0 48 48" aria-hidden="true"><use href="#g-paquete"/></svg></span>
+  <div class="txt"><h4>Galletas de soda</h4><p class="uni">paquete</p></div>
+  <p class="pr">$1,10</p>
+  <div class="acc"><a class="pedir" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20pedir%20en%20Minimarket%20EJEMPLO%3A%201%20x%20Galletas%20de%20soda%20%28paquete%29." target="_blank" rel="noopener" data-add aria-label="Pedir Galletas de soda">Pedir</a>
+  <div class="paso" hidden><button type="button" data-menos aria-label="Quitar uno de Galletas de soda">−</button><output>0</output><button type="button" data-mas aria-label="Agregar uno de Galletas de soda">+</button></div></div>
+</li>
+<li class="prod" data-id="mayonesa" data-n="Mayonesa (445 g)" data-p="2.4" data-cat="Otros">
+  <span class="foto glifo"><svg class="gl" style="--c:#E3B93C" viewBox="0 0 48 48" aria-hidden="true"><use href="#g-frasco"/></svg></span>
+  <div class="txt"><h4>Mayonesa</h4><p class="uni">445 g</p></div>
+  <p class="pr">$2,40</p>
+  <div class="acc"><a class="pedir" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20pedir%20en%20Minimarket%20EJEMPLO%3A%201%20x%20Mayonesa%20%28445%20g%29." target="_blank" rel="noopener" data-add aria-label="Pedir Mayonesa">Pedir</a>
+  <div class="paso" hidden><button type="button" data-menos aria-label="Quitar uno de Mayonesa">−</button><output>0</output><button type="button" data-mas aria-label="Agregar uno de Mayonesa">+</button></div></div>
+</li>
+</ul></section>
+
+</div>
+
+<section id="como" aria-labelledby="h-como">
+  <div class="contenedor">
+    <h2 id="h-como" class="rev">Cómo pedir</h2>
+    <ol class="pasos">
+      <li class="rev"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.200" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11V5a2 2 0 1 1 4 0v6l3.500.7a2 2 0 0 1 1.500 2.400L17 19a3 3 0 0 1-3 2.500h-3a3 3 0 0 1-2.400-1.200L5 16l1.500-1.200L9 16z"/></svg></span><div><h3>Escoja</h3><p>Toque «Pedir» en cada producto. Se guarda en su teléfono.</p></div></li>
+      <li class="rev"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.200" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></span><div><h3>Revise</h3><p>Abra «Mi pedido», ajuste cantidades y diga si retira o quiere entrega.</p></div></li>
+      <li class="rev"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.200" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg></span><div><h3>Envíe</h3><p>Se arma un solo mensaje con su lista, listo para mandar por WhatsApp.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="datos" id="datos" aria-labelledby="h-datos">
+  <div class="contenedor">
+    <h2 id="h-datos" class="rev">Horario y cómo llegar</h2>
+    <div class="rejilla">
+      <div class="caja rev"><h3>Horario</h3><ul><li><span>Lunes a sábado</span><strong>7:00 a. m. a 7:00 p. m.</strong></li><li><span>Domingos y feriados</span><strong>8:00 a. m. a 1:00 p. m.</strong></li></ul><p class="pend">Horario de ejemplo, por confirmar.</p></div>
+      <div class="caja rev"><h3>Dónde estamos</h3><p>Adícora, Falcón</p><p>Calle principal de Adícora [POR CONFIRMAR]</p><p class="pend">Mapa y cómo llegar: por confirmar.</p></div>
+      <div class="caja rev"><h3>Entregas</h3><p>Entregas dentro de Adícora [POR CONFIRMAR zonas y costo]</p><p class="pend">Si no hay entregas, solo queda la opción de retirar en la tienda.</p></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="contenedor">
+    <p>Página de ejemplo con datos ficticios</p>
+    <p>Fotos referenciales. Productos y precios de ejemplo. Escriba al +58 000 0000000 para su propia página.</p>
+  </div>
+</footer>
+
+<div class="barra" id="barra" hidden><button type="button" data-abrir><span data-barra-txt>Ver mi pedido</span><strong data-barra-total>$0,00</strong></button></div>
+
+<div class="velo" id="velo"></div>
+<div class="hoja" id="hoja" role="dialog" aria-modal="true" aria-labelledby="h-pedido">
+  <header><h2 id="h-pedido">Mi pedido</h2><button type="button" class="cerrar" data-cerrar aria-label="Cerrar">×</button></header>
+  <p class="vacio" id="vacio">Todavía no ha agregado nada. Toque «Pedir» en el catálogo.</p>
+  <ul class="lineas" id="lineas"></ul>
+  <div class="form" id="form">
+    <fieldset><legend>¿Cómo lo quiere?</legend>
+      <label class="op"><input type="radio" name="modo" value="retiro" checked><span>Retiro en la tienda</span></label>
+      <label class="op"><input type="radio" name="modo" value="entrega"><span>Entrega a domicilio</span></label>
+    </fieldset>
+    <label>Su nombre<input type="text" id="nombre" autocomplete="name" placeholder="Ej. María Pérez"></label>
+    <label id="lab-dir" hidden>Dirección para la entrega<input type="text" id="dir" autocomplete="street-address" placeholder="Calle, casa o referencia"></label>
+  </div>
+  <div class="total"><span>Total estimado</span><strong id="total">$0,00</strong></div>
+  <p class="aviso-p">Los precios son de ejemplo. El pago y el costo de la entrega se confirman por WhatsApp.</p>
+  <a class="btn btn-wa enviar" id="enviar" href="#" target="_blank" rel="noopener" aria-disabled="true">Enviar pedido por WhatsApp</a>
+  <button type="button" class="vaciar" id="vaciar">Vaciar el pedido</button>
+</div>
+
+<script>
+(function(){
+var d=document,root=d.documentElement;root.classList.add("js");
+var WA="580000000000",NOMBRE="Minimarket EJEMPLO",CLAVE="minimarket-pedido-v1";
+var reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+function fmt(v){return "$"+v.toFixed(2).replace(".",",");}
+
+/* titular letra por letra */
+var h1=d.querySelector("[data-letras]");
+if(h1){var t=h1.textContent.trim().split(/\s+/),i=0;h1.textContent="";
+  t.forEach(function(w,k){var s=d.createElement("span");s.className="pal";s.setAttribute("aria-hidden","true");
+    w.split("").forEach(function(c){var l=d.createElement("span");l.className="let";l.style.setProperty("--i",i++);l.textContent=c;s.appendChild(l);});
+    h1.appendChild(s);if(k<t.length-1)h1.appendChild(d.createTextNode(" "));});}
+
+/* productos */
+var items={},nodos=[].slice.call(d.querySelectorAll("[data-id]"));
+nodos.forEach(function(n){items[n.dataset.id]={n:n.dataset.n,p:parseFloat(n.dataset.p),cat:n.dataset.cat};});
+var est={q:{},modo:"retiro",nombre:"",dir:""};
+try{var g=JSON.parse(localStorage.getItem(CLAVE)||"null");if(g&&g.q){est.q=g.q;est.modo=g.modo||"retiro";est.nombre=g.nombre||"";est.dir=g.dir||"";}}catch(e){}
+Object.keys(est.q).forEach(function(k){if(!items[k])delete est.q[k];});
+function guardar(){try{localStorage.setItem(CLAVE,JSON.stringify(est));}catch(e){}}
+function cuenta(){var c=0,t=0;Object.keys(est.q).forEach(function(k){c+=est.q[k];t+=est.q[k]*items[k].p;});return{c:c,t:t};}
+
+var barra=d.getElementById("barra"),hoja=d.getElementById("hoja"),velo=d.getElementById("velo");
+var lineas=d.getElementById("lineas"),vacio=d.getElementById("vacio"),enviar=d.getElementById("enviar");
+var ultimoFoco=null;
+
+function mensaje(){
+  var orden={},cats=[];
+  Object.keys(est.q).forEach(function(k){var c=items[k].cat;if(!orden[c]){orden[c]=[];cats.push(c);}orden[c].push(k);});
+  var m="Hola, quisiera hacer un pedido en "+NOMBRE+":\n";
+  cats.forEach(function(c){m+="\n*"+c+"*\n";orden[c].forEach(function(k){m+="- "+est.q[k]+" x "+items[k].n+"\n";});});
+  m+="\nTotal estimado: "+fmt(cuenta().t)+" (precios de ejemplo)\n";
+  m+="Modalidad: "+(est.modo==="entrega"?"Entrega a domicilio":"Retiro en la tienda")+"\n";
+  if(est.modo==="entrega")m+="Dirección: "+(est.dir||"se la indico por aquí")+"\n";
+  if(est.nombre)m+="Nombre: "+est.nombre+"\n";
+  return m;
+}
+
+function pintar(){
+  var r=cuenta();
+  nodos.forEach(function(n){var q=est.q[n.dataset.id]||0,p=n.querySelector(".paso"),b=n.querySelector(".pedir");
+    p.hidden=!q;b.hidden=!!q;p.querySelector("output").textContent=q;n.classList.toggle("en",q>0);});
+  var bc=d.querySelector("[data-cuenta]");bc.hidden=!r.c;bc.textContent=r.c;
+  barra.hidden=!r.c;
+  d.querySelector("[data-barra-txt]").textContent="Ver mi pedido · "+r.c+(r.c===1?" producto":" productos");
+  d.querySelector("[data-barra-total]").textContent=fmt(r.t);
+  d.getElementById("total").textContent=fmt(r.t);
+  lineas.innerHTML="";
+  Object.keys(est.q).forEach(function(k){var li=d.createElement("li"),it=items[k],q=est.q[k];
+    li.innerHTML='<span class="nm"></span><div class="paso"><button type="button" data-l-menos aria-label="Quitar uno">−</button><output>'+q+'</output><button type="button" data-l-mas aria-label="Agregar uno">+</button></div><span class="sb">'+fmt(it.p)+' c/u · '+fmt(it.p*q)+'</span>';
+    li.querySelector(".nm").textContent=it.n;li.dataset.k=k;lineas.appendChild(li);});
+  vacio.hidden=!!r.c;
+  enviar.setAttribute("aria-disabled",r.c?"false":"true");
+  enviar.href=r.c?"https://wa.me/"+WA+"?text="+encodeURIComponent(mensaje()):"#";
+  d.getElementById("lab-dir").hidden=est.modo!=="entrega";
+  [].forEach.call(d.querySelectorAll("input[name=modo]"),function(x){x.checked=x.value===est.modo;});
+  guardar();
+}
+function cambiar(k,dl){var q=(est.q[k]||0)+dl;if(q<=0)delete est.q[k];else est.q[k]=Math.min(q,99);pintar();
+  if(dl>0){barra.classList.remove("bip");void barra.offsetWidth;barra.classList.add("bip");}}
+
+d.addEventListener("click",function(e){
+  var a=e.target.closest("[data-add]");if(a){e.preventDefault();cambiar(a.closest("[data-id]").dataset.id,1);return;}
+  var m=e.target.closest("[data-mas]");if(m){cambiar(m.closest("[data-id]").dataset.id,1);return;}
+  var n=e.target.closest("[data-menos]");if(n){cambiar(n.closest("[data-id]").dataset.id,-1);return;}
+  var lm=e.target.closest("[data-l-mas]");if(lm){cambiar(lm.closest("li").dataset.k,1);return;}
+  var ln=e.target.closest("[data-l-menos]");if(ln){cambiar(ln.closest("li").dataset.k,-1);return;}
+  var ab=e.target.closest("[data-abrir]");if(ab){abrir();return;}
+  if(e.target.closest("[data-cerrar]")||e.target===velo){cerrar();return;}
+});
+function abrir(){ultimoFoco=d.activeElement;hoja.classList.add("abierto");velo.classList.add("abierto");d.body.style.overflow="hidden";hoja.querySelector("[data-cerrar]").focus();}
+function cerrar(){hoja.classList.remove("abierto");velo.classList.remove("abierto");d.body.style.overflow="";if(ultimoFoco)ultimoFoco.focus();}
+d.addEventListener("keydown",function(e){if(e.key==="Escape"&&hoja.classList.contains("abierto"))cerrar();});
+d.getElementById("btn-hero").addEventListener("click",function(e){if(cuenta().c){e.preventDefault();abrir();}});
+d.getElementById("vaciar").addEventListener("click",function(){est.q={};pintar();});
+[].forEach.call(d.querySelectorAll("input[name=modo]"),function(x){x.addEventListener("change",function(){est.modo=x.value;pintar();});});
+var inN=d.getElementById("nombre"),inD=d.getElementById("dir");inN.value=est.nombre;inD.value=est.dir;
+inN.addEventListener("input",function(){est.nombre=inN.value.trim();pintar();});
+inD.addEventListener("input",function(){est.dir=inD.value.trim();pintar();});
+enviar.addEventListener("click",function(e){if(enviar.getAttribute("aria-disabled")==="true")e.preventDefault();});
+pintar();
+
+/* revelado y chips activos */
+var rev=[].slice.call(d.querySelectorAll(".rev,.tag,.cat"));
+if("IntersectionObserver" in window&&!reduce){
+  var j=0;d.querySelectorAll(".tag").forEach(function(t){t.style.setProperty("--d",(j++*0.18)+"s");});
+  var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add("vista");io.unobserve(x.target);}});},{threshold:.15});
+  rev.forEach(function(x){io.observe(x);});
+}else{rev.forEach(function(x){x.classList.add("vista");});}
+var chips=[].slice.call(d.querySelectorAll(".chips a"));
+if("IntersectionObserver" in window){
+  var io2=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){chips.forEach(function(c){c.classList.toggle("act",c.getAttribute("href")==="#"+x.target.id);});
+    var ac=d.querySelector(".chips a.act");if(ac&&ac.scrollIntoView)ac.parentNode.scrollTo({left:ac.offsetLeft-20,behavior:"smooth"});}});},{rootMargin:"-35% 0px -55% 0px"});
+  d.querySelectorAll(".cat").forEach(function(c){io2.observe(c);});
+}
+
+/* parallax suave de la foto de portada */
+var par=d.querySelector("[data-par]");
+if(par&&!reduce){var tick=false;window.addEventListener("scroll",function(){if(tick)return;tick=true;requestAnimationFrame(function(){var y=Math.min(window.scrollY,700);par.style.transform="translateY("+(-y*0.06)+"px)";tick=false;});},{passive:true});}
+
+if("serviceWorker" in navigator&&/^https?:$/.test(location.protocol)){navigator.serviceWorker.register("sw.js").catch(function(){});}
+})();
+</script>
+</body>
+</html>
