@@ -145,6 +145,9 @@ h2{font-size:clamp(1.9rem,7vw,3rem);color:var(--verde-o)}
 .caja ul{list-style:none;padding:0;display:grid;gap:.4rem}
 .caja li{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 .caja a{color:var(--amarillo)}
+.caja a.btn-maps{background:var(--amarillo);color:var(--noche);min-height:52px;margin-top:.9rem;font-size:1rem;width:100%}
+.btn-maps svg{width:22px;height:22px}
+.btn-maps:hover{background:var(--crema)}
 .pend{font-size:.85rem;opacity:.85;margin-top:.6rem}
 
 footer{background:var(--verde-o);color:var(--crema);padding:1.6rem 0 6rem;font-size:.9rem}
@@ -522,7 +525,7 @@ footer p+p{margin-top:.4rem;opacity:.85}
     <h2 id="h-datos" class="rev">Horario y cómo llegar</h2>
     <div class="rejilla">
       <div class="caja rev"><h3>Horario</h3><ul><li><span>Lunes a sábado</span><strong>7:00 a. m. a 7:00 p. m.</strong></li><li><span>Domingos y feriados</span><strong>8:00 a. m. a 1:00 p. m.</strong></li></ul><p class="pend">Horario de ejemplo, por confirmar.</p></div>
-      <div class="caja rev"><h3>Dónde estamos</h3><p>Adícora, Falcón</p><p>Calle principal de Adícora [POR CONFIRMAR]</p><p class="pend">Mapa y cómo llegar: por confirmar.</p></div>
+      <div class="caja rev"><h3>Dónde estamos</h3><p>Adícora, Falcón</p><p>Calle principal de Adícora [POR CONFIRMAR]</p><a class="btn btn-maps" href="https://www.google.com/maps/search/?api=1&amp;query=Ad%C3%ADcora%2C%20Falc%C3%B3n" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>Cómo llegar en Google Maps</a><p class="pend">La ubicación exacta está por confirmar. Por ahora el botón abre la zona.</p></div>
       <div class="caja rev"><h3>Entregas</h3><p>Entregas dentro de Adícora [POR CONFIRMAR zonas y costo]</p><p class="pend">Si no hay entregas, solo queda la opción de retirar en la tienda.</p></div>
     </div>
   </div>
