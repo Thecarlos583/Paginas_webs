@@ -17,13 +17,13 @@
 
 /* Paleta sacada de las fotos de referencia: agua de la piscina, palma, teja y pared de arena */
 :root{
-  --arena:#F6F0E4;      /* pared de arena */
+  --arena:#F7F0E3;      /* pared encalada */
   --sal:#FFFBF3;        /* cal clara */
   --tinta:#12302B;      /* verde noche de la palma */
-  --agua:#0B7285;       /* piscina (única variable de color fuerte) */
-  --agua-claro:#BFE6EA;
-  --teja:#B5532B;       /* teja del techo, solo detalles */
-  --palma:#3E7B4F;
+  --agua:#0D6A96;       /* piscina (única variable de color fuerte) */
+  --agua-claro:#BFDDEB;
+  --teja:#A8431F;       /* teja del techo y piso de cerámica */
+  --palma:#3B7A4A;
   --suave:#4D625D;
   --cielo:#DCEFF2;      /* el cielo cambia con el día (lo mueve el JS) */
   --serif:"Besley",Georgia,serif;
@@ -54,8 +54,8 @@ p{text-wrap:pretty}
 .dia[data-n="3"] .sol{background:#E8EEF2;box-shadow:0 0 0 4px rgba(232,238,242,.35),0 0 18px 4px rgba(200,220,240,.55)}
 
 /* ---------- botones ---------- */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border-radius:99px;border:0;font:600 16.5px/1 var(--sans);text-decoration:none;cursor:pointer;background:var(--agua);color:#fff;transition:transform .2s,background .2s,box-shadow .2s;box-shadow:0 8px 22px -10px rgba(11,114,133,.8)}
-.btn:hover{background:#09606F;transform:translateY(-2px)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border-radius:99px;border:0;font:600 16.5px/1 var(--sans);text-decoration:none;cursor:pointer;background:var(--agua);color:#fff;transition:transform .2s,background .2s,box-shadow .2s;box-shadow:0 8px 22px -10px rgba(13,106,150,.8)}
+.btn:hover{background:#0A5A80;transform:translateY(-2px)}
 .btn:active{transform:translateY(0) scale(.98)}
 .btn svg{width:20px;height:20px;flex:none}
 .btn.claro{background:var(--sal);color:var(--tinta);box-shadow:none;border:1.5px solid rgba(18,48,43,.25)}
@@ -73,15 +73,15 @@ p{text-wrap:pretty}
 .portada .acciones{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px;list-style:none}
 .chips li{font-size:13.5px;font-weight:600;padding:7px 13px;border-radius:99px;background:rgba(255,251,243,.85);border:1px solid rgba(18,48,43,.14)}
-.solfoto{position:relative;justify-self:center;width:min(86vw,440px);aspect-ratio:1;border-radius:50%;overflow:hidden;box-shadow:0 0 0 10px rgba(255,251,243,.75),0 0 0 11px rgba(181,83,43,.35),0 30px 60px -28px rgba(18,48,43,.55);clip-path:circle(0% at 50% 100%);animation:sale 1.5s .15s cubic-bezier(.2,.7,.2,1) forwards;background:var(--agua-claro)}
-.solfoto img{width:100%;height:100%;object-fit:cover;transform:scale(1.14);animation:asienta 14s 1.2s ease-out forwards}
+.solfoto{position:relative;justify-self:center;width:100%;aspect-ratio:16/10;border-radius:50% 50% 22px 22px/78% 78% 22px 22px;overflow:hidden;box-shadow:0 0 0 10px rgba(255,251,243,.75),0 0 0 11px rgba(181,83,43,.35),0 30px 60px -28px rgba(18,48,43,.55);clip-path:circle(0% at 50% 100%);animation:sale 1.5s .15s cubic-bezier(.2,.7,.2,1) forwards;background:var(--agua-claro)}
+.solfoto img{width:100%;height:100%;object-fit:cover;object-position:42% 50%;transform:scale(1.14);animation:asienta 14s 1.2s ease-out forwards}
 @keyframes sale{to{clip-path:circle(75% at 50% 50%)}}
 @keyframes asienta{to{transform:scale(1.02)}}
 .solfoto .pie{position:absolute;left:0;right:0;bottom:0;padding:34px 18px 16px;background:linear-gradient(transparent,rgba(10,30,28,.62));color:#fff;font-size:12.5px;text-align:center}
 @media(min-width:900px){
   .portada{padding:64px 0 90px}
   .portada .wrap{grid-template-columns:1.1fr .9fr;align-items:center;gap:56px}
-  .solfoto{width:min(100%,500px)}
+  .solfoto{width:100%;aspect-ratio:16/11}
 }
 
 /* ---------- secciones ---------- */
@@ -118,7 +118,7 @@ section{padding:72px 0}
 .hab li{padding-left:22px;position:relative}
 .hab li::before{content:"";position:absolute;left:2px;top:.62em;width:10px;height:6px;border-left:2px solid var(--palma);border-bottom:2px solid var(--palma);transform:rotate(-45deg)}
 .hab .btn{margin-top:auto;min-height:48px;font-size:15.5px}
-@media(min-width:860px){.habs{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:760px){.habs{grid-template-columns:repeat(2,1fr)}}
 
 /* ---------- piscina ---------- */
 #piscina{background:var(--tinta);color:#F3EBD8}
@@ -128,11 +128,11 @@ section{padding:72px 0}
 .mosaico figure{border-radius:var(--r);overflow:hidden;position:relative;background:#1d443d}
 .mosaico img{width:100%;height:100%;object-fit:cover}
 .mosaico figcaption{position:absolute;left:14px;bottom:12px;background:rgba(255,251,243,.92);color:var(--tinta);font:600 12.5px/1 var(--sans);padding:7px 11px;border-radius:99px}
-.m1{aspect-ratio:3/2}.m2,.m3{aspect-ratio:4/5}
+.m1{aspect-ratio:16/9}.m2,.m3{aspect-ratio:16/10}
 .m2 img,.m3 img{transition:transform 1.4s}
 .m2:hover img,.m3:hover img{transform:scale(1.06)}
-.mosaico .dos{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-@media(min-width:860px){.mosaico{grid-template-columns:1.5fr 1fr;grid-template-rows:auto}.m1{aspect-ratio:auto;min-height:440px}.mosaico .dos{grid-template-columns:1fr}.m2,.m3{aspect-ratio:3/2}}
+.mosaico .dos{display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:860px){.mosaico{grid-template-columns:1.5fr 1fr;grid-template-rows:auto}.m1{aspect-ratio:auto;min-height:360px}.mosaico .dos{grid-template-columns:1fr}.m2,.m3{aspect-ratio:16/10}}
 .reflejo{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px;list-style:none}
 .reflejo li{font-size:14px;font-weight:600;padding:9px 15px;border-radius:99px;border:1px solid rgba(243,235,216,.3)}
 
@@ -167,7 +167,7 @@ section{padding:72px 0}
 .busco input:checked+label{background:var(--agua);border-color:var(--agua);color:#fff}
 .busco input:focus-visible+label{outline:3px solid var(--teja);outline-offset:2px}
 .nota{font-size:.88rem;color:var(--suave)}
-.msg{background:#E9F3F3;border-left:4px solid var(--agua);border-radius:10px;padding:14px 16px;font-size:.95rem;white-space:pre-line;color:var(--tinta)}
+.msg{background:#E8F1F6;border-left:4px solid var(--agua);border-radius:10px;padding:14px 16px;font-size:.95rem;white-space:pre-line;color:var(--tinta)}
 @media(min-width:900px){#reservar .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:start}#reservar .cab{margin-bottom:0}}
 
 footer{background:#0A1B22;color:#B6C6CC;padding:34px 0 40px;font-size:.9rem}
@@ -217,8 +217,8 @@ footer b{color:#F3EBD8;font-family:var(--serif);font-size:1.2rem;font-weight:600
       </ul>
     </div>
     <div class="solfoto">
-      <img src="assets/img/portada-1200.webp" srcset="assets/img/portada-700.webp 700w, assets/img/portada-1200.webp 1200w" sizes="(max-width:900px) 86vw, 500px" width="1200" height="900" alt="Piscina azul rodeada de palmeras con las montañas de la isla al fondo" fetchpriority="high">
-      <div class="pie">Fotos referenciales</div>
+      <img src="assets/img/portada-1200.webp" srcset="assets/img/portada-700.webp 700w, assets/img/portada-1200.webp 1200w" sizes="(max-width:900px) 100vw, 560px" width="1080" height="497" alt="Piscina de la posada con el kiosco de techo de teja y las palmas" fetchpriority="high">
+      
     </div>
   </div>
 </header>
@@ -234,19 +234,19 @@ footer b{color:#F3EBD8;font-family:var(--serif);font-size:1.2rem;font-weight:600
     </div>
     <ol class="momentos">
       <li class="mom" data-h="0">
-        <div class="foto"><img src="assets/img/desayuno-700.webp" loading="lazy" width="700" height="933" alt="Desayuno con café servido en una terraza con vista al mar"></div>
-        <div><span class="reloj">7:00 a. m.</span><h3>El café de la mañana</h3><p>El desayuno con café es de lo que más recuerdan los huéspedes.</p></div>
+        <div class="foto"><img src="assets/img/pasillo-700.webp" loading="lazy" width="700" height="933" alt="Pasillo con hamacas frente a las habitaciones"></div>
+        <div><span class="reloj">7:00 a. m.</span><h3>El café de la mañana</h3><p>Una hamaca en el pasillo y el desayuno con café, que los huéspedes recuerdan.</p></div>
       </li>
       <li class="mom" data-h="1">
-        <div class="foto"><img src="assets/img/piscina-700.webp" loading="lazy" width="700" height="467" alt="Piscina de la posada entre palmeras y techos de palma"></div>
+        <div class="foto"><img src="assets/img/sombrillas-700.webp" loading="lazy" width="700" height="933" alt="Piscina con sombrilla roja y la posada de techo de teja al fondo"></div>
         <div><span class="reloj">11:00 a. m.</span><h3>La piscina</h3><p>Un rato de agua y sombra antes del almuerzo, sin multitudes.</p></div>
       </li>
       <li class="mom" data-h="2">
         <div class="foto"><img src="assets/img/playa-700.webp" loading="lazy" width="700" height="466" alt="Playa de arena clara con palmeras y mar turquesa"></div>
-        <div><span class="reloj">4:00 p. m.</span><h3>Playa del Agua</h3><p>A pocos minutos de la posada. Tiempo exacto por confirmar.</p></div>
+        <div><span class="reloj">4:00 p. m.</span><h3>Playa del Agua</h3><p>A pocos minutos de la posada. Tiempo exacto por confirmar. (Foto referencial)</p></div>
       </li>
       <li class="mom" data-h="3">
-        <div class="foto"><img src="assets/img/terraza-700.webp" loading="lazy" width="700" height="933" alt="Terraza con sillas y mesa frente a las palmeras al caer la tarde"></div>
+        <div class="foto"><img src="assets/img/hab-terraza-700.webp" loading="lazy" width="700" height="933" alt="Habitación con cama azul y puerta a la terraza"></div>
         <div><span class="reloj">8:00 p. m.</span><h3>La calma de La Mira</h3><p>Una zona tranquila para descansar, con aire acondicionado y agua caliente.</p></div>
       </li>
     </ol>
@@ -272,16 +272,16 @@ footer b{color:#F3EBD8;font-family:var(--serif);font-size:1.2rem;font-weight:600
     <div class="cab rev">
       <span class="etiq">Piscina y áreas comunes</span>
       <h2>La piscina es el corazón de la casa</h2>
-      <p>Agua, sombra y un lugar donde sentarse a conversar. Aquí se viene a bajar el ritmo.</p>
+      <p>Dos piscinas, sombrillas, un patio con mesas y un pasillo de hamacas. Aquí se viene a bajar el ritmo.</p>
     </div>
     <div class="mosaico rev">
-      <figure class="m1"><img src="assets/img/piscina-1200.webp" srcset="assets/img/piscina-700.webp 700w, assets/img/piscina-1200.webp 1200w" sizes="(max-width:860px) 100vw, 60vw" loading="lazy" width="1200" height="800" alt="Piscina y jardín de la posada vistos desde arriba, con palmeras"><figcaption>La piscina</figcaption></figure>
+      <figure class="m1"><img src="assets/img/piscina-1200.webp" srcset="assets/img/piscina-700.webp 700w, assets/img/piscina-1200.webp 1200w" sizes="(max-width:860px) 100vw, 60vw" loading="lazy" width="1000" height="461" alt="Piscina rodeada por los arcos de la posada"><figcaption>La piscina</figcaption></figure>
       <div class="dos">
-        <figure class="m2"><img src="assets/img/agua-700.webp" loading="lazy" width="700" height="875" alt="Agua turquesa de la piscina con hojas de palma"><figcaption>El agua</figcaption></figure>
-        <figure class="m3"><img src="assets/img/terraza-700.webp" loading="lazy" width="700" height="933" alt="Terraza con mesa y sillas frente a palmeras"><figcaption>La terraza</figcaption></figure>
+        <figure class="m2"><img src="assets/img/patio-700.webp" loading="lazy" width="700" height="323" alt="Patio con mesas y sombrillas junto a la piscina"><figcaption>El patio</figcaption></figure>
+        <figure class="m3"><img src="assets/img/portada-700.webp" loading="lazy" width="700" height="322" alt="Kiosco de techo de teja junto a la piscina"><figcaption>El kiosco</figcaption></figure>
       </div>
     </div>
-    <ul class="reflejo rev"><li>Piscina</li><li>Terraza</li><li>Desayuno con café</li><li>Zona tranquila</li></ul>
+    <ul class="reflejo rev"><li>Piscina</li><li>Patio con mesas</li><li>Pasillo con hamacas</li><li>Zona tranquila</li></ul>
   </div>
 </section>
 
@@ -352,7 +352,7 @@ footer b{color:#F3EBD8;font-family:var(--serif);font-size:1.2rem;font-weight:600
   <div class="wrap">
     <b>Posada Las Ross</b>
     <span>La Mira, isla de Margarita · dirección exacta por confirmar</span>
-    <span>Vista previa con datos por confirmar. Fotos referenciales.</span>
+    <span>Vista previa con datos por confirmar. Fotos de la posada, salvo la de Playa del Agua (referencial).</span>
   </div>
 </footer>
 
@@ -366,14 +366,16 @@ var CONFIG = {
   whatsapp: "584247632008",
   // EJEMPLO: nombres, capacidad e incluye no son reales
   habitaciones: [
-    { nombre: "Habitación doble", cap: "Hasta 2 personas · EJEMPLO", foto: "hab-vista", alt: "Habitación con cama matrimonial, madera y puertas al jardín",
-      incluye: ["Aire acondicionado", "Agua caliente", "Acceso a la piscina"] },
-    { nombre: "Habitación con dos camas", cap: "Hasta 3 personas · EJEMPLO", foto: "hab-doble", alt: "Habitación con dos camas y ventana a las palmeras",
-      incluye: ["Aire acondicionado", "Agua caliente", "Desayuno con café"] },
-    { nombre: "Habitación con vista al jardín", cap: "Hasta 2 personas · EJEMPLO", foto: "hab-selva", alt: "Habitación con gran ventana frente a las palmeras",
-      incluye: ["Aire acondicionado", "Agua caliente", "Zona tranquila"] }
+    { nombre: "Habitación matrimonial", art: "la", cap: "Hasta 4 personas · EJEMPLO", foto: "hab-matrimonial", alt: "Habitación con cama matrimonial, litera y aire acondicionado",
+      incluye: ["Cama matrimonial y litera", "Aire acondicionado", "Agua caliente"] },
+    { nombre: "Habitación familiar", art: "la", cap: "Hasta 6 personas · EJEMPLO", foto: "hab-familiar", alt: "Habitación de techo de madera con cama matrimonial, litera y otra cama",
+      incluye: ["Matrimonial, litera y otra cama", "Aire acondicionado", "Agua caliente"] },
+    { nombre: "Habitación con terraza", art: "la", cap: "Hasta 2 personas · EJEMPLO", foto: "hab-terraza", alt: "Habitación con cama azul y puerta que sale a la terraza",
+      incluye: ["Salida a la terraza", "Aire acondicionado", "Agua caliente"] },
+    { nombre: "Apartamento familiar", art: "el", cap: "Para grupos · EJEMPLO", foto: "hab-apto", alt: "Apartamento con sala, comedor de madera y cocina",
+      incluye: ["Sala, comedor y cocina", "Ideal para grupos y familias", "Capacidad por confirmar"] }
   ]
-};
+};;
 
 (function(){
   var d=document, $=function(s){return d.querySelector(s)};
@@ -383,7 +385,7 @@ var CONFIG = {
   /* habitaciones */
   var H=$("#habs"), S=$("#hab"), html="", opts="";
   CONFIG.habitaciones.forEach(function(h,i){
-    html+='<article class="hab rev"><div class="foto"><img src="assets/img/'+h.foto+'-700.webp" srcset="assets/img/'+h.foto+'-700.webp 700w, assets/img/'+h.foto+'-1200.webp 1200w" sizes="(max-width:860px) 100vw, 360px" loading="lazy" width="700" height="467" alt="'+h.alt+'"></div>'+
+    html+='<article class="hab rev"><div class="foto"><img src="assets/img/'+h.foto+'-700.webp" srcset="assets/img/'+h.foto+'-700.webp 700w, assets/img/'+h.foto+'-1200.webp 1200w" sizes="(max-width:760px) 100vw, 540px" loading="lazy" width="700" height="394" alt="'+h.alt+'"></div>'+
       '<div class="cuerpo"><h3>'+h.nombre+'</h3><span class="cap">'+h.cap+'</span><ul>'+h.incluye.map(function(x){return "<li>"+x+"</li>"}).join("")+'</ul>'+
       '<a class="btn" data-wa="hab" data-i="'+i+'" href="https://wa.me/584247632008" target="_blank" rel="noopener">Preguntar por esta</a></div></article>';
     opts+='<option value="'+i+'">'+h.nombre+'</option>';
@@ -399,7 +401,7 @@ var CONFIG = {
     var t="Hola, quiero reservar en "+CONFIG.nombre+"."+(n?" Soy "+n+".":"");
     t+="\n"+(l&&s?"Del "+l+" al "+s+".":l?"Llegaría el "+l+".":"Aún no tengo fechas fijas.");
     t+="\nSomos "+(p==="5"?"5 o más personas":p==="1"?"1 persona":p+" personas")+".";
-    if(hi>=0) t+="\nMe interesa la "+CONFIG.habitaciones[hi].nombre.toLowerCase()+".";
+    if(hi>=0) t+="\nMe interesa "+CONFIG.habitaciones[hi].art+" "+CONFIG.habitaciones[hi].nombre.toLowerCase()+".";
     if(b.length) t+="\nBusco "+b.join(", ").replace(/, ([^,]*)$/," y $1")+".";
     t+="\n¿Tienen disponibilidad y cuál es el precio?";
     return t;
@@ -413,7 +415,7 @@ var CONFIG = {
   d.addEventListener("click",function(e){
     var a=e.target.closest('[data-wa="hab"]');if(!a)return;
     var h=CONFIG.habitaciones[+a.dataset.i];
-    a.href=wa("Hola, quiero reservar en "+CONFIG.nombre+". Me interesa la "+h.nombre.toLowerCase()+". ¿Tienen disponibilidad y cuál es el precio?");
+    a.href=wa("Hola, quiero reservar en "+CONFIG.nombre+". Me interesa "+h.art+" "+h.nombre.toLowerCase()+". ¿Tienen disponibilidad y cuál es el precio?");
   });
 
   /* entradas al hacer scroll */
