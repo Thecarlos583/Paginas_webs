@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Villa Santa Marta · Lugar de eventos en Cabudare</title>
+<meta name="description" content="Villa Santa Marta, lugar de eventos en la Av. Terepaima, Cabudare. Cumpleaños, bodas, quince años, bautizos, reuniones familiares y eventos de empresa. Consulte su fecha por WhatsApp.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#161C2B">
+<meta name="color-scheme" content="only light">
+<meta property="og:title" content="Villa Santa Marta · Lugar de eventos en Cabudare">
+<meta property="og:description" content="Su celebración, en el lugar indicado. Consulte su fecha por WhatsApp.">
+<meta property="og:url" content="https://thecarlos583.github.io/Paginas_webs/villa-santa-marta/">
+<meta property="og:image" content="https://thecarlos583.github.io/Paginas_webs/villa-santa-marta/assets/compartir.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23161C2B'/%3E%3Ccircle cx='16' cy='18' r='7' fill='%23FFD58A'/%3E%3Crect x='13' y='6' width='6' height='6' rx='1' fill='%23EE8A3C'/%3E%3C/svg%3E">
+<link rel="preload" href="assets/fuentes/yeseva-one.woff2" as="font" type="font/woff2" crossorigin>
+<script>document.documentElement.classList.add("js")</script>
+<style>
+@font-face{font-family:"Yeseva One";src:url(assets/fuentes/yeseva-one.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Urbanist";src:url(assets/fuentes/urbanist.woff2) format("woff2");font-weight:100 900;font-display:swap}
+:root{
+  color-scheme:only light;
+  --papel:#F5EFE6;--papel2:#ECE3D5;--carta:#FBF7F0;--linea:#DCCDB6;
+  --tinta:#1D2130;--tinta2:#4A4D5A;
+  --noche:#161C2B;--noche2:#1E2638;--claro:#EFE8DC;--claro2:#C9C3B8;
+  --mandarina:#EE8A3C;--foco:#FFD58A;--verde:#3E5A48;--oro:#B8924F;
+  --m:clamp(20px,5vw,64px);--ancho:1180px;
+  --suave:cubic-bezier(.22,.61,.36,1);--salto:cubic-bezier(.34,1.56,.64,1);
+  --titulo:"Yeseva One",Georgia,"Times New Roman",serif;
+  --texto:"Urbanist","Segoe UI",system-ui,-apple-system,Roboto,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:hidden;overflow-x:clip;-webkit-text-size-adjust:100%}
+body{margin:0;overflow-x:hidden;overflow-x:clip;background:var(--papel);color:var(--tinta);font:400 1.0625rem/1.62 var(--texto)}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3{font-family:var(--titulo);font-weight:400;margin:0;line-height:1.08;text-wrap:balance}
+p{margin:0;text-wrap:pretty}
+:focus-visible{outline:3px solid var(--mandarina);outline-offset:3px;border-radius:4px}
+.contenedor{max-width:var(--ancho);margin-inline:auto;padding-inline:var(--m)}
+.salta{position:absolute;left:-999px;top:8px;z-index:99;background:var(--foco);color:var(--tinta);padding:10px 16px}
+.salta:focus{left:12px}
+/* grano: la página es un solo lugar */
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:60;opacity:.06;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* botones */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6em;min-height:52px;padding:0 26px;border-radius:999px;font:600 1rem/1.2 var(--texto);text-decoration:none;transition:transform .35s var(--salto),background-color .3s,color .3s,border-color .3s;-webkit-tap-highlight-color:transparent}
+.btn svg{width:20px;height:20px;flex:none}
+.btn-prim{background:var(--mandarina);color:var(--tinta)}
+.btn-prim:hover{background:var(--foco);transform:translateY(-2px)}
+.btn-sec{border:1.5px solid rgba(239,232,220,.55);color:#fff;background:transparent;cursor:pointer}
+.solo-pc{display:none}
+@media (min-width:560px){.solo-pc{display:inline}}
+.btn-sec:hover{border-color:var(--foco);color:var(--foco)}
+.btn:active{transform:scale(.97)}
+
+/* menú */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;padding-top:env(safe-area-inset-top);color:#fff;transition:background-color .4s var(--suave),box-shadow .4s}
+.nav::before{content:"";position:absolute;left:0;right:0;top:-400px;height:400px;background:var(--noche);opacity:0;transition:opacity .4s}
+.nav.solida{background:rgba(22,28,43,.97);box-shadow:0 1px 0 rgba(255,213,138,.14)}
+.nav.solida::before{opacity:1}
+.nav-in{display:flex;align-items:center;gap:28px;height:64px}
+.logo{font-family:var(--titulo);font-size:1.28rem;text-decoration:none;white-space:nowrap;letter-spacing:.01em}
+.logo span{color:var(--foco)}
+.nav-links{display:none;gap:26px;margin-left:auto;list-style:none;padding:0;margin-block:0}
+.nav-links a{text-decoration:none;font-weight:600;font-size:.97rem;opacity:.86;padding:8px 0;background:linear-gradient(var(--foco),var(--foco)) 0 100%/0 1.5px no-repeat;transition:background-size .35s var(--suave),opacity .3s}
+.nav-links a:hover{opacity:1;background-size:100% 1.5px}
+.nav .btn{margin-left:auto;min-height:42px;padding:0 18px;font-size:.93rem;white-space:nowrap;gap:0}
+@media (min-width:900px){.nav-links{display:flex}.nav .btn{margin-left:8px}}
+
+/* portada */
+.portada{position:relative;min-height:min(100svh,860px);display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:var(--noche);isolation:isolate}
+.portada-foto{position:absolute;inset:0 0 -8% 0;z-index:-2;will-change:transform}
+.portada-foto img{width:100%;height:100%;object-fit:cover;object-position:50% 60%}
+.portada::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(236,140,80,.26) 0%,rgba(201,116,107,.16) 40%,rgba(22,28,43,0) 70%)}
+.portada::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(22,28,43,.66) 0%,rgba(22,28,43,.14) 24%,rgba(22,28,43,.34) 42%,rgba(22,28,43,.84) 64%,rgba(22,28,43,.95) 100%)}
+.guirnalda{position:absolute;left:0;top:calc(52px + env(safe-area-inset-top));width:100%;height:clamp(128px,17vw,236px);overflow:visible;z-index:1}
+.guirnalda .cable{fill:none;stroke:#0E121C;stroke-width:2.4;opacity:.9}
+.f{cursor:pointer}
+.fi{transform-box:fill-box;transform-origin:50% 0;animation:mecer var(--d,4.4s) ease-in-out infinite;animation-delay:var(--dl,0s)}
+@keyframes mecer{0%,100%{transform:rotate(-2.6deg)}50%{transform:rotate(2.6deg)}}
+.f .rosca{fill:#20242E}
+.f .vidrio{fill:rgba(255,255,255,.14);stroke:rgba(255,255,255,.4);stroke-width:1}
+.f .luz{fill:var(--foco);transition:opacity .35s}
+.f .halo{transition:opacity .5s}
+.js .f .luz,.js .f .halo{opacity:0}
+.js .f.encendida .luz{opacity:1}
+.js .f.encendida .halo{opacity:1}
+.js .f.parpadea .luz,.js .f.parpadea .halo{opacity:0;transition-duration:.08s}
+.f.meneo .fi{animation:menear .9s var(--suave)}
+@keyframes menear{0%{transform:rotate(0)}20%{transform:rotate(16deg)}45%{transform:rotate(-10deg)}70%{transform:rotate(5deg)}100%{transform:rotate(0)}}
+.portada-texto{position:relative;width:100%;max-width:var(--ancho);margin-inline:auto;padding:0 var(--m) clamp(36px,8vh,92px)}
+.lugar{display:flex;align-items:center;gap:10px;font:600 .8rem/1.3 var(--texto);letter-spacing:.16em;text-transform:uppercase;color:var(--foco);margin-bottom:14px}
+.lugar::before{content:"";width:26px;height:1.5px;background:currentColor}
+.portada h1{font-size:clamp(2.45rem,8.4vw,5.6rem);line-height:1.03;max-width:12.5ch;text-shadow:0 2px 30px rgba(10,12,20,.45)}
+.punto{display:inline-block;width:.2em;height:.2em;margin-left:.05em;border-radius:50%;background:var(--foco);box-shadow:0 0 .35em .08em rgba(255,213,138,.75);vertical-align:.02em}
+.js .portada h1 .l{opacity:.13;transition:opacity .55s var(--suave)}
+.js .portada h1.encendido .l{opacity:1}
+.bajada{margin-top:16px;max-width:36ch;font-size:clamp(1.05rem,1.6vw,1.22rem);color:rgba(255,255,255,.92)}
+.acciones{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+
+/* secciones */
+.seccion{padding-block:clamp(84px,12vw,190px)}
+.cabeza{display:grid;gap:16px;margin-bottom:clamp(36px,5vw,64px)}
+.cabeza h2{font-size:clamp(2.2rem,5.6vw,4rem)}
+.cabeza p{max-width:52ch;color:var(--tinta2);font-size:1.08rem}
+@media (min-width:900px){.cabeza.lado{grid-template-columns:1.1fr 1fr;align-items:end;gap:48px}}
+
+/* eventos: tarjetas de mesa repartidas */
+.mesas{list-style:none;margin:0;padding:0;display:grid;gap:20px;grid-template-columns:minmax(0,1fr)}
+@media (min-width:640px){.mesas{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}}
+@media (min-width:1020px){.mesas{grid-template-columns:repeat(3,minmax(0,1fr));gap:28px 26px}}
+.mesa{position:relative;min-width:0;background:var(--carta);border:1px solid var(--linea);padding:34px 24px 20px;display:grid;grid-template-columns:44px minmax(0,1fr);gap:4px 18px;transform:rotate(var(--r,0deg));transition:transform .5s var(--salto),border-color .3s,opacity .7s var(--suave)}
+.mesa::before{content:"";position:absolute;left:0;right:0;top:0;height:14px;background:#F1E8DA;border-bottom:1px solid var(--linea)}
+.mesa svg{grid-row:span 3;width:44px;height:44px;margin-top:2px;fill:none;stroke:var(--verde);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.mesa h3{font-size:1.5rem;overflow-wrap:anywhere}
+.mesa p{font-size:1rem;color:var(--tinta2)}
+.mesa a{justify-self:start;display:inline-flex;align-items:center;gap:8px;min-height:44px;margin-top:6px;font-weight:600;text-decoration:none;color:var(--tinta);border-bottom:1.5px solid var(--mandarina);line-height:1.2;padding-top:4px}
+.mesa a span{transition:transform .35s var(--salto)}
+.mesa a:hover span{transform:translateX(5px)}
+@media (hover:hover) and (pointer:fine){.mesa:hover{transform:rotate(0) translateY(-6px);border-color:var(--oro)}}
+.js .repartir>li{opacity:0;transform:translate(var(--dx,0),46px) rotate(calc(var(--r,0deg) * 5))}
+.js .repartir.visible>li{opacity:1;transform:rotate(var(--r,0deg));transition-delay:calc(var(--i,0) * .09s)}
+.js .repartir.visible.listo>li{transition-delay:0s}
+
+/* espacios: se encienden con los focos */
+.espacios{background:var(--papel2);padding-bottom:clamp(36px,5vw,64px)}
+.nota{display:inline-flex;align-items:center;gap:10px;justify-self:start;font-size:.95rem;color:var(--tinta2);border:1px dashed #B9A88E;padding:8px 14px;border-radius:999px}
+.nota svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.6}
+.guirnalda-galeria{display:block;width:100%;height:64px;margin-bottom:-10px;position:relative;z-index:2}
+.guirnalda-galeria .cable{fill:none;stroke:#2B2F3B;stroke-width:2}
+.galeria{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 var(--m) 10px;scroll-padding-inline:var(--m);scrollbar-width:none;margin:0;list-style:none}
+.galeria::-webkit-scrollbar{display:none}
+.galeria>li{flex:0 0 78%;min-width:0;scroll-snap-align:start}
+.foto{position:relative;overflow:hidden;background:var(--noche);aspect-ratio:4/5}
+.foto img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--suave)}
+.js .foto::after{content:"";position:absolute;inset:0;background:var(--noche);opacity:.66;transition:opacity 1.3s var(--suave);pointer-events:none}
+.js .foto.encendida::after{opacity:0}
+.galeria h3{font-size:1.32rem;margin-top:14px}
+.galeria li p{font-size:.95rem;color:var(--tinta2);margin-top:2px}
+@media (hover:hover) and (pointer:fine){.galeria li:hover img{transform:scale(1.04)}}
+.desliza{display:block;margin:14px var(--m) 0;font-size:.9rem;color:var(--tinta2)}
+@media (min-width:900px){
+  .galeria{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px 24px;overflow:visible;max-width:var(--ancho);margin-inline:auto;padding:0 var(--m)}
+  .galeria .foto{aspect-ratio:auto;height:clamp(300px,30vw,400px)}
+  .galeria>li:nth-child(1){grid-column:span 2}
+  .galeria>li:nth-child(4){grid-column:span 2}
+  .galeria>li:nth-child(3) .foto,.galeria>li:nth-child(4) .foto{height:clamp(260px,25vw,340px)}
+  .desliza{display:none}
+  .guirnalda-galeria{height:90px;max-width:var(--ancho);margin-inline:auto}
+}
+
+/* crepúsculo */
+.crepusculo{position:relative;height:clamp(440px,78vh,700px);overflow:hidden;background:linear-gradient(180deg,var(--papel2) 0%,#F2D6B6 22%,#ECAA83 44%,#C9746B 60%,#7A4C5E 74%,#2E3348 87%,var(--noche) 100%)}
+.sol{position:absolute;left:58%;top:30%;width:clamp(110px,16vw,190px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 50% 45%,#FFE2A8 0%,#FFC27A 45%,#F28C4E 100%);will-change:transform}
+.sol::after{content:"";position:absolute;inset:-60%;border-radius:50%;background:radial-gradient(circle,rgba(255,200,130,.45) 0%,rgba(255,200,130,0) 62%)}
+.cerros{position:absolute;left:0;right:0;bottom:-1px;width:100%;height:46%}
+.crep-texto{position:relative;z-index:2;padding-top:clamp(40px,7vh,72px)}
+.crep-texto p:first-child{font-family:var(--titulo);font-size:clamp(2rem,5.4vw,3.8rem);line-height:1.08;max-width:16ch;text-wrap:balance}
+.crep-texto p+p{margin-top:14px;max-width:40ch;font-size:1.08rem;color:#3A2E33}
+.estrellas{position:absolute;inset:auto 0 18% 0;height:30%;opacity:0;will-change:opacity}
+.estrellas i{position:absolute;width:3px;height:3px;border-radius:50%;background:#FFE9C2}
+
+/* reservar */
+.reservar{background:var(--noche);color:var(--claro)}
+.reservar .cabeza p{color:var(--claro2)}
+.reservar-rejilla{display:grid;gap:56px}
+@media (min-width:980px){.reservar-rejilla{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:72px;align-items:start}}
+.pasos{list-style:none;margin:0;padding:0;display:grid;gap:30px;counter-reset:paso}
+.pasos li{display:grid;grid-template-columns:62px minmax(0,1fr);gap:4px 18px;counter-increment:paso}
+.pasos li::before{content:counter(paso);grid-row:span 2;font:400 3.1rem/1 var(--titulo);color:var(--foco);text-shadow:0 0 22px rgba(255,213,138,.45);transition:opacity .9s var(--suave)}
+.pasos h3{font-size:1.45rem;color:#fff}
+.pasos p{color:var(--claro2)}
+.js .pasos li::before{opacity:.18}
+.js .pasos.visible li::before{opacity:1}
+.js .pasos.visible li:nth-child(2)::before{transition-delay:.45s}
+.js .pasos.visible li:nth-child(3)::before{transition-delay:.9s}
+.js .pasos li>*{opacity:0;transform:translateX(-16px);transition:opacity .7s var(--suave),transform .7s var(--suave)}
+.js .pasos.visible li>*{opacity:1;transform:none}
+.js .pasos.visible li:nth-child(2)>*{transition-delay:.45s}
+.js .pasos.visible li:nth-child(3)>*{transition-delay:.9s}
+
+/* firma: la tarjeta de invitación */
+.armador{display:grid;gap:22px;background:var(--noche2);border:1px solid rgba(255,213,138,.16);padding:clamp(22px,4vw,36px)}
+.armador h3{font-size:1.6rem;color:#fff}
+.armador fieldset{border:0;margin:0;padding:0;min-width:0}
+.armador legend,.campo label{display:block;font-weight:600;font-size:.95rem;color:var(--claro);margin-bottom:10px;padding:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips label{position:relative}
+.chips input{position:absolute;opacity:0;inset:0;cursor:pointer;margin:0}
+.chips span{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border-radius:999px;border:1.5px solid rgba(239,232,220,.3);font-weight:600;font-size:.95rem;transition:background-color .25s,border-color .25s,color .25s,transform .3s var(--salto)}
+.chips input:checked+span{background:var(--foco);border-color:var(--foco);color:var(--tinta)}
+.chips input:focus-visible+span{outline:3px solid var(--mandarina);outline-offset:2px}
+.chips label:hover span{border-color:var(--foco)}
+.campos{display:grid;gap:16px}
+@media (min-width:560px){.campos{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.campo{min-width:0}
+.campo input{width:100%;min-height:50px;padding:0 14px;border-radius:10px;border:1.5px solid rgba(239,232,220,.3);background:rgba(255,255,255,.05);color:#fff;font:500 1rem var(--texto);color-scheme:dark}
+.campo input:focus{border-color:var(--foco);outline:none}
+.aviso-fecha{font-size:.88rem;color:var(--foco);min-height:1.2em;margin-top:6px}
+.invitacion{position:relative;justify-self:center;width:min(100%,400px);margin:10px 0 6px;background:var(--carta);color:var(--tinta);text-align:center;padding:34px 28px 30px;border:1px solid var(--oro);outline:1px solid var(--oro);outline-offset:-9px;transform:rotate(-1.6deg);transition:transform .6s var(--salto)}
+.invitacion::before{content:"";position:absolute;inset:-34%;z-index:-1;background:radial-gradient(closest-side,rgba(255,213,138,.26),rgba(255,213,138,0));pointer-events:none}
+.armador:hover .invitacion{transform:rotate(0)}
+.inv-casa{font:600 .72rem/1.2 var(--texto);letter-spacing:.24em;text-transform:uppercase;color:var(--oro)}
+.inv-sub{margin-top:16px;font-size:1rem;color:var(--tinta2)}
+.inv-evento{font:400 clamp(1.6rem,5.4vw,2.4rem)/1.1 var(--titulo);margin-top:6px;overflow-wrap:anywhere}
+.inv-fecha{margin-top:10px;font-size:1.1rem;font-weight:600}
+.inv-nombre{margin-top:6px;font-size:1rem;color:var(--tinta2)}
+.inv-nombre[hidden]{display:none}
+.inv-pie{margin-top:18px;padding-top:12px;border-top:1px solid var(--linea);font-size:.85rem;color:var(--tinta2)}
+.tinta-nueva{animation:tinta .6s var(--suave)}
+@keyframes tinta{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+.mensaje{font-size:.93rem;color:var(--claro2);background:rgba(255,255,255,.04);border-left:2px solid var(--foco);padding:10px 14px}
+.armador .btn{width:100%}
+
+/* ubicación */
+.ubicacion{background:var(--noche2);color:var(--claro)}
+.ubic-rejilla{display:grid;gap:44px}
+@media (min-width:900px){.ubic-rejilla{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:center}}
+.ubicacion h2{font-size:clamp(2.3rem,6vw,4.2rem);color:#fff}
+.ubicacion .lugar{margin-bottom:14px}
+.ubicacion h2+p{margin-top:18px;max-width:44ch;color:var(--claro2);font-size:1.08rem}
+.ubicacion .acciones{margin-top:30px}
+.mapa{position:relative;aspect-ratio:4/3;border:1px solid rgba(255,213,138,.2);overflow:hidden;background:
+  radial-gradient(circle at 50% 46%,rgba(255,213,138,.2),rgba(255,213,138,0) 32%),
+  repeating-linear-gradient(32deg,transparent 0 46px,rgba(239,232,220,.06) 46px 48px),
+  repeating-linear-gradient(-58deg,transparent 0 70px,rgba(239,232,220,.05) 70px 72px),var(--noche);display:grid;place-items:center;text-align:center;padding:24px}
+.mapa iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.pin{width:58px;margin:0 auto 14px}
+.mapa .btn{min-height:48px}
+.mapa small{display:block;margin-top:12px;color:var(--claro2);font-size:.85rem}
+.js .subir{opacity:0;transform:translateY(30px);transition:opacity .9s var(--suave),transform .9s var(--suave)}
+.js .subir.visible{opacity:1;transform:none}
+
+/* pie */
+.pie{background:var(--noche);color:var(--claro2);padding:64px 0 112px;font-size:.95rem}
+.pie-in{display:grid;gap:22px}
+.pie .logo{color:#fff;font-size:1.6rem}
+.pie nav ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px 22px}
+.pie nav a{text-decoration:none;display:inline-block;padding:8px 0}
+.pie nav a:hover{color:var(--foco)}
+.aviso{border-top:1px solid rgba(239,232,220,.14);padding-top:20px;display:grid;gap:4px;font-size:.88rem}
+
+/* botón flotante */
+.wa-flotante{position:fixed;right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));z-index:55;width:60px;height:60px;border-radius:50%;display:grid;place-items:center;background:var(--mandarina);color:var(--tinta);box-shadow:0 10px 26px rgba(10,12,20,.35);opacity:0;transform:translateY(20px) scale(.8);pointer-events:none;transition:opacity .4s var(--suave),transform .5s var(--salto)}
+.wa-flotante svg{width:28px;height:28px}
+.wa-flotante.ver{opacity:1;transform:none;pointer-events:auto}
+.wa-flotante:hover{background:var(--foco)}
+html:not(.js) .wa-flotante{opacity:1;transform:none;pointer-events:auto}
+
+@media (pointer:coarse){.btn{min-height:50px}}
+@media (max-height:560px){.guirnalda{height:96px}}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .fi{animation:none}
+  .portada-foto,.sol{transform:none!important}
+  .js .repartir>li,.js .pasos li>*,.js .subir{transform:none}
+  .js .repartir.visible>li{transform:rotate(var(--r,0deg))}
+}
+body.pausado *,body.pausado *::before,body.pausado *::after{animation-play-state:paused!important}
+</style>
+</head>
+<body>
+<a class="salta" href="#main">Saltar al contenido</a>
+
+<header class="nav" data-nav>
+  <div class="contenedor nav-in">
+    <a class="logo" href="#inicio">Villa Santa Marta<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="#eventos">Eventos</a></li>
+      <li><a href="#espacios">Espacios</a></li>
+      <li><a href="#reservar">Reservar</a></li>
+      <li><a href="#ubicacion">Ubicación</a></li>
+    </ul>
+    <a class="btn btn-prim" href="https://wa.me/580000000000?text=Hola%2C%20quiero%20consultar%20una%20fecha%20en%20Villa%20Santa%20Marta." target="_blank" rel="noopener">Consultar<span class="solo-pc"> fecha</span></a>
+  </div>
+</header>
+
+<main id="main">
+  <section class="portada" id="inicio" aria-labelledby="titulo">
+    <div class="portada-foto" data-parallax>
+      <picture>
+        <source media="(min-width: 760px)" srcset="assets/img/portada-1800.webp" width="1800" height="1011">
+        <img src="assets/img/portada-820.webp" width="820" height="1322" alt="Jardín preparado para una celebración al atardecer, con mesas, flores y lámparas colgantes" fetchpriority="high">
+      </picture>
+    </div>
+
+    <svg class="guirnalda" viewBox="0 0 1200 200" preserveAspectRatio="xMidYMin slice" aria-hidden="true" data-guirnalda>
+      <defs>
+        <radialGradient id="halo"><stop offset="0" stop-color="#FFD58A" stop-opacity=".75"/><stop offset=".45" stop-color="#FFC56A" stop-opacity=".25"/><stop offset="1" stop-color="#FFC56A" stop-opacity="0"/></radialGradient>
+      </defs>
+      <path class="cable" d="M-20 18 Q300 150 600 30 Q900 150 1220 18"/>
+      <g class="f" transform="translate(31.1 37.5)"><g class="fi" style="--d:4.18s;--dl:-0.6s"><circle class="halo" cx="0" cy="26" r="36" fill="url(#halo)"/><line x1="0" y1="0" x2="0" y2="7" stroke="#0E121C" stroke-width="2"/><rect class="rosca" x="-5" y="6" width="10" height="9" rx="1.5"/><ellipse class="vidrio" cx="0" cy="25" rx="8.5" ry="11"/><ellipse class="luz" cx="0" cy="25" rx="8.5" ry="11"/><circle cx="0" cy="22" r="24" fill="transparent"/></g></g><g class="f" transform="translate(119.8 63.9)"><g class="fi" style="--d:4.77s;--dl:-0.29s"><circle class="halo" cx="0" cy="26" r="36" fill="url(#halo)"/><line x1="0" y1="0" x2="0" y2="7" stroke="#0E121C" stroke-width="2"/><rect class="rosca" x="-5" y="6" width="10" height="9" rx="1.5"/><ellipse class="vidrio" cx="0" cy="25" rx="8.5" ry="11"/><ellipse class="luz" cx="0" cy="25" rx="8.5" ry="11"/><circle cx="0" cy="22" r="24" fill="transparent"/></g></g><g class="f" transform="translate(207.8 80.4)"><g class="fi" style="--d:4.56s;--dl:-1.46s"><circle class="halo" cx="0" cy="26" r="36" fill="url(#halo)"/><line x1="0" y1="0" x2="0" y2="7" stroke="#0E121C" stroke-width="2"/><rect class="rosca" x="-5" y="6" width="10" height="9" rx="1.5"/><ellipse class="vidrio" cx="0" cy="25" rx="8.5" ry="11"/><ellipse class="luz" cx="0" cy="25" rx="8.5" ry="11"/><circle cx="0" cy="22" r="24" fill="transparent"/></g></g><g class="f" transform="translate(295.0 87.0)"><g class="fi" style="--d:3.7s;--dl:-2.03s"><circle class="halo" cx="0" cy="26" r="36" fill="url(#halo)"/><line x1="0" y1="0" x2="0" y2="7" stroke="#0E121C" stroke-width="2"/><rect class="rosca" x="-5" y="6" width="10" height="9" rx="1.5"/><ellipse class="vidrio" cx="0" cy="25" rx="8.5" ry="11"/><ellipse class="luz" cx="0" cy="25" rx="8.5" ry="11"/><circle cx="0" cy="22" r="24" fill="transparent"/></g></g><g class="f" transform="translate(381.4 83.7)"><g class="fi" style="--d:3.67s;--dl:-1.73s"><circle class="halo" cx="0" cy="26" r="36" fill="url(#halo)"/><line x1="0" y1="0" x2="0" y2="7" stroke="#0E121C" stroke-width="2"/><rect class="rosca" x="-5" y="6" width="10" height="9" rx="1.5"/><ellipse class="vidrio" cx="0" cy="25" rx="8.5" ry="11"/><ellipse class="luz" cx="0" cy="25" rx="8.5" ry="11"/><circle cx="0" cy="22" r="24" fill="transparent"/></g></g><g class="f" transform="translate(467.0 70.6)"><g class="fi" style="--d:3.73s;--dl:-0.36s"><circle class="halo" cx="0" cy="26" r="36" fill="url(#halo)"/><line x1="0" y1="0" x2="0" y2="7" stroke="#0E121C" stroke-width="2"/><rect class="rosca" x="-5" y="6" width="10" height="9" rx="1.5"/><ellipse class="vidrio" cx="0" cy="25" rx="8.5" ry="11"/><ellipse class="luz" cx="0" cy="25" rx="8.5" ry="11"/><circle cx="0" cy="22" r="24" fill="transparent"/></g></g><g class="f" transform="translate(551.9 47.6)"><g class="fi" style="--d:4.36s;--dl:-3.31s"><circle class="halo" cx="0" cy="26" r="36" fill="url(#halo)"/><line x1="0" y1="0" x2="0" y2="7" stroke="#0E121C" stroke-width="2"/><rect class="rosca" x="-5" y="6" width="10" height="9" rx="1.5"/><ellipse class="vidrio" cx="0" cy="25" rx="8.5" ry="11"/><ellipse class="luz" cx="0" cy="25" rx="8.5" ry="11"/><circle cx="0" cy="22" r="24" fill="transparent"/></g></g><g class="f" transform="translate(648.1 47.6)"><g class="fi" style="--d:3.82s;--dl:-0.89s"><circle class="halo" cx="0" cy="26" r="36" fill="url(#halo)"/><line x1="0" y1="0" x2="0" y2="7" stroke="#0E121C" stroke-width="2"/><rect class="rosca" x="-5" y="6" width="10" height="9" rx="1.5"/><ellipse class="vidrio" cx="0" cy="25" rx="8.5" ry="11"/><ellipse class="luz" cx="0" cy="25" rx="8.5" ry="11"/><circle cx="0" cy="22" r="24" fill="transparent"/></g></g><g class="f" transform="translate(733.0 70.6)"><g class="fi" style="--d:4.73s;--dl:-3.79s"><circle class="halo" cx="0" cy="26" r="36" fill="url(#halo)"/><line x1="0" y1="0" x2="0" y2="7" stroke="#0E121C" stroke-width="2"/><rect class="rosca" x="-5" y="6" width="10" height="9" rx="1.5"/><ellipse class="vidrio" cx="0" cy="25" rx="8.5" ry="11"/><ellipse class="luz" cx="0" cy="25" rx="8.5" ry="11"/><circle cx="0" cy="22" r="24" fill="transparent"/></g></g><g class="f" transform="translate(818.6 83.7)"><g class="fi" style="--d:4.64s;--dl:-1.59s"><circle class="halo" cx="0" cy="26" r="36" fill="url(#halo)"/><line x1="0" y1="0" x2="0" y2="7" stroke="#0E121C" stroke-width="2"/><rect class="rosca" x="-5" y="6" width="10" height="9" rx="1.5"/><ellipse class="vidrio" cx="0" cy="25" rx="8.5" ry="11"/><ellipse class="luz" cx="0" cy="25" rx="8.5" ry="11"/><circle cx="0" cy="22" r="24" fill="transparent"/></g></g><g class="f" transform="translate(905.0 87.0)"><g class="fi" style="--d:5.36s;--dl:-0.19s"><circle class="halo" cx="0" cy="26" r="36" fill="url(#halo)"/><line x1="0" y1="0" x2="0" y2="7" stroke="#0E121C" stroke-width="2"/><rect class="rosca" x="-5" y="6" width="10" height="9" rx="1.5"/><ellipse class="vidrio" cx="0" cy="25" rx="8.5" ry="11"/><ellipse class="luz" cx="0" cy="25" rx="8.5" ry="11"/><circle cx="0" cy="22" r="24" fill="transparent"/></g></g><g class="f" transform="translate(992.2 80.4)"><g class="fi" style="--d:5.15s;--dl:-1.16s"><circle class="halo" cx="0" cy="26" r="36" fill="url(#halo)"/><line x1="0" y1="0" x2="0" y2="7" stroke="#0E121C" stroke-width="2"/><rect class="rosca" x="-5" y="6" width="10" height="9" rx="1.5"/><ellipse class="vidrio" cx="0" cy="25" rx="8.5" ry="11"/><ellipse class="luz" cx="0" cy="25" rx="8.5" ry="11"/><circle cx="0" cy="22" r="24" fill="transparent"/></g></g><g class="f" transform="translate(1080.2 63.9)"><g class="fi" style="--d:3.86s;--dl:-0.47s"><circle class="halo" cx="0" cy="26" r="36" fill="url(#halo)"/><line x1="0" y1="0" x2="0" y2="7" stroke="#0E121C" stroke-width="2"/><rect class="rosca" x="-5" y="6" width="10" height="9" rx="1.5"/><ellipse class="vidrio" cx="0" cy="25" rx="8.5" ry="11"/><ellipse class="luz" cx="0" cy="25" rx="8.5" ry="11"/><circle cx="0" cy="22" r="24" fill="transparent"/></g></g><g class="f" transform="translate(1168.9 37.5)"><g class="fi" style="--d:4.16s;--dl:-3.26s"><circle class="halo" cx="0" cy="26" r="36" fill="url(#halo)"/><line x1="0" y1="0" x2="0" y2="7" stroke="#0E121C" stroke-width="2"/><rect class="rosca" x="-5" y="6" width="10" height="9" rx="1.5"/><ellipse class="vidrio" cx="0" cy="25" rx="8.5" ry="11"/><ellipse class="luz" cx="0" cy="25" rx="8.5" ry="11"/><circle cx="0" cy="22" r="24" fill="transparent"/></g></g>
+    </svg>
+
+    <div class="portada-texto">
+      <p class="lugar">Av. Terepaima · Cabudare</p>
+      <h1 id="titulo" data-encender>Celebre en el lugar indicado<span class="punto" aria-hidden="true"></span></h1>
+      <p class="bajada">Villa Santa Marta, lugar de eventos en Cabudare. Cumpleaños, bodas, quince años y cualquier fecha que merezca una fiesta.</p>
+      <div class="acciones">
+        <a class="btn btn-prim" href="https://wa.me/580000000000?text=Hola%2C%20quiero%20consultar%20una%20fecha%20en%20Villa%20Santa%20Marta." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>
+          Consultar fecha por WhatsApp
+        </a>
+        <a class="btn btn-sec" href="#eventos">Ver los eventos</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion" id="eventos" aria-labelledby="t-eventos">
+    <div class="contenedor">
+      <div class="cabeza lado">
+        <h2 id="t-eventos">¿Qué va a celebrar?</h2>
+        <p>Cada fecha importante tiene su manera de celebrarse. Díganos cuál es la suya y le confirmamos si tenemos ese día libre.</p>
+      </div>
+      <ul class="mesas repartir">
+        <li class="mesa" style="--r:-1.2deg;--dx:-30px;--i:0">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21h16M5 21v-7h14v7M5 17.2c2.3 1.3 4.7 1.3 7 0s4.7-1.3 7 0M12 14V9.5M12 7.2c1-.9 1-2 0-3.2-1 1.2-1 2.3 0 3.2z"/></svg>
+          <h3>Cumpleaños</h3>
+          <p>Para los de uno, los de quince velas o los de setenta.</p>
+          <a href="https://wa.me/580000000000?text=Hola%2C%20quiero%20consultar%20una%20fecha%20para%20un%20cumplea%C3%B1os%20en%20Villa%20Santa%20Marta." target="_blank" rel="noopener">Consultar fecha <span aria-hidden="true">→</span></a>
+        </li>
+        <li class="mesa" style="--r:.9deg;--dx:0px;--i:1">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="14.5" r="5"/><circle cx="15" cy="14.5" r="5"/><path d="M9 9.5 7.6 7.2 9 5l1.4 2.2z"/></svg>
+          <h3>Bodas</h3>
+          <p>El día del sí, con espacio para la familia de los dos lados.</p>
+          <a href="https://wa.me/580000000000?text=Hola%2C%20quiero%20consultar%20una%20fecha%20para%20una%20boda%20en%20Villa%20Santa%20Marta." target="_blank" rel="noopener">Consultar fecha <span aria-hidden="true">→</span></a>
+        </li>
+        <li class="mesa" style="--r:-.6deg;--dx:30px;--i:2">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 17.5 5.2 8.2l4 3.8L12 5.5l2.8 6.5 4-3.8 1.7 9.3z"/><path d="M3.5 20.5h17"/></svg>
+          <h3>Quince años</h3>
+          <p>El vals, las fotos y la noche que ella va a recordar.</p>
+          <a href="https://wa.me/580000000000?text=Hola%2C%20quiero%20consultar%20una%20fecha%20para%20unos%20quince%20a%C3%B1os%20en%20Villa%20Santa%20Marta." target="_blank" rel="noopener">Consultar fecha <span aria-hidden="true">→</span></a>
+        </li>
+        <li class="mesa" style="--r:1.1deg;--dx:-30px;--i:3">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5c-4.8 0-8-3.6-8-7.6C4 8.6 7.6 5 12 5s8 3.6 8 7.9c0 4-3.2 7.6-8 7.6z"/><path d="M12 20.5V5M12 20.5 7.6 6.6M12 20.5l4.4-13.9M12 20.5 4.6 10M12 20.5 19.4 10"/></svg>
+          <h3>Bautizos y comuniones</h3>
+          <p>Después de la iglesia, el almuerzo con los padrinos y la familia.</p>
+          <a href="https://wa.me/580000000000?text=Hola%2C%20quiero%20consultar%20una%20fecha%20para%20un%20bautizo%20o%20comuni%C3%B3n%20en%20Villa%20Santa%20Marta." target="_blank" rel="noopener">Consultar fecha <span aria-hidden="true">→</span></a>
+        </li>
+        <li class="mesa" style="--r:-.9deg;--dx:0px;--i:4">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h18M5.5 12v8M18.5 12v8"/><circle cx="7" cy="6.5" r="1.8"/><circle cx="12" cy="6.5" r="1.8"/><circle cx="17" cy="6.5" r="1.8"/></svg>
+          <h3>Reuniones familiares</h3>
+          <p>El encuentro de primos, el aniversario o el almuerzo de fin de año.</p>
+          <a href="https://wa.me/580000000000?text=Hola%2C%20quiero%20consultar%20una%20fecha%20para%20una%20reuni%C3%B3n%20familiar%20en%20Villa%20Santa%20Marta." target="_blank" rel="noopener">Consultar fecha <span aria-hidden="true">→</span></a>
+        </li>
+        <li class="mesa" style="--r:.7deg;--dx:30px;--i:5">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7.5" width="18" height="12.5" rx="1.5"/><path d="M9 7.5V5h6v2.5M3 12.5h18M11 12.5v2h2v-2"/></svg>
+          <h3>Eventos de empresa</h3>
+          <p>La celebración del equipo, un lanzamiento o la fiesta de diciembre.</p>
+          <a href="https://wa.me/580000000000?text=Hola%2C%20quiero%20consultar%20una%20fecha%20para%20un%20evento%20de%20empresa%20en%20Villa%20Santa%20Marta." target="_blank" rel="noopener">Consultar fecha <span aria-hidden="true">→</span></a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="seccion espacios" id="espacios" aria-labelledby="t-espacios" data-galeria>
+    <div class="contenedor">
+      <div class="cabeza lado">
+        <h2 id="t-espacios">Donde pasa todo</h2>
+        <p class="nota"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h3l1.5-2h7L17 8h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg>Fotos referenciales. Aquí van las fotos reales de sus espacios.</p>
+      </div>
+    </div>
+    <svg class="guirnalda-galeria" viewBox="0 0 1200 80" preserveAspectRatio="xMidYMin slice" aria-hidden="true">
+      <path class="cable" d="M0 8 Q600 100 1200 8"/>
+      <g class="f" transform="translate(50.0 15.3) scale(0.75)"><g class="fi" style="--d:3.93s;--dl:-2.33s"><circle class="halo" cx="0" cy="26" r="36" fill="url(#halo)"/><line x1="0" y1="0" x2="0" y2="7" stroke="#0E121C" stroke-width="2"/><rect class="rosca" x="-5" y="6" width="10" height="9" rx="1.5"/><ellipse class="vidrio" cx="0" cy="25" rx="8.5" ry="11"/><ellipse class="luz" cx="0" cy="25" rx="8.5" ry="11"/><circle cx="0" cy="22" r="24" fill="transparent"/></g></g><g class="f" transform="translate(150.0 28.1) scale(0.75)"><g class="fi" style="--d:4.75s;--dl:-1.49s"><circle class="halo" cx="0" cy="26" r="36" fill="url(#halo)"/><line x1="0" y1="0" x2="0" y2="7" stroke="#0E121C" stroke-width="2"/><rect class="rosca" x="-5" y="6" width="10" height="9" rx="1.5"/><ellipse class="vidrio" cx="0" cy="25" rx="8.5" ry="11"/><ellipse class="luz" cx="0" cy="25" rx="8.5" ry="11"/><circle cx="0" cy="22" r="24" fill="transparent"/></g></g><g class="f" transform="translate(250.0 38.3) scale(0.75)"><g class="fi" style="--d:4.59s;--dl:-0.25s"><circle class="halo" cx="0" cy="26" r="36" fill="url(#halo)"/><line x1="0" y1="0" x2="0" y2="7" stroke="#0E121C" stroke-width="2"/><rect class="rosca" x="-5" y="6" width="10" height="9" rx="1.5"/><ellipse class="vidrio" cx="0" cy="25" rx="8.5" ry="11"/><ellipse class="luz" cx="0" cy="25" rx="8.5" ry="11"/><circle cx="0" cy="22" r="24" fill="transparent"/></g></g><g class="f" transform="translate(350.0 46.0) scale(0.75)"><g class="fi" style="--d:3.71s;--dl:-0.82s"><circle class="halo" cx="0" cy="26" r="36" fill="url(#halo)"/><line x1="0" y1="0" x2="0" y2="7" stroke="#0E121C" stroke-width="2"/><rect class="rosca" x="-5" y="6" width="10" height="9" rx="1.5"/><ellipse class="vidrio" cx="0" cy="25" rx="8.5" ry="11"/><ellipse class="luz" cx="0" cy="25" rx="8.5" ry="11"/><circle cx="0" cy="22" r="24" fill="transparent"/></g></g><g class="f" transform="translate(450.0 51.1) scale(0.75)"><g class="fi" style="--d:4.82s;--dl:-1.71s"><circle class="halo" cx="0" cy="26" r="36" fill="url(#halo)"/><line x1="0" y1="0" x2="0" y2="7" stroke="#0E121C" stroke-width="2"/><rect class="rosca" x="-5" y="6" width="10" height="9" rx="1.5"/><ellipse class="vidrio" cx="0" cy="25" rx="8.5" ry="11"/><ellipse class="luz" cx="0" cy="25" rx="8.5" ry="11"/><circle cx="0" cy="22" r="24" fill="transparent"/></g></g><g class="f" transform="translate(550.0 53.7) scale(0.75)"><g class="fi" style="--d:4.17s;--dl:-2.34s"><circle class="halo" cx="0" cy="26" r="36" fill="url(#halo)"/><line x1="0" y1="0" x2="0" y2="7" stroke="#0E121C" stroke-width="2"/><rect class="rosca" x="-5" y="6" width="10" height="9" rx="1.5"/><ellipse class="vidrio" cx="0" cy="25" rx="8.5" ry="11"/><ellipse class="luz" cx="0" cy="25" rx="8.5" ry="11"/><circle cx="0" cy="22" r="24" fill="transparent"/></g></g><g class="f" transform="translate(650.0 53.7) scale(0.75)"><g class="fi" style="--d:4.42s;--dl:-1.2s"><circle class="halo" cx="0" cy="26" r="36" fill="url(#halo)"/><line x1="0" y1="0" x2="0" y2="7" stroke="#0E121C" stroke-width="2"/><rect class="rosca" x="-5" y="6" width="10" height="9" rx="1.5"/><ellipse class="vidrio" cx="0" cy="25" rx="8.5" ry="11"/><ellipse class="luz" cx="0" cy="25" rx="8.5" ry="11"/><circle cx="0" cy="22" r="24" fill="transparent"/></g></g><g class="f" transform="translate(750.0 51.1) scale(0.75)"><g class="fi" style="--d:5.03s;--dl:-2.8s"><circle class="halo" cx="0" cy="26" r="36" fill="url(#halo)"/><line x1="0" y1="0" x2="0" y2="7" stroke="#0E121C" stroke-width="2"/><rect class="rosca" x="-5" y="6" width="10" height="9" rx="1.5"/><ellipse class="vidrio" cx="0" cy="25" rx="8.5" ry="11"/><ellipse class="luz" cx="0" cy="25" rx="8.5" ry="11"/><circle cx="0" cy="22" r="24" fill="transparent"/></g></g><g class="f" transform="translate(850.0 46.0) scale(0.75)"><g class="fi" style="--d:4.04s;--dl:-2.3s"><circle class="halo" cx="0" cy="26" r="36" fill="url(#halo)"/><line x1="0" y1="0" x2="0" y2="7" stroke="#0E121C" stroke-width="2"/><rect class="rosca" x="-5" y="6" width="10" height="9" rx="1.5"/><ellipse class="vidrio" cx="0" cy="25" rx="8.5" ry="11"/><ellipse class="luz" cx="0" cy="25" rx="8.5" ry="11"/><circle cx="0" cy="22" r="24" fill="transparent"/></g></g><g class="f" transform="translate(950.0 38.3) scale(0.75)"><g class="fi" style="--d:4.55s;--dl:-3.5s"><circle class="halo" cx="0" cy="26" r="36" fill="url(#halo)"/><line x1="0" y1="0" x2="0" y2="7" stroke="#0E121C" stroke-width="2"/><rect class="rosca" x="-5" y="6" width="10" height="9" rx="1.5"/><ellipse class="vidrio" cx="0" cy="25" rx="8.5" ry="11"/><ellipse class="luz" cx="0" cy="25" rx="8.5" ry="11"/><circle cx="0" cy="22" r="24" fill="transparent"/></g></g><g class="f" transform="translate(1050.0 28.1) scale(0.75)"><g class="fi" style="--d:4.91s;--dl:-1.15s"><circle class="halo" cx="0" cy="26" r="36" fill="url(#halo)"/><line x1="0" y1="0" x2="0" y2="7" stroke="#0E121C" stroke-width="2"/><rect class="rosca" x="-5" y="6" width="10" height="9" rx="1.5"/><ellipse class="vidrio" cx="0" cy="25" rx="8.5" ry="11"/><ellipse class="luz" cx="0" cy="25" rx="8.5" ry="11"/><circle cx="0" cy="22" r="24" fill="transparent"/></g></g><g class="f" transform="translate(1150.0 15.3) scale(0.75)"><g class="fi" style="--d:5.36s;--dl:-0.47s"><circle class="halo" cx="0" cy="26" r="36" fill="url(#halo)"/><line x1="0" y1="0" x2="0" y2="7" stroke="#0E121C" stroke-width="2"/><rect class="rosca" x="-5" y="6" width="10" height="9" rx="1.5"/><ellipse class="vidrio" cx="0" cy="25" rx="8.5" ry="11"/><ellipse class="luz" cx="0" cy="25" rx="8.5" ry="11"/><circle cx="0" cy="22" r="24" fill="transparent"/></g></g>
+    </svg>
+    <ul class="galeria">
+      <li>
+        <div class="foto">
+          <picture>
+            <source media="(min-width: 900px)" srcset="assets/img/areas-verdes-1300.webp" width="1300" height="1040">
+            <img src="assets/img/areas-verdes-760.webp" width="760" height="950" loading="lazy" alt="Mesas con manteles blancos y centros de flores bajo los árboles de un jardín">
+          </picture>
+        </div>
+        <h3>Áreas verdes</h3>
+        <p>Para celebrar al aire libre, de día o al caer la tarde.</p>
+      </li>
+      <li>
+        <div class="foto">
+          <picture>
+            <source media="(min-width: 900px)" srcset="assets/img/salon-1100.webp" width="1100" height="1375">
+            <img src="assets/img/salon-760.webp" width="760" height="950" loading="lazy" alt="Salón con mesas redondas vestidas, sillas de madera y grandes ventanales">
+          </picture>
+        </div>
+        <h3>Salón</h3>
+        <p>Bajo techo, para la fiesta que sigue pase lo que pase.</p>
+      </li>
+      <li>
+        <div class="foto">
+          <picture>
+            <source media="(min-width: 900px)" srcset="assets/img/piscina-1100.webp" width="1100" height="1375">
+            <img src="assets/img/piscina-760.webp" width="760" height="950" loading="lazy" alt="Zona de piscina de noche con guirnaldas de luces encendidas">
+          </picture>
+        </div>
+        <h3>Zona de piscina</h3>
+        <p>Para los cumpleaños de día y las noches más relajadas.</p>
+      </li>
+      <li>
+        <div class="foto">
+          <picture>
+            <source media="(min-width: 900px)" srcset="assets/img/terraza-1100.webp" width="1100" height="1375">
+            <img src="assets/img/terraza-760.webp" width="760" height="950" loading="lazy" alt="Familia cenando de noche en una mesa al aire libre bajo bombillos colgantes">
+          </picture>
+        </div>
+        <h3>Terraza o parrilla</h3>
+        <p>La mesa larga para las reuniones en familia.</p>
+      </li>
+    </ul>
+    <span class="desliza" aria-hidden="true">Deslice para ver los demás espacios →</span>
+  </section>
+
+  <div class="crepusculo" aria-labelledby="t-crep" data-crepusculo>
+    <div class="sol" data-sol aria-hidden="true"></div>
+    <div class="estrellas" data-estrellas aria-hidden="true">
+      <i style="left:8%;top:30%"></i><i style="left:19%;top:62%"></i><i style="left:31%;top:18%"></i><i style="left:44%;top:48%"></i><i style="left:71%;top:22%"></i><i style="left:83%;top:56%"></i><i style="left:92%;top:28%"></i><i style="left:63%;top:70%"></i>
+    </div>
+    <svg class="cerros" viewBox="0 0 1200 300" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 160 C120 120 210 70 330 92 S520 40 640 70 S860 30 980 88 S1130 110 1200 96 V300 H0z" fill="#3A3346"/>
+      <path d="M0 210 C150 170 260 150 380 176 S600 120 760 160 S1010 140 1200 176 V300 H0z" fill="#1F2536"/>
+      <path d="M0 262 C200 240 420 252 600 246 S1000 236 1200 252 V300 H0z" fill="#161C2B"/>
+    </svg>
+    <div class="contenedor crep-texto">
+      <p id="t-crep">La tarde se pone de colores.</p>
+      <p>Al lado de la ciudad de los crepúsculos, la fiesta empieza cuando se encienden las luces.</p>
+    </div>
+  </div>
+
+  <section class="seccion reservar" id="reservar" aria-labelledby="t-reservar">
+    <div class="contenedor">
+      <div class="cabeza lado">
+        <h2 id="t-reservar">Así se aparta su fecha</h2>
+        <p>Santa Marta es la patrona de los anfitriones: la que abre la casa y pone la mesa. Con ese nombre, lo primero es atenderle bien.</p>
+      </div>
+      <div class="reservar-rejilla">
+        <ol class="pasos revelar">
+          <li><h3>Escríbanos con la fecha</h3><p>Por WhatsApp, con el tipo de evento y el día que tiene en mente.</p></li>
+          <li><h3>Le confirmamos la disponibilidad</h3><p>Le decimos si ese día está libre y le respondemos lo que necesite saber.</p></li>
+          <li><h3>Coordinamos los detalles</h3><p>Hablamos de su evento con calma, paso a paso, hasta dejarlo todo claro.</p></li>
+        </ol>
+
+        <form class="armador" data-armador aria-labelledby="t-armador" onsubmit="return false">
+          <h3 id="t-armador">Escriba su consulta como una invitación</h3>
+          <fieldset>
+            <legend>¿Qué va a celebrar?</legend>
+            <div class="chips">
+              <label><input type="radio" name="evento" value="un cumpleaños" data-nombre="Un cumpleaños" checked><span>Cumpleaños</span></label>
+              <label><input type="radio" name="evento" value="una boda" data-nombre="Una boda"><span>Boda</span></label>
+              <label><input type="radio" name="evento" value="unos quince años" data-nombre="Unos quince años"><span>Quince años</span></label>
+              <label><input type="radio" name="evento" value="un bautizo o comunión" data-nombre="Un bautizo o comunión"><span>Bautizo o comunión</span></label>
+              <label><input type="radio" name="evento" value="una reunión familiar" data-nombre="Una reunión familiar"><span>Reunión familiar</span></label>
+              <label><input type="radio" name="evento" value="un evento de empresa" data-nombre="Un evento de empresa"><span>Empresa</span></label>
+              <label><input type="radio" name="evento" value="un evento" data-nombre="Otra celebración"><span>Otro</span></label>
+            </div>
+          </fieldset>
+          <div class="campos">
+            <div class="campo">
+              <label for="fecha">Fecha que tiene en mente</label>
+              <input id="fecha" name="fecha" type="date">
+              <p class="aviso-fecha" data-aviso-fecha aria-live="polite"></p>
+            </div>
+            <div class="campo">
+              <label for="nombre">Su nombre (opcional)</label>
+              <input id="nombre" name="nombre" type="text" maxlength="40" autocomplete="given-name">
+            </div>
+          </div>
+
+          <div class="invitacion" aria-live="polite">
+            <p class="inv-casa">Villa Santa Marta</p>
+            <p class="inv-sub">Consulta para</p>
+            <p class="inv-evento" data-inv-evento>Un cumpleaños</p>
+            <p class="inv-fecha" data-inv-fecha>En la fecha que usted elija</p>
+            <p class="inv-nombre" data-inv-nombre hidden></p>
+            <p class="inv-pie">Av. Terepaima · Cabudare</p>
+          </div>
+
+          <p class="mensaje" data-mensaje>Hola, quiero consultar una fecha para un cumpleaños en Villa Santa Marta.</p>
+          <a class="btn btn-prim" data-enviar href="https://wa.me/580000000000?text=Hola%2C%20quiero%20consultar%20una%20fecha%20para%20un%20cumplea%C3%B1os%20en%20Villa%20Santa%20Marta." target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>
+            Consultar esta fecha por WhatsApp
+          </a>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion ubicacion" id="ubicacion" aria-labelledby="t-ubicacion">
+    <div class="contenedor ubic-rejilla">
+      <div>
+        <p class="lugar">Dónde estamos</p>
+        <h2 id="t-ubicacion">Av. Terepaima, Cabudare</h2>
+        <p>En Cabudare, municipio Palavecino del estado Lara, a pocos minutos de Barquisimeto. Escríbanos y le enviamos la ubicación exacta para usted y sus invitados.</p>
+        <div class="acciones">
+          <a class="btn btn-prim" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20la%20ubicaci%C3%B3n%20exacta%20de%20Villa%20Santa%20Marta." target="_blank" rel="noopener">Pedir la ubicación</a>
+          <a class="btn btn-sec" href="https://www.google.com/maps/search/?api=1&amp;query=Villa%20Santa%20Marta%20Av.%20Terepaima%20Cabudare" target="_blank" rel="noopener">Cómo llegar</a>
+        </div>
+      </div>
+      <div class="mapa subir" data-mapa>
+        <div>
+          <svg class="pin" viewBox="0 0 60 80" aria-hidden="true"><rect x="22" y="2" width="16" height="14" rx="2" fill="#20242E"/><path d="M30 16c-12 0-20 9-20 21 0 10 8 17 12 25h16c4-8 12-15 12-25 0-12-8-21-20-21z" fill="#FFD58A"/><path d="M24 66h12M25 72h10" stroke="#EFE8DC" stroke-width="2.4" stroke-linecap="round" opacity=".6"/></svg>
+          <button class="btn btn-sec" type="button" data-cargar-mapa>Ver el mapa aquí</button>
+          <small>El mapa se carga al tocar, para que la página abra rápido.</small>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="pie">
+  <div class="contenedor pie-in">
+    <a class="logo" href="#inicio">Villa Santa Marta<span>.</span></a>
+    <p>Lugar de eventos · Av. Terepaima, Cabudare, Lara · WhatsApp +58 000 0000000</p>
+    <nav aria-label="Pie de página">
+      <ul>
+        <li><a href="#eventos">Eventos</a></li>
+        <li><a href="#espacios">Espacios</a></li>
+        <li><a href="#reservar">Reservar</a></li>
+        <li><a href="#ubicacion">Ubicación</a></li>
+      </ul>
+    </nav>
+    <div class="aviso">
+      <p>Página de ejemplo con datos ficticios · Fotos referenciales (Pexels)</p>
+      <p>Vista previa hecha por Carlos Mendoza</p>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-flotante" data-flotante href="https://wa.me/580000000000?text=Hola%2C%20quiero%20consultar%20una%20fecha%20en%20Villa%20Santa%20Marta." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp a Villa Santa Marta">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>
+</a>
+
+<script>
+(function () {
+  var WA = "https://wa.me/580000000000?text=";
+  var reducir = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function safe(fn, nombre) { try { fn(); } catch (e) { console.warn("[" + nombre + "]", e); } }
+
+  function initNav() {
+    var nav = document.querySelector("[data-nav]");
+    var flot = document.querySelector("[data-flotante]");
+    var portada = document.getElementById("inicio");
+    function revisar() {
+      var y = window.scrollY || 0;
+      nav.classList.toggle("solida", y > 30);
+      flot.classList.toggle("ver", y > portada.offsetHeight * 0.6);
+    }
+    revisar();
+    window.addEventListener("scroll", revisar, { passive: true });
+  }
+
+  /* el titular se enciende letra por letra, como focos */
+  function initTitular() {
+    var h = document.querySelector("[data-encender]");
+    if (!h || h.querySelector(".l")) return;
+    var texto = h.firstChild.nodeValue;
+    h.setAttribute("aria-label", texto.trim());
+    var envoltura = document.createElement("span");
+    envoltura.setAttribute("aria-hidden", "true");
+    texto.split(" ").forEach(function (palabra, i, todas) {
+      var p = document.createElement("span");
+      p.style.whiteSpace = "nowrap";
+      palabra.split("").forEach(function (letra) {
+        var s = document.createElement("span");
+        s.className = "l";
+        s.textContent = letra;
+        s.style.transitionDelay = reducir ? "0s" : (0.15 + Math.random() * 1.1).toFixed(2) + "s";
+        p.appendChild(s);
+      });
+      envoltura.appendChild(p);
+      if (i < todas.length - 1) envoltura.appendChild(document.createTextNode(" "));
+    });
+    h.replaceChild(envoltura, h.firstChild);
+    requestAnimationFrame(function () { requestAnimationFrame(function () { h.classList.add("encendido"); }); });
+    setTimeout(function () { h.classList.add("encendido"); }, 400);
+  }
+
+  /* la guirnalda de la portada: se enciende al cargar y responde al toque */
+  function initFocos() {
+    var focos = document.querySelectorAll("[data-guirnalda] .f");
+    focos.forEach(function (f, i) {
+      setTimeout(function () { f.classList.add("encendida"); }, reducir ? 0 : 250 + i * 110);
+      f.addEventListener("click", function () {
+        f.classList.remove("meneo"); void f.getBoundingClientRect();
+        f.classList.add("meneo", "parpadea");
+        setTimeout(function () { f.classList.remove("parpadea"); }, 140);
+        setTimeout(function () { f.classList.add("parpadea"); }, 260);
+        setTimeout(function () { f.classList.remove("parpadea"); }, 360);
+        setTimeout(function () { f.classList.remove("meneo"); }, 950);
+      });
+    });
+    setTimeout(function () { focos.forEach(function (f) { f.classList.add("encendida"); }); }, 4000);
+  }
+
+  /* un solo bucle para lo que reacciona al scroll */
+  function initScroll() {
+    var foto = document.querySelector("[data-parallax]");
+    var galeria = document.querySelector("[data-galeria]");
+    var focosG = galeria.querySelectorAll(".guirnalda-galeria .f");
+    var fotos = galeria.querySelectorAll(".foto");
+    var crep = document.querySelector("[data-crepusculo]");
+    var sol = document.querySelector("[data-sol]");
+    var estrellas = document.querySelector("[data-estrellas]");
+    var pendiente = false;
+
+    function limitar(v) { return Math.max(0, Math.min(1, v)); }
+    function paso() {
+      pendiente = false;
+      var vh = window.innerHeight;
+      var y = window.scrollY || 0;
+      if (!reducir && y < vh * 1.2) foto.style.transform = "translate3d(0," + (y * 0.22).toFixed(1) + "px,0)";
+
+      var r = galeria.getBoundingClientRect();
+      var p = limitar((vh * 0.92 - r.top) / (r.height * 0.75));
+      var n = Math.round(p * focosG.length);
+      focosG.forEach(function (f, i) { f.classList.toggle("encendida", i < n); });
+      fotos.forEach(function (ft, i) { if (p >= (i + 1) / (fotos.length + 1)) ft.classList.add("encendida"); });
+
+      var c = crep.getBoundingClientRect();
+      var q = limitar((vh - c.top) / (vh + c.height));
+      if (!reducir) sol.style.transform = "translate3d(0," + (q * c.height * 0.62).toFixed(1) + "px,0)";
+      estrellas.style.opacity = limitar((q - 0.45) / 0.35).toFixed(2);
+    }
+    function pedir() { if (!pendiente) { pendiente = true; requestAnimationFrame(paso); } }
+    window.addEventListener("scroll", pedir, { passive: true });
+    window.addEventListener("resize", pedir);
+    paso();
+    setTimeout(paso, 300);
+  }
+
+  function initRevelar() {
+    var els = document.querySelectorAll(".revelar,.repartir,.subir");
+    if (!("IntersectionObserver" in window)) { els.forEach(function (e) { e.classList.add("visible", "listo"); }); return; }
+    var io = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        var t = en.target; t.classList.add("visible"); io.unobserve(t);
+        setTimeout(function () { t.classList.add("listo"); }, 1400);
+      });
+    }, { threshold: 0.01, rootMargin: "0px 0px -6% 0px" });
+    els.forEach(function (e) { io.observe(e); });
+    setTimeout(function () {
+      els.forEach(function (e) { if (e.getBoundingClientRect().top < innerHeight * 1.2) e.classList.add("visible", "listo"); });
+    }, 6000);
+  }
+
+  /* firma: la consulta se escribe como una tarjeta de invitación */
+  function initArmador() {
+    var f = document.querySelector("[data-armador]");
+    var fecha = f.querySelector("#fecha"), nombre = f.querySelector("#nombre");
+    var oEvento = f.querySelector("[data-inv-evento]"), oFecha = f.querySelector("[data-inv-fecha]"), oNombre = f.querySelector("[data-inv-nombre]");
+    var oMsj = f.querySelector("[data-mensaje]"), enviar = f.querySelector("[data-enviar]"), aviso = f.querySelector("[data-aviso-fecha]");
+    var DIAS = ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"];
+    var MESES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
+    var hoy = new Date(); hoy.setHours(0, 0, 0, 0);
+    function iso(d) { return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0"); }
+    fecha.min = iso(hoy);
+
+    function escribir(el, txt) {
+      if (el.textContent === txt) return;
+      el.textContent = txt;
+      el.classList.remove("tinta-nueva"); void el.offsetWidth; el.classList.add("tinta-nueva");
+    }
+    function actualizar() {
+      var ev = f.querySelector("input[name=evento]:checked");
+      var evento = ev ? ev.value : "un evento";
+      escribir(oEvento, ev ? ev.getAttribute("data-nombre") : "Su celebración");
+
+      var textoFecha = "", d = null;
+      aviso.textContent = "";
+      if (fecha.value) {
+        var partes = fecha.value.split("-");
+        d = new Date(+partes[0], +partes[1] - 1, +partes[2]);
+        if (isNaN(d) || d < hoy) { d = null; aviso.textContent = "Elija una fecha de hoy en adelante."; }
+        else textoFecha = DIAS[d.getDay()] + " " + d.getDate() + " de " + MESES[d.getMonth()] + " de " + d.getFullYear();
+      }
+      escribir(oFecha, textoFecha ? "El " + textoFecha : "En la fecha que usted elija");
+
+      var nom = nombre.value.replace(/\s+/g, " ").trim().slice(0, 40);
+      oNombre.hidden = !nom;
+      if (nom) escribir(oNombre, "A nombre de " + nom);
+
+      var msj = textoFecha
+        ? "Hola, quiero consultar si tienen libre el " + textoFecha + " para " + evento + " en Villa Santa Marta."
+        : "Hola, quiero consultar una fecha para " + evento + " en Villa Santa Marta.";
+      if (nom) msj += " Mi nombre es " + nom + ".";
+      oMsj.textContent = msj;
+      enviar.href = WA + encodeURIComponent(msj);
+    }
+    f.addEventListener("change", actualizar);
+    f.addEventListener("input", actualizar);
+    actualizar();
+  }
+
+  function initMapa() {
+    var b = document.querySelector("[data-cargar-mapa]");
+    b.addEventListener("click", function () {
+      var caja = document.querySelector("[data-mapa]");
+      if (caja.querySelector("iframe")) return;
+      var i = document.createElement("iframe");
+      i.title = "Mapa de Villa Santa Marta en la Av. Terepaima, Cabudare";
+      i.loading = "lazy";
+      i.referrerPolicy = "no-referrer-when-downgrade";
+      i.src = "https://www.google.com/maps?q=" + encodeURIComponent("Villa Santa Marta, Av. Terepaima, Cabudare, Lara") + "&output=embed";
+      caja.appendChild(i);
+    });
+  }
+
+  function initPausa() {
+    document.addEventListener("visibilitychange", function () { document.body.classList.toggle("pausado", document.hidden); });
+  }
+
+  safe(initNav, "nav");
+  safe(initTitular, "titular");
+  safe(initFocos, "focos");
+  safe(initScroll, "scroll");
+  safe(initRevelar, "revelar");
+  safe(initArmador, "armador");
+  safe(initMapa, "mapa");
+  safe(initPausa, "pausa");
+})();
+</script>
+</body>
+</html>
