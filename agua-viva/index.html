@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Agua Viva · Alojamiento vacacional en Tucacas</title>
+<meta name="description" content="Apartamentos vacacionales equipados en Tucacas, Falcón, con piscina con vista al mar y tobogán. Consulte disponibilidad por WhatsApp.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#FBF6EC">
+<meta name="color-scheme" content="only light">
+<meta property="og:title" content="Agua Viva · Alojamiento vacacional en Tucacas">
+<meta property="og:description" content="Apartamentos vacacionales equipados, con piscina frente al mar. Consulte disponibilidad por WhatsApp.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://thecarlos583.github.io/Paginas_webs/agua-viva/">
+<meta property="og:image" content="https://thecarlos583.github.io/Paginas_webs/agua-viva/assets/compartir.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2313A3A6'/%3E%3Cpath d='M8 38c6-6 10-6 16 0s10 6 16 0 10-6 16 0' fill='none' stroke='%23FBF6EC' stroke-width='6' stroke-linecap='round'/%3E%3Ccircle cx='44' cy='20' r='7' fill='%23F2694C'/%3E%3C/svg%3E">
+<link rel="preload" href="assets/fuentes/caprasimo-400.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Caprasimo";src:url(assets/fuentes/caprasimo-400.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Rethink Sans";src:url(assets/fuentes/rethink.woff2) format("woff2");font-weight:400 700;font-display:swap}
+:root{
+  color-scheme:only light;
+  --arena:#FBF6EC; --arena2:#F3E8D4; --blanco:#FFFFFF;
+  --mar:#0B3440; --tinta:#06222A; --suave:#3E5A61;
+  --turq:#13A3A6; --turq-hondo:#0B7378; --turq-claro:#C6ECE8;
+  --coral:#F2694C;
+  --cab:64px;
+  --curva:cubic-bezier(.22,.61,.36,1); --salto:cubic-bezier(.34,1.56,.64,1);
+  --titulos:"Caprasimo", "Cooper Black", Georgia, serif;
+  --texto:"Rethink Sans", "Segoe UI", system-ui, sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{overflow-x:hidden;overflow-x:clip;scroll-behavior:smooth;scroll-padding-top:calc(var(--cab) + 12px)}
+body{margin:0;overflow-x:hidden;overflow-x:clip;background:var(--arena);color:var(--tinta);font:400 1.06rem/1.6 var(--texto);-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3{font-family:var(--titulos);font-weight:400;line-height:1.04;margin:0;letter-spacing:-.005em}
+p{margin:0}
+.contenedor{width:min(1160px,100% - 40px);margin-inline:auto}
+:focus-visible{outline:3px solid var(--coral);outline-offset:3px;border-radius:6px}
+.salta{position:absolute;left:-999px;top:8px;background:var(--mar);color:#fff;padding:10px 14px;z-index:99}
+.salta:focus{left:8px}
+
+/* Botones: onda al tocar */
+.btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:14px 24px;border-radius:999px;border:0;font:600 1.03rem/1.2 var(--texto);text-decoration:none;cursor:pointer;transition:transform .35s var(--salto),background-color .3s}
+.btn svg{width:22px;height:22px;flex:none}
+.btn-coral{background:var(--coral);color:var(--tinta)}
+.btn-coral:hover{background:#F47E64}
+.btn-claro{background:var(--turq-claro);color:var(--tinta)}
+.btn-claro:hover{background:#D8F3F0}
+.btn-borde{background:transparent;color:#fff;box-shadow:inset 0 0 0 2px rgba(255,255,255,.7)}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:translateY(0) scale(.98)}
+.onda{position:absolute;border-radius:50%;width:16px;height:16px;margin:-8px 0 0 -8px;pointer-events:none;border:2px solid rgba(255,255,255,.9);transform:scale(0);opacity:.9;animation:onda .7s var(--curva) forwards}
+.onda+.onda{animation-delay:.12s}
+@keyframes onda{to{transform:scale(18);opacity:0}}
+
+/* Cabecera */
+.tapa{position:fixed;left:0;right:0;top:-400px;height:400px;background:var(--arena);z-index:49}
+.cab{position:fixed;inset:0 0 auto;z-index:50;background:rgba(251,246,236,.94);padding-top:env(safe-area-inset-top);border-bottom:1px solid rgba(11,52,64,.08);backdrop-filter:saturate(1.2) blur(8px);-webkit-backdrop-filter:saturate(1.2) blur(8px)}
+.cab .contenedor{height:var(--cab);display:flex;align-items:center;justify-content:space-between;gap:16px}
+.marca{display:flex;align-items:center;gap:10px;text-decoration:none}
+.marca svg{width:34px;height:34px;flex:none}
+.marca b{font:400 1.45rem/1 var(--titulos);color:var(--mar)}
+.marca small{display:block;font:500 .78rem/1.2 var(--texto);color:var(--suave);margin-top:3px}
+.cab nav{display:none}
+.cab nav a{text-decoration:none;font-weight:500;color:var(--suave);padding:8px 2px;position:relative}
+.cab nav a::after{content:"";position:absolute;left:0;right:0;bottom:2px;height:2px;background:var(--turq);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--curva)}
+.cab nav a:hover::after{transform:scaleX(1)}
+.cab .btn{min-height:44px;padding:10px 18px;font-size:.95rem}
+
+/* Portada */
+.portada{padding-top:calc(var(--cab) + env(safe-area-inset-top));position:relative}
+.foto-mar{position:relative;height:clamp(210px,36svh,360px);overflow:hidden;background:#7FC9D4}
+.foto-mar img{position:absolute;inset:-8% 0 auto;width:100%;height:116%;object-fit:cover;object-position:50% 60%;will-change:transform}
+.brillo{position:absolute;inset:0;overflow:hidden;pointer-events:none;mix-blend-mode:soft-light;opacity:.95;-webkit-mask-image:linear-gradient(to bottom,transparent 46%,#000 66%);mask-image:linear-gradient(to bottom,transparent 46%,#000 66%)}
+.brillo i{position:absolute;left:0;top:0;width:calc(100% + 320px);height:calc(100% + 320px);background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320'%3E%3Cfilter id='c' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.02' numOctaves='2' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='table' tableValues='0 0 0 0 1 0 0 0 0'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23c)'/%3E%3C/svg%3E") 0 0/320px 320px;animation:corre 14s linear infinite}
+.brillo i+i{background-size:260px 260px;opacity:.7;animation-duration:19s;animation-direction:reverse}
+@keyframes corre{to{transform:translate3d(-320px,-320px,0)}}
+.olas{position:absolute;left:0;right:0;bottom:-2px;height:34px;overflow:hidden;pointer-events:none}
+.olas svg{position:absolute;bottom:0;left:0;width:200%;height:100%;animation:ola 11s linear infinite}
+.olas svg+svg{animation-duration:7s;height:78%}
+@keyframes ola{to{transform:translateX(-50%)}}
+.etiqueta-foto{position:absolute;right:10px;top:10px;background:rgba(6,34,42,.62);color:#fff;font-size:.72rem;padding:3px 9px;border-radius:999px;z-index:2}
+.portada-texto{padding:18px 0 34px}
+.titular{font-size:clamp(2rem,8.6vw,4.9rem);color:var(--mar)}
+.titular .pal{display:inline-block;overflow:hidden;padding-bottom:.08em;margin-bottom:-.08em;vertical-align:top}
+.titular .pal>span{display:inline-block;transform-origin:50% 100%}
+.titular em{font-style:normal;color:var(--turq-hondo)}
+.bajada{margin-top:12px;font-size:clamp(1.05rem,3.9vw,1.3rem);color:var(--suave);max-width:34ch}
+.portada-texto .btn{margin-top:18px}
+.lugar{display:flex;align-items:center;gap:8px;margin-top:16px;font-size:.92rem;color:var(--suave)}
+.lugar svg{width:18px;height:18px;flex:none;color:var(--coral)}
+
+/* Secciones */
+section{position:relative}
+.seccion{padding:72px 0}
+.antetitulo{font-weight:600;color:var(--turq-hondo);font-size:.98rem;margin-bottom:10px}
+.h2{font-size:clamp(2rem,7.4vw,3.6rem);color:var(--mar);max-width:16ch}
+.intro{margin-top:14px;color:var(--suave);max-width:46ch}
+
+/* Lo que va a disfrutar: azulejos */
+.azulejos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:30px}
+.azulejo{min-width:0;position:relative;overflow:hidden;background:var(--blanco);border-radius:22px;padding:16px 13px 18px;box-shadow:0 1px 0 rgba(11,52,64,.06),0 10px 28px -18px rgba(11,52,64,.45);transition:transform .45s var(--salto)}
+.azulejo::after{content:"";position:absolute;left:-10%;right:-10%;bottom:0;height:120%;background:linear-gradient(to bottom,rgba(198,236,232,.0),rgba(198,236,232,.55) 18%);border-radius:45% 45% 0 0 / 22px 22px 0 0;transform:translateY(92%);transition:transform .7s var(--curva);z-index:0}
+.azulejo>*{position:relative;z-index:1}
+.azulejo:hover{transform:translateY(-4px)}
+.azulejo:hover::after{transform:translateY(38%)}
+.icono{width:62px;height:62px;border-radius:16px;display:grid;place-items:center;background-color:var(--turq-claro);background-image:linear-gradient(rgba(19,163,166,.22) 1px,transparent 1px),linear-gradient(90deg,rgba(19,163,166,.22) 1px,transparent 1px);background-size:12px 12px;overflow:hidden;color:var(--turq-hondo)}
+.icono svg{width:40px;height:40px;overflow:visible}
+.icono .agua{animation:mece 4.5s ease-in-out infinite}
+@keyframes mece{50%{transform:translateX(3px)}}
+.azulejo h3{font-size:clamp(.98rem,4vw,1.4rem);margin-top:14px;color:var(--mar);overflow-wrap:break-word}
+.azulejo p{margin-top:6px;font-size:.95rem;color:var(--suave)}
+
+/* Apartamentos */
+.apartamentos{background:var(--arena2)}
+.galeria{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:20px;padding:30px 20px 8px;margin:0 -20px;scrollbar-width:none}
+.galeria::-webkit-scrollbar{display:none}
+.cuadro{flex:0 0 78%;min-width:0;scroll-snap-align:start;margin:0}
+.cuadro .ventana{position:relative;overflow:hidden;border-radius:26px 26px 26px 6px;aspect-ratio:4/5;background:#cfe6e4}
+.cuadro .ventana>div{position:absolute;inset:0;transition:transform 1.1s var(--curva)}
+.cuadro img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--curva)}
+.cuadro:hover img{transform:scale(1.05)}
+.cuadro figcaption{margin-top:10px;font-weight:600;color:var(--mar)}
+.cuadro .etiqueta-foto{z-index:2}
+.nota-fotos{margin-top:22px;display:flex;align-items:center;gap:10px;color:var(--suave)}
+.nota-fotos svg{width:22px;height:22px;flex:none;color:var(--turq-hondo)}
+.apartamentos .btn{margin-top:20px}
+
+/* Reservar: tobogán */
+.reservar .rejilla{display:grid;gap:36px;margin-top:34px}
+.tobogan{position:relative;padding-left:86px;min-width:0}
+.tobogan>.riel{position:absolute;left:0;top:-6px;bottom:-6px;width:74px;height:calc(100% + 12px);overflow:visible}
+.tobogan .canal{fill:none;stroke:var(--turq);stroke-width:16;stroke-linecap:round;vector-effect:non-scaling-stroke}
+.tobogan .chorro{fill:none;stroke:#E7FAF8;stroke-width:5;stroke-linecap:round;stroke-dasharray:4 14;vector-effect:non-scaling-stroke;animation:chorro 1.6s linear infinite}
+@keyframes chorro{to{stroke-dashoffset:-36}}
+.flotador{position:absolute;left:0;top:0;width:34px;height:34px;margin:-17px 0 0 -17px;transform:translate(37px,6px);will-change:transform;z-index:2}
+.paso{display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px;align-items:start;padding:6px 0 34px}
+.paso:last-child{padding-bottom:4px}
+.paso .n{font:400 2.4rem/1 var(--titulos);color:var(--coral);min-width:1ch}
+.paso h3{font-size:1.3rem;color:var(--mar)}
+.paso p{margin-top:6px;color:var(--suave)}
+
+/* Armador de consulta */
+.consulta{min-width:0;background:var(--blanco);border-radius:28px;overflow:hidden;box-shadow:0 24px 50px -30px rgba(11,52,64,.55)}
+.consulta-cab{position:relative;background:var(--mar);color:#fff;padding:22px 22px 34px}
+.consulta-cab h3{font-size:1.55rem}
+.consulta-cab p{margin-top:4px;color:#CFE5E6;font-size:.95rem}
+.consulta-cab svg{position:absolute;left:0;bottom:-1px;width:100%;height:18px}
+.consulta-cuerpo{padding:16px 22px 24px;display:grid;gap:16px}
+.fechas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.campo{min-width:0}
+.campo label,.contador>span{display:block;font-weight:600;font-size:.9rem;color:var(--mar);margin-bottom:6px}
+.campo input{width:100%;min-width:0;min-height:48px;padding:10px 12px;border:1.5px solid #CFDCDB;border-radius:14px;font:500 1rem var(--texto);color:var(--tinta);background:#F7FBFA}
+.campo input:focus{outline:none;border-color:var(--turq);box-shadow:0 0 0 3px rgba(19,163,166,.2)}
+.personas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.contador{min-width:0}
+.contador div{display:flex;align-items:center;justify-content:space-between;border:1.5px solid #CFDCDB;border-radius:14px;padding:4px;background:#F7FBFA}
+.contador button{width:42px;height:42px;border-radius:11px;border:0;background:var(--turq-claro);color:var(--tinta);font:600 1.3rem/1 var(--texto);cursor:pointer;transition:transform .3s var(--salto)}
+.contador button:active{transform:scale(.88)}
+.contador output{font:400 1.4rem/1 var(--titulos);color:var(--mar)}
+.burbuja{position:relative;background:#E3F6EF;border-radius:16px 16px 16px 4px;padding:12px 14px;font-size:.95rem;color:var(--tinta);min-height:3.2em}
+.burbuja small{display:block;color:var(--suave);font-size:.78rem;margin-bottom:2px}
+.aviso-fecha{color:#A33A22;font-size:.88rem;font-weight:600}
+.aviso-fecha:empty{display:none}
+.consulta .btn{width:100%}
+
+/* Ubicación */
+.ubicacion{background:var(--mar);color:#fff;overflow:hidden}
+.ubicacion .h2{color:#fff}
+.ubicacion .intro{color:#CFE5E6}
+.direccion{margin-top:22px;font-size:1.12rem;font-weight:600;max-width:30ch}
+.ubicacion .botones{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.ruta{margin-top:40px;min-width:0}
+.ruta svg{width:100%;height:auto;overflow:visible}
+.ruta .via{fill:none;stroke:#F3E8D4;stroke-width:3;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1}
+.ruta.visible .via{stroke-dashoffset:0;transition:stroke-dashoffset 2.4s var(--curva) .2s}
+.ruta .pin{opacity:0;transform:translateY(-14px);transform-box:fill-box;transform-origin:50% 100%}
+.ruta.visible .pin{opacity:1;transform:none;transition:opacity .5s 1.3s,transform .7s var(--salto) 1.3s}
+.ruta .cayo{animation:mece 5s ease-in-out infinite}
+.ruta text{font-family:var(--texto);font-size:15px;fill:#CFE5E6}
+.ruta .fuerte{font-weight:600;fill:#fff;font-size:17px}
+
+/* Pie */
+.pie{background:var(--arena2);padding:40px 0 calc(100px + env(safe-area-inset-bottom));font-size:.94rem;color:var(--suave)}
+.pie b{font:400 1.35rem/1.2 var(--titulos);color:var(--mar)}
+.pie p+p{margin-top:6px}
+.pie .aviso{margin-top:18px;font-weight:600;color:var(--tinta)}
+
+/* WhatsApp flotante */
+.wa-flota{position:fixed;right:16px;bottom:max(16px,env(safe-area-inset-bottom));z-index:60;width:60px;height:60px;border-radius:50%;background:var(--coral);color:var(--tinta);display:grid;place-items:center;overflow:hidden;box-shadow:0 12px 26px -10px rgba(6,34,42,.6);transition:transform .35s var(--salto)}
+.wa-flota svg{width:30px;height:30px}
+.wa-flota:hover{transform:scale(1.07)}
+
+/* Revelado (solo con JS vivo) */
+.js .rev{opacity:0;transform:translateY(26px);transition:opacity .8s var(--curva),transform .9s var(--curva)}
+.js .rev.visible{opacity:1;transform:none}
+.js .azulejo.rev{transform:translateY(22px) scale(.92) rotate(-2deg)}
+.js .azulejo.rev.visible{transform:none}
+.js .azulejos .rev:nth-child(2){transition-delay:.1s}.js .azulejos .rev:nth-child(3){transition-delay:.2s}.js .azulejos .rev:nth-child(4){transition-delay:.3s}
+.js .cuadro.rev{opacity:1;transform:none}
+.js .cuadro.rev .ventana>div{transform:translateY(101%)}
+.js .cuadro.rev img{transform:scale(1.18)}
+.js .cuadro.rev.visible .ventana>div{transform:none}
+.js .cuadro.rev.visible img{transform:none}
+.js .galeria .cuadro:nth-child(2) .ventana>div{transition-delay:.15s}.js .galeria .cuadro:nth-child(3) .ventana>div{transition-delay:.3s}
+.js .titular.listo .pal>span{animation:sube 1s var(--salto) both}
+.js .titular:not(.listo) .pal>span{transform:translateY(110%)}
+@keyframes sube{from{transform:translateY(110%) rotate(5deg)}60%{transform:translateY(-4%) rotate(-1deg)}to{transform:none}}
+
+@media (pointer:coarse){.btn{min-height:48px}}
+@media (min-width:600px){
+  .azulejos{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .azulejo{padding:22px 20px 24px}
+}
+@media (min-width:900px){
+  :root{--cab:74px}
+  .cab nav{display:flex;gap:28px}
+  .portada{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.12fr);align-items:center;min-height:min(100svh,860px)}
+  .portada-texto{order:-1;padding:40px 24px 60px max(20px,calc((100vw - 1160px)/2))}
+  .titular{font-size:clamp(2.8rem,3.9vw,4.4rem)}
+  .foto-mar{height:100%;min-height:560px;border-radius:0 0 0 64px}
+  .olas{height:46px}
+  .seccion{padding:110px 0}
+  .galeria{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));overflow:visible;padding:40px 0 0;margin:0;gap:22px}
+  .galeria .cuadro:nth-child(2){margin-top:56px}
+  .reservar .rejilla{grid-template-columns:minmax(0,1fr) minmax(0,.95fr);gap:60px;align-items:center}
+  .tobogan{padding-left:110px}
+  .tobogan>.riel{width:92px}
+  .foto-mar img{object-position:50% 88%}
+  .brillo{-webkit-mask-image:linear-gradient(to bottom,transparent 74%,#000 86%);mask-image:linear-gradient(to bottom,transparent 74%,#000 86%)}
+  .ubicacion .contenedor{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:50px;align-items:center}
+  .ruta{margin-top:0}
+  .pie{padding-bottom:50px}
+}
+@media (max-height:560px) and (max-width:899px){.foto-mar{height:170px}}
+@media (prefers-reduced-motion:reduce){
+  .brillo i,.olas svg,.icono .agua,.ruta .cayo,.tobogan .chorro{animation:none}
+  .foto-mar img{transform:none!important}
+  html{scroll-behavior:auto}
+}
+body.pausado *,body.pausado *::before,body.pausado *::after{animation-play-state:paused!important}
+</style>
+</head>
+<body>
+<a class="salta" href="#main">Saltar al contenido</a>
+<div class="tapa" aria-hidden="true"></div>
+<header class="cab">
+  <div class="contenedor">
+    <a class="marca" href="#main" aria-label="Agua Viva, inicio">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="18" fill="#13A3A6"/><path d="M8 38c6-6 10-6 16 0s10 6 16 0 10-6 16 0" fill="none" stroke="#FBF6EC" stroke-width="6" stroke-linecap="round"/><circle cx="44" cy="20" r="7" fill="#F2694C"/></svg>
+      <span><b>Agua Viva</b><small>Tucacas, Falcón</small></span>
+    </a>
+    <nav aria-label="Secciones">
+      <a href="#disfrutar">Lo que hay</a>
+      <a href="#apartamentos">Apartamentos</a>
+      <a href="#reservar">Reservar</a>
+      <a href="#ubicacion">Ubicación</a>
+    </nav>
+    <a class="btn btn-coral" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20informaci%C3%B3n%20para%20reservar%20en%20Agua%20Viva." target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+</header>
+
+<main id="main">
+  <section class="portada" aria-labelledby="titular">
+    <div class="foto-mar">
+      <picture>
+        <source media="(min-width:900px)" srcset="assets/img/piscina-alta.webp" width="1200" height="1600">
+        <img id="foto-portada" src="assets/img/piscina-mar-m.webp" width="900" height="675" alt="Piscina con vista al mar bajo un cielo despejado" fetchpriority="high">
+      </picture>
+      <div class="brillo" aria-hidden="true"><i></i><i></i></div>
+      <span class="etiqueta-foto">Foto referencial</span>
+      <div class="olas" aria-hidden="true">
+        <svg viewBox="0 0 800 40" preserveAspectRatio="none"><path d="M0 22 Q50 8 100 22 T200 22 T300 22 T400 22 T500 22 T600 22 T700 22 T800 22 V40 H0Z" fill="#C6ECE8" opacity=".75"/></svg>
+        <svg viewBox="0 0 800 40" preserveAspectRatio="none"><path d="M0 24 Q50 12 100 24 T200 24 T300 24 T400 24 T500 24 T600 24 T700 24 T800 24 V44 H0Z" fill="#FBF6EC"/></svg>
+      </div>
+    </div>
+    <div class="portada-texto contenedor">
+      <h1 class="titular" id="titular"><span class="pal"><span>Sus</span></span> <span class="pal"><span>vacaciones</span></span> <span class="pal"><span>en</span></span> <span class="pal"><span><em>Tucacas</em></span></span> <span class="pal"><span>empiezan</span></span> <span class="pal"><span>aquí.</span></span></h1>
+      <p class="bajada">Apartamentos vacacionales equipados, con piscina frente al mar.</p>
+      <a class="btn btn-coral" href="https://wa.me/580000000000?text=Hola%2C%20quiero%20consultar%20disponibilidad%20en%20Agua%20Viva%20para%20estas%20fechas%3A%20" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3a.5.5 0 0 0 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.1 5.1 0 0 0 1.1 2.7 11.6 11.6 0 0 0 4.4 3.9c1.6.7 2.3.8 3.1.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3Z"/></svg>
+        Consultar disponibilidad por WhatsApp
+      </a>
+      <p class="lugar"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></svg>Conjunto Residencial Agua Viva, Tucacas</p>
+    </div>
+  </section>
+
+  <section class="seccion" id="disfrutar" aria-labelledby="t-disfrutar">
+    <div class="contenedor">
+      <h2 class="h2 rev" id="t-disfrutar">Lo que va a disfrutar</h2>
+      <div class="azulejos">
+        <article class="azulejo rev">
+          <div class="icono" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 34V14l12-7 12 7v20"/><path d="M15 34v-8h10v8"/><path d="M15 17h3M22 17h3"/></svg></div>
+          <h3>Apartamentos equipados</h3>
+          <p>Llegue con la maleta: el apartamento está listo para su estadía.</p>
+        </article>
+        <article class="azulejo rev">
+          <div class="icono" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="29" cy="10" r="4"/><path d="M4 18h32"/><g class="agua"><path d="M4 26c3-3 5-3 8 0s5 3 8 0 5-3 8 0 5 3 8 0"/><path d="M4 33c3-3 5-3 8 0s5 3 8 0 5-3 8 0 5 3 8 0"/></g></svg></div>
+          <h3>Piscina con vista al mar</h3>
+          <p>Un chapuzón en la piscina, con el mar al frente.</p>
+        </article>
+        <article class="azulejo rev">
+          <div class="icono" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 34V8M14 34V8M8 14h6M8 21h6"/><path d="M14 9c10 0 8 13 16 16 3 1 5 2 6 5"/><g class="agua"><path d="M20 35c2-2 4-2 6 0s4 2 6 0"/></g></svg></div>
+          <h3>Tobogán para los niños</h3>
+          <p>Ellos se tiran por el tobogán y usted los ve desde la orilla.</p>
+        </article>
+        <article class="azulejo rev">
+          <div class="icono" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 26c4-3 14-3 20 0"/><path d="M19 25c0-6 1-11 4-15"/><path d="M23 10c-4-2-8-1-10 2M23 10c3-3 7-3 9 0M23 10c1 3 0 6-2 8"/><g class="agua"><path d="M4 32c3-3 5-3 8 0s5 3 8 0 5-3 8 0 5 3 8 0"/></g></svg></div>
+          <h3>Cerca de Morrocoy</h3>
+          <p>Las playas y los cayos de Morrocoy le quedan cerca.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion apartamentos" id="apartamentos" aria-labelledby="t-apart">
+    <div class="contenedor">
+      <h2 class="h2 rev" id="t-apart">Los apartamentos</h2>
+      <p class="intro rev">Espacios cómodos para descansar entre playa y piscina.</p>
+      <div class="galeria">
+        <figure class="cuadro rev">
+          <div class="ventana"><div><img src="assets/img/sala.webp" width="900" height="676" loading="lazy" alt="Sala con muebles claros y cojines de palmeras"></div><span class="etiqueta-foto">Foto referencial</span></div>
+          <figcaption>La sala</figcaption>
+        </figure>
+        <figure class="cuadro rev">
+          <div class="ventana"><div><img src="assets/img/sala-vista.webp" width="900" height="1200" loading="lazy" alt="Sala con ventanal y vista al mar"></div><span class="etiqueta-foto">Foto referencial</span></div>
+          <figcaption>Con luz de mar</figcaption>
+        </figure>
+        <figure class="cuadro rev">
+          <div class="ventana"><div><img src="assets/img/balcon.webp" width="900" height="1350" loading="lazy" alt="Balcón con sillas y vista al mar"></div><span class="etiqueta-foto">Foto referencial</span></div>
+          <figcaption>Para la brisa de la tarde</figcaption>
+        </figure>
+      </div>
+      <p class="nota-fotos rev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="14" rx="3"/><circle cx="12" cy="13" r="3.5"/><path d="M9 6l1.5-2h3L15 6"/></svg>Aquí van las fotos reales de sus apartamentos.</p>
+      <a class="btn btn-coral rev" href="https://wa.me/580000000000?text=Hola%2C%20quiero%20consultar%20disponibilidad%20para%20estas%20fechas%3A%20" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3a.5.5 0 0 0 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.1 5.1 0 0 0 1.1 2.7 11.6 11.6 0 0 0 4.4 3.9c1.6.7 2.3.8 3.1.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3Z"/></svg>
+        Consultar disponibilidad
+      </a>
+    </div>
+  </section>
+
+  <section class="seccion reservar" id="reservar" aria-labelledby="t-reservar">
+    <div class="contenedor">
+      <p class="antetitulo rev">Sin vueltas</p>
+      <h2 class="h2 rev" id="t-reservar">Cómo reservar, en tres pasos</h2>
+      <div class="rejilla">
+        <div class="tobogan" id="tobogan">
+          <svg class="riel" viewBox="0 0 80 600" preserveAspectRatio="none" aria-hidden="true">
+            <path class="canal" id="via-tobogan" d="M40 0 C78 70 4 150 40 230 S78 380 40 460 S4 560 40 600"/>
+            <path class="chorro" d="M40 0 C78 70 4 150 40 230 S78 380 40 460 S4 560 40 600"/>
+          </svg>
+          <svg class="flotador" id="flotador" viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="12.5" fill="none" stroke="#F2694C" stroke-width="8"/><path d="M17 4.5v5M17 24.5v5M4.5 17h5M24.5 17h5" stroke="#FFFFFF" stroke-width="8"/><circle cx="17" cy="17" r="12.5" fill="none" stroke="#06222A" stroke-opacity=".18" stroke-width="1"/></svg>
+          <div class="paso rev"><span class="n" aria-hidden="true">1</span><div><h3>Escríbanos con sus fechas</h3><p>Por WhatsApp, con sus fechas y cuántas personas son.</p></div></div>
+          <div class="paso rev"><span class="n" aria-hidden="true">2</span><div><h3>Le confirmamos la disponibilidad</h3><p>Le respondemos qué hay libre para esas fechas.</p></div></div>
+          <div class="paso rev"><span class="n" aria-hidden="true">3</span><div><h3>Le enviamos los datos</h3><p>Los datos para reservar, y ya tiene sus vacaciones en Tucacas.</p></div></div>
+        </div>
+
+        <form class="consulta rev" id="consulta" action="https://wa.me/580000000000" method="get" target="_blank">
+          <div class="consulta-cab">
+            <h3>Arme su consulta</h3>
+            <p>Elija fechas y personas. El mensaje se escribe solo.</p>
+            <svg viewBox="0 0 400 18" preserveAspectRatio="none" aria-hidden="true"><path d="M0 10 Q25 0 50 10 T100 10 T150 10 T200 10 T250 10 T300 10 T350 10 T400 10 V18 H0Z" fill="#FFFFFF"/></svg>
+          </div>
+          <div class="consulta-cuerpo">
+            <div class="fechas">
+              <div class="campo"><label for="llegada">Llegada</label><input type="date" id="llegada"></div>
+              <div class="campo"><label for="salida">Salida</label><input type="date" id="salida"></div>
+            </div>
+            <p class="aviso-fecha" id="aviso-fecha" aria-live="polite"></p>
+            <div class="personas">
+              <div class="contador"><span id="l-adultos">Adultos</span><div><button type="button" data-cambia="adultos" data-paso="-1" aria-label="Un adulto menos">−</button><output id="adultos" aria-labelledby="l-adultos">2</output><button type="button" data-cambia="adultos" data-paso="1" aria-label="Un adulto más">+</button></div></div>
+              <div class="contador"><span id="l-ninos">Niños</span><div><button type="button" data-cambia="ninos" data-paso="-1" aria-label="Un niño menos">−</button><output id="ninos" aria-labelledby="l-ninos">0</output><button type="button" data-cambia="ninos" data-paso="1" aria-label="Un niño más">+</button></div></div>
+            </div>
+            <div class="burbuja" aria-live="polite"><small>Su mensaje</small><span id="mensaje">Hola, quiero consultar disponibilidad en Agua Viva para estas fechas: </span></div>
+            <a class="btn btn-coral" id="enviar-consulta" href="https://wa.me/580000000000?text=Hola%2C%20quiero%20consultar%20disponibilidad%20en%20Agua%20Viva%20para%20estas%20fechas%3A%20" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3a.5.5 0 0 0 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.1 5.1 0 0 0 1.1 2.7 11.6 11.6 0 0 0 4.4 3.9c1.6.7 2.3.8 3.1.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3Z"/></svg>
+              Enviar consulta por WhatsApp
+            </a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion ubicacion" id="ubicacion" aria-labelledby="t-ubica">
+    <div class="contenedor">
+      <div>
+        <h2 class="h2 rev" id="t-ubica">Dónde estamos</h2>
+        <p class="direccion rev">Conjunto Residencial Agua Viva, carretera Morón - Coro, Tucacas, Falcón.</p>
+        <p class="intro rev">A la entrada de Tucacas, la puerta al Parque Nacional Morrocoy.</p>
+        <div class="botones rev">
+          <a class="btn btn-claro" href="https://www.google.com/maps/search/?api=1&amp;query=Conjunto%20Residencial%20Agua%20Viva%20Tucacas%20Falc%C3%B3n" target="_blank" rel="noopener">Ver en Google Maps</a>
+          <a class="btn btn-borde" href="https://wa.me/580000000000?text=Hola%2C%20%C2%BFme%20pueden%20indicar%20c%C3%B3mo%20llegar%20a%20Agua%20Viva%3F" target="_blank" rel="noopener">Preguntar cómo llegar</a>
+        </div>
+      </div>
+      <div class="ruta" id="ruta">
+        <svg viewBox="0 0 520 260" role="img" aria-label="Dibujo de la carretera Morón - Coro con Tucacas a medio camino, junto a los cayos de Morrocoy">
+          <g class="cayo" fill="#13A3A6" opacity=".55"><ellipse cx="300" cy="52" rx="34" ry="9"/><ellipse cx="372" cy="78" rx="22" ry="7"/><ellipse cx="430" cy="44" rx="28" ry="8"/></g>
+          <text x="318" y="24">Cayos de Morrocoy</text>
+          <path class="via" pathLength="1" d="M490 230 C420 220 380 190 330 160 S240 120 190 150 S80 150 20 110"/>
+          <circle cx="490" cy="230" r="6" fill="#F3E8D4"/><text x="430" y="256">Morón</text>
+          <circle cx="20" cy="110" r="6" fill="#F3E8D4"/><text x="8" y="92">hacia Coro</text>
+          <g class="pin"><path d="M262 140c0-14 22-14 22 0 0 9-11 22-11 22s-11-13-11-22Z" fill="#F2694C"/><circle cx="273" cy="140" r="4" fill="#0B3440"/></g>
+          <text class="fuerte" x="226" y="190">Tucacas</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="pie">
+  <div class="contenedor">
+    <p><b>Agua Viva</b></p>
+    <p>Alojamiento vacacional · Tucacas, Falcón</p>
+    <p>WhatsApp: <a href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20informaci%C3%B3n%20para%20reservar%20en%20Agua%20Viva." target="_blank" rel="noopener">+58 000 0000000</a></p>
+    <p class="aviso">Página de ejemplo con datos ficticios · Fotos referenciales</p>
+    <p>Vista previa hecha por Carlos Mendoza</p>
+  </div>
+</footer>
+
+<a class="wa-flota" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20informaci%C3%B3n%20para%20reservar%20en%20Agua%20Viva." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3a.5.5 0 0 0 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.1 5.1 0 0 0 1.1 2.7 11.6 11.6 0 0 0 4.4 3.9c1.6.7 2.3.8 3.1.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3Z"/></svg>
+</a>
+
+<script>
+(function () {
+  var doc = document.documentElement;
+  doc.classList.add("js");
+  var quieto = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function safe(fn, nombre) { try { fn(); } catch (e) { console.warn("[" + nombre + "]", e); } }
+
+  function initRevelar() {
+    var els = document.querySelectorAll(".rev, .ruta");
+    function ver(el) { el.classList.add("visible"); }
+    if (!("IntersectionObserver" in window)) { els.forEach(ver); return; }
+    var io = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (e) { if (e.isIntersecting) { ver(e.target); io.unobserve(e.target); } });
+    }, { threshold: 0.01, rootMargin: "0px 0px -6% 0px" });
+    els.forEach(function (el) { io.observe(el); });
+    setTimeout(function () { els.forEach(ver); }, 6000);
+  }
+
+  function initTitular() {
+    var t = document.getElementById("titular");
+    t.querySelectorAll(".pal > span").forEach(function (s, i) { s.style.animationDelay = (0.15 + i * 0.11) + "s"; });
+    requestAnimationFrame(function () { t.classList.add("listo"); });
+  }
+
+  // Un solo cuadro de animación por scroll: parallax de la portada y flotador del tobogán
+  function initScroll() {
+    var foto = document.getElementById("foto-portada");
+    var tob = document.getElementById("tobogan");
+    var via = document.getElementById("via-tobogan");
+    var flot = document.getElementById("flotador");
+    var largo = via.getTotalLength();
+    var pendiente = false;
+    function cuadro() {
+      pendiente = false;
+      var vh = doc.clientHeight, y = window.scrollY;
+      if (!quieto && y < vh * 1.2) foto.style.transform = "translate3d(0," + (y * 0.14).toFixed(1) + "px,0)";
+      var r = tob.getBoundingClientRect();
+      if (r.bottom > -100 && r.top < vh + 100) {
+        var p = Math.min(1, Math.max(0, (vh * 0.62 - r.top) / r.height));
+        var pt = via.getPointAtLength(p * largo);
+        var svg = via.ownerSVGElement.getBoundingClientRect();
+        var x = pt.x * svg.width / 80, yy = pt.y * svg.height / 600 + (svg.top - r.top);
+        flot.style.transform = "translate(" + x.toFixed(1) + "px," + yy.toFixed(1) + "px) rotate(" + Math.round(p * 540) + "deg)";
+      }
+    }
+    function pedir() { if (!pendiente) { pendiente = true; requestAnimationFrame(cuadro); } }
+    window.addEventListener("scroll", pedir, { passive: true });
+    window.addEventListener("resize", pedir);
+    cuadro();
+  }
+
+  function initConsulta() {
+    var n = { adultos: 2, ninos: 0 }, lim = { adultos: [1, 20], ninos: [0, 15] };
+    var lleg = document.getElementById("llegada"), sal = document.getElementById("salida");
+    var msj = document.getElementById("mensaje"), btn = document.getElementById("enviar-consulta");
+    var aviso = document.getElementById("aviso-fecha");
+    var hoy = new Date(); hoy.setMinutes(hoy.getMinutes() - hoy.getTimezoneOffset());
+    lleg.min = sal.min = hoy.toISOString().slice(0, 10);
+    function fmt(v) { var p = v.split("-"); return p[2] + "/" + p[1] + "/" + p[0]; }
+    function armar() {
+      var t = "Hola, quiero consultar disponibilidad en Agua Viva";
+      aviso.textContent = "";
+      if (lleg.value && sal.value) {
+        var noches = Math.round((new Date(sal.value) - new Date(lleg.value)) / 864e5);
+        if (noches > 0) t += " del " + fmt(lleg.value) + " al " + fmt(sal.value) + " (" + noches + (noches === 1 ? " noche)" : " noches)");
+        else { aviso.textContent = "La salida debe ser después de la llegada."; t += " para estas fechas: "; }
+      } else if (lleg.value) t += " con llegada el " + fmt(lleg.value);
+      else t += " para estas fechas: ";
+      if (lleg.value || sal.value) {
+        t = t.replace(/ para estas fechas: $/, " para estas fechas");
+        t += ". Somos " + n.adultos + (n.adultos === 1 ? " adulto" : " adultos");
+        if (n.ninos) t += " y " + n.ninos + (n.ninos === 1 ? " niño" : " niños");
+        t += ".";
+      } else {
+        t += "(por definir). Somos " + n.adultos + (n.adultos === 1 ? " adulto" : " adultos") + (n.ninos ? " y " + n.ninos + (n.ninos === 1 ? " niño" : " niños") : "") + ".";
+      }
+      msj.textContent = t;
+      btn.href = "https://wa.me/580000000000?text=" + encodeURIComponent(t);
+    }
+    lleg.addEventListener("change", function () { if (lleg.value) sal.min = lleg.value; armar(); });
+    sal.addEventListener("change", armar);
+    document.querySelectorAll("[data-cambia]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var k = b.dataset.cambia, v = n[k] + Number(b.dataset.paso);
+        n[k] = Math.min(lim[k][1], Math.max(lim[k][0], v));
+        document.getElementById(k).textContent = n[k];
+        armar();
+      });
+    });
+    document.getElementById("consulta").addEventListener("submit", function (e) { e.preventDefault(); btn.click(); });
+    armar();
+  }
+
+  // Ondas de agua donde se toca un botón
+  function initOndas() {
+    document.addEventListener("pointerdown", function (e) {
+      var b = e.target.closest(".btn, .wa-flota");
+      if (!b) return;
+      var r = b.getBoundingClientRect();
+      for (var i = 0; i < 2; i++) {
+        var o = document.createElement("span");
+        o.className = "onda";
+        o.style.left = (e.clientX - r.left) + "px"; o.style.top = (e.clientY - r.top) + "px";
+        b.appendChild(o);
+        setTimeout(function (el) { el.remove(); }.bind(null, o), 1000);
+      }
+    });
+  }
+
+  function initPausa() {
+    document.addEventListener("visibilitychange", function () { document.body.classList.toggle("pausado", document.hidden); });
+  }
+
+  safe(initRevelar, "revelar");
+  safe(initTitular, "titular");
+  safe(initScroll, "scroll");
+  safe(initConsulta, "consulta");
+  safe(initOndas, "ondas");
+  safe(initPausa, "pausa");
+})();
+</script>
+</body>
+</html>
