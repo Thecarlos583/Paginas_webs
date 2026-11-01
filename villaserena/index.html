@@ -6,37 +6,34 @@
 <title>Posada VillaSerena · Barinitas, Barinas</title>
 <meta name="description" content="Posada campestre con ambiente familiar en Barinitas, estado Barinas. Habitaciones para parejas y familias, desayuno criollo y reservas por WhatsApp.">
 <meta name="robots" content="noindex, nofollow">
-<meta name="theme-color" content="#F7B9A8">
+<meta name="theme-color" content="#1F2A22">
 <meta name="color-scheme" content="only light">
 <meta property="og:title" content="Posada VillaSerena · Barinitas">
-<meta property="og:description" content="Un día en VillaSerena: posada campestre familiar al pie de la montaña barinesa.">
+<meta property="og:description" content="Posada campestre familiar al pie de la montaña barinesa.">
 <meta property="og:url" content="https://thecarlos583.github.io/Paginas_webs/villaserena/">
-<meta property="og:image" content="https://thecarlos583.github.io/Paginas_webs/villaserena/assets/img/familiar-720.webp">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23F7B9A8'/%3E%3Ccircle cx='22' cy='12' r='5' fill='%23F2B347'/%3E%3Cpath d='M0 24l10-9 8 6 6-4 8 6v9H0z' fill='%235F8C88'/%3E%3Cpath d='M9 26l6-5 6 5z' fill='%23B9542F'/%3E%3C/svg%3E">
-<link rel="preload" href="assets/fuentes/serif-700.woff2" as="font" type="font/woff2" crossorigin>
+<meta property="og:image" content="https://images.unsplash.com/photo-1773861540606-e5df23583620?w=1200&amp;q=70&amp;auto=format&amp;fit=crop">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231F2A22'/%3E%3Cpath d='M6 22l10-9 10 9' fill='none' stroke='%23E9C38A' stroke-width='3'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&amp;family=Commissioner:wght@400;600&amp;display=swap" rel="stylesheet">
 <style>
-@font-face{font-family:"Llano";src:url(assets/fuentes/serif-500.woff2) format("woff2");font-weight:500;font-display:swap}
-@font-face{font-family:"Llano";src:url(assets/fuentes/serif-700.woff2) format("woff2");font-weight:700;font-display:swap}
-@font-face{font-family:"Pueblo";src:url(assets/fuentes/sans-400.woff2) format("woff2");font-weight:400;font-display:swap}
-@font-face{font-family:"Pueblo";src:url(assets/fuentes/sans-600.woff2) format("woff2");font-weight:600;font-display:swap}
-
 :root{
   color-scheme:only light;
-  --tinta:#1B1E2E;
-  --tinta-suave:#474A5C;
-  --crema:#FFF6E8;
-  --papel:#FFFBF4;
+  --tinta:#1B1F1C;
+  --tinta-suave:#4B514C;
+  --crema:#F7F1E6;
+  --papel:#FFFCF6;
+  --arena:#EDE3D1;
+  --monte:#1F2A22;
   --verde:#2F5A3A;
   --verde-hondo:#22442C;
-  --llano:#3F6B3A;
-  --teja:#B9542F;
-  --oro:#F2B347;
-  --noche:#0B1230;
-  --luz:#FFD683;
+  --teja:#B4532E;
+  --miel:#E9C38A;
   --suave:cubic-bezier(.22,.61,.36,1);
   --salto:cubic-bezier(.34,1.56,.64,1);
-  --titulo:"Llano","Arial Black","Segoe UI",sans-serif;
-  --texto:"Pueblo","Segoe UI",system-ui,sans-serif;
+  --titulo:"Unbounded","Segoe UI",sans-serif;
+  --texto:"Commissioner","Segoe UI",system-ui,sans-serif;
   --lado:clamp(16px,5vw,64px);
   --max:1240px;
 }
@@ -45,268 +42,221 @@ html{overflow-x:hidden;overflow-x:clip;scroll-behavior:smooth;-webkit-text-size-
 body{margin:0;overflow-x:hidden;overflow-x:clip;background:var(--crema);color:var(--tinta);font-family:var(--texto);font-size:17px;line-height:1.6}
 img{display:block;max-width:100%;height:auto}
 a{color:inherit}
-h1,h2,h3{font-family:var(--titulo);font-weight:700;line-height:1.02;letter-spacing:-.025em;margin:0;text-wrap:balance}
+h1,h2,h3{font-family:var(--titulo);font-weight:700;line-height:1.04;letter-spacing:-.03em;margin:0;text-wrap:balance}
 p{margin:0;text-wrap:pretty}
-ul{margin:0;padding:0;list-style:none}
+ul,ol{margin:0;padding:0;list-style:none}
 .contenedor{width:100%;max-width:calc(var(--max) + 2*var(--lado));margin:0 auto;padding-left:var(--lado);padding-right:var(--lado)}
-:focus-visible{outline:3px solid var(--oro);outline-offset:3px;border-radius:6px}
+:focus-visible{outline:3px solid var(--miel);outline-offset:3px;border-radius:6px}
 .salto-main{position:absolute;left:-999px;top:8px;background:var(--papel);padding:8px 12px;z-index:100}
 .salto-main:focus{left:8px}
+.seccion{padding-top:clamp(84px,10vw,140px);padding-bottom:clamp(84px,10vw,140px)}
+.titulo-sec{font-size:clamp(1.9rem,5.6vw,3.6rem)}
+.nota-ej{font-size:14px;color:var(--tinta-suave)}
 
 /* Botones */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 24px;border-radius:999px;font:600 16px/1.2 var(--texto);text-decoration:none;border:0;cursor:pointer;transition:transform .35s var(--salto),background-color .3s var(--suave),color .3s var(--suave)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 24px;border-radius:999px;font:600 16px/1.2 var(--texto);text-decoration:none;border:0;cursor:pointer;transition:transform .3s var(--salto),background-color .25s var(--suave),color .25s var(--suave)}
 .btn svg{width:20px;height:20px;flex:none}
 .btn-wa{background:var(--verde);color:#fff}
-.btn-luz{background:var(--luz);color:var(--tinta)}
-.btn-claro{background:var(--papel);color:var(--tinta)}
+.btn-linea{background:transparent;color:inherit;box-shadow:inset 0 0 0 1.5px currentColor}
 @media (hover:hover) and (pointer:fine){
   .btn:hover{transform:translateY(-2px)}
   .btn-wa:hover{background:var(--verde-hondo)}
-  .btn-luz:hover{background:#FFE3A6}
+  .btn-linea:hover{background:rgba(255,255,255,.12)}
 }
 .btn:active{transform:scale(.97)}
 @media (pointer:coarse){.btn{min-height:48px}}
 .enlace{font-weight:600;text-underline-offset:4px;text-decoration-thickness:1.5px}
 
+/* Fotos que se amplían */
+.ampliar{display:block;position:relative;padding:0;border:0;background:var(--arena);cursor:zoom-in;overflow:hidden;width:100%;color:inherit}
+.ampliar img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--suave)}
+@media (hover:hover) and (pointer:fine){.ampliar:hover img{transform:scale(1.035)}}
+.ampliar .lupa{position:absolute;right:12px;bottom:12px;width:40px;height:40px;border-radius:50%;background:rgba(255,252,246,.92);display:grid;place-items:center;color:var(--tinta)}
+.ampliar .lupa svg{width:18px;height:18px}
+.etiqueta-foto{position:absolute;left:12px;bottom:12px;background:rgba(27,31,28,.72);color:#fff;font-size:12px;padding:4px 10px;border-radius:999px}
+
 /* Cabecera */
-.cabecera{position:fixed;top:0;left:0;right:0;z-index:40;padding-top:env(safe-area-inset-top);color:var(--tinta);transition:background-color .5s var(--suave),color .5s var(--suave)}
+.cabecera{position:fixed;top:0;left:0;right:0;z-index:40;padding-top:env(safe-area-inset-top);color:#fff;transition:background-color .35s var(--suave),color .35s var(--suave),box-shadow .35s var(--suave)}
 .cabecera::before{content:"";position:absolute;left:0;right:0;top:-400px;height:400px;background:inherit}
-.cabecera .contenedor{display:flex;align-items:center;justify-content:space-between;gap:20px;height:64px}
+.cabecera .contenedor{display:flex;align-items:center;justify-content:space-between;gap:20px;height:66px}
 .marca{font-family:var(--titulo);font-weight:700;font-size:19px;letter-spacing:-.03em;text-decoration:none;white-space:nowrap}
 .menu{display:none;gap:26px;font-size:15px;font-weight:600}
-.menu a{text-decoration:none;opacity:.86}
+.menu a{text-decoration:none;opacity:.9}
 .menu a:hover{opacity:1;text-decoration:underline;text-underline-offset:5px}
 .cabecera .btn{padding:10px 18px;font-size:15px}
-.cabecera.clara{color:var(--crema)}
-.cabecera.solida{background:rgba(255,246,232,.97);color:var(--tinta);box-shadow:0 1px 0 rgba(27,30,46,.08)}
-.cabecera.nocturna{background:rgba(11,18,48,.96);color:var(--crema)}
-.cabecera.nocturna .btn-wa{background:var(--luz);color:var(--tinta)}
+.cabecera.solida{background:rgba(247,241,230,.97);color:var(--tinta);box-shadow:0 1px 0 rgba(27,31,28,.08)}
 
-/* La escena del día */
-.dia{position:relative;isolation:isolate}
-.escena{position:absolute;inset:0;overflow:hidden;z-index:-1;--texto-escena:#FFF6E8}
-.cielo,.capa,.astros,.tinte,.grano{position:absolute;inset:0;pointer-events:none}
-.cielo div{position:absolute;inset:0}
-.c-alba{background:linear-gradient(180deg,#F7B3A6 0%,#FBCDB0 42%,#FDE6C6 70%)}
-.c-dia{background:linear-gradient(180deg,#7CC0E4 0%,#AED9EE 46%,#E6F2EA 72%)}
-.c-tarde{background:linear-gradient(180deg,#46377A 0%,#A24F8A 36%,#EE7A4E 60%,#F8B55E 78%)}
-.c-noche{background:linear-gradient(180deg,#080E28 0%,#141E48 52%,#2A3566 78%)}
-.c-dia,.c-noche{opacity:0}
-.estrellas{position:absolute;inset:0 0 40% 0;opacity:0;background-image:radial-gradient(1.4px 1.4px at 8% 14%,#fff,transparent),radial-gradient(1px 1px at 18% 34%,#fff,transparent),radial-gradient(1.6px 1.6px at 27% 8%,#fff,transparent),radial-gradient(1px 1px at 36% 26%,#fff,transparent),radial-gradient(1.3px 1.3px at 44% 12%,#fff,transparent),radial-gradient(1px 1px at 53% 38%,#fff,transparent),radial-gradient(1.5px 1.5px at 61% 20%,#fff,transparent),radial-gradient(1px 1px at 70% 6%,#fff,transparent),radial-gradient(1.3px 1.3px at 78% 30%,#fff,transparent),radial-gradient(1px 1px at 86% 16%,#fff,transparent),radial-gradient(1.5px 1.5px at 93% 40%,#fff,transparent),radial-gradient(1px 1px at 4% 48%,#fff,transparent),radial-gradient(1.2px 1.2px at 48% 52%,#fff,transparent),radial-gradient(1px 1px at 66% 58%,#fff,transparent)}
-.sol{position:absolute;left:0;top:0;width:clamp(56px,9vmin,96px);aspect-ratio:1;margin:calc(clamp(56px,9vmin,96px)/-2) 0 0 calc(clamp(56px,9vmin,96px)/-2);border-radius:50%;background:#FFE7A8;box-shadow:0 0 0 14px rgba(255,231,168,.28),0 0 0 34px rgba(255,231,168,.12);transform:translate3d(78vw,52vh,0);will-change:transform}
-.luna{position:absolute;left:0;top:0;width:clamp(40px,6vmin,64px);aspect-ratio:1;border-radius:50%;box-shadow:inset -12px 6px 0 0 #F4EEDD;opacity:0;transform:translate3d(80vw,30vh,0) rotate(-20deg);will-change:transform,opacity}
-.capa{inset:0 -110px 0 -20px;will-change:transform}
-.capa svg{width:100%;height:100%;display:block}
-.neblina{opacity:.95}
-.tinte{inset:0 -110px 0 -20px}
-.t-alba{background:#F6A08E;opacity:0}
-.t-tarde{background:#E26A3C;opacity:.2}
-.t-noche{background:#0B1638;opacity:0}
-.grano{opacity:.07;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-.ventana-luz{opacity:0}
-.luciernaga-escena{opacity:0}
-.sombra{transform-box:fill-box;transform-origin:50% 50%}
+/* Portada */
+.portada{position:relative;min-height:min(100svh,880px);display:flex;flex-direction:column;justify-content:flex-end;color:#fff;background:var(--monte);overflow:hidden;isolation:isolate}
+.portada-medio{position:absolute;inset:0;z-index:-2}
+.portada-medio img,.portada-medio video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.portada-medio img{animation:acerca 40s ease-out both}
+@keyframes acerca{from{transform:scale(1.08)}to{transform:scale(1)}}
+.portada-medio video{opacity:0;transition:opacity 1.2s var(--suave)}
+.portada-medio video.listo{opacity:1}
+.portada::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(15,20,16,.55) 0%,rgba(15,20,16,.05) 30%,rgba(15,20,16,.25) 52%,rgba(15,20,16,.82) 100%)}
+.portada-texto{padding-top:120px;padding-bottom:28px}
+.lugar-portada{font-weight:600;font-size:15px;opacity:.92;margin-bottom:14px}
+.portada h1{font-size:clamp(2.4rem,9.4vw,6.4rem);max-width:13ch;letter-spacing:-.04em;text-shadow:0 2px 30px rgba(0,0,0,.25)}
+.portada .bajada{font-size:clamp(17px,1.8vw,20px);max-width:40ch;margin-top:18px}
+.portada .acciones{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.datos-portada{border-top:1px solid rgba(255,255,255,.22);padding-top:18px;padding-bottom:calc(22px + env(safe-area-inset-bottom));display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.datos-portada li{font-size:14px;line-height:1.35;opacity:.95;min-width:0}
+@media (max-width:899px){.datos-portada{grid-template-columns:repeat(2,minmax(0,1fr));padding-right:70px}.datos-portada li:nth-child(3){display:none}}
+.datos-portada b{display:block;font-family:var(--titulo);font-size:clamp(17px,2.2vw,24px);letter-spacing:-.02em}
 
-/* Subtítulos sobre la escena (modo estático por defecto: uno debajo del otro) */
-.subs{position:relative;padding:110px 0 46vh;display:grid;gap:22vh}
-.escena::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,14,44,.62) 0%,rgba(20,14,44,.35) 55%,rgba(20,14,44,0) 80%);z-index:5}
-.sub{color:var(--texto-escena);text-shadow:0 2px 24px rgba(20,14,44,.35)}
-.sub h2{font-size:clamp(1.65rem,7vw,4.4rem);max-width:15ch}
-.sub p{font-size:clamp(16px,1.6vw,19px);max-width:36ch;margin-top:16px;font-weight:600}
-.sub .acciones{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px;margin-top:22px}
-.sub .enlace{color:inherit}
-.portada-h1{font-size:clamp(2.2rem,10vw,7rem);line-height:.96;letter-spacing:-.04em;max-width:none}
-.linea{display:block;white-space:nowrap;width:max-content}
-.letra{display:inline-block;animation:letra .9s var(--salto) both;animation-delay:calc(var(--i)*45ms + 150ms)}
-@keyframes letra{from{opacity:0;transform:translate3d(0,.5em,0) rotate(8deg)}to{opacity:1;transform:none}}
-.bajada{animation:entra .9s var(--suave) 1.3s both}
-.vivo .portada .bajada,.vivo .portada .enlace{text-shadow:0 0 10px rgba(253,232,204,.95),0 0 22px rgba(253,232,204,.8)}
-.portada .acciones{animation:entra .9s var(--suave) 1.5s both}
-@keyframes entra{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+/* Bienvenida */
+.bienvenida .rejilla{display:grid;gap:40px}
+.bienvenida h2{max-width:16ch}
+.bienvenida .texto>p{margin-top:20px;max-width:44ch;font-size:18px}
+.claves{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 22px;margin:30px 0 0;border-top:1px solid rgba(27,31,28,.14);padding-top:24px}
+.claves dt{font-weight:600}
+.claves dd{margin:2px 0 0;color:var(--tinta-suave);font-size:15px}
+.fotos-bienvenida{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}
+.fotos-bienvenida .f1{grid-column:1/-1;aspect-ratio:4/3;border-radius:22px}
+.fotos-bienvenida .f2{grid-column:1/4;aspect-ratio:1;border-radius:18px}
+.fotos-bienvenida .f3{grid-column:4/7;aspect-ratio:1;border-radius:18px}
 
-/* Modo vivo (JS y movimiento permitido) */
-.vivo .dia{height:560vh}
-.vivo .escena{position:sticky;top:0;height:100vh;height:100svh;z-index:0;--texto-escena:var(--tinta)}
-.vivo .escena::after{display:none}
-.vivo .subs{position:sticky;top:0;height:100vh;height:100svh;margin-top:-100vh;margin-top:-100svh;padding:0;display:block;max-width:none;z-index:1;pointer-events:none}
-.vivo .sub{position:absolute;left:var(--lado);right:var(--lado);max-width:var(--max);top:calc(84px + env(safe-area-inset-top));opacity:0;will-change:opacity,transform;text-shadow:none}
-.vivo .sub.activo{pointer-events:auto}
-.vivo .sub.portada{opacity:1}
-.vivo .dia .sub{color:var(--tinta)}
-.vivo .dia.oscura .sub{color:var(--crema);text-shadow:0 2px 20px rgba(10,8,30,.45)}
-.sub{transition:color .6s var(--suave)}
-.vivo .t-tarde{opacity:0}
-
-/* Habitaciones: polaroids en el mecate */
-.cuartos{position:relative;background:var(--crema)}
-.cuartos-fijo{position:relative;padding:96px 0 72px}
-.pista{display:flex;gap:clamp(18px,3vw,44px);padding:0 var(--lado) 30px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--lado);align-items:flex-start}
-.vivo .cuartos-fijo{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;padding:0;display:flex;flex-direction:column;justify-content:center}
-.vivo .pista{overflow:visible;scroll-snap-type:none;will-change:transform;padding-bottom:0}
-.intro-cuartos{flex:none;width:min(84vw,430px);scroll-snap-align:start;padding-top:44px}
-.intro-cuartos h2{font-size:clamp(2rem,6vw,3.2rem)}
-.intro-cuartos p{margin-top:16px;max-width:32ch}
-.intro-cuartos .pequena{font-size:14px;color:var(--tinta-suave);margin-top:12px}
-.flecha-pista{display:inline-flex;align-items:center;gap:10px;margin-top:22px;font-weight:600;font-size:15px}
-.flecha-pista svg{width:44px;height:14px}
-.colgador{flex:none;width:min(66vw,300px);position:relative;scroll-snap-align:center;padding-top:44px}
-.mecate{position:absolute;left:calc(-1 * clamp(18px,3vw,44px) - 2px);width:calc(100% + clamp(18px,3vw,44px) + 4px);top:0;height:46px;pointer-events:none}
-.mecate path{fill:none;stroke:#8A6A44;stroke-width:3;stroke-linecap:round}
-.pendulo{transform-origin:50% 0;will-change:transform}
-.vaiven{transform-origin:50% 0;animation:vaiven 5.5s ease-in-out infinite alternate}
-.colgador:nth-child(odd) .vaiven{animation-duration:6.4s;animation-delay:-2s}
-@keyframes vaiven{from{transform:rotate(-1.4deg)}to{transform:rotate(1.4deg)}}
-.pinza{position:absolute;left:50%;top:-30px;width:16px;height:40px;margin-left:-8px;border-radius:3px;background:linear-gradient(90deg,#C49A63 0 48%,#A97E4B 48% 52%,#C49A63 52%);z-index:2}
-.polaroid{position:relative;display:block;width:100%;background:#FFFDF8;padding:12px 12px 16px;border:0;text-align:left;cursor:pointer;box-shadow:0 14px 30px rgba(54,38,20,.18),0 2px 4px rgba(54,38,20,.12);color:var(--tinta);font:inherit;transform:rotate(var(--tilt,0deg));transition:transform .5s var(--salto)}
-.polaroid img{width:100%;aspect-ratio:4/5;object-fit:cover;background:#E9DCC6}
-.polaroid h3{font-size:clamp(17px,4.6vw,20px);margin-top:14px;letter-spacing:-.03em}
-.polaroid .datos{display:flex;justify-content:space-between;gap:10px;margin-top:6px;font-size:15px;color:var(--tinta-suave)}
-.polaroid .precio{font-weight:600;color:var(--tinta)}
-.polaroid .abrir{display:block;margin-top:10px;font-size:14px;font-weight:600;color:var(--verde);text-decoration:underline;text-underline-offset:4px}
-@media (hover:hover) and (pointer:fine){.polaroid:hover{transform:rotate(0deg) scale(1.03)}}
-.polaroid:active{transform:scale(.98)}
-.detalle{display:none}
-html:not(.js) .detalle{display:block;margin-top:10px;font-size:15px}
-.detalle ul{display:grid;gap:6px;margin-top:10px}
-.detalle li{display:flex;gap:10px;align-items:baseline}
-.detalle li::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--oro);flex:none;transform:translateY(-2px)}
-.fin-pista{flex:none;width:12px}
-
-/* Ficha de habitación */
-.ficha{border:0;padding:0;width:min(92vw,820px);max-height:92vh;border-radius:22px;background:var(--papel);color:var(--tinta);box-shadow:0 30px 80px rgba(10,10,30,.35)}
-.ficha::backdrop{background:rgba(11,18,48,.55)}
-.ficha[open]{animation:ficha .45s var(--salto)}
-@keyframes ficha{from{opacity:0;transform:translateY(24px) scale(.97)}to{opacity:1;transform:none}}
-.ficha-grid{display:grid}
-.ficha img{width:100%;height:100%;max-height:44vh;object-fit:cover}
-.ficha-texto{padding:22px 22px 26px;display:grid;gap:10px;align-content:start}
-.ficha h3{font-size:clamp(1.6rem,4vw,2.4rem)}
-.ficha .linea-datos{display:flex;flex-wrap:wrap;gap:6px 18px;color:var(--tinta-suave)}
-.ficha .linea-datos b{color:var(--tinta);font-size:22px}
-.ficha .botones{display:grid;gap:10px;margin-top:10px}
-.ficha .nota-precio{font-size:13px;color:var(--tinta-suave)}
-.cerrar{position:absolute;top:12px;right:12px;width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,251,244,.94);cursor:pointer;display:grid;place-items:center;box-shadow:0 4px 12px rgba(0,0,0,.15)}
-.cerrar svg{width:18px;height:18px}
+/* Habitaciones */
+.habitaciones{background:var(--papel)}
+.habitaciones .cabeza{display:grid;gap:12px;margin-bottom:28px}
+.habitaciones .cabeza p{max-width:46ch;color:var(--tinta-suave)}
+.pestanas{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:2px var(--lado) 8px;margin:0 calc(-1*var(--lado));scroll-padding-inline:var(--lado)}
+.pestanas::-webkit-scrollbar{display:none}
+.pestana{flex:none;padding:12px 18px;border-radius:999px;border:1.5px solid rgba(27,31,28,.18);background:transparent;font:600 15px/1.2 var(--texto);color:var(--tinta);cursor:pointer;min-height:46px;transition:background-color .25s,color .25s,border-color .25s}
+.pestana small{font-weight:400;opacity:.75;margin-left:6px;font-size:14px}
+.pestana[aria-selected="true"]{background:var(--monte);color:#fff;border-color:var(--monte)}
+@media (hover:hover) and (pointer:fine){.pestana:hover{border-color:var(--monte)}}
+.panel{display:grid;gap:26px;margin-top:22px}
+.panel[hidden]{display:none}
+.galeria-cuarto{display:grid;gap:10px}
+.galeria-cuarto .principal{aspect-ratio:4/3;border-radius:22px}
+.miniaturas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.miniaturas .ampliar{aspect-ratio:4/3;border-radius:14px}
+.ficha h3{font-size:clamp(1.7rem,4.4vw,2.8rem)}
+.ficha .precio{display:flex;align-items:baseline;gap:10px;margin-top:12px;flex-wrap:wrap}
+.ficha .precio b{font-family:var(--titulo);font-size:clamp(1.8rem,4vw,2.6rem);letter-spacing:-.03em}
+.ficha .precio span{color:var(--tinta-suave)}
+.ficha .resumen{margin-top:14px;max-width:42ch;font-size:18px}
+.comodidades{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 18px;margin-top:20px;padding-top:20px;border-top:1px solid rgba(27,31,28,.14)}
+.comodidades li{display:flex;gap:10px;align-items:baseline;font-size:16px;min-width:0}
+.comodidades li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--teja);flex:none;transform:translateY(-1px)}
+.ficha .botones{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;margin-top:26px}
+.ficha .nota-ej{margin-top:14px}
 
 /* Lo que incluye */
-.incluye{background:var(--llano);color:var(--crema);padding:clamp(90px,11vw,150px) 0}
-.incluye .cabeza{display:grid;gap:16px;margin-bottom:52px}
-.incluye h2{font-size:clamp(2rem,6vw,3.8rem);max-width:14ch}
-.incluye .cabeza p{max-width:42ch;opacity:.9}
-.servicios{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px 22px}
-.servicio{min-width:0}
-.servicio svg{width:64px;height:64px;color:#FFE6B0}
-.servicio path,.servicio circle,.servicio rect,.servicio line,.servicio polyline{fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-.servicio h3{font-family:var(--texto);font-weight:600;font-size:18px;letter-spacing:0;margin-top:12px}
-.servicio p{font-size:15px;opacity:.86;margin-top:4px}
-.js .servicio .trazo{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.3s var(--suave);transition-delay:var(--rd,0s)}
-.js .servicio.visible .trazo{stroke-dashoffset:0}
+.incluye{background:var(--monte);color:var(--crema)}
+.incluye .rejilla{display:grid;gap:40px}
+.incluye .fotos{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;align-items:end}
+.incluye .fotos .g1{grid-column:1/4;aspect-ratio:4/5;border-radius:22px}
+.incluye .fotos .g2{grid-column:4/6;aspect-ratio:3/4;border-radius:18px}
+.incluye h2{max-width:14ch}
+.incluye .intro{margin-top:16px;max-width:42ch;opacity:.88}
+.lista-incluye{margin-top:30px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 24px}
+.lista-incluye li{padding:16px 0;border-top:1px solid rgba(247,241,230,.18);min-width:0}
+.lista-incluye b{display:block;font-weight:600;font-size:17px;color:#fff}
+.lista-incluye span{font-size:15px;opacity:.8}
 
 /* Qué hacer cerca */
-.cerca{background:var(--papel);padding:clamp(90px,11vw,150px) 0}
-.cerca .rejilla{display:grid;gap:36px}
-.cerca h2{font-size:clamp(2rem,6vw,3.8rem)}
-.cerca .intro{margin-top:14px;max-width:40ch;color:var(--tinta-suave)}
-.mapa{width:100%;height:auto;background:#F3E9D2;border-radius:28px}
-.mapa .pin circle{transition:transform .4s var(--salto);transform-box:fill-box;transform-origin:center}
-.mapa .pin.activo circle.marca-pin{transform:scale(1.5)}
-.mapa .pin text{font:600 21px var(--texto);fill:var(--tinta)}
-.mapa .pin.activo text{fill:var(--teja)}
-.lugares{display:grid;gap:4px;margin-top:22px}
-.lugar{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 14px;width:100%;padding:14px 12px;border:0;border-radius:16px;background:transparent;text-align:left;font:inherit;color:inherit;cursor:pointer;transition:background-color .3s var(--suave)}
-.lugar .punto{width:14px;height:14px;border-radius:50%;background:var(--teja);margin-top:6px;grid-row:span 2;box-shadow:0 0 0 4px rgba(185,84,47,.18)}
-.lugar b{font-weight:600;font-size:18px}
-.lugar span:last-child{color:var(--tinta-suave);font-size:15px}
-.lugar[aria-pressed="true"]{background:#F3E9D2}
-@media (hover:hover) and (pointer:fine){.lugar:hover{background:#F6EEDC}}
+.cerca .cabeza p{font-size:16px;color:var(--tinta-suave);margin-top:14px;max-width:44ch}
+.lugares{display:grid;gap:18px;margin-top:36px}
+.lugar{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,3fr);gap:16px;align-items:center;padding-top:18px;border-top:1px solid rgba(27,31,28,.14)}
+.lugar .ampliar{aspect-ratio:1;border-radius:16px}
+.lugar h3{font-size:clamp(1.05rem,2.6vw,1.5rem);letter-spacing:-.02em}
+.lugar p{margin-top:6px;color:var(--tinta-suave);font-size:15px}
+.lugar .enlace{display:inline-block;margin-top:8px;font-size:15px}
 
-/* Preguntas frecuentes */
-.preguntas{background:var(--crema);padding:clamp(90px,11vw,150px) 0}
-.preguntas .rejilla{display:grid;gap:30px}
-.preguntas h2{font-size:clamp(1.8rem,5.6vw,3.2rem);align-self:start}
-.acordeon details{border-top:1.5px solid rgba(27,30,46,.16)}
-.acordeon details:last-child{border-bottom:1.5px solid rgba(27,30,46,.16)}
+/* Preguntas */
+.preguntas{background:var(--papel)}
+.preguntas .rejilla{display:grid;gap:28px}
+.acordeon details{border-top:1.5px solid rgba(27,31,28,.14)}
+.acordeon details:last-child{border-bottom:1.5px solid rgba(27,31,28,.14)}
 .acordeon summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:18px;padding:22px 2px;font-weight:600;font-size:clamp(17px,2vw,20px)}
 .acordeon summary::-webkit-details-marker{display:none}
-.mas{width:34px;height:34px;flex:none;border-radius:50%;background:var(--papel);display:grid;place-items:center;transition:transform .4s var(--salto),background-color .3s}
+.mas{width:34px;height:34px;flex:none;border-radius:50%;background:var(--arena);display:grid;place-items:center;transition:transform .35s var(--salto),background-color .25s}
 .mas svg{width:14px;height:14px}
-.acordeon details[open] .mas{transform:rotate(45deg);background:var(--oro)}
+.acordeon details[open] .mas{transform:rotate(45deg);background:var(--miel)}
 .acordeon .respuesta{padding:0 2px 24px;max-width:58ch;color:var(--tinta-suave)}
 
-/* Reservar de noche */
-.reservar{position:relative;background:linear-gradient(180deg,#141E48 0%,var(--noche) 40%);color:var(--crema);padding:clamp(100px,12vw,160px) 0 clamp(90px,10vw,140px);overflow:hidden;isolation:isolate}
-.reservar::before{content:"";position:absolute;inset:0;z-index:-2;opacity:.75;background-image:radial-gradient(1.3px 1.3px at 10% 12%,#fff,transparent),radial-gradient(1px 1px at 24% 30%,#fff,transparent),radial-gradient(1.5px 1.5px at 38% 8%,#fff,transparent),radial-gradient(1px 1px at 52% 22%,#fff,transparent),radial-gradient(1.2px 1.2px at 67% 10%,#fff,transparent),radial-gradient(1px 1px at 80% 26%,#fff,transparent),radial-gradient(1.4px 1.4px at 92% 14%,#fff,transparent),radial-gradient(1px 1px at 6% 60%,#fff,transparent),radial-gradient(1px 1px at 95% 70%,#fff,transparent)}
-.enjambre{position:absolute;inset:0;z-index:-1;pointer-events:none}
-.bicho{position:absolute;left:0;top:0;width:7px;height:7px;margin:-3.5px 0 0 -3.5px;border-radius:50%;background:#FFF0A0;box-shadow:0 0 10px 4px rgba(255,226,110,.55);opacity:.85;will-change:transform,opacity}
-.reservar .rejilla{display:grid;gap:40px}
-.reservar h2{font-size:clamp(2.1rem,6.4vw,3.6rem)}
-.reservar .intro{margin-top:18px;max-width:38ch;color:rgba(255,246,232,.86)}
-.reservar .pista-dedo{margin-top:14px;font-size:14px;color:rgba(255,246,232,.6)}
-.reservar .mapas{margin-top:26px}
-.reservar .btn-claro{background:transparent;color:var(--crema);box-shadow:inset 0 0 0 1.5px rgba(255,246,232,.6)}
-.armador{background:rgba(255,246,232,.06);box-shadow:inset 0 0 0 1px rgba(255,246,232,.16);border-radius:26px;padding:22px;display:grid;gap:22px}
+/* Reservar */
+.reservar{position:relative;color:var(--crema);isolation:isolate;overflow:hidden}
+.reservar .fondo{position:absolute;inset:0;z-index:-2}
+.reservar .fondo img{width:100%;height:100%;object-fit:cover}
+.reservar::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(18,24,20,.86),rgba(18,24,20,.78))}
+.reservar .rejilla{display:grid;gap:36px}
+.reservar .intro{margin-top:16px;max-width:38ch;opacity:.9}
+.reservar .mapas{margin-top:24px}
+.reservar .datos-contacto{margin-top:26px;display:grid;gap:4px;font-size:15px;opacity:.88}
+.armador{background:var(--papel);color:var(--tinta);border-radius:26px;padding:22px;display:grid;gap:20px;box-shadow:0 30px 60px rgba(0,0,0,.25)}
 .armador fieldset{border:0;margin:0;padding:0;min-width:0}
 .armador legend{font-weight:600;font-size:15px;margin-bottom:10px;padding:0}
 .opciones{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
 .opcion{position:relative}
 .opcion input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
-.opcion span{display:block;padding:11px 12px;border-radius:14px;border:1px solid rgba(255,246,232,.24);font-size:15px;line-height:1.3;transition:background-color .3s,border-color .3s,color .3s}
+.opcion span{display:block;padding:11px 12px;border-radius:14px;border:1.5px solid rgba(27,31,28,.16);font-size:15px;line-height:1.3;transition:background-color .25s,border-color .25s,color .25s}
 .opcion span small{display:block;font-size:13px;opacity:.75}
-.opcion input:checked+span{background:var(--crema);color:var(--tinta);border-color:var(--crema)}
-.opcion input:focus-visible+span{outline:3px solid var(--oro);outline-offset:2px}
-.fechas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-.fechas label{display:grid;gap:6px;font-size:14px;color:rgba(255,246,232,.8)}
-.fechas input{width:100%;min-width:0;min-height:48px;padding:10px 12px;border-radius:14px;border:1px solid rgba(255,246,232,.24);background:rgba(255,246,232,.08);color:var(--crema);font:inherit;color-scheme:dark}
-.personas{display:grid;grid-template-columns:minmax(0,1fr);gap:10px}
-@media (min-width:420px){.personas{grid-template-columns:repeat(2,minmax(0,1fr))}}
-.contador{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:6px 6px 6px 14px;border-radius:14px;border:1px solid rgba(255,246,232,.24);font-size:15px}
-.contador button{width:40px;height:40px;border-radius:50%;border:0;background:rgba(255,246,232,.12);color:var(--crema);font:600 20px/1 var(--texto);cursor:pointer}
-.contador output{min-width:1.4em;text-align:center;font-weight:600;font-variant-numeric:tabular-nums}
-.aviso-cupo{font-size:14px;color:#FFD683;min-height:1.4em}
-.burbuja{background:#E7F4DC;color:var(--tinta);border-radius:18px 18px 18px 4px;padding:12px 14px;font-size:15px;line-height:1.5}
+.opcion input:checked+span{background:var(--monte);color:#fff;border-color:var(--monte)}
+.opcion input:focus-visible+span{outline:3px solid var(--miel);outline-offset:2px}
+.fechas,.personas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.fechas label{display:grid;gap:6px;font-size:14px;color:var(--tinta-suave)}
+.fechas input{width:100%;min-width:0;min-height:48px;padding:10px 12px;border-radius:14px;border:1.5px solid rgba(27,31,28,.16);background:#fff;color:var(--tinta);font:inherit}
+.contador{display:flex;align-items:center;justify-content:space-between;gap:6px;padding:5px 5px 5px 12px;border-radius:14px;border:1.5px solid rgba(27,31,28,.16);font-size:15px;min-width:0}
+.contador button{width:38px;height:38px;flex:none;border-radius:50%;border:0;background:var(--arena);color:var(--tinta);font:600 20px/1 var(--texto);cursor:pointer}
+.contador output{min-width:1.2em;text-align:center;font-weight:600;font-variant-numeric:tabular-nums}
+@media (max-width:420px){.personas{grid-template-columns:minmax(0,1fr)}}
+.aviso-cupo{font-size:14px;color:var(--teja);min-height:1.4em;margin-top:8px}
+.burbuja{background:#E3F2D6;border-radius:18px 18px 18px 4px;padding:12px 14px;font-size:15px;line-height:1.5}
 .burbuja small{display:block;font-size:13px;color:#4F5A49;margin-bottom:4px}
-.estimado{font-size:14px;color:rgba(255,246,232,.75)}
+.estimado{font-size:14px;color:var(--tinta-suave)}
 .armador .btn{width:100%}
 
 /* Pie */
-.pie{background:#070C22;color:rgba(255,246,232,.78);padding:46px 0 calc(110px + env(safe-area-inset-bottom));font-size:15px}
+.pie{background:#121814;color:rgba(247,241,230,.8);padding:46px 0 calc(110px + env(safe-area-inset-bottom));font-size:15px}
 .pie .contenedor{display:grid;gap:14px}
 .pie .marca{color:var(--crema);font-size:24px}
 .pie a{color:var(--crema)}
-.aviso{font-size:14px;color:rgba(255,246,232,.6)}
+.aviso{font-size:14px;color:rgba(247,241,230,.62)}
+
+/* Visor */
+.visor{border:0;padding:0;background:transparent;max-width:none;max-height:none;width:100vw;height:100vh;height:100dvh;margin:0}
+.visor::backdrop{background:rgba(10,12,10,.92)}
+.visor-caja{position:relative;width:100%;height:100%;display:grid;place-items:center;padding:64px 12px}
+.visor img{max-width:min(1400px,100%);max-height:100%;width:auto;height:auto;object-fit:contain;border-radius:10px}
+.visor .pie-foto{position:absolute;left:0;right:0;bottom:18px;text-align:center;color:#fff;font-size:14px;opacity:.85;padding:0 70px}
+.visor button{position:absolute;width:48px;height:48px;border-radius:50%;border:0;background:rgba(255,252,246,.92);color:var(--tinta);display:grid;place-items:center;cursor:pointer}
+.visor button[hidden]{display:none}
+.visor button svg{width:20px;height:20px}
+.visor .cerrar{top:14px;right:14px}
+.visor .ant{left:12px;top:50%;margin-top:-24px}
+.visor .sig{right:12px;top:50%;margin-top:-24px}
 
 /* WhatsApp flotante */
-.flotante{position:fixed;right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));z-index:45;width:58px;height:58px;border-radius:50%;background:var(--verde);color:#fff;display:grid;place-items:center;box-shadow:0 10px 24px rgba(20,30,20,.3);transition:transform .35s var(--salto)}
+.flotante{position:fixed;right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));z-index:45;width:58px;height:58px;border-radius:50%;background:var(--verde);color:#fff;display:grid;place-items:center;box-shadow:0 10px 24px rgba(20,30,20,.3);transition:transform .3s var(--salto)}
 .flotante svg{width:28px;height:28px}
 .flotante:active{transform:scale(.92)}
 @media (hover:hover) and (pointer:fine){.flotante:hover{transform:scale(1.07)}}
 
-/* Revelados */
-.js .rv{opacity:0;transform:translateY(24px);transition:opacity .8s var(--suave),transform .9s var(--suave);transition-delay:var(--rd,0s)}
-.js .rv.visible{opacity:1;transform:none}
-
 @media (min-width:900px){
   .menu{display:flex}
-  .vivo .sub{top:clamp(110px,16vh,170px)}
-  .sub h2{font-size:clamp(2.6rem,4.8vw,5rem);max-width:16ch}
-  .servicios{grid-template-columns:repeat(3,minmax(0,1fr));gap:56px 48px}
-  .cerca .rejilla{grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:64px;align-items:center}
+  .portada-texto{padding-bottom:36px}
+  .datos-portada{grid-template-columns:repeat(3,minmax(0,240px));gap:40px}
+  .bienvenida .rejilla{grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:72px;align-items:center}
+  .habitaciones .cabeza{grid-template-columns:minmax(0,6fr) minmax(0,5fr);align-items:end;gap:48px}
+  .pestanas{margin:0;padding-left:0;padding-right:0}
+  .panel{grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:56px;align-items:center}
+  .incluye .rejilla{grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:72px;align-items:center}
+  .cerca .cabeza{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:48px;align-items:end}
+  .lugares{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 48px}
   .preguntas .rejilla{grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:64px}
-  .reservar .rejilla{grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:72px;align-items:start}
-  .ficha-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
-  .ficha img{max-height:none;min-height:100%}
-  .ficha-texto{padding:34px}
+  .preguntas h2{align-self:start}
+  .reservar .rejilla{grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:72px;align-items:center}
   .pie .contenedor{grid-template-columns:1fr auto;align-items:end}
   .flotante{right:24px;bottom:24px}
-  .intro-cuartos{width:400px;margin-right:30px}
-  .colgador{width:290px}
 }
 @media (prefers-reduced-motion:reduce){
-  .letra,.bajada,.portada .acciones,.vaiven{animation:none!important}
-  .luciernaga-escena *{animation:none!important}
+  .portada-medio img{animation:none}
   html{scroll-behavior:auto}
 }
-body.pausado *,body.pausado *::before,body.pausado *::after{animation-play-state:paused!important}
 </style>
 </head>
 <body>
@@ -326,276 +276,193 @@ body.pausado *,body.pausado *::before,body.pausado *::after{animation-play-state
 </header>
 
 <main id="main">
-  <section class="dia" id="inicio" aria-label="Un día en VillaSerena">
-    <div class="escena" id="escena">
-      <div class="cielo" aria-hidden="true">
-        <div class="c-alba"></div><div class="c-dia"></div><div class="c-tarde"></div><div class="c-noche"></div>
-        <div class="estrellas"></div>
-      </div>
-      <div class="astros" aria-hidden="true"><div class="sol"></div><div class="luna"></div></div>
-
-      <div class="capa" data-pan="10" data-sube="4" aria-hidden="true"><svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMax slice">
-        <path fill="#9AA6D0" d="M0 560L80 522L150 540L230 468L300 500L380 438L450 480L520 428L600 470L680 408L760 455L840 418L920 470L1000 428L1080 480L1160 438L1240 492L1320 448L1400 500L1480 466L1600 520V1000H0Z"/>
-        <path fill="#AEB8DC" d="M380 438L415 470L400 520L450 480ZM680 408L720 452L700 520L760 455ZM1000 428L1030 470L1015 520L1080 480ZM230 468L260 500L250 540L300 500ZM1320 448L1352 480L1340 530L1400 500Z" opacity=".7"/>
-      </svg></div>
-
-      <div class="capa" data-pan="22" data-sube="10" aria-hidden="true"><svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMax slice">
-        <path fill="#5F8A8C" d="M0 622C120 560 220 604 320 562S520 522 620 572 820 606 900 552 1100 520 1200 578 1420 604 1600 560V1000H0Z"/>
-        <path fill="#6E9A92" d="M0 650C160 610 260 640 380 612S600 600 700 630 900 640 1000 606 1250 600 1380 630 1520 620 1600 600V1000H0Z" opacity=".8"/>
-      </svg></div>
-
-      <div class="capa" data-pan="36" data-sube="18" aria-hidden="true"><svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMax slice">
-        <path fill="#6E9F55" d="M0 702C150 642 300 652 420 692S650 662 760 682 980 642 1100 676 1350 702 1600 652V1000H0Z"/>
-        <path fill="#7FAE5E" d="M0 730C200 690 330 712 470 724S760 690 900 712 1150 722 1300 700 1500 712 1600 700V1000H0Z"/>
-        <g fill="#4E8048"><circle cx="190" cy="700" r="16"/><circle cx="215" cy="704" r="12"/><circle cx="1040" cy="690" r="14"/><circle cx="1062" cy="694" r="10"/><circle cx="1420" cy="684" r="15"/></g>
-      </svg></div>
-
-      <div class="capa neblina" data-pan="50" data-sube="0" aria-hidden="true"><svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMax slice">
-        <g fill="#FFFFFF"><ellipse cx="300" cy="664" rx="420" ry="30" opacity=".75"/><ellipse cx="980" cy="676" rx="460" ry="34" opacity=".7"/><ellipse cx="1420" cy="650" rx="300" ry="26" opacity=".7"/><ellipse cx="640" cy="596" rx="380" ry="22" opacity=".55"/><ellipse cx="1240" cy="590" rx="300" ry="20" opacity=".5"/><ellipse cx="760" cy="720" rx="520" ry="22" opacity=".55"/></g>
-      </svg></div>
-
-      <div class="capa" data-pan="60" data-sube="26" aria-hidden="true"><svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMax slice">
-        <path fill="#B4CC6E" d="M0 758C300 734 600 748 800 742S1300 734 1600 750V1000H0Z"/>
-        <path fill="#A6C162" d="M0 800C260 786 520 796 700 790L640 1000H0ZM1000 790C1200 784 1420 790 1600 800V1000H1100Z"/>
-        <path fill="#C1D57E" d="M0 860C220 846 420 858 600 852L560 1000H0Z" opacity=".7"/>
-        <path fill="#E8CF9E" d="M742 1000C780 930 712 880 758 802H776C744 880 846 930 872 1000Z"/>
-        <g stroke="#6B4A2F" stroke-width="3" fill="none" stroke-linecap="round"><path d="M300 748Q296 712 306 688"/><path d="M1300 744Q1306 708 1296 684"/></g>
-        <g fill="#4E7F45"><path d="M306 688q-26-4-40 8q18-2 40-8zM306 688q24-10 40-2q-20 2-40 2zM306 688q-8-22 4-34q-2 18-4 34zM306 688q14-18 34-18q-18 10-34 18zM306 688q-22-14-36-10q20 2 36 10z"/><path d="M1296 684q-26-4-40 8q18-2 40-8zM1296 684q24-10 40-2q-20 2-40 2zM1296 684q-8-22 4-34q-2 18-4 34zM1296 684q14-18 34-18q-18 10-34 18zM1296 684q-22-14-36-10q20 2 36 10z"/></g>
-        <g fill="#558A4A"><circle cx="420" cy="740" r="18"/><circle cx="442" cy="744" r="13"/><circle cx="1180" cy="738" r="17"/><circle cx="1460" cy="742" r="16"/></g>
-      </svg></div>
-
-      <div class="capa" data-pan="80" data-sube="34" aria-hidden="true"><svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMax slice">
-        <defs><pattern id="postes" width="46" height="34" patternUnits="userSpaceOnUse"><rect x="20" y="0" width="6" height="34" rx="1.5" fill="#7A5638"/><path d="M0 9H46M0 21H46" stroke="#7A5638" stroke-width="1.6"/></pattern></defs>
-        <ellipse class="sombra" id="sombra-saman" cx="575" cy="804" rx="120" ry="9" fill="#2E4A2A" opacity=".3"/>
-        <ellipse class="sombra" id="sombra-casa" cx="765" cy="806" rx="150" ry="10" fill="#2E4A2A" opacity=".3"/>
-        <ellipse class="sombra" id="sombra-cabana" cx="975" cy="808" rx="70" ry="8" fill="#2E4A2A" opacity=".3"/>
-        <path d="M560 804L568 738L582 738L592 804Z" fill="#5B3F2A"/>
-        <path d="M570 742L520 708M582 742L640 704M575 740L578 700" stroke="#5B3F2A" stroke-width="7" stroke-linecap="round"/>
-        <ellipse cx="575" cy="700" rx="138" ry="40" fill="#3F6E3E"/>
-        <ellipse cx="530" cy="690" rx="86" ry="30" fill="#4E8048"/>
-        <ellipse cx="630" cy="688" rx="72" ry="26" fill="#4E8048"/>
-        <ellipse cx="580" cy="676" rx="60" ry="18" fill="#5C9152"/>
-        <g>
-          <rect x="650" y="728" width="230" height="76" fill="#F4E3C3"/>
-          <rect x="650" y="796" width="230" height="8" fill="#D9C29C"/>
-          <path d="M630 734L690 686H840L900 734Z" fill="#B9542F"/>
-          <path d="M646 722H884M662 710H868M678 698H852" stroke="#9A4325" stroke-width="2.5"/>
-          <path d="M630 734H900" stroke="#8C3D22" stroke-width="4"/>
-          <rect x="754" y="760" width="24" height="44" rx="2" fill="#6B3E26"/>
-          <g fill="#3E5368" stroke="#FFF6E8" stroke-width="3"><rect x="668" y="748" width="28" height="24"/><rect x="710" y="748" width="28" height="24"/><rect x="794" y="748" width="28" height="24"/><rect x="836" y="748" width="28" height="24"/></g>
-          <g fill="#D9477A"><circle cx="660" cy="790" r="6"/><circle cx="670" cy="784" r="5"/><circle cx="866" cy="788" r="6"/><circle cx="876" cy="782" r="5"/><circle cx="740" cy="794" r="4"/></g>
-          <g fill="#4E8048"><circle cx="652" cy="796" r="7"/><circle cx="880" cy="796" r="7"/></g>
-        </g>
-        <g>
-          <rect x="934" y="764" width="88" height="42" fill="#EBD3AE"/>
-          <path d="M920 768L978 730L1036 768Z" fill="#A94B2C"/>
-          <path d="M936 756H1020M952 746H1004" stroke="#8C3D22" stroke-width="2.2"/>
-          <rect x="948" y="774" width="22" height="18" fill="#3E5368" stroke="#FFF6E8" stroke-width="2.5"/>
-          <rect x="990" y="778" width="18" height="28" fill="#6B3E26"/>
-        </g>
-        <path d="M1060 806L1066 760L1076 760L1082 806Z" fill="#5B3F2A"/>
-        <circle cx="1071" cy="742" r="30" fill="#3F6E3E"/><circle cx="1088" cy="752" r="20" fill="#4E8048"/>
-        <rect x="0" y="872" width="1600" height="34" fill="url(#postes)"/>
-        <path fill="#5D8C3F" d="M0 928C300 908 600 934 900 920S1400 908 1600 930V1000H0Z"/>
-        <g stroke="#4B7633" stroke-width="3" stroke-linecap="round"><path d="M520 940l-6-16M528 940l2-18M536 940l8-14M980 936l-6-16M988 936l2-18M996 936l8-14M700 950l-5-14M708 950l3-16"/></g>
-        <path d="M110 940Q104 880 126 820" stroke="#6B4A2F" stroke-width="8" fill="none" stroke-linecap="round"/>
-        <g fill="#3F6E3E"><path d="M126 820q-50-6-76 18q36-6 76-18zM126 820q46-18 78-4q-40 2-78 4zM126 820q-14-44 8-66q-4 34-8 66zM126 820q28-34 66-34q-34 18-66 34zM126 820q-42-26-70-18q38 4 70 18z"/></g>
-        <path d="M1480 950L1492 840L1508 840L1520 950Z" fill="#5B3F2A"/>
-        <circle cx="1500" cy="810" r="64" fill="#3F6E3E"/><circle cx="1458" cy="830" r="40" fill="#4E8048"/><circle cx="1544" cy="832" r="38" fill="#4E8048"/>
-      </svg></div>
-
-      <div class="tinte t-alba" aria-hidden="true"></div>
-      <div class="tinte t-tarde" aria-hidden="true"></div>
-      <div class="tinte t-noche" aria-hidden="true"></div>
-
-      <div class="capa luces" data-pan="80" data-sube="34" aria-hidden="true"><svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMax slice">
-        <defs><radialGradient id="halo"><stop offset="0" stop-color="#FFD683" stop-opacity=".55"/><stop offset="1" stop-color="#FFD683" stop-opacity="0"/></radialGradient></defs>
-        <g class="ventana-luz"><circle cx="682" cy="760" r="34" fill="url(#halo)"/><rect x="668" y="748" width="28" height="24" fill="#FFD683" stroke="#3B2A1E" stroke-width="3"/></g>
-        <g class="ventana-luz"><circle cx="850" cy="760" r="34" fill="url(#halo)"/><rect x="836" y="748" width="28" height="24" fill="#FFD683" stroke="#3B2A1E" stroke-width="3"/></g>
-        <g class="ventana-luz"><circle cx="724" cy="760" r="34" fill="url(#halo)"/><rect x="710" y="748" width="28" height="24" fill="#FFD683" stroke="#3B2A1E" stroke-width="3"/></g>
-        <g class="ventana-luz"><circle cx="959" cy="783" r="30" fill="url(#halo)"/><rect x="948" y="774" width="22" height="18" fill="#FFD683" stroke="#3B2A1E" stroke-width="2.5"/></g>
-        <g class="ventana-luz"><circle cx="808" cy="760" r="34" fill="url(#halo)"/><rect x="794" y="748" width="28" height="24" fill="#FFD683" stroke="#3B2A1E" stroke-width="3"/></g>
-        <g class="ventana-luz"><circle cx="766" cy="752" r="42" fill="url(#halo)"/><circle cx="766" cy="752" r="5" fill="#FFE9B0"/></g>
-        <g class="luciernaga-escena" fill="#FFF0A0">
-          <circle cx="600" cy="840" r="3"><animate attributeName="opacity" values=".2;1;.2" dur="2.6s" repeatCount="indefinite"/></circle>
-          <circle cx="900" cy="850" r="2.6"><animate attributeName="opacity" values="1;.2;1" dur="3.1s" repeatCount="indefinite"/></circle>
-          <circle cx="700" cy="880" r="3"><animate attributeName="opacity" values=".3;1;.3" dur="2.2s" repeatCount="indefinite"/></circle>
-          <circle cx="1020" cy="830" r="2.4"><animate attributeName="opacity" values=".2;.9;.2" dur="3.6s" repeatCount="indefinite"/></circle>
-          <circle cx="520" cy="860" r="2.6"><animate attributeName="opacity" values="1;.3;1" dur="2.8s" repeatCount="indefinite"/></circle>
-          <circle cx="820" cy="900" r="3"><animate attributeName="opacity" values=".2;1;.2" dur="3.3s" repeatCount="indefinite"/></circle>
-          <circle cx="1120" cy="870" r="2.6"><animate attributeName="opacity" values=".4;1;.4" dur="2.5s" repeatCount="indefinite"/></circle>
-          <circle cx="440" cy="900" r="2.4"><animate attributeName="opacity" values="1;.2;1" dur="3.9s" repeatCount="indefinite"/></circle>
-        </g>
-      </svg></div>
-      <div class="grano" aria-hidden="true"></div>
+  <section class="portada" id="inicio" aria-labelledby="titulo">
+    <div class="portada-medio" aria-hidden="true">
+      <img src="https://images.unsplash.com/photo-1789584767434-f2cb1df24610?w=1600&amp;q=70&amp;auto=format&amp;fit=crop" srcset="https://images.unsplash.com/photo-1789584767434-f2cb1df24610?w=800&amp;h=1200&amp;q=70&amp;auto=format&amp;fit=crop 800w, https://images.unsplash.com/photo-1789584767434-f2cb1df24610?w=1600&amp;q=70&amp;auto=format&amp;fit=crop 1600w" sizes="100vw" width="1600" height="1067" alt="" fetchpriority="high">
+      <video id="video-portada" muted loop playsinline preload="metadata" data-video="https://videos.pexels.com/video-files/28303675/12355985_960_540_30fps.mp4"></video>
     </div>
-
-    <div class="subs contenedor" id="subs">
-      <div class="sub portada" data-rango="0,0,.11,.17">
-        <h1 class="portada-h1" id="titulo" aria-label="Aquí el día empieza despacio.">
-          <span class="linea" aria-hidden="true"><span class="letra" style="--i:0">A</span><span class="letra" style="--i:1">q</span><span class="letra" style="--i:2">u</span><span class="letra" style="--i:3">í</span> <span class="letra" style="--i:4">e</span><span class="letra" style="--i:5">l</span> <span class="letra" style="--i:6">d</span><span class="letra" style="--i:7">í</span><span class="letra" style="--i:8">a</span></span>
-          <span class="linea" aria-hidden="true"><span class="letra" style="--i:9">e</span><span class="letra" style="--i:10">m</span><span class="letra" style="--i:11">p</span><span class="letra" style="--i:12">i</span><span class="letra" style="--i:13">e</span><span class="letra" style="--i:14">z</span><span class="letra" style="--i:15">a</span></span>
-          <span class="linea" aria-hidden="true"><span class="letra" style="--i:16">d</span><span class="letra" style="--i:17">e</span><span class="letra" style="--i:18">s</span><span class="letra" style="--i:19">p</span><span class="letra" style="--i:20">a</span><span class="letra" style="--i:21">c</span><span class="letra" style="--i:22">i</span><span class="letra" style="--i:23">o</span><span class="letra" style="--i:24">.</span></span>
-        </h1>
-        <p class="bajada">Posada campestre familiar en Barinitas, estado Barinas. Habitaciones para parejas y familias, con desayuno criollo incluido.</p>
-        <div class="acciones">
-          <a class="btn btn-wa" href="https://wa.me/580000000000?text=Hola%2C%20quiero%20consultar%20disponibilidad%20para%20estas%20fechas%3A%20" target="_blank" rel="noopener"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3.5C9.1 3.5 3.6 9 3.6 15.8c0 2.4.7 4.6 1.9 6.5L3.5 28.5l6.4-2c1.8 1 3.9 1.6 6.1 1.6 6.9 0 12.4-5.5 12.4-12.3S22.9 3.5 16 3.5z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M11.8 9.6c.4 0 .7.1.9.6l1 2.4c.1.3 0 .6-.1.8l-.7.9c-.2.2-.2.5 0 .8.9 1.6 2.2 2.8 3.9 3.6.3.1.6.1.8-.1l.9-1c.2-.3.5-.3.8-.2l2.4 1.1c.3.1.5.4.4.7-.1 1.5-1.3 2.6-2.9 2.6-4.3-.3-8.7-4.5-9-8.9 0-1.6 1-3.1 1.6-3.3z" fill="currentColor"/></svg>Consultar disponibilidad por WhatsApp</a>
-          <a class="enlace" href="#habitaciones">Ver habitaciones y precios</a>
-        </div>
-      </div>
-      <div class="sub" data-rango=".17,.22,.34,.39">
-        <h2>La neblina se va. Usted se queda.</h2>
-        <p>Desayuno criollo desde las 7:30 a. m.: arepas, perico, queso llanero y café recién colado.</p>
-      </div>
-      <div class="sub" data-rango=".39,.44,.55,.6">
-        <h2>Toda la familia, a la sombra del samán.</h2>
-        <p>Áreas verdes para que los niños corran y parrillera para el almuerzo del domingo.</p>
-      </div>
-      <div class="sub" data-rango=".6,.64,.74,.79">
-        <h2>La cordillera se pone naranja.</h2>
-        <p>Desde el corredor se ve caer el sol detrás de los Andes, con un café en la mano.</p>
-      </div>
-      <div class="sub" data-rango=".79,.84,1.1,1.2">
-        <h2>Se encienden las ventanas.</h2>
-        <p>Silencio, grillos y luciérnagas. Y planta eléctrica, por si se va la luz.</p>
-        <div class="acciones"><a class="btn btn-luz" href="#reservar">Reservar mi noche</a><a class="enlace" href="#habitaciones">Ver habitaciones</a></div>
+    <div class="contenedor portada-texto">
+      <p class="lugar-portada">Barinitas, estado Barinas</p>
+      <h1 id="titulo">Aquí el día empieza despacio.</h1>
+      <p class="bajada">Posada campestre familiar al pie de la montaña. Habitaciones para parejas y familias, con desayuno criollo incluido.</p>
+      <div class="acciones">
+        <a class="btn btn-wa" href="https://wa.me/580000000000?text=Hola%2C%20quiero%20consultar%20disponibilidad%20para%20estas%20fechas%3A%20" target="_blank" rel="noopener"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3.5C9.1 3.5 3.6 9 3.6 15.8c0 2.4.7 4.6 1.9 6.5L3.5 28.5l6.4-2c1.8 1 3.9 1.6 6.1 1.6 6.9 0 12.4-5.5 12.4-12.3S22.9 3.5 16 3.5z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M11.8 9.6c.4 0 .7.1.9.6l1 2.4c.1.3 0 .6-.1.8l-.7.9c-.2.2-.2.5 0 .8.9 1.6 2.2 2.8 3.9 3.6.3.1.6.1.8-.1l.9-1c.2-.3.5-.3.8-.2l2.4 1.1c.3.1.5.4.4.7-.1 1.5-1.3 2.6-2.9 2.6-4.3-.3-8.7-4.5-9-8.9 0-1.6 1-3.1 1.6-3.3z" fill="currentColor"/></svg>Consultar disponibilidad por WhatsApp</a>
+        <a class="btn btn-linea" href="#habitaciones">Ver habitaciones</a>
       </div>
     </div>
-  </section>
-
-  <section class="cuartos" id="habitaciones" aria-labelledby="t-cuartos">
-    <div class="cuartos-fijo">
-      <div class="pista" id="pista">
-        <div class="intro-cuartos">
-          <h2 id="t-cuartos">Elija su cuarto.</h2>
-          <p>Todas con baño privado y agua caliente. Toque una foto para ver lo que trae y reservarla.</p>
-          <p class="pequena">Precios de ejemplo, por noche, con desayuno.</p>
-          <span class="flecha-pista" aria-hidden="true">Baje para recorrerlas<svg viewBox="0 0 44 14"><path d="M1 7H41M35 1l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        </div>
-
-        <div class="colgador">
-          <svg class="mecate" viewBox="0 0 100 46" preserveAspectRatio="none" aria-hidden="true"><path vector-effect="non-scaling-stroke" d="M0 8Q50 30 100 8"/></svg>
-          <div class="pendulo"><div class="vaiven">
-            <span class="pinza" aria-hidden="true"></span>
-            <article class="polaroid" style="--tilt:-2.5deg" tabindex="0" role="button" aria-haspopup="dialog" data-cuarto="matrimonial" data-nombre="Matrimonial" data-articulo="la Matrimonial" data-capacidad="2" data-precio="30">
-              <img src="assets/img/matrimonial-720.webp" width="720" height="900" loading="lazy" alt="Habitación con cama matrimonial y ventana a las matas (foto referencial)">
-              <h3>Matrimonial</h3>
-              <p class="datos"><span>Hasta 2 personas</span><span class="precio">$30 / noche</span></p>
-              <span class="abrir">Ver detalles</span>
-              <div class="detalle">
-                <p>Para parejas que vienen a desconectarse. Ventana hacia el jardín.</p>
-                <ul><li>Cama matrimonial</li><li>Baño privado con agua caliente</li><li>Ventilador de techo</li><li>TV con cable</li></ul>
-              </div>
-            </article>
-          </div></div>
-        </div>
-
-        <div class="colgador">
-          <svg class="mecate" viewBox="0 0 100 46" preserveAspectRatio="none" aria-hidden="true"><path vector-effect="non-scaling-stroke" d="M0 8Q50 30 100 8"/></svg>
-          <div class="pendulo"><div class="vaiven">
-            <span class="pinza" aria-hidden="true"></span>
-            <article class="polaroid" style="--tilt:2deg" tabindex="0" role="button" aria-haspopup="dialog" data-cuarto="doble" data-nombre="Doble" data-articulo="la Doble" data-capacidad="4" data-precio="40">
-              <img src="assets/img/doble-720.webp" width="720" height="900" loading="lazy" alt="Habitación de madera con dos camas (foto referencial)">
-              <h3>Doble</h3>
-              <p class="datos"><span>Hasta 4 personas</span><span class="precio">$40 / noche</span></p>
-              <span class="abrir">Ver detalles</span>
-              <div class="detalle">
-                <p>Dos camas para venir con amigos o con los muchachos.</p>
-                <ul><li>Dos camas matrimoniales</li><li>Baño privado con agua caliente</li><li>Aire acondicionado</li><li>TV con cable</li></ul>
-              </div>
-            </article>
-          </div></div>
-        </div>
-
-        <div class="colgador">
-          <svg class="mecate" viewBox="0 0 100 46" preserveAspectRatio="none" aria-hidden="true"><path vector-effect="non-scaling-stroke" d="M0 8Q50 30 100 8"/></svg>
-          <div class="pendulo"><div class="vaiven">
-            <span class="pinza" aria-hidden="true"></span>
-            <article class="polaroid" style="--tilt:-1.5deg" tabindex="0" role="button" aria-haspopup="dialog" data-cuarto="familiar" data-nombre="Familiar" data-articulo="la Familiar" data-capacidad="5" data-precio="55">
-              <img src="assets/img/familiar-720.webp" width="720" height="900" loading="lazy" alt="Habitación amplia de madera con cama grande (foto referencial)">
-              <h3>Familiar</h3>
-              <p class="datos"><span>Hasta 5 personas</span><span class="precio">$55 / noche</span></p>
-              <span class="abrir">Ver detalles</span>
-              <div class="detalle">
-                <p>La más pedida para los fines de semana en familia.</p>
-                <ul><li>Una matrimonial y tres individuales</li><li>Baño privado con agua caliente</li><li>Aire acondicionado</li><li>Nevera pequeña</li></ul>
-              </div>
-            </article>
-          </div></div>
-        </div>
-
-        <div class="colgador">
-          <svg class="mecate" viewBox="0 0 100 46" preserveAspectRatio="none" aria-hidden="true"><path vector-effect="non-scaling-stroke" d="M0 8Q50 30 100 8"/></svg>
-          <div class="pendulo"><div class="vaiven">
-            <span class="pinza" aria-hidden="true"></span>
-            <article class="polaroid" style="--tilt:2.5deg" tabindex="0" role="button" aria-haspopup="dialog" data-cuarto="cabana" data-nombre="Cabaña con cocina" data-articulo="la Cabaña con cocina" data-capacidad="6" data-precio="70">
-              <img src="assets/img/cabana-720.webp" width="720" height="900" loading="lazy" alt="Cocina rústica con mesa y paredes de piedra (foto referencial)">
-              <h3>Cabaña con cocina</h3>
-              <p class="datos"><span>Hasta 6 personas</span><span class="precio">$70 / noche</span></p>
-              <span class="abrir">Ver detalles</span>
-              <div class="detalle">
-                <p>Aparte de la casa principal, para quedarse varios días a su ritmo.</p>
-                <ul><li>Dos cuartos y sala</li><li>Cocina equipada</li><li>Aire acondicionado</li><li>Corredor con hamaca</li></ul>
-              </div>
-            </article>
-          </div></div>
-        </div>
-        <span class="fin-pista" aria-hidden="true"></span>
-      </div>
-    </div>
-  </section>
-
-  <section class="incluye" id="incluye" aria-labelledby="t-incluye">
     <div class="contenedor">
-      <div class="cabeza">
-        <h2 id="t-incluye" class="rv">Lo que incluye su estadía.</h2>
-        <p class="rv" style="--rd:.1s">Lo que necesita para no tener que salir, salvo para pasear.</p>
-      </div>
-      <ul class="servicios">
-        <li class="servicio"><svg viewBox="0 0 64 64" aria-hidden="true"><path class="trazo" pathLength="1" d="M10 34c1 12 10 20 22 20s21-8 22-20c-14-2-30-2-44 0z"/><path class="trazo" pathLength="1" d="M24 26c-2-4 2-7 0-11M32 26c-2-4 2-7 0-11M40 26c-2-4 2-7 0-11"/></svg><h3>Desayuno criollo</h3><p>Arepas, perico, queso llanero y café, todas las mañanas.</p></li>
-        <li class="servicio" style="--rd:.1s"><svg viewBox="0 0 64 64" aria-hidden="true"><path class="trazo" pathLength="1" d="M8 40l4-12c1-3 3-5 6-5h28c3 0 5 2 6 5l4 12v8H8z"/><circle class="trazo" pathLength="1" cx="19" cy="48" r="5"/><circle class="trazo" pathLength="1" cx="45" cy="48" r="5"/><path class="trazo" pathLength="1" d="M14 33h36"/></svg><h3>Estacionamiento</h3><p>Dentro de la posada, con portón.</p></li>
-        <li class="servicio" style="--rd:.2s"><svg viewBox="0 0 64 64" aria-hidden="true"><path class="trazo" pathLength="1" d="M8 26c14-13 34-13 48 0"/><path class="trazo" pathLength="1" d="M16 34c9-8 23-8 32 0"/><path class="trazo" pathLength="1" d="M24 42c5-4 11-4 16 0"/><circle class="trazo" pathLength="1" cx="32" cy="50" r="3"/></svg><h3>Wifi en áreas comunes</h3><p>Para mandar las fotos. En el cuarto, a descansar.</p></li>
-        <li class="servicio"><svg viewBox="0 0 64 64" aria-hidden="true"><path class="trazo" pathLength="1" d="M32 56V30"/><path class="trazo" pathLength="1" d="M32 34c-14 0-22-6-20-14 2-7 10-10 20-10s18 3 20 10c2 8-6 14-20 14z"/><path class="trazo" pathLength="1" d="M6 56h52"/></svg><h3>Áreas verdes</h3><p>Grama, árboles y espacio para que los niños jueguen.</p></li>
-        <li class="servicio" style="--rd:.1s"><svg viewBox="0 0 64 64" aria-hidden="true"><path class="trazo" pathLength="1" d="M10 28h44c0 10-10 16-22 16S10 38 10 28z"/><path class="trazo" pathLength="1" d="M18 28l4-6M28 28l2-8M38 28l2-6M46 28l-2-7"/><path class="trazo" pathLength="1" d="M22 44l-6 12M42 44l6 12"/></svg><h3>Parrillera</h3><p>Con mesón, para la carne asada del fin de semana.</p></li>
-        <li class="servicio" style="--rd:.2s"><svg viewBox="0 0 64 64" aria-hidden="true"><path class="trazo" pathLength="1" d="M36 6L16 36h14l-4 22 22-32H34z"/></svg><h3>Planta eléctrica</h3><p>Si se va la luz, la posada sigue funcionando.</p></li>
+      <ul class="datos-portada">
+        <li><b>Desde $30</b>la noche, con desayuno</li>
+        <li><b>4 tipos</b>de habitación, hasta 6 personas</li>
+        <li><b>Wifi</b>y planta eléctrica</li>
       </ul>
     </div>
   </section>
 
-  <section class="cerca" id="cerca" aria-labelledby="t-cerca">
+  <section class="seccion bienvenida" aria-labelledby="t-bienvenida">
     <div class="contenedor rejilla">
-      <svg class="mapa rv" id="mapa" viewBox="0 0 640 520" role="img" aria-label="Mapa ilustrado de los alrededores de Barinitas">
-        <g fill="#C9D3B3"><path d="M0 0H360L300 70 220 110 120 120 40 170 0 160Z"/></g>
-        <g fill="#8EA28A"><path d="M40 120l30-50 30 50zM90 110l34-58 34 58zM150 96l28-48 28 48zM210 80l24-40 24 40zM20 160l26-44 26 44z"/></g>
-        <g fill="#FFF"><path d="M115 64l9-12 9 12-5-2-4 4-4-4zM170 60l8-12 8 12-4-2-4 3-4-3z" opacity=".8"/></g>
-        <path d="M60 150C140 190 170 240 250 280S420 360 470 430 560 500 640 510" fill="none" stroke="#6FA8C9" stroke-width="7" stroke-linecap="round"/>
-        <path d="M130 120C180 170 230 210 300 250S440 330 560 420" fill="none" stroke="#B9542F" stroke-width="3" stroke-dasharray="2 9" stroke-linecap="round"/>
-        <path d="M300 250C330 200 360 150 400 96" fill="none" stroke="#B9542F" stroke-width="3" stroke-dasharray="2 9" stroke-linecap="round"/>
-        <g font-family="Pueblo,sans-serif" font-size="13" fill="#5E5A4C"><text x="560" y="40">N</text><path d="M564 46l4 14 4-14-4 4z" fill="#5E5A4C"/></g>
-        <g class="pin" data-lugar="rio"><circle class="marca-pin" cx="236" cy="292" r="9" fill="#2E7DA6"/><text x="150" y="326">Río Santo Domingo</text></g>
-        <g class="pin" data-lugar="altamira"><circle class="marca-pin" cx="400" cy="96" r="9" fill="#B9542F"/><text x="420" y="72" text-anchor="middle">Altamira de Cáceres</text></g>
-        <g class="pin" data-lugar="paramo"><circle class="marca-pin" cx="130" cy="120" r="9" fill="#B9542F"/><text x="16" y="158">Santo Domingo y páramos</text></g>
-        <g class="pin" data-lugar="barinas"><circle class="marca-pin" cx="560" cy="420" r="9" fill="#B9542F"/><text x="480" y="462">Barinas</text></g>
-        <g><circle cx="300" cy="250" r="16" fill="#FFD683" stroke="#1B1E2E" stroke-width="3"/><path d="M292 254l8-8 8 8v6h-16z" fill="#B9542F"/><text x="324" y="246" font-family="Llano,sans-serif" font-weight="700" font-size="22" fill="#1B1E2E">VillaSerena</text><text x="324" y="270" font-family="Pueblo,sans-serif" font-size="17" fill="#5E5A4C">Barinitas</text></g>
-      </svg>
-      <div>
-        <h2 id="t-cerca" class="rv">Qué hacer cerca.</h2>
-        <p class="intro rv" style="--rd:.1s">Barinitas queda donde el llano empieza a subir. Toque un lugar para verlo en el mapa.</p>
-        <div class="lugares rv" style="--rd:.15s" id="lugares">
-          <button class="lugar" type="button" data-lugar="rio" aria-pressed="false"><span class="punto" style="background:#2E7DA6;box-shadow:0 0 0 4px rgba(46,125,166,.18)"></span><b>Río Santo Domingo</b><span>Baja frío desde la montaña. Para un baño de río en familia.</span></button>
-          <button class="lugar" type="button" data-lugar="altamira" aria-pressed="false"><span class="punto"></span><b>Altamira de Cáceres</b><span>Pueblo de montaña, de los más antiguos de Barinas, con clima fresco.</span></button>
-          <button class="lugar" type="button" data-lugar="paramo" aria-pressed="false"><span class="punto"></span><b>Subida a los páramos</b><span>Por Santo Domingo hasta la Laguna de Mucubají: frailejones y neblina.</span></button>
-          <button class="lugar" type="button" data-lugar="barinas" aria-pressed="false"><span class="punto"></span><b>Barinas</b><span>La capital del estado, para compras y diligencias.</span></button>
+      <div class="texto">
+        <h2 id="t-bienvenida" class="titulo-sec">Para venir con los suyos.</h2>
+        <p>VillaSerena es una posada tranquila y cómoda, de ambiente familiar, en Barinitas: donde el llano empieza a subir hacia los Andes. Se despierta con pájaros, se almuerza sin apuro y en la tarde baja el fresco de la montaña.</p>
+        <dl class="claves">
+          <div><dt>Desayuno criollo</dt><dd>Incluido todas las mañanas</dd></div>
+          <div><dt>Áreas verdes</dt><dd>Para que los niños jueguen</dd></div>
+          <div><dt>Parrillera</dt><dd>Para el almuerzo del domingo</dd></div>
+          <div><dt>Mascotas pequeñas</dt><dd>Con aviso al reservar</dd></div>
+        </dl>
+      </div>
+      <div class="fotos-bienvenida">
+        <button class="ampliar f1" type="button" data-grande="https://images.unsplash.com/photo-1773861540606-e5df23583620?w=1800&amp;q=75&amp;auto=format&amp;fit=crop" data-pie="La casa entre las matas (foto referencial)"><img src="https://images.unsplash.com/photo-1773861540606-e5df23583620?w=1200&amp;q=70&amp;auto=format&amp;fit=crop" srcset="https://images.unsplash.com/photo-1773861540606-e5df23583620?w=700&amp;q=70&amp;auto=format&amp;fit=crop 700w, https://images.unsplash.com/photo-1773861540606-e5df23583620?w=1200&amp;q=70&amp;auto=format&amp;fit=crop 1200w" sizes="(min-width:900px) 640px, 92vw" width="1200" height="900" loading="lazy" alt="Casa campestre de techo de tejas y barandas azules entre árboles (foto referencial)"><span class="etiqueta-foto">Foto referencial</span></button>
+        <button class="ampliar f2" type="button" data-grande="https://images.unsplash.com/photo-1777168925132-ada59d1cc0d0?w=1600&amp;q=75&amp;auto=format&amp;fit=crop" data-pie="Chinchorro en el corredor (foto referencial)"><img src="https://images.unsplash.com/photo-1777168925132-ada59d1cc0d0?w=700&amp;q=70&amp;auto=format&amp;fit=crop" width="700" height="700" loading="lazy" alt="Chinchorro de colores colgado en un corredor (foto referencial)"></button>
+        <button class="ampliar f3" type="button" data-grande="https://images.unsplash.com/photo-1741899366204-0d71d5ecff27?w=1600&amp;q=75&amp;auto=format&amp;fit=crop" data-pie="Vista desde el corredor (foto referencial)"><img src="https://images.unsplash.com/photo-1741899366204-0d71d5ecff27?w=700&amp;q=70&amp;auto=format&amp;fit=crop" width="700" height="700" loading="lazy" alt="Corredor de madera con vista a la montaña verde (foto referencial)"></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion habitaciones" id="habitaciones" aria-labelledby="t-habitaciones">
+    <div class="contenedor">
+      <div class="cabeza">
+        <h2 id="t-habitaciones" class="titulo-sec">Elija su habitación.</h2>
+        <p>Todas con baño privado, agua caliente y desayuno criollo incluido. Toque una foto para verla en grande.</p>
+      </div>
+      <div class="pestanas" role="tablist" aria-label="Tipos de habitación">
+        <button class="pestana" type="button" role="tab" id="tab-matrimonial" aria-controls="panel-matrimonial" aria-selected="true">Matrimonial<small>$30</small></button>
+        <button class="pestana" type="button" role="tab" id="tab-doble" aria-controls="panel-doble" aria-selected="false" tabindex="-1">Doble<small>$40</small></button>
+        <button class="pestana" type="button" role="tab" id="tab-familiar" aria-controls="panel-familiar" aria-selected="false" tabindex="-1">Familiar<small>$55</small></button>
+        <button class="pestana" type="button" role="tab" id="tab-cabana" aria-controls="panel-cabana" aria-selected="false" tabindex="-1">Cabaña con cocina<small>$70</small></button>
+      </div>
+
+      <div class="panel" role="tabpanel" id="panel-matrimonial" aria-labelledby="tab-matrimonial">
+        <div class="galeria-cuarto">
+          <button class="ampliar principal" type="button" data-grande="https://images.unsplash.com/photo-1699629208190-672f7ef56d7b?w=1800&amp;q=75&amp;auto=format&amp;fit=crop" data-pie="Matrimonial (foto referencial)"><img src="https://images.unsplash.com/photo-1699629208190-672f7ef56d7b?w=1200&amp;q=70&amp;auto=format&amp;fit=crop" srcset="https://images.unsplash.com/photo-1699629208190-672f7ef56d7b?w=700&amp;q=70&amp;auto=format&amp;fit=crop 700w, https://images.unsplash.com/photo-1699629208190-672f7ef56d7b?w=1200&amp;q=70&amp;auto=format&amp;fit=crop 1200w" sizes="(min-width:900px) 700px, 92vw" width="1200" height="900" loading="lazy" alt="Habitación matrimonial con cama de madera y ventana grande (foto referencial)"><span class="lupa" aria-hidden="true"><svg viewBox="0 0 20 20"><circle cx="8.5" cy="8.5" r="6" fill="none" stroke="currentColor" stroke-width="2"/><path d="M13 13l5 5M8.5 6v5M6 8.5h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button>
+          <div class="miniaturas">
+            <button class="ampliar" type="button" data-grande="https://images.unsplash.com/photo-1781781490874-5c8c46637ceb?w=1600&amp;q=75&amp;auto=format&amp;fit=crop" data-pie="Matrimonial, detalle (foto referencial)"><img src="https://images.unsplash.com/photo-1781781490874-5c8c46637ceb?w=480&amp;q=65&amp;auto=format&amp;fit=crop" width="480" height="360" loading="lazy" alt="Cabecera de madera con cojines (foto referencial)"></button>
+            <button class="ampliar" type="button" data-grande="https://images.unsplash.com/photo-1741899366204-0d71d5ecff27?w=1600&amp;q=75&amp;auto=format&amp;fit=crop" data-pie="Vista desde el corredor (foto referencial)"><img src="https://images.unsplash.com/photo-1741899366204-0d71d5ecff27?w=480&amp;q=65&amp;auto=format&amp;fit=crop" width="480" height="360" loading="lazy" alt="Corredor con vista a la montaña (foto referencial)"></button>
+            <button class="ampliar" type="button" data-grande="https://images.unsplash.com/photo-1773994788669-755ba5180940?w=1600&amp;q=75&amp;auto=format&amp;fit=crop" data-pie="Áreas verdes (foto referencial)"><img src="https://images.unsplash.com/photo-1773994788669-755ba5180940?w=480&amp;q=65&amp;auto=format&amp;fit=crop" width="480" height="360" loading="lazy" alt="Mesa al aire libre bajo un árbol grande (foto referencial)"></button>
+          </div>
+        </div>
+        <div class="ficha">
+          <h3>Matrimonial</h3>
+          <p class="precio"><b>$30</b><span>por noche, hasta 2 personas</span></p>
+          <p class="resumen">Para parejas que vienen a desconectarse. Cama grande, ventana al jardín y silencio de campo.</p>
+          <ul class="comodidades"><li>Cama matrimonial</li><li>Baño privado con agua caliente</li><li>Ventilador de techo</li><li>TV con cable</li></ul>
+          <div class="botones"><a class="btn btn-wa" href="#reservar" data-reservar="matrimonial">Reservar esta habitación</a><a class="enlace" href="https://wa.me/580000000000?text=Hola%2C%20quiero%20consultar%20disponibilidad%20en%20la%20Matrimonial%20para%20estas%20fechas%3A%20" target="_blank" rel="noopener">Preguntar por WhatsApp</a></div>
+          <p class="nota-ej">Precios de ejemplo.</p>
+        </div>
+      </div>
+
+      <div class="panel" role="tabpanel" id="panel-doble" aria-labelledby="tab-doble" hidden>
+        <div class="galeria-cuarto">
+          <button class="ampliar principal" type="button" data-grande="https://images.unsplash.com/photo-1759139445627-5ce9d5fac8f9?w=1800&amp;q=75&amp;auto=format&amp;fit=crop" data-pie="Doble (foto referencial)"><img src="https://images.unsplash.com/photo-1759139445627-5ce9d5fac8f9?w=1200&amp;q=70&amp;auto=format&amp;fit=crop" srcset="https://images.unsplash.com/photo-1759139445627-5ce9d5fac8f9?w=700&amp;q=70&amp;auto=format&amp;fit=crop 700w, https://images.unsplash.com/photo-1759139445627-5ce9d5fac8f9?w=1200&amp;q=70&amp;auto=format&amp;fit=crop 1200w" sizes="(min-width:900px) 700px, 92vw" width="1200" height="900" loading="lazy" alt="Habitación con dos camas y ventanas (foto referencial)"><span class="lupa" aria-hidden="true"><svg viewBox="0 0 20 20"><circle cx="8.5" cy="8.5" r="6" fill="none" stroke="currentColor" stroke-width="2"/><path d="M13 13l5 5M8.5 6v5M6 8.5h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button>
+          <div class="miniaturas">
+            <button class="ampliar" type="button" data-grande="https://images.unsplash.com/photo-1775744244614-beb197cfac53?w=1600&amp;q=75&amp;auto=format&amp;fit=crop" data-pie="Doble, rincón de la ventana (foto referencial)"><img src="https://images.unsplash.com/photo-1775744244614-beb197cfac53?w=480&amp;q=65&amp;auto=format&amp;fit=crop" width="480" height="360" loading="lazy" alt="Cama de hierro junto a la ventana (foto referencial)"></button>
+            <button class="ampliar" type="button" data-grande="https://images.unsplash.com/photo-1777168925132-ada59d1cc0d0?w=1600&amp;q=75&amp;auto=format&amp;fit=crop" data-pie="Chinchorro en el corredor (foto referencial)"><img src="https://images.unsplash.com/photo-1777168925132-ada59d1cc0d0?w=480&amp;q=65&amp;auto=format&amp;fit=crop" width="480" height="360" loading="lazy" alt="Chinchorro de colores (foto referencial)"></button>
+            <button class="ampliar" type="button" data-grande="https://images.unsplash.com/photo-1773861540606-e5df23583620?w=1600&amp;q=75&amp;auto=format&amp;fit=crop" data-pie="La casa (foto referencial)"><img src="https://images.unsplash.com/photo-1773861540606-e5df23583620?w=480&amp;q=65&amp;auto=format&amp;fit=crop" width="480" height="360" loading="lazy" alt="Casa campestre de tejas (foto referencial)"></button>
+          </div>
+        </div>
+        <div class="ficha">
+          <h3>Doble</h3>
+          <p class="precio"><b>$40</b><span>por noche, hasta 4 personas</span></p>
+          <p class="resumen">Dos camas para venir con amigos o con los muchachos, con aire acondicionado para las tardes calurosas.</p>
+          <ul class="comodidades"><li>Dos camas matrimoniales</li><li>Baño privado con agua caliente</li><li>Aire acondicionado</li><li>TV con cable</li></ul>
+          <div class="botones"><a class="btn btn-wa" href="#reservar" data-reservar="doble">Reservar esta habitación</a><a class="enlace" href="https://wa.me/580000000000?text=Hola%2C%20quiero%20consultar%20disponibilidad%20en%20la%20Doble%20para%20estas%20fechas%3A%20" target="_blank" rel="noopener">Preguntar por WhatsApp</a></div>
+          <p class="nota-ej">Precios de ejemplo.</p>
+        </div>
+      </div>
+
+      <div class="panel" role="tabpanel" id="panel-familiar" aria-labelledby="tab-familiar" hidden>
+        <div class="galeria-cuarto">
+          <button class="ampliar principal" type="button" data-grande="https://images.unsplash.com/photo-1633836331520-e35c668f1f9d?w=1800&amp;q=75&amp;auto=format&amp;fit=crop" data-pie="Familiar (foto referencial)"><img src="https://images.unsplash.com/photo-1633836331520-e35c668f1f9d?w=1200&amp;q=70&amp;auto=format&amp;fit=crop" srcset="https://images.unsplash.com/photo-1633836331520-e35c668f1f9d?w=700&amp;q=70&amp;auto=format&amp;fit=crop 700w, https://images.unsplash.com/photo-1633836331520-e35c668f1f9d?w=1200&amp;q=70&amp;auto=format&amp;fit=crop 1200w" sizes="(min-width:900px) 700px, 92vw" width="1200" height="900" loading="lazy" alt="Habitación amplia con matas y cama grande (foto referencial)"><span class="lupa" aria-hidden="true"><svg viewBox="0 0 20 20"><circle cx="8.5" cy="8.5" r="6" fill="none" stroke="currentColor" stroke-width="2"/><path d="M13 13l5 5M8.5 6v5M6 8.5h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button>
+          <div class="miniaturas">
+            <button class="ampliar" type="button" data-grande="https://images.unsplash.com/photo-1615529162924-f8605388461d?w=1600&amp;q=75&amp;auto=format&amp;fit=crop" data-pie="Familiar, cama principal (foto referencial)"><img src="https://images.unsplash.com/photo-1615529162924-f8605388461d?w=480&amp;q=65&amp;auto=format&amp;fit=crop" width="480" height="360" loading="lazy" alt="Cama con lencería blanca y madera (foto referencial)"></button>
+            <button class="ampliar" type="button" data-grande="https://images.unsplash.com/photo-1773994788669-755ba5180940?w=1600&amp;q=75&amp;auto=format&amp;fit=crop" data-pie="Áreas verdes (foto referencial)"><img src="https://images.unsplash.com/photo-1773994788669-755ba5180940?w=480&amp;q=65&amp;auto=format&amp;fit=crop" width="480" height="360" loading="lazy" alt="Mesa bajo un árbol en la grama (foto referencial)"></button>
+            <button class="ampliar" type="button" data-grande="https://images.unsplash.com/photo-1792426419167-2b4695af7d5a?w=1600&amp;q=75&amp;auto=format&amp;fit=crop" data-pie="Desayuno criollo (foto referencial)"><img src="https://images.unsplash.com/photo-1792426419167-2b4695af7d5a?w=480&amp;q=65&amp;auto=format&amp;fit=crop" width="480" height="360" loading="lazy" alt="Arepa rellena (foto referencial)"></button>
+          </div>
+        </div>
+        <div class="ficha">
+          <h3>Familiar</h3>
+          <p class="precio"><b>$55</b><span>por noche, hasta 5 personas</span></p>
+          <p class="resumen">La más pedida para los fines de semana en familia: espacio para todos y nevera para lo de los niños.</p>
+          <ul class="comodidades"><li>Una matrimonial y tres individuales</li><li>Baño privado con agua caliente</li><li>Aire acondicionado</li><li>Nevera pequeña</li></ul>
+          <div class="botones"><a class="btn btn-wa" href="#reservar" data-reservar="familiar">Reservar esta habitación</a><a class="enlace" href="https://wa.me/580000000000?text=Hola%2C%20quiero%20consultar%20disponibilidad%20en%20la%20Familiar%20para%20estas%20fechas%3A%20" target="_blank" rel="noopener">Preguntar por WhatsApp</a></div>
+          <p class="nota-ej">Precios de ejemplo.</p>
+        </div>
+      </div>
+
+      <div class="panel" role="tabpanel" id="panel-cabana" aria-labelledby="tab-cabana" hidden>
+        <div class="galeria-cuarto">
+          <button class="ampliar principal" type="button" data-grande="https://images.unsplash.com/photo-1776950815445-f80f2b21fa50?w=1800&amp;q=75&amp;auto=format&amp;fit=crop" data-pie="Cabaña con cocina (foto referencial)"><img src="https://images.unsplash.com/photo-1776950815445-f80f2b21fa50?w=1200&amp;q=70&amp;auto=format&amp;fit=crop" srcset="https://images.unsplash.com/photo-1776950815445-f80f2b21fa50?w=700&amp;q=70&amp;auto=format&amp;fit=crop 700w, https://images.unsplash.com/photo-1776950815445-f80f2b21fa50?w=1200&amp;q=70&amp;auto=format&amp;fit=crop 1200w" sizes="(min-width:900px) 700px, 92vw" width="1200" height="900" loading="lazy" alt="Cabaña de madera con cocina y barra (foto referencial)"><span class="lupa" aria-hidden="true"><svg viewBox="0 0 20 20"><circle cx="8.5" cy="8.5" r="6" fill="none" stroke="currentColor" stroke-width="2"/><path d="M13 13l5 5M8.5 6v5M6 8.5h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button>
+          <div class="miniaturas">
+            <button class="ampliar" type="button" data-grande="https://images.unsplash.com/photo-1761662826410-3218852da3bf?w=1600&amp;q=75&amp;auto=format&amp;fit=crop" data-pie="Cocina de la cabaña (foto referencial)"><img src="https://images.unsplash.com/photo-1761662826410-3218852da3bf?w=480&amp;q=65&amp;auto=format&amp;fit=crop" width="480" height="360" loading="lazy" alt="Cocina rústica con mantel de cuadros (foto referencial)"></button>
+            <button class="ampliar" type="button" data-grande="https://images.unsplash.com/photo-1699629208190-672f7ef56d7b?w=1600&amp;q=75&amp;auto=format&amp;fit=crop" data-pie="Cuarto de la cabaña (foto referencial)"><img src="https://images.unsplash.com/photo-1699629208190-672f7ef56d7b?w=480&amp;q=65&amp;auto=format&amp;fit=crop" width="480" height="360" loading="lazy" alt="Cuarto con cama de madera (foto referencial)"></button>
+            <button class="ampliar" type="button" data-grande="https://images.unsplash.com/photo-1777168925132-ada59d1cc0d0?w=1600&amp;q=75&amp;auto=format&amp;fit=crop" data-pie="Corredor con chinchorro (foto referencial)"><img src="https://images.unsplash.com/photo-1777168925132-ada59d1cc0d0?w=480&amp;q=65&amp;auto=format&amp;fit=crop" width="480" height="360" loading="lazy" alt="Chinchorro en el corredor (foto referencial)"></button>
+          </div>
+        </div>
+        <div class="ficha">
+          <h3>Cabaña con cocina</h3>
+          <p class="precio"><b>$70</b><span>por noche, hasta 6 personas</span></p>
+          <p class="resumen">Aparte de la casa principal, para quedarse varios días a su ritmo y cocinar lo que le provoque.</p>
+          <ul class="comodidades"><li>Dos cuartos y sala</li><li>Cocina equipada</li><li>Aire acondicionado</li><li>Corredor con chinchorro</li></ul>
+          <div class="botones"><a class="btn btn-wa" href="#reservar" data-reservar="cabana">Reservar esta habitación</a><a class="enlace" href="https://wa.me/580000000000?text=Hola%2C%20quiero%20consultar%20disponibilidad%20en%20la%20Caba%C3%B1a%20con%20cocina%20para%20estas%20fechas%3A%20" target="_blank" rel="noopener">Preguntar por WhatsApp</a></div>
+          <p class="nota-ej">Precios de ejemplo.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="preguntas" id="preguntas" aria-labelledby="t-preguntas">
+  <section class="seccion incluye" id="incluye" aria-labelledby="t-incluye">
     <div class="contenedor rejilla">
-      <h2 id="t-preguntas" class="rv">Lo que nos preguntan.</h2>
-      <div class="acordeon rv" style="--rd:.1s">
-        <details><summary>¿A qué hora es la entrada y la salida?<span class="mas" aria-hidden="true"><svg viewBox="0 0 14 14"><path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></summary><p class="respuesta">La entrada es desde las 2:00 p. m. y la salida hasta las 12:00 m. Si llega más temprano, puede dejar el equipaje y empezar a disfrutar.</p></details>
+      <div class="fotos">
+        <button class="ampliar g1" type="button" data-grande="https://images.unsplash.com/photo-1792426419167-2b4695af7d5a?w=1600&amp;q=75&amp;auto=format&amp;fit=crop" data-pie="Desayuno criollo (foto referencial)"><img src="https://images.unsplash.com/photo-1792426419167-2b4695af7d5a?w=900&amp;q=70&amp;auto=format&amp;fit=crop" width="900" height="1125" loading="lazy" alt="Arepa rellena con aguacate y tajadas (foto referencial)"><span class="etiqueta-foto">Foto referencial</span></button>
+        <button class="ampliar g2" type="button" data-grande="https://images.unsplash.com/photo-1780091606130-2bfc03991da6?w=1600&amp;q=75&amp;auto=format&amp;fit=crop" data-pie="Parrillera (foto referencial)"><img src="https://images.unsplash.com/photo-1780091606130-2bfc03991da6?w=600&amp;q=70&amp;auto=format&amp;fit=crop" width="600" height="800" loading="lazy" alt="Parrilla encendida en el patio (foto referencial)"></button>
+      </div>
+      <div>
+        <h2 id="t-incluye" class="titulo-sec">Lo que incluye su estadía.</h2>
+        <p class="intro">Lo necesario para no tener que salir, salvo para pasear.</p>
+        <ul class="lista-incluye">
+          <li><b>Desayuno criollo</b><span>Arepas, perico, queso llanero y café colado.</span></li>
+          <li><b>Estacionamiento</b><span>Dentro de la posada, con portón.</span></li>
+          <li><b>Wifi en áreas comunes</b><span>Para mandar las fotos del día.</span></li>
+          <li><b>Áreas verdes</b><span>Grama y árboles para que los niños corran.</span></li>
+          <li><b>Parrillera</b><span>Con mesón, para la carne del domingo.</span></li>
+          <li><b>Planta eléctrica</b><span>Si se va la luz, todo sigue funcionando.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion cerca" id="cerca" aria-labelledby="t-cerca">
+    <div class="contenedor">
+      <div class="cabeza">
+        <h2 id="t-cerca" class="titulo-sec">Qué hacer cerca.</h2>
+        <p>Barinitas queda donde el llano se encuentra con la montaña: río, pueblos de montaña y la subida a los páramos.</p>
+      </div>
+      <ul class="lugares">
+        <li class="lugar">
+          <button class="ampliar" type="button" data-grande="https://images.unsplash.com/photo-1784495535609-fa9e4f4c700a?w=1600&amp;q=75&amp;auto=format&amp;fit=crop" data-pie="Río de montaña (foto referencial)"><img src="https://images.unsplash.com/photo-1784495535609-fa9e4f4c700a?w=500&amp;h=500&amp;q=65&amp;auto=format&amp;fit=crop" width="500" height="500" loading="lazy" alt="Río de piedras entre vegetación (foto referencial)"></button>
+          <div><h3>Río Santo Domingo</h3><p>Baja frío desde la montaña. Para un baño de río en familia.</p><a class="enlace" href="https://www.google.com/maps/search/?api=1&amp;query=R%C3%ADo%20Santo%20Domingo%20Barinitas" target="_blank" rel="noopener">Ver en el mapa</a></div>
+        </li>
+        <li class="lugar">
+          <button class="ampliar" type="button" data-grande="https://images.unsplash.com/photo-1792183887458-c9db1635a9da?w=1600&amp;q=75&amp;auto=format&amp;fit=crop" data-pie="Pueblo al pie de la montaña (foto referencial)"><img src="https://images.unsplash.com/photo-1792183887458-c9db1635a9da?w=500&amp;h=500&amp;q=65&amp;auto=format&amp;fit=crop" width="500" height="500" loading="lazy" alt="Pueblo de techos rojos al pie de montañas verdes (foto referencial)"></button>
+          <div><h3>Altamira de Cáceres</h3><p>Pueblo de montaña, de los más antiguos de Barinas, con clima fresco.</p><a class="enlace" href="https://www.google.com/maps/search/?api=1&amp;query=Altamira%20de%20C%C3%A1ceres%20Barinas" target="_blank" rel="noopener">Ver en el mapa</a></div>
+        </li>
+        <li class="lugar">
+          <button class="ampliar" type="button" data-grande="https://images.unsplash.com/photo-1768171111508-6de364abc3b2?w=1600&amp;q=75&amp;auto=format&amp;fit=crop" data-pie="Camino del páramo (foto referencial)"><img src="https://images.unsplash.com/photo-1768171111508-6de364abc3b2?w=500&amp;h=500&amp;q=65&amp;auto=format&amp;fit=crop" width="500" height="500" loading="lazy" alt="Frailejón con montañas detrás (foto referencial)"></button>
+          <div><h3>Subida al páramo</h3><p>Por Santo Domingo, la carretera sube hacia Mérida entre neblina, truchas y frailejones.</p><a class="enlace" href="https://www.google.com/maps/search/?api=1&amp;query=Santo%20Domingo%20M%C3%A9rida%20Venezuela" target="_blank" rel="noopener">Ver en el mapa</a></div>
+        </li>
+        <li class="lugar">
+          <button class="ampliar" type="button" data-grande="https://images.unsplash.com/photo-1768168916366-faa0713b0b9a?w=1600&amp;q=75&amp;auto=format&amp;fit=crop" data-pie="Laguna de páramo (foto referencial)"><img src="https://images.unsplash.com/photo-1768168916366-faa0713b0b9a?w=500&amp;h=500&amp;q=65&amp;auto=format&amp;fit=crop" width="500" height="500" loading="lazy" alt="Laguna entre pajonales de páramo (foto referencial)"></button>
+          <div><h3>Laguna de Mucubají</h3><p>Más arriba, en el páramo: frío de verdad, laguna y caminatas.</p><a class="enlace" href="https://www.google.com/maps/search/?api=1&amp;query=Laguna%20de%20Mucubaj%C3%AD" target="_blank" rel="noopener">Ver en el mapa</a></div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="seccion preguntas" id="preguntas" aria-labelledby="t-preguntas">
+    <div class="contenedor rejilla">
+      <h2 id="t-preguntas" class="titulo-sec">Lo que nos preguntan.</h2>
+      <div class="acordeon">
+        <details open><summary>¿A qué hora es la entrada y la salida?<span class="mas" aria-hidden="true"><svg viewBox="0 0 14 14"><path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></summary><p class="respuesta">La entrada es desde las 2:00 p. m. y la salida hasta las 12:00 m. Si llega más temprano, puede dejar el equipaje y empezar a disfrutar.</p></details>
         <details><summary>¿Aceptan mascotas?<span class="mas" aria-hidden="true"><svg viewBox="0 0 14 14"><path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></summary><p class="respuesta">Sí, mascotas pequeñas y con aviso al reservar. Le pedimos traer su camita y recoger lo que deje en las áreas verdes.</p></details>
         <details><summary>¿Cómo se paga?<span class="mas" aria-hidden="true"><svg viewBox="0 0 14 14"><path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></summary><p class="respuesta">Pago móvil, Zelle o efectivo en divisas. Para apartar la fecha se pide un abono y el resto se paga al llegar.</p></details>
         <details><summary>¿Cómo llego?<span class="mas" aria-hidden="true"><svg viewBox="0 0 14 14"><path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></summary><p class="respuesta">Barinitas queda en la vía de Barinas hacia Santo Domingo y Mérida. Al confirmar la reserva le mandamos la ubicación exacta por WhatsApp.</p></details>
@@ -604,23 +471,23 @@ body.pausado *,body.pausado *::before,body.pausado *::after{animation-play-state
     </div>
   </section>
 
-  <section class="reservar" id="reservar" aria-labelledby="t-reservar">
-    <div class="enjambre" id="enjambre" aria-hidden="true"></div>
+  <section class="seccion reservar" id="reservar" aria-labelledby="t-reservar">
+    <div class="fondo" aria-hidden="true"><img src="https://images.unsplash.com/photo-1767601047787-f2a9194e6749?w=1600&amp;q=60&amp;auto=format&amp;fit=crop" srcset="https://images.unsplash.com/photo-1767601047787-f2a9194e6749?w=800&amp;q=60&amp;auto=format&amp;fit=crop 800w, https://images.unsplash.com/photo-1767601047787-f2a9194e6749?w=1600&amp;q=60&amp;auto=format&amp;fit=crop 1600w" sizes="100vw" width="1600" height="1067" loading="lazy" alt=""></div>
     <div class="contenedor rejilla">
       <div>
-        <h2 id="t-reservar" class="rv">Reserve su noche.</h2>
-        <p class="intro rv" style="--rd:.1s">Elija la habitación, las fechas y cuántos vienen. El mensaje de WhatsApp sale listo y le respondemos con la disponibilidad.</p>
-        <p class="pista-dedo rv" style="--rd:.15s">Mueva el dedo por aquí: las luciérnagas lo siguen.</p>
-        <div class="mapas rv" style="--rd:.2s"><a class="btn btn-claro" href="https://www.google.com/maps/search/?api=1&amp;query=Posada%20VillaSerena%20Barinitas%20Barinas" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="9.5" r="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>Ver en Google Maps</a></div>
+        <h2 id="t-reservar" class="titulo-sec">Reserve su fin de semana.</h2>
+        <p class="intro">Elija la habitación, las fechas y cuántos vienen. El mensaje de WhatsApp sale listo y le respondemos con la disponibilidad.</p>
+        <div class="mapas"><a class="btn btn-linea" href="https://www.google.com/maps/search/?api=1&amp;query=Posada%20VillaSerena%20Barinitas%20Barinas" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="9.5" r="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>Ver en Google Maps</a></div>
+        <div class="datos-contacto"><span>Barinitas, estado Barinas</span><span>WhatsApp +58 000 0000000</span></div>
       </div>
-      <form class="armador rv" id="armador" style="--rd:.15s" action="https://wa.me/580000000000" target="_blank">
+      <form class="armador" id="armador" action="https://wa.me/580000000000" target="_blank">
         <fieldset>
           <legend>Habitación</legend>
           <div class="opciones">
-            <label class="opcion"><input type="radio" name="cuarto" value="matrimonial" checked><span>Matrimonial<small>2 personas · $30</small></span></label>
-            <label class="opcion"><input type="radio" name="cuarto" value="doble"><span>Doble<small>4 personas · $40</small></span></label>
-            <label class="opcion"><input type="radio" name="cuarto" value="familiar"><span>Familiar<small>5 personas · $55</small></span></label>
-            <label class="opcion"><input type="radio" name="cuarto" value="cabana"><span>Cabaña con cocina<small>6 personas · $70</small></span></label>
+            <label class="opcion"><input type="radio" name="cuarto" value="matrimonial" checked><span>Matrimonial<small>2 personas, $30</small></span></label>
+            <label class="opcion"><input type="radio" name="cuarto" value="doble"><span>Doble<small>4 personas, $40</small></span></label>
+            <label class="opcion"><input type="radio" name="cuarto" value="familiar"><span>Familiar<small>5 personas, $55</small></span></label>
+            <label class="opcion"><input type="radio" name="cuarto" value="cabana"><span>Cabaña con cocina<small>6 personas, $70</small></span></label>
           </div>
         </fieldset>
         <fieldset>
@@ -640,7 +507,7 @@ body.pausado *,body.pausado *::before,body.pausado *::after{animation-play-state
         </fieldset>
         <p class="burbuja" aria-live="polite"><small>Su mensaje</small><span id="mensaje">Hola, quiero consultar disponibilidad para estas fechas: </span></p>
         <p class="estimado" id="estimado"></p>
-        <a class="btn btn-luz" id="wa-reserva" href="https://wa.me/580000000000?text=Hola%2C%20quiero%20consultar%20disponibilidad%20para%20estas%20fechas%3A%20" target="_blank" rel="noopener"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3.5C9.1 3.5 3.6 9 3.6 15.8c0 2.4.7 4.6 1.9 6.5L3.5 28.5l6.4-2c1.8 1 3.9 1.6 6.1 1.6 6.9 0 12.4-5.5 12.4-12.3S22.9 3.5 16 3.5z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M11.8 9.6c.4 0 .7.1.9.6l1 2.4c.1.3 0 .6-.1.8l-.7.9c-.2.2-.2.5 0 .8.9 1.6 2.2 2.8 3.9 3.6.3.1.6.1.8-.1l.9-1c.2-.3.5-.3.8-.2l2.4 1.1c.3.1.5.4.4.7-.1 1.5-1.3 2.6-2.9 2.6-4.3-.3-8.7-4.5-9-8.9 0-1.6 1-3.1 1.6-3.3z" fill="currentColor"/></svg>Enviar consulta por WhatsApp</a>
+        <a class="btn btn-wa" id="wa-reserva" href="https://wa.me/580000000000?text=Hola%2C%20quiero%20consultar%20disponibilidad%20para%20estas%20fechas%3A%20" target="_blank" rel="noopener"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3.5C9.1 3.5 3.6 9 3.6 15.8c0 2.4.7 4.6 1.9 6.5L3.5 28.5l6.4-2c1.8 1 3.9 1.6 6.1 1.6 6.9 0 12.4-5.5 12.4-12.3S22.9 3.5 16 3.5z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M11.8 9.6c.4 0 .7.1.9.6l1 2.4c.1.3 0 .6-.1.8l-.7.9c-.2.2-.2.5 0 .8.9 1.6 2.2 2.8 3.9 3.6.3.1.6.1.8-.1l.9-1c.2-.3.5-.3.8-.2l2.4 1.1c.3.1.5.4.4.7-.1 1.5-1.3 2.6-2.9 2.6-4.3-.3-8.7-4.5-9-8.9 0-1.6 1-3.1 1.6-3.3z" fill="currentColor"/></svg>Enviar consulta por WhatsApp</a>
       </form>
     </div>
   </section>
@@ -655,179 +522,89 @@ body.pausado *,body.pausado *::before,body.pausado *::after{animation-play-state
     </div>
     <div>
       <p class="aviso">Página de ejemplo con datos ficticios · Fotos referenciales</p>
-      <p class="aviso">Vista previa hecha por Carlos Mendoza</p>
+      <p class="aviso">Fotos de Unsplash y video de Pexels. Vista previa hecha por Carlos Mendoza</p>
     </div>
   </div>
 </footer>
 
-<dialog class="ficha" id="ficha" aria-labelledby="ficha-titulo">
-  <div class="ficha-grid">
-    <img id="ficha-img" src="assets/img/familiar-720.webp" width="720" height="900" alt="">
-    <div class="ficha-texto">
-      <h3 id="ficha-titulo">Familiar</h3>
-      <p class="linea-datos"><b id="ficha-precio">$55</b><span>por noche, con desayuno</span><span id="ficha-cap">Hasta 5 personas</span></p>
-      <div id="ficha-detalle"></div>
-      <div class="botones">
-        <button class="btn btn-wa" type="button" id="ficha-reservar">Reservar esta habitación</button>
-        <a class="enlace" id="ficha-wa" href="https://wa.me/580000000000" target="_blank" rel="noopener">Preguntar por WhatsApp</a>
-      </div>
-      <p class="nota-precio">Precios de ejemplo.</p>
-    </div>
+<dialog class="visor" id="visor" aria-label="Foto ampliada">
+  <div class="visor-caja">
+    <img id="visor-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="">
+    <p class="pie-foto" id="visor-pie"></p>
+    <button class="ant" type="button" id="visor-ant" aria-label="Foto anterior"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M13 3L6 10l7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    <button class="sig" type="button" id="visor-sig" aria-label="Foto siguiente"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7 3l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    <button class="cerrar" type="button" id="visor-cerrar" aria-label="Cerrar"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 4l12 12M16 4L4 16" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
   </div>
-  <button class="cerrar" type="button" id="ficha-cerrar" aria-label="Cerrar"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M2 2l14 14M16 2L2 16" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
 </dialog>
 
 <a class="flotante" href="https://wa.me/580000000000?text=Hola%2C%20quiero%20consultar%20disponibilidad%20para%20estas%20fechas%3A%20" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3.5C9.1 3.5 3.6 9 3.6 15.8c0 2.4.7 4.6 1.9 6.5L3.5 28.5l6.4-2c1.8 1 3.9 1.6 6.1 1.6 6.9 0 12.4-5.5 12.4-12.3S22.9 3.5 16 3.5z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M11.8 9.6c.4 0 .7.1.9.6l1 2.4c.1.3 0 .6-.1.8l-.7.9c-.2.2-.2.5 0 .8.9 1.6 2.2 2.8 3.9 3.6.3.1.6.1.8-.1l.9-1c.2-.3.5-.3.8-.2l2.4 1.1c.3.1.5.4.4.7-.1 1.5-1.3 2.6-2.9 2.6-4.3-.3-8.7-4.5-9-8.9 0-1.6 1-3.1 1.6-3.3z" fill="currentColor"/></svg></a>
 
 <script>
 (function () {
-  var raiz = document.documentElement;
-  raiz.classList.add("js");
   var reducido = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var WA = "https://wa.me/580000000000?text=";
   function safe(fn, nombre) { try { fn(); } catch (e) { console.warn("[" + nombre + "]", e); } }
   function lim(v, a, b) { return v < a ? a : v > b ? b : v; }
-  function rampa(p, a, b) { return lim((p - a) / (b - a), 0, 1); }
   function q(s, c) { return (c || document).querySelector(s); }
   function qa(s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); }
 
-  /* ---------- Titular que llena el ancho ---------- */
-  function ajustarTitular() {
-    var h1 = q("#titulo"), lineas = qa(".linea", h1);
-    var ancho = h1.parentNode.clientWidth;
-    if (window.innerWidth >= 900) ancho = Math.min(ancho, 1080);
-    var tam = [];
-    lineas.forEach(function (l) { l.style.fontSize = "100px"; tam.push(100 * ancho / l.scrollWidth); });
-    var alto = tam.reduce(function (s, t) { return s + t * 0.96; }, 0), tope = window.innerHeight * (window.innerWidth >= 900 ? 0.34 : 0.3);
-    var k = alto > tope ? tope / alto : 1;
-    lineas.forEach(function (l, i) { l.style.fontSize = (tam[i] * k * 0.985).toFixed(1) + "px"; });
+  /* Video de portada: solo en computadora, con buena conexión y sin "reducir movimiento" */
+  function initVideo() {
+    var v = q("#video-portada");
+    var con = navigator.connection || {};
+    var lenta = con.saveData || /(^|-)2g|3g/.test(con.effectiveType || "");
+    if (reducido || lenta || !window.matchMedia("(min-width: 900px)").matches) return;
+    v.addEventListener("playing", function () { v.classList.add("listo"); }, { once: true });
+    v.src = v.dataset.video;
+    var p = v.play(); if (p && p.catch) p.catch(function () {});
+    document.addEventListener("visibilitychange", function () { if (document.hidden) v.pause(); else { var r = v.play(); if (r && r.catch) r.catch(function () {}); } });
   }
 
-  /* ---------- La escena del día ---------- */
-  var E = {};
-  function initEscena() {
-    if (reducido) return;
-    E.dia = q(".dia"); E.escena = q("#escena");
-    E.dia2 = q(".c-dia"); E.tarde = q(".c-tarde"); E.noche = q(".c-noche"); E.estrellas = q(".estrellas");
-    E.sol = q(".sol"); E.luna = q(".luna");
-    E.capas = qa(".capa"); E.neblina = q(".neblina");
-    E.tAlba = q(".t-alba"); E.tTarde = q(".t-tarde"); E.tNoche = q(".t-noche");
-    E.ventanas = qa(".ventana-luz"); E.bichos = q(".luciernaga-escena");
-    E.sombras = qa(".sombra");
-    E.subs = qa(".sub").map(function (el) { return { el: el, r: el.dataset.rango.split(",").map(parseFloat) }; });
-    raiz.classList.add("vivo");
-  }
-  function pintarEscena() {
-    if (!E.dia) return;
-    var r = E.dia.getBoundingClientRect(), vh = window.innerHeight, w = window.innerWidth;
-    if (r.bottom < 0) return;
-    var p = lim(-r.top / (r.height - vh), 0, 1);
-    E.dia2.style.opacity = rampa(p, .1, .3).toFixed(3);
-    E.tarde.style.opacity = rampa(p, .56, .7).toFixed(3);
-    E.noche.style.opacity = rampa(p, .76, .9).toFixed(3);
-    E.estrellas.style.opacity = rampa(p, .8, .93).toFixed(3);
-    var t = rampa(p, 0, .76), ang = Math.PI * t;
-    var sx = w * (.1 + .8 * t), sy = vh * .6 - Math.sin(ang) * vh * .44;
-    E.sol.style.transform = "translate3d(" + sx.toFixed(1) + "px," + sy.toFixed(1) + "px,0)";
-    var tl = rampa(p, .8, 1);
-    E.luna.style.opacity = tl > 0 ? Math.min(1, tl * 3).toFixed(3) : "0";
-    E.luna.style.transform = "translate3d(" + (w * (.86 - .2 * tl)).toFixed(1) + "px," + (vh * (.6 - .36 * tl)).toFixed(1) + "px,0) rotate(-20deg)";
-    E.capas.forEach(function (c) {
-      var pan = +c.dataset.pan, sube = +c.dataset.sube;
-      c.style.transform = "translate3d(" + (-p * pan).toFixed(1) + "px," + ((1 - p) * sube * .6).toFixed(1) + "px,0)";
+  /* Pestañas de habitaciones */
+  function initPestanas() {
+    var tabs = qa(".pestana");
+    function elegir(t, foco) {
+      tabs.forEach(function (x) {
+        var si = x === t;
+        x.setAttribute("aria-selected", si ? "true" : "false");
+        x.tabIndex = si ? 0 : -1;
+        q("#" + x.getAttribute("aria-controls")).hidden = !si;
+      });
+      if (foco) t.focus();
+    }
+    tabs.forEach(function (t, i) {
+      t.addEventListener("click", function () { elegir(t); });
+      t.addEventListener("keydown", function (e) {
+        var k = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
+        if (k) { e.preventDefault(); elegir(tabs[(i + k + tabs.length) % tabs.length], true); }
+      });
     });
-    var nb = 1 - rampa(p, .06, .34);
-    E.neblina.style.opacity = nb.toFixed(3);
-    E.neblina.style.transform = "translate3d(" + (-p * 50).toFixed(1) + "px," + (-(1 - nb) * vh * .08).toFixed(1) + "px,0)";
-    E.tAlba.style.opacity = ((1 - rampa(p, 0, .2)) * .22).toFixed(3);
-    E.tTarde.style.opacity = (rampa(p, .58, .7) * (1 - rampa(p, .78, .9)) * .24).toFixed(3);
-    E.tNoche.style.opacity = (rampa(p, .74, .9) * .62).toFixed(3);
-    var n = E.ventanas.length;
-    E.ventanas.forEach(function (v, i) { v.style.opacity = rampa(p, .78 + i * .025, .8 + i * .025).toFixed(3); });
-    E.bichos.style.opacity = rampa(p, .86, .95).toFixed(3);
-    var dx = -Math.cos(ang) * 70, largo = 1 + Math.abs(Math.cos(ang)) * .7, op = (Math.sin(ang) * .35 * (1 - rampa(p, .7, .78))).toFixed(3);
-    E.sombras.forEach(function (s) { s.style.transform = "translateX(" + dx.toFixed(1) + "px) scaleX(" + largo.toFixed(3) + ")"; s.style.opacity = op; });
-    E.dia.classList.toggle("oscura", p > .6);
-    E.subs.forEach(function (s) {
-      var a = s.r, o;
-      if (p < a[1]) o = a[0] === a[1] ? 1 : rampa(p, a[0], a[1]); else o = 1 - rampa(p, a[2], a[3]);
-      s.el.style.opacity = o.toFixed(3);
-      s.el.style.transform = "translate3d(0," + ((1 - o) * (p < a[1] ? 30 : -30)).toFixed(1) + "px,0)";
-      s.el.classList.toggle("activo", o > .5);
-    });
-    cab.classList.toggle("clara", p > .6 && r.bottom > 64);
   }
 
-  /* ---------- Polaroids en el mecate ---------- */
-  var P = { pendulos: [], movimiento: false };
-  function initPista() {
-    P.sec = q("#habitaciones"); P.pista = q("#pista"); P.fijo = q(".cuartos-fijo");
-    P.pendulos = qa(".pendulo").map(function (el) { return { el: el, a: 0, v: 0 }; });
-    if (reducido) return;
-    medirPista();
-  }
-  function medirPista() {
-    if (reducido || !P.pista) return;
-    P.pista.style.transform = "none";
-    P.recorrido = Math.max(0, P.pista.scrollWidth - window.innerWidth);
-    P.sec.style.height = (window.innerHeight + P.recorrido * 1.15) + "px";
-  }
-  function pintarPista() {
-    if (reducido || !P.sec) return;
-    var r = P.sec.getBoundingClientRect(), vh = window.innerHeight;
-    if (r.top > vh || r.bottom < 0) return;
-    var p = lim(-r.top / Math.max(1, r.height - vh), 0, 1);
-    P.pista.style.transform = "translate3d(" + (-p * P.recorrido).toFixed(1) + "px,0,0)";
-  }
-  function empujarPendulos(vel) {
-    if (reducido) return;
-    var imp = lim(vel * .012, -3, 3);
-    P.pendulos.forEach(function (o, i) { o.v += imp * (0.8 + (i % 3) * .15); });
-    if (!P.movimiento) { P.movimiento = true; requestAnimationFrame(pasoPendulos); }
-  }
-  function pasoPendulos() {
-    var quieto = true;
-    P.pendulos.forEach(function (o) {
-      o.v += -o.a * .06; o.v *= .93; o.a += o.v;
-      o.a = lim(o.a, -9, 9);
-      if (Math.abs(o.a) > .02 || Math.abs(o.v) > .02) quieto = false;
-      o.el.style.transform = "rotate(" + o.a.toFixed(2) + "deg)";
-    });
-    if (quieto) { P.movimiento = false; P.pendulos.forEach(function (o) { o.a = 0; o.v = 0; o.el.style.transform = ""; }); return; }
-    requestAnimationFrame(pasoPendulos);
-  }
-
-  /* ---------- Ficha de habitación ---------- */
-  var cuartoElegido = null;
-  function initFicha() {
-    var dlg = q("#ficha");
-    function abrir(art) {
-      cuartoElegido = art.dataset.cuarto;
-      q("#ficha-img").src = q("img", art).src;
-      q("#ficha-img").alt = q("img", art).alt;
-      q("#ficha-titulo").textContent = art.dataset.nombre;
-      q("#ficha-precio").textContent = "$" + art.dataset.precio;
-      q("#ficha-cap").textContent = "Hasta " + art.dataset.capacidad + " personas";
-      var det = q("#ficha-detalle"); det.innerHTML = ""; var copia = q(".detalle", art).cloneNode(true); copia.style.display = "block"; det.appendChild(copia);
-      q("#ficha-wa").href = WA + encodeURIComponent("Hola, quiero consultar disponibilidad en " + art.dataset.articulo + " de Posada VillaSerena para estas fechas: ");
+  /* Visor de fotos */
+  function initVisor() {
+    var dlg = q("#visor"), img = q("#visor-img"), pie = q("#visor-pie"), grupo = [], i = 0;
+    function mostrar() { var b = grupo[i]; img.src = b.dataset.grande; img.alt = q("img", b).alt; pie.textContent = b.dataset.pie || ""; }
+    function abrir(b) {
+      var cont = b.closest(".panel, .fotos-bienvenida, .fotos, .lugares") || document;
+      grupo = qa(".ampliar", cont);
+      i = Math.max(0, grupo.indexOf(b)); mostrar();
+      q("#visor-ant").hidden = q("#visor-sig").hidden = grupo.length < 2;
       if (dlg.showModal) dlg.showModal(); else dlg.setAttribute("open", "");
     }
-    qa(".polaroid").forEach(function (art) {
-      art.addEventListener("click", function () { abrir(art); });
-      art.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); abrir(art); } });
-    });
     function cerrar() { if (dlg.close) dlg.close(); else dlg.removeAttribute("open"); }
-    q("#ficha-cerrar").addEventListener("click", cerrar);
-    dlg.addEventListener("click", function (e) { if (e.target === dlg) cerrar(); });
-    q("#ficha-reservar").addEventListener("click", function () {
-      var radio = q('input[name="cuarto"][value="' + cuartoElegido + '"]');
-      if (radio) { radio.checked = true; radio.dispatchEvent(new Event("change", { bubbles: true })); }
-      cerrar();
-      q("#reservar").scrollIntoView({ behavior: reducido ? "auto" : "smooth" });
-    });
+    qa(".ampliar").forEach(function (b) { b.addEventListener("click", function () { abrir(b); }); });
+    q("#visor-ant").addEventListener("click", function () { i = (i - 1 + grupo.length) % grupo.length; mostrar(); });
+    q("#visor-sig").addEventListener("click", function () { i = (i + 1) % grupo.length; mostrar(); });
+    q("#visor-cerrar").addEventListener("click", cerrar);
+    dlg.addEventListener("click", function (e) { if (e.target === dlg || e.target.classList.contains("visor-caja")) cerrar(); });
+    dlg.addEventListener("keydown", function (e) { if (e.key === "ArrowRight") q("#visor-sig").click(); if (e.key === "ArrowLeft") q("#visor-ant").click(); });
+    var x0 = null;
+    dlg.addEventListener("touchstart", function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+    dlg.addEventListener("touchend", function (e) { if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 50 && grupo.length > 1) q(dx < 0 ? "#visor-sig" : "#visor-ant").click(); x0 = null; });
   }
 
-  /* ---------- Armador de reserva ---------- */
+  /* Armador de reserva */
   var cuartos = {
     matrimonial: { articulo: "la Matrimonial", cap: 2, precio: 30 },
     doble: { articulo: "la Doble", cap: 4, precio: 40 },
@@ -871,103 +648,30 @@ body.pausado *,body.pausado *::before,body.pausado *::after{animation-play-state
         actualizar();
       });
     });
+    qa("[data-reservar]").forEach(function (a) {
+      a.addEventListener("click", function () {
+        var r = q('input[name="cuarto"][value="' + a.dataset.reservar + '"]');
+        if (r) { r.checked = true; actualizar(); }
+      });
+    });
     f.addEventListener("change", actualizar);
     f.addEventListener("submit", function (e) { e.preventDefault(); window.open(q("#wa-reserva").href, "_blank", "noopener"); });
     actualizar();
   }
 
-  /* ---------- Mapa de lugares ---------- */
-  function initMapa() {
-    var botones = qa(".lugar"), pines = qa(".mapa .pin");
-    botones.forEach(function (b) {
-      b.addEventListener("click", function () {
-        botones.forEach(function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
-        pines.forEach(function (pn) { pn.classList.toggle("activo", pn.dataset.lugar === b.dataset.lugar); });
-      });
-    });
+  /* Cabecera sólida al salir de la portada */
+  function initCabecera() {
+    var cab = q("#cabecera"), pend = false;
+    function revisar() { pend = false; cab.classList.toggle("solida", window.scrollY > 60); }
+    window.addEventListener("scroll", function () { if (!pend) { pend = true; requestAnimationFrame(revisar); } }, { passive: true });
+    revisar();
   }
 
-  /* ---------- Luciérnagas que siguen el dedo ---------- */
-  function initLuciernagas() {
-    var sec = q("#reservar"), cont = q("#enjambre");
-    if (cont.children.length) return;
-    var n = window.innerWidth < 700 ? 12 : 18, bichos = [], visible = false, corriendo = false, objetivo = null, t0 = performance.now();
-    for (var i = 0; i < n; i++) {
-      var el = document.createElement("span"); el.className = "bicho"; cont.appendChild(el);
-      bichos.push({ el: el, x: Math.random() * sec.clientWidth, y: Math.random() * sec.clientHeight, fase: Math.random() * 6.28, radio: 18 + Math.random() * 46, vel: .025 + Math.random() * .03 });
-    }
-    function mover(ev) { var r = sec.getBoundingClientRect(); objetivo = { x: ev.clientX - r.left, y: ev.clientY - r.top }; }
-    sec.addEventListener("pointermove", mover, { passive: true });
-    sec.addEventListener("pointerdown", mover, { passive: true });
-    sec.addEventListener("pointerleave", function () { objetivo = null; });
-    function paso(ahora) {
-      if (!visible || document.hidden) { corriendo = false; return; }
-      var t = (ahora - t0) / 1000, W = sec.clientWidth, H = sec.clientHeight;
-      bichos.forEach(function (b, i) {
-        var cx, cy;
-        if (objetivo) { cx = objetivo.x + Math.cos(t * 1.3 + b.fase) * b.radio; cy = objetivo.y + Math.sin(t * 1.7 + b.fase) * b.radio * .8; }
-        else { cx = W * (.5 + .42 * Math.sin(t * .11 + b.fase * 1.7)); cy = H * (.5 + .4 * Math.sin(t * .13 + b.fase)); }
-        b.x += (cx - b.x) * (reducido ? 1 : b.vel); b.y += (cy - b.y) * (reducido ? 1 : b.vel);
-        b.el.style.transform = "translate3d(" + b.x.toFixed(1) + "px," + b.y.toFixed(1) + "px,0)";
-        b.el.style.opacity = (.45 + .55 * Math.abs(Math.sin(t * 1.6 + b.fase))).toFixed(2);
-      });
-      requestAnimationFrame(paso);
-    }
-    function arrancar() { if (visible && !corriendo && !reducido) { corriendo = true; requestAnimationFrame(paso); } }
-    if ("IntersectionObserver" in window) {
-      new IntersectionObserver(function (es) { visible = es[0].isIntersecting; arrancar(); }, { threshold: 0 }).observe(sec);
-    }
-    if (reducido) { visible = true; paso(performance.now()); visible = false; }
-    document.addEventListener("visibilitychange", arrancar);
-  }
-
-  /* ---------- Revelados ---------- */
-  function initRevelar() {
-    var els = qa(".rv, .servicio");
-    function mostrar(el) { el.classList.add("visible"); }
-    if (!("IntersectionObserver" in window)) { els.forEach(mostrar); return; }
-    var io = new IntersectionObserver(function (es) {
-      es.forEach(function (e) { if (e.isIntersecting) { mostrar(e.target); io.unobserve(e.target); } });
-    }, { threshold: .01, rootMargin: "0px 0px -6% 0px" });
-    els.forEach(function (el) { io.observe(el); });
-    setTimeout(function () { els.forEach(mostrar); }, 6000);
-  }
-
-  /* ---------- Scroll ---------- */
-  var cab = q("#cabecera"), pendiente = false, ultimoY = window.scrollY;
-  function cuadro() {
-    pendiente = false;
-    var y = window.scrollY, vel = y - ultimoY; ultimoY = y;
-    safe(pintarEscena, "escena-cuadro");
-    safe(pintarPista, "pista-cuadro");
-    if (Math.abs(vel) > 1 && P.sec) {
-      var r = P.sec.getBoundingClientRect();
-      if (r.top < window.innerHeight && r.bottom > 0) empujarPendulos(vel);
-    }
-    var finDia = q(".dia").getBoundingClientRect().bottom, res = q("#reservar").getBoundingClientRect();
-    cab.classList.toggle("solida", finDia <= 64 && !(res.top <= 64 && res.bottom > 64));
-    cab.classList.toggle("nocturna", res.top <= 64 && res.bottom > 64);
-  }
-  function pedir() { if (!pendiente) { pendiente = true; requestAnimationFrame(cuadro); } }
-  function initScroll() {
-    window.addEventListener("scroll", pedir, { passive: true });
-    var t;
-    window.addEventListener("resize", function () { clearTimeout(t); t = setTimeout(function () { safe(ajustarTitular, "titular"); medirPista(); pedir(); }, 120); });
-    window.addEventListener("load", function () { medirPista(); pedir(); });
-    cuadro();
-  }
-
-  safe(initEscena, "escena");
-  safe(ajustarTitular, "titular");
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { safe(ajustarTitular, "titular"); });
-  safe(initPista, "pista");
-  safe(initFicha, "ficha");
+  safe(initVideo, "video");
+  safe(initPestanas, "pestanas");
+  safe(initVisor, "visor");
   safe(initArmador, "armador");
-  safe(initMapa, "mapa");
-  safe(initLuciernagas, "luciernagas");
-  safe(initRevelar, "revelar");
-  safe(initScroll, "scroll");
-  document.addEventListener("visibilitychange", function () { document.body.classList.toggle("pausado", document.hidden); });
+  safe(initCabecera, "cabecera");
 })();
 </script>
 </body>
