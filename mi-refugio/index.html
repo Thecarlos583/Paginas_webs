@@ -4,431 +4,459 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Glamping Mi Refugio · Araira, Miranda</title>
-<meta name="description" content="Glamping en la montaña de Araira, Miranda: carpas con vista abierta y atardeceres para desconectarse en pareja o en familia. Consulte disponibilidad por WhatsApp.">
+<meta name="description" content="Glamping en la montaña de Araira, Miranda: domos y carpas con vista abierta y atardeceres para desconectarse en pareja o en familia. Consulte disponibilidad por WhatsApp.">
 <meta name="robots" content="noindex, nofollow">
-<meta name="theme-color" content="#1F2B26">
+<meta name="theme-color" content="#0B1018">
 <meta name="color-scheme" content="only light">
 <meta property="og:title" content="Glamping Mi Refugio · Araira, Miranda">
-<meta property="og:description" content="Carpas en la montaña de Araira con vista abierta y atardeceres. Consulte disponibilidad por WhatsApp.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231F2B26'/%3E%3Cpath d='M12 50 32 14l20 36z' fill='none' stroke='%23E0A526' stroke-width='4' stroke-linejoin='round'/%3E%3Cpath d='M32 50 32 32' stroke='%23E0A526' stroke-width='4'/%3E%3C/svg%3E">
+<meta property="og:description" content="Domos y carpas en la montaña de Araira, con vista abierta y atardeceres. Consulte disponibilidad por WhatsApp.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B1018'/%3E%3Ctext x='32' y='46' text-anchor='middle' font-family='Arial Narrow,Arial' font-weight='700' font-size='34' fill='%23E8A23B'%3EMR%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap">
 <script>document.documentElement.classList.add("js");</script>
 <style>
-@font-face{font-family:"Gelasio";src:url(assets/fuentes/titulo-500.woff2) format("woff2");font-weight:500;font-display:swap}
-@font-face{font-family:"Gelasio";src:url(assets/fuentes/titulo-500i.woff2) format("woff2");font-weight:500;font-style:italic;font-display:swap}
-@font-face{font-family:"Nunito Sans";src:url(assets/fuentes/texto-400.woff2) format("woff2");font-weight:400 700;font-display:swap}
-
 :root{
   color-scheme:only light;
-  --niebla:#EEF0EA; --niebla-2:#E2E6DD; --blanco:#FBFBF8;
-  --monte:#1F2B26; --monte-2:#2C3B33; --musgo:#5E6B4E; --tenue:#4F5A52;
-  --fogon:#E0A526; --fogon-2:#EDB848; --atardecer:#B5532E;
-  --suave:cubic-bezier(.22,.61,.36,1); --salto:cubic-bezier(.34,1.56,.64,1);
-  --lado:clamp(18px,5vw,64px); --ancho:1180px; --radio:14px;
-  --serif:"Gelasio",Georgia,serif; --sans:"Nunito Sans","Segoe UI",system-ui,sans-serif;
+  --noche:#0B1018; --noche-2:#121A24; --monte:#16251D; --cobre:#B8673A; --ambar:#E8A23B; --ambar-2:#F1B65A;
+  --vino:#5E1B27; --crema:#F2E8D8; --papel:#F6EFE3; --tenue:rgba(242,232,216,.78); --tinta:#16201B; --gris:#4D5650;
+  --suave:cubic-bezier(.22,.61,.36,1);
+  --lado:clamp(18px,5vw,72px);
+  --cartel:"League Gothic","Arial Narrow",Impact,sans-serif;
+  --texto:"Plus Jakarta Sans","Segoe UI",system-ui,sans-serif;
 }
 *,*::before,*::after{box-sizing:border-box}
-html{overflow-x:hidden;overflow-x:clip;scroll-behavior:smooth;scroll-padding-top:76px;-webkit-text-size-adjust:100%}
-body{margin:0;overflow-x:hidden;overflow-x:clip;background:var(--niebla);color:var(--monte);font-family:var(--sans);font-size:clamp(1rem,.96rem + .2vw,1.1rem);line-height:1.6;-webkit-font-smoothing:antialiased}
-img{display:block;max-width:100%;height:auto}
+html{overflow-x:hidden;overflow-x:clip;scroll-behavior:smooth;scroll-padding-top:70px;-webkit-text-size-adjust:100%}
+body{margin:0;overflow-x:hidden;overflow-x:clip;background:var(--noche);color:var(--crema);font-family:var(--texto);font-size:clamp(1rem,.96rem + .2vw,1.08rem);line-height:1.6;-webkit-font-smoothing:antialiased}
+img,video{display:block;max-width:100%}
+img{height:auto}
 a{color:inherit}
 button,input,select{font:inherit;color:inherit}
-:focus-visible{outline:2px solid var(--atardecer);outline-offset:3px;border-radius:6px}
-h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.08;margin:0;letter-spacing:-.01em}
-h2{font-size:clamp(2rem,1.5rem + 2.4vw,3.3rem)}
-h3{font-size:1.45rem}
 p{margin:0}
-.contenedor{max-width:var(--ancho);margin:0 auto;padding-left:var(--lado);padding-right:var(--lado)}
-.seccion{padding-top:clamp(64px,10vw,120px);padding-bottom:clamp(64px,10vw,120px)}
-.entrada{max-width:46ch;color:var(--tenue);margin-top:14px;font-size:1.08rem}
+:focus-visible{outline:2px solid var(--ambar);outline-offset:3px;border-radius:6px}
 .solo-lector{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-body.pausado *{animation-play-state:paused!important}
+.cartel{font-family:var(--cartel);font-weight:400;text-transform:uppercase;line-height:.88;letter-spacing:.01em;margin:0}
+h2.cartel{font-size:clamp(3.2rem,2rem + 6vw,7.5rem)}
+.bajada{max-width:44ch;color:var(--tenue);margin-top:14px}
+.precios-ej{font-size:.85rem;color:var(--tenue);margin-top:14px}
 
 /* botones */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:12px 22px;border-radius:999px;border:0;font-weight:700;font-size:1rem;line-height:1.2;text-decoration:none;text-align:center;cursor:pointer;transition:transform .3s var(--salto),background .25s,color .25s,border-color .25s}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:12px 22px;border-radius:999px;border:0;font-weight:700;font-size:1rem;line-height:1.2;text-decoration:none;text-align:center;cursor:pointer;transition:transform .3s var(--suave),background .25s,color .25s,border-color .25s}
 .btn svg{width:20px;height:20px;flex:none}
-.btn-wa{background:var(--fogon);color:var(--monte)}
-.btn-wa:hover{background:var(--fogon-2);transform:translateY(-2px)}
+.btn-wa{background:var(--ambar);color:#1B1206}
+.btn-wa:hover{background:var(--ambar-2);transform:translateY(-2px)}
 .btn-wa:active{transform:scale(.97)}
-.btn-borde{border:1.5px solid currentColor;background:none}
-.btn-borde:hover{background:var(--monte);color:var(--blanco);border-color:var(--monte)}
+.btn-linea{border:1.5px solid rgba(242,232,216,.6);background:none;color:var(--crema)}
+.btn-linea:hover{border-color:var(--ambar);color:var(--ambar)}
 
 /* cabecera */
-.cabecera{position:fixed;top:0;left:0;right:0;z-index:40;padding-top:env(safe-area-inset-top);transition:background .35s,box-shadow .35s,color .35s;color:var(--blanco)}
-.cabecera .contenedor{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px}
-.cabecera.solida{background:rgba(238,240,234,.95);color:var(--monte);box-shadow:0 1px 0 rgba(31,43,38,.1);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
-.marca{display:flex;align-items:baseline;gap:8px;text-decoration:none;font-family:var(--serif);font-size:1.3rem;white-space:nowrap}
-.marca small{font-family:var(--sans);font-size:.8rem;font-weight:700;opacity:.85}
-.menu{display:none;gap:26px;font-weight:600;font-size:.95rem}
-.menu a{text-decoration:none;opacity:.9}
-.menu a:hover{opacity:1;text-decoration:underline;text-underline-offset:5px}
-.cabecera .btn{min-height:40px;padding:8px 16px;font-size:.92rem}
-@media (min-width:920px){.menu{display:flex}}
+.cabecera{position:fixed;top:0;left:0;right:0;z-index:40;padding:calc(env(safe-area-inset-top) + 12px) var(--lado) 12px;display:flex;align-items:center;justify-content:space-between;gap:16px;transition:background .35s}
+.cabecera.solida{background:rgba(11,16,24,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.marca{font-family:var(--cartel);font-size:1.7rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;line-height:1}
+.marca span{color:var(--ambar)}
+.menu{display:none;gap:28px;font-weight:600;font-size:.95rem}
+.menu a{text-decoration:none;opacity:.88}
+.menu a:hover{opacity:1;color:var(--ambar)}
+.cabecera .btn{min-height:40px;padding:8px 18px;font-size:.92rem}
+@media (min-width:900px){.menu{display:flex}}
 
-/* portada */
-.portada{position:relative;min-height:min(100svh,860px);display:flex;align-items:flex-end;color:var(--blanco);overflow:hidden;isolation:isolate}
-.portada .foto{position:absolute;inset:0;z-index:-2}
-.portada .foto img{width:100%;height:100%;object-fit:cover;object-position:50% 45%}
-.js .portada .foto img{animation:acercar 18s var(--suave) both}
-@keyframes acercar{from{transform:scale(1.1)}to{transform:scale(1)}}
-.portada::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(20,26,24,.45) 0%,rgba(20,26,24,0) 22%,rgba(20,26,24,.1) 45%,rgba(20,26,24,.78) 82%,rgba(20,26,24,.9) 100%)}
-.portada .contenedor{width:100%;padding-top:110px;padding-bottom:clamp(96px,14vh,150px)}
-.lugar{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.95rem;margin-bottom:14px;text-shadow:0 1px 10px rgba(0,0,0,.4)}
-.lugar svg{width:18px;height:18px;color:var(--fogon)}
-.portada h1{font-size:clamp(2.9rem,1.8rem + 5.6vw,6.2rem);line-height:1;max-width:12ch;text-shadow:0 2px 24px rgba(0,0,0,.35)}
-.portada h1 em{display:block;font-size:.42em;font-style:italic;color:var(--fogon-2);margin-bottom:.15em}
-.portada .bajada{max-width:44ch;margin-top:16px;font-size:clamp(1.05rem,1rem + .3vw,1.2rem);text-shadow:0 1px 12px rgba(0,0,0,.5)}
-.portada .acciones{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
-.portada .btn-borde{color:var(--blanco)}
-.portada .btn-borde:hover{background:var(--blanco);color:var(--monte);border-color:var(--blanco)}
-.js .sube{opacity:0;transform:translateY(18px);transition:opacity .9s var(--suave),transform .9s var(--suave)}
-.js .listo .sube{opacity:1;transform:none}
-.js .listo .sube:nth-child(2){transition-delay:.12s}.js .listo .sube:nth-child(3){transition-delay:.24s}.js .listo .sube:nth-child(4){transition-delay:.36s}
-.js .portada .acciones.sube{opacity:1}
-
-/* barra de consulta rápida */
-.barra{position:relative;z-index:3;margin-top:-56px}
-.barra form{display:grid;gap:12px;background:var(--blanco);border-radius:var(--radio);padding:18px;box-shadow:0 18px 40px -18px rgba(31,43,38,.35)}
-.barra .campo{display:grid;gap:4px;min-width:0}
-.barra label{font-size:.82rem;font-weight:700;color:var(--tenue)}
-.barra select,.barra input,.reserva input{width:100%;min-width:0;min-height:46px;padding:10px 12px;border:1px solid #CBD1C7;border-radius:10px;background:var(--blanco)}
-.barra .doble{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-@media (min-width:820px){.barra form{grid-template-columns:minmax(0,1.2fr) minmax(0,2fr) auto;align-items:end;padding:20px 22px}}
-
-/* así se vive */
-.vive{display:grid;gap:40px;align-items:center}
-.vive .fotos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-.vive .fotos figure{margin:0;min-width:0}
-.vive .fotos img{border-radius:var(--radio);aspect-ratio:3/4;object-fit:cover;width:100%}
-.vive .fotos figure:nth-child(2){margin-top:48px}
-.datos{list-style:none;margin:26px 0 0;padding:0;display:grid;gap:14px}
-.datos li{display:flex;gap:14px;align-items:flex-start}
-.datos svg{flex:none;width:26px;height:26px;color:var(--atardecer);margin-top:2px}
-.datos b{display:block;font-size:1.05rem}
-.datos span{color:var(--tenue);font-size:.98rem}
-@media (min-width:900px){.vive{grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:70px}}
-
-/* carpas */
-.carpas{background:var(--blanco)}
-.cabeza-sec{margin-bottom:clamp(30px,5vw,50px)}
-.lista-carpas{display:grid;gap:22px}
-@media (min-width:760px){.lista-carpas{grid-template-columns:repeat(3,minmax(0,1fr))}}
-.carpa{display:flex;flex-direction:column;background:var(--niebla);border-radius:var(--radio);overflow:hidden;min-width:0;transition:transform .4s var(--suave),box-shadow .4s}
-.carpa:hover{transform:translateY(-4px);box-shadow:0 20px 40px -24px rgba(31,43,38,.45)}
-.carpa .marco{overflow:hidden;aspect-ratio:4/3}
-.carpa .marco img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--suave)}
-.carpa:hover .marco img{transform:scale(1.05)}
-.carpa .cuerpo{display:flex;flex-direction:column;gap:10px;padding:20px 20px 22px;flex:1}
-.carpa .para{color:var(--tenue)}
-.comodidades{list-style:none;margin:2px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
-.comodidades li{font-size:.85rem;padding:4px 10px;border-radius:999px;background:var(--blanco);border:1px solid #D5DACF}
-.carpa .pie-c{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:auto;padding-top:10px}
-.precio{font-family:var(--serif);font-size:1.9rem;line-height:1}
-.precio small{font-family:var(--sans);font-size:.85rem;color:var(--tenue);margin-left:4px}
-.carpa .btn{min-height:44px;padding:10px 18px;font-size:.92rem}
-.carpa.destacada{background:var(--monte);color:var(--blanco)}
-.carpa.destacada .para,.carpa.destacada .precio small{color:#C9D1C8}
-.carpa.destacada .comodidades li{background:var(--monte-2);border-color:#3C4D44}
-.etiqueta{align-self:flex-start;font-size:.82rem;font-weight:700;color:var(--monte);background:var(--fogon);padding:3px 10px;border-radius:999px}
-.nota{margin-top:16px;font-size:.88rem;color:var(--tenue)}
-
-/* experiencias */
-.experiencias{background:var(--monte);color:var(--blanco)}
-.experiencias .entrada,.experiencias .nota{color:#C9D1C8}
-.incluye{list-style:none;margin:0 0 clamp(40px,6vw,64px);padding:22px 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;border-top:1px solid #3C4D44;border-bottom:1px solid #3C4D44}
-@media (min-width:820px){.incluye{grid-template-columns:repeat(4,minmax(0,1fr))}}
-.incluye li{display:flex;gap:12px;align-items:center;min-width:0}
-.incluye svg{flex:none;width:30px;height:30px;color:var(--fogon)}
-.incluye b{display:block;font-size:1rem}
-.incluye span{font-size:.88rem;color:#C9D1C8}
-.extras{display:grid;gap:12px}
-@media (min-width:820px){.extras{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}}
-.extra{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 16px;align-items:center;padding:18px 20px;border:1px solid #3C4D44;border-radius:var(--radio);transition:border-color .3s,background .3s}
-.extra h3{font-size:1.25rem}
-.extra p{color:#C9D1C8;font-size:.95rem;grid-column:1}
-.extra .lado{grid-column:2;grid-row:1/span 2;display:grid;justify-items:end;gap:8px}
-.extra .precio{font-size:1.5rem}
-.extra .precio small{color:#C9D1C8}
-.agregar{min-height:40px;padding:8px 14px;border-radius:999px;border:1.5px solid var(--fogon);background:none;color:var(--fogon);font-weight:700;font-size:.88rem;cursor:pointer;transition:background .25s,color .25s}
-.agregar:hover,.extra.elegida .agregar{background:var(--fogon);color:var(--monte)}
-.extra.elegida{border-color:var(--fogon);background:var(--monte-2)}
-
-/* galería */
-.galeria .mosaico{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.galeria figure{margin:0;overflow:hidden;border-radius:var(--radio);min-width:0}
-.galeria img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3;transition:transform .8s var(--suave)}
-.galeria figure:hover img{transform:scale(1.04)}
-@media (min-width:820px){
-  .galeria .mosaico{grid-template-columns:1.4fr 1fr 1fr}
-  .galeria figure:first-child{grid-row:span 2}
-  .galeria figure:first-child img{aspect-ratio:auto}
-  .galeria figure:last-child{grid-column:span 2}
-  .galeria figure:last-child img{aspect-ratio:16/7}
+/* 1 · portada */
+.portada{position:relative;min-height:100vh;min-height:100svh;max-height:1000px;display:flex;align-items:flex-end;overflow:hidden;isolation:isolate}
+.portada .fondo{position:absolute;inset:0;z-index:-2;background:#2A1A22}
+.portada .fondo img,.portada .fondo video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.portada .fondo img{object-position:50% 60%}
+.portada .fondo video{opacity:0;transition:opacity 1.2s var(--suave)}
+.portada .fondo video.corriendo{opacity:1}
+.portada::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(11,16,24,.55) 0%,rgba(11,16,24,0) 26%,rgba(11,16,24,.15) 48%,rgba(11,16,24,.82) 80%,var(--noche) 100%)}
+.portada .contenido{width:100%;padding:110px var(--lado) calc(env(safe-area-inset-bottom) + clamp(26px,5vh,56px));display:grid;gap:22px}
+.antetitulo{font-weight:600;font-size:.98rem;color:var(--crema);text-shadow:0 1px 12px rgba(0,0,0,.6)}
+.portada h1{font-family:var(--cartel);font-weight:400;text-transform:uppercase;line-height:.82;font-size:clamp(5rem,26vw,15rem);margin:2px 0 0;letter-spacing:.005em;text-shadow:0 4px 40px rgba(0,0,0,.35)}
+.portada h1 small{display:block;font-family:var(--texto);text-transform:none;font-weight:600;font-size:clamp(1rem,.9rem + .5vw,1.3rem);letter-spacing:.02em;color:var(--crema);margin-bottom:.5rem;line-height:1.2;text-shadow:0 1px 3px rgba(0,0,0,.7),0 2px 16px rgba(0,0,0,.6)}
+.direccion{max-width:46ch;color:var(--crema);text-shadow:0 1px 12px rgba(0,0,0,.6)}
+.portada .acciones{display:flex;flex-wrap:wrap;gap:12px}
+.sol-hoy{display:grid;gap:2px;padding:14px 18px;border-left:3px solid var(--ambar);background:rgba(11,16,24,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border-radius:0 12px 12px 0;max-width:340px}
+.sol-hoy b{font-family:var(--cartel);font-weight:400;font-size:2.1rem;line-height:1;color:var(--ambar);letter-spacing:.02em}
+.sol-hoy span{font-size:.92rem;color:var(--tenue)}
+@media (min-width:900px){
+  .portada .contenido{grid-template-columns:minmax(0,1fr) auto;align-items:end;column-gap:40px}
+  .portada .izq{display:grid;gap:20px}
 }
-.aviso-fotos{display:flex;align-items:center;gap:10px;margin-top:16px;color:var(--tenue);font-size:.92rem}
-.aviso-fotos svg{width:20px;height:20px;color:var(--musgo);flex:none}
 
-/* preguntas */
-.preguntas{background:var(--niebla-2)}
-.preguntas .contenedor{display:grid;gap:30px}
-@media (min-width:900px){.preguntas .contenedor{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:60px}}
-details{border-bottom:1px solid #C6CCBF}
-details:first-of-type{border-top:1px solid #C6CCBF}
-summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;font-weight:700;font-size:1.05rem;min-height:52px}
-summary::-webkit-details-marker{display:none}
-summary i{position:relative;flex:none;width:16px;height:16px}
-summary i::before,summary i::after{content:"";position:absolute;left:0;right:0;top:7px;height:2px;border-radius:2px;background:var(--atardecer);transition:transform .35s var(--suave)}
-summary i::after{transform:rotate(90deg)}
-details[open] summary i::after{transform:rotate(0)}
-details p{padding:0 0 20px;max-width:60ch;color:var(--tenue)}
+/* 2 · desconectar */
+.desconectar{display:grid;background:var(--papel);color:var(--tinta)}
+.desconectar .foto{position:relative;min-height:115vw;max-height:900px;overflow:hidden}
+.desconectar .foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.desconectar .foto::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(11,16,24,.82) 0%,rgba(11,16,24,.2) 50%,rgba(11,16,24,0) 70%)}
+.desconectar .enorme{position:absolute;z-index:1;left:var(--lado);right:var(--lado);bottom:clamp(24px,5vw,56px);color:var(--crema);font-family:var(--cartel);font-weight:400;text-transform:uppercase;font-size:clamp(4.2rem,2rem + 9vw,10rem);line-height:.84;margin:0}
+.desconectar .lado{padding:clamp(40px,7vw,90px) var(--lado);display:grid;gap:24px;align-content:center}
+.desconectar .lado p.intro{font-size:clamp(1.1rem,1rem + .4vw,1.3rem);line-height:1.55;max-width:38ch}
+.desconectar h3{font-family:var(--cartel);font-weight:400;text-transform:uppercase;font-size:2.4rem;line-height:1;margin:0;color:var(--vino)}
+.incluye{list-style:none;margin:0;padding:0;display:grid}
+.incluye li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 14px;padding:14px 0;border-top:1px solid rgba(22,32,27,.16);align-items:baseline}
+.incluye li:last-child{border-bottom:1px solid rgba(22,32,27,.16)}
+.incluye b{font-size:1.06rem}
+.incluye span{color:var(--gris);font-size:.95rem;text-align:right}
+.datos-lugar{display:flex;flex-wrap:wrap;gap:8px}
+.datos-lugar span{font-size:.88rem;font-weight:600;padding:6px 12px;border-radius:999px;background:#EADFCB;color:var(--tinta)}
+@media (min-width:900px){
+  .desconectar{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr)}
+  .desconectar .foto{min-height:88vh}
+}
 
-/* reserva */
-.reserva-sec .contenedor{display:grid;gap:30px}
-@media (min-width:980px){.reserva-sec .contenedor{grid-template-columns:minmax(0,1.3fr) minmax(0,.8fr);gap:44px;align-items:start}}
-.reserva{background:var(--blanco);border-radius:var(--radio);padding:clamp(20px,4vw,36px);display:grid;gap:22px;box-shadow:0 18px 40px -26px rgba(31,43,38,.4);min-width:0}
+/* 3 · alojamientos como fotogramas */
+.alojamientos{padding:clamp(70px,10vw,120px) 0 clamp(60px,8vw,100px);background:var(--noche)}
+.alojamientos .cabeza{padding:0 var(--lado);display:grid;gap:6px;margin-bottom:clamp(26px,4vw,40px)}
+@media (min-width:900px){.alojamientos .cabeza{grid-template-columns:minmax(0,1fr) auto;align-items:end}}
+.flechas{display:none;gap:10px}
+.flechas button{width:52px;height:52px;border-radius:50%;border:1.5px solid rgba(242,232,216,.45);background:none;cursor:pointer;font-size:1.3rem;transition:border-color .25s,color .25s,opacity .25s}
+.flechas button:hover{border-color:var(--ambar);color:var(--ambar)}
+.flechas button:disabled{opacity:.3;cursor:default}
+@media (hover:hover) and (pointer:fine){.flechas{display:flex}}
+.tira{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:18px var(--lado) 26px;scroll-padding-inline:var(--lado);scrollbar-width:thin;scrollbar-color:var(--ambar) transparent;background:#05070B;position:relative}
+.tira::before,.tira::after{content:"";position:sticky;left:0;flex:none;width:0}
+.fotograma{position:relative;flex:none;width:min(84vw,640px);scroll-snap-align:start;margin:0;border-radius:4px;overflow:hidden;background:#111;isolation:isolate}
+.fotograma::before,.fotograma::after{content:"";position:absolute;left:0;right:0;height:10px;z-index:2;background:repeating-linear-gradient(90deg,transparent 0 10px,rgba(5,7,11,.85) 10px 22px,transparent 22px 32px)}
+.fotograma::before{top:0}.fotograma::after{bottom:0}
+.fotograma img{width:100%;aspect-ratio:4/5;object-fit:cover;transition:transform 1s var(--suave)}
+@media (min-width:700px){.fotograma img{aspect-ratio:4/3}}
+.fotograma:hover img{transform:scale(1.04)}
+.fotograma .info{position:absolute;left:0;right:0;bottom:0;padding:70px 22px 26px;background:linear-gradient(0deg,rgba(5,7,11,.92) 0%,rgba(5,7,11,.6) 55%,transparent);display:grid;gap:6px}
+.fotograma .toma{position:absolute;top:20px;left:20px;z-index:1;font-size:.82rem;font-weight:700;color:var(--crema);background:rgba(5,7,11,.6);padding:4px 10px;border-radius:999px}
+.fotograma h3{font-family:var(--cartel);font-weight:400;text-transform:uppercase;font-size:clamp(2.4rem,2rem + 2vw,3.6rem);line-height:.9;margin:0}
+.fotograma .cap{color:var(--tenue);font-size:.95rem}
+.fotograma .fila{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:6px;flex-wrap:wrap}
+.precio{font-family:var(--cartel);font-size:2.4rem;line-height:1;color:var(--ambar)}
+.precio small{font-family:var(--texto);font-size:.85rem;color:var(--tenue);margin-left:6px}
+.detalle{display:none}
+html:not(.js) .detalle{display:block;padding:20px 22px 26px;background:var(--noche-2)}
+.alojamientos .precios-ej{padding:0 var(--lado)}
+
+/* ficha abierta */
+dialog.ficha{width:min(920px,100%);max-height:100dvh;margin:auto;padding:0;border:0;border-radius:14px;background:var(--noche-2);color:var(--crema);overflow:auto}
+dialog.ficha::backdrop{background:rgba(5,7,11,.82)}
+@media (max-width:640px){dialog.ficha{border-radius:0;height:100dvh;max-width:100%}}
+.ficha .galeria{display:flex;gap:6px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+.ficha .galeria::-webkit-scrollbar{display:none}
+.ficha .galeria img{flex:none;width:88%;aspect-ratio:3/2;object-fit:cover;scroll-snap-align:center}
+@media (min-width:700px){.ficha .galeria img{width:62%}}
+.ficha .cuerpo{padding:24px clamp(20px,4vw,40px) 32px;display:grid;gap:14px}
+.ficha h3{font-family:var(--cartel);font-weight:400;text-transform:uppercase;font-size:clamp(2.6rem,2rem + 2vw,3.8rem);line-height:.9;margin:0}
+.ficha ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.ficha li{padding:6px 12px;border-radius:999px;border:1px solid rgba(242,232,216,.3);font-size:.92rem}
+.ficha .acciones{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.cerrar{position:sticky;top:10px;float:right;margin:10px 10px -54px 0;z-index:2;min-height:44px;padding:8px 16px;border-radius:999px;border:1px solid rgba(242,232,216,.5);background:rgba(5,7,11,.75);cursor:pointer}
+.desliza{font-size:.85rem;color:var(--tenue);padding:8px clamp(20px,4vw,40px) 0}
+
+/* 4 · experiencias: cartelera */
+.cartelera{background:var(--vino);padding:clamp(70px,10vw,120px) var(--lado)}
+.cartelera .cabeza{display:grid;gap:6px;margin-bottom:clamp(28px,4vw,44px)}
+.cartelera .bajada{color:rgba(242,232,216,.85)}
+.afiches{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(12px,2vw,22px)}
+@media (min-width:980px){.afiches{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.afiche{display:flex;flex-direction:column;min-width:0;background:#3F111A;border-radius:6px;overflow:hidden;transition:transform .35s var(--suave),box-shadow .35s}
+.afiche:hover{transform:translateY(-4px);box-shadow:0 22px 40px -24px rgba(0,0,0,.7)}
+.afiche .marco{position:relative;overflow:hidden}
+.afiche img{width:100%;aspect-ratio:2/3;object-fit:cover}
+.afiche .marco h3{position:absolute;left:0;right:0;bottom:0;margin:0;padding:50px 14px 12px;background:linear-gradient(0deg,rgba(40,8,15,.95),transparent);font-family:var(--cartel);font-weight:400;text-transform:uppercase;font-size:clamp(1.7rem,1.3rem + 1.2vw,2.4rem);line-height:.92;overflow-wrap:anywhere}
+.afiche .pie-a{display:flex;flex-direction:column;gap:10px;padding:12px 14px 16px;flex:1}
+.afiche p{font-size:.9rem;color:rgba(242,232,216,.86);line-height:1.45}
+.afiche .fila{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:auto;flex-wrap:wrap}
+.afiche .precio{font-size:2rem}
+.afiche .precio small{display:block;margin:0}
+.sumar{min-height:44px;padding:8px 14px;border-radius:999px;border:1.5px solid var(--ambar);background:none;color:var(--ambar);font-weight:700;font-size:.88rem;cursor:pointer;transition:background .25s,color .25s}
+.sumar:hover,.afiche.elegida .sumar{background:var(--ambar);color:#1B1206}
+.afiche.elegida{box-shadow:0 0 0 2px var(--ambar)}
+.cartelera .precios-ej{color:rgba(242,232,216,.82)}
+
+/* 5 · noche: preguntas y reserva */
+.noche{position:relative;isolation:isolate;padding:clamp(70px,10vw,120px) var(--lado)}
+.noche .fondo{position:absolute;inset:0;z-index:-1}
+.noche .fondo img{width:100%;height:100%;object-fit:cover;object-position:50% 70%}
+.noche .fondo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,16,24,.9) 0%,rgba(11,16,24,.72) 40%,rgba(11,16,24,.9) 100%)}
+.noche .rejilla{display:grid;gap:clamp(40px,6vw,70px);max-width:1240px;margin:0 auto}
+@media (min-width:1000px){.noche .rejilla{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);align-items:start}}
+.preguntas details{border-bottom:1px solid rgba(242,232,216,.22)}
+.preguntas details:first-of-type{border-top:1px solid rgba(242,232,216,.22)}
+.preguntas summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;font-weight:700;font-size:1.04rem;min-height:52px}
+.preguntas summary::-webkit-details-marker{display:none}
+.preguntas summary i{position:relative;flex:none;width:16px;height:16px}
+.preguntas summary i::before,.preguntas summary i::after{content:"";position:absolute;left:0;right:0;top:7px;height:2px;background:var(--ambar);transition:transform .3s var(--suave)}
+.preguntas summary i::after{transform:rotate(90deg)}
+.preguntas details[open] summary i::after{transform:rotate(0)}
+.preguntas details p{padding:0 0 18px;color:var(--tenue);max-width:58ch}
+.preguntas .cabeza{margin-bottom:24px}
+.llegar{margin-top:30px;padding:22px;border-radius:12px;background:rgba(11,16,24,.6);border:1px solid rgba(242,232,216,.16);display:grid;gap:10px;justify-items:start}
+.llegar b{font-size:1.1rem}
+.llegar address{font-style:normal;color:var(--tenue)}
+
+.reserva{background:rgba(11,16,24,.78);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(242,232,216,.16);border-radius:16px;padding:clamp(20px,4vw,36px);display:grid;gap:22px;min-width:0}
+.reserva h2{font-size:clamp(2.8rem,2rem + 3vw,4.6rem)}
 .reserva fieldset{border:0;margin:0;padding:0;min-width:0}
-.reserva legend,.reserva label.t{display:block;font-weight:700;margin-bottom:8px;padding:0}
+.reserva legend,.reserva .t{display:block;font-weight:700;margin-bottom:8px;padding:0}
 .opciones{display:grid;gap:8px}
-@media (min-width:600px){.opciones{grid-template-columns:repeat(3,minmax(0,1fr))}}
-.opcion{position:relative;display:grid;gap:2px;padding:12px 14px;border:1.5px solid #D5DACF;border-radius:12px;cursor:pointer;min-width:0;transition:border-color .25s,background .25s}
+@media (min-width:620px){.opciones{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.opcion{position:relative;display:grid;gap:2px;padding:12px 14px;border:1.5px solid rgba(242,232,216,.25);border-radius:12px;cursor:pointer;min-width:0;transition:border-color .25s,background .25s}
 .opcion input,.chip input{position:absolute;opacity:0;pointer-events:none}
 .opcion b{font-size:.98rem}
 .opcion span{font-size:.86rem;color:var(--tenue)}
-.opcion:has(input:checked),.chip:has(input:checked){border-color:var(--atardecer);background:#FBF1EA}
-.opcion:has(input:focus-visible),.chip:has(input:focus-visible){outline:2px solid var(--atardecer);outline-offset:2px}
+.opcion:has(input:checked),.chip:has(input:checked){border-color:var(--ambar);background:rgba(232,162,59,.14)}
+.opcion:has(input:focus-visible),.chip:has(input:focus-visible){outline:2px solid var(--ambar);outline-offset:2px}
 .fechas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.fechas .campo{display:grid;gap:4px;min-width:0}
+.fechas .campo{display:grid;min-width:0}
+.fechas input{width:100%;min-width:0;min-height:48px;padding:10px 12px;border-radius:10px;border:1px solid rgba(242,232,216,.3);background:var(--crema);color:var(--tinta)}
+.sol-dia{font-size:.92rem;color:var(--ambar);min-height:1.4em;margin-top:8px}
 .personas{display:flex;align-items:center;gap:14px}
-.paso{width:44px;height:44px;border-radius:50%;border:1.5px solid #C6CCBF;background:none;font-size:1.3rem;cursor:pointer}
-.paso:hover{border-color:var(--atardecer);color:var(--atardecer)}
-.personas output{font-family:var(--serif);font-size:1.8rem;min-width:1.4em;text-align:center}
-.aviso-cap{margin-top:6px;font-size:.9rem;color:var(--atardecer);min-height:1.3em}
+.paso{width:44px;height:44px;border-radius:50%;border:1.5px solid rgba(242,232,216,.4);background:none;font-size:1.3rem;cursor:pointer}
+.paso:hover{border-color:var(--ambar);color:var(--ambar)}
+.personas output{font-family:var(--cartel);font-size:2.4rem;min-width:1.4em;text-align:center;line-height:1}
+.aviso-cap{margin-top:6px;font-size:.9rem;color:var(--ambar-2);min-height:1.3em}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
-.chip{position:relative;display:inline-flex;align-items:center;min-height:42px;padding:8px 14px;border:1.5px solid #D5DACF;border-radius:999px;cursor:pointer;font-size:.92rem;transition:border-color .25s,background .25s}
-.burbuja{background:#DCF3D4;color:#1D2A1F;border-radius:14px 14px 14px 4px;padding:14px 16px;white-space:pre-line;font-size:.95rem;line-height:1.5}
-.burbuja small{display:block;margin-bottom:4px;font-weight:700;color:#2F5A2C;font-size:.8rem}
+.chip{position:relative;display:inline-flex;align-items:center;min-height:44px;padding:8px 14px;border:1.5px solid rgba(242,232,216,.3);border-radius:999px;cursor:pointer;font-size:.92rem;transition:border-color .25s,background .25s}
+.mensaje{background:#DCF3D4;color:#16241A;border-radius:14px 14px 14px 4px;padding:14px 16px;white-space:pre-line;font-size:.95rem;line-height:1.5}
+.mensaje small{display:block;font-weight:700;color:#2D5A2A;font-size:.8rem;margin-bottom:4px}
 .cuenta{font-size:.92rem;color:var(--tenue)}
-.cuenta b{color:var(--monte)}
-.llegar{display:grid;gap:16px;align-content:start;min-width:0}
-.llegar .mapa{border-radius:var(--radio);background:var(--monte);color:var(--blanco);padding:24px;display:grid;gap:12px}
-.llegar .mapa svg{width:100%;height:auto}
-.llegar address{font-style:normal;color:#C9D1C8}
-.llegar .mapa .btn{justify-self:start}
+.cuenta b{color:var(--crema)}
 
-/* pie */
-.pie{background:var(--monte);color:#C9D1C8;padding:48px 0 calc(env(safe-area-inset-bottom) + 32px);font-size:.95rem}
-.pie .contenedor{display:grid;gap:16px}
-.pie .marca{color:var(--blanco);font-size:1.5rem}
-.pie a{color:var(--blanco)}
-.aviso-demo{font-size:.85rem;color:#A9B3AB;border-top:1px solid #3C4D44;padding-top:16px}
+/* 6 · créditos */
+.creditos{background:#000;text-align:center;padding:clamp(70px,10vw,110px) var(--lado) calc(env(safe-area-inset-bottom) + 36px)}
+.creditos .marca{font-size:2.6rem;display:inline-block;margin-bottom:34px}
+.creditos dl{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px 22px;max-width:720px;margin:0 auto;text-align:left}
+.creditos dt{text-align:right;color:var(--tenue);font-size:.95rem;min-width:0}
+.creditos dd{margin:0;font-weight:700;min-width:0;overflow-wrap:anywhere}
+.creditos dd a{text-decoration:none;border-bottom:1px solid rgba(232,162,59,.6)}
+.fin{font-family:var(--cartel);font-size:clamp(3.6rem,3rem + 4vw,7rem);letter-spacing:.25em;padding-left:.25em;margin:56px 0 0;line-height:1}
+.aviso-demo{margin:24px auto 0;color:var(--tenue);font-size:.88rem;max-width:46ch}
 
 /* WhatsApp flotante */
-.wa-flota{position:fixed;right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));z-index:35;width:54px;height:54px;border-radius:50%;display:grid;place-items:center;background:var(--fogon);color:var(--monte);box-shadow:0 10px 24px -8px rgba(31,43,38,.5);transition:transform .35s var(--salto),opacity .35s}
-.wa-flota svg{width:26px;height:26px}
+.wa-flota{position:fixed;right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));z-index:35;width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:rgba(11,16,24,.78);border:1.5px solid var(--ambar);color:var(--ambar);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:transform .3s var(--suave),opacity .3s}
+.wa-flota svg{width:24px;height:24px}
 .wa-flota:hover{transform:scale(1.07)}
-.wa-flota.oculto{opacity:0;transform:translateY(16px) scale(.85);pointer-events:none}
-
-/* entradas suaves */
-.js .revela{opacity:0;transform:translateY(22px);transition:opacity .8s var(--suave),transform .8s var(--suave)}
-.js .revela.visible{opacity:1;transform:none}
-.js .lista-carpas .revela:nth-child(2),.js .extras .revela:nth-child(2){transition-delay:.1s}
-.js .lista-carpas .revela:nth-child(3),.js .extras .revela:nth-child(3){transition-delay:.2s}
-.js .extras .revela:nth-child(4){transition-delay:.3s}
-@media (prefers-reduced-motion:reduce){.js .portada .foto img{animation:none}html{scroll-behavior:auto}}
+.wa-flota.oculto{opacity:0;pointer-events:none}
 @media (pointer:coarse){.btn{min-height:48px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition-duration:.01s!important}}
 </style>
 </head>
 <body>
 <a class="solo-lector" href="#main">Saltar al contenido</a>
 
 <header class="cabecera">
-  <div class="contenedor">
-    <a class="marca" href="#inicio">Mi Refugio <small>Glamping</small></a>
-    <nav class="menu" aria-label="Secciones">
-      <a href="#carpas">Carpas</a><a href="#experiencias">Experiencias</a><a href="#preguntas">Preguntas</a><a href="#reservar">Cómo llegar</a>
-    </nav>
-    <a class="btn btn-wa" href="#reservar">Reservar</a>
-  </div>
+  <a class="marca" href="#inicio" aria-label="Glamping Mi Refugio, inicio">Mi <span>Refugio</span></a>
+  <nav class="menu" aria-label="Secciones">
+    <a href="#alojamientos">Alojamientos</a><a href="#experiencias">Experiencias</a><a href="#preguntas">Preguntas</a><a href="#reservar">Reservar</a>
+  </nav>
+  <a class="btn btn-wa" href="#reservar">Reservar</a>
 </header>
 
 <main id="main">
-  <section class="portada" id="inicio">
-    <picture class="foto">
-      <source media="(min-width: 760px)" srcset="assets/img/portada-1600.webp" width="1600" height="900">
-      <img src="assets/img/portada-760.webp" width="760" height="950" alt="Carpa de glamping iluminada por dentro al atardecer, con el cielo rosado y palmeras" fetchpriority="high">
-    </picture>
-    <div class="contenedor">
-      <p class="lugar sube"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Araira, Miranda, a 7 minutos del pueblo</p>
-      <h1 class="sube"><em>Glamping</em>Mi Refugio</h1>
-      <p class="bajada sube">Carpas en la montaña con vista abierta y atardeceres que se miran sin apuro. Para desconectarse en pareja o en familia.</p>
-      <div class="acciones sube">
-        <a class="btn btn-wa" href="https://wa.me/580000000000?text=Hola%2C%20quiero%20consultar%20disponibilidad%20en%20Glamping%20Mi%20Refugio%20para%20estas%20fechas%3A%20" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3Z"/></svg>
-          Consultar disponibilidad por WhatsApp
-        </a>
-        <a class="btn btn-borde" href="#carpas">Ver las carpas</a>
+
+  <!-- 1 · Portada -->
+  <section class="portada" id="inicio" aria-label="Portada">
+    <div class="fondo">
+      <img src="https://images.unsplash.com/photo-1779606853933-afe2fc30848f?w=1600&q=70&auto=format&fit=crop"
+           srcset="https://images.unsplash.com/photo-1779606853933-afe2fc30848f?w=800&q=65&auto=format&fit=crop 800w, https://images.unsplash.com/photo-1779606853933-afe2fc30848f?w=1200&q=70&auto=format&fit=crop 1200w, https://images.unsplash.com/photo-1779606853933-afe2fc30848f?w=1600&q=70&auto=format&fit=crop 1600w"
+           sizes="100vw" width="1600" height="1067" alt="Carpas de glamping con luces cálidas bajo un cielo de atardecer" fetchpriority="high">
+      <video muted loop playsinline preload="none" aria-hidden="true" data-video="https://videos.pexels.com/video-files/34303662/14532455_1280_720_30fps.mp4"></video>
+    </div>
+    <div class="contenido">
+      <div class="izq">
+        <h1><small>Glamping en la montaña de Araira</small>Mi Refugio</h1>
+        <p class="direccion">Carretera Araira - Salmerón, sector Reventón, a unos 7 minutos del pueblo. Vista abierta, atardeceres sin apuro y la ciudad lejos.</p>
+        <div class="acciones">
+          <a class="btn btn-wa" href="https://wa.me/580000000000?text=Hola%2C%20quiero%20consultar%20disponibilidad%20en%20Glamping%20Mi%20Refugio%20para%20estas%20fechas%3A%20" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3Z"/></svg>
+            Consultar disponibilidad por WhatsApp
+          </a>
+          <a class="btn btn-linea" href="#alojamientos">Ver alojamientos</a>
+        </div>
       </div>
+      <p class="sol-hoy" data-sol-hoy><b>Cerca de las 6:00 p. m.</b><span>es la hora del atardecer en Araira. Desde aquí se ve completo.</span></p>
     </div>
   </section>
 
-  <div class="barra contenedor">
-    <form aria-label="Consulta rápida de disponibilidad">
-      <div class="campo">
-        <label for="b-carpa">Carpa</label>
-        <select id="b-carpa">
-          <option value="domo">Domo para pareja, $50</option>
-          <option value="familiar">Carpa familiar, $70</option>
-          <option value="vista">Carpa con vista, $90</option>
-        </select>
-      </div>
-      <div class="doble">
-        <div class="campo"><label for="b-llegada">Llegada</label><input type="date" id="b-llegada"></div>
-        <div class="campo"><label for="b-salida">Salida</label><input type="date" id="b-salida"></div>
-      </div>
-      <a class="btn btn-wa wa-armado" href="https://wa.me/580000000000?text=Hola%2C%20quiero%20consultar%20disponibilidad%20en%20Glamping%20Mi%20Refugio%20para%20estas%20fechas%3A%20" target="_blank" rel="noopener">Consultar</a>
-    </form>
-  </div>
-
-  <section class="seccion contenedor vive" aria-labelledby="t-vive">
-    <div class="revela">
-      <h2 id="t-vive">Arriba, el día termina mirando el cielo</h2>
-      <p class="entrada">La carretera de Araira a Salmerón sube entre el monte hasta el sector Reventón. Ahí la vista se abre, el ruido de la ciudad se queda abajo y la tarde se pasa afuera, viendo cómo se pone el sol.</p>
-      <ul class="datos">
-        <li><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><b>A unos 7 minutos del pueblo</b><span>Carretera Araira - Salmerón, sector Reventón.</span></div></li>
-        <li><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M2 18l6-8 4 5 3-3 7 6"/><circle cx="17" cy="6" r="2.5"/></svg><div><b>Vista abierta</b><span>Montaña de frente y atardeceres que pintan todo el valle.</span></div></li>
-        <li><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="8" cy="7" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M2 20c0-3.5 2.7-6 6-6s6 2.5 6 6M14 20c0-2.6 1.4-4.5 3.5-4.5S21 17.4 21 20"/></svg><div><b>En pareja o en familia</b><span>Carpas para dos y para venir con los niños.</span></div></li>
+  <!-- 2 · Desconectar -->
+  <section class="desconectar" aria-labelledby="t-desc">
+    <div class="foto">
+      <img src="https://images.unsplash.com/photo-1769952180972-fc91c7190158?w=1600&q=70&auto=format&fit=crop"
+           srcset="https://images.unsplash.com/photo-1769952180972-fc91c7190158?w=800&q=65&auto=format&fit=crop 800w, https://images.unsplash.com/photo-1769952180972-fc91c7190158?w=1200&q=70&auto=format&fit=crop 1200w, https://images.unsplash.com/photo-1769952180972-fc91c7190158?w=1600&q=70&auto=format&fit=crop 1600w"
+           sizes="(min-width: 900px) 56vw, 100vw" width="1200" height="1800" alt="Vista de las montañas desde la cama, a través de la puerta abierta de una carpa" loading="lazy">
+      <h2 class="enorme" id="t-desc">La ciudad se queda abajo</h2>
+    </div>
+    <div class="lado">
+      <p class="intro">Aquí arriba se oye el monte, se mira lejos y el tiempo vuelve a ser suyo. Venga en pareja o con la familia: la vista es abierta y la tarde se pasa afuera.</p>
+      <div class="datos-lugar"><span>A 7 min de Araira</span><span>Vista abierta</span><span>Pareja o familia</span></div>
+      <h3>Su estadía incluye</h3>
+      <ul class="incluye">
+        <li><b>Desayuno</b><span>criollo, cada mañana</span></li>
+        <li><b>Estacionamiento</b><span>dentro del glamping</span></li>
+        <li><b>Ropa de cama</b><span>sábanas, cobijas y toallas</span></li>
+        <li><b>Área de fogata</b><span>compartida, para la noche</span></li>
       </ul>
     </div>
-    <div class="fotos revela">
-      <figure><img src="assets/img/neblina.webp" width="760" height="570" alt="Carpas de lona entre árboles y neblina en la montaña" loading="lazy"></figure>
-      <figure><img src="assets/img/atardecer.webp" width="760" height="570" alt="Atardecer sobre un valle de montaña" loading="lazy"></figure>
-    </div>
   </section>
 
-  <section class="seccion carpas" id="carpas" aria-labelledby="t-carpas">
-    <div class="contenedor">
-      <div class="cabeza-sec revela">
-        <h2 id="t-carpas">Nuestras carpas</h2>
-        <p class="entrada">Tres maneras de quedarse. Todas con baño privado, ropa de cama y desayuno.</p>
+  <!-- 3 · Alojamientos como fotogramas -->
+  <section class="alojamientos" id="alojamientos" aria-labelledby="t-aloj">
+    <div class="cabeza">
+      <div>
+        <h2 class="cartel" id="t-aloj">Alojamientos</h2>
+        <p class="bajada">Tres maneras de quedarse. Deslice para verlas y toque una para ver más fotos y detalles.</p>
       </div>
-      <div class="lista-carpas">
-        <article class="carpa revela">
-          <div class="marco"><img src="assets/img/carpa-domo.webp" width="640" height="480" alt="Domo blanco sobre una plataforma de madera rodeado de vegetación" loading="lazy"></div>
+      <div class="flechas"><button type="button" class="ant" aria-label="Alojamiento anterior">←</button><button type="button" class="sig" aria-label="Alojamiento siguiente">→</button></div>
+    </div>
+    <div class="tira" tabindex="0" role="region" aria-label="Alojamientos">
+      <article class="fotograma" data-aloj="domo">
+        <img src="https://images.unsplash.com/photo-1786126224759-542c5fab3174?w=1200&q=70&auto=format&fit=crop" srcset="https://images.unsplash.com/photo-1786126224759-542c5fab3174?w=700&q=65&auto=format&fit=crop 700w, https://images.unsplash.com/photo-1786126224759-542c5fab3174?w=1200&q=70&auto=format&fit=crop 1200w" sizes="(min-width: 760px) 640px, 84vw" width="1200" height="1800" alt="Domo blanco sobre una plataforma con una montaña verde al fondo" loading="lazy">
+        <span class="toma">Toma 1</span>
+        <div class="info">
+          <h3>Domo para pareja</h3>
+          <p class="cap">Para 2 personas, con cama queen y una ventana hacia el cielo.</p>
+          <div class="fila"><span class="precio">$50<small>la noche</small></span><button class="btn btn-linea ver" type="button">Ver detalles</button></div>
+        </div>
+        <div class="detalle">
+          <div class="galeria">
+            <img src="https://images.unsplash.com/photo-1786126224759-542c5fab3174?w=900&q=70&auto=format&fit=crop" width="900" height="600" alt="Domo blanco con vista a la montaña" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1762255121620-3ca4c551404c?w=900&q=70&auto=format&fit=crop" width="900" height="600" alt="Habitación del domo con cama matrimonial y lámparas" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1783696521772-e3ba2c4ef0b5?w=900&q=70&auto=format&fit=crop" width="900" height="600" alt="Domo iluminado por dentro en la noche" loading="lazy">
+          </div>
           <div class="cuerpo">
             <h3>Domo para pareja</h3>
-            <p class="para">Para 2 personas. Una ventana hacia el cielo para dormirse viendo las estrellas.</p>
-            <ul class="comodidades"><li>Cama queen</li><li>Baño privado</li><li>Terraza</li><li>Luz cálida</li></ul>
-            <div class="pie-c"><span class="precio">$50<small>la noche</small></span><a class="btn btn-borde elegir" href="#reservar" data-carpa="domo">Elegir</a></div>
+            <p class="precio">$50<small>la noche, con desayuno</small></p>
+            <p>Un domo para dos con ventana hacia arriba: se duerme viendo las estrellas y se despierta con la luz de la montaña.</p>
+            <ul><li>2 personas</li><li>Cama queen</li><li>Baño privado</li><li>Terraza</li><li>Iluminación cálida</li></ul>
+            <p class="precios-ej">Precios de ejemplo.</p>
+            <div class="acciones"><a class="btn btn-wa elegir" href="#reservar" data-carpa="domo">Reservar este alojamiento</a></div>
           </div>
-        </article>
-        <article class="carpa revela">
-          <div class="marco"><img src="assets/img/carpa-familiar.webp" width="640" height="480" alt="Carpa de lona abierta sobre una terraza de madera con alfombra y cojines" loading="lazy"></div>
+        </div>
+      </article>
+
+      <article class="fotograma" data-aloj="familiar">
+        <img src="https://images.unsplash.com/photo-1786809614359-19ea5dc3ac01?w=1200&q=70&auto=format&fit=crop" srcset="https://images.unsplash.com/photo-1786809614359-19ea5dc3ac01?w=700&q=65&auto=format&fit=crop 700w, https://images.unsplash.com/photo-1786809614359-19ea5dc3ac01?w=1200&q=70&auto=format&fit=crop 1200w" sizes="(min-width: 760px) 640px, 84vw" width="1200" height="1800" alt="Interior de una carpa de lona con cama, mesa de madera y lámparas" loading="lazy">
+        <span class="toma">Toma 2</span>
+        <div class="info">
+          <h3>Carpa familiar</h3>
+          <p class="cap">Hasta 4 personas: cama queen y dos individuales.</p>
+          <div class="fila"><span class="precio">$70<small>la noche</small></span><button class="btn btn-linea ver" type="button">Ver detalles</button></div>
+        </div>
+        <div class="detalle">
+          <div class="galeria">
+            <img src="https://images.unsplash.com/photo-1786809614359-19ea5dc3ac01?w=900&q=70&auto=format&fit=crop" width="900" height="600" alt="Interior de la carpa familiar" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1790960280753-ebca4a951205?w=900&q=70&auto=format&fit=crop" width="900" height="600" alt="Puerta abierta de la carpa hacia los árboles" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1700463108326-6970b071dcc5?w=900&q=70&auto=format&fit=crop" width="900" height="600" alt="Fila de carpas iluminadas en la noche" loading="lazy">
+          </div>
           <div class="cuerpo">
             <h3>Carpa familiar</h3>
-            <p class="para">Hasta 4 personas. Amplia, para venir con los niños o con otra pareja.</p>
-            <ul class="comodidades"><li>Queen y 2 individuales</li><li>Baño privado</li><li>Terraza con mesa</li><li>Luz cálida</li></ul>
-            <div class="pie-c"><span class="precio">$70<small>la noche</small></span><a class="btn btn-borde elegir" href="#reservar" data-carpa="familiar">Elegir</a></div>
+            <p class="precio">$70<small>la noche, con desayuno</small></p>
+            <p>Una carpa de lona amplia para venir con los niños o con otra pareja. Hay espacio para todos y una terraza para la tarde.</p>
+            <ul><li>Hasta 4 personas</li><li>Cama queen y 2 individuales</li><li>Baño privado</li><li>Terraza con mesa</li><li>Iluminación cálida</li></ul>
+            <p class="precios-ej">Precios de ejemplo.</p>
+            <div class="acciones"><a class="btn btn-wa elegir" href="#reservar" data-carpa="familiar">Reservar este alojamiento</a></div>
           </div>
-        </article>
-        <article class="carpa destacada revela">
-          <div class="marco"><img src="assets/img/carpa-vista.webp" width="640" height="480" alt="Carpa de lona en una loma abierta con montañas al fondo" loading="lazy"></div>
+        </div>
+      </article>
+
+      <article class="fotograma" data-aloj="vista">
+        <img src="https://images.unsplash.com/photo-1478827536114-da961b7f86d2?w=1200&q=70&auto=format&fit=crop" srcset="https://images.unsplash.com/photo-1478827536114-da961b7f86d2?w=700&q=65&auto=format&fit=crop 700w, https://images.unsplash.com/photo-1478827536114-da961b7f86d2?w=1200&q=70&auto=format&fit=crop 1200w" sizes="(min-width: 760px) 640px, 84vw" width="1200" height="800" alt="Carpa grande iluminada con luces de guirnalda bajo un cielo estrellado" loading="lazy">
+        <span class="toma">Toma 3</span>
+        <div class="info">
+          <h3>Carpa con vista</h3>
+          <p class="cap">Para 2 personas, de frente al valle: la mejor para ver el atardecer.</p>
+          <div class="fila"><span class="precio">$90<small>la noche</small></span><button class="btn btn-linea ver" type="button">Ver detalles</button></div>
+        </div>
+        <div class="detalle">
+          <div class="galeria">
+            <img src="https://images.unsplash.com/photo-1478827536114-da961b7f86d2?w=900&q=70&auto=format&fit=crop" width="900" height="600" alt="Carpa con vista iluminada de noche" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1721969637581-c1fbc3e052d3?w=900&q=70&auto=format&fit=crop" width="900" height="600" alt="Valle de montaña al atardecer" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1758407909328-6b46fbfc5f98?w=900&q=70&auto=format&fit=crop" width="900" height="600" alt="Cordillera al atardecer con pinos delante" loading="lazy">
+          </div>
           <div class="cuerpo">
-            <span class="etiqueta">La del atardecer</span>
             <h3>Carpa con vista</h3>
-            <p class="para">Para 2 personas, de frente al valle: el sol se esconde delante de su terraza.</p>
-            <ul class="comodidades"><li>Cama queen</li><li>Baño privado</li><li>Terraza al valle</li><li>Luz cálida</li></ul>
-            <div class="pie-c"><span class="precio">$90<small>la noche</small></span><a class="btn btn-wa elegir" href="#reservar" data-carpa="vista">Elegir</a></div>
+            <p class="precio">$90<small>la noche, con desayuno</small></p>
+            <p>La que queda de frente al valle. Si viene por los atardeceres, esta es la suya: el sol se esconde delante de su terraza.</p>
+            <ul><li>2 personas</li><li>Cama queen</li><li>Baño privado</li><li>Terraza frente al valle</li><li>Iluminación cálida</li></ul>
+            <p class="precios-ej">Precios de ejemplo.</p>
+            <div class="acciones"><a class="btn btn-wa elegir" href="#reservar" data-carpa="vista">Reservar este alojamiento</a></div>
           </div>
-        </article>
-      </div>
-      <p class="nota">Precios de ejemplo, por carpa y por noche, con desayuno incluido.</p>
+        </div>
+      </article>
     </div>
+    <p class="precios-ej">Precios de ejemplo, por noche y por alojamiento, con desayuno incluido.</p>
   </section>
 
-  <section class="seccion experiencias" id="experiencias" aria-labelledby="t-exp">
-    <div class="contenedor">
-      <div class="cabeza-sec revela">
-        <h2 id="t-exp">Lo que incluye y lo que puede sumar</h2>
-        <p class="entrada">Su estadía ya viene con lo necesario. Si quiere algo especial, agréguelo a su consulta.</p>
-      </div>
-      <ul class="incluye revela">
-        <li><svg viewBox="0 0 32 32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 13h16v6a7 7 0 0 1-7 7h-2a7 7 0 0 1-7-7z"/><path d="M22 15h2a3 3 0 0 1 0 6h-2.5M11 4c-1 2 1 3 0 5M16 4c-1 2 1 3 0 5"/></svg><div><b>Desayuno</b><span>Criollo, cada mañana</span></div></li>
-        <li><svg viewBox="0 0 32 32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 20l2.5-7h17L27 20v5H5z"/><circle cx="10" cy="22" r="1.6"/><circle cx="22" cy="22" r="1.6"/></svg><div><b>Estacionamiento</b><span>Dentro del glamping</span></div></li>
-        <li><svg viewBox="0 0 32 32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 22v-8M4 18h24v4M28 22v-6a3 3 0 0 0-3-3H14v5"/><path d="M7 15.5a2.5 2.5 0 1 0 5 0 2.5 2.5 0 0 0-5 0"/></svg><div><b>Ropa de cama</b><span>Sábanas, cobijas y toallas</span></div></li>
-        <li><svg viewBox="0 0 32 32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M16 4c4 5 7 8 7 13a7 7 0 0 1-14 0c0-3 2-5 3-7 1 2 2 3 3 3 0-3 0-6 1-9z"/><path d="M6 28l20-3M6 25l20 3"/></svg><div><b>Área de fogata</b><span>Compartida, para la noche</span></div></li>
-      </ul>
-      <div class="extras">
-        <article class="extra revela" data-exp="fogata">
-          <h3>Fogata privada</h3>
-          <p>Leña, malvaviscos y su propio fuego frente a la carpa.</p>
-          <div class="lado"><span class="precio">$10<small>por noche</small></span><button class="agregar" type="button" aria-pressed="false">Agregar</button></div>
-        </article>
-        <article class="extra revela" data-exp="cena">
-          <h3>Cena bajo las estrellas</h3>
-          <p>Mesa afuera, luces bajas y el cielo de Araira de techo.</p>
-          <div class="lado"><span class="precio">$35<small>por pareja</small></span><button class="agregar" type="button" aria-pressed="false">Agregar</button></div>
-        </article>
-        <article class="extra revela" data-exp="desayuno">
-          <h3>Desayuno con vista</h3>
-          <p>Servido en su terraza, a la hora que usted diga.</p>
-          <div class="lado"><span class="precio">$12<small>por pareja</small></span><button class="agregar" type="button" aria-pressed="false">Agregar</button></div>
-        </article>
-        <article class="extra revela" data-exp="aniversario">
-          <h3>Decoración de aniversario</h3>
-          <p>Flores, luces y un detalle esperándolos al llegar.</p>
-          <div class="lado"><span class="precio">$25<small>una vez</small></span><button class="agregar" type="button" aria-pressed="false">Agregar</button></div>
-        </article>
-      </div>
-      <p class="nota">Precios de ejemplo.</p>
+  <dialog class="ficha" aria-label="Detalles del alojamiento">
+    <button class="cerrar" type="button">Cerrar</button>
+    <div class="contenido-ficha"></div>
+  </dialog>
+
+  <!-- 4 · Experiencias: cartelera -->
+  <section class="cartelera" id="experiencias" aria-labelledby="t-exp">
+    <div class="cabeza">
+      <h2 class="cartel" id="t-exp">En cartelera</h2>
+      <p class="bajada">Funciones especiales que se piden aparte, cualquier día de su estadía. Toque "Agregar" y quedan en su reserva.</p>
     </div>
+    <div class="afiches">
+      <article class="afiche" data-exp="fogata">
+        <div class="marco"><img src="https://images.unsplash.com/photo-1694946698394-612cb992734b?w=700&q=70&auto=format&fit=crop" width="700" height="1050" alt="Sillas alrededor de una fogata encendida en la noche" loading="lazy"><h3>Fogata privada</h3></div>
+        <div class="pie-a"><p>Leña, malvaviscos y su propio fuego frente a la carpa.</p><div class="fila"><span class="precio">$10<small>por noche</small></span><button class="sumar" type="button" aria-pressed="false">Agregar</button></div></div>
+      </article>
+      <article class="afiche" data-exp="cena">
+        <div class="marco"><img src="https://images.unsplash.com/photo-1758659461883-88c29af4f78c?w=700&q=70&auto=format&fit=crop" width="700" height="1050" alt="Mesa y sillas afuera bajo un cielo estrellado" loading="lazy"><h3>Cena bajo las estrellas</h3></div>
+        <div class="pie-a"><p>Mesa afuera, luces bajas y el cielo de Araira de techo.</p><div class="fila"><span class="precio">$35<small>por pareja</small></span><button class="sumar" type="button" aria-pressed="false">Agregar</button></div></div>
+      </article>
+      <article class="afiche" data-exp="desayuno">
+        <div class="marco"><img src="https://images.unsplash.com/photo-1771217022632-4de64c7af397?w=700&q=70&auto=format&fit=crop" width="700" height="1050" alt="Desayuno servido en una terraza de madera frente al bosque" loading="lazy"><h3>Desayuno con vista</h3></div>
+        <div class="pie-a"><p>Servido en su terraza, a la hora que usted diga.</p><div class="fila"><span class="precio">$12<small>por pareja</small></span><button class="sumar" type="button" aria-pressed="false">Agregar</button></div></div>
+      </article>
+      <article class="afiche" data-exp="aniversario">
+        <div class="marco"><img src="https://images.unsplash.com/photo-1759303690206-1dc66e9ef8ed?w=700&q=70&auto=format&fit=crop" width="700" height="1050" alt="Dos copas, pétalos de rosa y un farol sobre la cama" loading="lazy"><h3>Decoración de aniversario</h3></div>
+        <div class="pie-a"><p>Flores, luces y un detalle esperándolos al llegar.</p><div class="fila"><span class="precio">$25<small>una vez</small></span><button class="sumar" type="button" aria-pressed="false">Agregar</button></div></div>
+      </article>
+    </div>
+    <p class="precios-ej">Precios de ejemplo.</p>
   </section>
 
-  <section class="seccion contenedor galeria" aria-labelledby="t-gal">
-    <div class="cabeza-sec revela">
-      <h2 id="t-gal">Así se ve la tarde</h2>
+  <!-- 5 · La noche: preguntas y reserva -->
+  <section class="noche" id="reservar" aria-label="Preguntas y reserva">
+    <div class="fondo">
+      <img src="https://images.unsplash.com/photo-1513781419235-2988ecacab83?w=1600&q=65&auto=format&fit=crop" srcset="https://images.unsplash.com/photo-1513781419235-2988ecacab83?w=800&q=60&auto=format&fit=crop 800w, https://images.unsplash.com/photo-1513781419235-2988ecacab83?w=1600&q=65&auto=format&fit=crop 1600w" sizes="100vw" width="1600" height="1067" alt="" loading="lazy">
     </div>
-    <div class="mosaico revela">
-      <figure><img src="assets/img/noche.webp" width="760" height="570" alt="Carpa iluminada por dentro en el bosque bajo un cielo con estrellas" loading="lazy"></figure>
-      <figure><img src="assets/img/colinas.webp" width="760" height="570" alt="Montañas en capas bajo un cielo rosado" loading="lazy"></figure>
-      <figure><img src="assets/img/carpa-domo.webp" width="640" height="480" alt="Domo con sillas en su terraza rodeado de árboles" loading="lazy"></figure>
-      <figure><img src="assets/img/atardecer.webp" width="760" height="570" alt="El sol bajando sobre un valle de montaña" loading="lazy"></figure>
-    </div>
-    <p class="aviso-fotos"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/></svg>Aquí van las fotos reales del glamping. Por ahora, fotos referenciales.</p>
-  </section>
-
-  <section class="seccion preguntas" id="preguntas" aria-labelledby="t-preg">
-    <div class="contenedor">
-      <div class="revela">
-        <h2 id="t-preg">Preguntas frecuentes</h2>
-        <p class="entrada">Lo que más nos preguntan antes de subir. Si le queda alguna duda, escríbanos.</p>
-      </div>
-      <div class="revela">
+    <div class="rejilla">
+      <div class="preguntas" id="preguntas">
+        <div class="cabeza">
+          <h2 class="cartel">Preguntas</h2>
+          <p class="bajada">Lo que más nos preguntan antes de subir.</p>
+        </div>
         <details><summary>¿A qué hora es la entrada y la salida?<i aria-hidden="true"></i></summary><p>La entrada es desde las 3:00 p. m. y la salida hasta las 12:00 m. Si necesita otro horario, pregúntenos y le decimos si se puede.</p></details>
         <details><summary>¿Puedo llevar a mi mascota?<i aria-hidden="true"></i></summary><p>Sí, mascotas pequeñas y con aviso previo. Le pedimos que la traiga con su cama o su manta.</p></details>
         <details><summary>¿Cómo se paga?<i aria-hidden="true"></i></summary><p>Por pago móvil, Zelle o efectivo en divisas. La reserva se aparta con el 50 % y el resto se paga al llegar.</p></details>
         <details><summary>¿Sube cualquier carro?<i aria-hidden="true"></i></summary><p>Sí. La carretera Araira - Salmerón está asfaltada y el último tramo hasta las carpas es corto. Si llueve mucho ese día, escríbanos y le orientamos antes de salir.</p></details>
         <details><summary>¿Qué conviene llevar?<i aria-hidden="true"></i></summary><p>Un abrigo para la noche, zapatos cómodos, repelente y una linterna pequeña. Lo demás lo tenemos aquí.</p></details>
+        <div class="llegar">
+          <b>Cómo llegar</b>
+          <address>Carretera Araira - Salmerón, sector Reventón, a unos 7 minutos del pueblo de Araira, Miranda.</address>
+          <a class="btn btn-linea" href="https://www.google.com/maps/search/?api=1&amp;query=Glamping%20Mi%20Refugio%20Araira" target="_blank" rel="noopener">Cómo llegar</a>
+        </div>
       </div>
-    </div>
-  </section>
 
-  <section class="seccion reserva-sec" id="reservar" aria-labelledby="t-res">
-    <div class="contenedor">
-      <form class="reserva revela" aria-labelledby="t-res">
+      <form class="reserva" aria-labelledby="t-res">
         <div>
-          <h2 id="t-res">Arme su reserva</h2>
-          <p class="entrada">Elija la carpa, las fechas y lo que quiera sumar. El mensaje se escribe solo y lo envía por WhatsApp.</p>
+          <h2 class="cartel" id="t-res">Arme su reserva</h2>
+          <p class="bajada">Elija el alojamiento, las fechas, cuántos son y lo que quiera agregar. El mensaje se escribe solo.</p>
         </div>
         <fieldset>
-          <legend>Carpa</legend>
+          <legend>Alojamiento</legend>
           <div class="opciones">
             <label class="opcion"><input type="radio" name="carpa" value="domo" data-nombre="Domo para pareja" data-precio="50" data-cap="2" checked><b>Domo para pareja</b><span>$50 la noche, 2 personas</span></label>
             <label class="opcion"><input type="radio" name="carpa" value="familiar" data-nombre="Carpa familiar" data-precio="70" data-cap="4"><b>Carpa familiar</b><span>$70 la noche, hasta 4</span></label>
             <label class="opcion"><input type="radio" name="carpa" value="vista" data-nombre="Carpa con vista" data-precio="90" data-cap="2"><b>Carpa con vista</b><span>$90 la noche, 2 personas</span></label>
           </div>
         </fieldset>
-        <div class="fechas">
-          <div class="campo"><label class="t" for="llegada">Llegada</label><input type="date" id="llegada"></div>
-          <div class="campo"><label class="t" for="salida">Salida</label><input type="date" id="salida"></div>
+        <div>
+          <div class="fechas">
+            <div class="campo"><label class="t" for="llegada">Llegada</label><input type="date" id="llegada"></div>
+            <div class="campo"><label class="t" for="salida">Salida</label><input type="date" id="salida"></div>
+          </div>
+          <p class="sol-dia" aria-live="polite"></p>
         </div>
         <fieldset>
           <legend>Personas</legend>
@@ -442,44 +470,34 @@ details p{padding:0 0 20px;max-width:60ch;color:var(--tenue)}
         <fieldset>
           <legend>Experiencias (opcional)</legend>
           <div class="chips">
-            <label class="chip"><input type="checkbox" name="exp" value="fogata" data-nombre="Fogata privada" data-precio="10" data-por-noche="1">Fogata privada</label>
-            <label class="chip"><input type="checkbox" name="exp" value="cena" data-nombre="Cena bajo las estrellas" data-precio="35">Cena bajo las estrellas</label>
-            <label class="chip"><input type="checkbox" name="exp" value="desayuno" data-nombre="Desayuno con vista" data-precio="12">Desayuno con vista</label>
-            <label class="chip"><input type="checkbox" name="exp" value="aniversario" data-nombre="Decoración de aniversario" data-precio="25">Decoración de aniversario</label>
+            <label class="chip"><input type="checkbox" name="exp" value="fogata" data-nombre="Fogata privada" data-precio="10" data-por-noche="1">Fogata privada, $10</label>
+            <label class="chip"><input type="checkbox" name="exp" value="cena" data-nombre="Cena bajo las estrellas" data-precio="35">Cena bajo las estrellas, $35</label>
+            <label class="chip"><input type="checkbox" name="exp" value="desayuno" data-nombre="Desayuno con vista" data-precio="12">Desayuno con vista, $12</label>
+            <label class="chip"><input type="checkbox" name="exp" value="aniversario" data-nombre="Decoración de aniversario" data-precio="25">Decoración de aniversario, $25</label>
           </div>
         </fieldset>
-        <div class="burbuja" aria-live="polite"><small>Su mensaje</small><span class="texto-msg">Hola, quiero consultar disponibilidad en Glamping Mi Refugio para estas fechas: </span></div>
+        <div class="mensaje" aria-live="polite"><small>Su mensaje</small><span class="texto-msg">Hola, quiero consultar disponibilidad en Glamping Mi Refugio para estas fechas: </span></div>
         <p class="cuenta">Elija las fechas para ver un estimado. Precios de ejemplo.</p>
-        <a class="btn btn-wa wa-armado enviar" href="https://wa.me/580000000000?text=Hola%2C%20quiero%20consultar%20disponibilidad%20en%20Glamping%20Mi%20Refugio%20para%20estas%20fechas%3A%20" target="_blank" rel="noopener">
+        <a class="btn btn-wa enviar" href="https://wa.me/580000000000?text=Hola%2C%20quiero%20consultar%20disponibilidad%20en%20Glamping%20Mi%20Refugio%20para%20estas%20fechas%3A%20" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3Z"/></svg>
           Enviar consulta por WhatsApp
         </a>
       </form>
-
-      <aside class="llegar revela" aria-label="Cómo llegar">
-        <div class="mapa">
-          <svg viewBox="0 0 320 170" aria-hidden="true">
-            <path d="M20 146 Q60 122 110 128 T220 96 T300 64" fill="none" stroke="#3C4D44" stroke-width="22" stroke-linecap="round"/>
-            <path d="M20 146 Q60 122 110 128 T220 96 T300 64" fill="none" stroke="#E0A526" stroke-width="3" stroke-dasharray="7 7" stroke-linecap="round"/>
-            <circle cx="20" cy="146" r="7" fill="#EEF0EA"/><text x="34" y="166" fill="#C9D1C8" font-size="13" font-family="Nunito Sans,sans-serif">Pueblo de Araira</text>
-            <path d="M300 50 l-14 22 h28z" fill="#E0A526"/><text x="200" y="40" fill="#FBFBF8" font-size="14" font-weight="700" font-family="Nunito Sans,sans-serif">Mi Refugio</text>
-            <text x="118" y="112" fill="#C9D1C8" font-size="12" font-family="Nunito Sans,sans-serif">unos 7 min</text>
-          </svg>
-          <h3>Cómo llegar</h3>
-          <address>Carretera Araira - Salmerón, sector Reventón, Araira, Miranda.</address>
-          <a class="btn btn-wa" href="https://www.google.com/maps/search/?api=1&amp;query=Glamping%20Mi%20Refugio%20Araira" target="_blank" rel="noopener">Abrir en Google Maps</a>
-        </div>
-      </aside>
     </div>
   </section>
 </main>
 
-<footer class="pie">
-  <div class="contenedor">
-    <span class="marca">Mi Refugio <small>Glamping</small></span>
-    <p>Carretera Araira - Salmerón, sector Reventón, Araira, Miranda.<br>WhatsApp: <a href="https://wa.me/580000000000?text=Hola%2C%20quiero%20consultar%20disponibilidad%20en%20Glamping%20Mi%20Refugio%20para%20estas%20fechas%3A%20" target="_blank" rel="noopener">+58 000 0000000</a></p>
-    <p class="aviso-demo">Página de ejemplo con datos ficticios · Fotos referenciales<br>Vista previa hecha por Carlos Mendoza</p>
-  </div>
+<!-- 6 · Créditos -->
+<footer class="creditos">
+  <span class="marca">Mi <span>Refugio</span></span>
+  <dl>
+    <dt>Un lugar llamado</dt><dd>Glamping Mi Refugio</dd>
+    <dt>Locación</dt><dd>Carretera Araira - Salmerón, sector Reventón, Araira, Miranda</dd>
+    <dt>Protagonistas</dt><dd>Usted y los suyos</dd>
+    <dt>Reservas</dt><dd><a href="https://wa.me/580000000000?text=Hola%2C%20quiero%20consultar%20disponibilidad%20en%20Glamping%20Mi%20Refugio%20para%20estas%20fechas%3A%20" target="_blank" rel="noopener">WhatsApp +58 000 0000000</a></dd>
+  </dl>
+  <p class="fin">Fin</p>
+  <p class="aviso-demo">Página de ejemplo con datos ficticios · Fotos referenciales<br>Vista previa hecha por Carlos Mendoza</p>
 </footer>
 
 <a class="wa-flota" href="https://wa.me/580000000000?text=Hola%2C%20quiero%20consultar%20disponibilidad%20en%20Glamping%20Mi%20Refugio%20para%20estas%20fechas%3A%20" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
@@ -490,12 +508,59 @@ details p{padding:0 0 20px;max-width:60ch;color:var(--tenue)}
 (function () {
   var WA = "https://wa.me/580000000000?text=";
   var BASE = "Hola, quiero consultar disponibilidad en Glamping Mi Refugio para estas fechas: ";
+  var LAT = 10.43, LON = -66.70, HUSO = -4; /* Araira, Miranda (aproximado) */
   function safe(fn, n) { try { fn(); } catch (e) { console.warn("[" + n + "]", e); } }
   function $(s, c) { return (c || document).querySelector(s); }
   function $$(s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); }
 
-  function initPortada() {
-    requestAnimationFrame(function () { setTimeout(function () { $(".portada").classList.add("listo"); }, 60); });
+  /* Hora de la puesta de sol en Araira para una fecha (algoritmo del Almanaque Náutico) */
+  function puestaDeSol(fecha) {
+    var rad = Math.PI / 180;
+    var inicio = new Date(fecha.getFullYear(), 0, 0);
+    var n = Math.floor((fecha - inicio) / 864e5);
+    var lngHora = LON / 15, t = n + (18 - lngHora) / 24;
+    var M = 0.9856 * t - 3.289;
+    var L = (M + 1.916 * Math.sin(M * rad) + 0.020 * Math.sin(2 * M * rad) + 282.634 + 360) % 360;
+    var RA = (Math.atan(0.91764 * Math.tan(L * rad)) / rad + 360) % 360;
+    RA = (RA + (Math.floor(L / 90) * 90 - Math.floor(RA / 90) * 90)) / 15;
+    var sinDec = 0.39782 * Math.sin(L * rad), cosDec = Math.cos(Math.asin(sinDec));
+    var cosH = (Math.cos(90.833 * rad) - sinDec * Math.sin(LAT * rad)) / (cosDec * Math.cos(LAT * rad));
+    var H = Math.acos(cosH) / rad / 15;
+    var T = H + RA - 0.06571 * t - 6.622;
+    var hora = ((T - lngHora + HUSO) % 24 + 24) % 24;
+    return { h: Math.floor(hora), m: Math.floor((hora % 1) * 60) };
+  }
+  function formato(s) {
+    var h = s.h % 12 || 12;
+    return h + ":" + (s.m < 10 ? "0" : "") + s.m + (s.h >= 12 ? " p. m." : " a. m.");
+  }
+
+  /* Novedad: la hora real del atardecer de hoy y cuánto falta */
+  function initSolHoy() {
+    var caja = $("[data-sol-hoy]");
+    function pintar() {
+      var ahora = new Date(), s = puestaDeSol(ahora);
+      var mins = s.h * 60 + s.m - (ahora.getHours() * 60 + ahora.getMinutes());
+      var falta;
+      if (mins > 90) falta = "Hoy faltan " + Math.floor(mins / 60) + " h " + (mins % 60) + " min. Desde aquí se ve completo.";
+      else if (mins > 0) falta = "Hoy faltan " + mins + " minutos. Es buena hora para ir subiendo.";
+      else falta = "Ya pasó el de hoy. El de mañana es a las " + formato(puestaDeSol(new Date(ahora.getTime() + 864e5))) + ".";
+      caja.innerHTML = "<b>" + formato(s) + "</b><span>es la hora del atardecer de hoy en Araira. " + falta + "</span>";
+    }
+    pintar();
+    document.addEventListener("visibilitychange", function () { if (!document.hidden) pintar(); });
+  }
+
+  /* Video de la portada: solo en pantallas grandes y con buena conexión */
+  function initVideo() {
+    var v = $(".portada video");
+    var c = navigator.connection || {};
+    var lento = c.saveData || /2g|3g/.test(c.effectiveType || "");
+    var reducido = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (lento || reducido || !matchMedia("(min-width: 900px)").matches) return;
+    v.src = v.getAttribute("data-video");
+    v.addEventListener("playing", function () { v.classList.add("corriendo"); });
+    var p = v.play(); if (p && p.catch) p.catch(function () {});
   }
 
   function initCabecera() {
@@ -510,42 +575,68 @@ details p{padding:0 0 20px;max-width:60ch;color:var(--tenue)}
     pintar();
   }
 
-  function initRevelar() {
-    var els = $$(".revela");
-    if (!("IntersectionObserver" in window)) { els.forEach(function (e) { e.classList.add("visible"); }); return; }
-    var io = new IntersectionObserver(function (es) {
-      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("visible"); io.unobserve(e.target); } });
-    }, { threshold: 0.01, rootMargin: "0px 0px -8% 0px" });
-    els.forEach(function (e) { io.observe(e); });
-    setTimeout(function () { els.forEach(function (e) { e.classList.add("visible"); }); }, 6000);
+  /* Tira de fotogramas: flechas en computadora y ficha con más fotos al tocar */
+  function initTira() {
+    var tira = $(".tira"), ant = $(".flechas .ant"), sig = $(".flechas .sig");
+    function paso() { var f = $(".fotograma", tira); return f ? f.offsetWidth + 14 : 400; }
+    function estado() { ant.disabled = tira.scrollLeft < 8; sig.disabled = tira.scrollLeft + tira.clientWidth > tira.scrollWidth - 8; }
+    ant.addEventListener("click", function () { tira.scrollBy({ left: -paso(), behavior: "smooth" }); setTimeout(estado, 500); });
+    sig.addEventListener("click", function () { tira.scrollBy({ left: paso(), behavior: "smooth" }); setTimeout(estado, 500); });
+    tira.addEventListener("scroll", function () { requestAnimationFrame(estado); }, { passive: true });
+    estado();
+
+    var dlg = $("dialog.ficha"), destino = $(".contenido-ficha", dlg), ultimo = null;
+    if (!dlg.showModal) return;
+    $$(".fotograma").forEach(function (f) {
+      function abrir() {
+        destino.innerHTML = $(".detalle", f).innerHTML;
+        $$(".elegir", destino).forEach(enlazarElegir);
+        $$("img", destino).forEach(function (i) { i.loading = "eager"; });
+        ultimo = $(".ver", f); dlg.showModal(); dlg.scrollTop = 0;
+      }
+      $(".ver", f).addEventListener("click", abrir);
+      $("img", f).addEventListener("click", abrir);
+      $("img", f).style.cursor = "pointer";
+    });
+    $(".cerrar", dlg).addEventListener("click", function () { dlg.close(); });
+    dlg.addEventListener("click", function (e) { if (e.target === dlg) dlg.close(); });
+    dlg.addEventListener("close", function () { if (ultimo) ultimo.focus({ preventScroll: true }); });
   }
 
-  /* Reserva: la barra de arriba, las carpas y las experiencias alimentan el mismo mensaje */
+  var armar = function () {};
+  function enlazarElegir(a) {
+    a.addEventListener("click", function () {
+      var r = $('input[name="carpa"][value="' + a.getAttribute("data-carpa") + '"]');
+      if (r) r.checked = true;
+      var d = $("dialog.ficha"); if (d.open) d.close();
+      armar();
+    });
+  }
+
+  /* Armador de la reserva */
   function initReserva() {
-    var llegada = $("#llegada"), salida = $("#salida"), salidaP = $("#personas");
-    var bCarpa = $("#b-carpa"), bLlegada = $("#b-llegada"), bSalida = $("#b-salida");
-    var texto = $(".texto-msg"), cuenta = $(".cuenta"), aviso = $(".aviso-cap");
+    var llegada = $("#llegada"), salida = $("#salida"), outP = $("#personas");
+    var texto = $(".texto-msg"), cuenta = $(".cuenta"), aviso = $(".aviso-cap"), enviar = $(".enviar"), solDia = $(".sol-dia");
     var personas = 2;
     function iso(d) { return d.getFullYear() + "-" + ("0" + (d.getMonth() + 1)).slice(-2) + "-" + ("0" + d.getDate()).slice(-2); }
     function leer(v) { var p = v.split("-"); return new Date(+p[0], +p[1] - 1, +p[2]); }
     function corta(v) { var p = v.split("-"); return p[2] + "/" + p[1] + "/" + p[0]; }
-    var hoy = iso(new Date()), manana = iso(new Date(Date.now() + 864e5));
-    [llegada, bLlegada].forEach(function (i) { i.min = hoy; });
-    [salida, bSalida].forEach(function (i) { i.min = manana; });
+    llegada.min = iso(new Date()); salida.min = iso(new Date(Date.now() + 864e5));
 
-    function armar() {
+    armar = function () {
       var carpa = $('input[name="carpa"]:checked');
       var exps = $$('input[name="exp"]:checked');
       var noches = (llegada.value && salida.value) ? Math.round((leer(salida.value) - leer(llegada.value)) / 864e5) : 0;
       var fechas = "por definir";
       if (noches > 0) fechas = "del " + corta(llegada.value) + " al " + corta(salida.value) + " (" + noches + (noches === 1 ? " noche)" : " noches)");
       else if (llegada.value) fechas = "llegada el " + corta(llegada.value);
-      var msg = BASE + fechas + ".\nCarpa: " + carpa.getAttribute("data-nombre") + ".\nPersonas: " + personas + ".";
+      var msg = BASE + fechas + ".\nAlojamiento: " + carpa.getAttribute("data-nombre") + ".\nPersonas: " + personas + ".";
       if (exps.length) msg += "\nExperiencias: " + exps.map(function (e) { return e.getAttribute("data-nombre"); }).join(", ") + ".";
       texto.textContent = msg;
-      $$(".wa-armado").forEach(function (a) { a.href = WA + encodeURIComponent(msg); });
+      enviar.href = WA + encodeURIComponent(msg);
       var cap = +carpa.getAttribute("data-cap");
       aviso.textContent = personas > cap ? "Para más de " + cap + " personas le conviene la Carpa familiar." : "";
+      solDia.textContent = llegada.value ? "El día que llega, el sol se pone a las " + formato(puestaDeSol(leer(llegada.value))) + ", así que trate de subir antes." : "";
       if (noches > 0) {
         var total = noches * +carpa.getAttribute("data-precio");
         exps.forEach(function (e) { total += +e.getAttribute("data-precio") * (e.hasAttribute("data-por-noche") ? noches : 1); });
@@ -555,45 +646,39 @@ details p{padding:0 0 20px;max-width:60ch;color:var(--tenue)}
       } else {
         cuenta.textContent = "Elija las fechas para ver un estimado. Precios de ejemplo.";
       }
-      $$(".extra").forEach(function (x) {
+      $$(".afiche").forEach(function (x) {
         var on = !!$('input[name="exp"][value="' + x.getAttribute("data-exp") + '"]:checked');
         x.classList.toggle("elegida", on);
-        var b = $(".agregar", x); b.setAttribute("aria-pressed", on ? "true" : "false"); b.textContent = on ? "Agregada" : "Agregar";
+        var b = $(".sumar", x); b.setAttribute("aria-pressed", on ? "true" : "false"); b.textContent = on ? "En su reserva" : "Agregar";
       });
-      bCarpa.value = carpa.value; bLlegada.value = llegada.value; bSalida.value = salida.value;
-    }
-    function ajustarSalida(ll, sa) {
-      if (!ll.value) return;
-      var sig = iso(new Date(leer(ll.value).getTime() + 864e5));
-      sa.min = sig;
-      if (!sa.value || sa.value <= ll.value) sa.value = sig;
-    }
-    llegada.addEventListener("change", function () { ajustarSalida(llegada, salida); armar(); });
+    };
+    llegada.addEventListener("change", function () {
+      if (llegada.value) {
+        var sig = iso(new Date(leer(llegada.value).getTime() + 864e5));
+        salida.min = sig;
+        if (!salida.value || salida.value <= llegada.value) salida.value = sig;
+      }
+      armar();
+    });
     $(".reserva").addEventListener("change", armar);
     $(".reserva").addEventListener("submit", function (e) { e.preventDefault(); });
-    bLlegada.addEventListener("change", function () { ajustarSalida(bLlegada, bSalida); llegada.value = bLlegada.value; salida.value = bSalida.value; armar(); });
-    bSalida.addEventListener("change", function () { salida.value = bSalida.value; armar(); });
-    bCarpa.addEventListener("change", function () { $('input[name="carpa"][value="' + bCarpa.value + '"]').checked = true; armar(); });
-    $(".barra form").addEventListener("submit", function (e) { e.preventDefault(); });
     $$(".paso").forEach(function (b) {
-      b.addEventListener("click", function () { personas = Math.min(8, Math.max(1, personas + +b.getAttribute("data-paso"))); salidaP.textContent = personas; armar(); });
+      b.addEventListener("click", function () { personas = Math.min(8, Math.max(1, personas + +b.getAttribute("data-paso"))); outP.textContent = personas; armar(); });
     });
-    $$(".elegir").forEach(function (a) {
-      a.addEventListener("click", function () { $('input[name="carpa"][value="' + a.getAttribute("data-carpa") + '"]').checked = true; armar(); });
-    });
-    $$(".extra").forEach(function (x) {
-      $(".agregar", x).addEventListener("click", function () {
+    $$(".afiche").forEach(function (x) {
+      $(".sumar", x).addEventListener("click", function () {
         var c = $('input[name="exp"][value="' + x.getAttribute("data-exp") + '"]'); c.checked = !c.checked; armar();
       });
     });
+    $$(".detalle .elegir").forEach(enlazarElegir);
     armar();
   }
 
-  safe(initPortada, "portada");
+  safe(initSolHoy, "sol");
+  safe(initVideo, "video");
   safe(initCabecera, "cabecera");
-  safe(initRevelar, "revelar");
   safe(initReserva, "reserva");
-  document.addEventListener("visibilitychange", function () { document.body.classList.toggle("pausado", document.hidden); });
+  safe(initTira, "tira");
 })();
 </script>
 </body>
