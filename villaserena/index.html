@@ -8,525 +8,138 @@
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#1F2A22">
 <meta name="color-scheme" content="only light">
-<meta property="og:title" content="Posada VillaSerena · Barinitas">
-<meta property="og:description" content="Posada campestre familiar al pie de la montaña barinesa.">
+<meta property="og:title" content="Posada VillaSerena · Barinitas, Barinas">
+<meta property="og:description" content="Posada campestre con ambiente familiar en Barinitas, estado Barinas. Habitaciones para parejas y familias, desayuno criollo y reservas por WhatsApp.">
 <meta property="og:url" content="https://thecarlos583.github.io/Paginas_webs/villaserena/">
-<meta property="og:image" content="https://images.unsplash.com/photo-1773861540606-e5df23583620?w=1200&amp;q=70&amp;auto=format&amp;fit=crop">
+<meta property="og:image" content="https://images.unsplash.com/photo-1789584767434-f2cb1df24610?w=1200&amp;q=70&amp;auto=format&amp;fit=crop">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231F2A22'/%3E%3Cpath d='M6 22l10-9 10 9' fill='none' stroke='%23E9C38A' stroke-width='3'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://images.unsplash.com">
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&amp;family=Commissioner:wght@400;600&amp;display=swap" rel="stylesheet">
-<style>
-:root{
-  color-scheme:only light;
-  --tinta:#1B1F1C;
-  --tinta-suave:#4B514C;
-  --crema:#F7F1E6;
-  --papel:#FFFCF6;
-  --arena:#EDE3D1;
-  --monte:#1F2A22;
-  --verde:#2F5A3A;
-  --verde-hondo:#22442C;
-  --teja:#B4532E;
-  --miel:#E9C38A;
-  --suave:cubic-bezier(.22,.61,.36,1);
-  --salto:cubic-bezier(.34,1.56,.64,1);
-  --titulo:"Unbounded","Segoe UI",sans-serif;
-  --texto:"Commissioner","Segoe UI",system-ui,sans-serif;
-  --lado:clamp(16px,5vw,64px);
-  --max:1240px;
-}
-*,*::before,*::after{box-sizing:border-box}
-html{overflow-x:hidden;overflow-x:clip;scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{margin:0;overflow-x:hidden;overflow-x:clip;background:var(--crema);color:var(--tinta);font-family:var(--texto);font-size:17px;line-height:1.6}
-img{display:block;max-width:100%;height:auto}
-a{color:inherit}
-h1,h2,h3{font-family:var(--titulo);font-weight:700;line-height:1.04;letter-spacing:-.03em;margin:0;text-wrap:balance}
-p{margin:0;text-wrap:pretty}
-ul,ol{margin:0;padding:0;list-style:none}
-.contenedor{width:100%;max-width:calc(var(--max) + 2*var(--lado));margin:0 auto;padding-left:var(--lado);padding-right:var(--lado)}
-:focus-visible{outline:3px solid var(--miel);outline-offset:3px;border-radius:6px}
-.salto-main{position:absolute;left:-999px;top:8px;background:var(--papel);padding:8px 12px;z-index:100}
-.salto-main:focus{left:8px}
-.seccion{padding-top:clamp(84px,10vw,140px);padding-bottom:clamp(84px,10vw,140px)}
-.titulo-sec{font-size:clamp(1.9rem,5.6vw,3.6rem)}
-.nota-ej{font-size:14px;color:var(--tinta-suave)}
-
-/* Botones */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 24px;border-radius:999px;font:600 16px/1.2 var(--texto);text-decoration:none;border:0;cursor:pointer;transition:transform .3s var(--salto),background-color .25s var(--suave),color .25s var(--suave)}
-.btn svg{width:20px;height:20px;flex:none}
-.btn-wa{background:var(--verde);color:#fff}
-.btn-linea{background:transparent;color:inherit;box-shadow:inset 0 0 0 1.5px currentColor}
-@media (hover:hover) and (pointer:fine){
-  .btn:hover{transform:translateY(-2px)}
-  .btn-wa:hover{background:var(--verde-hondo)}
-  .btn-linea:hover{background:rgba(255,255,255,.12)}
-}
-.btn:active{transform:scale(.97)}
-@media (pointer:coarse){.btn{min-height:48px}}
-.enlace{font-weight:600;text-underline-offset:4px;text-decoration-thickness:1.5px}
-
-/* Fotos que se amplían */
-.ampliar{display:block;position:relative;padding:0;border:0;background:var(--arena);cursor:zoom-in;overflow:hidden;width:100%;color:inherit}
-.ampliar img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--suave)}
-@media (hover:hover) and (pointer:fine){.ampliar:hover img{transform:scale(1.035)}}
-.ampliar .lupa{position:absolute;right:12px;bottom:12px;width:40px;height:40px;border-radius:50%;background:rgba(255,252,246,.92);display:grid;place-items:center;color:var(--tinta)}
-.ampliar .lupa svg{width:18px;height:18px}
-.etiqueta-foto{position:absolute;left:12px;bottom:12px;background:rgba(27,31,28,.72);color:#fff;font-size:12px;padding:4px 10px;border-radius:999px}
-
-/* Cabecera */
-.cabecera{position:fixed;top:0;left:0;right:0;z-index:40;padding-top:env(safe-area-inset-top);color:#fff;transition:background-color .35s var(--suave),color .35s var(--suave),box-shadow .35s var(--suave)}
-.cabecera::before{content:"";position:absolute;left:0;right:0;top:-400px;height:400px;background:inherit}
-.cabecera .contenedor{display:flex;align-items:center;justify-content:space-between;gap:20px;height:66px}
-.marca{font-family:var(--titulo);font-weight:700;font-size:19px;letter-spacing:-.03em;text-decoration:none;white-space:nowrap}
-.menu{display:none;gap:26px;font-size:15px;font-weight:600}
-.menu a{text-decoration:none;opacity:.9}
-.menu a:hover{opacity:1;text-decoration:underline;text-underline-offset:5px}
-.cabecera .btn{padding:10px 18px;font-size:15px}
-.cabecera.solida{background:rgba(247,241,230,.97);color:var(--tinta);box-shadow:0 1px 0 rgba(27,31,28,.08)}
-
-/* Portada */
-.portada{position:relative;min-height:min(100svh,880px);display:flex;flex-direction:column;justify-content:flex-end;color:#fff;background:var(--monte);overflow:hidden;isolation:isolate}
-.portada-medio{position:absolute;inset:0;z-index:-2}
-.portada-medio img,.portada-medio video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.portada-medio img{animation:acerca 40s ease-out both}
-@keyframes acerca{from{transform:scale(1.08)}to{transform:scale(1)}}
-.portada-medio video{opacity:0;transition:opacity 1.2s var(--suave)}
-.portada-medio video.listo{opacity:1}
-.portada::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(15,20,16,.55) 0%,rgba(15,20,16,.05) 30%,rgba(15,20,16,.25) 52%,rgba(15,20,16,.82) 100%)}
-.portada-texto{padding-top:120px;padding-bottom:28px}
-.lugar-portada{font-weight:600;font-size:15px;opacity:.92;margin-bottom:14px}
-.portada h1{font-size:clamp(2.4rem,9.4vw,6.4rem);max-width:13ch;letter-spacing:-.04em;text-shadow:0 2px 30px rgba(0,0,0,.25)}
-.portada .bajada{font-size:clamp(17px,1.8vw,20px);max-width:40ch;margin-top:18px}
-.portada .acciones{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
-.datos-portada{border-top:1px solid rgba(255,255,255,.22);padding-top:18px;padding-bottom:calc(22px + env(safe-area-inset-bottom));display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
-.datos-portada li{font-size:14px;line-height:1.35;opacity:.95;min-width:0}
-@media (max-width:899px){.datos-portada{grid-template-columns:repeat(2,minmax(0,1fr));padding-right:70px}.datos-portada li:nth-child(3){display:none}}
-.datos-portada b{display:block;font-family:var(--titulo);font-size:clamp(17px,2.2vw,24px);letter-spacing:-.02em}
-
-/* Bienvenida */
-.bienvenida .rejilla{display:grid;gap:40px}
-.bienvenida h2{max-width:16ch}
-.bienvenida .texto>p{margin-top:20px;max-width:44ch;font-size:18px}
-.claves{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 22px;margin:30px 0 0;border-top:1px solid rgba(27,31,28,.14);padding-top:24px}
-.claves dt{font-weight:600}
-.claves dd{margin:2px 0 0;color:var(--tinta-suave);font-size:15px}
-.fotos-bienvenida{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}
-.fotos-bienvenida .f1{grid-column:1/-1;aspect-ratio:4/3;border-radius:22px}
-.fotos-bienvenida .f2{grid-column:1/4;aspect-ratio:1;border-radius:18px}
-.fotos-bienvenida .f3{grid-column:4/7;aspect-ratio:1;border-radius:18px}
-
-/* Habitaciones */
-.habitaciones{background:var(--papel)}
-.habitaciones .cabeza{display:grid;gap:12px;margin-bottom:28px}
-.habitaciones .cabeza p{max-width:46ch;color:var(--tinta-suave)}
-.pestanas{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:2px var(--lado) 8px;margin:0 calc(-1*var(--lado));scroll-padding-inline:var(--lado)}
-.pestanas::-webkit-scrollbar{display:none}
-.pestana{flex:none;padding:12px 18px;border-radius:999px;border:1.5px solid rgba(27,31,28,.18);background:transparent;font:600 15px/1.2 var(--texto);color:var(--tinta);cursor:pointer;min-height:46px;transition:background-color .25s,color .25s,border-color .25s}
-.pestana small{font-weight:400;opacity:.75;margin-left:6px;font-size:14px}
-.pestana[aria-selected="true"]{background:var(--monte);color:#fff;border-color:var(--monte)}
-@media (hover:hover) and (pointer:fine){.pestana:hover{border-color:var(--monte)}}
-.panel{display:grid;gap:26px;margin-top:22px}
-.panel[hidden]{display:none}
-.galeria-cuarto{display:grid;gap:10px}
-.galeria-cuarto .principal{aspect-ratio:4/3;border-radius:22px}
-.miniaturas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
-.miniaturas .ampliar{aspect-ratio:4/3;border-radius:14px}
-.ficha h3{font-size:clamp(1.7rem,4.4vw,2.8rem)}
-.ficha .precio{display:flex;align-items:baseline;gap:10px;margin-top:12px;flex-wrap:wrap}
-.ficha .precio b{font-family:var(--titulo);font-size:clamp(1.8rem,4vw,2.6rem);letter-spacing:-.03em}
-.ficha .precio span{color:var(--tinta-suave)}
-.ficha .resumen{margin-top:14px;max-width:42ch;font-size:18px}
-.comodidades{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 18px;margin-top:20px;padding-top:20px;border-top:1px solid rgba(27,31,28,.14)}
-.comodidades li{display:flex;gap:10px;align-items:baseline;font-size:16px;min-width:0}
-.comodidades li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--teja);flex:none;transform:translateY(-1px)}
-.ficha .botones{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;margin-top:26px}
-.ficha .nota-ej{margin-top:14px}
-
-/* Lo que incluye */
-.incluye{background:var(--monte);color:var(--crema)}
-.incluye .rejilla{display:grid;gap:40px}
-.incluye .fotos{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;align-items:end}
-.incluye .fotos .g1{grid-column:1/4;aspect-ratio:4/5;border-radius:22px}
-.incluye .fotos .g2{grid-column:4/6;aspect-ratio:3/4;border-radius:18px}
-.incluye h2{max-width:14ch}
-.incluye .intro{margin-top:16px;max-width:42ch;opacity:.88}
-.lista-incluye{margin-top:30px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 24px}
-.lista-incluye li{padding:16px 0;border-top:1px solid rgba(247,241,230,.18);min-width:0}
-.lista-incluye b{display:block;font-weight:600;font-size:17px;color:#fff}
-.lista-incluye span{font-size:15px;opacity:.8}
-
-/* Qué hacer cerca */
-.cerca .cabeza p{font-size:16px;color:var(--tinta-suave);margin-top:14px;max-width:44ch}
-.lugares{display:grid;gap:18px;margin-top:36px}
-.lugar{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,3fr);gap:16px;align-items:center;padding-top:18px;border-top:1px solid rgba(27,31,28,.14)}
-.lugar .ampliar{aspect-ratio:1;border-radius:16px}
-.lugar h3{font-size:clamp(1.05rem,2.6vw,1.5rem);letter-spacing:-.02em}
-.lugar p{margin-top:6px;color:var(--tinta-suave);font-size:15px}
-.lugar .enlace{display:inline-block;margin-top:8px;font-size:15px}
-
-/* Preguntas */
-.preguntas{background:var(--papel)}
-.preguntas .rejilla{display:grid;gap:28px}
-.acordeon details{border-top:1.5px solid rgba(27,31,28,.14)}
-.acordeon details:last-child{border-bottom:1.5px solid rgba(27,31,28,.14)}
-.acordeon summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:18px;padding:22px 2px;font-weight:600;font-size:clamp(17px,2vw,20px)}
-.acordeon summary::-webkit-details-marker{display:none}
-.mas{width:34px;height:34px;flex:none;border-radius:50%;background:var(--arena);display:grid;place-items:center;transition:transform .35s var(--salto),background-color .25s}
-.mas svg{width:14px;height:14px}
-.acordeon details[open] .mas{transform:rotate(45deg);background:var(--miel)}
-.acordeon .respuesta{padding:0 2px 24px;max-width:58ch;color:var(--tinta-suave)}
-
-/* Reservar */
-.reservar{position:relative;color:var(--crema);isolation:isolate;overflow:hidden}
-.reservar .fondo{position:absolute;inset:0;z-index:-2}
-.reservar .fondo img{width:100%;height:100%;object-fit:cover}
-.reservar::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(18,24,20,.86),rgba(18,24,20,.78))}
-.reservar .rejilla{display:grid;gap:36px}
-.reservar .intro{margin-top:16px;max-width:38ch;opacity:.9}
-.reservar .mapas{margin-top:24px}
-.reservar .datos-contacto{margin-top:26px;display:grid;gap:4px;font-size:15px;opacity:.88}
-.armador{background:var(--papel);color:var(--tinta);border-radius:26px;padding:22px;display:grid;gap:20px;box-shadow:0 30px 60px rgba(0,0,0,.25)}
-.armador fieldset{border:0;margin:0;padding:0;min-width:0}
-.armador legend{font-weight:600;font-size:15px;margin-bottom:10px;padding:0}
-.opciones{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
-.opcion{position:relative}
-.opcion input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
-.opcion span{display:block;padding:11px 12px;border-radius:14px;border:1.5px solid rgba(27,31,28,.16);font-size:15px;line-height:1.3;transition:background-color .25s,border-color .25s,color .25s}
-.opcion span small{display:block;font-size:13px;opacity:.75}
-.opcion input:checked+span{background:var(--monte);color:#fff;border-color:var(--monte)}
-.opcion input:focus-visible+span{outline:3px solid var(--miel);outline-offset:2px}
-.fechas,.personas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-.fechas label{display:grid;gap:6px;font-size:14px;color:var(--tinta-suave)}
-.fechas input{width:100%;min-width:0;min-height:48px;padding:10px 12px;border-radius:14px;border:1.5px solid rgba(27,31,28,.16);background:#fff;color:var(--tinta);font:inherit}
-.contador{display:flex;align-items:center;justify-content:space-between;gap:6px;padding:5px 5px 5px 12px;border-radius:14px;border:1.5px solid rgba(27,31,28,.16);font-size:15px;min-width:0}
-.contador button{width:38px;height:38px;flex:none;border-radius:50%;border:0;background:var(--arena);color:var(--tinta);font:600 20px/1 var(--texto);cursor:pointer}
-.contador output{min-width:1.2em;text-align:center;font-weight:600;font-variant-numeric:tabular-nums}
-@media (max-width:420px){.personas{grid-template-columns:minmax(0,1fr)}}
-.aviso-cupo{font-size:14px;color:var(--teja);min-height:1.4em;margin-top:8px}
-.burbuja{background:#E3F2D6;border-radius:18px 18px 18px 4px;padding:12px 14px;font-size:15px;line-height:1.5}
-.burbuja small{display:block;font-size:13px;color:#4F5A49;margin-bottom:4px}
-.estimado{font-size:14px;color:var(--tinta-suave)}
-.armador .btn{width:100%}
-
-/* Pie */
-.pie{background:#121814;color:rgba(247,241,230,.8);padding:46px 0 calc(110px + env(safe-area-inset-bottom));font-size:15px}
-.pie .contenedor{display:grid;gap:14px}
-.pie .marca{color:var(--crema);font-size:24px}
-.pie a{color:var(--crema)}
-.aviso{font-size:14px;color:rgba(247,241,230,.62)}
-
-/* Visor */
-.visor{border:0;padding:0;background:transparent;max-width:none;max-height:none;width:100vw;height:100vh;height:100dvh;margin:0}
-.visor::backdrop{background:rgba(10,12,10,.92)}
-.visor-caja{position:relative;width:100%;height:100%;display:grid;place-items:center;padding:64px 12px}
-.visor img{max-width:min(1400px,100%);max-height:100%;width:auto;height:auto;object-fit:contain;border-radius:10px}
-.visor .pie-foto{position:absolute;left:0;right:0;bottom:18px;text-align:center;color:#fff;font-size:14px;opacity:.85;padding:0 70px}
-.visor button{position:absolute;width:48px;height:48px;border-radius:50%;border:0;background:rgba(255,252,246,.92);color:var(--tinta);display:grid;place-items:center;cursor:pointer}
-.visor button[hidden]{display:none}
-.visor button svg{width:20px;height:20px}
-.visor .cerrar{top:14px;right:14px}
-.visor .ant{left:12px;top:50%;margin-top:-24px}
-.visor .sig{right:12px;top:50%;margin-top:-24px}
-
-/* WhatsApp flotante */
-.flotante{position:fixed;right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));z-index:45;width:58px;height:58px;border-radius:50%;background:var(--verde);color:#fff;display:grid;place-items:center;box-shadow:0 10px 24px rgba(20,30,20,.3);transition:transform .3s var(--salto)}
-.flotante svg{width:28px;height:28px}
-.flotante:active{transform:scale(.92)}
-@media (hover:hover) and (pointer:fine){.flotante:hover{transform:scale(1.07)}}
-
-@media (min-width:900px){
-  .menu{display:flex}
-  .portada-texto{padding-bottom:36px}
-  .datos-portada{grid-template-columns:repeat(3,minmax(0,240px));gap:40px}
-  .bienvenida .rejilla{grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:72px;align-items:center}
-  .habitaciones .cabeza{grid-template-columns:minmax(0,6fr) minmax(0,5fr);align-items:end;gap:48px}
-  .pestanas{margin:0;padding-left:0;padding-right:0}
-  .panel{grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:56px;align-items:center}
-  .incluye .rejilla{grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:72px;align-items:center}
-  .cerca .cabeza{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:48px;align-items:end}
-  .lugares{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 48px}
-  .preguntas .rejilla{grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:64px}
-  .preguntas h2{align-self:start}
-  .reservar .rejilla{grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:72px;align-items:center}
-  .pie .contenedor{grid-template-columns:1fr auto;align-items:end}
-  .flotante{right:24px;bottom:24px}
-}
-@media (prefers-reduced-motion:reduce){
-  .portada-medio img{animation:none}
-  html{scroll-behavior:auto}
-}
-</style>
+<link rel="stylesheet" href="estilos.css?v=20261101">
+<script>document.documentElement.className+=" js"</script>
 </head>
-<body>
+<body data-wa="https://wa.me/580000000000">
 <a class="salto-main" href="#main">Saltar al contenido</a>
-
-<header class="cabecera" id="cabecera">
-  <div class="contenedor">
-    <a class="marca" href="#inicio">VillaSerena</a>
-    <nav class="menu" aria-label="Secciones">
-      <a href="#habitaciones">Habitaciones</a>
-      <a href="#incluye">Qué incluye</a>
-      <a href="#cerca">Qué hacer cerca</a>
-      <a href="#preguntas">Preguntas</a>
+<header class="cabecera sobre-portada" id="cabecera">
+  <div class="contenedor barra">
+    <a class="marca" href="index.html">VillaSerena</a>
+    <nav class="menu" id="menu" aria-label="Principal">
+      <ul><li><a href="index.html" aria-current="page">Inicio</a></li><li><a href="habitaciones.html">Habitaciones</a></li><li><a href="la-posada.html">La posada</a></li><li><a href="que-hacer.html">Qué hacer</a></li><li><a href="galeria.html">Galería</a></li><li><a href="contacto.html">Contacto</a></li></ul>
+      <a class="btn btn-wa" href="reservar.html">Reservar</a>
     </nav>
-    <a class="btn btn-wa" href="#reservar">Reservar</a>
+    <button class="hamburguesa" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú"><span></span><span></span><span></span></button>
   </div>
 </header>
-
 <main id="main">
-  <section class="portada" id="inicio" aria-labelledby="titulo">
-    <div class="portada-medio" aria-hidden="true">
-      <img src="https://images.unsplash.com/photo-1789584767434-f2cb1df24610?w=1600&amp;q=70&amp;auto=format&amp;fit=crop" srcset="https://images.unsplash.com/photo-1789584767434-f2cb1df24610?w=800&amp;h=1200&amp;q=70&amp;auto=format&amp;fit=crop 800w, https://images.unsplash.com/photo-1789584767434-f2cb1df24610?w=1600&amp;q=70&amp;auto=format&amp;fit=crop 1600w" sizes="100vw" width="1600" height="1067" alt="" fetchpriority="high">
-      <video id="video-portada" muted loop playsinline preload="metadata" data-video="https://videos.pexels.com/video-files/28303675/12355985_960_540_30fps.mp4"></video>
+<section class="portada" aria-labelledby="titulo">
+  <div class="portada-medio" aria-hidden="true">
+    <img src="https://images.unsplash.com/photo-1789584767434-f2cb1df24610?w=1600&amp;q=70&amp;auto=format&amp;fit=crop" srcset="https://images.unsplash.com/photo-1789584767434-f2cb1df24610?w=800&amp;h=1200&amp;q=70&amp;auto=format&amp;fit=crop 800w, https://images.unsplash.com/photo-1789584767434-f2cb1df24610?w=1600&amp;q=70&amp;auto=format&amp;fit=crop 1600w" sizes="100vw" width="1600" height="1067" alt="" fetchpriority="high">
+    <video id="video-portada" muted loop playsinline preload="metadata" data-video="https://videos.pexels.com/video-files/28303675/12355985_960_540_30fps.mp4"></video>
+  </div>
+  <div class="contenedor portada-texto">
+    <p class="lugar-portada">Barinitas, estado Barinas</p>
+    <h1 id="titulo">Aquí el día empieza despacio.</h1>
+    <p class="bajada">Posada campestre familiar al pie de la montaña. Habitaciones para parejas y familias, con desayuno criollo incluido.</p>
+    <div class="acciones"><a class="btn btn-wa" href="https://wa.me/580000000000?text=Hola%2C%20quiero%20consultar%20disponibilidad%20para%20estas%20fechas%3A%20" target="_blank" rel="noopener"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3.5C9.1 3.5 3.6 9 3.6 15.8c0 2.4.7 4.6 1.9 6.5L3.5 28.5l6.4-2c1.8 1 3.9 1.6 6.1 1.6 6.9 0 12.4-5.5 12.4-12.3S22.9 3.5 16 3.5z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M11.8 9.6c.4 0 .7.1.9.6l1 2.4c.1.3 0 .6-.1.8l-.7.9c-.2.2-.2.5 0 .8.9 1.6 2.2 2.8 3.9 3.6.3.1.6.1.8-.1l.9-1c.2-.3.5-.3.8-.2l2.4 1.1c.3.1.5.4.4.7-.1 1.5-1.3 2.6-2.9 2.6-4.3-.3-8.7-4.5-9-8.9 0-1.6 1-3.1 1.6-3.3z" fill="currentColor"/></svg>Consultar disponibilidad por WhatsApp</a><a class="btn btn-linea" href="habitaciones.html">Ver habitaciones</a></div>
+  </div>
+  <div class="contenedor"><ul class="datos-portada">
+    <li><b>Desde $30</b>la noche, con desayuno</li>
+    <li><b>4 tipos</b>de habitación, hasta 6 personas</li>
+    <li><b>Wifi</b>y planta eléctrica</li>
+  </ul></div>
+</section>
+
+<section class="seccion presenta" aria-labelledby="t-presenta">
+  <div class="contenedor rejilla">
+    <div class="texto">
+      <h2 id="t-presenta" class="titulo-sec">Para venir con los suyos.</h2>
+      <p>VillaSerena es una posada tranquila y cómoda, de ambiente familiar, en Barinitas: donde el llano empieza a subir hacia los Andes. Se despierta con pájaros, se almuerza sin apuro y en la tarde baja el fresco de la montaña.</p>
+      <dl class="claves">
+        <div><dt>Desayuno criollo</dt><dd>Incluido todas las mañanas</dd></div>
+        <div><dt>Áreas verdes</dt><dd>Para que los niños jueguen</dd></div>
+        <div><dt>Parrillera</dt><dd>Para el almuerzo del domingo</dd></div>
+        <div><dt>Mascotas pequeñas</dt><dd>Con aviso al reservar</dd></div>
+      </dl>
+      <div class="acciones"><a class="btn btn-wa" href="la-posada.html">Conocer la posada</a><a class="enlace" href="galeria.html">Ver la galería</a></div>
     </div>
-    <div class="contenedor portada-texto">
-      <p class="lugar-portada">Barinitas, estado Barinas</p>
-      <h1 id="titulo">Aquí el día empieza despacio.</h1>
-      <p class="bajada">Posada campestre familiar al pie de la montaña. Habitaciones para parejas y familias, con desayuno criollo incluido.</p>
-      <div class="acciones">
-        <a class="btn btn-wa" href="https://wa.me/580000000000?text=Hola%2C%20quiero%20consultar%20disponibilidad%20para%20estas%20fechas%3A%20" target="_blank" rel="noopener"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3.5C9.1 3.5 3.6 9 3.6 15.8c0 2.4.7 4.6 1.9 6.5L3.5 28.5l6.4-2c1.8 1 3.9 1.6 6.1 1.6 6.9 0 12.4-5.5 12.4-12.3S22.9 3.5 16 3.5z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M11.8 9.6c.4 0 .7.1.9.6l1 2.4c.1.3 0 .6-.1.8l-.7.9c-.2.2-.2.5 0 .8.9 1.6 2.2 2.8 3.9 3.6.3.1.6.1.8-.1l.9-1c.2-.3.5-.3.8-.2l2.4 1.1c.3.1.5.4.4.7-.1 1.5-1.3 2.6-2.9 2.6-4.3-.3-8.7-4.5-9-8.9 0-1.6 1-3.1 1.6-3.3z" fill="currentColor"/></svg>Consultar disponibilidad por WhatsApp</a>
-        <a class="btn btn-linea" href="#habitaciones">Ver habitaciones</a>
-      </div>
-    </div>
-    <div class="contenedor">
-      <ul class="datos-portada">
-        <li><b>Desde $30</b>la noche, con desayuno</li>
-        <li><b>4 tipos</b>de habitación, hasta 6 personas</li>
-        <li><b>Wifi</b>y planta eléctrica</li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="seccion bienvenida" aria-labelledby="t-bienvenida">
-    <div class="contenedor rejilla">
-      <div class="texto">
-        <h2 id="t-bienvenida" class="titulo-sec">Para venir con los suyos.</h2>
-        <p>VillaSerena es una posada tranquila y cómoda, de ambiente familiar, en Barinitas: donde el llano empieza a subir hacia los Andes. Se despierta con pájaros, se almuerza sin apuro y en la tarde baja el fresco de la montaña.</p>
-        <dl class="claves">
-          <div><dt>Desayuno criollo</dt><dd>Incluido todas las mañanas</dd></div>
-          <div><dt>Áreas verdes</dt><dd>Para que los niños jueguen</dd></div>
-          <div><dt>Parrillera</dt><dd>Para el almuerzo del domingo</dd></div>
-          <div><dt>Mascotas pequeñas</dt><dd>Con aviso al reservar</dd></div>
-        </dl>
-      </div>
-      <div class="fotos-bienvenida">
-        <button class="ampliar f1" type="button" data-grande="https://images.unsplash.com/photo-1773861540606-e5df23583620?w=1800&amp;q=75&amp;auto=format&amp;fit=crop" data-pie="La casa entre las matas (foto referencial)"><img src="https://images.unsplash.com/photo-1773861540606-e5df23583620?w=1200&amp;q=70&amp;auto=format&amp;fit=crop" srcset="https://images.unsplash.com/photo-1773861540606-e5df23583620?w=700&amp;q=70&amp;auto=format&amp;fit=crop 700w, https://images.unsplash.com/photo-1773861540606-e5df23583620?w=1200&amp;q=70&amp;auto=format&amp;fit=crop 1200w" sizes="(min-width:900px) 640px, 92vw" width="1200" height="900" loading="lazy" alt="Casa campestre de techo de tejas y barandas azules entre árboles (foto referencial)"><span class="etiqueta-foto">Foto referencial</span></button>
-        <button class="ampliar f2" type="button" data-grande="https://images.unsplash.com/photo-1777168925132-ada59d1cc0d0?w=1600&amp;q=75&amp;auto=format&amp;fit=crop" data-pie="Chinchorro en el corredor (foto referencial)"><img src="https://images.unsplash.com/photo-1777168925132-ada59d1cc0d0?w=700&amp;q=70&amp;auto=format&amp;fit=crop" width="700" height="700" loading="lazy" alt="Chinchorro de colores colgado en un corredor (foto referencial)"></button>
-        <button class="ampliar f3" type="button" data-grande="https://images.unsplash.com/photo-1741899366204-0d71d5ecff27?w=1600&amp;q=75&amp;auto=format&amp;fit=crop" data-pie="Vista desde el corredor (foto referencial)"><img src="https://images.unsplash.com/photo-1741899366204-0d71d5ecff27?w=700&amp;q=70&amp;auto=format&amp;fit=crop" width="700" height="700" loading="lazy" alt="Corredor de madera con vista a la montaña verde (foto referencial)"></button>
-      </div>
-    </div>
-  </section>
-
-  <section class="seccion habitaciones" id="habitaciones" aria-labelledby="t-habitaciones">
-    <div class="contenedor">
-      <div class="cabeza">
-        <h2 id="t-habitaciones" class="titulo-sec">Elija su habitación.</h2>
-        <p>Todas con baño privado, agua caliente y desayuno criollo incluido. Toque una foto para verla en grande.</p>
-      </div>
-      <div class="pestanas" role="tablist" aria-label="Tipos de habitación">
-        <button class="pestana" type="button" role="tab" id="tab-matrimonial" aria-controls="panel-matrimonial" aria-selected="true">Matrimonial<small>$30</small></button>
-        <button class="pestana" type="button" role="tab" id="tab-doble" aria-controls="panel-doble" aria-selected="false" tabindex="-1">Doble<small>$40</small></button>
-        <button class="pestana" type="button" role="tab" id="tab-familiar" aria-controls="panel-familiar" aria-selected="false" tabindex="-1">Familiar<small>$55</small></button>
-        <button class="pestana" type="button" role="tab" id="tab-cabana" aria-controls="panel-cabana" aria-selected="false" tabindex="-1">Cabaña con cocina<small>$70</small></button>
-      </div>
-
-      <div class="panel" role="tabpanel" id="panel-matrimonial" aria-labelledby="tab-matrimonial">
-        <div class="galeria-cuarto">
-          <button class="ampliar principal" type="button" data-grande="https://images.unsplash.com/photo-1699629208190-672f7ef56d7b?w=1800&amp;q=75&amp;auto=format&amp;fit=crop" data-pie="Matrimonial (foto referencial)"><img src="https://images.unsplash.com/photo-1699629208190-672f7ef56d7b?w=1200&amp;q=70&amp;auto=format&amp;fit=crop" srcset="https://images.unsplash.com/photo-1699629208190-672f7ef56d7b?w=700&amp;q=70&amp;auto=format&amp;fit=crop 700w, https://images.unsplash.com/photo-1699629208190-672f7ef56d7b?w=1200&amp;q=70&amp;auto=format&amp;fit=crop 1200w" sizes="(min-width:900px) 700px, 92vw" width="1200" height="900" loading="lazy" alt="Habitación matrimonial con cama de madera y ventana grande (foto referencial)"><span class="lupa" aria-hidden="true"><svg viewBox="0 0 20 20"><circle cx="8.5" cy="8.5" r="6" fill="none" stroke="currentColor" stroke-width="2"/><path d="M13 13l5 5M8.5 6v5M6 8.5h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button>
-          <div class="miniaturas">
-            <button class="ampliar" type="button" data-grande="https://images.unsplash.com/photo-1781781490874-5c8c46637ceb?w=1600&amp;q=75&amp;auto=format&amp;fit=crop" data-pie="Matrimonial, detalle (foto referencial)"><img src="https://images.unsplash.com/photo-1781781490874-5c8c46637ceb?w=480&amp;q=65&amp;auto=format&amp;fit=crop" width="480" height="360" loading="lazy" alt="Cabecera de madera con cojines (foto referencial)"></button>
-            <button class="ampliar" type="button" data-grande="https://images.unsplash.com/photo-1741899366204-0d71d5ecff27?w=1600&amp;q=75&amp;auto=format&amp;fit=crop" data-pie="Vista desde el corredor (foto referencial)"><img src="https://images.unsplash.com/photo-1741899366204-0d71d5ecff27?w=480&amp;q=65&amp;auto=format&amp;fit=crop" width="480" height="360" loading="lazy" alt="Corredor con vista a la montaña (foto referencial)"></button>
-            <button class="ampliar" type="button" data-grande="https://images.unsplash.com/photo-1773994788669-755ba5180940?w=1600&amp;q=75&amp;auto=format&amp;fit=crop" data-pie="Áreas verdes (foto referencial)"><img src="https://images.unsplash.com/photo-1773994788669-755ba5180940?w=480&amp;q=65&amp;auto=format&amp;fit=crop" width="480" height="360" loading="lazy" alt="Mesa al aire libre bajo un árbol grande (foto referencial)"></button>
-          </div>
-        </div>
-        <div class="ficha">
-          <h3>Matrimonial</h3>
-          <p class="precio"><b>$30</b><span>por noche, hasta 2 personas</span></p>
-          <p class="resumen">Para parejas que vienen a desconectarse. Cama grande, ventana al jardín y silencio de campo.</p>
-          <ul class="comodidades"><li>Cama matrimonial</li><li>Baño privado con agua caliente</li><li>Ventilador de techo</li><li>TV con cable</li></ul>
-          <div class="botones"><a class="btn btn-wa" href="#reservar" data-reservar="matrimonial">Reservar esta habitación</a><a class="enlace" href="https://wa.me/580000000000?text=Hola%2C%20quiero%20consultar%20disponibilidad%20en%20la%20Matrimonial%20para%20estas%20fechas%3A%20" target="_blank" rel="noopener">Preguntar por WhatsApp</a></div>
-          <p class="nota-ej">Precios de ejemplo.</p>
-        </div>
-      </div>
-
-      <div class="panel" role="tabpanel" id="panel-doble" aria-labelledby="tab-doble" hidden>
-        <div class="galeria-cuarto">
-          <button class="ampliar principal" type="button" data-grande="https://images.unsplash.com/photo-1759139445627-5ce9d5fac8f9?w=1800&amp;q=75&amp;auto=format&amp;fit=crop" data-pie="Doble (foto referencial)"><img src="https://images.unsplash.com/photo-1759139445627-5ce9d5fac8f9?w=1200&amp;q=70&amp;auto=format&amp;fit=crop" srcset="https://images.unsplash.com/photo-1759139445627-5ce9d5fac8f9?w=700&amp;q=70&amp;auto=format&amp;fit=crop 700w, https://images.unsplash.com/photo-1759139445627-5ce9d5fac8f9?w=1200&amp;q=70&amp;auto=format&amp;fit=crop 1200w" sizes="(min-width:900px) 700px, 92vw" width="1200" height="900" loading="lazy" alt="Habitación con dos camas y ventanas (foto referencial)"><span class="lupa" aria-hidden="true"><svg viewBox="0 0 20 20"><circle cx="8.5" cy="8.5" r="6" fill="none" stroke="currentColor" stroke-width="2"/><path d="M13 13l5 5M8.5 6v5M6 8.5h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button>
-          <div class="miniaturas">
-            <button class="ampliar" type="button" data-grande="https://images.unsplash.com/photo-1775744244614-beb197cfac53?w=1600&amp;q=75&amp;auto=format&amp;fit=crop" data-pie="Doble, rincón de la ventana (foto referencial)"><img src="https://images.unsplash.com/photo-1775744244614-beb197cfac53?w=480&amp;q=65&amp;auto=format&amp;fit=crop" width="480" height="360" loading="lazy" alt="Cama de hierro junto a la ventana (foto referencial)"></button>
-            <button class="ampliar" type="button" data-grande="https://images.unsplash.com/photo-1777168925132-ada59d1cc0d0?w=1600&amp;q=75&amp;auto=format&amp;fit=crop" data-pie="Chinchorro en el corredor (foto referencial)"><img src="https://images.unsplash.com/photo-1777168925132-ada59d1cc0d0?w=480&amp;q=65&amp;auto=format&amp;fit=crop" width="480" height="360" loading="lazy" alt="Chinchorro de colores (foto referencial)"></button>
-            <button class="ampliar" type="button" data-grande="https://images.unsplash.com/photo-1773861540606-e5df23583620?w=1600&amp;q=75&amp;auto=format&amp;fit=crop" data-pie="La casa (foto referencial)"><img src="https://images.unsplash.com/photo-1773861540606-e5df23583620?w=480&amp;q=65&amp;auto=format&amp;fit=crop" width="480" height="360" loading="lazy" alt="Casa campestre de tejas (foto referencial)"></button>
-          </div>
-        </div>
-        <div class="ficha">
-          <h3>Doble</h3>
-          <p class="precio"><b>$40</b><span>por noche, hasta 4 personas</span></p>
-          <p class="resumen">Dos camas para venir con amigos o con los muchachos, con aire acondicionado para las tardes calurosas.</p>
-          <ul class="comodidades"><li>Dos camas matrimoniales</li><li>Baño privado con agua caliente</li><li>Aire acondicionado</li><li>TV con cable</li></ul>
-          <div class="botones"><a class="btn btn-wa" href="#reservar" data-reservar="doble">Reservar esta habitación</a><a class="enlace" href="https://wa.me/580000000000?text=Hola%2C%20quiero%20consultar%20disponibilidad%20en%20la%20Doble%20para%20estas%20fechas%3A%20" target="_blank" rel="noopener">Preguntar por WhatsApp</a></div>
-          <p class="nota-ej">Precios de ejemplo.</p>
-        </div>
-      </div>
-
-      <div class="panel" role="tabpanel" id="panel-familiar" aria-labelledby="tab-familiar" hidden>
-        <div class="galeria-cuarto">
-          <button class="ampliar principal" type="button" data-grande="https://images.unsplash.com/photo-1633836331520-e35c668f1f9d?w=1800&amp;q=75&amp;auto=format&amp;fit=crop" data-pie="Familiar (foto referencial)"><img src="https://images.unsplash.com/photo-1633836331520-e35c668f1f9d?w=1200&amp;q=70&amp;auto=format&amp;fit=crop" srcset="https://images.unsplash.com/photo-1633836331520-e35c668f1f9d?w=700&amp;q=70&amp;auto=format&amp;fit=crop 700w, https://images.unsplash.com/photo-1633836331520-e35c668f1f9d?w=1200&amp;q=70&amp;auto=format&amp;fit=crop 1200w" sizes="(min-width:900px) 700px, 92vw" width="1200" height="900" loading="lazy" alt="Habitación amplia con matas y cama grande (foto referencial)"><span class="lupa" aria-hidden="true"><svg viewBox="0 0 20 20"><circle cx="8.5" cy="8.5" r="6" fill="none" stroke="currentColor" stroke-width="2"/><path d="M13 13l5 5M8.5 6v5M6 8.5h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button>
-          <div class="miniaturas">
-            <button class="ampliar" type="button" data-grande="https://images.unsplash.com/photo-1615529162924-f8605388461d?w=1600&amp;q=75&amp;auto=format&amp;fit=crop" data-pie="Familiar, cama principal (foto referencial)"><img src="https://images.unsplash.com/photo-1615529162924-f8605388461d?w=480&amp;q=65&amp;auto=format&amp;fit=crop" width="480" height="360" loading="lazy" alt="Cama con lencería blanca y madera (foto referencial)"></button>
-            <button class="ampliar" type="button" data-grande="https://images.unsplash.com/photo-1773994788669-755ba5180940?w=1600&amp;q=75&amp;auto=format&amp;fit=crop" data-pie="Áreas verdes (foto referencial)"><img src="https://images.unsplash.com/photo-1773994788669-755ba5180940?w=480&amp;q=65&amp;auto=format&amp;fit=crop" width="480" height="360" loading="lazy" alt="Mesa bajo un árbol en la grama (foto referencial)"></button>
-            <button class="ampliar" type="button" data-grande="https://images.unsplash.com/photo-1792426419167-2b4695af7d5a?w=1600&amp;q=75&amp;auto=format&amp;fit=crop" data-pie="Desayuno criollo (foto referencial)"><img src="https://images.unsplash.com/photo-1792426419167-2b4695af7d5a?w=480&amp;q=65&amp;auto=format&amp;fit=crop" width="480" height="360" loading="lazy" alt="Arepa rellena (foto referencial)"></button>
-          </div>
-        </div>
-        <div class="ficha">
-          <h3>Familiar</h3>
-          <p class="precio"><b>$55</b><span>por noche, hasta 5 personas</span></p>
-          <p class="resumen">La más pedida para los fines de semana en familia: espacio para todos y nevera para lo de los niños.</p>
-          <ul class="comodidades"><li>Una matrimonial y tres individuales</li><li>Baño privado con agua caliente</li><li>Aire acondicionado</li><li>Nevera pequeña</li></ul>
-          <div class="botones"><a class="btn btn-wa" href="#reservar" data-reservar="familiar">Reservar esta habitación</a><a class="enlace" href="https://wa.me/580000000000?text=Hola%2C%20quiero%20consultar%20disponibilidad%20en%20la%20Familiar%20para%20estas%20fechas%3A%20" target="_blank" rel="noopener">Preguntar por WhatsApp</a></div>
-          <p class="nota-ej">Precios de ejemplo.</p>
-        </div>
-      </div>
-
-      <div class="panel" role="tabpanel" id="panel-cabana" aria-labelledby="tab-cabana" hidden>
-        <div class="galeria-cuarto">
-          <button class="ampliar principal" type="button" data-grande="https://images.unsplash.com/photo-1776950815445-f80f2b21fa50?w=1800&amp;q=75&amp;auto=format&amp;fit=crop" data-pie="Cabaña con cocina (foto referencial)"><img src="https://images.unsplash.com/photo-1776950815445-f80f2b21fa50?w=1200&amp;q=70&amp;auto=format&amp;fit=crop" srcset="https://images.unsplash.com/photo-1776950815445-f80f2b21fa50?w=700&amp;q=70&amp;auto=format&amp;fit=crop 700w, https://images.unsplash.com/photo-1776950815445-f80f2b21fa50?w=1200&amp;q=70&amp;auto=format&amp;fit=crop 1200w" sizes="(min-width:900px) 700px, 92vw" width="1200" height="900" loading="lazy" alt="Cabaña de madera con cocina y barra (foto referencial)"><span class="lupa" aria-hidden="true"><svg viewBox="0 0 20 20"><circle cx="8.5" cy="8.5" r="6" fill="none" stroke="currentColor" stroke-width="2"/><path d="M13 13l5 5M8.5 6v5M6 8.5h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button>
-          <div class="miniaturas">
-            <button class="ampliar" type="button" data-grande="https://images.unsplash.com/photo-1761662826410-3218852da3bf?w=1600&amp;q=75&amp;auto=format&amp;fit=crop" data-pie="Cocina de la cabaña (foto referencial)"><img src="https://images.unsplash.com/photo-1761662826410-3218852da3bf?w=480&amp;q=65&amp;auto=format&amp;fit=crop" width="480" height="360" loading="lazy" alt="Cocina rústica con mantel de cuadros (foto referencial)"></button>
-            <button class="ampliar" type="button" data-grande="https://images.unsplash.com/photo-1699629208190-672f7ef56d7b?w=1600&amp;q=75&amp;auto=format&amp;fit=crop" data-pie="Cuarto de la cabaña (foto referencial)"><img src="https://images.unsplash.com/photo-1699629208190-672f7ef56d7b?w=480&amp;q=65&amp;auto=format&amp;fit=crop" width="480" height="360" loading="lazy" alt="Cuarto con cama de madera (foto referencial)"></button>
-            <button class="ampliar" type="button" data-grande="https://images.unsplash.com/photo-1777168925132-ada59d1cc0d0?w=1600&amp;q=75&amp;auto=format&amp;fit=crop" data-pie="Corredor con chinchorro (foto referencial)"><img src="https://images.unsplash.com/photo-1777168925132-ada59d1cc0d0?w=480&amp;q=65&amp;auto=format&amp;fit=crop" width="480" height="360" loading="lazy" alt="Chinchorro en el corredor (foto referencial)"></button>
-          </div>
-        </div>
-        <div class="ficha">
-          <h3>Cabaña con cocina</h3>
-          <p class="precio"><b>$70</b><span>por noche, hasta 6 personas</span></p>
-          <p class="resumen">Aparte de la casa principal, para quedarse varios días a su ritmo y cocinar lo que le provoque.</p>
-          <ul class="comodidades"><li>Dos cuartos y sala</li><li>Cocina equipada</li><li>Aire acondicionado</li><li>Corredor con chinchorro</li></ul>
-          <div class="botones"><a class="btn btn-wa" href="#reservar" data-reservar="cabana">Reservar esta habitación</a><a class="enlace" href="https://wa.me/580000000000?text=Hola%2C%20quiero%20consultar%20disponibilidad%20en%20la%20Caba%C3%B1a%20con%20cocina%20para%20estas%20fechas%3A%20" target="_blank" rel="noopener">Preguntar por WhatsApp</a></div>
-          <p class="nota-ej">Precios de ejemplo.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="seccion incluye" id="incluye" aria-labelledby="t-incluye">
-    <div class="contenedor rejilla">
-      <div class="fotos">
-        <button class="ampliar g1" type="button" data-grande="https://images.unsplash.com/photo-1792426419167-2b4695af7d5a?w=1600&amp;q=75&amp;auto=format&amp;fit=crop" data-pie="Desayuno criollo (foto referencial)"><img src="https://images.unsplash.com/photo-1792426419167-2b4695af7d5a?w=900&amp;q=70&amp;auto=format&amp;fit=crop" width="900" height="1125" loading="lazy" alt="Arepa rellena con aguacate y tajadas (foto referencial)"><span class="etiqueta-foto">Foto referencial</span></button>
-        <button class="ampliar g2" type="button" data-grande="https://images.unsplash.com/photo-1780091606130-2bfc03991da6?w=1600&amp;q=75&amp;auto=format&amp;fit=crop" data-pie="Parrillera (foto referencial)"><img src="https://images.unsplash.com/photo-1780091606130-2bfc03991da6?w=600&amp;q=70&amp;auto=format&amp;fit=crop" width="600" height="800" loading="lazy" alt="Parrilla encendida en el patio (foto referencial)"></button>
-      </div>
-      <div>
-        <h2 id="t-incluye" class="titulo-sec">Lo que incluye su estadía.</h2>
-        <p class="intro">Lo necesario para no tener que salir, salvo para pasear.</p>
-        <ul class="lista-incluye">
-          <li><b>Desayuno criollo</b><span>Arepas, perico, queso llanero y café colado.</span></li>
-          <li><b>Estacionamiento</b><span>Dentro de la posada, con portón.</span></li>
-          <li><b>Wifi en áreas comunes</b><span>Para mandar las fotos del día.</span></li>
-          <li><b>Áreas verdes</b><span>Grama y árboles para que los niños corran.</span></li>
-          <li><b>Parrillera</b><span>Con mesón, para la carne del domingo.</span></li>
-          <li><b>Planta eléctrica</b><span>Si se va la luz, todo sigue funcionando.</span></li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section class="seccion cerca" id="cerca" aria-labelledby="t-cerca">
-    <div class="contenedor">
-      <div class="cabeza">
-        <h2 id="t-cerca" class="titulo-sec">Qué hacer cerca.</h2>
-        <p>Barinitas queda donde el llano se encuentra con la montaña: río, pueblos de montaña y la subida a los páramos.</p>
-      </div>
-      <ul class="lugares">
-        <li class="lugar">
-          <button class="ampliar" type="button" data-grande="https://images.unsplash.com/photo-1784495535609-fa9e4f4c700a?w=1600&amp;q=75&amp;auto=format&amp;fit=crop" data-pie="Río de montaña (foto referencial)"><img src="https://images.unsplash.com/photo-1784495535609-fa9e4f4c700a?w=500&amp;h=500&amp;q=65&amp;auto=format&amp;fit=crop" width="500" height="500" loading="lazy" alt="Río de piedras entre vegetación (foto referencial)"></button>
-          <div><h3>Río Santo Domingo</h3><p>Baja frío desde la montaña. Para un baño de río en familia.</p><a class="enlace" href="https://www.google.com/maps/search/?api=1&amp;query=R%C3%ADo%20Santo%20Domingo%20Barinitas" target="_blank" rel="noopener">Ver en el mapa</a></div>
-        </li>
-        <li class="lugar">
-          <button class="ampliar" type="button" data-grande="https://images.unsplash.com/photo-1792183887458-c9db1635a9da?w=1600&amp;q=75&amp;auto=format&amp;fit=crop" data-pie="Pueblo al pie de la montaña (foto referencial)"><img src="https://images.unsplash.com/photo-1792183887458-c9db1635a9da?w=500&amp;h=500&amp;q=65&amp;auto=format&amp;fit=crop" width="500" height="500" loading="lazy" alt="Pueblo de techos rojos al pie de montañas verdes (foto referencial)"></button>
-          <div><h3>Altamira de Cáceres</h3><p>Pueblo de montaña, de los más antiguos de Barinas, con clima fresco.</p><a class="enlace" href="https://www.google.com/maps/search/?api=1&amp;query=Altamira%20de%20C%C3%A1ceres%20Barinas" target="_blank" rel="noopener">Ver en el mapa</a></div>
-        </li>
-        <li class="lugar">
-          <button class="ampliar" type="button" data-grande="https://images.unsplash.com/photo-1768171111508-6de364abc3b2?w=1600&amp;q=75&amp;auto=format&amp;fit=crop" data-pie="Camino del páramo (foto referencial)"><img src="https://images.unsplash.com/photo-1768171111508-6de364abc3b2?w=500&amp;h=500&amp;q=65&amp;auto=format&amp;fit=crop" width="500" height="500" loading="lazy" alt="Frailejón con montañas detrás (foto referencial)"></button>
-          <div><h3>Subida al páramo</h3><p>Por Santo Domingo, la carretera sube hacia Mérida entre neblina, truchas y frailejones.</p><a class="enlace" href="https://www.google.com/maps/search/?api=1&amp;query=Santo%20Domingo%20M%C3%A9rida%20Venezuela" target="_blank" rel="noopener">Ver en el mapa</a></div>
-        </li>
-        <li class="lugar">
-          <button class="ampliar" type="button" data-grande="https://images.unsplash.com/photo-1768168916366-faa0713b0b9a?w=1600&amp;q=75&amp;auto=format&amp;fit=crop" data-pie="Laguna de páramo (foto referencial)"><img src="https://images.unsplash.com/photo-1768168916366-faa0713b0b9a?w=500&amp;h=500&amp;q=65&amp;auto=format&amp;fit=crop" width="500" height="500" loading="lazy" alt="Laguna entre pajonales de páramo (foto referencial)"></button>
-          <div><h3>Laguna de Mucubají</h3><p>Más arriba, en el páramo: frío de verdad, laguna y caminatas.</p><a class="enlace" href="https://www.google.com/maps/search/?api=1&amp;query=Laguna%20de%20Mucubaj%C3%AD" target="_blank" rel="noopener">Ver en el mapa</a></div>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="seccion preguntas" id="preguntas" aria-labelledby="t-preguntas">
-    <div class="contenedor rejilla">
-      <h2 id="t-preguntas" class="titulo-sec">Lo que nos preguntan.</h2>
-      <div class="acordeon">
-        <details open><summary>¿A qué hora es la entrada y la salida?<span class="mas" aria-hidden="true"><svg viewBox="0 0 14 14"><path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></summary><p class="respuesta">La entrada es desde las 2:00 p. m. y la salida hasta las 12:00 m. Si llega más temprano, puede dejar el equipaje y empezar a disfrutar.</p></details>
-        <details><summary>¿Aceptan mascotas?<span class="mas" aria-hidden="true"><svg viewBox="0 0 14 14"><path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></summary><p class="respuesta">Sí, mascotas pequeñas y con aviso al reservar. Le pedimos traer su camita y recoger lo que deje en las áreas verdes.</p></details>
-        <details><summary>¿Cómo se paga?<span class="mas" aria-hidden="true"><svg viewBox="0 0 14 14"><path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></summary><p class="respuesta">Pago móvil, Zelle o efectivo en divisas. Para apartar la fecha se pide un abono y el resto se paga al llegar.</p></details>
-        <details><summary>¿Cómo llego?<span class="mas" aria-hidden="true"><svg viewBox="0 0 14 14"><path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></summary><p class="respuesta">Barinitas queda en la vía de Barinas hacia Santo Domingo y Mérida. Al confirmar la reserva le mandamos la ubicación exacta por WhatsApp.</p></details>
-        <details><summary>¿Hay señal de teléfono?<span class="mas" aria-hidden="true"><svg viewBox="0 0 14 14"><path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></summary><p class="respuesta">Sí, hay señal en la posada, aunque puede variar según la operadora. En las áreas comunes hay wifi.</p></details>
-      </div>
-    </div>
-  </section>
-
-  <section class="seccion reservar" id="reservar" aria-labelledby="t-reservar">
-    <div class="fondo" aria-hidden="true"><img src="https://images.unsplash.com/photo-1767601047787-f2a9194e6749?w=1600&amp;q=60&amp;auto=format&amp;fit=crop" srcset="https://images.unsplash.com/photo-1767601047787-f2a9194e6749?w=800&amp;q=60&amp;auto=format&amp;fit=crop 800w, https://images.unsplash.com/photo-1767601047787-f2a9194e6749?w=1600&amp;q=60&amp;auto=format&amp;fit=crop 1600w" sizes="100vw" width="1600" height="1067" loading="lazy" alt=""></div>
-    <div class="contenedor rejilla">
-      <div>
-        <h2 id="t-reservar" class="titulo-sec">Reserve su fin de semana.</h2>
-        <p class="intro">Elija la habitación, las fechas y cuántos vienen. El mensaje de WhatsApp sale listo y le respondemos con la disponibilidad.</p>
-        <div class="mapas"><a class="btn btn-linea" href="https://www.google.com/maps/search/?api=1&amp;query=Posada%20VillaSerena%20Barinitas%20Barinas" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="9.5" r="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>Ver en Google Maps</a></div>
-        <div class="datos-contacto"><span>Barinitas, estado Barinas</span><span>WhatsApp +58 000 0000000</span></div>
-      </div>
-      <form class="armador" id="armador" action="https://wa.me/580000000000" target="_blank">
-        <fieldset>
-          <legend>Habitación</legend>
-          <div class="opciones">
-            <label class="opcion"><input type="radio" name="cuarto" value="matrimonial" checked><span>Matrimonial<small>2 personas, $30</small></span></label>
-            <label class="opcion"><input type="radio" name="cuarto" value="doble"><span>Doble<small>4 personas, $40</small></span></label>
-            <label class="opcion"><input type="radio" name="cuarto" value="familiar"><span>Familiar<small>5 personas, $55</small></span></label>
-            <label class="opcion"><input type="radio" name="cuarto" value="cabana"><span>Cabaña con cocina<small>6 personas, $70</small></span></label>
-          </div>
-        </fieldset>
-        <fieldset>
-          <legend>Fechas</legend>
-          <div class="fechas">
-            <label>Llegada<input type="date" id="llegada" name="llegada"></label>
-            <label>Salida<input type="date" id="salida" name="salida"></label>
-          </div>
-        </fieldset>
-        <fieldset>
-          <legend>¿Cuántos vienen?</legend>
-          <div class="personas">
-            <div class="contador"><span>Adultos</span><button type="button" data-cuenta="adultos" data-paso="-1" aria-label="Quitar un adulto">−</button><output id="adultos">2</output><button type="button" data-cuenta="adultos" data-paso="1" aria-label="Agregar un adulto">+</button></div>
-            <div class="contador"><span>Niños</span><button type="button" data-cuenta="ninos" data-paso="-1" aria-label="Quitar un niño">−</button><output id="ninos">0</output><button type="button" data-cuenta="ninos" data-paso="1" aria-label="Agregar un niño">+</button></div>
-          </div>
-          <p class="aviso-cupo" id="aviso-cupo" aria-live="polite"></p>
-        </fieldset>
-        <p class="burbuja" aria-live="polite"><small>Su mensaje</small><span id="mensaje">Hola, quiero consultar disponibilidad para estas fechas: </span></p>
-        <p class="estimado" id="estimado"></p>
-        <a class="btn btn-wa" id="wa-reserva" href="https://wa.me/580000000000?text=Hola%2C%20quiero%20consultar%20disponibilidad%20para%20estas%20fechas%3A%20" target="_blank" rel="noopener"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3.5C9.1 3.5 3.6 9 3.6 15.8c0 2.4.7 4.6 1.9 6.5L3.5 28.5l6.4-2c1.8 1 3.9 1.6 6.1 1.6 6.9 0 12.4-5.5 12.4-12.3S22.9 3.5 16 3.5z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M11.8 9.6c.4 0 .7.1.9.6l1 2.4c.1.3 0 .6-.1.8l-.7.9c-.2.2-.2.5 0 .8.9 1.6 2.2 2.8 3.9 3.6.3.1.6.1.8-.1l.9-1c.2-.3.5-.3.8-.2l2.4 1.1c.3.1.5.4.4.7-.1 1.5-1.3 2.6-2.9 2.6-4.3-.3-8.7-4.5-9-8.9 0-1.6 1-3.1 1.6-3.3z" fill="currentColor"/></svg>Enviar consulta por WhatsApp</a>
-      </form>
-    </div>
-  </section>
-</main>
-
-<footer class="pie">
-  <div class="contenedor">
-    <div>
-      <p class="marca">VillaSerena</p>
-      <p>Posada campestre en Barinitas, estado Barinas</p>
-      <p>WhatsApp: <a href="https://wa.me/580000000000" target="_blank" rel="noopener">+58 000 0000000</a></p>
-    </div>
-    <div>
-      <p class="aviso">Página de ejemplo con datos ficticios · Fotos referenciales</p>
-      <p class="aviso">Fotos de Unsplash y video de Pexels. Vista previa hecha por Carlos Mendoza</p>
+    <div class="mosaico" data-grupo>
+      <button class="ampliar m1" type="button" data-grande="https://images.unsplash.com/photo-1773861540606-e5df23583620?w=1800&amp;q=75&amp;auto=format&amp;fit=crop" data-pie="Casa campestre de techo de tejas y barandas azules (foto referencial)"><img src="https://images.unsplash.com/photo-1773861540606-e5df23583620?w=1200&amp;q=70&amp;auto=format&amp;fit=crop" srcset="https://images.unsplash.com/photo-1773861540606-e5df23583620?w=700&amp;q=70&amp;auto=format&amp;fit=crop 700w, https://images.unsplash.com/photo-1773861540606-e5df23583620?w=1200&amp;q=70&amp;auto=format&amp;fit=crop 1200w, https://images.unsplash.com/photo-1773861540606-e5df23583620?w=1600&amp;q=70&amp;auto=format&amp;fit=crop 1600w" sizes="(min-width:900px) 640px, 92vw" width="1200" height="900" loading="lazy" alt="Casa campestre de techo de tejas y barandas azules (foto referencial)"><span class="etiqueta-foto">Foto referencial</span></button>
+      <button class="ampliar m2" type="button" data-grande="https://images.unsplash.com/photo-1777168925132-ada59d1cc0d0?w=1800&amp;q=75&amp;auto=format&amp;fit=crop" data-pie="Chinchorro de colores en el corredor (foto referencial)"><img src="https://images.unsplash.com/photo-1777168925132-ada59d1cc0d0?w=700&amp;q=70&amp;auto=format&amp;fit=crop" srcset="https://images.unsplash.com/photo-1777168925132-ada59d1cc0d0?w=700&amp;q=70&amp;auto=format&amp;fit=crop 700w, https://images.unsplash.com/photo-1777168925132-ada59d1cc0d0?w=1200&amp;q=70&amp;auto=format&amp;fit=crop 1200w, https://images.unsplash.com/photo-1777168925132-ada59d1cc0d0?w=1600&amp;q=70&amp;auto=format&amp;fit=crop 1600w" sizes="(min-width:900px) 320px, 46vw" width="700" height="525" loading="lazy" alt="Chinchorro de colores en el corredor (foto referencial)"></button>
+      <button class="ampliar m3" type="button" data-grande="https://images.unsplash.com/photo-1767034239054-5bb3053e7ffa?w=1800&amp;q=75&amp;auto=format&amp;fit=crop" data-pie="Patio con árbol grande y techo de tejas (foto referencial)"><img src="https://images.unsplash.com/photo-1767034239054-5bb3053e7ffa?w=700&amp;q=70&amp;auto=format&amp;fit=crop" srcset="https://images.unsplash.com/photo-1767034239054-5bb3053e7ffa?w=700&amp;q=70&amp;auto=format&amp;fit=crop 700w, https://images.unsplash.com/photo-1767034239054-5bb3053e7ffa?w=1200&amp;q=70&amp;auto=format&amp;fit=crop 1200w, https://images.unsplash.com/photo-1767034239054-5bb3053e7ffa?w=1600&amp;q=70&amp;auto=format&amp;fit=crop 1600w" sizes="(min-width:900px) 320px, 46vw" width="700" height="525" loading="lazy" alt="Patio con árbol grande y techo de tejas (foto referencial)"></button>
     </div>
   </div>
-</footer>
+</section>
 
+<section class="seccion papel" aria-labelledby="t-destacadas">
+  <div class="contenedor">
+    <div class="cabeza-fila"><div class="cabeza-sec" style="margin:0"><h2 id="t-destacadas" class="titulo-sec">Elija su habitación.</h2><p>Todas con baño privado, agua caliente y desayuno incluido. Precios de ejemplo, por noche.</p></div><a class="btn btn-linea" href="habitaciones.html">Ver las 4 habitaciones</a></div>
+    <div class="habs"><article class="hab-tarjeta" data-cap="2" data-articulo="la Matrimonial">
+  <a class="foto" href="habitacion-matrimonial.html" tabindex="-1" aria-hidden="true"><img src="https://images.unsplash.com/photo-1699629208190-672f7ef56d7b?w=900&amp;q=70&amp;auto=format&amp;fit=crop" srcset="https://images.unsplash.com/photo-1699629208190-672f7ef56d7b?w=700&amp;q=70&amp;auto=format&amp;fit=crop 700w, https://images.unsplash.com/photo-1699629208190-672f7ef56d7b?w=1200&amp;q=70&amp;auto=format&amp;fit=crop 1200w, https://images.unsplash.com/photo-1699629208190-672f7ef56d7b?w=1600&amp;q=70&amp;auto=format&amp;fit=crop 1600w" sizes="(min-width:700px) 31vw, 92vw" width="900" height="675" loading="lazy" alt="Habitación matrimonial con cama de madera y ventana grande (foto referencial)"></a>
+  <h3><a href="habitacion-matrimonial.html">Matrimonial</a></h3>
+  <p>Para parejas que vienen a desconectarse. Cama grande, ventana al jardín y silencio de campo.</p>
+  <p class="linea-datos"><span>Hasta 2 personas</span><b>$30 / noche</b></p>
+  <a class="enlace" href="habitacion-matrimonial.html">Ver habitación</a>
+</article><article class="hab-tarjeta" data-cap="5" data-articulo="la Familiar">
+  <a class="foto" href="habitacion-familiar.html" tabindex="-1" aria-hidden="true"><img src="https://images.unsplash.com/photo-1633836331520-e35c668f1f9d?w=900&amp;q=70&amp;auto=format&amp;fit=crop" srcset="https://images.unsplash.com/photo-1633836331520-e35c668f1f9d?w=700&amp;q=70&amp;auto=format&amp;fit=crop 700w, https://images.unsplash.com/photo-1633836331520-e35c668f1f9d?w=1200&amp;q=70&amp;auto=format&amp;fit=crop 1200w, https://images.unsplash.com/photo-1633836331520-e35c668f1f9d?w=1600&amp;q=70&amp;auto=format&amp;fit=crop 1600w" sizes="(min-width:700px) 31vw, 92vw" width="900" height="675" loading="lazy" alt="Habitación amplia con matas y cama grande (foto referencial)"></a>
+  <h3><a href="habitacion-familiar.html">Familiar</a></h3>
+  <p>La más pedida para los fines de semana en familia: espacio para todos y nevera para lo de los niños.</p>
+  <p class="linea-datos"><span>Hasta 5 personas</span><b>$55 / noche</b></p>
+  <a class="enlace" href="habitacion-familiar.html">Ver habitación</a>
+</article><article class="hab-tarjeta" data-cap="6" data-articulo="la Cabaña con cocina">
+  <a class="foto" href="habitacion-cabana.html" tabindex="-1" aria-hidden="true"><img src="https://images.unsplash.com/photo-1776950815445-f80f2b21fa50?w=900&amp;q=70&amp;auto=format&amp;fit=crop" srcset="https://images.unsplash.com/photo-1776950815445-f80f2b21fa50?w=700&amp;q=70&amp;auto=format&amp;fit=crop 700w, https://images.unsplash.com/photo-1776950815445-f80f2b21fa50?w=1200&amp;q=70&amp;auto=format&amp;fit=crop 1200w, https://images.unsplash.com/photo-1776950815445-f80f2b21fa50?w=1600&amp;q=70&amp;auto=format&amp;fit=crop 1600w" sizes="(min-width:700px) 31vw, 92vw" width="900" height="675" loading="lazy" alt="Cabaña de madera con cocina y barra (foto referencial)"></a>
+  <h3><a href="habitacion-cabana.html">Cabaña con cocina</a></h3>
+  <p>Aparte de la casa principal, para quedarse varios días a su ritmo y cocinar lo que le provoque.</p>
+  <p class="linea-datos"><span>Hasta 6 personas</span><b>$70 / noche</b></p>
+  <a class="enlace" href="habitacion-cabana.html">Ver habitación</a>
+</article></div>
+  </div>
+</section>
+
+<section class="seccion oscura" aria-labelledby="t-cerca">
+  <div class="contenedor">
+    <div class="cabeza-fila"><div class="cabeza-sec" style="margin:0"><h2 id="t-cerca" class="titulo-sec">Cerca de la posada.</h2><p>Río, pueblos de montaña y la subida a los páramos. Distancias aproximadas en carro.</p></div><a class="btn btn-claro" href="que-hacer.html">Ver qué hacer</a></div>
+    <div class="experiencias" data-grupo><article class="experiencia"><button class="ampliar " type="button" data-grande="https://images.unsplash.com/photo-1784495535609-fa9e4f4c700a?w=1800&amp;q=75&amp;auto=format&amp;fit=crop" data-pie="Río de piedras entre vegetación (foto referencial)"><img src="https://images.unsplash.com/photo-1784495535609-fa9e4f4c700a?w=800&amp;q=70&amp;auto=format&amp;fit=crop" srcset="https://images.unsplash.com/photo-1784495535609-fa9e4f4c700a?w=700&amp;q=70&amp;auto=format&amp;fit=crop 700w, https://images.unsplash.com/photo-1784495535609-fa9e4f4c700a?w=1200&amp;q=70&amp;auto=format&amp;fit=crop 1200w, https://images.unsplash.com/photo-1784495535609-fa9e4f4c700a?w=1600&amp;q=70&amp;auto=format&amp;fit=crop 1600w" sizes="(min-width:700px) 31vw, 92vw" width="800" height="600" loading="lazy" alt="Río de piedras entre vegetación (foto referencial)"></button>
+      <span class="distancia">A unos 15 minutos</span><h3>Río Santo Domingo</h3><p>Baja frío desde la montaña. Para un baño de río en familia, con cuidado cuando viene crecido.</p></article><article class="experiencia"><button class="ampliar " type="button" data-grande="https://images.unsplash.com/photo-1776788364600-7757fd90e693?w=1800&amp;q=75&amp;auto=format&amp;fit=crop" data-pie="Iglesia colonial blanca frente a montañas (foto referencial)"><img src="https://images.unsplash.com/photo-1776788364600-7757fd90e693?w=800&amp;q=70&amp;auto=format&amp;fit=crop" srcset="https://images.unsplash.com/photo-1776788364600-7757fd90e693?w=700&amp;q=70&amp;auto=format&amp;fit=crop 700w, https://images.unsplash.com/photo-1776788364600-7757fd90e693?w=1200&amp;q=70&amp;auto=format&amp;fit=crop 1200w, https://images.unsplash.com/photo-1776788364600-7757fd90e693?w=1600&amp;q=70&amp;auto=format&amp;fit=crop 1600w" sizes="(min-width:700px) 31vw, 92vw" width="800" height="600" loading="lazy" alt="Iglesia colonial blanca frente a montañas (foto referencial)"></button>
+      <span class="distancia">A unos 40 minutos</span><h3>Altamira de Cáceres</h3><p>Pueblo de montaña, de los más antiguos de Barinas, con clima fresco, calles empinadas y vista al valle.</p></article><article class="experiencia"><button class="ampliar " type="button" data-grande="https://images.unsplash.com/photo-1768168916366-faa0713b0b9a?w=1800&amp;q=75&amp;auto=format&amp;fit=crop" data-pie="Laguna entre pajonales de páramo (foto referencial)"><img src="https://images.unsplash.com/photo-1768168916366-faa0713b0b9a?w=800&amp;q=70&amp;auto=format&amp;fit=crop" srcset="https://images.unsplash.com/photo-1768168916366-faa0713b0b9a?w=700&amp;q=70&amp;auto=format&amp;fit=crop 700w, https://images.unsplash.com/photo-1768168916366-faa0713b0b9a?w=1200&amp;q=70&amp;auto=format&amp;fit=crop 1200w, https://images.unsplash.com/photo-1768168916366-faa0713b0b9a?w=1600&amp;q=70&amp;auto=format&amp;fit=crop 1600w" sizes="(min-width:700px) 31vw, 92vw" width="800" height="600" loading="lazy" alt="Laguna entre pajonales de páramo (foto referencial)"></button>
+      <span class="distancia">A unas dos horas</span><h3>Laguna de Mucubají</h3><p>Ya en el páramo merideño: frío de verdad, laguna, caminatas y cielo limpio. Lleve abrigo.</p></article></div>
+  </div>
+</section>
+
+<section class="seccion llamado" aria-labelledby="t-llamado">
+  <div class="fondo" aria-hidden="true"><img src="https://images.unsplash.com/photo-1767601047787-f2a9194e6749?w=1600&amp;q=60&amp;auto=format&amp;fit=crop" srcset="https://images.unsplash.com/photo-1767601047787-f2a9194e6749?w=800&amp;q=60&amp;auto=format&amp;fit=crop 800w, https://images.unsplash.com/photo-1767601047787-f2a9194e6749?w=1600&amp;q=60&amp;auto=format&amp;fit=crop 1600w" sizes="100vw" width="1600" height="1067" loading="lazy" alt=""></div>
+  <div class="contenedor rejilla">
+    <div>
+      <h2 id="t-llamado" class="titulo-sec">Reserve su fin de semana.</h2>
+      <p>Elija la habitación, las fechas y cuántos vienen. El mensaje de WhatsApp sale listo y le respondemos con la disponibilidad.</p>
+      <div class="acciones"><a class="btn btn-claro" href="reservar.html">Armar mi reserva</a><a class="btn btn-linea" href="https://wa.me/580000000000?text=Hola%2C%20quiero%20consultar%20disponibilidad%20para%20estas%20fechas%3A%20" target="_blank" rel="noopener"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3.5C9.1 3.5 3.6 9 3.6 15.8c0 2.4.7 4.6 1.9 6.5L3.5 28.5l6.4-2c1.8 1 3.9 1.6 6.1 1.6 6.9 0 12.4-5.5 12.4-12.3S22.9 3.5 16 3.5z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M11.8 9.6c.4 0 .7.1.9.6l1 2.4c.1.3 0 .6-.1.8l-.7.9c-.2.2-.2.5 0 .8.9 1.6 2.2 2.8 3.9 3.6.3.1.6.1.8-.1l.9-1c.2-.3.5-.3.8-.2l2.4 1.1c.3.1.5.4.4.7-.1 1.5-1.3 2.6-2.9 2.6-4.3-.3-8.7-4.5-9-8.9 0-1.6 1-3.1 1.6-3.3z" fill="currentColor"/></svg>Escribir por WhatsApp</a></div>
+    </div>
+    <ul class="datos-rapidos">
+      <li><b>Desde $30</b><span>la noche, con desayuno criollo</span></li>
+      <li><b>2:00 p. m.</b><span>entrada, y salida hasta las 12:00 m.</span></li>
+      <li><b>Abono del 50 %</b><span>para apartar la fecha</span></li>
+    </ul>
+  </div>
+</section>
+</main>
+<footer class="pie-sitio">
+  <div class="contenedor">
+    <div class="rejilla">
+      <div>
+        <p class="marca">VillaSerena</p>
+        <p style="margin-top:10px;max-width:34ch">Posada campestre con ambiente familiar en Barinitas, estado Barinas, al pie de la montaña.</p>
+      </div>
+      <div><h2>Páginas</h2><ul><li><a href="index.html">Inicio</a></li><li><a href="habitaciones.html">Habitaciones</a></li><li><a href="la-posada.html">La posada</a></li><li><a href="que-hacer.html">Qué hacer</a></li><li><a href="galeria.html">Galería</a></li><li><a href="contacto.html">Contacto</a></li><li><a href="reservar.html">Reservar</a></li></ul></div>
+      <div><h2>Contacto</h2><ul>
+        <li>WhatsApp: <a href="https://wa.me/580000000000" target="_blank" rel="noopener">+58 000 0000000</a></li>
+        <li>Atención: todos los días, 7:00 a. m. a 9:00 p. m.</li>
+        <li><a href="https://www.google.com/maps/search/?api=1&query=Posada%20VillaSerena%20Barinitas%20Barinas" target="_blank" rel="noopener">Ver en Google Maps</a></li>
+      </ul></div>
+    </div>
+    <div class="aviso"><p>Página de ejemplo con datos ficticios · Fotos referenciales</p><p>Fotos de Unsplash y video de Pexels. Vista previa hecha por Carlos Mendoza</p></div>
+  </div>
+</footer>
 <dialog class="visor" id="visor" aria-label="Foto ampliada">
   <div class="visor-caja">
     <img id="visor-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="">
@@ -536,143 +149,7 @@ ul,ol{margin:0;padding:0;list-style:none}
     <button class="cerrar" type="button" id="visor-cerrar" aria-label="Cerrar"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 4l12 12M16 4L4 16" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
   </div>
 </dialog>
-
 <a class="flotante" href="https://wa.me/580000000000?text=Hola%2C%20quiero%20consultar%20disponibilidad%20para%20estas%20fechas%3A%20" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3.5C9.1 3.5 3.6 9 3.6 15.8c0 2.4.7 4.6 1.9 6.5L3.5 28.5l6.4-2c1.8 1 3.9 1.6 6.1 1.6 6.9 0 12.4-5.5 12.4-12.3S22.9 3.5 16 3.5z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M11.8 9.6c.4 0 .7.1.9.6l1 2.4c.1.3 0 .6-.1.8l-.7.9c-.2.2-.2.5 0 .8.9 1.6 2.2 2.8 3.9 3.6.3.1.6.1.8-.1l.9-1c.2-.3.5-.3.8-.2l2.4 1.1c.3.1.5.4.4.7-.1 1.5-1.3 2.6-2.9 2.6-4.3-.3-8.7-4.5-9-8.9 0-1.6 1-3.1 1.6-3.3z" fill="currentColor"/></svg></a>
-
-<script>
-(function () {
-  var reducido = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var WA = "https://wa.me/580000000000?text=";
-  function safe(fn, nombre) { try { fn(); } catch (e) { console.warn("[" + nombre + "]", e); } }
-  function lim(v, a, b) { return v < a ? a : v > b ? b : v; }
-  function q(s, c) { return (c || document).querySelector(s); }
-  function qa(s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); }
-
-  /* Video de portada: solo en computadora, con buena conexión y sin "reducir movimiento" */
-  function initVideo() {
-    var v = q("#video-portada");
-    var con = navigator.connection || {};
-    var lenta = con.saveData || /(^|-)2g|3g/.test(con.effectiveType || "");
-    if (reducido || lenta || !window.matchMedia("(min-width: 900px)").matches) return;
-    v.addEventListener("playing", function () { v.classList.add("listo"); }, { once: true });
-    v.src = v.dataset.video;
-    var p = v.play(); if (p && p.catch) p.catch(function () {});
-    document.addEventListener("visibilitychange", function () { if (document.hidden) v.pause(); else { var r = v.play(); if (r && r.catch) r.catch(function () {}); } });
-  }
-
-  /* Pestañas de habitaciones */
-  function initPestanas() {
-    var tabs = qa(".pestana");
-    function elegir(t, foco) {
-      tabs.forEach(function (x) {
-        var si = x === t;
-        x.setAttribute("aria-selected", si ? "true" : "false");
-        x.tabIndex = si ? 0 : -1;
-        q("#" + x.getAttribute("aria-controls")).hidden = !si;
-      });
-      if (foco) t.focus();
-    }
-    tabs.forEach(function (t, i) {
-      t.addEventListener("click", function () { elegir(t); });
-      t.addEventListener("keydown", function (e) {
-        var k = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
-        if (k) { e.preventDefault(); elegir(tabs[(i + k + tabs.length) % tabs.length], true); }
-      });
-    });
-  }
-
-  /* Visor de fotos */
-  function initVisor() {
-    var dlg = q("#visor"), img = q("#visor-img"), pie = q("#visor-pie"), grupo = [], i = 0;
-    function mostrar() { var b = grupo[i]; img.src = b.dataset.grande; img.alt = q("img", b).alt; pie.textContent = b.dataset.pie || ""; }
-    function abrir(b) {
-      var cont = b.closest(".panel, .fotos-bienvenida, .fotos, .lugares") || document;
-      grupo = qa(".ampliar", cont);
-      i = Math.max(0, grupo.indexOf(b)); mostrar();
-      q("#visor-ant").hidden = q("#visor-sig").hidden = grupo.length < 2;
-      if (dlg.showModal) dlg.showModal(); else dlg.setAttribute("open", "");
-    }
-    function cerrar() { if (dlg.close) dlg.close(); else dlg.removeAttribute("open"); }
-    qa(".ampliar").forEach(function (b) { b.addEventListener("click", function () { abrir(b); }); });
-    q("#visor-ant").addEventListener("click", function () { i = (i - 1 + grupo.length) % grupo.length; mostrar(); });
-    q("#visor-sig").addEventListener("click", function () { i = (i + 1) % grupo.length; mostrar(); });
-    q("#visor-cerrar").addEventListener("click", cerrar);
-    dlg.addEventListener("click", function (e) { if (e.target === dlg || e.target.classList.contains("visor-caja")) cerrar(); });
-    dlg.addEventListener("keydown", function (e) { if (e.key === "ArrowRight") q("#visor-sig").click(); if (e.key === "ArrowLeft") q("#visor-ant").click(); });
-    var x0 = null;
-    dlg.addEventListener("touchstart", function (e) { x0 = e.touches[0].clientX; }, { passive: true });
-    dlg.addEventListener("touchend", function (e) { if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 50 && grupo.length > 1) q(dx < 0 ? "#visor-sig" : "#visor-ant").click(); x0 = null; });
-  }
-
-  /* Armador de reserva */
-  var cuartos = {
-    matrimonial: { articulo: "la Matrimonial", cap: 2, precio: 30 },
-    doble: { articulo: "la Doble", cap: 4, precio: 40 },
-    familiar: { articulo: "la Familiar", cap: 5, precio: 55 },
-    cabana: { articulo: "la Cabaña con cocina", cap: 6, precio: 70 }
-  };
-  function initArmador() {
-    var f = q("#armador"), lleg = q("#llegada"), sal = q("#salida"), cuenta = { adultos: 2, ninos: 0 };
-    var dias = ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"];
-    var meses = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
-    function iso(d) { return d.getFullYear() + "-" + ("0" + (d.getMonth() + 1)).slice(-2) + "-" + ("0" + d.getDate()).slice(-2); }
-    function leer(v) { var x = v.split("-"); return new Date(+x[0], +x[1] - 1, +x[2], 12); }
-    var hoy = new Date(); hoy.setHours(12, 0, 0, 0);
-    var sab = new Date(hoy); sab.setDate(hoy.getDate() + ((6 - hoy.getDay() + 7) % 7 || 7));
-    var dom = new Date(sab); dom.setDate(sab.getDate() + 1);
-    lleg.min = iso(hoy); lleg.value = iso(sab); sal.value = iso(dom); sal.min = iso(dom);
-    function fecha(d) { return dias[d.getDay()] + " " + d.getDate() + " de " + meses[d.getMonth()]; }
-    function actualizar() {
-      var c = cuartos[(q('input[name="cuarto"]:checked') || {}).value || "matrimonial"];
-      var a = leer(lleg.value || iso(sab)), b = leer(sal.value || iso(dom));
-      if (b <= a) { b = new Date(a); b.setDate(a.getDate() + 1); sal.value = iso(b); }
-      sal.min = iso(new Date(a.getFullYear(), a.getMonth(), a.getDate() + 1));
-      var noches = Math.round((b - a) / 864e5), total = cuenta.adultos + cuenta.ninos;
-      var personas = cuenta.adultos + (cuenta.adultos === 1 ? " adulto" : " adultos") + (cuenta.ninos ? " y " + cuenta.ninos + (cuenta.ninos === 1 ? " niño" : " niños") : "");
-      var msg = "Hola, quiero consultar disponibilidad para estas fechas: del " + fecha(a) + " al " + fecha(b) + " (" + noches + (noches === 1 ? " noche" : " noches") + "). Habitación: " + c.articulo + ". Somos " + personas + ".";
-      q("#mensaje").textContent = msg;
-      q("#wa-reserva").href = WA + encodeURIComponent(msg);
-      q("#estimado").textContent = "Estimado: " + noches + (noches === 1 ? " noche" : " noches") + " × $" + c.precio + " = $" + (noches * c.precio) + " (precio de ejemplo).";
-      var aviso = "";
-      if (total > c.cap) {
-        var otro = ["matrimonial", "doble", "familiar", "cabana"].filter(function (k) { return cuartos[k].cap >= total; })[0];
-        aviso = c.articulo.charAt(0).toUpperCase() + c.articulo.slice(1) + " recibe hasta " + c.cap + " personas." + (otro ? " Para " + total + ", le conviene " + cuartos[otro].articulo + "." : " Para grupos grandes, escríbanos y le armamos dos habitaciones.");
-      }
-      q("#aviso-cupo").textContent = aviso;
-    }
-    qa("[data-cuenta]").forEach(function (b) {
-      b.addEventListener("click", function () {
-        var k = b.dataset.cuenta, min = k === "adultos" ? 1 : 0;
-        cuenta[k] = lim(cuenta[k] + +b.dataset.paso, min, 12);
-        q("#" + k).textContent = cuenta[k];
-        actualizar();
-      });
-    });
-    qa("[data-reservar]").forEach(function (a) {
-      a.addEventListener("click", function () {
-        var r = q('input[name="cuarto"][value="' + a.dataset.reservar + '"]');
-        if (r) { r.checked = true; actualizar(); }
-      });
-    });
-    f.addEventListener("change", actualizar);
-    f.addEventListener("submit", function (e) { e.preventDefault(); window.open(q("#wa-reserva").href, "_blank", "noopener"); });
-    actualizar();
-  }
-
-  /* Cabecera sólida al salir de la portada */
-  function initCabecera() {
-    var cab = q("#cabecera"), pend = false;
-    function revisar() { pend = false; cab.classList.toggle("solida", window.scrollY > 60); }
-    window.addEventListener("scroll", function () { if (!pend) { pend = true; requestAnimationFrame(revisar); } }, { passive: true });
-    revisar();
-  }
-
-  safe(initVideo, "video");
-  safe(initPestanas, "pestanas");
-  safe(initVisor, "visor");
-  safe(initArmador, "armador");
-  safe(initCabecera, "cabecera");
-})();
-</script>
+<script src="sitio.js?v=20261101"></script>
 </body>
 </html>
