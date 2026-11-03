@@ -13,6 +13,7 @@
   --tenue: color-mix(in srgb, var(--texto) 72%, var(--fondo));
   --linea: color-mix(in srgb, var(--texto) 18%, transparent);
   --cab: 64px;
+  --pest: 52px;
   --ease: cubic-bezier(.22, .8, .24, 1);
 }
 
@@ -22,7 +23,7 @@
 
 @view-transition { navigation: auto; }
 *, *::before, *::after { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; scroll-padding-top: calc(var(--cab) + 12px); }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: calc(var(--cab) + var(--pest) + 12px); }
 body { margin: 0; background: var(--fondo); color: var(--texto); font: 400 17px/1.6 "Public Sans", "Segoe UI", system-ui, sans-serif; overflow-x: clip; }
 img { display: block; max-width: 100%; height: auto; }
 a { color: inherit; }
@@ -44,6 +45,20 @@ button, input { font-family: inherit; }
 .abrir-menu { flex: none; font: 600 15px/1 "Public Sans", sans-serif; color: var(--texto); background: transparent; border: 1.5px solid var(--texto);
   border-radius: 999px; padding: 11px 18px; min-height: 44px; cursor: pointer; transition: transform .2s var(--ease), background .2s; }
 .abrir-menu:active { transform: scale(.95); }
+
+/* pestañas de páginas (solo teléfono, fijas bajo la cabecera) */
+.pestanas { position: sticky; top: var(--cab); z-index: 39; height: var(--pest); background: var(--fondo); border-bottom: 1px solid var(--linea);
+  -webkit-mask-image: linear-gradient(90deg, #000 85%, transparent); mask-image: linear-gradient(90deg, #000 85%, transparent); }
+.pestanas.al-final { -webkit-mask-image: none; mask-image: none; }
+.pestanas-fila { display: flex; gap: 8px; height: 100%; align-items: center; overflow-x: auto; padding: 0 20px; scroll-padding-inline: 20px; scroll-snap-type: x proximity;
+  scrollbar-width: none; overscroll-behavior-x: contain; }
+.pestanas-fila::-webkit-scrollbar { display: none; }
+.pestanas-fila::after { content: ""; flex: 0 0 28px; }
+.pestanas a { flex: none; scroll-snap-align: start; text-decoration: none; white-space: nowrap; font-weight: 600; font-size: 15px;
+  padding: 8px 14px; min-height: 38px; display: inline-flex; align-items: center; border-radius: 999px; background: var(--fondo-2);
+  transition: background .25s, color .25s, transform .2s var(--ease); }
+.pestanas a[aria-current] { background: var(--primario); color: #fff; }
+.pestanas a:active { transform: scale(.95); }
 
 /* hoja del menú (sube desde abajo) */
 .hoja { position: fixed; inset: 0; z-index: 60; }
@@ -83,11 +98,11 @@ button, input { font-family: inherit; }
 
 /* ---------- portada ---------- */
 .portada { position: relative; }
-.portada-foto { position: relative; height: 44svh; min-height: 280px; overflow: hidden; background: var(--secundario); }
+.portada-foto { position: relative; height: 40svh; min-height: 260px; overflow: hidden; background: var(--secundario); }
 .portada-foto img { width: 100%; height: 100%; object-fit: cover; transform: translateY(var(--py, 0)); }
 .zoom { animation: zoom 22s ease-in-out infinite alternate; }
 @keyframes zoom { from { scale: 1.12; } to { scale: 1; } }
-.portada-interior .portada-foto { height: 36svh; min-height: 240px; }
+.portada-interior .portada-foto { height: 32svh; min-height: 220px; }
 .ola { position: absolute; left: 0; bottom: -1px; width: 200%; height: 34px; fill: var(--fondo); pointer-events: none; }
 .ola-a { animation: deriva 14s linear infinite; }
 .ola-b { opacity: .45; height: 46px; animation: deriva 22s linear infinite reverse; }
@@ -273,7 +288,8 @@ button, input { font-family: inherit; }
 /* ---------- computadora ---------- */
 @media (min-width: 900px) {
   body { font-size: 18px; }
-  :root { --cab: 76px; }
+  :root { --cab: 76px; --pest: 0px; }
+  .pestanas { display: none; }
   .cabecera { padding: 0 max(28px, calc((100% - 1240px) / 2)); }
   .logo { height: 38px; max-width: 300px; }
   .menu-grande { display: flex; gap: 22px; margin-right: 8px; }

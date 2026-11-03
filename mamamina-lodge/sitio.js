@@ -42,6 +42,16 @@
     });
   }
 
+  /* pestañas: la página actual a la vista y el difuminado se quita al llegar al final */
+  var fila = document.querySelector(".pestanas-fila");
+  if (fila) {
+    var act = fila.querySelector("[aria-current]");
+    if (act) fila.scrollLeft = Math.max(0, fila.scrollLeft + act.getBoundingClientRect().left - fila.getBoundingClientRect().left - 20);
+    var revisar = function () { fila.parentNode.classList.toggle("al-final", fila.scrollLeft + fila.clientWidth >= fila.scrollWidth - 4); };
+    fila.addEventListener("scroll", revisar, { passive: true });
+    revisar();
+  }
+
   /* onda al tocar botones */
   document.addEventListener("pointerdown", function (ev) {
     var b = ev.target.closest(".boton");
