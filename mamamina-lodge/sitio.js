@@ -131,7 +131,7 @@
       var nombre = cab.getAttribute("data-nombre"), precio = +cab.getAttribute("data-precio"), cap = +cab.getAttribute("data-cap");
       var noches = cont.noches.v, personas = cont.personas.v, isl = form.querySelector("input[name=islotes]").checked;
       var llegada = legible(fecha.value);
-      fijar("cabana", nombre);
+      fijar("habitacion", nombre);
       fijar("llegada", llegada || "Por elegir");
       fijar("noches", String(noches));
       fijar("personas", String(personas));
@@ -139,9 +139,9 @@
       bol.querySelector('[data-b="islotes"]').hidden = !isl;
       var aviso = bol.querySelector('[data-b="aviso"]');
       aviso.hidden = personas <= cap;
-      aviso.textContent = personas > cap ? "Para " + personas + " personas le conviene la Cabaña familiar o dos cabañas: se lo confirmamos." : "";
+      aviso.textContent = personas > cap ? "Para " + personas + " personas le conviene la habitación familiar o dos habitaciones: se lo confirmamos." : "";
       var msg = "Hola, quiero reservar en Mamamina Lodge.\n" +
-        "Cabaña: " + nombre + "\n" +
+        "Habitación: " + nombre + "\n" +
         "Llegada: " + (llegada || "por definir") + "\n" +
         "Noches: " + noches + "\n" +
         "Personas: " + personas +

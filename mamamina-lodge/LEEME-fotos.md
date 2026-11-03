@@ -4,14 +4,15 @@ Para cambiar una foto: reemplace el archivo en `fotos/` con **el mismo nombre**,
 
 | Archivo | Qué foto va | Dónde sale |
 |---|---|---|
-| `logo.webp` | Logo con fondo transparente (cualquier proporción) | Encabezado y pie de todas las páginas |
+| `logo.webp` | Logo negro con fondo transparente. Provisional: sale de una captura, pedir el original | Encabezado de todas las páginas |
+| `logo-blanco.webp` | El mismo logo en blanco | Pie de todas las páginas |
 | `portada.webp` | La mejor foto del lodge: piscina o playa, horizontal | Inicio (portada) |
 | `piscina.webp` | Piscina grande, horizontal | Piscina y bar (portada), Inicio (tarjeta) |
 | `bar.webp` | El bar al lado de la piscina | Piscina y bar |
 | `restaurante.webp` | Un plato o el comedor | Restaurante (portada), Inicio (tarjeta) |
-| `cabana-1.webp` | Cabaña para 2 por dentro | Cabañas, Inicio (tarjeta) |
-| `cabana-2.webp` | Cabaña para 3 por dentro | Cabañas |
-| `cabana-3.webp` | Cabaña familiar por dentro | Cabañas |
+| `habitacion-1.webp` | Habitación doble por dentro | Habitaciones, Inicio (tarjeta) |
+| `habitacion-2.webp` | Habitación triple por dentro | Habitaciones |
+| `habitacion-3.webp` | Habitación familiar por dentro | Habitaciones |
 | `islotes.webp` | Los islotes desde la lancha | Islotes (portada), Inicio (tarjeta) |
 | `playa.webp` | La playa de Puerto Píritu | Inicio (franja oscura) |
 | `galeria-1.webp` | Islotes: arena | Galería, Islotes |

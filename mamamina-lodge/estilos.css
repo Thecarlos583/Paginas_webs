@@ -1,10 +1,10 @@
 /* Mamamina Lodge · estilos. Para cambiar la paleta por la del logo, toque solo estas cinco líneas. */
 :root {
-  --primario: #0E6E6E;   /* turquesa hondo: botones con texto blanco, enlaces */
-  --secundario: #7FD1C7; /* agua clara: franjas y detalles (nunca como texto) */
-  --acento: #EB8A4F;     /* atardecer: botón principal (texto oscuro encima) */
-  --fondo: #F6EFE3;      /* arena */
-  --texto: #0B2322;      /* tinta de mar hondo */
+  --primario: #111111;   /* negro del logo: botones con texto blanco, precios */
+  --secundario: #BCD6CF; /* agua apagada: detalles (nunca como texto) */
+  --acento: #C8A46B;     /* arena dorada: botón principal (texto oscuro encima) */
+  --fondo: #F7F3EC;      /* marfil */
+  --texto: #111111;      /* negro del logo */
 
   /* derivados: no hace falta tocarlos */
   --fondo-2: color-mix(in srgb, var(--fondo) 88%, var(--texto) 12%);
@@ -12,7 +12,7 @@
   --hondo: var(--texto);
   --tenue: color-mix(in srgb, var(--texto) 72%, var(--fondo));
   --linea: color-mix(in srgb, var(--texto) 18%, transparent);
-  --cab: 64px;
+  --cab: 72px;
   --pest: 52px;
   --ease: cubic-bezier(.22, .8, .24, 1);
 }
@@ -39,8 +39,8 @@ button, input { font-family: inherit; }
 /* ---------- cabecera ---------- */
 .cabecera { position: sticky; overflow: clip; top: 0; z-index: 40; height: var(--cab); display: flex; align-items: center; gap: 16px;
   padding: 0 20px; background: var(--fondo); border-bottom: 1px solid var(--linea); }
-.marca { display: block; margin-right: auto; min-width: 0; flex: 0 1 240px; }
-.logo { height: 30px; width: auto; max-width: 100%; object-fit: contain; object-position: left center; }
+.marca { display: block; margin-right: auto; flex: none; }
+.logo { height: 62px; width: auto; }
 .menu-grande, .solo-grande { display: none; }
 .abrir-menu { flex: none; font: 600 15px/1 "Public Sans", sans-serif; color: var(--texto); background: transparent; border: 1.5px solid var(--texto);
   border-radius: 999px; padding: 11px 18px; min-height: 44px; cursor: pointer; transition: transform .2s var(--ease), background .2s; }
@@ -174,16 +174,16 @@ button, input { font-family: inherit; }
   margin-inline: -20px; padding: 0 20px 10px; scrollbar-width: none; }
 .fila-fotos img { aspect-ratio: 4 / 3; width: 100%; object-fit: cover; scroll-snap-align: start; }
 
-/* ---------- cabañas como boleto ---------- */
-.lista-cabanas { display: grid; gap: 28px; padding-bottom: 24px; }
-.cabana { background: var(--papel); display: grid; position: relative; }
-.cabana-foto img { aspect-ratio: 16 / 10; width: 100%; object-fit: cover; }
-.cabana-info { padding: 22px 20px 6px; }
-.cabana-info h2 { font-size: 32px; margin-bottom: 10px; }
-.cabana-camas { font-weight: 600; }
-.cabana-talon { position: relative; padding: 20px; border-top: 2px dashed var(--linea); display: grid; gap: 14px; }
-.cabana-talon::before, .cabana-talon::after { content: ""; position: absolute; top: -13px; width: 24px; height: 24px; border-radius: 50%; background: var(--fondo); }
-.cabana-talon::before { left: -12px; } .cabana-talon::after { right: -12px; }
+/* ---------- habitaciones como boleto ---------- */
+.lista-habitaciones { display: grid; gap: 28px; padding-bottom: 24px; }
+.habitacion { background: var(--papel); display: grid; position: relative; }
+.habitacion-foto img { aspect-ratio: 16 / 10; width: 100%; object-fit: cover; }
+.habitacion-info { padding: 22px 20px 6px; }
+.habitacion-info h2 { font-size: 32px; margin-bottom: 10px; }
+.habitacion-camas { font-weight: 600; }
+.habitacion-talon { position: relative; padding: 20px; border-top: 2px dashed var(--linea); display: grid; gap: 14px; }
+.habitacion-talon::before, .habitacion-talon::after { content: ""; position: absolute; top: -13px; width: 24px; height: 24px; border-radius: 50%; background: var(--fondo); }
+.habitacion-talon::before { left: -12px; } .habitacion-talon::after { right: -12px; }
 .precio { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 10px; margin: 0; }
 .precio strong { font: 400 46px/1 "Prata", serif; color: var(--primario); }
 .precio span { font-size: 14px; color: var(--tenue); }
@@ -266,16 +266,16 @@ button, input { font-family: inherit; }
 .pasos-fila { margin-top: 24px; }
 
 /* ---------- pie ---------- */
-.pie { background: var(--fondo-2); padding: 48px 20px calc(96px + env(safe-area-inset-bottom)); display: grid; gap: 22px; }
-.logo-pie { height: 40px; max-width: 320px; }
+.pie { background: var(--hondo); color: var(--fondo); border-top: 1px solid rgb(255 255 255 / .14); padding: 48px 20px calc(96px + env(safe-area-inset-bottom)); display: grid; gap: 22px; }
+.logo-pie { height: 118px; }
 .pie-lema { margin: 10px 0 0; max-width: 26em; }
 .pie-enlaces { display: flex; flex-wrap: wrap; gap: 6px 18px; }
 .pie-enlaces a { text-decoration: none; padding: 6px 0; font-weight: 600; }
-.pie-enlaces a:hover { color: var(--primario); }
+.pie-enlaces a:hover { color: var(--acento); }
 .pie-contacto { display: grid; gap: 8px; }
 .pie-contacto a { display: inline-flex; align-items: center; gap: .5em; text-decoration: none; min-height: 40px; }
-.pie-aviso { font-size: 13px; color: var(--tenue); margin: 0; }
-.pie-coord { font: 400 15px "Prata", serif; color: var(--tenue); margin: 0; }
+.pie-aviso { font-size: 13px; color: color-mix(in srgb, var(--fondo) 74%, transparent); margin: 0; }
+.pie-coord { font: 400 15px "Prata", serif; color: color-mix(in srgb, var(--fondo) 74%, transparent); margin: 0; }
 
 .wa-flotante { position: fixed; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom)); z-index: 45; width: 58px; height: 58px; border-radius: 50%;
   display: grid; place-items: center; background: #1FA855; color: #fff; box-shadow: 0 8px 22px rgb(11 35 34 / .28);
@@ -288,10 +288,11 @@ button, input { font-family: inherit; }
 /* ---------- computadora ---------- */
 @media (min-width: 900px) {
   body { font-size: 18px; }
-  :root { --cab: 76px; --pest: 0px; }
+  :root { --cab: 92px; --pest: 0px; }
   .pestanas { display: none; }
   .cabecera { padding: 0 max(28px, calc((100% - 1240px) / 2)); }
-  .logo { height: 38px; max-width: 300px; }
+  .logo { height: 78px; }
+  .logo-pie { height: 132px; }
   .menu-grande { display: flex; gap: 22px; margin-right: 8px; }
   .menu-grande a { text-decoration: none; font-weight: 600; font-size: 15px; padding: 8px 0; position: relative; }
   .menu-grande a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 2px; height: 2px; background: var(--acento); transform: scaleX(0);
@@ -319,13 +320,13 @@ button, input { font-family: inherit; }
   .destino:hover { transform: translateY(-6px); }
   .fila-fotos { grid-auto-flow: row; grid-template-columns: repeat(3, 1fr); overflow: visible; margin: 0 0 10px; padding: 0; }
 
-  .cabana { grid-template-columns: 5fr 5fr 3fr; align-items: stretch; }
-  .cabana-foto { position: relative; min-height: 320px; }
-  .cabana-foto img { position: absolute; inset: 0; height: 100%; aspect-ratio: auto; }
-  .cabana-info { padding: 32px 32px 24px; }
-  .cabana-talon { border-top: 0; border-left: 2px dashed var(--linea); align-content: center; padding: 28px; }
-  .cabana-talon::before, .cabana-talon::after { left: -13px; right: auto; }
-  .cabana-talon::before { top: -12px; } .cabana-talon::after { top: auto; bottom: -12px; }
+  .habitacion { grid-template-columns: 5fr 5fr 3fr; align-items: stretch; }
+  .habitacion-foto { position: relative; min-height: 320px; }
+  .habitacion-foto img { position: absolute; inset: 0; height: 100%; aspect-ratio: auto; }
+  .habitacion-info { padding: 32px 32px 24px; }
+  .habitacion-talon { border-top: 0; border-left: 2px dashed var(--linea); align-content: center; padding: 28px; }
+  .habitacion-talon::before, .habitacion-talon::after { left: -13px; right: auto; }
+  .habitacion-talon::before { top: -12px; } .habitacion-talon::after { top: auto; bottom: -12px; }
 
   .boleto { grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
   .boleto-papel { position: sticky; top: calc(var(--cab) + 24px); }
