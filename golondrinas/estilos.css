@@ -542,3 +542,12 @@ body.menu-abierto .barra-accion { transform: translateY(110%); }
 }
 
 .nowrap { white-space: nowrap; }
+
+/* Rutas: bloque destacado del duende y sello de la Ruta del Café */
+img[src*="jardin-muro"] { object-position: 50% 58%; }
+.duende-foto .ampliar { aspect-ratio: 4 / 3; }
+.duende .titulo em { font-style: italic; font-weight: 400; color: var(--naranja-claro); }
+.duende .acciones .btn { flex: 1 1 auto; }
+@media (min-width: 900px) { .duende-foto .ampliar { aspect-ratio: 4 / 5; } .duende .acciones .btn { flex: 0 0 auto; } }
+.sello-ruta { display: inline-flex; align-items: center; gap: 8px; margin: 0 0 14px; padding: 7px 14px 7px 9px; border: 1.5px solid var(--verde); border-radius: 999px; color: var(--verde); font: 600 .9rem/1.2 var(--sans); background: #fff; }
+.sello-ruta svg { width: 22px; height: 22px; flex: none; }
