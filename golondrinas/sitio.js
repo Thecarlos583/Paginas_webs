@@ -30,21 +30,6 @@
     window.addEventListener("resize", function () { if (window.innerWidth >= 1000) poner(false); });
   }
 
-  /* Golondrinas: la del logo sale volando del encabezado y cruza la portada con tres más. Una sola vez. */
-  function initVuelo() {
-    var v = q("#vuelo");
-    if (!v) return;
-    if (reducido) { v.hidden = true; return; }
-    var logo = q(".marca img"), r = logo.getBoundingClientRect();
-    v.style.setProperty("--x0", Math.round(r.left + r.width * 0.15) + "px");
-    v.style.setProperty("--y0", Math.round(r.top + r.height * 0.1) + "px");
-    var ultima = q(".ave-4", v);
-    function fin() { v.hidden = true; }
-    ultima.addEventListener("animationend", function (e) { if (e.target === ultima) fin(); });
-    setTimeout(fin, 7000);
-    requestAnimationFrame(function () { v.classList.add("vuela"); logo.classList.add("suelta"); });
-  }
-
   /* Visor: las fotos se deslizan con el dedo, se asientan una por una y se cierra deslizando hacia abajo */
   function initVisor() {
     var dlg = q("#visor");
@@ -209,7 +194,6 @@
   }
 
   safe(initMenu, "menu");
-  safe(initVuelo, "vuelo");
   safe(initVisor, "visor");
   safe(initFiltro, "filtro");
   safe(initVideo, "video");

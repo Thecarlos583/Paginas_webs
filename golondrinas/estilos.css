@@ -408,7 +408,6 @@ body.menu-abierto .flotante { opacity: 0; pointer-events: none; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
-  .vuelo { display: none; }
   .trazo { stroke-dashoffset: 0 !important; }
   .pin { opacity: 1 !important; transform: none !important; }
   .video-marco video { opacity: 1; }
@@ -449,132 +448,12 @@ body.menu-abierto .barra-accion { transform: translateY(110%); }
 .vt-alterna main { animation: vt-entra .34s cubic-bezier(.2, .7, .2, 1) both; }
 .saliendo main { opacity: 0; transform: translateY(-8px); transition: opacity .17s ease, transform .17s ease; }
 
-/* Golondrinas: la del logo sale del encabezado y cruza la portada con tres más */
-.vuelo { position: fixed; inset: 0; z-index: 65; pointer-events: none; overflow: hidden; }
-.ave { position: absolute; left: 0; top: 0; width: 118px; color: #fff; opacity: 0; filter: drop-shadow(0 2px 5px rgba(8, 20, 14, .45)); }
-.ave svg { position: relative; display: block; width: 100%; height: auto; }
-.ave-2 { width: 90px; } .ave-3 { width: 78px; } .ave-4 { width: 66px; }
-.ala { transform-box: fill-box; }
-.ala-1 { transform-origin: 100% 100%; }
-.ala-2 { transform-origin: 0 100%; }
-.estela { position: absolute; right: 55%; top: 54%; width: 180%; height: 3px; border-radius: 3px; background: linear-gradient(90deg, rgba(242, 154, 61, 0), rgba(242, 154, 61, .95)); transform-origin: 100% 50%; opacity: 0; }
-.vuela .ave { will-change: transform, opacity; }
-.vuela .ave-1 { animation: lider 3.5s cubic-bezier(.45, .05, .35, 1) .35s both; }
-.vuela .ave-2 { animation: sigue 3.3s cubic-bezier(.45, .05, .35, 1) .95s both; }
-.vuela .ave-3 { animation: sigue-alto 3.4s cubic-bezier(.45, .05, .35, 1) 1.2s both; }
-.vuela .ave-4 { animation: sigue 3.5s cubic-bezier(.45, .05, .35, 1) 1.45s both; }
-.vuela .ala { animation: aletea .19s ease-in-out 18 alternate; }
-.vuela .ave-1 .estela { animation: estela 3.3s ease .45s both; }
-.vuela .ave-2 .estela { animation: estela 3.1s ease 1.05s both; }
-.vuela .ave-3 .estela { animation: estela 3.2s ease 1.3s both; }
-.vuela .ave-4 .estela { animation: estela 3.3s ease 1.55s both; }
-.marca img.suelta { animation: suelta .55s ease .25s both; }
-@keyframes lider {
-  0% { opacity: 0; transform: translate3d(var(--x0, 20px), var(--y0, 12px), 0) scale(.4) rotate(14deg); }
-  6% { opacity: 1; }
-  22% { transform: translate3d(calc(var(--x0, 20px) + 18vw), calc(var(--y0, 12px) + 22vh), 0) scale(.9) rotate(16deg); }
-  50% { transform: translate3d(44vw, 40vh, 0) scale(1) rotate(-6deg); }
-  78% { transform: translate3d(76vw, 26vh, 0) scale(1) rotate(-16deg); }
-  100% { opacity: 1; transform: translate3d(115vw, 6vh, 0) scale(.95) rotate(-20deg); }
-}
-@keyframes sigue {
-  0% { opacity: 0; transform: translate3d(-20vw, 56vh, 0) rotate(-4deg); }
-  10% { opacity: 1; }
-  50% { transform: translate3d(42vw, 45vh, 0) rotate(-8deg); }
-  100% { opacity: 1; transform: translate3d(114vw, 14vh, 0) rotate(-18deg); }
-}
-@keyframes sigue-alto {
-  0% { opacity: 0; transform: translate3d(-16vw, 34vh, 0) rotate(2deg); }
-  10% { opacity: 1; }
-  55% { transform: translate3d(48vw, 30vh, 0) rotate(-10deg); }
-  100% { opacity: 1; transform: translate3d(114vw, 2vh, 0) rotate(-16deg); }
-}
-@keyframes aletea { to { transform: scaleY(.22); } }
-@keyframes estela { 0% { opacity: 0; transform: scaleX(.2); } 22% { opacity: .9; transform: scaleX(1); } 85% { opacity: .55; } 100% { opacity: 0; } }
-@keyframes suelta { 40% { transform: scale(1.12); } 100% { transform: none; } }
-@media (min-width: 900px) { .ave-1 { width: 150px; } .ave-2 { width: 112px; } .ave-3 { width: 94px; } .ave-4 { width: 80px; } }
-
-/* Espacios listos para fotos que faltan: "Aquí va" con la paleta del logo */
-.hueco { position: relative; overflow: hidden; border-radius: var(--r); background: var(--verde); min-height: 180px; display: flex; align-items: flex-end; padding: 16px; color: #fff; }
-.hueco .sol { opacity: .9; }
-.hueco-texto { position: relative; z-index: 1; display: grid; gap: 2px; background: rgba(12, 48, 36, .86); padding: 10px 14px; border-radius: 12px; font: 600 1.05rem/1.25 var(--serif); max-width: 100%; }
-.hueco-texto small { font: 600 .8rem/1.2 var(--sans); color: var(--naranja-claro); }
-.hueco-cabeza { height: 100%; min-height: 100%; border-radius: 0; }
-.cabeza-foto .hueco-cabeza { position: absolute; inset: 0; }
-.espacio-fotos .hueco { min-height: 0; height: 100%; padding: 10px; }
-.espacio-fotos .hueco-texto { font-size: .92rem; padding: 8px 10px; }
-.trio .hueco { aspect-ratio: 3 / 4; min-height: 0; }
-.nat .hueco { aspect-ratio: 4 / 3; margin-bottom: 16px; min-height: 0; }
-.hueco-alto { aspect-ratio: 4 / 5; max-height: 560px; min-height: 0; width: 100%; }
-.tarjeta-hueco .hueco { position: absolute; inset: 0; border-radius: 0; align-items: flex-start; }
-.tarjeta-hueco::after { background: linear-gradient(transparent 45%, rgba(12, 48, 36, .92)); }
-@media (min-width: 900px) { .nat .hueco { aspect-ratio: 3 / 4; } }
-.hab-falta { position: absolute; left: 12px; bottom: 12px; z-index: 1; font-size: .78rem; font-weight: 600; color: #fff; background: rgba(12, 48, 36, .86); padding: 5px 10px; border-radius: 999px; max-width: calc(100% - 24px); }
-
-/* Carruseles que se deslizan con el dedo y se asientan en cada foto (teléfono) */
-@media (max-width: 899px) {
-  .deslizable { display: flex; gap: 10px; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; margin-inline: -20px; padding: 0 20px 6px; scroll-padding-inline: 20px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
-  .deslizable::-webkit-scrollbar { display: none; }
-  .deslizable > * { flex: 0 0 74%; scroll-snap-align: start; scroll-snap-stop: always; }
-  .tira.deslizable .ampliar, .trio.deslizable > * { aspect-ratio: 3 / 4; grid-column: auto; }
-}
-@media (min-width: 900px) { .tira { grid-template-columns: repeat(4, 1fr); } }
-
-/* Visor nuevo: pista deslizable, cierre hacia abajo */
-.visor { overflow: hidden; }
-.visor-fondo { position: absolute; inset: 0; background: rgba(8, 20, 14, .96); }
-.visor-pista { position: absolute; inset: 0; display: flex; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; overscroll-behavior: contain; scrollbar-width: none; touch-action: pan-x; will-change: transform; }
-.visor-pista::-webkit-scrollbar { display: none; }
-.visor-foto { flex: 0 0 100%; margin: 0; padding: 56px 10px 76px; display: grid; place-items: center; scroll-snap-align: center; scroll-snap-stop: always; }
-.visor-foto img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 8px; }
-.visor .pie-foto { z-index: 2; }
-.visor button { z-index: 3; }
-.visor button:disabled { opacity: .3; cursor: default; }
-@media (max-width: 699px) { .visor .ant, .visor .sig { display: none; } }
-
-/* Video de la cascada: espera con la paleta mientras se acerca y carga */
-.video-marco.horizontal { width: min(100%, 760px); }
-.video-marco video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .5s ease; }
-.video-marco.listo video { opacity: 1; }
-.video-espera { position: absolute; inset: 0; display: grid; place-items: end center; padding-bottom: 28px; overflow: hidden; transition: opacity .5s ease; }
-.video-espera .sol { top: 60%; }
-.video-espera-texto { position: relative; font: 600 1.3rem/1 var(--serif); color: #fff; background: rgba(12, 48, 36, .8); padding: 8px 16px; border-radius: 999px; }
-.video-marco.listo .video-espera { opacity: 0; }
-.video-sin-js { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); }
-
-/* Desayunos */
-.menu-desayunos { margin-top: 18px; border-top: 1px solid var(--linea); }
-.menu-desayunos li { display: grid; gap: 2px; padding: 14px 0; border-bottom: 1px dotted rgba(12, 48, 36, .25); }
-.menu-desayunos b { font: 600 1.2rem/1.25 var(--serif); color: var(--hondo); }
-.menu-desayunos span { color: var(--gris); font-size: .98rem; }
-.nota-menu { margin-top: 12px; font-size: .9rem; color: var(--gris); }
-
-/* Mapa ilustrado de la ruta: solo se anima la línea y el marcador */
-.ruta-rejilla { display: grid; gap: 30px; align-items: center; }
-.mapa-ilustrado { margin: 0; }
-.mapa-ruta { display: block; width: 100%; height: auto; border-radius: 22px; box-shadow: 0 0 0 1px var(--linea), 0 18px 40px rgba(12, 48, 36, .08); }
-.mapa-ilustrado figcaption { margin-top: 8px; font-size: .85rem; color: var(--gris); }
-.mr-texto { font: 500 13px var(--sans); fill: var(--hondo); }
-.mr-fuerte { font-weight: 700; font-size: 15px; }
-.mr-naranja { fill: var(--naranja-texto); font-weight: 600; }
-.trazo { stroke-dasharray: 1; stroke-dashoffset: 0; }
-.js .mapa-ruta:not(.dibujar) .trazo { stroke-dashoffset: 1; }
-.mapa-ruta.dibujar .trazo-carretera { transition: stroke-dashoffset 1.6s cubic-bezier(.6, .1, .3, 1); }
-.mapa-ruta.dibujar .trazo-tierra { transition: stroke-dashoffset .9s ease-out 1.5s; }
-.pin { transform-box: fill-box; transform-origin: 50% 100%; }
-.js .mapa-ruta:not(.dibujar) .pin { opacity: 0; transform: translateY(-46px); }
-.mapa-ruta.dibujar .pin { animation: cae .7s cubic-bezier(.3, 1.45, .5, 1) 2.3s both; }
-@keyframes cae { from { opacity: 0; transform: translateY(-46px); } 50% { opacity: 1; } to { opacity: 1; transform: none; } }
-@media (min-width: 900px) { .ruta-rejilla { grid-template-columns: 1.25fr 1fr; gap: 56px; } }
-
-/* Pie con RIF */
-.pie-rif { font-size: .9rem; color: var(--naranja-claro); margin-bottom: 6px; font-weight: 500; }
-.portal-texto { display: inline-flex; align-items: center; gap: 8px; }
-.portal-texto svg { width: 18px; height: 18px; }
-
-@media (prefers-reduced-motion: reduce) {
-  @view-transition { navigation: none; }
-  .vt-alterna main, .saliendo main { animation: none; opacity: 1; transform: none; }
-}
-
-.nowrap { white-space: nowrap; }
+/* Portada: el título entra palabra por palabra y la foto se acerca despacio. Una sola vez, al abrir. */
+.portada .pal { display: inline-block; animation: sube .7s cubic-bezier(.2, .7, .2, 1) both; animation-delay: calc(.12s + var(--i) * .09s); }
+.portada .antetitulo { animation: aparece .6s ease both; }
+.portada .bajada, .portada .acciones { animation: sube .7s cubic-bezier(.2, .7, .2, 1) .62s both; }
+.portada .acciones { animation-delay: .72s; }
+.portada .pf1 img { animation: acerca 6s cubic-bezier(.2, .6, .3, 1) both; }
+@keyframes sube { from { opacity: 0; transform: translateY(.45em); } }
+@keyframes aparece { from { opacity: 0; } }
+@keyframes acerca { from { transform: scale(1.06); } }
