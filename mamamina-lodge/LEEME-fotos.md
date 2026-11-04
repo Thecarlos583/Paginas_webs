@@ -15,16 +15,16 @@ Para cambiar una foto: reemplace el archivo en `fotos/` con **el mismo nombre**,
 | `habitacion-1.webp` | Habitación doble por dentro | Habitaciones, Inicio (tarjeta) |
 | `habitacion-2.webp` | Habitación triple por dentro | Habitaciones |
 | `habitacion-3.webp` | Habitación familiar por dentro | Habitaciones |
-| `islotes.webp` | Los islotes desde la lancha | Islotes (portada), Inicio (tarjeta) |
+| `isletas.webp` | Las isletas desde la lancha | Isletas (portada), Inicio (tarjeta) |
 | `playa.webp` | La playa de Puerto Píritu | Inicio (franja oscura) |
-| `galeria-1.webp` | Islotes: arena | Galería, Islotes |
-| `galeria-2.webp` | Islotes: agua clara | Galería, Islotes |
-| `galeria-3.webp` | Islotes: lancha | Galería, Islotes |
+| `galeria-1.webp` | Isletas: arena | Galería, Isletas |
+| `galeria-2.webp` | Isletas: agua clara | Galería, Isletas |
+| `galeria-3.webp` | Isletas: lancha | Galería, Isletas |
 | `galeria-4.webp` | Atardecer | Galería, Cómo llegar |
 | `galeria-5.webp` | Piscina con tumbonas | Galería, Piscina y bar |
 | `galeria-6.webp` | Ambiente del bar o áreas comunes | Galería |
 | `galeria-7.webp` | Comida servida | Galería, Restaurante |
-| `galeria-8.webp` | Islotes u otra vista | Galería, Islotes |
+| `galeria-8.webp` | Isletas u otra vista | Galería, Isletas |
 
 **Colores del logo:** cambie las 5 variables del inicio de `_generadores/mamamina_estilos.css` (`--primario`, `--secundario`, `--acento`, `--fondo`, `--texto`) y vuelva a generar.
 

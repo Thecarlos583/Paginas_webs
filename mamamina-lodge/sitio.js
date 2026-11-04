@@ -230,7 +230,7 @@
     function pintar() {
       var cab = form.querySelector("input[type=radio]:checked");
       var nombre = cab.getAttribute("data-nombre"), precio = +cab.getAttribute("data-precio"), cap = +cab.getAttribute("data-cap");
-      var noches = cont.noches.v, personas = cont.personas.v, isl = form.querySelector("input[name=islotes]").checked;
+      var noches = cont.noches.v, personas = cont.personas.v, isl = form.querySelector("input[name=isletas]").checked;
       var llegada = legible(fecha.value);
       fijar("habitacion", nombre);
       fijar("llegada", llegada || "Por elegir");
@@ -238,7 +238,7 @@
       fijar("personas", String(personas));
       fijar("total", "$" + precio * noches);
       var caney = form.querySelector("input[name=caney]").checked;
-      bol.querySelector('[data-b="islotes"]').hidden = !isl;
+      bol.querySelector('[data-b="isletas"]').hidden = !isl;
       bol.querySelector('[data-b="caney"]').hidden = !caney;
       var aviso = bol.querySelector('[data-b="aviso"]');
       aviso.hidden = personas <= cap;
@@ -248,7 +248,7 @@
         "Llegada: " + (llegada || "por definir") + "\n" +
         "Noches: " + noches + "\n" +
         "Personas: " + personas +
-        (isl ? "\nTambién quiero el paseo a los islotes." : "") +
+        (isl ? "\nTambién quiero el paseo a las isletas." : "") +
         (caney ? "\nQuiero reservar un caney para mi grupo." : "") +
         "\n¿Tienen disponible?";
       enviar.href = "https://wa.me/" + WA + "?text=" + encodeURIComponent(msg);
