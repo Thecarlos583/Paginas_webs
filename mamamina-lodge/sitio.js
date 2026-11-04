@@ -84,13 +84,30 @@
     mover();
   }
 
+  /* computadora: cabecera sobre la foto al inicio y sólida al bajar */
+  var cabecera = document.querySelector(".cabecera");
+  var revisarCabecera = function () { cabecera.classList.toggle("arriba", window.scrollY < 40); };
+  window.addEventListener("scroll", revisarCabecera, { passive: true });
+  revisarCabecera();
+
+  /* computadora: la portada sigue un poco al cursor */
+  var portada = document.querySelector(".portada");
+  if (portada && !quieto && window.matchMedia("(pointer: fine)").matches) {
+    portada.addEventListener("mousemove", function (ev) {
+      var r = portada.getBoundingClientRect();
+      portada.style.setProperty("--mx", (((ev.clientX - r.left) / r.width - 0.5) * -22).toFixed(1) + "px");
+      portada.style.setProperty("--my", (((ev.clientY - r.top) / r.height - 0.5) * -14).toFixed(1) + "px");
+    });
+  }
+
   /* portada: las fotos se relevan solas */
   var pase = document.querySelector("[data-pase]");
   if (pase && !quieto) {
     window.addEventListener("load", function () {
       var capas = pase.getAttribute("data-pase").split("|").map(function (src) {
         var i = new Image();
-        i.src = src; i.alt = ""; i.className = "pase zoom"; i.setAttribute("aria-hidden", "true");
+        i.onerror = function () { i.onerror = null; i.src = src; };
+        i.src = window.innerWidth >= 900 ? src.replace(".webp", "-1920.webp") : src; i.alt = ""; i.className = "pase zoom"; i.setAttribute("aria-hidden", "true");
         pase.insertBefore(i, pase.querySelector(".ola"));
         return i;
       });
@@ -120,6 +137,16 @@
     dia.addEventListener("scroll", function () { requestAnimationFrame(pintarDia); }, { passive: true });
     pintarDia();
     var quieta = 0, paso = 0, enVista = false;
+    var grande = window.matchMedia("(min-width: 900px)");
+    /* en computadora la tarjeta activa se abre; en el teléfono esta clase no hace nada */
+    var abrirDia = function (n) {
+      paso = n;
+      tarjetas.forEach(function (t, i) { t.classList.toggle("activa", i === n); });
+    };
+    abrirDia(0);
+    tarjetas.forEach(function (t, i) {
+      t.addEventListener("mouseenter", function () { quieta = Date.now() + 9000; abrirDia(i); });
+    });
     dia.addEventListener("pointerdown", function () { quieta = Date.now() + 9000; });
     dia.addEventListener("touchstart", function () { quieta = Date.now() + 9000; }, { passive: true });
     if ("IntersectionObserver" in window) {
@@ -127,7 +154,9 @@
     }
     if (!quieto) {
       setInterval(function () {
-        if (!enVista || Date.now() < quieta || dia.scrollWidth <= dia.clientWidth + 4) return;
+        if (!enVista || Date.now() < quieta) return;
+        if (grande.matches) { abrirDia((paso + 1) % tarjetas.length); return; }
+        if (dia.scrollWidth <= dia.clientWidth + 4) return;
         paso = (paso + 1) % tarjetas.length;
         dia.scrollTo({ left: tarjetas[paso].offsetLeft - tarjetas[0].offsetLeft, behavior: "smooth" });
       }, 3600);

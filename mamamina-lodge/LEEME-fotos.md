@@ -1,6 +1,6 @@
 # Fotos y logo de Mamamina Lodge
 
-Para cambiar una foto: reemplace el archivo en `fotos/` con **el mismo nombre**, en WebP, y su miniatura `-600` (600 px de ancho). Luego corra `python _generadores/mamamina.py` para que se actualicen las medidas.
+Para cambiar una foto: reemplace el archivo en `fotos/` con **el mismo nombre**, en WebP, y su miniatura `-600` (600 px de ancho). Si la foto también tiene versión `-1920` (la grande de computadora), reemplácela igual o bórrela. Luego corra `python _generadores/mamamina.py` para que se actualicen las medidas.
 
 | Archivo | Qué foto va | Dónde sale |
 |---|---|---|

@@ -491,6 +491,78 @@ button, input { font-family: inherit; }
   .barra a, .barra button { font-size: 11px; }
 }
 
+/* ---------- computadora: las mismas ideas del teléfono ---------- */
+@media (min-width: 900px) {
+  /* cabecera sobre la foto; sólida al bajar (sin JS se queda sólida) */
+  .cabecera { position: fixed; top: 0; left: 0; right: 0; border-bottom: 1px solid var(--linea); transition: background .35s, border-color .35s; }
+  .cabecera .logo { transition: filter .35s; }
+  .cabecera.arriba { background: transparent; border-bottom-color: transparent; }
+  .cabecera.arriba .logo { filter: brightness(0) invert(1); }
+  .cabecera.arriba .menu-grande a { color: #fff; }
+  .cabecera.arriba .boton-mar { background: var(--acento); color: var(--texto); }
+  .menu-grande a { transition: color .3s; }
+
+  /* portada a pantalla completa con el título sobre la foto */
+  .portada, .portada-inicio { display: grid; grid-template-columns: minmax(0, 1fr); align-items: end; position: relative; overflow: hidden; color: #fff; background: #111; }
+  .portada-inicio { min-height: 100svh; }
+  .portada-interior { min-height: 74svh; }
+  .portada-foto, .portada-inicio .portada-foto, .portada-interior .portada-foto { position: absolute; inset: 0; height: auto; min-height: 0; order: 0; }
+  .portada-foto > img { position: absolute; left: -16px; top: -16px; width: calc(100% + 32px); height: calc(100% + 32px); max-width: none;
+    translate: var(--mx, 0) var(--my, 0); transition: translate .9s var(--ease), opacity 1.8s ease; }
+  .portada-foto::after { content: ""; position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(180deg, rgb(0 0 0 / .5) 0, transparent 24%), linear-gradient(90deg, rgb(0 0 0 / .68) 0, rgb(0 0 0 / .28) 46%, transparent 72%), linear-gradient(0deg, rgb(0 0 0 / .5) 0, transparent 40%); }
+  .ola { z-index: 2; height: 56px; }
+  .ola-b { height: 76px; }
+  .portada-texto, .portada-inicio .portada-texto, .portada-interior .portada-texto { position: relative; z-index: 3; order: 0; align-self: end;
+    width: min(1180px, 100% - 56px); margin: 0 auto; padding: 170px 0 118px; }
+  .titular, .portada-inicio .titular { font-size: clamp(56px, 6vw, 92px); max-width: 15em; }
+  .portada .titular, .portada .bajada, .portada .lugar { text-shadow: 0 2px 22px rgb(0 0 0 / .5); }
+  .portada .lugar { color: #fff; font-size: 16px; }
+  .lugar { animation: subir .8s var(--ease) both; }
+  .portada .bajada { font-size: 20px; margin: 14px 0 24px; animation: subir .8s .5s var(--ease) both; }
+  .portada .acciones { animation: subir .8s .65s var(--ease) both; }
+  .portada .boton-linea { border-color: #fff; color: #fff; }
+  .portada .boton-linea:hover { background: #fff; color: var(--texto); }
+  .ola-sep { height: 54px; }
+
+  /* tarjetas con el texto sobre la foto */
+  .destino { position: relative; overflow: hidden; background: #222; color: #fff; }
+  .destino:hover { transform: none; }
+  .destino img { aspect-ratio: 4 / 3; transition: transform .9s var(--ease); }
+  .destino:hover img { transform: scale(1.06); }
+  .destinos-dos .destino img { aspect-ratio: 16 / 9; }
+  .destino-pie { position: absolute; inset: auto 0 0; padding: 80px 22px 20px; background: linear-gradient(transparent, rgb(0 0 0 / .78)); }
+  .destino-pie strong { font-size: 26px; }
+  .destino-pie span { color: #fff; }
+  .destino-pie svg { color: var(--acento); }
+
+  /* un día: la tarjeta activa se abre, sola o con el cursor */
+  .dia { display: flex; gap: 12px; height: clamp(440px, 62vh, 600px); }
+  .dia-tarjeta { flex: 1 1 0; min-width: 0; aspect-ratio: auto; transform: none; transition: flex-grow .8s var(--ease); }
+  .dia-tarjeta.activa { flex-grow: 2.3; }
+  .dia-tarjeta img { transition: transform 1.4s var(--ease); }
+  .dia-tarjeta.activa img { transform: scale(1.05); }
+  .dia-tarjeta h3 { font-size: 36px; }
+
+  /* respuesta al cursor */
+  .mini-hab:hover { transform: translateY(-4px); }
+  .mini-hab svg { transition: transform .3s var(--ease); }
+  .mini-hab:hover svg { transform: translateX(5px); }
+  .comodidades svg { transition: transform .3s var(--ease); }
+  .comodidades li:hover svg { transform: translateY(-4px); }
+  .habitacion-foto { overflow: hidden; }
+  .habitacion-foto img { transition: transform .9s var(--ease); }
+  .habitacion:hover .habitacion-foto img { transform: scale(1.05); }
+
+  /* WhatsApp dorado, como el botón de la barra del teléfono */
+  .wa-flotante { width: 64px; height: 64px; background: var(--acento); color: var(--texto); }
+  .wa-flotante::after { content: none; }
+  .wa-flotante::before { content: "Reservar por WhatsApp"; position: absolute; right: calc(100% + 10px); white-space: nowrap; padding: 10px 16px; border-radius: 999px;
+    background: var(--hondo); color: var(--fondo); font: 600 15px/1.2 "Public Sans", sans-serif; opacity: 0; transform: translateX(8px);
+    transition: opacity .25s, transform .25s var(--ease); pointer-events: none; }
+  .wa-flotante:hover::before { opacity: 1; transform: none; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .portada-foto img, .foto-marco img { transform: none !important; }
