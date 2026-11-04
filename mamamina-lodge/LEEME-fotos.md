@@ -9,6 +9,8 @@ Para cambiar una foto: reemplace el archivo en `fotos/` con **el mismo nombre**,
 | `portada.webp` | La mejor foto del lodge: piscina o playa, horizontal | Inicio (portada) |
 | `piscina.webp` | Piscina grande, horizontal | Piscina y bar (portada), Inicio (tarjeta) |
 | `bar.webp` | El bar al lado de la piscina | Piscina y bar |
+| `bohio.webp` | El bohío, techo de palma junto a la piscina | Piscina y bar |
+| `caney.webp` | El caney | Piscina y bar |
 | `restaurante.webp` | Un plato o el comedor | Restaurante (portada), Inicio (tarjeta) |
 | `habitacion-1.webp` | Habitación doble por dentro | Habitaciones, Inicio (tarjeta) |
 | `habitacion-2.webp` | Habitación triple por dentro | Habitaciones |

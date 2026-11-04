@@ -42,16 +42,6 @@
     });
   }
 
-  /* pestañas: la página actual a la vista y el difuminado se quita al llegar al final */
-  var fila = document.querySelector(".pestanas-fila");
-  if (fila) {
-    var act = fila.querySelector("[aria-current]");
-    if (act) fila.scrollLeft = Math.max(0, fila.scrollLeft + act.getBoundingClientRect().left - fila.getBoundingClientRect().left - 20);
-    var revisar = function () { fila.parentNode.classList.toggle("al-final", fila.scrollLeft + fila.clientWidth >= fila.scrollWidth - 4); };
-    fila.addEventListener("scroll", revisar, { passive: true });
-    revisar();
-  }
-
   /* onda al tocar botones */
   document.addEventListener("pointerdown", function (ev) {
     var b = ev.target.closest(".boton");
@@ -67,6 +57,7 @@
   /* parallax de fotos y marea de los títulos */
   var moviles = [].slice.call(document.querySelectorAll(".portada-foto img, .foto-marco img"));
   var titulos = [].slice.call(document.querySelectorAll(".titulo-seccion"));
+  var olas = [].slice.call(document.querySelectorAll(".ola-sep"));
   var pendiente = false;
   function mover() {
     pendiente = false;
@@ -78,6 +69,9 @@
       var k = img.closest(".portada") ? -0.18 : -0.08;
       img.style.setProperty("--py", (centro * k * r.height).toFixed(1) + "px");
     });
+    olas.forEach(function (o) {
+      o.style.setProperty("--ox", (-(window.scrollY * 0.16) % (o.getBoundingClientRect().width / 2)).toFixed(1) + "px");
+    });
     titulos.forEach(function (t) {
       var r = t.getBoundingClientRect();
       var v = Math.min(1, Math.max(0.25, (alto - r.top) / (alto * 0.6)));
@@ -88,6 +82,84 @@
     window.addEventListener("scroll", function () { if (!pendiente) { pendiente = true; requestAnimationFrame(mover); } }, { passive: true });
     window.addEventListener("resize", mover);
     mover();
+  }
+
+  /* portada: las fotos se relevan solas */
+  var pase = document.querySelector("[data-pase]");
+  if (pase && !quieto) {
+    window.addEventListener("load", function () {
+      var capas = pase.getAttribute("data-pase").split("|").map(function (src) {
+        var i = new Image();
+        i.src = src; i.alt = ""; i.className = "pase zoom"; i.setAttribute("aria-hidden", "true");
+        pase.insertBefore(i, pase.querySelector(".ola"));
+        return i;
+      });
+      var n = -1;
+      setInterval(function () {
+        capas.forEach(function (c) { c.classList.remove("activa"); });
+        n = n + 1 >= capas.length ? -1 : n + 1;
+        if (n >= 0) capas[n].classList.add("activa");
+      }, 5500);
+    });
+  }
+
+  /* un día: avanza solo hasta que la persona lo toque */
+  var dia = document.querySelector("[data-dia]");
+  if (dia) {
+    var tarjetas = [].slice.call(dia.children), linea = document.querySelector(".dia-linea");
+    var pintarDia = function () {
+      var c = dia.getBoundingClientRect(), mitad = c.left + c.width / 2;
+      tarjetas.forEach(function (t) {
+        var r = t.getBoundingClientRect();
+        var d = Math.min(1, Math.abs(r.left + r.width / 2 - mitad) / r.width);
+        t.style.setProperty("--s", (1 - d * 0.06).toFixed(3));
+      });
+      var total = dia.scrollWidth - dia.clientWidth;
+      if (linea && total > 0) linea.style.setProperty("--avance", (0.25 + 0.75 * dia.scrollLeft / total).toFixed(3));
+    };
+    dia.addEventListener("scroll", function () { requestAnimationFrame(pintarDia); }, { passive: true });
+    pintarDia();
+    var quieta = 0, paso = 0, enVista = false;
+    dia.addEventListener("pointerdown", function () { quieta = Date.now() + 9000; });
+    dia.addEventListener("touchstart", function () { quieta = Date.now() + 9000; }, { passive: true });
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (e) { enVista = e[0].isIntersecting; }, { threshold: 0.4 }).observe(dia);
+    }
+    if (!quieto) {
+      setInterval(function () {
+        if (!enVista || Date.now() < quieta || dia.scrollWidth <= dia.clientWidth + 4) return;
+        paso = (paso + 1) % tarjetas.length;
+        dia.scrollTo({ left: tarjetas[paso].offsetLeft - tarjetas[0].offsetLeft, behavior: "smooth" });
+      }, 3600);
+    }
+  }
+
+  /* mapa: la ruta se traza al verlo y se repite mientras esté a la vista */
+  if ("IntersectionObserver" in window) {
+    document.querySelectorAll("[data-mapa-vivo]").forEach(function (m) {
+      if (quieto) return;
+      var reloj = null;
+      function jugar() { m.classList.remove("jugar"); void m.getBoundingClientRect(); m.classList.add("jugar"); }
+      new IntersectionObserver(function (e) {
+        if (e[0].isIntersecting && !reloj) { jugar(); reloj = setInterval(jugar, 11000); }
+        if (!e[0].isIntersecting && reloj) { clearInterval(reloj); reloj = null; }
+      }, { threshold: 0.35 }).observe(m);
+    });
+    /* el mapa real de Google se pide solo al acercarse */
+    document.querySelectorAll("[data-mapa-real]").forEach(function (c) {
+      var o = new IntersectionObserver(function (e) {
+        if (!e[0].isIntersecting) return;
+        o.disconnect();
+        var f = document.createElement("iframe");
+        f.src = c.getAttribute("data-mapa-real");
+        f.title = "Ubicación de Mamamina Lodge en Google Maps";
+        f.loading = "lazy";
+        f.referrerPolicy = "no-referrer-when-downgrade";
+        c.innerHTML = "";
+        c.appendChild(f);
+      }, { rootMargin: "300px" });
+      o.observe(c);
+    });
   }
 
   /* boleto: arma el mensaje de WhatsApp en vivo */
@@ -136,7 +208,9 @@
       fijar("noches", String(noches));
       fijar("personas", String(personas));
       fijar("total", "$" + precio * noches);
+      var caney = form.querySelector("input[name=caney]").checked;
       bol.querySelector('[data-b="islotes"]').hidden = !isl;
+      bol.querySelector('[data-b="caney"]').hidden = !caney;
       var aviso = bol.querySelector('[data-b="aviso"]');
       aviso.hidden = personas <= cap;
       aviso.textContent = personas > cap ? "Para " + personas + " personas le conviene la habitación familiar o dos habitaciones: se lo confirmamos." : "";
@@ -146,6 +220,7 @@
         "Noches: " + noches + "\n" +
         "Personas: " + personas +
         (isl ? "\nTambién quiero el paseo a los islotes." : "") +
+        (caney ? "\nQuiero reservar un caney para mi grupo." : "") +
         "\n¿Tienen disponible?";
       enviar.href = "https://wa.me/" + WA + "?text=" + encodeURIComponent(msg);
     }
