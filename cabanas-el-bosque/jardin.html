@@ -14,10 +14,11 @@
 <meta property="og:url" content="https://thecarlos583.github.io/Paginas_webs/cabanas-el-bosque/jardin.html">
 <meta property="og:image" content="https://thecarlos583.github.io/Paginas_webs/cabanas-el-bosque/fotos/compartir.jpg">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2312332C'/%3E%3Cpath d='M16 5 7 26h18z' fill='%23E9ECE7'/%3E%3C/svg%3E">
-<link rel="preload" href="fuentes/grenze-600.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="estilos.css?v=20261105">
+<link rel="preload" href="fuentes/grenze-gotisch.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="estilos.css?v=20261105b">
+<script>document.documentElement.className+=" js"</script>
 </head>
-<body>
+<body class="interior">
 <a class="saltar" href="#main">Saltar al contenido</a>
 <header class="cabecera" data-cabecera>
   <div class="cabecera-in">
@@ -26,51 +27,48 @@
   </div>
 </header>
 <main id="main">
-<section class="espejo cabeza" style="--foto:url(fotos/jardin.webp);--n:8;--mirar:center 72%">
+<section class="espejo cabeza" style="--foto:url(fotos/jardin.webp);--n:8;--mirar:50% 74%">
   <div class="cielo"><img src="fotos/jardin.webp" alt="Jardín con plantas recortadas, piedras blancas y un estanque" width="1600" height="1067" loading="eager" decoding="async" fetchpriority="high"><span class="bruma" aria-hidden="true"></span><span class="bruma dos" aria-hidden="true"></span></div>
-  <div class="agua" data-agua>
+  <div class="agua" data-agua data-foto-agua="fotos/jardin.webp" data-mx="50" data-my="74">
     <div class="franjas" aria-hidden="true"><i style="--i:0;--d:6.6s;--r:-3.2s"></i><i style="--i:1;--d:6.6s;--r:-2.3s"></i><i style="--i:2;--d:5.1s;--r:-3.5s"></i><i style="--i:3;--d:4.9s;--r:-1.8s"></i><i style="--i:4;--d:6.6s;--r:-0.9s"></i><i style="--i:5;--d:6.1s;--r:-1.1s"></i><i style="--i:6;--d:4.6s;--r:-3.4s"></i><i style="--i:7;--d:5.1s;--r:-0.1s"></i></div>
+    <canvas class="lienzo" aria-hidden="true"></canvas>
     <div class="velo" aria-hidden="true"></div>
-    <div class="sobre contenedor"><h1>El jardín</h1>
-<p class="lead">Un jardín muy cuidado, con su estanque de peces, para descansar sin salir de las cabañas.</p></div>
+    <div class="sobre contenedor"><h1>El <em>jardín</em></h1>
+<p class="lead">Muy cuidado, con su estanque de peces, para descansar sin salir de las cabañas.</p></div>
   </div>
 </section>
-<section class="seccion">
-  <div class="contenedor jardin-dos">
-    <div>
-      <h2>Aquí no hay nada que hacer</h2>
-      <p>Y de eso se trata. El aire es frío y limpio, el jardín está cuidado y el agua se mueve despacio. Salga bien abrigado y quédese un rato.</p>
-      <ul class="ratos">
-        <li><b>Temprano:</b> con la neblina todavía encima del jardín.</li>
-        <li><b>Al mediodía:</b> a mirar a los peces.</li>
-        <li><b>Con niños:</b> los peces se miran desde la orilla, con un adulto al lado.</li>
-      </ul>
-    </div>
-    <div class="par-caja jardin-foto"><img class="par" src="fotos/galeria-7.webp" srcset="fotos/galeria-7-600.webp 600w, fotos/galeria-7.webp 1600w" sizes="(min-width: 900px) 50vw, 100vw" width="1600" height="1063" alt="Jardín con flores amarillas y borde de piedra" loading="lazy" decoding="async"></div>
-  </div>
-</section>
-<section class="estanque-toque alto" data-agua data-plana>
-  <div class="par-caja"><img class="par" src="fotos/estanque.webp" srcset="fotos/estanque-600.webp 600w, fotos/estanque.webp 1600w" sizes="(max-width: 899px) 240vw, 100vw" width="1600" height="1067" alt="Peces de colores nadando en el agua oscura del estanque" loading="lazy" decoding="async"></div>
+<section class="estanque-toque alto" data-agua data-plana data-foto-agua="fotos/estanque.webp">
+  <img class="estanque-foto" src="fotos/estanque.webp" srcset="fotos/estanque-600.webp 600w, fotos/estanque.webp 1600w" sizes="(max-width: 899px) 240vw, 100vw" width="1600" height="1067" alt="Peces de colores nadando en el agua oscura del estanque" loading="lazy" decoding="async">
+  <canvas class="lienzo" aria-hidden="true"></canvas>
   <div class="contenedor estanque-txt">
     <h2>El estanque de peces</h2>
     <p>Toque el agua, a ver qué hacen.</p>
   </div>
 </section>
-<section class="seccion colonia">
-  <div class="contenedor"><div class="entramado tres">
-    <figure class="panel"><img src="fotos/galeria-5.webp" srcset="fotos/galeria-5-600.webp 600w, fotos/galeria-5.webp 1600w" sizes="(min-width: 900px) 50vw, 100vw" width="1600" height="1200" alt="Estanque con piedras y una caída de agua" loading="lazy" decoding="async"></figure>
-    <figure class="panel"><img src="fotos/galeria-6.webp" srcset="fotos/galeria-6-600.webp 600w, fotos/galeria-6.webp 1600w" sizes="(min-width: 900px) 25vw, 50vw" width="1600" height="1067" alt="Dos peces de colores en el agua clara" loading="lazy" decoding="async"></figure>
-    <figure class="panel"><img src="fotos/galeria-3.webp" srcset="fotos/galeria-3-600.webp 600w, fotos/galeria-3.webp 1600w" sizes="(min-width: 900px) 25vw, 50vw" width="1600" height="960" alt="Nenúfares sobre el agua" loading="lazy" decoding="async"></figure>
-  </div></div>
+<section class="seccion">
+  <div class="contenedor jardin-dos">
+    <div>
+      <h2>Aquí no hay <em>nada que hacer</em></h2>
+      <p>Y de eso se trata. El aire es frío y limpio, el jardín está cuidado y el agua se mueve despacio.</p>
+      <ul class="ratos">
+        <li><b>Temprano</b><span>Con la neblina todavía encima del jardín.</span></li>
+        <li><b>Al mediodía</b><span>A mirar a los peces.</span></li>
+        <li><b>Con niños</b><span>Los peces se miran desde la orilla, con un adulto al lado.</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="deck laminas" data-deck><figure class="lamina"><img src="fotos/galeria-5.webp" srcset="fotos/galeria-5-600.webp 600w, fotos/galeria-5.webp 1600w" sizes="(min-width: 900px) 33vw, 80vw" width="1600" height="1200" alt="Estanque con piedras y una caída de agua" loading="lazy" decoding="async"><figcaption>El agua corre despacio</figcaption></figure><figure class="lamina"><img src="fotos/galeria-6.webp" srcset="fotos/galeria-6-600.webp 600w, fotos/galeria-6.webp 1600w" sizes="(min-width: 900px) 33vw, 80vw" width="1600" height="1067" alt="Dos peces de colores en el agua clara" loading="lazy" decoding="async"><figcaption>Los peces, de cerca</figcaption></figure><figure class="lamina"><img src="fotos/galeria-7.webp" srcset="fotos/galeria-7-600.webp 600w, fotos/galeria-7.webp 1600w" sizes="(min-width: 900px) 33vw, 80vw" width="1600" height="1063" alt="Jardín con flores amarillas" loading="lazy" decoding="async"><figcaption>Un jardín cuidado</figcaption></figure><figure class="lamina"><img src="fotos/galeria-3.webp" srcset="fotos/galeria-3-600.webp 600w, fotos/galeria-3.webp 1600w" sizes="(min-width: 900px) 33vw, 80vw" width="1600" height="960" alt="Nenúfares sobre el agua" loading="lazy" decoding="async"><figcaption>Y la calma de siempre</figcaption></figure></div>
+  <div class="contenedor"><div class="puntos" data-puntos aria-hidden="true"></div></div>
 </section>
-<section class="espejo cierre" style="--foto:url(fotos/bosque.webp);--n:8;--mirar:center bottom">
+<section class="espejo cierre" style="--foto:url(fotos/bosque.webp);--n:8;--mirar:50% 100%">
   <div class="cielo"><img src="fotos/bosque.webp" alt="Bosque de montaña con neblina" width="1280" height="853" loading="lazy" decoding="async"><span class="bruma" aria-hidden="true"></span><span class="bruma dos" aria-hidden="true"></span></div>
-  <div class="agua" data-agua>
+  <div class="agua" data-agua data-foto-agua="fotos/bosque.webp" data-mx="50" data-my="100">
     <div class="franjas" aria-hidden="true"><i style="--i:0;--d:4.5s;--r:-3.3s"></i><i style="--i:1;--d:5.6s;--r:-3.4s"></i><i style="--i:2;--d:4.9s;--r:-0.3s"></i><i style="--i:3;--d:5.6s;--r:-1.6s"></i><i style="--i:4;--d:5.6s;--r:-3.1s"></i><i style="--i:5;--d:6.2s;--r:-2.7s"></i><i style="--i:6;--d:6.0s;--r:-1.7s"></i><i style="--i:7;--d:5.6s;--r:-0.5s"></i></div>
+    <canvas class="lienzo" aria-hidden="true"></canvas>
     <div class="velo" aria-hidden="true"></div>
-    <div class="sobre contenedor"><h2>Venga a sentarse aquí</h2>
+    <div class="sobre contenedor"><h2>Venga a <em>sentarse aquí</em></h2>
 <p>Reserve su cabaña y el jardín le queda a la mano.</p>
-<a class="boton" href="https://wa.me/580000000000?text=Hola%2C%20vi%20el%20jard%C3%ADn%20de%20Caba%C3%B1as%20El%20Bosque%20y%20quisiera%20reservar%20una%20caba%C3%B1a." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.9 5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.6-1.2.1-.1 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.9 2.3 1 2.5c.1.2 1.7 2.7 4.2 3.7 1.6.7 2.2.7 3 .6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.2-.3-.3-.5-.4Z"/></svg><span>Reservar por WhatsApp</span></a></div>
+<a class="boton" href="https://wa.me/580000000000?text=Hola%2C%20vi%20el%20jard%C3%ADn%20de%20Caba%C3%B1as%20El%20Bosque%20y%20quisiera%20reservar%20una%20caba%C3%B1a." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="r" d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.9 5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.6-1.2.1-.1 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.9 2.3 1 2.5c.1.2 1.7 2.7 4.2 3.7 1.6.7 2.2.7 3 .6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.2-.3-.3-.5-.4Z"/></svg><span>Reservar por WhatsApp</span></a></div>
   </div>
 </section>
 </main>
@@ -88,17 +86,23 @@
     <p>Página de ejemplo con datos ficticios: el nombre y la zona son reales, y todo lo demás se ajusta con el negocio antes de publicar.</p>
   </div>
 </footer>
-<nav class="barra" aria-label="Accesos rápidos"><a href="index.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5M6 10v10h12V10M10 20v-6h4v6"/></svg><span>Inicio</span></a><a href="cabanas.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 3 21h18L12 3Zm-3 18v-6h6v6M7.5 12h9"/></svg><span>Cabañas</span></a><a href="jardin.html" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19C4 10 10 4 20 4c0 10-6 16-15 15Zm0 0 8-8"/></svg><span>El jardín</span></a><a href="reservar.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16v13H4zM4 11h16M8 3v6M16 3v6"/></svg><span>Reservar</span></a><a href="#pie-nav" data-mas aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><span>Más</span></a></nav>
+<nav class="barra" aria-label="Accesos rápidos">
+  <a href="index.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5M6 10v10h12V10M10 20v-6h4v6"/></svg><span>Inicio</span></a>
+  <a href="cabanas.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 3 21h18L12 3Zm-3 18v-6h6v6M7.5 12h9"/></svg><span>Cabañas</span></a>
+  <a class="barra-res" href="reservar.html"><b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16v13H4zM4 11h16M8 3v6M16 3v6"/></svg></b><span>Reservar</span></a>
+  <a href="jardin.html" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19C4 10 10 4 20 4c0 10-6 16-15 15Zm0 0 8-8"/></svg><span>Jardín</span></a>
+  <a href="#pie-nav" data-mas aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><span>Más</span></a>
+</nav>
 <div class="hoja" id="hoja" role="dialog" aria-modal="true" aria-label="Más páginas" hidden>
   <div class="hoja-fondo" data-cerrar></div>
   <div class="hoja-in">
     <button class="hoja-x" type="button" data-cerrar aria-label="Cerrar">×</button>
-    <a href="que-hacer.html"><img src="fotos/iglesia-600.webp" alt="" width="600" height="404" loading="lazy"><span>Qué hacer en la Colonia Tovar</span></a>
+    <a href="que-hacer.html"><img src="fotos/iglesia-600.webp" alt="" width="600" height="404" loading="lazy"><span>Qué hacer en la Colonia</span></a>
     <a href="galeria.html"><img src="fotos/galeria-3-600.webp" alt="" width="600" height="450" loading="lazy"><span>Galería</span></a>
     <a href="como-llegar.html"><img src="fotos/galeria-8-600.webp" alt="" width="600" height="412" loading="lazy"><span>Cómo llegar</span></a>
   </div>
 </div>
-<a class="flotante" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20informaci%C3%B3n%20para%20reservar%20en%20Caba%C3%B1as%20El%20Bosque%2C%20en%20la%20Colonia%20Tovar." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.9 5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.6-1.2.1-.1 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.9 2.3 1 2.5c.1.2 1.7 2.7 4.2 3.7 1.6.7 2.2.7 3 .6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.2-.3-.3-.5-.4Z"/></svg><span>Escríbanos</span></a>
-<script src="sitio.js?v=20261105" defer></script>
+<a class="flotante" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20informaci%C3%B3n%20para%20reservar%20en%20Caba%C3%B1as%20El%20Bosque%2C%20en%20la%20Colonia%20Tovar." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="r" d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.9 5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.6-1.2.1-.1 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.9 2.3 1 2.5c.1.2 1.7 2.7 4.2 3.7 1.6.7 2.2.7 3 .6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.2-.3-.3-.5-.4Z"/></svg><span>Escríbanos</span></a>
+<script src="sitio.js?v=20261105b" defer></script>
 </body>
 </html>

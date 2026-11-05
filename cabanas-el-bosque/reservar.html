@@ -14,10 +14,11 @@
 <meta property="og:url" content="https://thecarlos583.github.io/Paginas_webs/cabanas-el-bosque/reservar.html">
 <meta property="og:image" content="https://thecarlos583.github.io/Paginas_webs/cabanas-el-bosque/fotos/compartir.jpg">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2312332C'/%3E%3Cpath d='M16 5 7 26h18z' fill='%23E9ECE7'/%3E%3C/svg%3E">
-<link rel="preload" href="fuentes/grenze-600.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="estilos.css?v=20261105">
+<link rel="preload" href="fuentes/grenze-gotisch.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="estilos.css?v=20261105b">
+<script>document.documentElement.className+=" js"</script>
 </head>
-<body>
+<body class="interior">
 <a class="saltar" href="#main">Saltar al contenido</a>
 <header class="cabecera" data-cabecera>
   <div class="cabecera-in">
@@ -26,50 +27,64 @@
   </div>
 </header>
 <main id="main">
-<section class="espejo cabeza" style="--foto:url(fotos/portada.webp);--n:8;--mirar:center bottom">
+<section class="espejo cabeza" style="--foto:url(fotos/portada.webp);--n:8;--mirar:50% 100%">
   <div class="cielo"><img src="fotos/portada.webp" alt="Pinos entre la neblina de la montaña" width="1600" height="1063" loading="eager" decoding="async" fetchpriority="high"><span class="bruma" aria-hidden="true"></span><span class="bruma dos" aria-hidden="true"></span></div>
-  <div class="agua" data-agua>
+  <div class="agua" data-agua data-foto-agua="fotos/portada.webp" data-mx="50" data-my="100">
     <div class="franjas" aria-hidden="true"><i style="--i:0;--d:6.2s;--r:-0.2s"></i><i style="--i:1;--d:6.2s;--r:-1.8s"></i><i style="--i:2;--d:6.3s;--r:-0.5s"></i><i style="--i:3;--d:6.1s;--r:-2.1s"></i><i style="--i:4;--d:3.9s;--r:-3.4s"></i><i style="--i:5;--d:3.7s;--r:-3.3s"></i><i style="--i:6;--d:6.2s;--r:-3.5s"></i><i style="--i:7;--d:4.5s;--r:-0.2s"></i></div>
+    <canvas class="lienzo" aria-hidden="true"></canvas>
     <div class="velo" aria-hidden="true"></div>
     <div class="sobre contenedor"><h1>Reservar</h1>
 <p class="lead">Tres pasos y su mensaje queda escrito. Los dueños le responden por WhatsApp.</p></div>
   </div>
 </section>
-<section class="cruce" data-agua data-plana>
-  <img class="cruce-fondo" src="fotos/estanque.webp" alt="" width="1600" height="1067" loading="lazy" decoding="async">
-  <div class="contenedor cruce-in">
-    <h2>Cruce el estanque en tres piedras</h2>
-    <form id="armador" onsubmit="return false">
-      <ol class="piedras">
-        <li class="paso hecho" data-paso>
-          <span class="piedra" aria-hidden="true">1</span>
-          <fieldset><legend>Elija su cabaña</legend><div class="opciones"><label class="opcion"><input type="radio" name="cabana" value="la cabaña para 2" data-precio="45" checked><span>Cabaña para 2<small>$45 de ejemplo</small></span></label><label class="opcion"><input type="radio" name="cabana" value="la cabaña para 4" data-precio="70"><span>Cabaña para 4<small>$70 de ejemplo</small></span></label><label class="opcion"><input type="radio" name="cabana" value="la cabaña familiar" data-precio="95"><span>Cabaña familiar<small>$95 de ejemplo</small></span></label></div></fieldset>
-        </li>
-        <li class="paso" data-paso>
-          <span class="piedra" aria-hidden="true">2</span>
-          <fieldset><legend>Diga cuándo sube</legend>
-            <label class="campo"><span>Fecha de llegada</span><input type="date" id="fecha"></label>
-            <div class="noches"><span id="noches-t">Noches</span><div class="opciones" role="group" aria-labelledby="noches-t"><label class="opcion chica"><input type="radio" name="noches" value="1"><span>1</span></label><label class="opcion chica"><input type="radio" name="noches" value="2" checked><span>2</span></label><label class="opcion chica"><input type="radio" name="noches" value="3"><span>3</span></label><label class="opcion chica"><input type="radio" name="noches" value="4"><span>4</span></label></div></div>
-          </fieldset>
-        </li>
-        <li class="paso" data-paso>
-          <span class="piedra" aria-hidden="true">3</span>
-          <div class="enviar">
-            <p class="enviar-t">Mande el mensaje</p>
-            <p class="mensaje" id="mensaje" aria-live="polite">Hola, quiero reservar la cabaña para 2 en Cabañas El Bosque, 2 noches. ¿Tienen disponibilidad?</p>
-            <p class="estimado" id="estimado">Referencia: $90 por 2 noches (precio de ejemplo)</p>
-            <a class="boton" id="enviar" href="https://wa.me/580000000000?text=Hola%2C%20quiero%20reservar%20la%20caba%C3%B1a%20para%202%20en%20Caba%C3%B1as%20El%20Bosque%2C%202%20noches.%20%C2%BFTienen%20disponibilidad%3F" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.9 5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.6-1.2.1-.1 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.9 2.3 1 2.5c.1.2 1.7 2.7 4.2 3.7 1.6.7 2.2.7 3 .6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.2-.3-.3-.5-.4Z"/></svg><span>Reservar por WhatsApp</span></a>
-            <p class="nota">Los dueños le confirman disponibilidad y precio. Nada queda reservado hasta que ellos le respondan.</p>
+<section class="reserva">
+  <form class="contenedor reserva-in" id="armador" onsubmit="return false">
+    <ol class="pasos">
+      <li class="paso">
+        <h2><span>1</span>Elija su cabaña</h2>
+        <div class="elegir"><label class="elige"><input type="radio" name="cabana" value="para-2" data-articulo="la cabaña para 2" data-nombre="Cabaña para 2" data-precio="45" data-imagen="fotos/cabana-1-600.webp" checked><span><img src="fotos/cabana-1-600.webp" alt="" width="84" height="84" loading="lazy"><b>Cabaña para 2<small>$45 la noche, de ejemplo</small></b></span></label><label class="elige"><input type="radio" name="cabana" value="para-4" data-articulo="la cabaña para 4" data-nombre="Cabaña para 4" data-precio="70" data-imagen="fotos/cabana-2-600.webp"><span><img src="fotos/cabana-2-600.webp" alt="" width="84" height="84" loading="lazy"><b>Cabaña para 4<small>$70 la noche, de ejemplo</small></b></span></label><label class="elige"><input type="radio" name="cabana" value="familiar" data-articulo="la cabaña familiar" data-nombre="Cabaña familiar" data-precio="95" data-imagen="fotos/cabana-3-600.webp"><span><img src="fotos/cabana-3-600.webp" alt="" width="84" height="84" loading="lazy"><b>Cabaña familiar<small>$95 la noche, de ejemplo</small></b></span></label></div>
+      </li>
+      <li class="paso">
+        <h2><span>2</span>Marque sus fechas</h2>
+        <p class="ayuda" id="ayuda-fecha">Toque el día que llega y el día que se va.</p>
+        <div class="calendario" id="calendario"></div>
+        <label class="campo sin-calendario"><span>Fecha de llegada</span><input type="date" id="fecha"></label>
+        <div class="contador"><span>Personas</span><div><button type="button" data-menos aria-label="Una persona menos">−</button><output id="personas">2</output><button type="button" data-mas-p aria-label="Una persona más">+</button></div></div>
+      </li>
+      <li class="paso paso-postal">
+        <h2><span>3</span>Mande su postal</h2>
+        <div class="postal">
+          <img class="postal-foto" id="postal-foto" src="fotos/cabana-1-600.webp" alt="" width="600" height="400" loading="lazy">
+          <div class="postal-cuerpo">
+            <span class="estampilla" aria-hidden="true"><img src="fotos/iglesia-600.webp" alt="" width="120" height="120" loading="lazy"></span>
+            <span class="matasello" aria-hidden="true">Colonia Tovar<br><b id="sello">Aragua</b></span>
+            <p class="postal-para">Para: Cabañas El Bosque</p>
+            <dl>
+              <div><dt>Cabaña</dt><dd id="r-cabana">Cabaña para 2</dd></div>
+              <div><dt>Llega</dt><dd id="r-llega">Por elegir</dd></div>
+              <div><dt>Se va</dt><dd id="r-sale">Por elegir</dd></div>
+              <div><dt>Personas</dt><dd id="r-gente">2</dd></div>
+            </dl>
+            <p class="estimado"><span id="r-noches">1 noche, estimado de ejemplo</span><b id="r-total">$45</b></p>
           </div>
-        </li>
-      </ol>
-    </form>
+        </div>
+        <a class="boton grande" id="enviar" href="https://wa.me/580000000000?text=Hola%2C%20quiero%20reservar%20la%20caba%C3%B1a%20para%202%20en%20Caba%C3%B1as%20El%20Bosque%2C%20para%202%20personas.%20%C2%BFTienen%20disponibilidad%3F" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="r" d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.9 5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.6-1.2.1-.1 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.9 2.3 1 2.5c.1.2 1.7 2.7 4.2 3.7 1.6.7 2.2.7 3 .6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.2-.3-.3-.5-.4Z"/></svg><span>Reservar por WhatsApp</span></a>
+        <p class="nota">Los dueños le confirman disponibilidad y precio. Nada queda reservado hasta que ellos le respondan.</p>
+      </li>
+    </ol>
+  </form>
+</section>
+<section class="seccion pregunte">
+  <div class="contenedor">
+    <h2>Pregunte sin pena</h2>
+    <p>Toque una y la pregunta queda escrita en WhatsApp. Le responden los dueños.</p>
+    <div class="preguntas"><a class="pregunta" href="https://wa.me/580000000000?text=Hola%2C%20una%20pregunta%20sobre%20Caba%C3%B1as%20El%20Bosque%3A%20%C2%BFHay%20d%C3%B3nde%20dejar%20el%20carro%3F" target="_blank" rel="noopener">¿Hay dónde dejar el carro?</a><a class="pregunta" href="https://wa.me/580000000000?text=Hola%2C%20una%20pregunta%20sobre%20Caba%C3%B1as%20El%20Bosque%3A%20%C2%BFAceptan%20mascotas%3F" target="_blank" rel="noopener">¿Aceptan mascotas?</a><a class="pregunta" href="https://wa.me/580000000000?text=Hola%2C%20una%20pregunta%20sobre%20Caba%C3%B1as%20El%20Bosque%3A%20%C2%BFC%C3%B3mo%20se%20paga%3F" target="_blank" rel="noopener">¿Cómo se paga?</a><a class="pregunta" href="https://wa.me/580000000000?text=Hola%2C%20una%20pregunta%20sobre%20Caba%C3%B1as%20El%20Bosque%3A%20%C2%BFA%20qu%C3%A9%20hora%20se%20entra%3F" target="_blank" rel="noopener">¿A qué hora se entra?</a><a class="pregunta" href="https://wa.me/580000000000?text=Hola%2C%20una%20pregunta%20sobre%20Caba%C3%B1as%20El%20Bosque%3A%20%C2%BFHay%20se%C3%B1al%20de%20tel%C3%A9fono%3F" target="_blank" rel="noopener">¿Hay señal de teléfono?</a><a class="pregunta" href="https://wa.me/580000000000?text=Hola%2C%20una%20pregunta%20sobre%20Caba%C3%B1as%20El%20Bosque%3A%20%C2%BFQu%C3%A9%20debo%20traer%3F" target="_blank" rel="noopener">¿Qué debo traer?</a></div>
   </div>
 </section>
-<section class="seccion">
-  <div class="contenedor contacto">
+<section class="seccion contacto">
+  <div class="contenedor">
     <h2>Contacto</h2>
-    <dl class="datos claro">
+    <dl class="datos">
       <div><dt>WhatsApp</dt><dd><a href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20informaci%C3%B3n%20para%20reservar%20en%20Caba%C3%B1as%20El%20Bosque%2C%20en%20la%20Colonia%20Tovar." target="_blank" rel="noopener">+58 000 0000000</a></dd></div>
       <div><dt>Dónde</dt><dd>Colonia Tovar, estado Aragua</dd></div>
       <div><dt>Mapa</dt><dd><a href="https://www.google.com/maps/search/?api=1&amp;query=Caba%C3%B1as%20El%20Bosque%2C%20Colonia%20Tovar%2C%20Aragua%2C%20Venezuela" target="_blank" rel="noopener">Abrir en Google Maps</a></dd></div>
@@ -91,17 +106,23 @@
     <p>Página de ejemplo con datos ficticios: el nombre y la zona son reales, y todo lo demás se ajusta con el negocio antes de publicar.</p>
   </div>
 </footer>
-<nav class="barra" aria-label="Accesos rápidos"><a href="index.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5M6 10v10h12V10M10 20v-6h4v6"/></svg><span>Inicio</span></a><a href="cabanas.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 3 21h18L12 3Zm-3 18v-6h6v6M7.5 12h9"/></svg><span>Cabañas</span></a><a href="jardin.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19C4 10 10 4 20 4c0 10-6 16-15 15Zm0 0 8-8"/></svg><span>El jardín</span></a><a href="reservar.html" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16v13H4zM4 11h16M8 3v6M16 3v6"/></svg><span>Reservar</span></a><a href="#pie-nav" data-mas aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><span>Más</span></a></nav>
+<nav class="barra" aria-label="Accesos rápidos">
+  <a href="index.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5M6 10v10h12V10M10 20v-6h4v6"/></svg><span>Inicio</span></a>
+  <a href="cabanas.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 3 21h18L12 3Zm-3 18v-6h6v6M7.5 12h9"/></svg><span>Cabañas</span></a>
+  <a class="barra-res" href="reservar.html" aria-current="page"><b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16v13H4zM4 11h16M8 3v6M16 3v6"/></svg></b><span>Reservar</span></a>
+  <a href="jardin.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19C4 10 10 4 20 4c0 10-6 16-15 15Zm0 0 8-8"/></svg><span>Jardín</span></a>
+  <a href="#pie-nav" data-mas aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><span>Más</span></a>
+</nav>
 <div class="hoja" id="hoja" role="dialog" aria-modal="true" aria-label="Más páginas" hidden>
   <div class="hoja-fondo" data-cerrar></div>
   <div class="hoja-in">
     <button class="hoja-x" type="button" data-cerrar aria-label="Cerrar">×</button>
-    <a href="que-hacer.html"><img src="fotos/iglesia-600.webp" alt="" width="600" height="404" loading="lazy"><span>Qué hacer en la Colonia Tovar</span></a>
+    <a href="que-hacer.html"><img src="fotos/iglesia-600.webp" alt="" width="600" height="404" loading="lazy"><span>Qué hacer en la Colonia</span></a>
     <a href="galeria.html"><img src="fotos/galeria-3-600.webp" alt="" width="600" height="450" loading="lazy"><span>Galería</span></a>
     <a href="como-llegar.html"><img src="fotos/galeria-8-600.webp" alt="" width="600" height="412" loading="lazy"><span>Cómo llegar</span></a>
   </div>
 </div>
-<a class="flotante" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20informaci%C3%B3n%20para%20reservar%20en%20Caba%C3%B1as%20El%20Bosque%2C%20en%20la%20Colonia%20Tovar." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.9 5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.6-1.2.1-.1 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.9 2.3 1 2.5c.1.2 1.7 2.7 4.2 3.7 1.6.7 2.2.7 3 .6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.2-.3-.3-.5-.4Z"/></svg><span>Escríbanos</span></a>
-<script src="sitio.js?v=20261105" defer></script>
+<a class="flotante" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20informaci%C3%B3n%20para%20reservar%20en%20Caba%C3%B1as%20El%20Bosque%2C%20en%20la%20Colonia%20Tovar." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="r" d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.9 5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.6-1.2.1-.1 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.9 2.3 1 2.5c.1.2 1.7 2.7 4.2 3.7 1.6.7 2.2.7 3 .6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.2-.3-.3-.5-.4Z"/></svg><span>Escríbanos</span></a>
+<script src="sitio.js?v=20261105b" defer></script>
 </body>
 </html>
