@@ -62,8 +62,8 @@
     "   float frente=edad*150.;",
     "   float e=exp(-pow((r-frente)/70.,2.))*exp(-edad*1.1);",
     "   float w=sin((r-frente)*.17)*e;",
-    "   d+=v/r*w*22.;",
-    "   brillo+=w*.34;",
+    "   d+=v/r*w*13.;",
+    "   brillo+=w*.2;",
     "  }",
     " }",
     " vec2 q=px+d;",
@@ -99,7 +99,6 @@
       lienzo.width = Math.round(w * esc); lienzo.height = Math.round(h * esc);
       gl.viewport(0, 0, lienzo.width, lienzo.height);
       var cw = w, ch = h, ox = 0;
-      if (!plana) { var cielo = caja.parentNode.querySelector(".cielo"); ch = cielo.clientHeight; cw = w + 28; ox = -14; }
       var s = Math.max(cw / foto.width, ch / foto.height);
       var dw = foto.width * s, dh = foto.height * s;
       gl.uniform2f(U.res, lienzo.width, lienzo.height);
@@ -134,7 +133,6 @@
       } catch (e) { return; } /* abierta sin servidor: se queda el respaldo */
       foto = im; listo = true; medir(); dibujar();
       lienzo.classList.add("vivo");
-      var fr = $(".franjas", caja); if (fr) fr.style.display = "none";
       pedir();
     };
     im.src = caja.getAttribute("data-foto-agua");
@@ -182,74 +180,25 @@
     });
   }
 
-  /* Vidrio empañado: se limpia con el dedo */
-  function initVidrio() {
-    var v = $("[data-vidrio]");
-    if (!v) return;
-    var ven = $(".ventana", v), c = $(".empanado", v), foto = $(".ventana-foto", v), dedo = $(".dedo", v), txt = $("[data-vidrio-p]", v);
-    var ctx = c.getContext("2d"), hecho = false, tocado = false, ancho = 0, alto = 0, celdas = {}, total = 1, ultimoP = null;
-    function empanar() {
-      ancho = c.clientWidth; alto = c.clientHeight;
-      if (!ancho || !alto) return;
-      c.width = Math.round(ancho); c.height = Math.round(alto);
-      ctx.globalCompositeOperation = "source-over";
-      var chico = document.createElement("canvas");
-      chico.width = 28; chico.height = Math.max(8, Math.round(28 * alto / ancho));
-      var k = chico.getContext("2d");
-      try {
-        var iw = foto.naturalWidth, ih = foto.naturalHeight, s = Math.max(ancho / iw, alto / ih);
-        var sw = ancho / s, sh = alto / s;
-        k.drawImage(foto, (iw - sw) * .46, (ih - sh) * .5, sw, sh, 0, 0, chico.width, chico.height);
-      } catch (e) {}
-      ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = "high";
-      ctx.drawImage(chico, 0, 0, ancho, alto);
-      ctx.fillStyle = "rgba(226,233,229,.74)";
-      ctx.fillRect(0, 0, ancho, alto);
-      /* gotitas sueltas en el vidrio */
-      var n = Math.round(ancho * alto / 2600);
-      for (var i = 0; i < n; i++) {
-        var x = (i * 97.3) % ancho, y = (i * 57.9 + (i % 7) * 31) % alto, r = 1 + (i % 4) * .7;
-        ctx.fillStyle = i % 3 ? "rgba(255,255,255,.3)" : "rgba(18,51,44,.1)";
-        ctx.beginPath(); ctx.arc(x, y, r, 0, 6.3); ctx.fill();
-      }
-      total = Math.ceil(ancho / 40) * Math.ceil(alto / 40);
-      celdas = {};
+  /* Fotos de la portada: se relevan solas si se ven */
+  function initRelevo() {
+    var caja = $("[data-relevo]");
+    if (!caja) return;
+    var fotos = $$(".relevo-foto", caja), i = 0, visible = true, flo = $(".flotante");
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (en) {
+        visible = en[0].isIntersecting;
+        if (flo) flo.classList.toggle("aparte", en[0].intersectionRatio > .35);
+      }, { threshold: [0, .35, .7] }).observe(caja);
     }
-    function limpiar(x, y) {
-      ctx.globalCompositeOperation = "destination-out";
-      var r = fino ? 52 : 46, g = ctx.createRadialGradient(x, y, r * .45, x, y, r);
-      g.addColorStop(0, "rgba(0,0,0,1)"); g.addColorStop(1, "rgba(0,0,0,0)");
-      ctx.fillStyle = g;
-      ctx.beginPath(); ctx.arc(x, y, r, 0, 6.3); ctx.fill();
-      for (var a = -1; a <= 1; a++) for (var b = -1; b <= 1; b++) celdas[Math.floor(x / 40 + a) + "," + Math.floor(y / 40 + b)] = 1;
-      if (!hecho && Object.keys(celdas).length / total > .62) {
-        hecho = true; c.classList.add("fuera"); vibrar();
-        if (txt) txt.textContent = "Así se ve la montaña sin neblina. Foto de ejemplo.";
-      }
-    }
-    function trazo(ev) {
-      var r = c.getBoundingClientRect(), x = ev.clientX - r.left, y = ev.clientY - r.top;
-      if (ultimoP) {
-        var dx = x - ultimoP[0], dy = y - ultimoP[1], d = Math.sqrt(dx * dx + dy * dy), n = Math.ceil(d / 18);
-        for (var i = 1; i <= n; i++) limpiar(ultimoP[0] + dx * i / n, ultimoP[1] + dy * i / n);
-      } else limpiar(x, y);
-      ultimoP = [x, y];
-      if (!tocado) { tocado = true; dedo.classList.remove("mover"); }
-    }
-    ven.addEventListener("pointerdown", function (ev) { ultimoP = null; trazo(ev); });
-    ven.addEventListener("pointermove", function (ev) { if (ev.pointerType === "mouse" || ev.buttons || ev.pressure > 0) trazo(ev); });
-    ven.addEventListener("pointerup", function () { ultimoP = null; });
-    ven.addEventListener("pointercancel", function () { ultimoP = null; });
-    ven.addEventListener("pointerleave", function () { ultimoP = null; });
-    function preparar() { if (foto.complete && foto.naturalWidth) empanar(); else foto.addEventListener("load", empanar, { once: true }); }
-    foto.loading = "eager";
-    preparar();
-    window.addEventListener("resize", function () { if (!tocado) preparar(); }, { passive: true });
-    if ("IntersectionObserver" in window && !quieto) {
-      new IntersectionObserver(function (en, ob) {
-        if (en[0].isIntersecting && !tocado) { dedo.classList.add("mover"); ob.disconnect(); }
-      }, { threshold: .45 }).observe(ven);
-    }
+    if (quieto || fotos.length < 2) return;
+    setTimeout(function () { fotos.forEach(function (f) { f.loading = "eager"; }); }, 2000);
+    setInterval(function () {
+      if (!visible || document.hidden) return;
+      var sig = (i + 1) % fotos.length;
+      if (!fotos[sig].complete || !fotos[sig].naturalWidth) return;
+      fotos[i].classList.remove("activa"); fotos[sig].classList.add("activa"); i = sig;
+    }, 6500);
   }
 
   /* Temperatura real de la Colonia contra Caracas */
@@ -519,7 +468,7 @@
   document.addEventListener("visibilitychange", function () { document.body.classList.toggle("pausado", document.hidden); });
   safe(initLogo, "logo");
   safe(initAgua, "agua");
-  safe(initVidrio, "vidrio");
+  safe(initRelevo, "relevo");
   safe(initClima, "clima");
   safe(initDecks, "decks");
   safe(initHistoria, "historia");

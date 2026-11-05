@@ -15,7 +15,7 @@
 <meta property="og:image" content="https://thecarlos583.github.io/Paginas_webs/cabanas-el-bosque/fotos/compartir.jpg">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2312332C'/%3E%3Cpath d='M16 5 7 26h18z' fill='%23E9ECE7'/%3E%3C/svg%3E">
 <link rel="preload" href="fuentes/grenze-gotisch.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="estilos.css?v=20261105b">
+<link rel="stylesheet" href="estilos.css?v=20261105c">
 <script>document.documentElement.className+=" js"</script>
 </head>
 <body class="en-inicio">
@@ -27,27 +27,85 @@
   </div>
 </header>
 <main id="main">
-<section class="espejo portada" style="--foto:url(fotos/portada.webp);--n:12;--mirar:50% 100%">
-  <div class="cielo"><img src="fotos/portada.webp" alt="Pinos entre la neblina de la montaña" width="1600" height="1063" loading="eager" decoding="async" fetchpriority="high"><span class="bruma" aria-hidden="true"></span><span class="bruma dos" aria-hidden="true"></span><p class="letrero" aria-hidden="true"><small>Cabañas</small>El Bosque</p></div>
-  <div class="agua" data-agua data-foto-agua="fotos/portada.webp" data-mx="50" data-my="100">
-    <div class="franjas" aria-hidden="true"><i style="--i:0;--d:6.2s;--r:-0.2s"></i><i style="--i:1;--d:6.2s;--r:-1.8s"></i><i style="--i:2;--d:6.3s;--r:-0.5s"></i><i style="--i:3;--d:6.1s;--r:-2.1s"></i><i style="--i:4;--d:3.9s;--r:-3.4s"></i><i style="--i:5;--d:3.7s;--r:-3.3s"></i><i style="--i:6;--d:6.2s;--r:-3.5s"></i><i style="--i:7;--d:4.5s;--r:-0.2s"></i><i style="--i:8;--d:3.4s;--r:-4.3s"></i><i style="--i:9;--d:3.9s;--r:-2.2s"></i><i style="--i:10;--d:5.1s;--r:-2.6s"></i><i style="--i:11;--d:4.5s;--r:-4.8s"></i></div>
-    <canvas class="lienzo" aria-hidden="true"></canvas>
-    <div class="velo" aria-hidden="true"></div>
-    <div class="sobre contenedor"><div class="portada-txt">
-  <p class="chip" data-chip>Clima frío de montaña</p>
-  <h1><span class="pal" style="--p:0">Frío afuera,</span> <span class="pal" style="--p:1"><em>agua caliente</em></span> <span class="pal" style="--p:2">adentro</span></h1>
-  <p class="lead">Cabañas para parejas y familias en la Colonia Tovar, con jardín y estanque.</p>
-</div>
-<div class="portada-acc">
-  <a class="boton" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20informaci%C3%B3n%20para%20reservar%20en%20Caba%C3%B1as%20El%20Bosque%2C%20en%20la%20Colonia%20Tovar." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="r" d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.9 5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.6-1.2.1-.1 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.9 2.3 1 2.5c.1.2 1.7 2.7 4.2 3.7 1.6.7 2.2.7 3 .6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.2-.3-.3-.5-.4Z"/></svg><span>Reservar por WhatsApp</span></a>
-  <a class="enlace claro" href="cabanas.html">Ver las cabañas</a>
-</div></div>
+<section class="portada" data-relevo>
+  <div class="portada-fotos"><img class="relevo-foto activa" src="fotos/portada.webp" alt="Cabaña de madera entre pinos altos" width="2000" height="1334" fetchpriority="high" decoding="async"><img class="relevo-foto" src="fotos/cabana-hamaca.webp" alt="Cabaña de madera en el bosque, con una hamaca afuera" width="1600" height="1067" loading="lazy" decoding="async"><img class="relevo-foto" src="fotos/cabana-2.webp" alt="Cabaña de madera con porche y montañas detrás" width="1600" height="2000" loading="lazy" decoding="async"><p class="chip" data-chip>Clima frío de montaña</p></div>
+  <div class="portada-in">
+    <h1>Su cabaña en la <em>Colonia Tovar</em></h1>
+    <p class="lead">Frío afuera, agua caliente adentro. Para parejas y familias.</p>
+    <a class="boton" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20informaci%C3%B3n%20para%20reservar%20en%20Caba%C3%B1as%20El%20Bosque%2C%20en%20la%20Colonia%20Tovar." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="r" d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.9 5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.6-1.2.1-.1 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.9 2.3 1 2.5c.1.2 1.7 2.7 4.2 3.7 1.6.7 2.2.7 3 .6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.2-.3-.3-.5-.4Z"/></svg><span>Reservar por WhatsApp</span></a>
+    <div class="tipos"><p>Precios de ejemplo por noche</p><nav aria-label="Tipos de cabaña"><a href="cabanas.html#para-2"><span>Para 2</span><b>$45</b></a><a href="cabanas.html#para-4"><span>Para 4</span><b>$70</b></a><a href="cabanas.html#familiar"><span>Familiar</span><b>$95</b></a></nav></div>
   </div>
 </section>
-<section class="tiras"><ul class="contenedor tiras-in"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3s6.5 7 6.5 11.5a6.5 6.5 0 0 1-13 0C5.5 10 12 3 12 3Z"/></svg><span>Agua caliente</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19C4 10 10 4 20 4c0 10-6 16-15 15Zm0 0 8-8"/></svg><span>Jardín cuidado</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12c3-5 10-6 14-1l4-3v8l-4-3c-4 5-11 4-14-1Z"/><path d="M8 11.5h.01"/></svg><span>Estanque de peces</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 7 10h3l-4 6h5v5h2v-5h5l-4-6h3l-5-7Z"/></svg><span>Aire de montaña</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M3 20c.6-4 3-6 6-6s5.4 2 6 6M16 5a3.5 3.5 0 0 1 0 6.8M18 14.4c1.7.8 2.7 2.8 3 5.6"/></svg><span>Atienden sus dueños</span></li></ul></section>
+<section class="seccion cabanas-inicio" id="elegir">
+  <div class="contenedor">
+    <h2>Elija su cabaña</h2>
+    <p>Pequeñas pero cómodas, para dos, para cuatro o para toda la familia.</p>
+  </div>
+  <div class="deck" data-deck><article class="tarjeta">
+  <a class="tarjeta-foto" href="cabanas.html#para-2"><img src="fotos/cabana-1.webp" srcset="fotos/cabana-1-600.webp 600w, fotos/cabana-1.webp 1600w" sizes="(min-width: 900px) 33vw, 86vw" width="1600" height="1067" alt="Cabaña de troncos entre los árboles" loading="lazy" decoding="async"><span class="precio-sello"><b>$45</b>la noche, de ejemplo</span></a>
+  <div class="tarjeta-txt">
+    <h3>Cabaña para 2</h3>
+    <p>En pareja, con el frío afuera.</p>
+    <ul class="chips">
+      <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M3 20c.6-4 3-6 6-6s5.4 2 6 6M16 5a3.5 3.5 0 0 1 0 6.8M18 14.4c1.7.8 2.7 2.8 3 5.6"/></svg>Hasta 2 personas</li>
+      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3s6.5 7 6.5 11.5a6.5 6.5 0 0 1-13 0C5.5 10 12 3 12 3Z"/></svg>Agua caliente</li>
+    </ul>
+    <div class="tarjeta-acc"><a class="boton chico" href="https://wa.me/580000000000?text=Hola%2C%20quiero%20reservar%20la%20caba%C3%B1a%20para%202%20en%20Caba%C3%B1as%20El%20Bosque.%20%C2%BFTienen%20disponibilidad%3F" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="r" d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.9 5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.6-1.2.1-.1 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.9 2.3 1 2.5c.1.2 1.7 2.7 4.2 3.7 1.6.7 2.2.7 3 .6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.2-.3-.3-.5-.4Z"/></svg><span>Reservar</span></a><a class="enlace" href="cabanas.html#para-2">Ver cabaña</a></div>
+  </div>
+</article><article class="tarjeta">
+  <a class="tarjeta-foto" href="cabanas.html#para-4"><img src="fotos/cabana-2.webp" srcset="fotos/cabana-2-600.webp 600w, fotos/cabana-2.webp 1600w" sizes="(min-width: 900px) 33vw, 86vw" width="1600" height="2000" alt="Cabaña de madera con porche y montañas detrás" loading="lazy" decoding="async"><span class="precio-sello"><b>$70</b>la noche, de ejemplo</span></a>
+  <div class="tarjeta-txt">
+    <h3>Cabaña para 4</h3>
+    <p>Con los muchachos o con otra pareja.</p>
+    <ul class="chips">
+      <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M3 20c.6-4 3-6 6-6s5.4 2 6 6M16 5a3.5 3.5 0 0 1 0 6.8M18 14.4c1.7.8 2.7 2.8 3 5.6"/></svg>Hasta 4 personas</li>
+      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3s6.5 7 6.5 11.5a6.5 6.5 0 0 1-13 0C5.5 10 12 3 12 3Z"/></svg>Agua caliente</li>
+    </ul>
+    <div class="tarjeta-acc"><a class="boton chico" href="https://wa.me/580000000000?text=Hola%2C%20quiero%20reservar%20la%20caba%C3%B1a%20para%204%20en%20Caba%C3%B1as%20El%20Bosque.%20%C2%BFTienen%20disponibilidad%3F" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="r" d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.9 5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.6-1.2.1-.1 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.9 2.3 1 2.5c.1.2 1.7 2.7 4.2 3.7 1.6.7 2.2.7 3 .6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.2-.3-.3-.5-.4Z"/></svg><span>Reservar</span></a><a class="enlace" href="cabanas.html#para-4">Ver cabaña</a></div>
+  </div>
+</article><article class="tarjeta">
+  <a class="tarjeta-foto" href="cabanas.html#familiar"><img src="fotos/cabana-3.webp" srcset="fotos/cabana-3-600.webp 600w, fotos/cabana-3.webp 1600w" sizes="(min-width: 900px) 33vw, 86vw" width="1600" height="1067" alt="Cabaña de madera en un valle verde de montaña" loading="lazy" decoding="async"><span class="precio-sello"><b>$95</b>la noche, de ejemplo</span></a>
+  <div class="tarjeta-txt">
+    <h3>Cabaña familiar</h3>
+    <p>Toda la familia bajo el mismo techo.</p>
+    <ul class="chips">
+      <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M3 20c.6-4 3-6 6-6s5.4 2 6 6M16 5a3.5 3.5 0 0 1 0 6.8M18 14.4c1.7.8 2.7 2.8 3 5.6"/></svg>Díganos cuántos son</li>
+      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3s6.5 7 6.5 11.5a6.5 6.5 0 0 1-13 0C5.5 10 12 3 12 3Z"/></svg>Agua caliente</li>
+    </ul>
+    <div class="tarjeta-acc"><a class="boton chico" href="https://wa.me/580000000000?text=Hola%2C%20quiero%20reservar%20la%20caba%C3%B1a%20familiar%20en%20Caba%C3%B1as%20El%20Bosque.%20%C2%BFTienen%20disponibilidad%3F" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="r" d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.9 5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.6-1.2.1-.1 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.9 2.3 1 2.5c.1.2 1.7 2.7 4.2 3.7 1.6.7 2.2.7 3 .6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.2-.3-.3-.5-.4Z"/></svg><span>Reservar</span></a><a class="enlace" href="cabanas.html#familiar">Ver cabaña</a></div>
+  </div>
+</article></div>
+  <div class="contenedor"><div class="puntos" data-puntos aria-hidden="true"></div></div>
+</section>
+<section class="tiras"><div class="contenedor"><h2>En todas las cabañas</h2><ul class="tiras-in"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3s6.5 7 6.5 11.5a6.5 6.5 0 0 1-13 0C5.5 10 12 3 12 3Z"/></svg><span>Agua caliente</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19C4 10 10 4 20 4c0 10-6 16-15 15Zm0 0 8-8"/></svg><span>Jardín cuidado</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12c3-5 10-6 14-1l4-3v8l-4-3c-4 5-11 4-14-1Z"/><path d="M8 11.5h.01"/></svg><span>Estanque de peces</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 7 10h3l-4 6h5v5h2v-5h5l-4-6h3l-5-7Z"/></svg><span>Aire de montaña</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M3 20c.6-4 3-6 6-6s5.4 2 6 6M16 5a3.5 3.5 0 0 1 0 6.8M18 14.4c1.7.8 2.7 2.8 3 5.6"/></svg><span>Atienden sus dueños</span></li></ul></div></section>
+<section class="seccion adentro">
+  <div class="contenedor">
+    <h2>Por dentro, <em>abrigadas</em></h2>
+    <p>Pequeñas pero cómodas, con agua caliente para cuando llega el frío. Fotos de ejemplo.</p>
+    <div class="entramado adentro-fotos">
+      <a class="panel" href="cabanas.html"><img src="fotos/adentro-2.webp" srcset="fotos/adentro-2-600.webp 600w, fotos/adentro-2.webp 1600w" sizes="(min-width: 900px) 55vw, 100vw" width="1600" height="1068" alt="Interior de cabaña de madera con sala y cuarto" loading="lazy" decoding="async"></a>
+      <a class="panel" href="cabanas.html"><img src="fotos/adentro-1.webp" srcset="fotos/adentro-1-600.webp 600w, fotos/adentro-1.webp 1068w" sizes="(min-width: 900px) 25vw, 50vw" width="1068" height="1600" alt="Cuarto de madera con cama y mesa de noche" loading="lazy" decoding="async"></a>
+      <a class="panel" href="cabanas.html"><img src="fotos/galeria-1.webp" srcset="fotos/galeria-1-600.webp 600w, fotos/galeria-1.webp 1600w" sizes="(min-width: 900px) 25vw, 50vw" width="1600" height="1200" alt="Cuarto de madera con cama y cobija tejida" loading="lazy" decoding="async"></a>
+    </div>
+  </div>
+</section>
+<section class="noche">
+  <div class="contenedor noche-in">
+    <div class="noche-txt">
+      <h2>Una noche en la cabaña</h2>
+      <p>De la llegada a las fresas de la mañana. Toque a los lados para pasar.</p>
+    </div>
+    <div class="historia" data-historia>
+      <figure class="escena activa a-la-izquierda"><img src="fotos/cabana-tarde.webp" srcset="fotos/cabana-tarde-600.webp 600w, fotos/cabana-tarde.webp 1600w" sizes="(min-width: 900px) 40vw, 170vw" width="1600" height="1067" alt="Cabaña de madera al caer la tarde" loading="lazy" decoding="async"><figcaption><b>Cae la tarde</b><span>Llega a su cabaña, suelta el bolso y empieza a enfriar.</span></figcaption></figure><figure class="escena"><img src="fotos/adentro-2.webp" srcset="fotos/adentro-2-600.webp 600w, fotos/adentro-2.webp 1600w" sizes="(min-width: 900px) 40vw, 170vw" width="1600" height="1068" alt="Interior de cabaña de madera" loading="lazy" decoding="async"><figcaption><b>El primer baño</b><span>Agua caliente, que a esta altura se agradece.</span></figcaption></figure><figure class="escena"><img src="fotos/adentro-1.webp" srcset="fotos/adentro-1-600.webp 600w, fotos/adentro-1.webp 1068w" sizes="(min-width: 900px) 40vw, 170vw" width="1068" height="1600" alt="Cuarto de madera con cama" loading="lazy" decoding="async"><figcaption><b>La noche fría</b><span>Afuera no se oye nada. Adentro, a dormir.</span></figcaption></figure><figure class="escena"><img src="fotos/jardin.webp" srcset="fotos/jardin-600.webp 600w, fotos/jardin.webp 1600w" sizes="(min-width: 900px) 40vw, 170vw" width="1600" height="1067" alt="Jardín con estanque" loading="lazy" decoding="async"><figcaption><b>La mañana</b><span>Salga abrigado al jardín y mire a los peces.</span></figcaption></figure><figure class="escena"><img src="fotos/fresas.webp" srcset="fotos/fresas-600.webp 600w, fotos/fresas.webp 1280w" sizes="(min-width: 900px) 40vw, 170vw" width="1280" height="897" alt="Fresas con crema" loading="lazy" decoding="async"><figcaption><b>Antes de bajar</b><span>Una pasada por el pueblo y unas fresas con crema.</span></figcaption></figure>
+      <div class="progreso" aria-hidden="true"><i><u></u></i><i><u></u></i><i><u></u></i><i><u></u></i><i><u></u></i></div>
+      <button class="zona atras" type="button" aria-label="Escena anterior"></button>
+      <button class="zona alante" type="button" aria-label="Escena siguiente"></button>
+    </div>
+  </div>
+</section>
 <section class="termo" data-termo>
   <div class="contenedor termo-in">
-    <h2 data-termo-t>Aquí arriba hace frío de verdad</h2>
+    <h2 data-termo-t>Afuera hace frío de verdad</h2>
     <p data-termo-p>Traiga abrigo: la Colonia Tovar es tierra fría, con neblina y aire puro.</p>
     <div class="barras" data-barras hidden>
       <div class="barra-t"><span>Caracas</span><i data-b="caracas"></i><b data-v="caracas"></b></div>
@@ -56,68 +114,13 @@
     </div>
   </div>
 </section>
-<section class="vidrio" data-vidrio>
-  <div class="contenedor vidrio-tit">
-    <h2>Pase el dedo por el vidrio</h2>
-    <p data-vidrio-p>Afuera, frío y neblina. Límpielo y mire lo que hay.</p>
-  </div>
-  <div class="ventana">
-    <img class="ventana-foto" src="fotos/cabana-3.webp" srcset="fotos/cabana-3-600.webp 600w, fotos/cabana-3.webp 1600w" sizes="(min-width: 900px) 70vw, 130vw" width="1600" height="1146" alt="Cabaña de troncos sobre la grama, con el bosque detrás" loading="lazy" decoding="async">
-    <canvas class="empanado" aria-hidden="true"></canvas>
-    <span class="dedo" aria-hidden="true"></span>
-    <span class="viga v" aria-hidden="true"></span><span class="viga h" aria-hidden="true"></span>
-  </div>
-</section>
-<section class="seccion cabanas-inicio">
-  <div class="contenedor">
-    <h2>Pequeñas pero cómodas</h2>
-    <p>Para dos, para cuatro o para toda la familia. Deslice para verlas.</p>
-  </div>
-  <div class="deck" data-deck><article class="tarjeta">
-  <a class="tarjeta-foto" href="cabanas.html#para-2"><img src="fotos/cabana-1.webp" srcset="fotos/cabana-1-600.webp 600w, fotos/cabana-1.webp 1068w" sizes="(min-width: 900px) 33vw, 86vw" width="1068" height="1600" alt="Cuarto de madera con cama y mesa de noche" loading="lazy" decoding="async"><span class="precio-sello"><b>$45</b>la noche, de ejemplo</span></a>
-  <div class="tarjeta-txt">
-    <h3>Cabaña para 2</h3>
-    <p>En pareja, con el frío afuera.</p>
-    <a class="boton chico" href="https://wa.me/580000000000?text=Hola%2C%20quiero%20reservar%20la%20caba%C3%B1a%20para%202%20en%20Caba%C3%B1as%20El%20Bosque.%20%C2%BFTienen%20disponibilidad%3F" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="r" d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.9 5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.6-1.2.1-.1 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.9 2.3 1 2.5c.1.2 1.7 2.7 4.2 3.7 1.6.7 2.2.7 3 .6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.2-.3-.3-.5-.4Z"/></svg><span>Reservar</span></a>
-  </div>
-</article><article class="tarjeta">
-  <a class="tarjeta-foto" href="cabanas.html#para-4"><img src="fotos/cabana-2.webp" srcset="fotos/cabana-2-600.webp 600w, fotos/cabana-2.webp 1600w" sizes="(min-width: 900px) 33vw, 86vw" width="1600" height="1068" alt="Interior de cabaña de madera con sala y cuarto al fondo" loading="lazy" decoding="async"><span class="precio-sello"><b>$70</b>la noche, de ejemplo</span></a>
-  <div class="tarjeta-txt">
-    <h3>Cabaña para 4</h3>
-    <p>Con los muchachos o con otra pareja.</p>
-    <a class="boton chico" href="https://wa.me/580000000000?text=Hola%2C%20quiero%20reservar%20la%20caba%C3%B1a%20para%204%20en%20Caba%C3%B1as%20El%20Bosque.%20%C2%BFTienen%20disponibilidad%3F" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="r" d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.9 5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.6-1.2.1-.1 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.9 2.3 1 2.5c.1.2 1.7 2.7 4.2 3.7 1.6.7 2.2.7 3 .6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.2-.3-.3-.5-.4Z"/></svg><span>Reservar</span></a>
-  </div>
-</article><article class="tarjeta">
-  <a class="tarjeta-foto" href="cabanas.html#familiar"><img src="fotos/cabana-3.webp" srcset="fotos/cabana-3-600.webp 600w, fotos/cabana-3.webp 1600w" sizes="(min-width: 900px) 33vw, 86vw" width="1600" height="1146" alt="Cabaña de troncos sobre la grama, con bosque de fondo" loading="lazy" decoding="async"><span class="precio-sello"><b>$95</b>la noche, de ejemplo</span></a>
-  <div class="tarjeta-txt">
-    <h3>Cabaña familiar</h3>
-    <p>Toda la familia bajo el mismo techo.</p>
-    <a class="boton chico" href="https://wa.me/580000000000?text=Hola%2C%20quiero%20reservar%20la%20caba%C3%B1a%20familiar%20en%20Caba%C3%B1as%20El%20Bosque.%20%C2%BFTienen%20disponibilidad%3F" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="r" d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.9 5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.6-1.2.1-.1 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.9 2.3 1 2.5c.1.2 1.7 2.7 4.2 3.7 1.6.7 2.2.7 3 .6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.2-.3-.3-.5-.4Z"/></svg><span>Reservar</span></a>
-  </div>
-</article></div>
-  <div class="contenedor"><div class="puntos" data-puntos aria-hidden="true"></div><a class="enlace" href="cabanas.html">Ver qué incluye cada una</a></div>
-</section>
-<section class="noche">
-  <div class="contenedor noche-in">
-    <div class="noche-txt">
-      <h2>Una noche en El Bosque</h2>
-      <p>Toque a los lados para pasar, como en las historias.</p>
-    </div>
-    <div class="historia" data-historia>
-      <figure class="escena activa"><img src="fotos/galeria-4.webp" srcset="fotos/galeria-4-600.webp 600w, fotos/galeria-4.webp 1280w" sizes="(min-width: 900px) 40vw, 100vw" width="1280" height="960" alt="El pueblo entre la neblina" loading="lazy" decoding="async"><figcaption><b>Cae la tarde</b><span>Llega, suelta el bolso y la neblina baja sobre el pueblo.</span></figcaption></figure><figure class="escena"><img src="fotos/cabana-2.webp" srcset="fotos/cabana-2-600.webp 600w, fotos/cabana-2.webp 1600w" sizes="(min-width: 900px) 40vw, 100vw" width="1600" height="1068" alt="Interior de cabaña de madera" loading="lazy" decoding="async"><figcaption><b>El primer baño</b><span>Agua caliente, que a esta altura se agradece.</span></figcaption></figure><figure class="escena"><img src="fotos/cabana-1.webp" srcset="fotos/cabana-1-600.webp 600w, fotos/cabana-1.webp 1068w" sizes="(min-width: 900px) 40vw, 100vw" width="1068" height="1600" alt="Cuarto de madera con cama" loading="lazy" decoding="async"><figcaption><b>La noche fría</b><span>Afuera no se oye nada. Adentro, a dormir.</span></figcaption></figure><figure class="escena"><img src="fotos/jardin.webp" srcset="fotos/jardin-600.webp 600w, fotos/jardin.webp 1600w" sizes="(min-width: 900px) 40vw, 100vw" width="1600" height="1067" alt="Jardín con estanque" loading="lazy" decoding="async"><figcaption><b>La mañana</b><span>Salga abrigado al jardín y mire a los peces.</span></figcaption></figure><figure class="escena"><img src="fotos/fresas.webp" srcset="fotos/fresas-600.webp 600w, fotos/fresas.webp 1280w" sizes="(min-width: 900px) 40vw, 100vw" width="1280" height="897" alt="Fresas con crema" loading="lazy" decoding="async"><figcaption><b>Antes de bajar</b><span>Una pasada por el pueblo y unas fresas con crema.</span></figcaption></figure>
-      <div class="progreso" aria-hidden="true"><i><u></u></i><i><u></u></i><i><u></u></i><i><u></u></i><i><u></u></i></div>
-      <button class="zona atras" type="button" aria-label="Escena anterior"></button>
-      <button class="zona alante" type="button" aria-label="Escena siguiente"></button>
-    </div>
-  </div>
-</section>
 <section class="estanque-toque" data-agua data-plana data-foto-agua="fotos/estanque.webp">
   <img class="estanque-foto" src="fotos/estanque.webp" srcset="fotos/estanque-600.webp 600w, fotos/estanque.webp 1600w" sizes="(max-width: 899px) 240vw, 100vw" width="1600" height="1067" alt="Peces de colores nadando en el agua oscura del estanque" loading="lazy" decoding="async">
   <canvas class="lienzo" aria-hidden="true"></canvas>
   <div class="contenedor estanque-txt">
-    <h2>Toque el agua</h2>
-    <p>En el jardín hay un estanque de peces. Aquí se viene a mirarlo sin apuro.</p>
-    <a class="enlace claro" href="jardin.html">Pasear por el jardín</a>
+    <h2>Y al salir de la cabaña, <em>el jardín</em></h2>
+    <p>Muy cuidado, con su estanque de peces para mirar sin apuro.</p>
+    <a class="enlace claro" href="jardin.html">Ver el jardín</a>
   </div>
 </section>
 <section class="seccion madera">
@@ -142,16 +145,8 @@
     </div>
   </div>
 </section>
-<section class="espejo cierre" style="--foto:url(fotos/bosque.webp);--n:8;--mirar:50% 100%">
-  <div class="cielo"><img src="fotos/bosque.webp" alt="Bosque de montaña con neblina" width="1280" height="853" loading="lazy" decoding="async"><span class="bruma" aria-hidden="true"></span><span class="bruma dos" aria-hidden="true"></span></div>
-  <div class="agua" data-agua data-foto-agua="fotos/bosque.webp" data-mx="50" data-my="100">
-    <div class="franjas" aria-hidden="true"><i style="--i:0;--d:4.5s;--r:-3.3s"></i><i style="--i:1;--d:5.6s;--r:-3.4s"></i><i style="--i:2;--d:4.9s;--r:-0.3s"></i><i style="--i:3;--d:5.6s;--r:-1.6s"></i><i style="--i:4;--d:5.6s;--r:-3.1s"></i><i style="--i:5;--d:6.2s;--r:-2.7s"></i><i style="--i:6;--d:6.0s;--r:-1.7s"></i><i style="--i:7;--d:5.6s;--r:-0.5s"></i></div>
-    <canvas class="lienzo" aria-hidden="true"></canvas>
-    <div class="velo" aria-hidden="true"></div>
-    <div class="sobre contenedor"><h2>¿Cuándo sube <em>a la Colonia?</em></h2>
-<p>Díganos la fecha y cuántos vienen, y le respondemos por WhatsApp.</p>
-<a class="boton" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20informaci%C3%B3n%20para%20reservar%20en%20Caba%C3%B1as%20El%20Bosque%2C%20en%20la%20Colonia%20Tovar." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="r" d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.9 5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.6-1.2.1-.1 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.9 2.3 1 2.5c.1.2 1.7 2.7 4.2 3.7 1.6.7 2.2.7 3 .6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.2-.3-.3-.5-.4Z"/></svg><span>Reservar por WhatsApp</span></a></div>
-  </div>
+<section class="cierre a-la-izquierda"><img class="cierre-foto" src="fotos/cabana-tarde.webp" srcset="fotos/cabana-tarde-600.webp 600w, fotos/cabana-tarde.webp 1600w" sizes="(min-width: 900px) 100vw, 170vw" width="1600" height="1067" alt="Cabaña de madera al caer la tarde" loading="lazy" decoding="async">
+  <div class="contenedor cierre-txt"><h2>¿Cuándo sube <em>a su cabaña?</em></h2><p>Díganos la fecha y cuántos vienen, y le respondemos por WhatsApp.</p><a class="boton" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20informaci%C3%B3n%20para%20reservar%20en%20Caba%C3%B1as%20El%20Bosque%2C%20en%20la%20Colonia%20Tovar." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="r" d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.9 5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.6-1.2.1-.1 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.9 2.3 1 2.5c.1.2 1.7 2.7 4.2 3.7 1.6.7 2.2.7 3 .6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.2-.3-.3-.5-.4Z"/></svg><span>Reservar por WhatsApp</span></a></div>
 </section>
 </main>
 <footer class="pie">
@@ -185,6 +180,6 @@
   </div>
 </div>
 <a class="flotante" href="https://wa.me/580000000000?text=Hola%2C%20quisiera%20informaci%C3%B3n%20para%20reservar%20en%20Caba%C3%B1as%20El%20Bosque%2C%20en%20la%20Colonia%20Tovar." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="r" d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.9 5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.6-1.2.1-.1 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.9 2.3 1 2.5c.1.2 1.7 2.7 4.2 3.7 1.6.7 2.2.7 3 .6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.2-.3-.3-.5-.4Z"/></svg><span>Escríbanos</span></a>
-<script src="sitio.js?v=20261105b" defer></script>
+<script src="sitio.js?v=20261105c" defer></script>
 </body>
 </html>
