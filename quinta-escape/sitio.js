@@ -3,6 +3,10 @@ var CONFIG = {
   /* Enlace de Google Maps: por confirmar con la ubicación del dueño. Cámbielo solo aquí. */
   mapa: "https://www.google.com/maps/search/?api=1&query=Playa%20Corrales%2C%20Chirimena%2C%20Miranda%2C%20Venezuela",
   mapaEmbebido: "https://maps.google.com/maps?q=Playa%20Corrales%2C%20Chirimena%2C%20Miranda%2C%20Venezuela&z=14&output=embed",
+  /* Formularios de Google del dueño: POR CONFIRMAR. Pegue aquí los enlaces de sus Google Forms.
+     Mientras digan "POR CONFIRMAR", los botones piden el formulario por WhatsApp. */
+  formRegistro: "POR CONFIRMAR",
+  formSolicitud: "POR CONFIRMAR",
   whatsapp: "584142773926",
   tarifaFinde: 480,      /* viernes a domingo, hasta 8 personas */
   incluidas: 8,
@@ -66,6 +70,10 @@ var CONFIG = {
 
   function initMapa() {
     $$("[data-mapa]").forEach(function (a) { a.href = CONFIG.mapa; });
+    $$("[data-form]").forEach(function (a) {
+      var u = a.getAttribute("data-form") === "registro" ? CONFIG.formRegistro : CONFIG.formSolicitud;
+      if (/^https?:\/\//.test(u)) a.href = u;
+    });
     var b = $("[data-cargar-mapa]");
     if (b) b.addEventListener("click", function () {
       var f = document.createElement("iframe");
@@ -267,45 +275,6 @@ var CONFIG = {
     });
   }
 
-  /* Calendario de ejemplo. No está conectado a nada: las fechas son de muestra. */
-  function initCalendario() {
-    var caja = $("[data-calendario]"); if (!caja) return;
-    var hoy = dia0(new Date()), mes = new Date(hoy.getFullYear(), hoy.getMonth(), 1), primero = new Date(mes);
-    var titulo = $("[data-cal-titulo]", caja), rejilla = $("[data-cal-mes]", caja), dice = $("[data-cal-dice]", caja), ant = $("[data-cal-ant]", caja), sig = $("[data-cal-sig]", caja);
-    function estado(d) {
-      if (d < hoy) return "pasada";
-      if (temporada(d)) return "consulta";
-      var sem = Math.floor((d.getTime() / 864e5 + 3) / 7), w = d.getDay();
-      if ((w === 5 || w === 6 || w === 0) && sem % 3 !== 1) return "ocupada";
-      if (sem % 5 === 2 && w >= 2 && w <= 3) return "ocupada";
-      return "libre";
-    }
-    var TXT = { libre: "aparece libre en este ejemplo.", ocupada: "aparece ocupada en este ejemplo.", consulta: "es temporada alta en este ejemplo: se consulta por WhatsApp." };
-    function pinta() {
-      titulo.textContent = MESES[mes.getMonth()].charAt(0).toUpperCase() + MESES[mes.getMonth()].slice(1) + " " + mes.getFullYear();
-      rejilla.textContent = "";
-      var hueco = (mes.getDay() + 6) % 7, total = new Date(mes.getFullYear(), mes.getMonth() + 1, 0).getDate();
-      for (var h = 0; h < hueco; h++) rejilla.appendChild(document.createElement("span"));
-      for (var n = 1; n <= total; n++) (function (n) {
-        var d = new Date(mes.getFullYear(), mes.getMonth(), n), e = estado(d), b = document.createElement("button");
-        b.type = "button"; b.textContent = n; b.className = e;
-        if (e === "pasada") b.disabled = true;
-        b.setAttribute("aria-label", largo(d) + ", " + (e === "pasada" ? "ya pasó" : TXT[e]));
-        b.addEventListener("click", function () {
-          $$("button", rejilla).forEach(function (o) { o.classList.remove("elegida"); });
-          b.classList.add("elegida");
-          dice.textContent = "El " + largo(d) + " " + TXT[e];
-        });
-        rejilla.appendChild(b);
-      })(n);
-      ant.disabled = mes <= primero;
-      sig.disabled = (mes.getFullYear() - primero.getFullYear()) * 12 + mes.getMonth() - primero.getMonth() >= 5;
-    }
-    ant.addEventListener("click", function () { mes = new Date(mes.getFullYear(), mes.getMonth() - 1, 1); pinta(); });
-    sig.addEventListener("click", function () { mes = new Date(mes.getFullYear(), mes.getMonth() + 1, 1); pinta(); });
-    pinta();
-  }
-
   /* Galería: filtros y visor */
   function initGaleria() {
     var items = $$(".galeria li"); if (!items.length) return;
@@ -359,5 +328,5 @@ var CONFIG = {
 
   safe(initFlotante, "flotante");
   safe(initLogo, "logo"); safe(initMapa, "mapa"); safe(initHoja, "hoja"); safe(initPortada, "portada"); safe(initParalaje, "paralaje");
-  safe(initArmador, "armador"); safe(initDias, "dias"); safe(initHoy, "hoy"); safe(initColores, "colores"); safe(initCalendario, "calendario"); safe(initGaleria, "galeria");
+  safe(initArmador, "armador"); safe(initDias, "dias"); safe(initHoy, "hoy"); safe(initColores, "colores"); safe(initGaleria, "galeria");
 })();

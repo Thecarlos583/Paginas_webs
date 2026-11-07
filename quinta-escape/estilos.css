@@ -242,26 +242,6 @@ button,input{font:inherit;color:inherit}
 .grupos span{font-size:.8rem;line-height:1.1;display:block;margin-top:3px}
 .bloques2{display:grid;gap:34px}
 
-/* Disponibilidad */
-.cupo-aviso{padding:14px 16px;background:var(--acento);color:#fff;font-weight:600;line-height:1.35;border-radius:5px 5px 22px 22px}
-.cal{margin-top:14px;padding:16px 12px;background:var(--papel);border-radius:0 0 26px 26px}
-.cal-cab{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:10px}
-.cal-cab h2{font-size:1.65rem}
-.cal-cab button{width:46px;height:46px;border:0;border-radius:4px 4px 20px 20px;background:var(--primario);color:#fff;font-size:1.25rem;cursor:pointer}
-.cal-cab button:disabled{opacity:.3;cursor:default}
-.cal-sem,.cal-mes{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}
-.cal-sem span{text-align:center;font-size:.84rem;font-weight:600;color:#3F5364;padding-bottom:4px}
-.cal-mes button,.cal-mes span{display:flex;align-items:center;justify-content:center;aspect-ratio:1;min-width:0;border:0;padding:0;background:transparent;font-size:1rem}
-.cal-mes button{cursor:pointer;background:#DCEBE6;color:#0B4A47;font-weight:600;border-radius:4px 4px 12px 12px;transition:transform .15s}
-.cal-mes button:active{transform:scale(.94)}
-.cal-mes button.ocupada{background:#0F3A5A;color:#fff;text-decoration:line-through}
-.cal-mes button.consulta{background:#F6D3C2;color:#6E2710}
-.cal-mes button.pasada{background:transparent;color:#8C8778;font-weight:400;cursor:default}
-.cal-mes button.elegida{box-shadow:inset 0 0 0 3px var(--acento)}
-.cal-ley{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:12px;font-size:.9rem}
-.cal-ley span{display:flex;align-items:center;gap:6px}
-.cal-ley i{width:15px;height:15px;border-radius:2px 2px 7px 7px}
-.cal-dice{margin-top:10px;min-height:3em;font-size:.98rem}
 
 /* Cómo reservar */
 .pasos{position:relative;counter-reset:paso}
@@ -371,7 +351,6 @@ button,input{font:inherit;color:inherit}
 .bloques2,.espacios,.incluye,.reglas,.notas2,.dia,.cancela,.pie-rejilla,.comentarios,.hoy-fila,.pasos-arm,.botones{grid-template-columns:minmax(0,1fr)}
 .colores button{overflow:hidden}
 
-.cal-zona{display:grid;grid-template-columns:minmax(0,1fr);gap:30px}
 
 /* Pantallas pequeñas y bajas */
 @media (max-height:700px) and (max-width:979px){
@@ -492,10 +471,6 @@ button,input{font:inherit;color:inherit}
   .grupos span{font-size:.9rem}
   .tabla .precio{font-size:2.2rem}
 
-  .cal-zona{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:56px;align-items:start}
-  .cal{margin-top:0;padding:26px}
-  .cal-mes button,.cal-mes span{aspect-ratio:1.35}
-  .cupo-aviso{font-size:1.15rem;padding:20px 24px}
 
   .pasos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:30px}
   .pasos::before{left:0;right:0;top:25px;bottom:auto;width:auto;height:2px}

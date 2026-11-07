@@ -13,8 +13,9 @@ Todas las fotos de hoy son **referenciales** (Unsplash). Para cambiar una, reemp
 | `parrillera` | Parrillera | Piscina y churuata |
 | `habitacion-1` a `habitacion-4` | Habitaciones | La casa (la 1), Galería |
 | `playa` | Playa Corrales | Playa y zona, Cómo llegar, Inicio |
-| `galeria-1` a `galeria-10` | Fotos sueltas | Galería; la 2 en Disponibilidad e Inicio, la 4 en Cómo llegar, la 5 en Reglamento, la 6 en La casa |
+| `galeria-1` a `galeria-10` | Fotos sueltas | Galería; la 2 en Inicio, la 4 en Cómo llegar, la 5 en Reglamento, la 6 en La casa |
 | `logo.webp` | Logo, sin fondo y en claro | Cabecera y pie. Si existe, reemplaza solo el nombre escrito |
 
 Colores: las 5 variables al inicio de `estilos.css`.
 Enlace de Google Maps: `CONFIG.mapa` al inicio de `sitio.js` (por confirmar con la ubicación del dueño).
+Formularios de Registro y Solicitud de reserva: `CONFIG.formRegistro` y `CONFIG.formSolicitud` en el mismo lugar (POR CONFIRMAR; mientras tanto los botones piden el formulario por WhatsApp).
