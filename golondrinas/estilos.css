@@ -406,11 +406,24 @@ body.menu-abierto .flotante { opacity: 0; pointer-events: none; }
 .visor .ant { left: 10px; top: 50%; transform: translateY(-50%); }
 .visor .sig { right: 10px; top: 50%; transform: translateY(-50%); }
 
+/* Video de la posada (Inicio): marco vertical 9:16, play grande propio, controles normales al reproducir */
+.vp { display: grid; gap: 28px; align-items: center; }
+.vp-marco { position: relative; justify-self: center; width: min(100%, 340px); aspect-ratio: 9 / 16; border-radius: 24px; overflow: hidden; background: var(--hondo); box-shadow: 0 0 0 6px rgba(228, 120, 12, .3), 0 24px 50px -24px rgba(12, 48, 36, .5); }
+.vp-marco video { width: 100%; height: 100%; object-fit: cover; background: var(--hondo); }
+.vp-play { position: absolute; left: 50%; top: 64%; width: 84px; height: 84px; margin: -42px 0 0 -42px; border: 0; border-radius: 50%; background: var(--naranja); color: var(--negro); display: grid; place-items: center; cursor: pointer; box-shadow: 0 10px 30px rgba(12, 48, 36, .4); transition: transform .2s ease, background-color .2s; }
+.vp-play svg { width: 36px; height: 36px; margin-left: 4px; fill: currentColor; }
+.vp-play::after { content: ""; position: absolute; inset: -8px; border-radius: 50%; border: 2px solid rgba(255, 255, 255, .7); animation: vp-onda 2.6s ease-out infinite; pointer-events: none; }
+.vp-play:hover { background: var(--naranja-claro); transform: scale(1.06); }
+.vp-play:active { transform: scale(.96); }
+@keyframes vp-onda { from { transform: scale(.9); opacity: .9; } to { transform: scale(1.35); opacity: 0; } }
+@media (min-width: 900px) { .vp { grid-template-columns: minmax(0, 540px) 360px; justify-content: center; gap: 88px; } .vp-marco { width: 360px; } }
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .trazo { stroke-dashoffset: 0 !important; }
   .pin { opacity: 1 !important; transform: none !important; }
   .video-marco video { opacity: 1; }
+  .vp-play::after { display: none; }
   html { scroll-behavior: auto; }
 }
 

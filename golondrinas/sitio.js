@@ -193,10 +193,21 @@
     armar();
   }
 
+  /* Video de la posada (Inicio): sin autoplay; el MP4 se pide solo al darle play. */
+  function initVideoPosada() {
+    var v = q("#video-posada"), b = q("#vp-play");
+    if (!v || !b) return;
+    b.hidden = false;
+    b.addEventListener("click", function () { b.hidden = true; v.muted = false; var p = v.play(); if (p && p.catch) p.catch(function () { b.hidden = false; }); });
+    v.addEventListener("play", function () { b.hidden = true; });
+    v.addEventListener("ended", function () { b.hidden = false; });
+  }
+
   safe(initMenu, "menu");
   safe(initVisor, "visor");
   safe(initFiltro, "filtro");
   safe(initVideo, "video");
+  safe(initVideoPosada, "video-posada");
   safe(initMapa, "mapa");
   safe(initTransiciones, "transiciones");
   safe(initArmador, "armador");
