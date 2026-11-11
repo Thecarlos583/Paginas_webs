@@ -714,3 +714,13 @@ html:not(.js) .dia-escena img:first-child { opacity: 1; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
+
+.seccion .mar-hoy { margin-top: 44px; }
+.seccion-tipos { padding-bottom: 8px; }
+/* En el teléfono, las filas de tarjetas se deslizan con el dedo en vez de alargar la página */
+@media (max-width: 899px) {
+  .deslizable { grid-auto-flow: column; grid-auto-columns: min(84vw, 340px); overflow-x: auto; scroll-snap-type: x mandatory; margin-inline: calc(var(--margen) * -1); padding: 4px var(--margen) 14px; scroll-padding-inline: var(--margen); scrollbar-width: none; }
+  .deslizable::-webkit-scrollbar { display: none; }
+  .deslizable > * { scroll-snap-align: start; }
+  .deslizable > .vacio { min-width: calc(100vw - 2 * var(--margen)); }
+}

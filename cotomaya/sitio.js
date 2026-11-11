@@ -265,7 +265,38 @@
     window.addEventListener("pageshow", function () { f.classList.remove("arrancado"); });
   });
 
+  function tarjetaDestino(x, d) {
+    var n = d.propiedades.filter(function (p) { return p.destino === x.id; }).length;
+    return '<a class="destino" href="destino.html?d=' + encodeURIComponent(x.id) + '">' +
+      (x.foto ? img(x.foto, "fotos/", "", "(min-width:900px) 50vw, 100vw", 1600) : "") +
+      '<span class="destino-texto"><strong>' + esc(x.nombre) + "</strong>" + (x.descripcion ? "<small>" + esc(x.descripcion) + "</small>" : "") +
+      '<span class="destino-zonas">' + x.zonas.map(function (z) { return "<span>" + esc(z) + "</span>"; }).join("") +
+      (n ? "<span>" + plural(n, "propiedad", "propiedades") + "</span>" : "") + "</span></span></a>";
+  }
+  function pintarDestinos(d) {
+    $$("[data-destinos-lista]").forEach(function (c) { if (d.destinos.length) c.innerHTML = d.destinos.map(function (x) { return tarjetaDestino(x, d); }).join(""); });
+  }
+  function pintarTours(caja, lista) {
+    if (!caja) return;
+    caja.classList.remove("cargando");
+    caja.innerHTML = lista.length ? lista.map(tarjetaTour).join("") : '<p class="vacio">Pronto publicaremos opciones aquí. Mientras tanto, pregúntenos por WhatsApp.</p>';
+  }
+
   PAGINAS.inicio = function (d) {
+    pintarDestinos(d);
+    var yates = d.tours.filter(function (t) { return t.tipo === "yate"; });
+    pintarTours($("[data-tours-inicio]"), (yates.length ? yates : d.tours).slice(0, 3));
+    /* Accesos por tipo: solo los tipos que tienen propiedades, con foto y cantidad */
+    var tipos = $("[data-tipos]");
+    if (tipos && d.propiedades.length) {
+      tipos.innerHTML = Object.keys(CFG.tipos || {}).map(function (t) {
+        var de = d.propiedades.filter(function (p) { return p.tipo === t; });
+        if (!de.length) return "";
+        var f = (de.filter(function (p) { return p.fotos.length; })[0] || {});
+        return '<a class="tipo" href="hospedajes.html?tipo=' + encodeURIComponent(t) + '">' + (f.fotos ? img(f.fotos[0], f.carpeta, "", "(min-width:900px) 18vw, 42vw", 600) : "") +
+          "<span><strong>" + esc(nombreTipo(t, true)) + "</strong><small>" + plural(de.length, "opción", "opciones") + "</small></span></a>";
+      }).join("");
+    }
     var caja = $("[data-destacadas]");
     if (caja) {
       var dest = d.propiedades.filter(function (p) { return p.destacada === true; });
@@ -515,7 +546,7 @@
     var otras = d.propiedades.filter(function (x) { return x.id !== p.id && x.zona === p.zona; }), tituloOtras = "Otras propiedades en " + p.zona;
     if (!otras.length) { otras = d.propiedades.filter(function (x) { return x.id !== p.id && x.destino === p.destino; }); tituloOtras = "Otras propiedades en " + (dest ? dest.nombre : "este destino"); }
     var bloqueOtras = otras.length ? '<section class="seccion seccion-clara"><div class="contenedor"><div class="titulo-fila"><h2>' + esc(tituloOtras) + '</h2><a class="enlace" href="hospedajes.html?destino=' + encodeURIComponent(p.destino) + '">Ver todas' + icono("flecha") + "</a></div>" +
-      '<div class="rejilla-tarjetas">' + otras.slice(0, 3).map(function (x) { return tarjeta(x); }).join("") + "</div></div></section>" : "";
+      '<div class="rejilla-tarjetas deslizable">' + otras.slice(0, 3).map(function (x) { return tarjeta(x); }).join("") + "</div></div></section>" : "";
 
     caja.innerHTML = '<div class="contenedor ficha-cabeza"><nav class="migas" aria-label="Ruta"><a href="hospedajes.html">Hospedajes</a><span aria-hidden="true">/</span>' +
       '<a href="hospedajes.html?destino=' + encodeURIComponent(p.destino) + '">' + esc(dest ? dest.nombre : p.destino) + "</a></nav>" +
@@ -562,6 +593,177 @@
         if (el.play) { var pr = el.play(); if (pr && pr.catch) pr.catch(function () {}); }
       });
     });
+  };
+
+  /* ---- Piezas de la vista previa: el mar hoy, mueva el sol, carta de los cayos y mapa ---- */
+  function datos(sel, r) { var n = $(sel, r); return n ? JSON.parse(n.textContent) : null; }
+  /* El mar hoy: pronóstico real de Open-Meteo, con texto de respaldo */
+  safe(function () {
+    var cajas = $$("[data-mar-hoy]"), solHoy = $("[data-sol-hoy]");
+    if ((!cajas.length && !solHoy) || !window.fetch) return;
+    var LAT = 10.86, LON = -68.24;
+    var f1 = fetch("https://api.open-meteo.com/v1/forecast?latitude=" + LAT + "&longitude=" + LON + "&current=wind_speed_10m&daily=sunset&timezone=America%2FCaracas&forecast_days=1").then(function (r) { return r.json(); });
+    var f2 = fetch("https://marine-api.open-meteo.com/v1/marine?latitude=" + LAT + "&longitude=" + LON + "&current=wave_height&timezone=America%2FCaracas").then(function (r) { return r.json(); });
+    function hora(iso) {
+      var p = iso.split("T")[1].split(":"), h = +p[0];
+      return (h % 12 || 12) + ":" + p[1] + (h < 12 ? " a. m." : " p. m.");
+    }
+    f1.then(function (d) {
+      var viento = Math.round(d.current.wind_speed_10m), sol = hora(d.daily.sunset[0]);
+      cajas.forEach(function (c) {
+        $('[data-dato="viento"]', c).textContent = viento + " km/h";
+        $('[data-dato="sol"]', c).textContent = sol;
+        $("[data-fuente]", c).hidden = false;
+      });
+      if (solHoy) { solHoy.textContent = "Hoy el sol se pone a las " + sol + " en Tucacas."; solHoy.hidden = false; }
+    }).catch(function () {});
+    f2.then(function (d) {
+      var ola = d.current.wave_height;
+      if (typeof ola !== "number") return;
+      cajas.forEach(function (c) { $('[data-dato="olas"]', c).textContent = ola.toFixed(1).replace(".", ",") + " m"; });
+    }).catch(function () {});
+  });
+
+  /* Mueva el sol */
+  safe(function () {
+    $$("[data-dia]").forEach(function (r) {
+      var caja = r.closest(".dia");
+      var fotos = $$("[data-dia-foto]", caja), pasos = $$("[data-dia-paso]", caja);
+      fotos.forEach(function (f) { f.loading = "eager"; });
+      var ultimo = 0;
+      function ir() {
+        var v = parseFloat(r.value), i = Math.round(v);
+        fotos.forEach(function (f, n) {
+          var o = Math.max(0, 1 - Math.abs(n - v));
+          f.style.opacity = o.toFixed(3);
+        });
+        if (i !== ultimo) {
+          pasos[ultimo].classList.remove("activo");
+          pasos[i].classList.add("activo");
+          ultimo = i;
+        }
+      }
+      r.addEventListener("input", ir);
+      r.addEventListener("change", function () { r.value = Math.round(parseFloat(r.value)); ir(); });
+      ir();
+    });
+  });
+
+  /* Carta de los cayos: la vista vuela hasta el cayo y traza el camino desde Tucacas */
+  safe(function () {
+    var marco = $("[data-carta]"); if (!marco) return;
+    var sec = marco.closest(".carta");
+    var cayos = datos("[data-carta-datos]", sec), salida = datos("[data-carta-salida]", sec);
+    var mapa = $("[data-carta-mapa]", sec), ruta = $("[data-carta-ruta]", sec);
+    var puntos = $$(".punto", sec), fichas = $$(".ficha-cayo", sec);
+    var actual = null, ZOOM = 1.9;
+    function xy(p) { return [p[0] * 1.5, p[1]]; }
+    function trazo(c) {
+      var pts = [salida].concat(c.camino, [c.xy]).map(xy), d = "M" + pts[0][0] + " " + pts[0][1];
+      for (var i = 1; i < pts.length - 1; i++) {
+        var mx = (pts[i][0] + pts[i + 1][0]) / 2, my = (pts[i][1] + pts[i + 1][1]) / 2;
+        d += " Q" + pts[i][0] + " " + pts[i][1] + " " + mx + " " + my;
+      }
+      var u = pts[pts.length - 1];
+      return d + " L" + u[0] + " " + u[1];
+    }
+    function encuadrar(c) {
+      var w = marco.clientWidth, h = marco.clientHeight;
+      var cx = (c.xy[0] + salida[0]) / 2, cy = (c.xy[1] + salida[1]) / 2;
+      /* Se acerca lo más posible sin perder Tucacas ni el cayo */
+      var ancho = Math.abs(c.xy[0] - salida[0]) + 22, alto = Math.abs(c.xy[1] - salida[1]) + 26;
+      var z = Math.max(1, Math.min(ZOOM, 100 / ancho, 100 / alto));
+      var tx = Math.min(0, Math.max(w - w * z, w / 2 - cx / 100 * w * z));
+      var ty = Math.min(0, Math.max(h - h * z, h / 2 - cy / 100 * h * z));
+      mapa.style.transform = "translate(" + tx.toFixed(1) + "px," + ty.toFixed(1) + "px) scale(" + z.toFixed(3) + ")";
+      mapa.style.setProperty("--contra", (1 / z).toFixed(3));
+    }
+    function elegir(id) {
+      var c = cayos.filter(function (x) { return x.id === id; })[0]; if (!c) return;
+      actual = c;
+      puntos.forEach(function (p) { p.classList.toggle("activo", p.dataset.cayo === id); });
+      fichas.forEach(function (b) { b.setAttribute("aria-pressed", b.dataset.cayo === id ? "true" : "false"); });
+      ruta.setAttribute("d", trazo(c));
+      encuadrar(c);
+      var foto = $("[data-panel-foto]", sec);
+      foto.src = "fotos/" + c.foto + "-600.webp"; foto.alt = c.alt;
+      $("[data-panel-nombre]", sec).textContent = c.nombre;
+      $("[data-panel-ve]", sec).textContent = c.ve;
+      $("[data-panel-hace]", sec).textContent = c.hace;
+      $("[data-panel-wa]", sec).href = c.wa;
+    }
+    puntos.concat(fichas).forEach(function (b) { b.addEventListener("click", function () { elegir(b.dataset.cayo); }); });
+    window.addEventListener("resize", function () { if (actual) encuadrar(actual); });
+    elegir(cayos[0].id);
+  });
+
+  /* Mapa real: carga al acercarse */
+  safe(function () {
+    var m = $("[data-mapa]"); if (!m) return;
+    function poner() {
+      if (m.classList.contains("cargado")) return;
+      var f = document.createElement("iframe");
+      f.src = m.dataset.mapa; f.title = "Mapa de Tucacas, Falcón"; f.loading = "lazy"; f.referrerPolicy = "no-referrer-when-downgrade";
+      m.textContent = ""; m.appendChild(f); m.classList.add("cargado");
+    }
+    if ("IntersectionObserver" in window) {
+      var o = new IntersectionObserver(function (en) { if (en[0].isIntersecting) { o.disconnect(); poner(); } }, { rootMargin: "400px" });
+      o.observe(m);
+    } else poner();
+  });
+
+
+  /* ---- Destinos ---- */
+  PAGINAS.destino = function (d) {
+    var id = param("d"), caja = $("[data-destino]");
+    pintarDestinos(d);
+    if (!id) return;
+    var x = d.porDestino[id];
+    if (!x) {
+      aviso("No existe el destino \"" + id + "\" en destinos.json.");
+      $("[data-cabeza-titulo]").textContent = "No encontramos ese destino";
+      $("[data-cabeza-lead]").textContent = "Estos son los destinos donde tenemos hospedajes y tours.";
+      return;
+    }
+    document.title = x.nombre + " · " + (CFG.marca || "Cotomaya Venezuela");
+    $("[data-cabeza-titulo]").textContent = x.nombre;
+    $("[data-cabeza-lead]").textContent = x.descripcion || "";
+    if (x.foto) {
+      var im = $("[data-cabeza] img");
+      im.removeAttribute("srcset"); im.src = fotoUrl(x.foto, "fotos/", 1600); im.alt = "";
+    }
+    var z = $("[data-zonas]");
+    z.innerHTML = x.zonas.map(function (n) {
+      return '<a class="zona-chip" href="hospedajes.html?destino=' + encodeURIComponent(x.id) + "&zona=" + encodeURIComponent(n) + '">' + icono("mapa") + esc(n) + "</a>";
+    }).join("");
+    z.hidden = !x.zonas.length;
+    var props = d.propiedades.filter(function (p) { return p.destino === x.id; });
+    var tours = d.tours.filter(function (t) { return t.destino === x.id; });
+    var otros = d.destinos.filter(function (o) { return o.id !== x.id; });
+    caja.innerHTML =
+      '<section class="seccion seccion-clara"><div class="contenedor"><div class="titulo-fila"><h2>Hospedajes en ' + esc(x.nombre) + "</h2>" +
+      (props.length ? '<a class="enlace" href="hospedajes.html?destino=' + encodeURIComponent(x.id) + '">Filtrar' + icono("flecha") + "</a>" : "") + "</div>" +
+      (props.length ? '<div class="rejilla-tarjetas">' + props.map(function (p) { return tarjeta(p); }).join("") + "</div>"
+        : '<div class="vacio"><p>Pronto publicaremos hospedajes aquí. Escríbanos y le contamos qué tenemos.</p><a class="boton" href="' + esc(waUrl(msg("destino", { destino: x.nombre }))) + '" target="_blank" rel="noopener">' + icono("wa") + "<span>Preguntar por WhatsApp</span></a></div>") +
+      "</div></section>" +
+      (tours.length ? '<section class="seccion agua-2"><div class="contenedor"><div class="titulo-fila"><h2>Tours y paseos en ' + esc(x.nombre) + '</h2><a class="enlace" href="tours.html">Ver todos' + icono("flecha") + '</a></div><div class="rejilla-tours deslizable">' + tours.map(tarjetaTour).join("") + "</div></div></section>" : "") +
+      '<section class="seccion seccion-clara"><div class="contenedor combinar" style="margin-top:0"><div><strong>¿Viaja a ' + esc(x.nombre) + "?</strong><p>Díganos fechas y cuántos son, y le enviamos las opciones disponibles.</p></div>" +
+      '<a class="boton boton-wa" href="' + esc(waUrl(msg("destino", { destino: x.nombre }))) + '" target="_blank" rel="noopener">' + icono("wa") + "<span>Escribir por WhatsApp</span></a></div>" +
+      (otros.length ? '<div class="contenedor" style="margin-top:48px"><h2 style="margin-bottom:18px">Otros destinos</h2><div class="rejilla-destinos">' + otros.map(function (o) { return tarjetaDestino(o, d); }).join("") + "</div></div>" : "") +
+      "</section>";
+  };
+
+  /* ---- Tours y yates ---- */
+  PAGINAS.tours = function (d) {
+    pintarTours($('[data-grupo="yate"]'), d.tours.filter(function (t) { return t.tipo === "yate"; }));
+    var caja = $("[data-grupos-tours]"), tours = d.tours.filter(function (t) { return t.tipo !== "yate"; });
+    var grupos = {};
+    tours.forEach(function (t) { (grupos[t.destino] = grupos[t.destino] || []).push(t); });
+    var orden = d.destinos.map(function (x) { return x.id; }).concat(Object.keys(grupos).filter(function (k) { return !d.porDestino[k]; }));
+    caja.innerHTML = orden.filter(function (k) { return grupos[k]; }).map(function (k) {
+      var x = d.porDestino[k];
+      return '<div class="grupo-tours"><h2>Tours en ' + esc(x ? x.nombre : k) + '</h2><p>Escríbanos para armar la fecha y el grupo.</p><div class="rejilla-tours deslizable">' + grupos[k].map(tarjetaTour).join("") + "</div></div>";
+    }).join("");
   };
 
   /*@@PAGINAS@@*/
