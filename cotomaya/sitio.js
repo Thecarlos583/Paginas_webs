@@ -220,14 +220,17 @@
   safe(function () {
     var caja = $("[data-relevo]"); if (!caja) return;
     var capas = $$("[data-capa]", caja), i = 0;
-    if (capas.length < 2 || quieto) return;
-    capas.forEach(function (c) { c.loading = "eager"; });
-    setInterval(function () {
-      if (document.hidden) return;
-      capas[i].classList.remove("activa");
-      i = (i + 1) % capas.length;
-      capas[i].classList.add("activa");
-    }, 6500);
+    if (capas.length > 1 && !quieto) {
+      capas.forEach(function (c) { c.loading = "eager"; });
+      setInterval(function () {
+        var sig = (i + 1) % capas.length;
+        /* Con internet lento, espera a que la siguiente foto termine de bajar: nunca deja la portada a oscuras */
+        if (document.hidden || !capas[sig].complete || !capas[sig].naturalWidth) return;
+        capas[i].classList.remove("activa");
+        capas[sig].classList.add("activa");
+        i = sig;
+      }, 6500);
+    }
     /* El botón flotante se esconde mientras los botones de la portada están a la vista */
     var flot = $("[data-flotante]"), port = $("[data-portada]");
     if (flot && port && "IntersectionObserver" in window) {
