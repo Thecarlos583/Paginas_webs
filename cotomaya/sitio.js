@@ -89,14 +89,14 @@
       p.videos = lista(p.videos).filter(function (v) { return v && v.archivo; });
       if (p.videos.length > 5) { aviso("\"" + p.nombre + "\" tiene " + p.videos.length + " videos: se muestran los primeros 5."); p.videos = p.videos.slice(0, 5); }
       p.capacidad = +p.capacidad || 0; p.habitaciones = +p.habitaciones || 0; p.banos = +p.banos || 0;
-      p.carpeta = "fotos/propiedades/" + p.id + "/";
+      p.carpeta = "fotos/propiedades/";  /* las rutas traen la carpeta: "villa-la-vizcaya/01.webp" */
       return true;
     });
     var vt = {};
     d.tours = lista(d.tours).filter(function (t, i) {
       if (!revisar(t, "tours.json", OBLIG_TOUR, i, vt)) return false;
       t.nombre = t.nombre || t.id; t.fotos = lista(t.fotos); t.incluye = lista(t.incluye);
-      t.carpeta = "fotos/tours/" + t.id + "/";
+      t.carpeta = "fotos/tours/";
       return true;
     });
     d.porDestino = porDestino;
@@ -274,6 +274,294 @@
       if (!d.propiedades.length) sinDatos(caja);
       else caja.innerHTML = dest.slice(0, 6).map(function (p) { return tarjeta(p); }).join("");
     }
+  };
+
+  /* ---- Catálogo ---- */
+  var CLAVES = ["destino", "zona", "tipo", "categoria", "personas"];
+  PAGINAS.hospedajes = function (d) {
+    var res = $("[data-resultados]"), cuenta = $("[data-cuenta-cat]"), activos = $("[data-activos]");
+    var panel = $("[data-filtros]"), form = $("[data-form-filtros]"), abrir = $("[data-abrir-filtros]");
+    var nFil = $("[data-n-filtros]"), verN = $("[data-ver-n]"), zonaSel = $("[data-f-zona]"), ayuda = $("[data-f-cat-ayuda]");
+    res.classList.remove("cargando");
+    if (!d.propiedades.length) { cuenta.textContent = "Sin propiedades por ahora"; sinDatos(res); return; }
+
+    var f = {};
+    CLAVES.forEach(function (k) { f[k] = param(k); });
+    if (f.personas && !(+f.personas > 0)) f.personas = "";
+
+    function chips(caja, nombre, opciones) {
+      caja.innerHTML = opciones.map(function (o) {
+        return '<label class="chip"><input type="radio" name="' + nombre + '" value="' + esc(o[0]) + '"><span>' + esc(o[1]) + "</span></label>";
+      }).join("");
+    }
+    var tiposUsados = Object.keys(CFG.tipos || {}).filter(function (t) { return d.propiedades.some(function (p) { return p.tipo === t; }); });
+    var catsUsadas = Object.keys(CFG.categorias || {}).filter(function (c) { return d.propiedades.some(function (p) { return p.categoria === c; }); });
+    chips($("[data-f-destino]"), "destino", [["", "Todos"]].concat(d.destinos.map(function (x) { return [x.id, x.nombre]; })));
+    chips($("[data-f-tipo]"), "tipo", [["", "Todos"]].concat(tiposUsados.map(function (t) { return [t, nombreTipo(t, true)]; })));
+    chips($("[data-f-categoria]"), "categoria", [["", "Todas"]].concat(catsUsadas.map(function (c) { return [c, categoria(c).nombre]; })));
+
+    function zonasDe(dest) {
+      var z = [];
+      d.propiedades.forEach(function (p) { if ((!dest || p.destino === dest) && p.zona && z.indexOf(p.zona) === -1) z.push(p.zona); });
+      return z;
+    }
+    function pintarZonas() {
+      var z = zonasDe(f.destino);
+      if (f.zona && z.indexOf(f.zona) === -1) f.zona = "";
+      zonaSel.innerHTML = '<option value="">Todas las zonas</option>' + z.map(function (x) { return '<option value="' + esc(x) + '">' + esc(x) + "</option>"; }).join("");
+      zonaSel.value = f.zona;
+    }
+    function marcar() {
+      ["destino", "tipo", "categoria"].forEach(function (k) {
+        $$('input[name="' + k + '"]', form).forEach(function (i) { i.checked = i.value === f[k]; });
+      });
+      pintarZonas();
+      var c = f.categoria && categoria(f.categoria);
+      ayuda.hidden = !(c && c.descripcion);
+      if (c && c.descripcion) ayuda.textContent = c.descripcion;
+    }
+    var cont = contador($("[data-f-personas]"), function (n) {
+      if (!listo) return;
+      f.personas = n ? String(n) : ""; aplicar();
+    });
+    var listo = false;
+    cont.poner(f.personas || 0);
+    listo = true;
+
+    function coincide(p) {
+      return (!f.destino || p.destino === f.destino) && (!f.zona || p.zona === f.zona) && (!f.tipo || p.tipo === f.tipo) &&
+        (!f.categoria || p.categoria === f.categoria) && (!f.personas || p.capacidad >= +f.personas);
+    }
+    function etiqueta(k) {
+      if (k === "destino") { var x = d.porDestino[f.destino]; return x ? x.nombre : f.destino; }
+      if (k === "tipo") return nombreTipo(f.tipo, true);
+      if (k === "categoria") return categoria(f.categoria).nombre;
+      if (k === "personas") return "Desde " + plural(+f.personas, "persona", "personas");
+      return f[k];
+    }
+    function aplicar() {
+      /* URL compartible con los filtros */
+      var q = new URLSearchParams();
+      CLAVES.forEach(function (k) { if (f[k]) q.set(k, f[k]); });
+      history.replaceState(null, "", location.pathname + (q.toString() ? "?" + q.toString() : ""));
+      marcar();
+      var lista = d.propiedades.filter(coincide);
+      lista.sort(function (a, b) { return (b.destacada === true) - (a.destacada === true); });
+      var n = lista.length, txt = plural(n, "propiedad", "propiedades");
+      cuenta.innerHTML = "<b>" + n + "</b>" + (n === 1 ? "propiedad" : "propiedades");
+      verN.textContent = n ? "Ver " + txt : "Sin resultados";
+      var usados = CLAVES.filter(function (k) { return f[k]; });
+      nFil.hidden = !usados.length; nFil.textContent = usados.length;
+      activos.innerHTML = usados.map(function (k) {
+        return '<button type="button" class="activo-chip" data-quitar="' + k + '" aria-label="Quitar filtro ' + esc(etiqueta(k)) + '">' + esc(etiqueta(k)) + icono("cerrar") + "</button>";
+      }).join("") + (usados.length > 1 ? '<button type="button" class="limpiar" data-limpiar>Limpiar todo</button>' : "");
+      if (n) {
+        res.innerHTML = lista.map(function (p) { return tarjeta(p, "(min-width:1200px) 26vw, (min-width:900px) 34vw, 88vw"); }).join("");
+      } else {
+        res.innerHTML = '<div class="vacio"><h3>No encontramos propiedades con esos filtros</h3><p>Pruebe quitando alguno, o escríbanos y le buscamos opciones.</p><div class="botones">' +
+          '<button type="button" class="boton boton-claro" data-limpiar>Limpiar filtros</button>' +
+          '<a class="boton" href="' + esc(waUrl(msg("sin_resultados"))) + '" target="_blank" rel="noopener">' + icono("wa") + "<span>Escribir por WhatsApp</span></a></div></div>";
+      }
+    }
+    form.addEventListener("change", function (ev) {
+      var t = ev.target;
+      if (t.name === "destino") { f.destino = t.value; f.zona = ""; }
+      else if (t.name in f) f[t.name] = t.value;
+      aplicar();
+    });
+    document.addEventListener("click", function (ev) {
+      var q = ev.target.closest("[data-quitar]"), l = ev.target.closest("[data-limpiar]");
+      if (q) { f[q.dataset.quitar] = ""; if (q.dataset.quitar === "destino") f.zona = ""; if (q.dataset.quitar === "personas") cont.poner(0); aplicar(); }
+      if (l) { CLAVES.forEach(function (k) { f[k] = ""; }); cont.poner(0); aplicar(); }
+    });
+    /* Panel de filtros en el teléfono */
+    var desde = null;
+    function mostrar(si) {
+      panel.hidden = !si; abrir.setAttribute("aria-expanded", si ? "true" : "false");
+      if (window.innerWidth < 900) document.body.style.overflow = si ? "hidden" : "";
+      if (si) { desde = document.activeElement; var b = $(".filtros-tope button", panel); if (b) b.focus(); }
+      else if (desde && desde.focus) desde.focus();
+    }
+    abrir.addEventListener("click", function () { mostrar(true); });
+    $$("[data-cerrar-filtros]", panel).forEach(function (b) { b.addEventListener("click", function () { mostrar(false); }); });
+    document.addEventListener("keydown", function (ev) { if (ev.key === "Escape" && !panel.hidden && window.innerWidth < 900) mostrar(false); });
+    aplicar();
+  };
+
+  /* ---- Visor de fotos a pantalla completa (deslizar, flechas, Esc). Solo baja las fotos cercanas ---- */
+  var visor = null;
+  function abrirVisor(fotos, carpeta, nombre, inicio) {
+    if (!visor) {
+      visor = document.createElement("div");
+      visor.className = "visor"; visor.hidden = true;
+      visor.setAttribute("role", "dialog"); visor.setAttribute("aria-modal", "true"); visor.setAttribute("aria-label", "Fotos");
+      visor.innerHTML = '<div class="visor-tope"><span data-v-cuenta></span><button type="button" data-v-cerrar aria-label="Cerrar fotos">' + icono("cerrar") + "</button></div>" +
+        '<div class="visor-pista" data-v-pista></div>' +
+        '<button type="button" class="visor-flecha visor-ant" data-v-ant aria-label="Foto anterior">' + icono("izq") + "</button>" +
+        '<button type="button" class="visor-flecha visor-sig" data-v-sig aria-label="Foto siguiente">' + icono("der") + "</button>";
+      document.body.appendChild(visor);
+      var pista = $("[data-v-pista]", visor);
+      pista.addEventListener("scroll", function () { if (!visor.hidden) actualizar(); }, { passive: true });
+      $("[data-v-cerrar]", visor).addEventListener("click", cerrarVisor);
+      $("[data-v-ant]", visor).addEventListener("click", function () { ir(visor.i - 1); });
+      $("[data-v-sig]", visor).addEventListener("click", function () { ir(visor.i + 1); });
+      document.addEventListener("keydown", function (ev) {
+        if (visor.hidden) return;
+        if (ev.key === "Escape") cerrarVisor();
+        if (ev.key === "ArrowLeft") ir(visor.i - 1);
+        if (ev.key === "ArrowRight") ir(visor.i + 1);
+      });
+    }
+    var pista = $("[data-v-pista]", visor);
+    visor.n = fotos.length; visor.desde = document.activeElement;
+    pista.innerHTML = fotos.map(function (r, k) {
+      return '<figure><img data-src="' + esc(fotoUrl(r, carpeta, 1600)) + '" alt="' + esc(nombre + ", foto " + (k + 1) + " de " + fotos.length) + '" decoding="async"></figure>';
+    }).join("");
+    visor.hidden = false; document.body.style.overflow = "hidden";
+    pista.scrollLeft = inicio * pista.clientWidth;
+    visor.i = inicio; actualizar(true);
+    $("[data-v-cerrar]", visor).focus();
+  }
+  function actualizar(forzar) {
+    var pista = $("[data-v-pista]", visor), i = Math.round(pista.scrollLeft / Math.max(1, pista.clientWidth));
+    if (i !== visor.i || forzar) {
+      visor.i = i;
+      $("[data-v-cuenta]", visor).textContent = (i + 1) + " / " + visor.n;
+    }
+    $$("img", pista).forEach(function (im, k) { if (Math.abs(k - i) <= 1 && im.dataset.src) { im.src = im.dataset.src; im.removeAttribute("data-src"); } });
+  }
+  function ir(i) {
+    var pista = $("[data-v-pista]", visor);
+    i = Math.max(0, Math.min(visor.n - 1, i));
+    pista.scrollTo({ left: i * pista.clientWidth, behavior: quieto ? "auto" : "smooth" });
+  }
+  function cerrarVisor() {
+    visor.hidden = true; document.body.style.overflow = "";
+    $("[data-v-pista]", visor).innerHTML = "";
+    if (visor.desde && visor.desde.focus) visor.desde.focus();
+  }
+
+  /* ---- Ficha de propiedad ---- */
+  var PLATAFORMAS = [["airbnb", "Airbnb"], ["booking", "Booking"], ["expedia", "Expedia"], ["tripadvisor", "TripAdvisor"]];
+  function rutaVideo(r) { return /^https?:\/\//.test(r) || /^fotos\//.test(r) ? r : "fotos/propiedades/" + r; }
+  function youtube(u) {
+    var m = String(u).match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|shorts\/|embed\/))([\w-]{6,})/);
+    return m ? m[1] : "";
+  }
+  PAGINAS.propiedad = function (d) {
+    var caja = $("[data-ficha]"), id = param("id");
+    var p = d.propiedades.filter(function (x) { return x.id === id; })[0];
+    if (!p) {
+      document.title = "Propiedad no encontrada · " + (CFG.marca || "Cotomaya Venezuela");
+      caja.innerHTML = '<div class="contenedor no-existe"><h1>No encontramos esa propiedad</h1>' +
+        "<p>Puede que ya no esté disponible o que el enlace esté incompleto. Vea las que tenemos o escríbanos.</p>" +
+        '<div class="botones"><a class="boton boton-claro" href="hospedajes.html">Ver hospedajes' + icono("flecha") + "</a>" +
+        '<a class="boton" href="' + esc(waUrl(msg("general"))) + '" target="_blank" rel="noopener">' + icono("wa") + "<span>Escribir por WhatsApp</span></a></div></div>";
+      if (!id) aviso("propiedad.html necesita ?id= en la dirección (por ejemplo propiedad.html?id=villa-la-vizcaya).");
+      else aviso("No existe una propiedad con id \"" + id + "\" en propiedades.json.");
+      return;
+    }
+    document.title = p.nombre + " · " + (CFG.marca || "Cotomaya Venezuela");
+    var md = $('meta[name="description"]'); if (md && p.resumen) md.setAttribute("content", p.resumen);
+    var cat = categoria(p.categoria), dest = d.porDestino[p.destino];
+    var mensaje = msg("propiedad", { propiedad: p.nombre, zona: p.zona });
+
+    /* Galería */
+    var n = p.fotos.length, gal = "";
+    if (n) {
+      gal = '<div class="galeria"><div class="tira-galeria"><div class="tira" data-tira>' + p.fotos.map(function (r, k) {
+        return '<button type="button" data-foto="' + k + '" aria-label="Ver foto ' + (k + 1) + ' de ' + n + ' en grande">' +
+          img(r, p.carpeta, k ? "" : p.nombre, k ? "(min-width:900px) 25vw, 100vw" : "(min-width:900px) 50vw, 100vw", k ? 600 : 1600, k ? "" : ' fetchpriority="high" loading="eager"') + "</button>";
+      }).join("") + "</div>" +
+        (n > 1 ? '<span class="tira-cuenta" data-tira-cuenta>1 / ' + n + "</span>" : "") +
+        '<button type="button" class="tira-todas" data-todas>' + icono("camara") + (n > 1 ? "Ver las " + n + " fotos" : "Ver foto") + "</button></div>" +
+        (n > 1 ? '<div class="minis" data-minis>' + p.fotos.map(function (r, k) {
+          return '<button type="button" data-mini="' + k + '" aria-label="Foto ' + (k + 1) + '"' + (k ? "" : ' aria-current="true"') + ">" + img(r, p.carpeta, "", "74px", 600) + "</button>";
+        }).join("") + "</div>" : "") + "</div>";
+    }
+
+    /* Datos */
+    var datos = '<dl class="datos-ficha">' +
+      "<div><dt>" + icono("casa") + "Tipo</dt><dd>" + esc(nombreTipo(p.tipo)) + "</dd></div>" +
+      (p.capacidad ? "<div><dt>" + icono("personas") + "Capacidad</dt><dd>" + plural(p.capacidad, "persona", "personas") + "</dd></div>" : "") +
+      (p.habitaciones ? "<div><dt>" + icono("cama") + "Habitaciones</dt><dd>" + p.habitaciones + "</dd></div>" : "") +
+      (p.banos ? "<div><dt>" + icono("bano") + "Baños</dt><dd>" + p.banos + "</dd></div>" : "") +
+      '<div class="ancho"><dt>' + icono("mapa") + "Zona</dt><dd>" + esc(p.zona) + (dest ? ", " + esc(dest.nombre) : "") + "</dd></div>" +
+      (cat.nombre ? '<div class="ancho"><dt>Categoría</dt><dd>' + esc(cat.nombre) + "</dd>" + (cat.descripcion ? "<p>" + esc(cat.descripcion) + "</p>" : "") + "</div>" : "") +
+      "</dl>";
+
+    /* Reserva */
+    var plats = PLATAFORMAS.filter(function (x) { return p.enlaces[x[0]]; });
+    var reserva = '<aside class="reserva" aria-label="Reservar">' + "<h2>Reservar</h2>" +
+      (plats.length ? "<p>Reserve en la plataforma que prefiera:</p><div class=\"plataformas\">" + plats.map(function (x) {
+        return '<a class="plat plat-' + x[0] + '" href="' + esc(p.enlaces[x[0]]) + '" target="_blank" rel="noopener">Reservar en ' + x[1] + "<small>Abre " + x[1] + "</small></a>";
+      }).join("") + '</div><p class="reserva-o">o directo con nosotros</p>' : "<p>Escríbanos con sus fechas y le confirmamos la disponibilidad.</p>") +
+      '<a class="boton boton-wa" href="' + esc(waUrl(mensaje)) + '" target="_blank" rel="noopener">' + icono("wa") + "<span>Reservar por WhatsApp</span></a>" +
+      (p.ubicacion_maps ? '<a class="boton boton-claro" href="' + esc(p.ubicacion_maps) + '" target="_blank" rel="noopener">' + icono("mapa") + "<span>Ver en Google Maps</span></a>" : "") +
+      "</aside>";
+
+    /* Videos (hasta 5): no se descargan hasta que le dan play */
+    var videos = p.videos.length ? '<section class="ficha-bloque"><h2>Videos</h2><div class="videos">' + p.videos.map(function (v, k) {
+      var portada = v.portada ? '<img src="' + esc(rutaVideo(v.portada)) + '" alt="" loading="lazy" decoding="async" width="640" height="360">' : "";
+      return '<div class="video"><button type="button" class="video-play" data-video="' + esc(rutaVideo(v.archivo)) + '" data-portada="' + esc(v.portada ? rutaVideo(v.portada) : "") + '" aria-label="Reproducir video ' + (k + 1) + '">' + portada + "<i>" + icono("play") + "</i></button></div>";
+    }).join("") + "</div></section>" : "";
+
+    var incluye = p.incluye.length ? '<section class="ficha-bloque"><h2>Qué incluye</h2><ul class="lista-check incluye">' +
+      p.incluye.map(function (x) { return "<li>" + icono("check") + esc(x) + "</li>"; }).join("") + "</ul></section>" : "";
+    var desc = p.descripcion || p.resumen;
+    var texto = desc ? '<section class="ficha-bloque ficha-texto"><h2>La propiedad</h2>' + String(desc).split(/\n+/).map(function (x) { return "<p>" + esc(x) + "</p>"; }).join("") + "</section>" : "";
+
+    /* Otras en la misma zona (o en el mismo destino) */
+    var otras = d.propiedades.filter(function (x) { return x.id !== p.id && x.zona === p.zona; }), tituloOtras = "Otras propiedades en " + p.zona;
+    if (!otras.length) { otras = d.propiedades.filter(function (x) { return x.id !== p.id && x.destino === p.destino; }); tituloOtras = "Otras propiedades en " + (dest ? dest.nombre : "este destino"); }
+    var bloqueOtras = otras.length ? '<section class="seccion seccion-clara"><div class="contenedor"><div class="titulo-fila"><h2>' + esc(tituloOtras) + '</h2><a class="enlace" href="hospedajes.html?destino=' + encodeURIComponent(p.destino) + '">Ver todas' + icono("flecha") + "</a></div>" +
+      '<div class="rejilla-tarjetas">' + otras.slice(0, 3).map(function (x) { return tarjeta(x); }).join("") + "</div></div></section>" : "";
+
+    caja.innerHTML = '<div class="contenedor ficha-cabeza"><nav class="migas" aria-label="Ruta"><a href="hospedajes.html">Hospedajes</a><span aria-hidden="true">/</span>' +
+      '<a href="hospedajes.html?destino=' + encodeURIComponent(p.destino) + '">' + esc(dest ? dest.nombre : p.destino) + "</a></nav>" +
+      "<h1>" + esc(p.nombre) + (p.ejemplo === true ? ' <span class="ejemplo ejemplo-ficha">Ejemplo</span>' : "") + "</h1>" +
+      '<p class="ficha-sub">' + esc(nombreTipo(p.tipo)) + " · " + esc(p.zona) + (cat.nombre ? " · " + esc(cat.nombre) : "") + "</p></div>" +
+      gal + '<div class="contenedor ficha-cuerpo"><div class="ficha-izq">' + datos + texto + incluye + videos + "</div>" + reserva + "</div>" + bloqueOtras;
+
+    /* Interacción de la galería */
+    var tira = $("[data-tira]", caja), minis = $("[data-minis]", caja), cuentaT = $("[data-tira-cuenta]", caja);
+    if (tira) {
+      var actual = 0;
+      tira.addEventListener("scroll", function () {
+        var i = Math.round(tira.scrollLeft / Math.max(1, tira.clientWidth));
+        if (i === actual) return;
+        actual = i;
+        if (cuentaT) cuentaT.textContent = (i + 1) + " / " + n;
+        if (minis) {
+          $$("[data-mini]", minis).forEach(function (b, k) { if (k === i) b.setAttribute("aria-current", "true"); else b.removeAttribute("aria-current"); });
+          var b = $('[data-mini="' + i + '"]', minis);
+          if (b) minis.scrollTo({ left: b.offsetLeft - minis.clientWidth / 2 + b.offsetWidth / 2, behavior: "smooth" });
+        }
+      }, { passive: true });
+      $$("[data-foto]", tira).forEach(function (b) { b.addEventListener("click", function () { abrirVisor(p.fotos, p.carpeta, p.nombre, +b.dataset.foto); }); });
+      $("[data-todas]", caja).addEventListener("click", function () { abrirVisor(p.fotos, p.carpeta, p.nombre, window.innerWidth >= 900 ? 0 : actual); });
+      if (minis) $$("[data-mini]", minis).forEach(function (b) {
+        b.addEventListener("click", function () { tira.scrollTo({ left: +b.dataset.mini * tira.clientWidth, behavior: quieto ? "auto" : "smooth" }); });
+      });
+    }
+    $$("[data-video]", caja).forEach(function (b) {
+      b.addEventListener("click", function () {
+        var src = b.dataset.video, yt = youtube(src), cont = b.parentNode, el;
+        if (yt) {
+          el = document.createElement("iframe");
+          el.src = "https://www.youtube-nocookie.com/embed/" + yt + "?autoplay=1&rel=0"; el.title = "Video de " + p.nombre;
+          el.allow = "autoplay; encrypted-media; picture-in-picture"; el.allowFullscreen = true;
+          el.style.cssText = "position:absolute;inset:0;width:100%;height:100%;border:0";
+        } else {
+          el = document.createElement("video");
+          el.controls = true; el.preload = "none"; el.playsInline = true;
+          if (b.dataset.portada) el.poster = b.dataset.portada;
+          el.src = src;
+        }
+        cont.replaceChild(el, b);
+        if (el.play) { var pr = el.play(); if (pr && pr.catch) pr.catch(function () {}); }
+      });
+    });
   };
 
   /*@@PAGINAS@@*/
