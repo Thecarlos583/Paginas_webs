@@ -26,7 +26,7 @@
     document.addEventListener("keydown", function (ev) { if (ev.key === "Escape" && !hoja.hidden) cerrar(); });
   });
 
-  /* botón flotante: aparece al bajar; la ola del logo gira con el scroll */
+  /* botón flotante: aparece al bajar; el logo gira con el scroll */
   safe(function () {
     var b = document.body, raiz = document.documentElement, pend = false;
     function ver() {
@@ -64,85 +64,123 @@
     window.addEventListener("resize", pedir);
   });
 
-  /* la rueda: cada tramo es una noche, la ola del centro da una vuelta por noche */
-  $$("[data-rueda]").forEach(function (rueda) {
+  /* la marea: se eligen llegada y salida (sin límite) y el agua sube con cada noche */
+  function iso(d) { return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0"); }
+  function masDias(d, n) { var x = new Date(d); x.setDate(x.getDate() + n); return x; }
+  $$("[data-marea]").forEach(function (marea) {
     safe(function () {
-      var NS = "http://www.w3.org/2000/svg", N = 7, R = 88, GAP = 4;
-      var aro = rueda.querySelector("[data-aro]");
-      var ola = rueda.querySelector("[data-ola]");
-      var num = rueda.querySelector("[data-num]"), pal = rueda.querySelector("[data-pal]");
-      var resumen = rueda.querySelector("[data-resumen]"), enviar = rueda.querySelector("[data-enviar]");
-      var salidaP = rueda.querySelector("[data-personas]"), llegadaI = rueda.querySelector("[data-llegada]");
-      var botones = $$("[data-noche]", rueda);
-      var noches = 2, personas = 2, vueltas = 0, llenos = [], nums = [];
-
-      function punto(a, r) { var rad = (a - 90) * Math.PI / 180; return [100 + r * Math.cos(rad), 100 + r * Math.sin(rad)]; }
-      function arco(a0, a1) {
-        var p0 = punto(a0, R), p1 = punto(a1, R);
-        return "M" + p0[0].toFixed(2) + " " + p0[1].toFixed(2) + " A" + R + " " + R + " 0 0 1 " + p1[0].toFixed(2) + " " + p1[1].toFixed(2);
-      }
-      for (var i = 0; i < N; i++) {
-        var a0 = i * 360 / N + GAP / 2, a1 = (i + 1) * 360 / N - GAP / 2;
-        var base = document.createElementNS(NS, "path"); base.setAttribute("d", arco(a0, a1)); base.setAttribute("class", "seg seg-base");
-        base.dataset.n = i + 1;
-        var lleno = document.createElementNS(NS, "path"); lleno.setAttribute("d", arco(a0, a1)); lleno.setAttribute("class", "seg seg-lleno");
-        lleno.style.transitionDelay = (i * 60) + "ms";
-        var c = punto((a0 + a1) / 2, R);
-        var t = document.createElementNS(NS, "text"); t.setAttribute("x", c[0].toFixed(1)); t.setAttribute("y", (c[1] + 3).toFixed(1));
-        t.setAttribute("text-anchor", "middle"); t.setAttribute("class", "seg-num"); t.textContent = i + 1;
-        aro.appendChild(base); aro.appendChild(lleno); aro.appendChild(t);
-        llenos.push(lleno); nums.push(t);
-        base.addEventListener("click", function (ev) { elegir(+ev.currentTarget.dataset.n); });
-      }
-
+      var vaso = marea.querySelector(".marea-vaso");
+      var num = marea.querySelector("[data-num]"), pal = marea.querySelector("[data-pal]");
+      var resumen = marea.querySelector("[data-resumen]"), enviar = marea.querySelector("[data-enviar]");
+      var salidaP = marea.querySelector("[data-personas]");
+      var inLlega = marea.querySelector("[data-llegada]"), inSale = marea.querySelector("[data-salida]");
+      var personas = 2, nochesAntes = -1;
       var hoy = new Date(); hoy.setHours(12, 0, 0, 0);
-      if (llegadaI) {
-        var iso = function (d) { return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0"); };
-        llegadaI.min = iso(hoy);
-      }
+      /* propuesta inicial: el próximo viernes, dos noches */
+      var vie = masDias(hoy, ((5 - hoy.getDay() + 7) % 7) || 7);
+      inLlega.min = iso(hoy); inLlega.value = iso(vie); inSale.min = iso(masDias(vie, 1)); inSale.value = iso(masDias(vie, 2));
 
       function hab() {
-        var r = rueda.querySelector('input[type="radio"]:checked');
-        return { nombre: r.dataset.nombre, precio: +r.dataset.precio, cap: +r.dataset.cap };
+        var r = marea.querySelector('input[type="radio"]:checked');
+        return { nombre: r.dataset.nombre, frase: r.dataset.frase, precio: +r.dataset.precio, cap: +r.dataset.cap };
+      }
+      function noches() {
+        if (!inLlega.value || !inSale.value) return 0;
+        return Math.max(0, Math.round((fechaInput(inSale.value) - fechaInput(inLlega.value)) / 864e5));
       }
       function pintar() {
-        llenos.forEach(function (l, i) { l.classList.toggle("on", i < noches); });
-        nums.forEach(function (t, i) { t.classList.toggle("on", i < noches); });
-        botones.forEach(function (b) {
-          var n = +b.dataset.noche;
-          b.setAttribute("aria-pressed", n === noches ? "true" : "false");
-          b.classList.toggle("dentro", n < noches);
-        });
-        if (ola) ola.style.setProperty("--vuelta", (vueltas * 360 + noches * (360 / N)) + "deg");
-        num.textContent = noches; pal.textContent = noches === 1 ? "noche" : "noches";
-        salidaP.textContent = personas;
-        var h = hab(), total = noches * h.precio, txtN = noches + (noches === 1 ? " noche" : " noches");
-        var fecha = llegadaI && llegadaI.value ? fechaInput(llegadaI.value) : null;
-        var txt = "<b>" + txtN + "</b> en la " + h.nombre;
-        var msg = "Hola, " + NOMBRE + ". Quisiera reservar la habitación " + h.nombre + ", " + txtN + ", para " + personas + (personas === 1 ? " persona" : " personas");
-        if (fecha) {
-          var sale = new Date(fecha); sale.setDate(fecha.getDate() + noches);
-          txt += ", del " + corta(fecha) + " al " + corta(sale);
-          msg += ", llegando el " + corta(fecha) + " y saliendo el " + corta(sale) + ". ¿Tienen disponibilidad?";
-        } else {
-          msg += ". Fecha de llegada: ___. ¿Tienen disponibilidad?";
+        var n = noches(), h = hab();
+        /* el agua sube rápido al principio y se acerca al borde sin pasarlo: no hay tope de noches */
+        var nivel = n ? 0.16 + 0.72 * (1 - Math.pow(0.82, n)) : 0.08;
+        vaso.style.setProperty("--nivel", nivel.toFixed(3));
+        if (n !== nochesAntes) {
+          num.textContent = n; pal.textContent = n === 1 ? "noche" : "noches";
+          num.classList.remove("cambia"); void num.offsetWidth; num.classList.add("cambia");
+          nochesAntes = n;
         }
-        txt += ". Estimado de ejemplo: <b>$" + total + "</b>.";
-        if (personas > h.cap) txt += " Para " + personas + " personas le conviene la Familiar.";
+        salidaP.textContent = personas;
+        var gente = personas + (personas === 1 ? " persona" : " personas"), txt, msg;
+        if (!n) {
+          txt = "Elija una salida después de la llegada.";
+          msg = "Hola, " + NOMBRE + ". Quisiera consultar disponibilidad en " + h.frase + " para " + gente + ". Fechas: ___.";
+        } else {
+          var a = fechaInput(inLlega.value), b = fechaInput(inSale.value), tn = n + (n === 1 ? " noche" : " noches");
+          txt = "<b>" + tn + "</b> en " + h.frase + ", del " + corta(a) + " al " + corta(b) + ". Estimado de ejemplo: <b>$" + (n * h.precio) + "</b>.";
+          msg = "Hola, " + NOMBRE + ". Quisiera reservar " + h.frase + " del " + corta(a) + " al " + corta(b) + " (" + tn + "), para " + gente + ". ¿Tienen disponibilidad?";
+        }
+        if (personas > h.cap) txt += h.cap >= 6 ? " Para " + gente + ", pregúntenos qué combinación les conviene." : personas > 5 ? " Para " + gente + " le conviene el chalet." : " Para " + gente + " le conviene la Familiar o el chalet.";
         resumen.innerHTML = txt;
         enviar.href = enlaceWa(msg);
       }
-      function elegir(n) {
-        if (n === noches) return;
-        if (n < noches) vueltas += 1; /* al bajar, la ola sigue girando hacia adelante */
-        noches = n; pintar();
-      }
-      botones.forEach(function (b) { b.addEventListener("click", function () { elegir(+b.dataset.noche); }); });
-      $$('input[type="radio"]', rueda).forEach(function (r) { r.addEventListener("change", pintar); });
-      if (llegadaI) llegadaI.addEventListener("change", pintar);
-      rueda.querySelector("[data-menos]").addEventListener("click", function () { if (personas > 1) { personas--; pintar(); } });
-      rueda.querySelector("[data-mas]").addEventListener("click", function () { if (personas < 10) { personas++; pintar(); } });
+      inLlega.addEventListener("change", function () {
+        if (!inLlega.value) return pintar();
+        var a = fechaInput(inLlega.value), n = noches() || 2;
+        inSale.min = iso(masDias(a, 1));
+        if (!inSale.value || fechaInput(inSale.value) <= a) inSale.value = iso(masDias(a, n));
+        pintar();
+      });
+      inSale.addEventListener("change", pintar);
+      $$('input[type="radio"]', marea).forEach(function (r) { r.addEventListener("change", pintar); });
+      marea.querySelector("[data-menos]").addEventListener("click", function () { if (personas > 1) { personas--; pintar(); } });
+      marea.querySelector("[data-mas]").addEventListener("click", function () { if (personas < 20) { personas++; pintar(); } });
       pintar();
+    });
+  });
+
+  /* portada: las fotos se relevan con su marca de avance */
+  safe(function () {
+    var caja = document.querySelector("[data-pase]");
+    if (!caja) return;
+    var fotos = $$(".pase-foto", caja), marcas = $$(".pase-marcas li", caja), i = 0;
+    if (fotos.length < 2) return;
+    function ir(k) {
+      fotos[i].classList.remove("activa");
+      i = k % fotos.length;
+      if (i === 0) marcas.forEach(function (m) { m.classList.remove("vista"); });
+      marcas.forEach(function (m, j) { m.classList.toggle("activa", j === i); if (j < i) m.classList.add("vista"); });
+      fotos[i].classList.add("activa");
+    }
+    if (quieto) return;
+    setInterval(function () { if (!document.hidden) ir(i + 1); }, 6000);
+  });
+
+  /* carruseles: la tarjeta del frente crece, las de los lados se achican; la guía avanza */
+  $$("[data-carrusel]").forEach(function (c) {
+    safe(function () {
+      var hijos = Array.prototype.slice.call(c.children), guia = c.parentNode.querySelector("[data-guia]"), pend = false;
+      function mover() {
+        pend = false;
+        var max = c.scrollWidth - c.clientWidth;
+        if (guia) {
+          var ancho = Math.max(20, 100 * c.clientWidth / c.scrollWidth);
+          guia.style.setProperty("--ancho", ancho.toFixed(1) + "%");
+          guia.style.setProperty("--x", (max > 0 ? (c.scrollLeft / max) * (100 / ancho * 100 - 100) : 0).toFixed(1) + "%");
+        }
+        if (max <= 0 || quieto) { hijos.forEach(function (h) { h.style.removeProperty("--s"); h.style.removeProperty("--o"); }); return; }
+        var caja = c.getBoundingClientRect(), base = caja.left + 20;
+        hijos.forEach(function (h) {
+          var r = h.getBoundingClientRect();
+          var d = Math.min(1, Math.abs(r.left - base) / r.width);
+          h.style.setProperty("--s", (1 - d * 0.08).toFixed(3));
+          h.style.setProperty("--o", (1 - d * 0.35).toFixed(3));
+        });
+      }
+      c.addEventListener("scroll", function () { if (!pend) { pend = true; requestAnimationFrame(mover); } }, { passive: true });
+      window.addEventListener("resize", mover);
+      mover();
+    });
+  });
+
+  /* onda al tocar los botones */
+  safe(function () {
+    if (quieto) return;
+    document.addEventListener("pointerdown", function (ev) {
+      var b = ev.target.closest && ev.target.closest(".boton");
+      if (!b) return;
+      var r = b.getBoundingClientRect(), o = document.createElement("span");
+      o.className = "onda"; o.style.left = (ev.clientX - r.left) + "px"; o.style.top = (ev.clientY - r.top) + "px";
+      b.appendChild(o);
+      setTimeout(function () { o.remove(); }, 750);
     });
   });
 

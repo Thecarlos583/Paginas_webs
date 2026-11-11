@@ -16,7 +16,7 @@
 <link rel="apple-touch-icon" href="fotos/logo-180.webp">
 <link rel="preload" href="fuentes/bodoni.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preconnect" href="https://images.unsplash.com">
-<link rel="stylesheet" href="estilos.css?v=20261111a">
+<link rel="stylesheet" href="estilos.css?v=20261111c">
 </head>
 <body class="p-reservas">
 <a class="saltar" href="#contenido">Saltar al contenido</a>
@@ -58,29 +58,27 @@
       <h3 class="mini">Formas de pago <small>(ejemplo)</small></h3>
       <ul class="pagos"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Pago móvil</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Zelle</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Efectivo en divisas</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Transferencia en bolívares</li></ul>
     </div>
-    <div class="rueda" id="rueda" data-rueda>
-  <div class="rueda-disco">
-    <div class="rueda-circulo">
-      <svg class="rueda-svg" viewBox="0 0 200 200" aria-hidden="true" data-aro></svg>
-      <img class="rueda-logo" src="fotos/logo.webp" width="540" height="540" alt="" data-ola>
-    </div>
-    <p class="rueda-cuenta" aria-hidden="true"><b data-num>2</b> <span data-pal>noches</span></p>
+    <div class="marea" id="marea" data-marea>
+  <div class="marea-vaso" aria-hidden="true">
+    <div class="marea-agua" data-agua><span class="marea-cresta"></span><span class="marea-cresta marea-cresta-2"></span></div>
+    <span class="marea-burbujas"><i></i><i></i><i></i><i></i></span>
+    <p class="marea-num"><b data-num>2</b><span data-pal>noches</span></p>
   </div>
-  <div class="rueda-mandos">
-    <h3>Gire sus noches</h3>
-    <p class="rueda-ayuda">Toque cuántas noches se queda: la ola da una vuelta por cada una.</p>
-    <div class="noches" role="group" aria-label="Noches"><button type="button" class="noche-b" data-noche="1" aria-pressed="false" aria-label="1 noche">1</button><button type="button" class="noche-b" data-noche="2" aria-pressed="true" aria-label="2 noches">2</button><button type="button" class="noche-b" data-noche="3" aria-pressed="false" aria-label="3 noches">3</button><button type="button" class="noche-b" data-noche="4" aria-pressed="false" aria-label="4 noches">4</button><button type="button" class="noche-b" data-noche="5" aria-pressed="false" aria-label="5 noches">5</button><button type="button" class="noche-b" data-noche="6" aria-pressed="false" aria-label="6 noches">6</button><button type="button" class="noche-b" data-noche="7" aria-pressed="false" aria-label="7 noches">7</button></div>
-    <div class="dos-mandos">
+  <div class="marea-mandos">
+    <h3>Su marea de noches</h3>
+    <p class="marea-ayuda">Elija cuándo llega y cuándo se va: el agua sube con cada noche.</p>
+    <div class="fechas">
       <label class="campo">Llegada<input type="date" data-llegada></label>
-      <div class="contador" role="group" aria-label="Personas">
-        <span>Personas</span>
-        <button type="button" data-menos aria-label="Una persona menos">−</button>
-        <output data-personas>2</output>
-        <button type="button" data-mas aria-label="Una persona más">+</button>
-      </div>
+      <label class="campo">Salida<input type="date" data-salida></label>
     </div>
-    <fieldset class="rueda-habs"><legend>Habitación (precios de ejemplo)</legend><label class="opcion"><input type="radio" name="hab-c" value="matrimonial" data-nombre="Matrimonial" data-precio="40" data-cap="2" checked><span>Matrimonial<small>hasta 2 · $40</small></span></label><label class="opcion"><input type="radio" name="hab-c" value="triple" data-nombre="Triple" data-precio="55" data-cap="3"><span>Triple<small>hasta 3 · $55</small></span></label><label class="opcion"><input type="radio" name="hab-c" value="familiar" data-nombre="Familiar" data-precio="70" data-cap="5"><span>Familiar<small>hasta 5 · $70</small></span></label></fieldset>
-    <p class="rueda-resumen" data-resumen aria-live="polite">2 noches en la Matrimonial. Estimado de ejemplo: <b>$80</b>.</p>
+    <div class="contador" role="group" aria-label="Personas">
+      <span>Personas</span>
+      <button type="button" data-menos aria-label="Una persona menos">−</button>
+      <output data-personas>2</output>
+      <button type="button" data-mas aria-label="Una persona más">+</button>
+    </div>
+    <fieldset class="marea-habs"><legend>Dónde dormir (precios de ejemplo)</legend><label class="opcion"><input type="radio" name="hab-c" value="matrimonial" data-nombre="Matrimonial" data-frase="la habitación Matrimonial" data-precio="40" data-cap="2" checked><span>Matrimonial<small>hasta 2 · $40</small></span></label><label class="opcion"><input type="radio" name="hab-c" value="triple" data-nombre="Triple" data-frase="la habitación Triple" data-precio="55" data-cap="3"><span>Triple<small>hasta 3 · $55</small></span></label><label class="opcion"><input type="radio" name="hab-c" value="familiar" data-nombre="Familiar" data-frase="la habitación Familiar" data-precio="70" data-cap="5"><span>Familiar<small>hasta 5 · $70</small></span></label><label class="opcion"><input type="radio" name="hab-c" value="chalet" data-nombre="Chalet" data-frase="el chalet" data-precio="120" data-cap="6"><span>Chalet<small>hasta 6 · $120</small></span></label></fieldset>
+    <p class="marea-resumen" data-resumen aria-live="polite">Elija sus fechas y le armamos el mensaje.</p>
     <a class="boton" data-enviar href="https://wa.me/580000000000?text=Hola%2C%20Posada%20D%27%20Luigi.%20Quisiera%20consultar%20disponibilidad.%20Fecha%3A%20___.%20Personas%3A%20___." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.9 5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.6-1.2.1-.1 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.9 2.3 1 2.5c.1.2 1.7 2.7 4.2 3.7 1.6.7 2.2.7 3 .6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.2-.3-.3-.5-.4Z"/></svg><span>Enviar por WhatsApp</span></a>
     <p class="nota">Cálculo de referencia con precios de ejemplo. La posada le confirma disponibilidad y precio final.</p>
   </div>
@@ -113,7 +111,7 @@
 <nav class="barra" aria-label="Accesos rápidos">
   <a href="index.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5M6 10v10h12V10"/></svg>Inicio</a>
   <a href="habitaciones.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 19V6M3 13h18v6M21 13v-2a3 3 0 0 0-3-3h-7v5M7 10.5h.01"/></svg>Habitaciones</a>
-  <a class="barra-res" href="zona-y-reservas.html#rueda" aria-current="page"><img class="logo barra-logo" src="fotos/logo-180.webp" width="180" height="180" alt=""><span>Reservar</span></a>
+  <a class="barra-res" href="zona-y-reservas.html#marea" aria-current="page"><img class="logo barra-logo" src="fotos/logo-180.webp" width="180" height="180" alt=""><span>Reservar</span></a>
   <a href="galeria.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4zM4 15l4.5-4.5 4 4 2.5-2.5L20 17M15.5 9h.01"/></svg>Galería</a>
   <button type="button" data-abrir-hoja aria-controls="hoja" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>Más</button>
 </nav>
@@ -125,6 +123,6 @@
     <a class="boton" href="https://wa.me/580000000000?text=Hola%2C%20Posada%20D%27%20Luigi.%20Quisiera%20consultar%20disponibilidad.%20Fecha%3A%20___.%20Personas%3A%20___." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.9 5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.6-1.2.1-.1 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.9 2.3 1 2.5c.1.2 1.7 2.7 4.2 3.7 1.6.7 2.2.7 3 .6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.2-.3-.3-.5-.4Z"/></svg><span>Escribir por WhatsApp</span></a>
   </div>
 </div>
-<script src="sitio.js?v=20261111a" defer></script>
+<script src="sitio.js?v=20261111c" defer></script>
 </body>
 </html>
