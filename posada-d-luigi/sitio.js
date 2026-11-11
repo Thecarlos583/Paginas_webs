@@ -144,6 +144,52 @@
     setInterval(function () { if (!document.hidden) ir(i + 1); }, 6000);
   });
 
+  /* Un día sin reloj: al deslizar los momentos, el sol cruza el cielo y cae la noche */
+  safe(function () {
+    var sec = document.querySelector("[data-dia]");
+    if (!sec) return;
+    var c = sec.querySelector("[data-momentos]"), cielos = $$(".cielo", sec), via = sec.querySelector(".astro-via");
+    var sol = sec.querySelector("[data-sol]"), luna = sec.querySelector("[data-luna]"), estrellas = sec.querySelector(".estrellas");
+    var tarjetas = $$(".momento", sec), p = 0, meta = 0, pend = false, anim = false;
+    function lim(x) { return Math.max(0, Math.min(1, x)); }
+    function pintar() {
+      pend = false;
+      var k = p * (cielos.length - 1), w = via.clientWidth, h = via.clientHeight;
+      cielos.forEach(function (el, i) { el.style.opacity = Math.max(0, 1 - Math.abs(k - i)).toFixed(3); });
+      var t = lim(p / 0.86), noche = lim((p - 0.78) / 0.2);
+      sol.style.setProperty("--ax", (t * w).toFixed(1));
+      sol.style.setProperty("--ay", (h * 0.62 - Math.sin(Math.PI * t) * h * 0.5).toFixed(1));
+      sol.style.opacity = (1 - lim((p - 0.72) / 0.16)).toFixed(3);
+      luna.style.opacity = noche.toFixed(3);
+      estrellas.style.opacity = noche.toFixed(3);
+    }
+    function pedir() { if (!pend) { pend = true; requestAnimationFrame(pintar); } }
+    function desliza() { var max = c.scrollWidth - c.clientWidth; return max > 4; }
+    c.addEventListener("scroll", function () {
+      if (!desliza()) return;
+      p = lim(c.scrollLeft / (c.scrollWidth - c.clientWidth)); pedir();
+    }, { passive: true });
+    /* en computadora no se desliza: el día avanza al pasar el cursor o tocar cada momento */
+    function paso() {
+      p += (meta - p) * 0.14;
+      if (Math.abs(meta - p) < 0.002) { p = meta; anim = false; } else requestAnimationFrame(paso);
+      pintar();
+    }
+    function ir(i) {
+      if (desliza()) return;
+      meta = i / (tarjetas.length - 1);
+      if (quieto) { p = meta; pintar(); return; }
+      if (!anim) { anim = true; requestAnimationFrame(paso); }
+    }
+    tarjetas.forEach(function (t, i) {
+      t.addEventListener("pointerenter", function () { ir(i); });
+      t.addEventListener("focus", function () { ir(i); });
+      t.addEventListener("click", function () { ir(i); });
+    });
+    window.addEventListener("resize", pedir);
+    pintar();
+  });
+
   /* carruseles: la tarjeta del frente crece, las de los lados se achican; la guía avanza */
   $$("[data-carrusel]").forEach(function (c) {
     safe(function () {

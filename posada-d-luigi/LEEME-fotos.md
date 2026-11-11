@@ -14,7 +14,7 @@ Hoy la página usa fotos referenciales de Unsplash, enlazadas. Para poner las fo
 | `habitacion-3` | Habitaciones: Familiar; Inicio | Habitación con dos camas, cabeceros oscuros y cobijas azules |
 | `area-1` | Servicios: El desayuno; Inicio; Galería | Mesa servida con desayuno: waffles, frutas, huevos y jugos |
 | `area-2` | Servicios: La terraza y cabeza; Inicio; Galería | Dos tumbonas con toallas en una terraza con vista al mar |
-| `area-3` | Servicios: La piscina; Inicio; Galería | Piscina rodeada de palmeras al atardecer |
+| `area-3` | Inicio (Un día sin reloj: noche); Nosotros (Los espacios); Galería | Piscina rodeada de palmeras al atardecer |
 | `galeria-1` | Galería | Ola que se levanta y se enrosca al atardecer |
 | `galeria-2` | Galería y su cabeza | Agua turquesa y un islote con palmeras |
 | `galeria-3` | Galería | Orilla del mar al amanecer con cielo dorado |
@@ -25,5 +25,7 @@ Hoy la página usa fotos referenciales de Unsplash, enlazadas. Para poner las fo
 | `galeria-8` | Galería | Arena clara y mar en calma hasta el horizonte |
 | `chalet` | Habitaciones: Chalet; portada de Inicio (segunda foto); franja del chalet; Galería | Casa blanca de dos pisos con piscina y palmeras |
 | `chalet-2` | Galería (segunda foto del chalet) | Piscina rodeada de vegetación tropical y toldos de palma |
+| `piscina` | Inicio (Un día sin reloj); Servicios: La piscina; Nosotros (foto y Los espacios); Galería | Piscina de agua azul entre plantas y muros de piedra, con tumbonas |
+| `cocina` | Inicio (Un día sin reloj); Servicios: La cocina de la casa; Nosotros (Los espacios); Galería | Platos servidos con carne, ensalada y salsas sobre una mesa |
 
 El logo ya está en `fotos/logo.webp` (también `logo-180.webp` y `favicon.png`).
