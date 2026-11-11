@@ -82,6 +82,7 @@
     var vp = {};
     d.propiedades = lista(d.propiedades).filter(function (p, i) {
       if (!revisar(p, "propiedades.json", OBLIG_PROP, i, vp)) return false;
+      if (p.pausada === true) return false;
       if (p.tipo && !(CFG.tipos || {})[p.tipo]) aviso("En propiedades.json, \"" + p.nombre + "\" tiene el tipo \"" + p.tipo + "\", que no está en config.json (villa, casa, apartamento, townhouse o penthouse).");
       if (p.categoria && !(CFG.categorias || {})[p.categoria]) aviso("En propiedades.json, \"" + p.nombre + "\" tiene la categoría \"" + p.categoria + "\", que no está en config.json.");
       p.nombre = p.nombre || p.id;
@@ -95,6 +96,7 @@
     var vt = {};
     d.tours = lista(d.tours).filter(function (t, i) {
       if (!revisar(t, "tours.json", OBLIG_TOUR, i, vt)) return false;
+      if (t.pausada === true) return false;
       t.nombre = t.nombre || t.id; t.fotos = lista(t.fotos); t.incluye = lista(t.incluye);
       t.carpeta = "fotos/tours/";
       return true;
