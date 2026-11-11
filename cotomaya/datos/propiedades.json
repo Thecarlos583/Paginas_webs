@@ -1,0 +1,313 @@
+[
+  {
+    "id": "villa-la-vizcaya",
+    "nombre": "Villa La Vizcaya",
+    "tipo": "villa",
+    "categoria": "A",
+    "destino": "venezuela",
+    "zona": "Chichiriviche, Falcón",
+    "destacada": true,
+    "ejemplo": true,
+    "capacidad": 8,
+    "habitaciones": 4,
+    "banos": 3,
+    "resumen": "Villa con piscina en Chichiriviche, para pasar unos días en familia cerca de los cayos.",
+    "descripcion": "Villa La Vizcaya queda en Chichiriviche, en la costa de Falcón. Los datos de capacidad, habitaciones y comodidades que ve aquí son de referencia mientras se confirman. Escríbanos y le contamos los detalles de la villa y su disponibilidad.",
+    "incluye": [
+      "Piscina",
+      "Aire acondicionado",
+      "Wifi",
+      "Cocina equipada",
+      "Estacionamiento"
+    ],
+    "fotos": [
+      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&q=70",
+      "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&q=70",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&q=70",
+      "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&q=70",
+      "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&q=70",
+      "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&q=70"
+    ],
+    "videos": [],
+    "enlaces": {
+      "airbnb": "",
+      "booking": "",
+      "expedia": "",
+      "tripadvisor": ""
+    },
+    "ubicacion_maps": "https://www.google.com/maps/search/?api=1&query=Chichiriviche%2C%20Falc%C3%B3n%2C%20Venezuela"
+  },
+  {
+    "id": "villa-piscina-frente-al-mar",
+    "nombre": "Villa con piscina frente al mar",
+    "tipo": "villa",
+    "categoria": "A",
+    "destino": "venezuela",
+    "zona": "Tucacas, Falcón",
+    "destacada": true,
+    "ejemplo": true,
+    "capacidad": 10,
+    "habitaciones": 5,
+    "banos": 4,
+    "resumen": "Espacio de sobra para un grupo grande, con piscina y terraza.",
+    "descripcion": "Una villa amplia para grupos y familias grandes, con piscina, terraza y áreas para compartir. Propiedad de ejemplo: así se verá cada ficha cuando cargue las reales.",
+    "incluye": [
+      "Piscina",
+      "Terraza",
+      "Aire acondicionado",
+      "Wifi",
+      "Parrillera"
+    ],
+    "fotos": [
+      "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&q=70",
+      "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&q=70",
+      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=70",
+      "https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&q=70"
+    ],
+    "videos": [],
+    "enlaces": {
+      "airbnb": "https://www.airbnb.com/s/Tucacas--Venezuela/homes",
+      "booking": "https://www.booking.com/searchresults.es.html?ss=Tucacas",
+      "expedia": "",
+      "tripadvisor": ""
+    },
+    "ubicacion_maps": "https://www.google.com/maps/search/?api=1&query=Tucacas%2C%20Falc%C3%B3n%2C%20Venezuela"
+  },
+  {
+    "id": "casa-familiar-piscina",
+    "nombre": "Casa familiar con piscina",
+    "tipo": "casa",
+    "categoria": "B",
+    "destino": "venezuela",
+    "zona": "Tucacas, Falcón",
+    "destacada": true,
+    "ejemplo": true,
+    "capacidad": 8,
+    "habitaciones": 3,
+    "banos": 2,
+    "resumen": "Casa cómoda para la familia, con piscina y espacio para los muchachos.",
+    "descripcion": "Casa de una planta con piscina, pensada para ir en familia. Propiedad de ejemplo.",
+    "incluye": [
+      "Piscina",
+      "Aire acondicionado",
+      "Cocina equipada",
+      "Estacionamiento"
+    ],
+    "fotos": [
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=70",
+      "https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&q=70",
+      "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&q=70",
+      "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&q=70"
+    ],
+    "videos": [],
+    "enlaces": {
+      "airbnb": "",
+      "booking": "",
+      "expedia": "",
+      "tripadvisor": ""
+    },
+    "ubicacion_maps": "https://www.google.com/maps/search/?api=1&query=Tucacas%2C%20Falc%C3%B3n%2C%20Venezuela"
+  },
+  {
+    "id": "apartamento-frente-al-mar",
+    "nombre": "Apartamento frente al mar",
+    "tipo": "apartamento",
+    "categoria": "C",
+    "destino": "venezuela",
+    "zona": "Tucacas, Falcón",
+    "destacada": false,
+    "ejemplo": true,
+    "capacidad": 4,
+    "habitaciones": 2,
+    "banos": 1,
+    "resumen": "Práctico y cerca de la playa, para una pareja o una familia pequeña.",
+    "descripcion": "Apartamento sencillo y bien ubicado, ideal para escapadas cortas. Propiedad de ejemplo.",
+    "incluye": [
+      "Aire acondicionado",
+      "Wifi",
+      "Cocina"
+    ],
+    "fotos": [
+      "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&q=70",
+      "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&q=70",
+      "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&q=70"
+    ],
+    "videos": [],
+    "enlaces": {
+      "airbnb": "",
+      "booking": "",
+      "expedia": "",
+      "tripadvisor": ""
+    },
+    "ubicacion_maps": "https://www.google.com/maps/search/?api=1&query=Tucacas%2C%20Falc%C3%B3n%2C%20Venezuela"
+  },
+  {
+    "id": "townhouse-cerca-de-la-playa",
+    "nombre": "Town house cerca de la playa",
+    "tipo": "townhouse",
+    "categoria": "B",
+    "destino": "venezuela",
+    "zona": "Chichiriviche, Falcón",
+    "destacada": false,
+    "ejemplo": true,
+    "capacidad": 6,
+    "habitaciones": 3,
+    "banos": 2,
+    "resumen": "Dos plantas, patio y la playa a pocos minutos.",
+    "descripcion": "Town house de dos plantas para un grupo mediano, con patio. Propiedad de ejemplo.",
+    "incluye": [
+      "Aire acondicionado",
+      "Patio",
+      "Estacionamiento"
+    ],
+    "fotos": [
+      "https://images.unsplash.com/photo-1567496898669-ee935f5f647a?auto=format&fit=crop&q=70",
+      "https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&q=70",
+      "https://images.unsplash.com/photo-1615874959474-d609969a20ed?auto=format&fit=crop&q=70"
+    ],
+    "videos": [],
+    "enlaces": {
+      "airbnb": "",
+      "booking": "",
+      "expedia": "",
+      "tripadvisor": ""
+    },
+    "ubicacion_maps": "https://www.google.com/maps/search/?api=1&query=Chichiriviche%2C%20Falc%C3%B3n%2C%20Venezuela"
+  },
+  {
+    "id": "penthouse-vista-al-mar",
+    "nombre": "Penthouse con vista al mar",
+    "tipo": "penthouse",
+    "categoria": "A",
+    "destino": "colombia",
+    "zona": "Santa Marta, Magdalena",
+    "destacada": true,
+    "ejemplo": true,
+    "capacidad": 6,
+    "habitaciones": 3,
+    "banos": 3,
+    "resumen": "Último piso con ventanales y vista abierta al mar.",
+    "descripcion": "Penthouse amplio con vista al mar, para quien quiere comodidad en la ciudad. Propiedad de ejemplo.",
+    "incluye": [
+      "Vista al mar",
+      "Aire acondicionado",
+      "Wifi",
+      "Piscina del edificio"
+    ],
+    "fotos": [
+      "https://images.unsplash.com/photo-1602002418082-a4443e081dd1?auto=format&fit=crop&q=70",
+      "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=70",
+      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&q=70",
+      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&q=70"
+    ],
+    "videos": [],
+    "enlaces": {
+      "airbnb": "https://www.airbnb.com/s/Santa-Marta--Colombia/homes",
+      "booking": "",
+      "expedia": "https://www.expedia.com/Santa-Marta.d6046264.Destination-Travel-Guides",
+      "tripadvisor": "https://www.tripadvisor.com/Tourism-g297484-Santa_Marta_Santa_Marta_Municipality_Magdalena_Department-Vacations.html"
+    },
+    "ubicacion_maps": "https://www.google.com/maps/search/?api=1&query=Santa%20Marta%2C%20Magdalena%2C%20Colombia"
+  },
+  {
+    "id": "apartamento-cerca-de-la-playa",
+    "nombre": "Apartamento cerca de la playa",
+    "tipo": "apartamento",
+    "categoria": "C",
+    "destino": "colombia",
+    "zona": "Santa Marta, Magdalena",
+    "destacada": false,
+    "ejemplo": true,
+    "capacidad": 4,
+    "habitaciones": 2,
+    "banos": 2,
+    "resumen": "Funcional y bien ubicado para recorrer Santa Marta.",
+    "descripcion": "Apartamento cómodo para una familia pequeña o un grupo de amigos. Propiedad de ejemplo.",
+    "incluye": [
+      "Aire acondicionado",
+      "Wifi",
+      "Cocina"
+    ],
+    "fotos": [
+      "https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&q=70",
+      "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&q=70",
+      "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&q=70"
+    ],
+    "videos": [],
+    "enlaces": {
+      "airbnb": "",
+      "booking": "",
+      "expedia": "",
+      "tripadvisor": ""
+    },
+    "ubicacion_maps": "https://www.google.com/maps/search/?api=1&query=Santa%20Marta%2C%20Magdalena%2C%20Colombia"
+  },
+  {
+    "id": "casa-vacaciones-jardin",
+    "nombre": "Casa de vacaciones con jardín",
+    "tipo": "casa",
+    "categoria": "B",
+    "destino": "colombia",
+    "zona": "Santa Marta, Magdalena",
+    "destacada": false,
+    "ejemplo": true,
+    "capacidad": 8,
+    "habitaciones": 4,
+    "banos": 3,
+    "resumen": "Casa con jardín y piscina para descansar en grupo.",
+    "descripcion": "Casa de vacaciones con jardín, piscina y espacios para compartir. Propiedad de ejemplo.",
+    "incluye": [
+      "Piscina",
+      "Jardín",
+      "Aire acondicionado",
+      "Wifi"
+    ],
+    "fotos": [
+      "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&q=70",
+      "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&q=70",
+      "https://images.unsplash.com/photo-1615874959474-d609969a20ed?auto=format&fit=crop&q=70"
+    ],
+    "videos": [],
+    "enlaces": {
+      "airbnb": "",
+      "booking": "",
+      "expedia": "",
+      "tripadvisor": ""
+    },
+    "ubicacion_maps": "https://www.google.com/maps/search/?api=1&query=Santa%20Marta%2C%20Magdalena%2C%20Colombia"
+  },
+  {
+    "id": "villa-piscina-y-terraza",
+    "nombre": "Villa con piscina y terraza",
+    "tipo": "villa",
+    "categoria": "B",
+    "destino": "colombia",
+    "zona": "Santa Marta, Magdalena",
+    "destacada": false,
+    "ejemplo": true,
+    "capacidad": 10,
+    "habitaciones": 5,
+    "banos": 4,
+    "resumen": "Villa grande para celebrar en grupo, con piscina y terraza.",
+    "descripcion": "Villa para grupos grandes, con piscina, terraza y cocina amplia. Propiedad de ejemplo.",
+    "incluye": [
+      "Piscina",
+      "Terraza",
+      "Cocina equipada",
+      "Aire acondicionado"
+    ],
+    "fotos": [
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=70",
+      "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&q=70",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&q=70"
+    ],
+    "videos": [],
+    "enlaces": {
+      "airbnb": "",
+      "booking": "",
+      "expedia": "",
+      "tripadvisor": ""
+    },
+    "ubicacion_maps": "https://www.google.com/maps/search/?api=1&query=Santa%20Marta%2C%20Magdalena%2C%20Colombia"
+  }
+]

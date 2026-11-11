@@ -1,0 +1,57 @@
+{
+  "_ayuda": "Datos de la marca. Cambie aquí el WhatsApp, las redes, los nombres de las categorías y los mensajes. Un campo vacío \"\" no se muestra.",
+  "marca": "Cotomaya Venezuela",
+  "whatsapp": "584245180022",
+  "whatsapp_visible": "+58 424-5180022",
+  "redes": {
+    "instagram": "",
+    "facebook": "",
+    "tiktok": "",
+    "youtube": ""
+  },
+  "ubicacion_maps": "https://www.google.com/maps/search/?api=1&query=Tucacas%2C%20Falc%C3%B3n%2C%20Venezuela",
+  "zona_base": "Tucacas, Falcón",
+  "categorias": {
+    "A": {
+      "nombre": "Categoría A",
+      "descripcion": ""
+    },
+    "B": {
+      "nombre": "Categoría B",
+      "descripcion": ""
+    },
+    "C": {
+      "nombre": "Categoría C",
+      "descripcion": ""
+    }
+  },
+  "tipos": {
+    "villa": {
+      "singular": "Villa",
+      "plural": "Villas"
+    },
+    "casa": {
+      "singular": "Casa",
+      "plural": "Casas"
+    },
+    "apartamento": {
+      "singular": "Apartamento",
+      "plural": "Apartamentos"
+    },
+    "townhouse": {
+      "singular": "Town house",
+      "plural": "Town House"
+    },
+    "penthouse": {
+      "singular": "Penthouse",
+      "plural": "Penthouse"
+    }
+  },
+  "mensajes": {
+    "general": "Hola, quisiera información para reservar con Cotomaya Venezuela.",
+    "propiedad": "Hola, me interesa la propiedad {propiedad} en {zona}. ¿Tienen disponibilidad para…?",
+    "tour": "Hola, me interesa {tour} con Cotomaya Venezuela. ¿Qué fechas tienen disponibles?",
+    "destino": "Hola, quisiera opciones de hospedaje en {destino} con Cotomaya Venezuela.",
+    "sin_resultados": "Hola, estoy buscando un hospedaje con Cotomaya Venezuela y no encontré lo que necesito. ¿Me pueden ayudar?"
+  }
+}

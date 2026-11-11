@@ -1,0 +1,21 @@
+[
+  {
+    "id": "venezuela",
+    "nombre": "Venezuela",
+    "descripcion": "Villas, casas y apartamentos en la costa de Falcón, cerca de los cayos de Morrocoy, y paseos en yate desde Tucacas.",
+    "foto": "fotos/portada.webp",
+    "zonas": [
+      "Tucacas, Falcón",
+      "Chichiriviche, Falcón"
+    ]
+  },
+  {
+    "id": "colombia",
+    "nombre": "Colombia",
+    "descripcion": "Casas y apartamentos de vacaciones en Santa Marta, en el Caribe colombiano.",
+    "foto": "https://images.unsplash.com/photo-1536308037887-165852797016?auto=format&fit=crop&q=70",
+    "zonas": [
+      "Santa Marta, Magdalena"
+    ]
+  }
+]

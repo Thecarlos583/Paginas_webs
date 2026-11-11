@@ -1,28 +1,187 @@
-/* Cotomaya Venezuela. Todo el contenido está en el HTML: esto solo adorna. */
+/* Cotomaya Venezuela. Las propiedades, destinos, tours y datos de la marca viven en datos/*.json.
+   Este archivo los lee, los valida (avisa en la consola qué falta) y arma cada página. */
 (function () {
   "use strict";
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
   function safe(f) { try { f(); } catch (err) { if (window.console) console.warn(err); } }
-  function datos(sel, r) { var n = $(sel, r); return n ? JSON.parse(n.textContent) : null; }
   var quieto = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var PAGINA = document.body.getAttribute("data-pagina") || "";
 
-  /* Logo: si existe fotos/logo.webp, reemplaza el nombre */
-  safe(function () {
-    var prueba = new Image();
-    prueba.onload = function () {
-      $$(".marca-texto").forEach(function (t) {
-        var i = new Image(); i.src = prueba.src; i.alt = "Cotomaya Venezuela"; t.replaceWith(i);
+  /* ------------------------------------------------------------ utilidades */
+  function esc(t) {
+    return String(t == null ? "" : t).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+  function aviso(m) { if (window.console) console.warn("[Cotomaya] " + m); }
+  function lista(x) { return Array.isArray(x) ? x : (x ? [x] : []); }
+  function vacio(v) { return v === undefined || v === null || v === "" || (Array.isArray(v) && !v.length); }
+  function param(n) { return new URLSearchParams(location.search).get(n) || ""; }
+  function plural(n, uno, varios) { return n + " " + (n === 1 ? uno : varios); }
+  function rellenar(t, vars) { return String(t || "").replace(/\{(\w+)\}/g, function (_, k) { return vars[k] != null ? vars[k] : ""; }); }
+
+  /* Ruta de una foto: enlace completo, ruta desde fotos/ o nombre dentro de la carpeta de la propiedad */
+  function fotoUrl(r, carpeta, ancho) {
+    if (!r) return "";
+    if (/^https?:\/\//.test(r)) {
+      return /images\.unsplash\.com/.test(r) ? r + (r.indexOf("?") > -1 ? "&" : "?") + "w=" + ancho : r;
+    }
+    var ruta = /^fotos\//.test(r) ? r : carpeta + r;
+    return ancho <= 700 ? ruta.replace(/\.webp$/i, "-600.webp") : ruta;
+  }
+  /* Si falta la miniatura -600, usa la foto grande */
+  document.addEventListener("error", function (ev) {
+    var i = ev.target;
+    if (i.tagName === "IMG" && i.dataset.grande && i.src.indexOf(i.dataset.grande) === -1) { i.removeAttribute("srcset"); i.src = i.dataset.grande; }
+  }, true);
+  function img(r, carpeta, alt, sizes, ancho, extra) {
+    var chica = fotoUrl(r, carpeta, 600), grande = fotoUrl(r, carpeta, 1600);
+    return '<img src="' + esc(ancho > 700 ? grande : chica) + '" srcset="' + esc(chica) + ' 600w, ' + esc(grande) + ' 1600w" sizes="' + esc(sizes) +
+      '" width="1200" height="800" alt="' + esc(alt) + '" loading="lazy" decoding="async" data-grande="' + esc(grande) + '"' + (extra || "") + ">";
+  }
+  function icono(n) { var t = $('template[data-ic="' + n + '"]'); return t ? t.innerHTML : ""; }
+
+  /* ------------------------------------------------------------ datos */
+  var CFG = {}, D = null;
+  var RESPALDO_CFG = {
+    marca: "Cotomaya Venezuela", whatsapp: "584245180022", redes: {}, categorias: {}, tipos: {},
+    mensajes: { general: "Hola, quisiera información para reservar con Cotomaya Venezuela." }
+  };
+  function waUrl(texto) { return "https://wa.me/" + (CFG.whatsapp || RESPALDO_CFG.whatsapp) + "?text=" + encodeURIComponent(texto); }
+  function msg(clave, vars) {
+    var m = (CFG.mensajes || {})[clave] || (CFG.mensajes || {}).general || RESPALDO_CFG.mensajes.general;
+    return rellenar(m, vars || {});
+  }
+  function nombreTipo(t, varios) { var x = (CFG.tipos || {})[t]; return x ? (varios ? x.plural : x.singular) : (t || ""); }
+  function categoria(c) { return (CFG.categorias || {})[c] || { nombre: c ? "Categoría " + c : "", descripcion: "" }; }
+
+  function bajar(nombre, defecto) {
+    return fetch("datos/" + nombre + ".json", { cache: "no-cache" })
+      .then(function (r) { if (!r.ok) throw new Error("respuesta " + r.status); return r.json(); })
+      .catch(function (err) { aviso("No se pudo leer datos/" + nombre + ".json (" + err.message + "). Revise que el archivo exista y que el JSON esté bien escrito (comas, comillas y llaves)."); return defecto; });
+  }
+
+  var OBLIG_PROP = ["id", "nombre", "tipo", "categoria", "destino", "zona", "capacidad", "habitaciones", "resumen", "fotos"];
+  var OBLIG_TOUR = ["id", "nombre", "tipo", "destino", "duracion"];
+  function validar(d) {
+    var porDestino = {};
+    d.destinos = lista(d.destinos).filter(function (x, i) {
+      if (!x || !x.id || !x.nombre) { aviso("El destino #" + (i + 1) + " de destinos.json no tiene id o nombre: no se muestra."); return false; }
+      x.zonas = lista(x.zonas); porDestino[x.id] = x; return true;
+    });
+    function revisar(cosa, archivo, oblig, i, vistos) {
+      var nom = (cosa && (cosa.nombre || cosa.id)) || "#" + (i + 1);
+      if (!cosa || !cosa.id) { aviso("En " + archivo + ", el elemento " + nom + " no tiene id: no se muestra."); return false; }
+      if (vistos[cosa.id]) { aviso("En " + archivo + ", el id \"" + cosa.id + "\" está repetido: se muestra solo el primero."); return false; }
+      vistos[cosa.id] = 1;
+      oblig.forEach(function (c) { if (vacio(cosa[c])) aviso("En " + archivo + ", a \"" + nom + "\" le falta el campo \"" + c + "\"."); });
+      if (cosa.destino && !porDestino[cosa.destino]) aviso("En " + archivo + ", \"" + nom + "\" usa el destino \"" + cosa.destino + "\", que no existe en destinos.json.");
+      return true;
+    }
+    var vp = {};
+    d.propiedades = lista(d.propiedades).filter(function (p, i) {
+      if (!revisar(p, "propiedades.json", OBLIG_PROP, i, vp)) return false;
+      if (p.tipo && !(CFG.tipos || {})[p.tipo]) aviso("En propiedades.json, \"" + p.nombre + "\" tiene el tipo \"" + p.tipo + "\", que no está en config.json (villa, casa, apartamento, townhouse o penthouse).");
+      if (p.categoria && !(CFG.categorias || {})[p.categoria]) aviso("En propiedades.json, \"" + p.nombre + "\" tiene la categoría \"" + p.categoria + "\", que no está en config.json.");
+      p.nombre = p.nombre || p.id;
+      p.fotos = lista(p.fotos); p.incluye = lista(p.incluye); p.enlaces = p.enlaces || {};
+      p.videos = lista(p.videos).filter(function (v) { return v && v.archivo; });
+      if (p.videos.length > 5) { aviso("\"" + p.nombre + "\" tiene " + p.videos.length + " videos: se muestran los primeros 5."); p.videos = p.videos.slice(0, 5); }
+      p.capacidad = +p.capacidad || 0; p.habitaciones = +p.habitaciones || 0; p.banos = +p.banos || 0;
+      p.carpeta = "fotos/propiedades/" + p.id + "/";
+      return true;
+    });
+    var vt = {};
+    d.tours = lista(d.tours).filter(function (t, i) {
+      if (!revisar(t, "tours.json", OBLIG_TOUR, i, vt)) return false;
+      t.nombre = t.nombre || t.id; t.fotos = lista(t.fotos); t.incluye = lista(t.incluye);
+      t.carpeta = "fotos/tours/" + t.id + "/";
+      return true;
+    });
+    d.porDestino = porDestino;
+    d.hayEjemplo = d.propiedades.concat(d.tours).some(function (x) { return x.ejemplo === true; });
+    return d;
+  }
+
+  function cargar() {
+    if (D) return D;
+    D = bajar("config", RESPALDO_CFG).then(function (cfg) {
+      CFG = cfg || RESPALDO_CFG;
+      return Promise.all([bajar("destinos", []), bajar("propiedades", []), bajar("tours", [])]);
+    }).then(function (r) { return validar({ destinos: r[0], propiedades: r[1], tours: r[2] }); });
+    return D;
+  }
+
+  /* Cuando no se pudo leer nada (por ejemplo, al abrir el archivo directo sin servidor) */
+  function sinDatos(caja) {
+    if (!caja) return;
+    caja.innerHTML = '<div class="vacio"><h3>No pudimos cargar la información</h3><p>Escríbanos por WhatsApp y con gusto le enviamos las opciones disponibles.</p>' +
+      '<a class="boton" href="' + esc(waUrl(msg("general"))) + '" target="_blank" rel="noopener">' + icono("wa") + "<span>Escribir por WhatsApp</span></a></div>";
+  }
+
+  /* ------------------------------------------------------------ piezas que se repiten */
+  function etiquetaEjemplo(x) { return x.ejemplo === true ? '<span class="ejemplo">Ejemplo</span>' : ""; }
+
+  function tarjeta(p, sizes) {
+    var url = "propiedad.html?id=" + encodeURIComponent(p.id);
+    var cat = categoria(p.categoria);
+    var datos = [];
+    if (p.capacidad) datos.push("<span>" + icono("personas") + plural(p.capacidad, "persona", "personas") + "</span>");
+    if (p.habitaciones) datos.push("<span>" + icono("cama") + plural(p.habitaciones, "habitación", "habitaciones") + "</span>");
+    return '<article class="tarjeta">' +
+      '<a class="tarjeta-foto" href="' + url + '" tabindex="-1" aria-hidden="true">' +
+      (p.fotos[0] ? img(p.fotos[0], p.carpeta, "", sizes || "(min-width:900px) 30vw, 88vw", 600) : '<span class="sin-foto">' + icono("camara") + "</span>") +
+      etiquetaEjemplo(p) + (cat.nombre ? '<span class="tarjeta-cat">' + esc(cat.nombre) + "</span>" : "") + "</a>" +
+      '<div class="tarjeta-texto">' +
+      '<p class="tarjeta-tipo">' + esc(nombreTipo(p.tipo)) + " · " + esc(p.zona) + "</p>" +
+      '<h3><a href="' + url + '">' + esc(p.nombre) + "</a></h3>" +
+      (p.resumen ? '<p class="tarjeta-resumen">' + esc(p.resumen) + "</p>" : "") +
+      '<p class="tarjeta-datos">' + datos.join("") + "</p>" +
+      '<a class="boton boton-chico boton-claro" href="' + url + '">Ver propiedad' + icono("flecha") + "</a>" +
+      "</div></article>";
+  }
+
+  function tarjetaTour(t) {
+    var incl = t.incluye.length ? '<ul class="lista-check">' + t.incluye.map(function (x) { return "<li>" + icono("check") + esc(x) + "</li>"; }).join("") + "</ul>" : "";
+    var precio = t.precio_referencia && !/confirmar/i.test(t.precio_referencia)
+      ? '<p class="precio"><b>' + esc(t.precio_referencia) + "</b><em>precio de referencia</em></p>"
+      : '<p class="precio precio-consulta">Precio por confirmar</p>';
+    return '<article class="tour">' +
+      '<div class="tour-foto">' + (t.fotos[0] ? img(t.fotos[0], t.carpeta, "", "(min-width:900px) 30vw, 84vw", 600) : "") + etiquetaEjemplo(t) +
+      (t.duracion ? '<span class="tour-dur">' + icono("reloj") + esc(t.duracion) + "</span>" : "") + "</div>" +
+      '<div class="tour-texto"><h3>' + esc(t.nombre) + "</h3>" + (t.resumen ? "<p>" + esc(t.resumen) + "</p>" : "") + incl + precio +
+      '<a class="boton boton-chico" href="' + esc(waUrl(msg("tour", { tour: t.nombre }))) + '" target="_blank" rel="noopener">' + icono("wa") + "<span>Consultar por WhatsApp</span></a>" +
+      "</div></article>";
+  }
+
+  /* ------------------------------------------------------------ lo común a todas las páginas */
+  function comun(d) {
+    /* Número y mensajes de WhatsApp desde config.json */
+    $$("[data-wa]").forEach(function (a) {
+      if (a.dataset.wa === "general") a.href = waUrl(msg("general"));
+    });
+    $$("[data-wa-visible]").forEach(function (s) { if (CFG.whatsapp_visible) s.textContent = CFG.whatsapp_visible; });
+    $$("[data-maps-base]").forEach(function (a) { if (CFG.ubicacion_maps) a.href = CFG.ubicacion_maps; });
+    /* Redes: solo las que tengan enlace */
+    var redes = CFG.redes || {}, nombres = { instagram: "Instagram", facebook: "Facebook", tiktok: "TikTok", youtube: "YouTube" };
+    $$("[data-redes]").forEach(function (caja) {
+      Object.keys(redes).forEach(function (k) {
+        if (!redes[k]) return;
+        var a = document.createElement("a");
+        a.href = redes[k]; a.target = "_blank"; a.rel = "noopener";
+        a.innerHTML = icono(k === "instagram" ? "instagram" : "globo") + "<span>" + esc(nombres[k] || k) + "</span>";
+        caja.appendChild(a);
       });
-    };
-    prueba.src = "fotos/logo.webp";
-  });
+    });
+    /* El aviso de referencia desaparece solo cuando ya no queda nada de ejemplo */
+    $$("[data-aviso-ejemplo]").forEach(function (p) { p.hidden = !d.hayEjemplo; });
+  }
 
   /* Cabecera, estela de avance y fotos con paralaje */
   safe(function () {
     var cab = $("[data-cabecera]"), estela = $("[data-estela]");
-    var capas = $$("[data-paralaje]");
-    var pendiente = false;
+    var capas = $$("[data-paralaje]"), pendiente = false;
     function pintar() {
       pendiente = false;
       var y = window.scrollY, alto = document.documentElement.scrollHeight - window.innerHeight;
@@ -42,250 +201,86 @@
     pintar();
   });
 
-  /* Portada: elegir cómo salir cambia la foto, el precio y el mensaje */
+  /* Logo: si existe fotos/logo.webp, reemplaza el nombre */
   safe(function () {
-    var caja = $("[data-portada]"); if (!caja) return;
-    var ops = datos("[data-op-datos]", caja);
-    var botones = $$("[data-op]", caja), capas = $$("[data-capa]", caja), wa = $("[data-op-wa]", caja);
+    var prueba = new Image();
+    prueba.onload = function () {
+      $$(".marca-texto").forEach(function (t) { var i = new Image(); i.src = prueba.src; i.alt = "Cotomaya Venezuela"; t.replaceWith(i); });
+    };
+    prueba.src = "fotos/logo.webp";
+  });
+
+  /* ------------------------------------------------------------ páginas */
+  var PAGINAS = {};
+
+  /* ---- Inicio ---- */
+  /* Portada: las fotos se relevan solas, despacio */
+  safe(function () {
+    var caja = $("[data-relevo]"); if (!caja) return;
+    var capas = $$("[data-capa]", caja), i = 0;
+    if (capas.length < 2 || quieto) return;
     capas.forEach(function (c) { c.loading = "eager"; });
-    function elegir(id, foco) {
-      var o = ops.filter(function (x) { return x.id === id; })[0]; if (!o) return;
-      botones.forEach(function (b) {
-        var si = b.dataset.op === id;
-        b.setAttribute("aria-selected", si ? "true" : "false");
-        b.tabIndex = si ? 0 : -1;
-        if (si && foco) b.focus();
-      });
-      capas.forEach(function (c) { c.classList.toggle("activa", c.dataset.capa === id); });
-      $("[data-op-nombre]", caja).textContent = o.nombre;
-      $("[data-op-precio]", caja).textContent = o.precio;
-      $("[data-op-dur]", caja).textContent = o.dur;
-      wa.href = o.wa;
-    }
-    botones.forEach(function (b, i) {
-      b.tabIndex = i === 0 ? 0 : -1;
-      b.addEventListener("click", function () { elegir(b.dataset.op); });
-      b.addEventListener("keydown", function (ev) {
-        var d = ev.key === "ArrowRight" ? 1 : ev.key === "ArrowLeft" ? -1 : 0;
-        if (d) { ev.preventDefault(); elegir(botones[(i + d + botones.length) % botones.length].dataset.op, true); }
-      });
-    });
-    /* El botón flotante se esconde mientras el de la portada está a la vista */
-    var flot = $("[data-flotante]");
-    if (flot && "IntersectionObserver" in window) {
-      new IntersectionObserver(function (en) { flot.classList.toggle("oculto", en[0].isIntersecting); }, { threshold: .35 }).observe(caja);
+    setInterval(function () {
+      if (document.hidden) return;
+      capas[i].classList.remove("activa");
+      i = (i + 1) % capas.length;
+      capas[i].classList.add("activa");
+    }, 6500);
+    /* El botón flotante se esconde mientras los botones de la portada están a la vista */
+    var flot = $("[data-flotante]"), port = $("[data-portada]");
+    if (flot && port && "IntersectionObserver" in window) {
+      new IntersectionObserver(function (en) { flot.classList.toggle("oculto", en[0].isIntersecting); }, { threshold: .4 }).observe(port);
     }
   });
 
-  /* El mar hoy: pronóstico real de Open-Meteo, con texto de respaldo */
-  safe(function () {
-    var cajas = $$("[data-mar-hoy]"), solHoy = $("[data-sol-hoy]");
-    if ((!cajas.length && !solHoy) || !window.fetch) return;
-    var LAT = 10.86, LON = -68.24;
-    var f1 = fetch("https://api.open-meteo.com/v1/forecast?latitude=" + LAT + "&longitude=" + LON + "&current=wind_speed_10m&daily=sunset&timezone=America%2FCaracas&forecast_days=1").then(function (r) { return r.json(); });
-    var f2 = fetch("https://marine-api.open-meteo.com/v1/marine?latitude=" + LAT + "&longitude=" + LON + "&current=wave_height&timezone=America%2FCaracas").then(function (r) { return r.json(); });
-    function hora(iso) {
-      var p = iso.split("T")[1].split(":"), h = +p[0];
-      return (h % 12 || 12) + ":" + p[1] + (h < 12 ? " a. m." : " p. m.");
-    }
-    f1.then(function (d) {
-      var viento = Math.round(d.current.wind_speed_10m), sol = hora(d.daily.sunset[0]);
-      cajas.forEach(function (c) {
-        $('[data-dato="viento"]', c).textContent = viento + " km/h";
-        $('[data-dato="sol"]', c).textContent = sol;
-        $("[data-fuente]", c).hidden = false;
-      });
-      if (solHoy) { solHoy.textContent = "Hoy el sol se pone a las " + sol + " en Tucacas."; solHoy.hidden = false; }
-    }).catch(function () {});
-    f2.then(function (d) {
-      var ola = d.current.wave_height;
-      if (typeof ola !== "number") return;
-      cajas.forEach(function (c) { $('[data-dato="olas"]', c).textContent = ola.toFixed(1).replace(".", ",") + " m"; });
-    }).catch(function () {});
-  });
-
-  /* Mueva el sol */
-  safe(function () {
-    $$("[data-dia]").forEach(function (r) {
-      var caja = r.closest(".dia");
-      var fotos = $$("[data-dia-foto]", caja), pasos = $$("[data-dia-paso]", caja);
-      fotos.forEach(function (f) { f.loading = "eager"; });
-      var ultimo = 0;
-      function ir() {
-        var v = parseFloat(r.value), i = Math.round(v);
-        fotos.forEach(function (f, n) {
-          var o = Math.max(0, 1 - Math.abs(n - v));
-          f.style.opacity = o.toFixed(3);
-        });
-        if (i !== ultimo) {
-          pasos[ultimo].classList.remove("activo");
-          pasos[i].classList.add("activo");
-          ultimo = i;
-        }
-      }
-      r.addEventListener("input", ir);
-      r.addEventListener("change", function () { r.value = Math.round(parseFloat(r.value)); ir(); });
-      ir();
-    });
-  });
-
-  /* Carta de los cayos: la vista vuela hasta el cayo y traza el camino desde Tucacas */
-  safe(function () {
-    var marco = $("[data-carta]"); if (!marco) return;
-    var sec = marco.closest(".carta");
-    var cayos = datos("[data-carta-datos]", sec), salida = datos("[data-carta-salida]", sec);
-    var mapa = $("[data-carta-mapa]", sec), ruta = $("[data-carta-ruta]", sec);
-    var puntos = $$(".punto", sec), fichas = $$(".ficha-cayo", sec);
-    var actual = null, ZOOM = 1.9;
-    function xy(p) { return [p[0] * 1.5, p[1]]; }
-    function trazo(c) {
-      var pts = [salida].concat(c.camino, [c.xy]).map(xy), d = "M" + pts[0][0] + " " + pts[0][1];
-      for (var i = 1; i < pts.length - 1; i++) {
-        var mx = (pts[i][0] + pts[i + 1][0]) / 2, my = (pts[i][1] + pts[i + 1][1]) / 2;
-        d += " Q" + pts[i][0] + " " + pts[i][1] + " " + mx + " " + my;
-      }
-      var u = pts[pts.length - 1];
-      return d + " L" + u[0] + " " + u[1];
-    }
-    function encuadrar(c) {
-      var w = marco.clientWidth, h = marco.clientHeight;
-      var cx = (c.xy[0] + salida[0]) / 2, cy = (c.xy[1] + salida[1]) / 2;
-      /* Se acerca lo más posible sin perder Tucacas ni el cayo */
-      var ancho = Math.abs(c.xy[0] - salida[0]) + 22, alto = Math.abs(c.xy[1] - salida[1]) + 26;
-      var z = Math.max(1, Math.min(ZOOM, 100 / ancho, 100 / alto));
-      var tx = Math.min(0, Math.max(w - w * z, w / 2 - cx / 100 * w * z));
-      var ty = Math.min(0, Math.max(h - h * z, h / 2 - cy / 100 * h * z));
-      mapa.style.transform = "translate(" + tx.toFixed(1) + "px," + ty.toFixed(1) + "px) scale(" + z.toFixed(3) + ")";
-      mapa.style.setProperty("--contra", (1 / z).toFixed(3));
-    }
-    function elegir(id) {
-      var c = cayos.filter(function (x) { return x.id === id; })[0]; if (!c) return;
-      actual = c;
-      puntos.forEach(function (p) { p.classList.toggle("activo", p.dataset.cayo === id); });
-      fichas.forEach(function (b) { b.setAttribute("aria-pressed", b.dataset.cayo === id ? "true" : "false"); });
-      ruta.setAttribute("d", trazo(c));
-      encuadrar(c);
-      var foto = $("[data-panel-foto]", sec);
-      foto.src = "fotos/" + c.foto + "-600.webp"; foto.alt = c.alt;
-      $("[data-panel-nombre]", sec).textContent = c.nombre;
-      $("[data-panel-ve]", sec).textContent = c.ve;
-      $("[data-panel-hace]", sec).textContent = c.hace;
-      $("[data-panel-wa]", sec).href = c.wa;
-    }
-    puntos.concat(fichas).forEach(function (b) { b.addEventListener("click", function () { elegir(b.dataset.cayo); }); });
-    window.addEventListener("resize", function () { if (actual) encuadrar(actual); });
-    elegir(cayos[0].id);
-  });
-
-  /* ¿Con quién va? */
-  safe(function () {
-    var caja = $("[data-plan-caja]"); if (!caja) return;
-    var d = datos("[data-plan-datos]", caja), bs = $$("[data-plan]", caja);
-    bs.forEach(function (b) {
-      b.addEventListener("click", function () {
-        var p = d[b.dataset.plan];
-        bs.forEach(function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
-        $("[data-plan-op]", caja).textContent = p.op;
-        $("[data-plan-razon]", caja).textContent = p.razon;
-        $("[data-plan-foto]", caja).src = "fotos/" + p.foto + "-600.webp";
-        $("[data-plan-wa]", caja).href = p.wa;
-      });
-    });
-  });
-
-  /* Hoja Más */
-  safe(function () {
-    var hoja = $("[data-hoja]"); if (!hoja) return;
-    $$("[data-abrir-hoja]").forEach(function (a) {
-      a.addEventListener("click", function (ev) { ev.preventDefault(); hoja.hidden = false; });
-    });
-    $$("[data-cerrar-hoja]", hoja).forEach(function (b) { b.addEventListener("click", function () { hoja.hidden = true; }); });
-    document.addEventListener("keydown", function (ev) { if (ev.key === "Escape") hoja.hidden = true; });
-  });
-
-  /* Galería: filtros y visor con el dedo */
-  safe(function () {
-    var fotos = $$("[data-visor]"); if (!fotos.length) return;
-    var caja = $("[data-visor-caja]"), img = $("[data-visor-foto]"), lista = fotos, i = 0, inicioX = null;
-    $$("[data-filtro]").forEach(function (b, _, todos) {
-      b.addEventListener("click", function () {
-        var f = b.dataset.filtro;
-        todos.forEach(function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
-        fotos.forEach(function (g) { g.hidden = !(f === "todas" || g.dataset.cat === f); });
-        lista = fotos.filter(function (g) { return !g.hidden; });
-      });
-    });
-    function ver(n) {
-      i = (n + lista.length) % lista.length;
-      img.src = lista[i].dataset.visor;
-      img.alt = $("img", lista[i]).alt;
-    }
-    function cerrar() { caja.hidden = true; document.body.style.overflow = ""; }
-    fotos.forEach(function (g) {
-      g.addEventListener("click", function () {
-        ver(lista.indexOf(g)); caja.hidden = false; document.body.style.overflow = "hidden"; $("[data-visor-cerrar]").focus();
-      });
-    });
-    $("[data-visor-cerrar]").addEventListener("click", cerrar);
-    $("[data-visor-ant]").addEventListener("click", function () { ver(i - 1); });
-    $("[data-visor-sig]").addEventListener("click", function () { ver(i + 1); });
-    caja.addEventListener("click", function (ev) { if (ev.target === caja) cerrar(); });
-    document.addEventListener("keydown", function (ev) {
-      if (caja.hidden) return;
-      if (ev.key === "Escape") cerrar();
-      if (ev.key === "ArrowLeft") ver(i - 1);
-      if (ev.key === "ArrowRight") ver(i + 1);
-    });
-    caja.addEventListener("touchstart", function (ev) { inicioX = ev.touches[0].clientX; }, { passive: true });
-    caja.addEventListener("touchend", function (ev) {
-      if (inicioX === null) return;
-      var d = ev.changedTouches[0].clientX - inicioX; inicioX = null;
-      if (Math.abs(d) > 45) ver(i + (d < 0 ? 1 : -1));
-    }, { passive: true });
-  });
-
-  /* Mapa real: carga al acercarse */
-  safe(function () {
-    var m = $("[data-mapa]"); if (!m) return;
-    function poner() {
-      if (m.classList.contains("cargado")) return;
-      var f = document.createElement("iframe");
-      f.src = m.dataset.mapa; f.title = "Mapa de Tucacas, Falcón"; f.loading = "lazy"; f.referrerPolicy = "no-referrer-when-downgrade";
-      m.textContent = ""; m.appendChild(f); m.classList.add("cargado");
-    }
-    if ("IntersectionObserver" in window) {
-      var o = new IntersectionObserver(function (en) { if (en[0].isIntersecting) { o.disconnect(); poner(); } }, { rootMargin: "400px" });
-      o.observe(m);
-    } else poner();
-  });
-
-  /* Armar el mensaje de reserva */
-  safe(function () {
-    var caja = $("[data-armador]"); if (!caja) return;
-    var fecha = $("[data-a-fecha]", caja), salidaP = $("[data-a-personas]", caja), personas = 2;
-    var msg = $("[data-a-mensaje]", caja), total = $("[data-a-total]", caja), wa = $("[data-a-wa]", caja);
-    var hoy = new Date(); hoy.setMinutes(hoy.getMinutes() - hoy.getTimezoneOffset());
-    fecha.min = hoy.toISOString().slice(0, 10);
-    function bonita(v) {
-      var p = v.split("-");
-      var meses = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
-      return +p[2] + " de " + meses[+p[1] - 1];
-    }
+  /* Contador de personas (sin tope artificial) */
+  function contador(caja, alCambiar) {
+    var out = $("[data-cuenta]", caja), campo = $("[data-valor]", caja);
+    var minimo = +(caja.getAttribute("data-minimo") || 1);
+    var n = +(campo ? campo.value : 0) || minimo;
     function pintar() {
-      var r = $('input[name="op"]:checked', caja);
-      var precio = +r.dataset.precio, porPersona = r.dataset.persona === "1";
-      salidaP.textContent = personas;
-      total.textContent = "$" + (porPersona ? precio * personas : precio);
-      var t = "Hola, quisiera reservar " + r.dataset.articulo + " con Cotomaya Venezuela, para " + personas + (personas === 1 ? " persona" : " personas");
-      if (fecha.value) t += ", el " + bonita(fecha.value);
-      t += ". ¿Me envían el presupuesto?";
-      msg.textContent = t;
-      wa.href = wa.href.split("?")[0] + "?text=" + encodeURIComponent(t);
+      out.textContent = n === 0 ? "Cualquiera" : plural(n, "persona", "personas");
+      if (campo) campo.value = n || "";
+      if (alCambiar) alCambiar(n);
     }
-    $$('input[name="op"]', caja).forEach(function (r) { r.addEventListener("change", pintar); });
-    fecha.addEventListener("change", pintar);
-    $("[data-a-menos]", caja).addEventListener("click", function () { if (personas > 1) { personas--; pintar(); } });
-    $("[data-a-mas]", caja).addEventListener("click", function () { if (personas < 40) { personas++; pintar(); } });
+    $("[data-menos]", caja).addEventListener("click", function () { if (n > minimo) { n--; pintar(); } });
+    $("[data-mas]", caja).addEventListener("click", function () { if (n < 99) { n++; pintar(); } });
     pintar();
+    return { poner: function (v) { n = Math.max(minimo, +v || minimo); pintar(); } };
+  }
+
+  /* Buscador del inicio: el talón se desprende y lleva al catálogo con los filtros en la URL */
+  safe(function () {
+    var f = $("[data-pase]"); if (!f) return;
+    contador($(".campo-personas", f));
+    f.addEventListener("submit", function (ev) {
+      ev.preventDefault();
+      var q = new URLSearchParams();
+      $$("select, input[type=hidden]", f).forEach(function (c) { if (c.value) q.set(c.name, c.value); });
+      var destino = "hospedajes.html" + (q.toString() ? "?" + q.toString() : "");
+      if (quieto) { location.href = destino; return; }
+      f.classList.add("arrancado");
+      setTimeout(function () { location.href = destino; }, 420);
+    });
+    window.addEventListener("pageshow", function () { f.classList.remove("arrancado"); });
+  });
+
+  PAGINAS.inicio = function (d) {
+    var caja = $("[data-destacadas]");
+    if (caja) {
+      var dest = d.propiedades.filter(function (p) { return p.destacada === true; });
+      if (!dest.length) dest = d.propiedades.slice(0, 3);
+      caja.classList.remove("cargando");
+      if (!d.propiedades.length) sinDatos(caja);
+      else caja.innerHTML = dest.slice(0, 6).map(function (p) { return tarjeta(p); }).join("");
+    }
+  };
+
+  /*@@PAGINAS@@*/
+
+  if (!window.fetch || !window.Promise) return;
+  cargar().then(function (d) {
+    safe(function () { comun(d); });
+    if (PAGINAS[PAGINA]) safe(function () { PAGINAS[PAGINA](d); });
   });
 })();
