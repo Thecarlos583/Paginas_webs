@@ -3,7 +3,9 @@
     "id": "paseo-lancha-cayos",
     "nombre": "Paseo en lancha a los cayos",
     "tipo": "yate",
+    "ambito": "nacional",
     "destino": "venezuela",
+    "zona": "tucacas",
     "duracion": "Unas 6 horas",
     "resumen": "Sale en la mañana, pasa el día en un cayo y regresa en la tarde.",
     "incluye": [
@@ -15,13 +17,16 @@
     "fotos": [
       "fotos/yate-1.webp"
     ],
-    "ejemplo": true
+    "ejemplo": true,
+    "activa": true
   },
   {
     "id": "yate-por-el-dia",
     "nombre": "Yate por el día",
     "tipo": "yate",
+    "ambito": "nacional",
     "destino": "venezuela",
+    "zona": "tucacas",
     "duracion": "Unas 8 horas",
     "resumen": "El barco es suyo todo el día, con capitán, para fondear donde esté mejor el mar.",
     "incluye": [
@@ -33,13 +38,16 @@
     "fotos": [
       "fotos/yate-2.webp"
     ],
-    "ejemplo": true
+    "ejemplo": true,
+    "activa": true
   },
   {
     "id": "atardecer-en-yate",
     "nombre": "Atardecer en yate",
     "tipo": "yate",
+    "ambito": "nacional",
     "destino": "venezuela",
+    "zona": "tucacas",
     "duracion": "Unas 2 horas",
     "resumen": "Se sale cuando baja el calor y se apaga el motor frente al sol.",
     "incluye": [
@@ -51,57 +59,7 @@
     "fotos": [
       "fotos/yate-3.webp"
     ],
-    "ejemplo": true
-  },
-  {
-    "id": "tour-cayos-chichiriviche",
-    "nombre": "Tour por los cayos de Chichiriviche",
-    "tipo": "tour",
-    "destino": "venezuela",
-    "duracion": "Un día",
-    "resumen": "Un día de playa en los cayos del lado de Chichiriviche.",
-    "incluye": [
-      "Traslado en lancha",
-      "Tiempo libre en el cayo"
-    ],
-    "precio_referencia": "Por confirmar",
-    "fotos": [
-      "fotos/galeria-6.webp"
-    ],
-    "ejemplo": true
-  },
-  {
-    "id": "tour-snorkel-morrocoy",
-    "nombre": "Snorkel en Morrocoy",
-    "tipo": "tour",
-    "destino": "venezuela",
-    "duracion": "Medio día",
-    "resumen": "Para ver el fondo del mar en las zonas de agua clara del parque.",
-    "incluye": [
-      "Traslado en lancha",
-      "Equipo de snorkel"
-    ],
-    "precio_referencia": "Por confirmar",
-    "fotos": [
-      "fotos/galeria-3.webp"
-    ],
-    "ejemplo": true
-  },
-  {
-    "id": "tour-medanos-coro",
-    "nombre": "Tour a los Médanos de Coro",
-    "tipo": "tour",
-    "destino": "venezuela",
-    "duracion": "Un día",
-    "resumen": "Un día entre las dunas de Falcón y el centro colonial de Coro.",
-    "incluye": [
-      "Traslado",
-      "Guía"
-    ],
-    "precio_referencia": "Por confirmar",
-    "fotos": [
-      "https://images.unsplash.com/photo-1509316785289-025f5b846b35?auto=format&fit=crop&q=70"
-    ],
-    "ejemplo": true
+    "ejemplo": true,
+    "activa": true
   }
 ]

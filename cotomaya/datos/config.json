@@ -13,16 +13,16 @@
   "zona_base": "Tucacas, Falcón",
   "categorias": {
     "A": {
-      "nombre": "Categoría A",
-      "descripcion": ""
+      "nombre": "Lujo",
+      "descripcion": "Propiedades de lujo, con acabados y servicios de primer nivel."
     },
     "B": {
-      "nombre": "Categoría B",
-      "descripcion": ""
+      "nombre": "VIP",
+      "descripcion": "Excelente servicio y comodidad, sin llegar a ser de lujo."
     },
     "C": {
-      "nombre": "Categoría C",
-      "descripcion": ""
+      "nombre": "Standard",
+      "descripcion": "Opciones cómodas y prácticas para disfrutar la playa."
     }
   },
   "tipos": {
@@ -45,13 +45,19 @@
     "penthouse": {
       "singular": "Penthouse",
       "plural": "Penthouse"
+    },
+    "habitacion": {
+      "singular": "Habitación con desayuno",
+      "plural": "Habitaciones con desayuno"
     }
   },
   "mensajes": {
     "general": "Hola, quisiera información para reservar con Cotomaya Venezuela.",
-    "propiedad": "Hola, me interesa la propiedad {propiedad} en {zona}. ¿Tienen disponibilidad para…?",
+    "propiedad": "Hola, me interesa la propiedad \"{propiedad}\" en {zona}. ¿Tienen disponibilidad para…?",
     "tour": "Hola, me interesa {tour} con Cotomaya Venezuela. ¿Qué fechas tienen disponibles?",
-    "destino": "Hola, quisiera opciones de hospedaje en {destino} con Cotomaya Venezuela.",
+    "zona": "Hola, quisiera opciones de hospedaje en {zona} con Cotomaya Venezuela.",
+    "proximamente": "Hola, quiero saber cuando abran hospedajes en {zona} con Cotomaya Venezuela.",
+    "tours_pronto": "Hola, quisiera saber qué tours {ambito} tienen con Cotomaya Venezuela.",
     "sin_resultados": "Hola, estoy buscando un hospedaje con Cotomaya Venezuela y no encontré lo que necesito. ¿Me pueden ayudar?"
   }
 }
