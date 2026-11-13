@@ -1,8 +1,8 @@
 """Prepara las fotos de UNA propiedad de Cotomaya y las anota solas en datos/propiedades.json.
 
 Uso (desde la carpeta de la web, la que tiene index.html):
-    python herramientas/preparar-fotos.py "C:/ruta/a/las/fotos originales" villa-la-vizcaya
-    python herramientas/preparar-fotos.py "C:/ruta/fotos nuevas" villa-la-vizcaya --agregar
+    python herramientas/preparar-fotos.py "C:/ruta/a/las/fotos originales" casa-aurora-tucacas
+    python herramientas/preparar-fotos.py "C:/ruta/fotos nuevas" casa-aurora-tucacas --agregar
 
 Qué hace:
   1. Toma las fotos JPG, PNG, WEBP o HEIC de la carpeta, en orden por nombre
@@ -50,7 +50,7 @@ def main():
         sys.exit(1)
     origen, pid = Path(args[0]), args[1].strip()
     if not re.fullmatch(r"[a-z0-9]+(-[a-z0-9]+)*", pid):
-        sys.exit(f'El id "{pid}" no sirve: use minúsculas, números y guiones, sin espacios ni acentos (ejemplo: villa-la-vizcaya).')
+        sys.exit(f'El id "{pid}" no sirve: use minúsculas, números y guiones, sin espacios ni acentos (ejemplo: casa-aurora-tucacas).')
     if not origen.is_dir():
         sys.exit(f"No encuentro la carpeta: {origen}")
 
@@ -102,7 +102,7 @@ def main():
         print("Copie el bloque de otra propiedad, cámbiele el id por este y pegue esta lista en \"fotos\":")
         print(json.dumps(nuevas, ensure_ascii=False, indent=2))
     else:
-        previas = [x for x in prop.get("fotos", []) if isinstance(x, str) and x.startswith(pid + "/")] if agregar else []
+        previas = [x for x in prop.get("fotos", []) if (x if isinstance(x, str) else (x or {}).get("archivo", "")).startswith(pid + "/")] if agregar else []
         prop["fotos"] = previas + nuevas
         JSON_PROP.write_text(json.dumps(datos, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         print(f'\nListo: "{prop.get("nombre", pid)}" tiene ahora {len(prop["fotos"])} fotos en propiedades.json.')

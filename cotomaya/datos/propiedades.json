@@ -26,7 +26,88 @@
       "Mascotas sin costo extra"
     ],
     "nota": "Lencería y toallas no incluidas. Traslados en lancha y tours aparte.",
-    "fotos": [],
+    "fotos": [
+      {
+        "archivo": "condo-ciudad-flamingo/01.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "condo-ciudad-flamingo/02.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "condo-ciudad-flamingo/03.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "condo-ciudad-flamingo/04.webp",
+        "alt": "Paseo en lancha"
+      },
+      {
+        "archivo": "condo-ciudad-flamingo/05.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "condo-ciudad-flamingo/06.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "condo-ciudad-flamingo/07.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "condo-ciudad-flamingo/08.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "condo-ciudad-flamingo/09.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "condo-ciudad-flamingo/10.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "condo-ciudad-flamingo/11.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "condo-ciudad-flamingo/12.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "condo-ciudad-flamingo/13.webp",
+        "alt": "Comedor"
+      },
+      {
+        "archivo": "condo-ciudad-flamingo/14.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "condo-ciudad-flamingo/15.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "condo-ciudad-flamingo/16.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "condo-ciudad-flamingo/17.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "condo-ciudad-flamingo/18.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "condo-ciudad-flamingo/19.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "condo-ciudad-flamingo/20.webp",
+        "alt": "Baño"
+      }
+    ],
     "videos": [],
     "enlaces": {
       "airbnb": "https://www.airbnb.com/rooms/1726978302943221768",
@@ -64,7 +145,88 @@
       "Estacionamiento"
     ],
     "nota": "No se admiten mascotas.",
-    "fotos": [],
+    "fotos": [
+      {
+        "archivo": "villa-naturaleza-sanare/01.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "villa-naturaleza-sanare/02.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "villa-naturaleza-sanare/03.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "villa-naturaleza-sanare/04.webp",
+        "alt": "Paseo en lancha"
+      },
+      {
+        "archivo": "villa-naturaleza-sanare/05.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "villa-naturaleza-sanare/06.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "villa-naturaleza-sanare/07.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "villa-naturaleza-sanare/08.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "villa-naturaleza-sanare/09.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "villa-naturaleza-sanare/10.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "villa-naturaleza-sanare/11.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "villa-naturaleza-sanare/12.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "villa-naturaleza-sanare/13.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "villa-naturaleza-sanare/14.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "villa-naturaleza-sanare/15.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "villa-naturaleza-sanare/16.webp",
+        "alt": "Exterior"
+      },
+      {
+        "archivo": "villa-naturaleza-sanare/17.webp",
+        "alt": "Exterior"
+      },
+      {
+        "archivo": "villa-naturaleza-sanare/18.webp",
+        "alt": "Exterior"
+      },
+      {
+        "archivo": "villa-naturaleza-sanare/19.webp",
+        "alt": "Exterior"
+      },
+      {
+        "archivo": "villa-naturaleza-sanare/20.webp",
+        "alt": "Piscina"
+      }
+    ],
     "videos": [],
     "enlaces": {
       "airbnb": "https://www.airbnb.com/rooms/1363252481385140623",
@@ -103,7 +265,88 @@
       "Estacionamiento"
     ],
     "nota": "",
-    "fotos": [],
+    "fotos": [
+      {
+        "archivo": "apto-muelle-chichiriviche/01.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "apto-muelle-chichiriviche/02.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "apto-muelle-chichiriviche/03.webp",
+        "alt": "Comedor"
+      },
+      {
+        "archivo": "apto-muelle-chichiriviche/04.webp",
+        "alt": "Paseo en lancha"
+      },
+      {
+        "archivo": "apto-muelle-chichiriviche/05.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "apto-muelle-chichiriviche/06.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "apto-muelle-chichiriviche/07.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "apto-muelle-chichiriviche/08.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "apto-muelle-chichiriviche/09.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "apto-muelle-chichiriviche/10.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "apto-muelle-chichiriviche/11.webp",
+        "alt": "Comedor"
+      },
+      {
+        "archivo": "apto-muelle-chichiriviche/12.webp",
+        "alt": "Comedor"
+      },
+      {
+        "archivo": "apto-muelle-chichiriviche/13.webp",
+        "alt": "Comedor"
+      },
+      {
+        "archivo": "apto-muelle-chichiriviche/14.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "apto-muelle-chichiriviche/15.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "apto-muelle-chichiriviche/16.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "apto-muelle-chichiriviche/17.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "apto-muelle-chichiriviche/18.webp",
+        "alt": "Exterior"
+      },
+      {
+        "archivo": "apto-muelle-chichiriviche/19.webp",
+        "alt": "Exterior"
+      },
+      {
+        "archivo": "apto-muelle-chichiriviche/20.webp",
+        "alt": "Exterior"
+      }
+    ],
     "videos": [],
     "enlaces": {
       "airbnb": "https://www.airbnb.com/rooms/1344280578135242839",
@@ -143,7 +386,88 @@
       "Mascotas permitidas"
     ],
     "nota": "Las mascotas tienen un costo adicional.",
-    "fotos": [],
+    "fotos": [
+      {
+        "archivo": "casa-playa-pet-chichiriviche/01.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "casa-playa-pet-chichiriviche/02.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "casa-playa-pet-chichiriviche/03.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "casa-playa-pet-chichiriviche/04.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "casa-playa-pet-chichiriviche/05.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "casa-playa-pet-chichiriviche/06.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "casa-playa-pet-chichiriviche/07.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "casa-playa-pet-chichiriviche/08.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "casa-playa-pet-chichiriviche/09.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "casa-playa-pet-chichiriviche/10.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "casa-playa-pet-chichiriviche/11.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "casa-playa-pet-chichiriviche/12.webp",
+        "alt": "Comedor"
+      },
+      {
+        "archivo": "casa-playa-pet-chichiriviche/13.webp",
+        "alt": "Comedor"
+      },
+      {
+        "archivo": "casa-playa-pet-chichiriviche/14.webp",
+        "alt": "Comedor"
+      },
+      {
+        "archivo": "casa-playa-pet-chichiriviche/15.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "casa-playa-pet-chichiriviche/16.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "casa-playa-pet-chichiriviche/17.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "casa-playa-pet-chichiriviche/18.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "casa-playa-pet-chichiriviche/19.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "casa-playa-pet-chichiriviche/20.webp",
+        "alt": "Baño"
+      }
+    ],
     "videos": [],
     "enlaces": {
       "airbnb": "https://www.airbnb.com/rooms/1343691096017597181",
@@ -180,7 +504,88 @@
       "1 puesto de estacionamiento"
     ],
     "nota": "Hasta 7 personas con costo adicional. No se admiten mascotas.",
-    "fotos": [],
+    "fotos": [
+      {
+        "archivo": "frente-al-mar-1hab-chichiriviche/01.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "frente-al-mar-1hab-chichiriviche/02.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "frente-al-mar-1hab-chichiriviche/03.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "frente-al-mar-1hab-chichiriviche/04.webp",
+        "alt": "Comedor"
+      },
+      {
+        "archivo": "frente-al-mar-1hab-chichiriviche/05.webp",
+        "alt": "Exterior"
+      },
+      {
+        "archivo": "frente-al-mar-1hab-chichiriviche/06.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "frente-al-mar-1hab-chichiriviche/07.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "frente-al-mar-1hab-chichiriviche/08.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "frente-al-mar-1hab-chichiriviche/09.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "frente-al-mar-1hab-chichiriviche/10.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "frente-al-mar-1hab-chichiriviche/11.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "frente-al-mar-1hab-chichiriviche/12.webp",
+        "alt": "Playa y mar"
+      },
+      {
+        "archivo": "frente-al-mar-1hab-chichiriviche/13.webp",
+        "alt": "Comedor"
+      },
+      {
+        "archivo": "frente-al-mar-1hab-chichiriviche/14.webp",
+        "alt": "Comedor"
+      },
+      {
+        "archivo": "frente-al-mar-1hab-chichiriviche/15.webp",
+        "alt": "Comedor"
+      },
+      {
+        "archivo": "frente-al-mar-1hab-chichiriviche/16.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "frente-al-mar-1hab-chichiriviche/17.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "frente-al-mar-1hab-chichiriviche/18.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "frente-al-mar-1hab-chichiriviche/19.webp",
+        "alt": "Exterior"
+      },
+      {
+        "archivo": "frente-al-mar-1hab-chichiriviche/20.webp",
+        "alt": "Exterior"
+      }
+    ],
     "videos": [],
     "enlaces": {
       "airbnb": "https://www.airbnb.com/rooms/1716168771173910159",
@@ -219,7 +624,88 @@
       "1 puesto de estacionamiento"
     ],
     "nota": "No se admiten mascotas.",
-    "fotos": [],
+    "fotos": [
+      {
+        "archivo": "frente-al-mar-2hab-chichiriviche/01.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "frente-al-mar-2hab-chichiriviche/02.webp",
+        "alt": "Playa y mar"
+      },
+      {
+        "archivo": "frente-al-mar-2hab-chichiriviche/03.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "frente-al-mar-2hab-chichiriviche/04.webp",
+        "alt": "Exterior"
+      },
+      {
+        "archivo": "frente-al-mar-2hab-chichiriviche/05.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "frente-al-mar-2hab-chichiriviche/06.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "frente-al-mar-2hab-chichiriviche/07.webp",
+        "alt": "Paseo en lancha"
+      },
+      {
+        "archivo": "frente-al-mar-2hab-chichiriviche/08.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "frente-al-mar-2hab-chichiriviche/09.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "frente-al-mar-2hab-chichiriviche/10.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "frente-al-mar-2hab-chichiriviche/11.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "frente-al-mar-2hab-chichiriviche/12.webp",
+        "alt": "Comedor"
+      },
+      {
+        "archivo": "frente-al-mar-2hab-chichiriviche/13.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "frente-al-mar-2hab-chichiriviche/14.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "frente-al-mar-2hab-chichiriviche/15.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "frente-al-mar-2hab-chichiriviche/16.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "frente-al-mar-2hab-chichiriviche/17.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "frente-al-mar-2hab-chichiriviche/18.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "frente-al-mar-2hab-chichiriviche/19.webp",
+        "alt": "Parrillera"
+      },
+      {
+        "archivo": "frente-al-mar-2hab-chichiriviche/20.webp",
+        "alt": "Exterior"
+      }
+    ],
     "videos": [],
     "enlaces": {
       "airbnb": "https://www.airbnb.com/rooms/1682675569125205769",
@@ -257,7 +743,88 @@
       "Tanque de agua"
     ],
     "nota": "Lencería y toallas con costo adicional.",
-    "fotos": [],
+    "fotos": [
+      {
+        "archivo": "casa-vista-al-mar-tucacas/01.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "casa-vista-al-mar-tucacas/02.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "casa-vista-al-mar-tucacas/03.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "casa-vista-al-mar-tucacas/04.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "casa-vista-al-mar-tucacas/05.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "casa-vista-al-mar-tucacas/06.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "casa-vista-al-mar-tucacas/07.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "casa-vista-al-mar-tucacas/08.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "casa-vista-al-mar-tucacas/09.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "casa-vista-al-mar-tucacas/10.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "casa-vista-al-mar-tucacas/11.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "casa-vista-al-mar-tucacas/12.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "casa-vista-al-mar-tucacas/13.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "casa-vista-al-mar-tucacas/14.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "casa-vista-al-mar-tucacas/15.webp",
+        "alt": "Exterior"
+      },
+      {
+        "archivo": "casa-vista-al-mar-tucacas/16.webp",
+        "alt": "Exterior"
+      },
+      {
+        "archivo": "casa-vista-al-mar-tucacas/17.webp",
+        "alt": "Exterior"
+      },
+      {
+        "archivo": "casa-vista-al-mar-tucacas/18.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "casa-vista-al-mar-tucacas/19.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "casa-vista-al-mar-tucacas/20.webp",
+        "alt": "Foto de la propiedad"
+      }
+    ],
     "videos": [],
     "enlaces": {
       "airbnb": "https://www.airbnb.com/rooms/1681389156072156478",
@@ -293,7 +860,88 @@
       "Estacionamiento"
     ],
     "nota": "",
-    "fotos": [],
+    "fotos": [
+      {
+        "archivo": "margarita-beach-house-santa-marta/01.webp",
+        "alt": "Terraza"
+      },
+      {
+        "archivo": "margarita-beach-house-santa-marta/02.webp",
+        "alt": "Terraza"
+      },
+      {
+        "archivo": "margarita-beach-house-santa-marta/03.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "margarita-beach-house-santa-marta/04.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "margarita-beach-house-santa-marta/05.webp",
+        "alt": "Terraza"
+      },
+      {
+        "archivo": "margarita-beach-house-santa-marta/06.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "margarita-beach-house-santa-marta/07.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "margarita-beach-house-santa-marta/08.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "margarita-beach-house-santa-marta/09.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "margarita-beach-house-santa-marta/10.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "margarita-beach-house-santa-marta/11.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "margarita-beach-house-santa-marta/12.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "margarita-beach-house-santa-marta/13.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "margarita-beach-house-santa-marta/14.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "margarita-beach-house-santa-marta/15.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "margarita-beach-house-santa-marta/16.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "margarita-beach-house-santa-marta/17.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "margarita-beach-house-santa-marta/18.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "margarita-beach-house-santa-marta/19.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "margarita-beach-house-santa-marta/20.webp",
+        "alt": "Terraza"
+      }
+    ],
     "videos": [],
     "enlaces": {
       "airbnb": "https://www.airbnb.com/rooms/1050954911078802272",
@@ -331,7 +979,88 @@
       "Estacionamiento"
     ],
     "nota": "",
-    "fotos": [],
+    "fotos": [
+      {
+        "archivo": "apto-vista-playa-tucacas/01.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "apto-vista-playa-tucacas/02.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "apto-vista-playa-tucacas/03.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "apto-vista-playa-tucacas/04.webp",
+        "alt": "Terraza"
+      },
+      {
+        "archivo": "apto-vista-playa-tucacas/05.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "apto-vista-playa-tucacas/06.webp",
+        "alt": "Playa y mar"
+      },
+      {
+        "archivo": "apto-vista-playa-tucacas/07.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "apto-vista-playa-tucacas/08.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "apto-vista-playa-tucacas/09.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "apto-vista-playa-tucacas/10.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "apto-vista-playa-tucacas/11.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "apto-vista-playa-tucacas/12.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "apto-vista-playa-tucacas/13.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "apto-vista-playa-tucacas/14.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "apto-vista-playa-tucacas/15.webp",
+        "alt": "Exterior"
+      },
+      {
+        "archivo": "apto-vista-playa-tucacas/16.webp",
+        "alt": "Exterior"
+      },
+      {
+        "archivo": "apto-vista-playa-tucacas/17.webp",
+        "alt": "Parrillera"
+      },
+      {
+        "archivo": "apto-vista-playa-tucacas/18.webp",
+        "alt": "Exterior"
+      },
+      {
+        "archivo": "apto-vista-playa-tucacas/19.webp",
+        "alt": "Exterior"
+      },
+      {
+        "archivo": "apto-vista-playa-tucacas/20.webp",
+        "alt": "Terraza"
+      }
+    ],
     "videos": [],
     "enlaces": {
       "airbnb": "https://www.airbnb.com/rooms/1493749473861086773",
@@ -369,7 +1098,88 @@
       "Estacionamiento"
     ],
     "nota": "La piscina tiene horario.",
-    "fotos": [],
+    "fotos": [
+      {
+        "archivo": "familiar-salida-playa-tucacas/01.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "familiar-salida-playa-tucacas/02.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "familiar-salida-playa-tucacas/03.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "familiar-salida-playa-tucacas/04.webp",
+        "alt": "Exterior"
+      },
+      {
+        "archivo": "familiar-salida-playa-tucacas/05.webp",
+        "alt": "Jardín"
+      },
+      {
+        "archivo": "familiar-salida-playa-tucacas/06.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "familiar-salida-playa-tucacas/07.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "familiar-salida-playa-tucacas/08.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "familiar-salida-playa-tucacas/09.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "familiar-salida-playa-tucacas/10.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "familiar-salida-playa-tucacas/11.webp",
+        "alt": "Jardín"
+      },
+      {
+        "archivo": "familiar-salida-playa-tucacas/12.webp",
+        "alt": "Jardín"
+      },
+      {
+        "archivo": "familiar-salida-playa-tucacas/13.webp",
+        "alt": "Jardín"
+      },
+      {
+        "archivo": "familiar-salida-playa-tucacas/14.webp",
+        "alt": "Terraza"
+      },
+      {
+        "archivo": "familiar-salida-playa-tucacas/15.webp",
+        "alt": "Exterior"
+      },
+      {
+        "archivo": "familiar-salida-playa-tucacas/16.webp",
+        "alt": "Exterior"
+      },
+      {
+        "archivo": "familiar-salida-playa-tucacas/17.webp",
+        "alt": "Exterior"
+      },
+      {
+        "archivo": "familiar-salida-playa-tucacas/18.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "familiar-salida-playa-tucacas/19.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "familiar-salida-playa-tucacas/20.webp",
+        "alt": "Foto de la propiedad"
+      }
+    ],
     "videos": [],
     "enlaces": {
       "airbnb": "https://www.airbnb.com/rooms/1362648293878070325",
@@ -406,7 +1216,88 @@
       "Mascotas con aprobación"
     ],
     "nota": "Mascotas con aprobación previa y costo adicional. Traslados en lancha a los cayos aparte.",
-    "fotos": [],
+    "fotos": [
+      {
+        "archivo": "casa-guacharaca-vip-lodge/01.webp",
+        "alt": "Jardín"
+      },
+      {
+        "archivo": "casa-guacharaca-vip-lodge/02.webp",
+        "alt": "Terraza"
+      },
+      {
+        "archivo": "casa-guacharaca-vip-lodge/03.webp",
+        "alt": "Jardín"
+      },
+      {
+        "archivo": "casa-guacharaca-vip-lodge/04.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "casa-guacharaca-vip-lodge/05.webp",
+        "alt": "Terraza"
+      },
+      {
+        "archivo": "casa-guacharaca-vip-lodge/06.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "casa-guacharaca-vip-lodge/07.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "casa-guacharaca-vip-lodge/08.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "casa-guacharaca-vip-lodge/09.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "casa-guacharaca-vip-lodge/10.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "casa-guacharaca-vip-lodge/11.webp",
+        "alt": "Comedor"
+      },
+      {
+        "archivo": "casa-guacharaca-vip-lodge/12.webp",
+        "alt": "Comedor"
+      },
+      {
+        "archivo": "casa-guacharaca-vip-lodge/13.webp",
+        "alt": "Comedor"
+      },
+      {
+        "archivo": "casa-guacharaca-vip-lodge/14.webp",
+        "alt": "Comedor"
+      },
+      {
+        "archivo": "casa-guacharaca-vip-lodge/15.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "casa-guacharaca-vip-lodge/16.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "casa-guacharaca-vip-lodge/17.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "casa-guacharaca-vip-lodge/18.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "casa-guacharaca-vip-lodge/19.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "casa-guacharaca-vip-lodge/20.webp",
+        "alt": "Baño"
+      }
+    ],
     "videos": [],
     "enlaces": {
       "airbnb": "https://www.airbnb.com/rooms/808033026351131662",
@@ -444,7 +1335,88 @@
       "Mascotas permitidas"
     ],
     "nota": "Incluye lencería.",
-    "fotos": [],
+    "fotos": [
+      {
+        "archivo": "elige-tu-escape-sanare/01.webp",
+        "alt": "Terraza"
+      },
+      {
+        "archivo": "elige-tu-escape-sanare/02.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "elige-tu-escape-sanare/03.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "elige-tu-escape-sanare/04.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "elige-tu-escape-sanare/05.webp",
+        "alt": "Playa y mar"
+      },
+      {
+        "archivo": "elige-tu-escape-sanare/06.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "elige-tu-escape-sanare/07.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "elige-tu-escape-sanare/08.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "elige-tu-escape-sanare/09.webp",
+        "alt": "Comedor"
+      },
+      {
+        "archivo": "elige-tu-escape-sanare/10.webp",
+        "alt": "Comedor"
+      },
+      {
+        "archivo": "elige-tu-escape-sanare/11.webp",
+        "alt": "Comedor"
+      },
+      {
+        "archivo": "elige-tu-escape-sanare/12.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "elige-tu-escape-sanare/13.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "elige-tu-escape-sanare/14.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "elige-tu-escape-sanare/15.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "elige-tu-escape-sanare/16.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "elige-tu-escape-sanare/17.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "elige-tu-escape-sanare/18.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "elige-tu-escape-sanare/19.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "elige-tu-escape-sanare/20.webp",
+        "alt": "Baño"
+      }
+    ],
     "videos": [],
     "enlaces": {
       "airbnb": "https://www.airbnb.com/rooms/1339273157963770335",
@@ -482,7 +1454,88 @@
       "Estacionamiento"
     ],
     "nota": "La capilla tiene costo adicional. Incluye lencería, no toallas.",
-    "fotos": [],
+    "fotos": [
+      {
+        "archivo": "oasis-familiar-sanare/01.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "oasis-familiar-sanare/02.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "oasis-familiar-sanare/03.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "oasis-familiar-sanare/04.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "oasis-familiar-sanare/05.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "oasis-familiar-sanare/06.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "oasis-familiar-sanare/07.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "oasis-familiar-sanare/08.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "oasis-familiar-sanare/09.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "oasis-familiar-sanare/10.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "oasis-familiar-sanare/11.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "oasis-familiar-sanare/12.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "oasis-familiar-sanare/13.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "oasis-familiar-sanare/14.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "oasis-familiar-sanare/15.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "oasis-familiar-sanare/16.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "oasis-familiar-sanare/17.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "oasis-familiar-sanare/18.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "oasis-familiar-sanare/19.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "oasis-familiar-sanare/20.webp",
+        "alt": "Jardín"
+      }
+    ],
     "videos": [],
     "enlaces": {
       "airbnb": "https://www.airbnb.com/rooms/1339186300632013879",
@@ -519,7 +1572,36 @@
       "Estacionamiento para 5 carros"
     ],
     "nota": "Mínimo 2 noches.",
-    "fotos": [],
+    "fotos": [
+      {
+        "archivo": "casa-aurora-tucacas/01.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "casa-aurora-tucacas/02.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "casa-aurora-tucacas/03.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "casa-aurora-tucacas/04.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "casa-aurora-tucacas/05.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "casa-aurora-tucacas/06.webp",
+        "alt": "Paseo en lancha"
+      },
+      {
+        "archivo": "casa-aurora-tucacas/07.webp",
+        "alt": "Paseo en lancha"
+      }
+    ],
     "videos": [],
     "enlaces": {
       "airbnb": "https://www.airbnb.com/rooms/1777764045451326018",
@@ -554,7 +1636,76 @@
       "Estacionamiento"
     ],
     "nota": "",
-    "fotos": [],
+    "fotos": [
+      {
+        "archivo": "escapada-para-4-tucacas/01.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "escapada-para-4-tucacas/02.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "escapada-para-4-tucacas/03.webp",
+        "alt": "Comedor"
+      },
+      {
+        "archivo": "escapada-para-4-tucacas/04.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "escapada-para-4-tucacas/05.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "escapada-para-4-tucacas/06.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "escapada-para-4-tucacas/07.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "escapada-para-4-tucacas/08.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "escapada-para-4-tucacas/09.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "escapada-para-4-tucacas/10.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "escapada-para-4-tucacas/11.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "escapada-para-4-tucacas/12.webp",
+        "alt": "Exterior"
+      },
+      {
+        "archivo": "escapada-para-4-tucacas/13.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "escapada-para-4-tucacas/14.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "escapada-para-4-tucacas/15.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "escapada-para-4-tucacas/16.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "escapada-para-4-tucacas/17.webp",
+        "alt": "Foto de la propiedad"
+      }
+    ],
     "videos": [],
     "enlaces": {
       "airbnb": "https://www.airbnb.com/rooms/1463124544530866780",
@@ -591,7 +1742,76 @@
       "Estacionamiento"
     ],
     "nota": "",
-    "fotos": [],
+    "fotos": [
+      {
+        "archivo": "habitacion-6-personas-tucacas/01.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "habitacion-6-personas-tucacas/02.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "habitacion-6-personas-tucacas/03.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "habitacion-6-personas-tucacas/04.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "habitacion-6-personas-tucacas/05.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "habitacion-6-personas-tucacas/06.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "habitacion-6-personas-tucacas/07.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "habitacion-6-personas-tucacas/08.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "habitacion-6-personas-tucacas/09.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "habitacion-6-personas-tucacas/10.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "habitacion-6-personas-tucacas/11.webp",
+        "alt": "Exterior"
+      },
+      {
+        "archivo": "habitacion-6-personas-tucacas/12.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "habitacion-6-personas-tucacas/13.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "habitacion-6-personas-tucacas/14.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "habitacion-6-personas-tucacas/15.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "habitacion-6-personas-tucacas/16.webp",
+        "alt": "Paseo en lancha"
+      },
+      {
+        "archivo": "habitacion-6-personas-tucacas/17.webp",
+        "alt": "Paseo en lancha"
+      }
+    ],
     "videos": [],
     "enlaces": {
       "airbnb": "https://www.airbnb.com/rooms/1364060848246987025",
@@ -628,7 +1848,88 @@
       "Estacionamiento"
     ],
     "nota": "Hasta 7 personas más un niño pequeño.",
-    "fotos": [],
+    "fotos": [
+      {
+        "archivo": "villa-7-personas-sanare/01.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "villa-7-personas-sanare/02.webp",
+        "alt": "Paseo en lancha"
+      },
+      {
+        "archivo": "villa-7-personas-sanare/03.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "villa-7-personas-sanare/04.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "villa-7-personas-sanare/05.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "villa-7-personas-sanare/06.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "villa-7-personas-sanare/07.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "villa-7-personas-sanare/08.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "villa-7-personas-sanare/09.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "villa-7-personas-sanare/10.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "villa-7-personas-sanare/11.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "villa-7-personas-sanare/12.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "villa-7-personas-sanare/13.webp",
+        "alt": "Exterior"
+      },
+      {
+        "archivo": "villa-7-personas-sanare/14.webp",
+        "alt": "Exterior"
+      },
+      {
+        "archivo": "villa-7-personas-sanare/15.webp",
+        "alt": "Exterior"
+      },
+      {
+        "archivo": "villa-7-personas-sanare/16.webp",
+        "alt": "Exterior"
+      },
+      {
+        "archivo": "villa-7-personas-sanare/17.webp",
+        "alt": "Terraza"
+      },
+      {
+        "archivo": "villa-7-personas-sanare/18.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "villa-7-personas-sanare/19.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "villa-7-personas-sanare/20.webp",
+        "alt": "Piscina"
+      }
+    ],
     "videos": [],
     "enlaces": {
       "airbnb": "https://www.airbnb.com/rooms/1490110677233441961",
