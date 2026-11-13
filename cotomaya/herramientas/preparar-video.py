@@ -1,7 +1,7 @@
 """Comprime un video de una propiedad de Cotomaya, le saca la portada y lo anota en datos/propiedades.json.
 
 Uso (desde la carpeta de la web, la que tiene index.html):
-    python herramientas/preparar-video.py "C:/ruta/video original.mp4" villa-la-vizcaya
+    python herramientas/preparar-video.py "C:/ruta/video original.mp4" casa-aurora-tucacas
 
 Qué hace:
   - Lo pasa a MP4 H.264, máximo 720 px de ancho, unos 800 kbps, audio AAC 64 kbps,
@@ -60,7 +60,7 @@ def main():
     if not origen.is_file():
         sys.exit(f"No encuentro el video: {origen}")
     if not re.fullmatch(r"[a-z0-9]+(-[a-z0-9]+)*", pid):
-        sys.exit(f'El id "{pid}" no sirve: minúsculas, números y guiones (ejemplo: villa-la-vizcaya).')
+        sys.exit(f'El id "{pid}" no sirve: minúsculas, números y guiones (ejemplo: casa-aurora-tucacas).')
     ff = buscar_ffmpeg()
     if not ff:
         sys.exit("No encuentro FFmpeg. Instálelo una vez con:  winget install Gyan.FFmpeg  y cierre y abra la terminal.")
