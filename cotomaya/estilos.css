@@ -1199,3 +1199,5 @@ h3 { font-size: 1.65rem; }
 .destino-viajes-ic { position: absolute; top: 26px; left: 22px; display: grid; place-items: center; width: 72px; height: 72px; border-radius: 50%; border: 1px solid var(--dorado); color: var(--dorado); }
 .destino-viajes-ic .ic { width: 32px; height: 32px; }
 .destino-viajes .destino-zonas span { background: var(--coral); color: var(--hondo); }
+
+.hv-tope h2:focus { outline: none; }
