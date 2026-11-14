@@ -14,7 +14,7 @@ El repo **público** con las webs de clientes, las vistas previas para prospecto
 ## Carpetas y estado
 | Carpeta | Qué es | Estado |
 |---|---|---|
-| cotomaya | Cliente. Catálogo de propiedades A/B/C, Venezuela y Colombia | Fases 1 a 5 hechas el 13-nov con datos reales de 17 propiedades. Falta la revisión de la clienta |
+| cotomaya | Cliente. Catálogo de propiedades A/B/C, Venezuela y Colombia, y servicios de viaje | 14-nov (prompt-33): WhatsApp nuevos (principal y secundario), `viajes.html` con 5 servicios que arman la cotización por WhatsApp, identidad nueva desde el logo (petróleo, coral, dorado, arena; Cormorant), portada con atardecer animado, mapa SVG, tarjetas de vidrio, tours apilados con GSAP. Volver atrás: etiqueta `antes-de-premium`. Logo provisional: falta el original |
 | cotomaya-pruebas | Copia de prueba de Cotomaya (noindex, franja "Versión de prueba") | 14-nov: DESIGN.md, 6 animaciones, cargador y pestañas de Uiverse, botones físicos y Spline opcional (escena de ejemplo). Esperando que Carlos decida qué pasa a la real. Lista de qué copiar en su LEEME |
 | golondrinas | Cliente (Sanare) | Publicada; fotos reales nuevas el 11-nov. Faltan fotos y videos sin editar |
 | quinta-escape | Cliente | Publicada el 7-nov con fotos viejas; ahora hay churuata. Piloto de Cupo |
@@ -26,7 +26,7 @@ El repo **público** con las webs de clientes, las vistas previas para prospecto
 | vista-previa/* | Vistas previas viejas (El Manantial, Fisiosalud, Doña Casilda, Las Ross, etc.) | Publicadas |
 
 ## Pendientes, en orden de prioridad
-1. Cotomaya: que la clienta la revise, y ajustar.
+1. Cotomaya: que la clienta la revise, y ajustar. Falta el logo original (`img/logo-cotomaya.png` y cambiar `logo` en `datos/config.json`) y saber para qué es el número secundario. Para volver a la versión anterior: `git checkout antes-de-premium -- cotomaya` y commit.
    - Cotomaya pruebas: Carlos revisa los toques visuales; lo que le guste se pasa a la real por `_generadores/` (spline_escena vacío). Lo que no, se borra la carpeta. Pagos y acuerdos con cada cliente: solo en `agencia-carlos\contexto\clientes.md` (este repo es público).
 2. Golondrinas: cargar las fotos y videos que faltan cuando lleguen. Su video promocional no se sube a redes.
 3. Quinta Escape: fotos nuevas con la churuata y el botón de Cupo cuando Cupo salga.
