@@ -827,3 +827,7 @@ html:not(.js) .destino:not(:has(img)), .destino:not(:has(img)) { background: lin
 @media (prefers-reduced-motion: reduce) {
   .pestana-linea { transition: none; }
 }
+
+/* Segundo número de WhatsApp (Contacto y pie) */
+.wa-sec > span { display: grid; line-height: 1.15; }
+.wa-sec small { font-family: var(--cuerpo); font-size: .78rem; font-weight: 600; opacity: .8; letter-spacing: .01em; }

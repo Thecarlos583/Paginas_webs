@@ -45,10 +45,12 @@
   /* ------------------------------------------------------------ datos */
   var CFG = {}, D = null;
   var RESPALDO_CFG = {
-    marca: "Cotomaya Venezuela", whatsapp: "584245180022", redes: {}, categorias: {}, tipos: {},
-    mensajes: { general: "Hola, quisiera información para reservar con Cotomaya Venezuela." }
+    marca: "Cotomaya Venezuela", whatsapp_principal: "584145991961", redes: {}, categorias: {}, tipos: {},
+    mensajes: { general: "Hola Cotomaya, requiero información" }
   };
-  function waUrl(texto) { return "https://wa.me/" + (CFG.whatsapp || RESPALDO_CFG.whatsapp) + "?text=" + encodeURIComponent(texto); }
+  /* Número principal (whatsapp_principal). Se acepta el nombre viejo "whatsapp" por si alguien lo deja */
+  function numeroWa(n) { return String(n || "").replace(/\D/g, ""); }
+  function waUrl(texto, numero) { return "https://wa.me/" + numeroWa(numero || CFG.whatsapp_principal || CFG.whatsapp || RESPALDO_CFG.whatsapp_principal) + "?text=" + encodeURIComponent(texto); }
   function msg(clave, vars) {
     var m = (CFG.mensajes || {})[clave] || (CFG.mensajes || {}).general || RESPALDO_CFG.mensajes.general;
     return rellenar(m, vars || {});
@@ -249,8 +251,14 @@
     /* Número y mensajes de WhatsApp desde config.json */
     $$("[data-wa]").forEach(function (a) {
       if (a.dataset.wa === "general") a.href = waUrl(msg("general"));
+      if (a.dataset.wa === "secundario") {
+        if (!CFG.whatsapp_secundario) { a.hidden = true; return; }
+        a.href = waUrl(msg("general"), CFG.whatsapp_secundario);
+      }
     });
-    $$("[data-wa-visible]").forEach(function (s) { if (CFG.whatsapp_visible) s.textContent = CFG.whatsapp_visible; });
+    $$("[data-wa-visible]").forEach(function (s) { var v = CFG.whatsapp_principal_visible || CFG.whatsapp_visible; if (v) s.textContent = v; });
+    $$("[data-wa2-visible]").forEach(function (s) { if (CFG.whatsapp_secundario_visible) s.textContent = CFG.whatsapp_secundario_visible; });
+    $$("[data-wa2-etiqueta]").forEach(function (s) { if (CFG.etiqueta_whatsapp_secundario) s.textContent = CFG.etiqueta_whatsapp_secundario; });
     $$("[data-maps-base]").forEach(function (a) { if (CFG.ubicacion_maps) a.href = CFG.ubicacion_maps; });
     /* Redes: solo las que tengan enlace */
     var redes = CFG.redes || {}, nombres = { instagram: "Instagram", facebook: "Facebook", tiktok: "TikTok", youtube: "YouTube" };

@@ -85,7 +85,8 @@ Si una plataforma queda en `""`, su botón no aparece. TripAdvisor hoy solo acep
 
 Todo en `datos/config.json`:
 
-- `whatsapp`: el número sin `+` ni espacios (ejemplo `584245180022`). `whatsapp_visible`: como se lee (`+58 424-5180022`).
+- `whatsapp_principal`: el número principal sin `+` ni espacios (ejemplo `584145991961`). `whatsapp_principal_visible`: como se lee (`+58 414-5991961`). Lo usan todos los botones de la página.
+- `whatsapp_secundario` y `whatsapp_secundario_visible`: el segundo número, que sale en Contacto y en el pie. `etiqueta_whatsapp_secundario`: el texto que va encima (por ahora "Otro número de contacto"). Si deja `whatsapp_secundario` vacío, ese botón desaparece.
 - `redes`: pegue el enlace de Instagram, Facebook, TikTok o YouTube. Vacía `""` = no se muestra.
 - `logo`: cuando haya logo, guárdelo como `fotos/logo.webp` y escriba `"logo": "fotos/logo.webp"`.
 - `categorias`: cambie el `nombre` y la `descripcion` de A (Lujo), B (VIP) y C (Standard). La descripción sale en la ficha y en el filtro.

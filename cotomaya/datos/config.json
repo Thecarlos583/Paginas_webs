@@ -1,8 +1,11 @@
 {
   "_ayuda": "Datos de la marca. Cambie aquí el WhatsApp, las redes, los nombres de las categorías y los mensajes. Un campo vacío \"\" no se muestra.",
   "marca": "Cotomaya Venezuela",
-  "whatsapp": "584245180022",
-  "whatsapp_visible": "+58 424-5180022",
+  "whatsapp_principal": "584145991961",
+  "whatsapp_principal_visible": "+58 414-5991961",
+  "whatsapp_secundario": "584142506516",
+  "whatsapp_secundario_visible": "+58 414-2506516",
+  "etiqueta_whatsapp_secundario": "Otro número de contacto",
   "redes": {
     "instagram": "",
     "facebook": "",
@@ -53,7 +56,7 @@
     }
   },
   "mensajes": {
-    "general": "Hola, quisiera información para reservar con Cotomaya Venezuela.",
+    "general": "Hola Cotomaya, requiero información",
     "propiedad": "Hola, me interesa la propiedad \"{propiedad}\" en {zona}. ¿Tienen disponibilidad para…?",
     "tour": "Hola, me interesa {tour} con Cotomaya Venezuela. ¿Qué fechas tienen disponibles?",
     "zona": "Hola, quisiera opciones de hospedaje en {zona} con Cotomaya Venezuela.",
