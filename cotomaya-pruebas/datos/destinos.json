@@ -1,0 +1,72 @@
+{
+  "_ayuda": "Ámbitos (nacional e internacional), sus países y las zonas de cada país. El id de cada zona es el que va en \"zona\" de cada propiedad. Una zona con \"proximamente\": true se muestra con la etiqueta Próximamente y un botón de WhatsApp.",
+  "ambitos": [
+    {
+      "id": "nacional",
+      "nombre": "Nacionales",
+      "descripcion": "Hospedajes y tours en Venezuela.",
+      "destinos": [
+        {
+          "id": "venezuela",
+          "nombre": "Venezuela",
+          "foto": "",
+          "descripcion": "Villas, casas, apartamentos y habitaciones en la costa de Falcón, cerca de los cayos de Morrocoy.",
+          "zonas": [
+            {
+              "id": "tucacas",
+              "nombre": "Tucacas, Falcón",
+              "foto": "",
+              "descripcion": "Casas, apartamentos frente a la playa y habitaciones con desayuno, cerca de los muelles de salida a los cayos de Morrocoy."
+            },
+            {
+              "id": "chichiriviche",
+              "nombre": "Chichiriviche, Falcón",
+              "foto": "",
+              "descripcion": "Apartamentos frente al mar con muelle y una casa grande cerca del Golfete de Cuare y del Parque Nacional Morrocoy."
+            },
+            {
+              "id": "sanare",
+              "nombre": "Sanare, Morrocoy (Falcón)",
+              "foto": "",
+              "descripcion": "Villas y casas con piscina rodeadas de naturaleza, cerca de las playas de Morrocoy."
+            },
+            {
+              "id": "ciudad-flamingo",
+              "nombre": "Ciudad Flamingo, Falcón",
+              "foto": "",
+              "descripcion": "Junto al Refugio de Fauna Silvestre de Cuare y cerca de los embarcaderos hacia los cayos."
+            },
+            {
+              "id": "isla-margarita",
+              "nombre": "Isla Margarita",
+              "foto": "",
+              "proximamente": true,
+              "descripcion": "Muy pronto tendremos un apartamento en Isla Margarita."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "internacional",
+      "nombre": "Internacionales",
+      "descripcion": "Hospedajes y tours fuera de Venezuela.",
+      "destinos": [
+        {
+          "id": "colombia",
+          "nombre": "Colombia",
+          "foto": "",
+          "descripcion": "Hospedajes de vacaciones en Santa Marta, en el Caribe colombiano.",
+          "zonas": [
+            {
+              "id": "santa-marta",
+              "nombre": "Santa Marta, Magdalena",
+              "foto": "",
+              "descripcion": "Cerca del mar, de Playa Bello Horizonte y del aeropuerto de Santa Marta."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

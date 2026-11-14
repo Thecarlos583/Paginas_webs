@@ -1,0 +1,161 @@
+/* =====================================================================
+   Cotomaya · movimiento y piezas nuevas (prueba, noviembre 2026)
+   Va DESPUÉS de estilos.css. Respeta DESIGN.md: mismos colores, radios
+   y fuentes. Solo se animan transform y opacity. Nada aparece tarde:
+   todo se ve desde el primer momento, el movimiento solo da vida.
+   Con prefers-reduced-motion, todo queda quieto (al final del archivo).
+   ===================================================================== */
+
+/* ---------------------------------------------------------------------
+   1. Portada: entrada suave al cargar, una sola vez, menos de 1 s.
+   Titular: fundido corto palabra por palabra (termina a los 0,76 s).
+   Texto y botones: solo se desplazan (sin opacidad), así el botón de
+   WhatsApp se ve y funciona desde el primer instante.
+   --------------------------------------------------------------------- */
+.js .portada-inicio h1 .p { animation: palabra .5s cubic-bezier(.2,.7,.2,1) both; animation-delay: calc(var(--i) * 55ms + 40ms); }
+.js .portada-inicio .portada-cielo p { animation: asoma .6s cubic-bezier(.2,.7,.2,1) .18s both; }
+.js .portada-inicio .portada-pie > * { animation: asoma .55s cubic-bezier(.2,.7,.2,1) both; animation-delay: calc(.26s + var(--n, 0) * 70ms); }
+.portada-inicio .portada-pie > :nth-child(2) { --n: 1; }
+.portada-inicio .portada-pie > :nth-child(3) { --n: 2; }
+.js .pase-zona .pase { animation: asoma .6s cubic-bezier(.2,.7,.2,1) .3s both; }
+@keyframes asoma { from { transform: translateY(16px); } }
+
+/* ---------------------------------------------------------------------
+   2. Tarjetas de propiedades: se elevan y la foto hace un zoom leve.
+   Computadora: al pasar el mouse. Teléfono: mientras se toca.
+   Se agranda la tira completa de fotos (no cada foto) para que las
+   fotos vecinas no se monten al deslizar.
+   --------------------------------------------------------------------- */
+.tarjeta { transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s ease; }
+.t-pista { transition: transform .9s cubic-bezier(.2,.7,.2,1); }
+@media (hover: hover) {
+  .tarjeta:hover { transform: translateY(-6px); }
+  .tarjeta:hover .t-pista { transform: scale(1.045); }
+}
+.tarjeta:active, .tarjeta:focus-within { transform: translateY(-4px); }
+.tarjeta:active .t-pista { transform: scale(1.03); }
+
+/* ---------------------------------------------------------------------
+   3. Panel de filtros en el teléfono: abre deslizándose hacia arriba y
+   cierra deslizándose hacia abajo (sitio.js le pone .cerrando 0,26 s
+   antes de ocultarlo). El fondo oscuro entra y sale con fundido.
+   --------------------------------------------------------------------- */
+@media (max-width: 899px) {
+  .filtros-caja { animation: hoja-sube .42s cubic-bezier(.22,.9,.24,1) both; }
+  .filtros-fondo { animation: velo-entra .3s ease both; }
+  .filtros.cerrando .filtros-caja { animation: hoja-baja .26s cubic-bezier(.5,0,.75,0) both; }
+  .filtros.cerrando .filtros-fondo { animation: velo-sale .26s ease both; }
+}
+@keyframes hoja-sube { from { transform: translateY(100%); } }
+@keyframes hoja-baja { to { transform: translateY(100%); } }
+@keyframes velo-entra { from { opacity: 0; } }
+@keyframes velo-sale { to { opacity: 0; } }
+
+/* ---------------------------------------------------------------------
+   4. Contador de resultados: el número entra desde arriba si hay más
+   resultados y desde abajo si hay menos (sitio.js pone .sube o .baja).
+   --------------------------------------------------------------------- */
+.cat-cuenta b { display: inline-block; }
+.cat-cuenta b.sube { animation: cuenta-sube .34s cubic-bezier(.2,.7,.2,1); }
+.cat-cuenta b.baja { animation: cuenta-baja .34s cubic-bezier(.2,.7,.2,1); }
+@keyframes cuenta-sube { from { opacity: 0; transform: translateY(-60%); } }
+@keyframes cuenta-baja { from { opacity: 0; transform: translateY(60%); } }
+
+/* ---------------------------------------------------------------------
+   5. Visor de fotos: abre y cierra con fundido; la foto que llega crece
+   y se aclara, la que se va se achica y se apaga (sitio.js marca la
+   foto actual con .actual mientras se desliza).
+   --------------------------------------------------------------------- */
+.visor { animation: velo-entra .22s ease both; }
+.visor.saliendo { animation: velo-sale .2s ease both; }
+.visor-pista img { opacity: .3; transform: scale(.92); transition: opacity .45s ease, transform .6s cubic-bezier(.2,.7,.2,1); }
+.visor-pista figure.actual img { opacity: 1; transform: none; }
+
+/* ---------------------------------------------------------------------
+   6. Botones "físicos": un borde inferior más oscuro (el "labio") hace
+   que parezcan una pieza con grosor; al presionar, el botón baja 3 px
+   y el labio casi desaparece, como una tecla.
+   Adaptado de Uiverse.io:
+   - labio inferior que se hunde al presionar: KhelVers, "orange-lionfish-62"
+   - brillo fino arriba (inset): BurgiSimon, "cuddly-monkey-7"
+   Licencia MIT (github.com/uiverse-io/galaxy). Colores de DESIGN.md.
+   --------------------------------------------------------------------- */
+.boton { --labio: #9A7A2B; box-shadow: inset 0 1px 0 rgba(255,255,255,.34), 0 4px 0 var(--labio); transition: transform .12s ease, background-color .18s ease; }
+.boton:active { transform: translateY(3px); box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 0 var(--labio); }
+.boton-claro { --labio: #030B17; box-shadow: inset 0 1px 0 rgba(255,255,255,.14), 0 4px 0 var(--labio); }
+.boton-claro:active { box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 1px 0 var(--labio); }
+.boton-blanco { --labio: #B4C7DC; }
+.boton-wa { --labio: #149146; }
+
+/* ---------------------------------------------------------------------
+   Uiverse · Cargador mientras se leen los JSON.
+   Adaptado de Uiverse.io by forgingdestiny, "brave-fireant-72"
+   (cinco puntos que suben y bajan como una ola). Licencia MIT
+   (github.com/uiverse-io/galaxy). Colores: dorado y azul claro.
+   El marcado va dentro de cada caja .cargando; sitio.js lo reemplaza
+   al llegar los datos. Sin JavaScript no se muestra.
+   --------------------------------------------------------------------- */
+.cargando.rejilla-tarjetas::before { content: none; }
+.cargador { grid-column: 1 / -1; display: grid; place-items: center; align-content: center; gap: 16px; min-height: 300px; border-radius: 22px; background: var(--azul-claro); color: var(--azul-medio); font-weight: 600; font-size: .95rem; text-align: center; }
+.cargador-olas { display: flex; align-items: center; gap: .5em; height: 2.4em; }
+.cargador-olas i { width: .9em; height: .9em; border-radius: 50%; background: var(--dorado); animation: cargador-ola 1.5s ease-in-out infinite; animation-delay: calc(var(--k) * .16s); }
+.cargador-olas i:nth-child(1) { --k: 0; }
+.cargador-olas i:nth-child(2) { --k: 1; }
+.cargador-olas i:nth-child(3) { --k: 2; }
+.cargador-olas i:nth-child(4) { --k: 3; }
+.cargador-olas i:nth-child(5) { --k: 4; }
+@keyframes cargador-ola { 0%, 100% { transform: translateY(.55em); } 50% { transform: translateY(-.55em); } }
+html:not(.js) .cargador { display: none; }
+.agua-4 .cargador, .agua-5 .cargador { background: rgba(255,255,255,.08); color: var(--blanco); }
+@media (max-width: 899px) {
+  .deslizable > .cargador { min-width: calc(100vw - 2 * var(--margen)); }
+}
+
+/* ---------------------------------------------------------------------
+   Uiverse · Pestañas Todos / Nacionales / Internacionales.
+   Adaptado de Uiverse.io by Pradeepsaranbishnoi, "heavy-dragonfly-92"
+   (cápsula blanca con sombra, píldora que se desliza detrás de la
+   opción elegida y globito con la cantidad). Licencia MIT
+   (github.com/uiverse-io/galaxy). Colores de DESIGN.md.
+   --------------------------------------------------------------------- */
+.pestanas-amb { padding: 5px; background: var(--fondo); box-shadow: 0 0 1px rgba(11,31,58,.25), 0 10px 26px rgba(7,21,41,.3); backdrop-filter: none; overflow: visible; }
+.pestanas-amb button { color: var(--primario); }
+.pestanas-amb button[aria-pressed="true"] { color: var(--blanco); }
+/* Mientras sitio.js no ha colocado la píldora (o sin JavaScript), la opción elegida lleva su propio fondo */
+.pestanas-amb:not(:has(.pestana-linea[style])) button[aria-pressed="true"] { background: var(--primario); }
+.pestanas-amb .pestana-linea { top: 5px; bottom: 5px; background: var(--primario); box-shadow: 0 4px 12px rgba(11,31,58,.28); }
+.pestana-n { position: absolute; z-index: 2; top: -8px; right: -2px; display: grid; place-items: center; min-width: 22px; height: 22px; padding: 0 6px; border-radius: 999px; background: var(--azul-claro); color: var(--primario); font-size: .74rem; font-weight: 600; line-height: 1; box-shadow: 0 0 0 2px var(--fondo); transition: transform .25s cubic-bezier(.3,.7,.2,1.4); }
+.pestanas-amb button[aria-pressed="true"] .pestana-n { background: var(--dorado); color: var(--hondo); transform: scale(1.12); }
+@media (max-width: 899px) {
+  .pestanas-amb { gap: 0; }
+  .pestanas-amb button { padding: 8px 12px; font-size: .9rem; }
+}
+
+/* ---------------------------------------------------------------------
+   Spline (escena 3D en la portada). Apagada si config.json trae
+   "spline_escena": "". Solo en pantallas de 1024 px o más, después de
+   que la página ya se ve. Ocupa el lado de las fotos (derecha), nunca
+   el titular ni los botones, y no recibe toques ni rueda del mouse.
+   Mientras carga (o si falla) se ve la foto de siempre.
+   --------------------------------------------------------------------- */
+.spline-capa { display: none; }
+@media (min-width: 1024px) {
+  .spline-capa { position: absolute; z-index: -1; inset: 0 0 0 50%; display: block; opacity: 0; transition: opacity 1.2s ease; pointer-events: none; }
+  .spline-capa.lista { opacity: 1; }
+  .spline-capa canvas { display: block; width: 100% !important; height: 100% !important; pointer-events: none; }
+}
+
+/* ---------------------------------------------------------------------
+   Movimiento reducido: todo quieto, y la escena 3D no se carga
+   (movimiento.js lo revisa antes de bajar nada).
+   --------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .js .portada-inicio h1 .p, .js .portada-inicio .portada-cielo p, .js .portada-inicio .portada-pie > *, .js .pase-zona .pase { animation: none; }
+  .tarjeta, .t-pista, .visor-pista img, .boton { transition: none; }
+  .tarjeta:hover, .tarjeta:active, .tarjeta:focus-within { transform: none; }
+  .tarjeta:hover .t-pista, .tarjeta:active .t-pista { transform: none; }
+  .filtros-caja, .filtros-fondo, .visor, .cat-cuenta b.sube, .cat-cuenta b.baja { animation: none !important; }
+  .visor-pista img { opacity: 1; transform: none; }
+  .cargador-olas i { animation: none; transform: none; }
+  .spline-capa { display: none !important; }
+}

@@ -1,0 +1,20 @@
+/* =====================================================================
+   SOLO PARA LA VERSIÓN DE PRUEBA. NO SE COPIA A LA WEB REAL.
+   Franja fija arriba que dice "Versión de prueba" y los ajustes para
+   que el menú, la portada y el visor queden debajo de ella.
+   ===================================================================== */
+:root { --franja: 26px; --franja-total: calc(var(--franja) + env(safe-area-inset-top)); }
+.franja-prueba { position: fixed; z-index: 200; top: 0; left: 0; right: 0; height: var(--franja-total); padding-top: env(safe-area-inset-top); display: flex; align-items: center; justify-content: center; background: repeating-linear-gradient(-45deg, #C9A54C 0 12px, #D8BB72 12px 24px); color: #071529; font: 600 .78rem/1 "Wix Madefor Text", "Segoe UI", Arial, sans-serif; letter-spacing: .05em; text-transform: uppercase; }
+html { scroll-padding-top: calc(84px + var(--franja-total)); }
+body { padding-top: var(--franja-total); }
+.cabecera, .cabecera.sobre-foto { top: var(--franja-total); padding-top: 0; }
+.portada { height: calc(100svh - var(--barra-alto) - env(safe-area-inset-bottom) - var(--franja-total)); }
+.cat-barra { top: calc(58px + var(--franja-total)); }
+.visor { top: var(--franja-total); }
+/* Con un panel abierto el cuerpo deja de desplazarse y el menú pegado tomaría la franja dos veces */
+body[style*="overflow: hidden"] .cabecera { top: 0; }
+@media (min-width: 900px) {
+  .portada { height: calc(100svh - var(--franja-total)); }
+  .cat-barra { top: calc(74px + var(--franja-total)); }
+  .reserva { top: calc(100px + var(--franja)); }
+}

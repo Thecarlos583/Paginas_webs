@@ -1,0 +1,65 @@
+[
+  {
+    "id": "paseo-lancha-cayos",
+    "nombre": "Paseo en lancha a los cayos",
+    "tipo": "yate",
+    "ambito": "nacional",
+    "destino": "venezuela",
+    "zona": "tucacas",
+    "duracion": "Unas 6 horas",
+    "resumen": "Sale en la mañana, pasa el día en un cayo y regresa en la tarde.",
+    "incluye": [
+      "Ida y vuelta al cayo",
+      "Tiempo libre en la playa",
+      "Cava con hielo"
+    ],
+    "precio_referencia": "$25 por persona",
+    "fotos": [
+      "fotos/yate-1.webp"
+    ],
+    "ejemplo": true,
+    "activa": true
+  },
+  {
+    "id": "yate-por-el-dia",
+    "nombre": "Yate por el día",
+    "tipo": "yate",
+    "ambito": "nacional",
+    "destino": "venezuela",
+    "zona": "tucacas",
+    "duracion": "Unas 8 horas",
+    "resumen": "El barco es suyo todo el día, con capitán, para fondear donde esté mejor el mar.",
+    "incluye": [
+      "Capitán a bordo",
+      "Parada en dos cayos",
+      "Comida y música a bordo"
+    ],
+    "precio_referencia": "$420 por salida",
+    "fotos": [
+      "fotos/yate-2.webp"
+    ],
+    "ejemplo": true,
+    "activa": true
+  },
+  {
+    "id": "atardecer-en-yate",
+    "nombre": "Atardecer en yate",
+    "tipo": "yate",
+    "ambito": "nacional",
+    "destino": "venezuela",
+    "zona": "tucacas",
+    "duracion": "Unas 2 horas",
+    "resumen": "Se sale cuando baja el calor y se apaga el motor frente al sol.",
+    "incluye": [
+      "Salida al final de la tarde",
+      "Parada para ver el sol caer",
+      "Brindis a bordo"
+    ],
+    "precio_referencia": "$180 por salida",
+    "fotos": [
+      "fotos/yate-3.webp"
+    ],
+    "ejemplo": true,
+    "activa": true
+  }
+]

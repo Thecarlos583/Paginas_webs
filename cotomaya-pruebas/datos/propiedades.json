@@ -1,0 +1,1943 @@
+[
+  {
+    "id": "condo-ciudad-flamingo",
+    "nombre": "Condo Privado | Planta Total | Pet Friendly gratis",
+    "tipo": "apartamento",
+    "categoria": "B",
+    "ambito": "nacional",
+    "destino": "venezuela",
+    "zona": "ciudad-flamingo",
+    "destacada": true,
+    "activa": true,
+    "capacidad": 32,
+    "habitaciones": 12,
+    "banos": 8,
+    "resumen": "Cuatro apartamentos privados para grupos grandes, con piscina y acceso a la playa.",
+    "descripcion": "Conjunto privado de cuatro apartamentos, dos en planta baja y dos en primer piso, cada uno con su entrada y cocina completa. Al reservarlo completo, el grupo tiene uso exclusivo de las áreas. Cerca de los embarcaderos hacia los cayos del Parque Nacional Morrocoy y junto al Refugio de Fauna Silvestre de Cuare.",
+    "incluye": [
+      "Piscina para adultos y niños",
+      "Acceso a la playa",
+      "Cocina completa en cada apartamento",
+      "Aire acondicionado",
+      "Wifi y TV por cable",
+      "Estacionamiento privado",
+      "Parrillera",
+      "Planta eléctrica y tanque de agua",
+      "Mascotas sin costo extra"
+    ],
+    "nota": "Lencería y toallas no incluidas. Traslados en lancha y tours aparte.",
+    "fotos": [
+      {
+        "archivo": "condo-ciudad-flamingo/01.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "condo-ciudad-flamingo/02.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "condo-ciudad-flamingo/03.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "condo-ciudad-flamingo/04.webp",
+        "alt": "Paseo en lancha"
+      },
+      {
+        "archivo": "condo-ciudad-flamingo/05.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "condo-ciudad-flamingo/06.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "condo-ciudad-flamingo/07.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "condo-ciudad-flamingo/08.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "condo-ciudad-flamingo/09.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "condo-ciudad-flamingo/10.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "condo-ciudad-flamingo/11.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "condo-ciudad-flamingo/12.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "condo-ciudad-flamingo/13.webp",
+        "alt": "Comedor"
+      },
+      {
+        "archivo": "condo-ciudad-flamingo/14.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "condo-ciudad-flamingo/15.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "condo-ciudad-flamingo/16.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "condo-ciudad-flamingo/17.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "condo-ciudad-flamingo/18.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "condo-ciudad-flamingo/19.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "condo-ciudad-flamingo/20.webp",
+        "alt": "Baño"
+      }
+    ],
+    "videos": [],
+    "enlaces": {
+      "airbnb": "https://www.airbnb.com/rooms/1726978302943221768",
+      "booking": "",
+      "expedia": "",
+      "agoda": "",
+      "tripadvisor": ""
+    },
+    "ubicacion_maps": ""
+  },
+  {
+    "id": "villa-naturaleza-sanare",
+    "nombre": "Villa en medio de la naturaleza• Planta Elect",
+    "tipo": "villa",
+    "categoria": "A",
+    "ambito": "nacional",
+    "destino": "venezuela",
+    "zona": "sanare",
+    "destacada": true,
+    "activa": true,
+    "capacidad": 12,
+    "habitaciones": 4,
+    "banos": 3,
+    "resumen": "Villa de tres niveles con piscina privada y jacuzzi, a unos 17 minutos de Tucacas.",
+    "descripcion": "Villa de tres niveles rodeada de naturaleza, con cuatro habitaciones, piscina privada, jacuzzi y área para cocinar al aire libre. Pensada para familias y grupos de amigos, con planta eléctrica para no depender de la luz.",
+    "incluye": [
+      "Piscina privada",
+      "Jacuzzi",
+      "Aire acondicionado",
+      "Wifi",
+      "TV por cable",
+      "Cocina",
+      "Parrillera",
+      "Planta eléctrica",
+      "Estacionamiento"
+    ],
+    "nota": "No se admiten mascotas.",
+    "fotos": [
+      {
+        "archivo": "villa-naturaleza-sanare/01.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "villa-naturaleza-sanare/02.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "villa-naturaleza-sanare/03.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "villa-naturaleza-sanare/04.webp",
+        "alt": "Paseo en lancha"
+      },
+      {
+        "archivo": "villa-naturaleza-sanare/05.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "villa-naturaleza-sanare/06.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "villa-naturaleza-sanare/07.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "villa-naturaleza-sanare/08.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "villa-naturaleza-sanare/09.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "villa-naturaleza-sanare/10.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "villa-naturaleza-sanare/11.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "villa-naturaleza-sanare/12.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "villa-naturaleza-sanare/13.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "villa-naturaleza-sanare/14.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "villa-naturaleza-sanare/15.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "villa-naturaleza-sanare/16.webp",
+        "alt": "Exterior"
+      },
+      {
+        "archivo": "villa-naturaleza-sanare/17.webp",
+        "alt": "Exterior"
+      },
+      {
+        "archivo": "villa-naturaleza-sanare/18.webp",
+        "alt": "Exterior"
+      },
+      {
+        "archivo": "villa-naturaleza-sanare/19.webp",
+        "alt": "Exterior"
+      },
+      {
+        "archivo": "villa-naturaleza-sanare/20.webp",
+        "alt": "Piscina"
+      }
+    ],
+    "videos": [],
+    "enlaces": {
+      "airbnb": "https://www.airbnb.com/rooms/1363252481385140623",
+      "booking": "",
+      "expedia": "",
+      "agoda": "",
+      "tripadvisor": ""
+    },
+    "ubicacion_maps": ""
+  },
+  {
+    "id": "apto-muelle-chichiriviche",
+    "nombre": "Apto con muelle • Playa • Planta Elect. Total",
+    "tipo": "apartamento",
+    "categoria": "C",
+    "ambito": "nacional",
+    "destino": "venezuela",
+    "zona": "chichiriviche",
+    "destacada": false,
+    "activa": true,
+    "capacidad": 7,
+    "habitaciones": 2,
+    "banos": 2,
+    "resumen": "A pasos de la playa y del muelle de salida a los cayos.",
+    "descripcion": "Apartamento en condominio privado con puerta directa a la playa, cerca del muelle de salida hacia los cayos. Dos habitaciones, aire acondicionado en todos los espacios, cocina equipada y planta eléctrica.",
+    "incluye": [
+      "Acceso directo a la playa",
+      "Piscina del condominio",
+      "Aire acondicionado",
+      "Wifi",
+      "Cocina equipada",
+      "Parrillera",
+      "Ascensor",
+      "Vigilancia",
+      "Planta eléctrica de 8 pm a 8 am",
+      "Estacionamiento"
+    ],
+    "nota": "",
+    "fotos": [
+      {
+        "archivo": "apto-muelle-chichiriviche/01.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "apto-muelle-chichiriviche/02.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "apto-muelle-chichiriviche/03.webp",
+        "alt": "Comedor"
+      },
+      {
+        "archivo": "apto-muelle-chichiriviche/04.webp",
+        "alt": "Paseo en lancha"
+      },
+      {
+        "archivo": "apto-muelle-chichiriviche/05.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "apto-muelle-chichiriviche/06.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "apto-muelle-chichiriviche/07.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "apto-muelle-chichiriviche/08.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "apto-muelle-chichiriviche/09.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "apto-muelle-chichiriviche/10.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "apto-muelle-chichiriviche/11.webp",
+        "alt": "Comedor"
+      },
+      {
+        "archivo": "apto-muelle-chichiriviche/12.webp",
+        "alt": "Comedor"
+      },
+      {
+        "archivo": "apto-muelle-chichiriviche/13.webp",
+        "alt": "Comedor"
+      },
+      {
+        "archivo": "apto-muelle-chichiriviche/14.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "apto-muelle-chichiriviche/15.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "apto-muelle-chichiriviche/16.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "apto-muelle-chichiriviche/17.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "apto-muelle-chichiriviche/18.webp",
+        "alt": "Exterior"
+      },
+      {
+        "archivo": "apto-muelle-chichiriviche/19.webp",
+        "alt": "Exterior"
+      },
+      {
+        "archivo": "apto-muelle-chichiriviche/20.webp",
+        "alt": "Exterior"
+      }
+    ],
+    "videos": [],
+    "enlaces": {
+      "airbnb": "https://www.airbnb.com/rooms/1344280578135242839",
+      "booking": "",
+      "expedia": "",
+      "agoda": "",
+      "tripadvisor": ""
+    },
+    "ubicacion_maps": ""
+  },
+  {
+    "id": "casa-playa-pet-chichiriviche",
+    "nombre": "Casa de Playa PET friendly• Planta Elect Total",
+    "tipo": "casa",
+    "categoria": "B",
+    "ambito": "nacional",
+    "destino": "venezuela",
+    "zona": "chichiriviche",
+    "destacada": true,
+    "activa": true,
+    "capacidad": 20,
+    "habitaciones": 8,
+    "banos": 5,
+    "resumen": "Casa grande para grupos de hasta 20 personas, con piscina y mesa de pool.",
+    "descripcion": "Casa amplia cerca del Parque Nacional Morrocoy y del Golfete de Cuare, con ocho habitaciones con aire acondicionado, piscina, parrillera y mesa de pool. Ideal para celebraciones y grupos grandes, con agua constante de pozo y planta eléctrica.",
+    "incluye": [
+      "Piscina",
+      "Aire acondicionado en habitaciones y salas",
+      "Wifi",
+      "TV satelital",
+      "Mesa de pool",
+      "Parrillera",
+      "Planta eléctrica de 8 pm a 8 am",
+      "Agua constante",
+      "Estacionamiento para 4 vehículos",
+      "Cámaras de seguridad",
+      "Mascotas permitidas"
+    ],
+    "nota": "Las mascotas tienen un costo adicional.",
+    "fotos": [
+      {
+        "archivo": "casa-playa-pet-chichiriviche/01.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "casa-playa-pet-chichiriviche/02.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "casa-playa-pet-chichiriviche/03.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "casa-playa-pet-chichiriviche/04.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "casa-playa-pet-chichiriviche/05.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "casa-playa-pet-chichiriviche/06.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "casa-playa-pet-chichiriviche/07.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "casa-playa-pet-chichiriviche/08.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "casa-playa-pet-chichiriviche/09.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "casa-playa-pet-chichiriviche/10.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "casa-playa-pet-chichiriviche/11.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "casa-playa-pet-chichiriviche/12.webp",
+        "alt": "Comedor"
+      },
+      {
+        "archivo": "casa-playa-pet-chichiriviche/13.webp",
+        "alt": "Comedor"
+      },
+      {
+        "archivo": "casa-playa-pet-chichiriviche/14.webp",
+        "alt": "Comedor"
+      },
+      {
+        "archivo": "casa-playa-pet-chichiriviche/15.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "casa-playa-pet-chichiriviche/16.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "casa-playa-pet-chichiriviche/17.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "casa-playa-pet-chichiriviche/18.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "casa-playa-pet-chichiriviche/19.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "casa-playa-pet-chichiriviche/20.webp",
+        "alt": "Baño"
+      }
+    ],
+    "videos": [],
+    "enlaces": {
+      "airbnb": "https://www.airbnb.com/rooms/1343691096017597181",
+      "booking": "",
+      "expedia": "",
+      "agoda": "",
+      "tripadvisor": ""
+    },
+    "ubicacion_maps": ""
+  },
+  {
+    "id": "frente-al-mar-1hab-chichiriviche",
+    "nombre": "Frente al mar | Planta eléctrica total y Playa",
+    "tipo": "apartamento",
+    "categoria": "C",
+    "ambito": "nacional",
+    "destino": "venezuela",
+    "zona": "chichiriviche",
+    "destacada": false,
+    "activa": true,
+    "capacidad": 5,
+    "habitaciones": 1,
+    "banos": 2,
+    "resumen": "Apartamento frente al mar con muelle privado.",
+    "descripcion": "Apartamento en primer piso directamente frente a la playa, con muelle privado, parrillera y cocina equipada. Planta eléctrica garantizada de noche.",
+    "incluye": [
+      "Frente a la playa",
+      "Muelle privado",
+      "Aire acondicionado",
+      "Wifi",
+      "Cocina equipada",
+      "Parrillera",
+      "Planta eléctrica de 7 pm a 7 am",
+      "1 puesto de estacionamiento"
+    ],
+    "nota": "Hasta 7 personas con costo adicional. No se admiten mascotas.",
+    "fotos": [
+      {
+        "archivo": "frente-al-mar-1hab-chichiriviche/01.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "frente-al-mar-1hab-chichiriviche/02.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "frente-al-mar-1hab-chichiriviche/03.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "frente-al-mar-1hab-chichiriviche/04.webp",
+        "alt": "Comedor"
+      },
+      {
+        "archivo": "frente-al-mar-1hab-chichiriviche/05.webp",
+        "alt": "Exterior"
+      },
+      {
+        "archivo": "frente-al-mar-1hab-chichiriviche/06.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "frente-al-mar-1hab-chichiriviche/07.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "frente-al-mar-1hab-chichiriviche/08.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "frente-al-mar-1hab-chichiriviche/09.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "frente-al-mar-1hab-chichiriviche/10.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "frente-al-mar-1hab-chichiriviche/11.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "frente-al-mar-1hab-chichiriviche/12.webp",
+        "alt": "Playa y mar"
+      },
+      {
+        "archivo": "frente-al-mar-1hab-chichiriviche/13.webp",
+        "alt": "Comedor"
+      },
+      {
+        "archivo": "frente-al-mar-1hab-chichiriviche/14.webp",
+        "alt": "Comedor"
+      },
+      {
+        "archivo": "frente-al-mar-1hab-chichiriviche/15.webp",
+        "alt": "Comedor"
+      },
+      {
+        "archivo": "frente-al-mar-1hab-chichiriviche/16.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "frente-al-mar-1hab-chichiriviche/17.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "frente-al-mar-1hab-chichiriviche/18.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "frente-al-mar-1hab-chichiriviche/19.webp",
+        "alt": "Exterior"
+      },
+      {
+        "archivo": "frente-al-mar-1hab-chichiriviche/20.webp",
+        "alt": "Exterior"
+      }
+    ],
+    "videos": [],
+    "enlaces": {
+      "airbnb": "https://www.airbnb.com/rooms/1716168771173910159",
+      "booking": "",
+      "expedia": "",
+      "agoda": "",
+      "tripadvisor": ""
+    },
+    "ubicacion_maps": ""
+  },
+  {
+    "id": "frente-al-mar-2hab-chichiriviche",
+    "nombre": "Frente al Mar • Planta Elec. • Playa y muelle",
+    "tipo": "apartamento",
+    "categoria": "C",
+    "ambito": "nacional",
+    "destino": "venezuela",
+    "zona": "chichiriviche",
+    "destacada": false,
+    "activa": true,
+    "capacidad": 8,
+    "habitaciones": 2,
+    "banos": 2,
+    "resumen": "Dos habitaciones frente al mar, con playa tranquila y muelle.",
+    "descripcion": "Apartamento de dos habitaciones y dos baños en condominio cerrado, con acceso a una playa tranquila y muelle. Tiene área de parrillera, parque infantil y planta eléctrica de noche.",
+    "incluye": [
+      "Acceso a la playa",
+      "Muelle",
+      "Aire acondicionado",
+      "Wifi",
+      "Smart TV",
+      "Cocina",
+      "Parrillera",
+      "Parque infantil",
+      "Planta eléctrica de 7 pm a 7 am",
+      "1 puesto de estacionamiento"
+    ],
+    "nota": "No se admiten mascotas.",
+    "fotos": [
+      {
+        "archivo": "frente-al-mar-2hab-chichiriviche/01.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "frente-al-mar-2hab-chichiriviche/02.webp",
+        "alt": "Playa y mar"
+      },
+      {
+        "archivo": "frente-al-mar-2hab-chichiriviche/03.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "frente-al-mar-2hab-chichiriviche/04.webp",
+        "alt": "Exterior"
+      },
+      {
+        "archivo": "frente-al-mar-2hab-chichiriviche/05.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "frente-al-mar-2hab-chichiriviche/06.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "frente-al-mar-2hab-chichiriviche/07.webp",
+        "alt": "Paseo en lancha"
+      },
+      {
+        "archivo": "frente-al-mar-2hab-chichiriviche/08.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "frente-al-mar-2hab-chichiriviche/09.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "frente-al-mar-2hab-chichiriviche/10.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "frente-al-mar-2hab-chichiriviche/11.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "frente-al-mar-2hab-chichiriviche/12.webp",
+        "alt": "Comedor"
+      },
+      {
+        "archivo": "frente-al-mar-2hab-chichiriviche/13.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "frente-al-mar-2hab-chichiriviche/14.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "frente-al-mar-2hab-chichiriviche/15.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "frente-al-mar-2hab-chichiriviche/16.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "frente-al-mar-2hab-chichiriviche/17.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "frente-al-mar-2hab-chichiriviche/18.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "frente-al-mar-2hab-chichiriviche/19.webp",
+        "alt": "Parrillera"
+      },
+      {
+        "archivo": "frente-al-mar-2hab-chichiriviche/20.webp",
+        "alt": "Exterior"
+      }
+    ],
+    "videos": [],
+    "enlaces": {
+      "airbnb": "https://www.airbnb.com/rooms/1682675569125205769",
+      "booking": "",
+      "expedia": "",
+      "agoda": "",
+      "tripadvisor": ""
+    },
+    "ubicacion_maps": ""
+  },
+  {
+    "id": "casa-vista-al-mar-tucacas",
+    "nombre": "Hermosa casa con vista al mar • Céntrica • Wi-Fi 12 personas",
+    "tipo": "casa",
+    "categoria": "C",
+    "ambito": "nacional",
+    "destino": "venezuela",
+    "zona": "tucacas",
+    "destacada": false,
+    "activa": true,
+    "capacidad": 12,
+    "habitaciones": 2,
+    "banos": 2,
+    "resumen": "Casa familiar frente a la playa, en el centro de Tucacas.",
+    "descripcion": "Casa familiar con vista al mar y terraza privada con ducha exterior, en el centro de Tucacas, cerca de farmacia y centro comercial. Acceso a la piscina y a las áreas del condominio.",
+    "incluye": [
+      "Vista al mar",
+      "Acceso a la playa",
+      "Piscina del condominio",
+      "Wifi",
+      "Cocina",
+      "Parrillera",
+      "Terraza con tumbonas",
+      "Ducha exterior",
+      "Tanque de agua"
+    ],
+    "nota": "Lencería y toallas con costo adicional.",
+    "fotos": [
+      {
+        "archivo": "casa-vista-al-mar-tucacas/01.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "casa-vista-al-mar-tucacas/02.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "casa-vista-al-mar-tucacas/03.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "casa-vista-al-mar-tucacas/04.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "casa-vista-al-mar-tucacas/05.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "casa-vista-al-mar-tucacas/06.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "casa-vista-al-mar-tucacas/07.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "casa-vista-al-mar-tucacas/08.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "casa-vista-al-mar-tucacas/09.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "casa-vista-al-mar-tucacas/10.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "casa-vista-al-mar-tucacas/11.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "casa-vista-al-mar-tucacas/12.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "casa-vista-al-mar-tucacas/13.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "casa-vista-al-mar-tucacas/14.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "casa-vista-al-mar-tucacas/15.webp",
+        "alt": "Exterior"
+      },
+      {
+        "archivo": "casa-vista-al-mar-tucacas/16.webp",
+        "alt": "Exterior"
+      },
+      {
+        "archivo": "casa-vista-al-mar-tucacas/17.webp",
+        "alt": "Exterior"
+      },
+      {
+        "archivo": "casa-vista-al-mar-tucacas/18.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "casa-vista-al-mar-tucacas/19.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "casa-vista-al-mar-tucacas/20.webp",
+        "alt": "Foto de la propiedad"
+      }
+    ],
+    "videos": [],
+    "enlaces": {
+      "airbnb": "https://www.airbnb.com/rooms/1681389156072156478",
+      "booking": "",
+      "expedia": "",
+      "agoda": "",
+      "tripadvisor": ""
+    },
+    "ubicacion_maps": ""
+  },
+  {
+    "id": "margarita-beach-house-santa-marta",
+    "nombre": "Margarita Beach House, a minutos de Playa Bello Horizonte",
+    "tipo": "casa",
+    "categoria": "B",
+    "ambito": "internacional",
+    "destino": "colombia",
+    "zona": "santa-marta",
+    "destacada": true,
+    "activa": true,
+    "capacidad": 8,
+    "habitaciones": 3,
+    "banos": 2.5,
+    "resumen": "Casa de tres niveles cerca del mar y del aeropuerto de Santa Marta.",
+    "descripcion": "Casa de tres niveles con terraza y patio privado con parrillera y hamaca. Cerca del mar y del aeropuerto, con aire acondicionado y ventilador en cada habitación.",
+    "incluye": [
+      "Aire acondicionado en habitaciones",
+      "Wifi",
+      "Cocina",
+      "Patio privado con parrillera",
+      "Terraza",
+      "Área de trabajo",
+      "Estacionamiento"
+    ],
+    "nota": "",
+    "fotos": [
+      {
+        "archivo": "margarita-beach-house-santa-marta/01.webp",
+        "alt": "Terraza"
+      },
+      {
+        "archivo": "margarita-beach-house-santa-marta/02.webp",
+        "alt": "Terraza"
+      },
+      {
+        "archivo": "margarita-beach-house-santa-marta/03.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "margarita-beach-house-santa-marta/04.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "margarita-beach-house-santa-marta/05.webp",
+        "alt": "Terraza"
+      },
+      {
+        "archivo": "margarita-beach-house-santa-marta/06.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "margarita-beach-house-santa-marta/07.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "margarita-beach-house-santa-marta/08.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "margarita-beach-house-santa-marta/09.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "margarita-beach-house-santa-marta/10.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "margarita-beach-house-santa-marta/11.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "margarita-beach-house-santa-marta/12.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "margarita-beach-house-santa-marta/13.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "margarita-beach-house-santa-marta/14.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "margarita-beach-house-santa-marta/15.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "margarita-beach-house-santa-marta/16.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "margarita-beach-house-santa-marta/17.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "margarita-beach-house-santa-marta/18.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "margarita-beach-house-santa-marta/19.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "margarita-beach-house-santa-marta/20.webp",
+        "alt": "Terraza"
+      }
+    ],
+    "videos": [],
+    "enlaces": {
+      "airbnb": "https://www.airbnb.com/rooms/1050954911078802272",
+      "booking": "",
+      "expedia": "",
+      "agoda": "",
+      "tripadvisor": ""
+    },
+    "ubicacion_maps": ""
+  },
+  {
+    "id": "apto-vista-playa-tucacas",
+    "nombre": "Apto vista a la playa • Planta Elect y Wi-Fi",
+    "tipo": "apartamento",
+    "categoria": "C",
+    "ambito": "nacional",
+    "destino": "venezuela",
+    "zona": "tucacas",
+    "destacada": false,
+    "activa": true,
+    "capacidad": 6,
+    "habitaciones": 1,
+    "banos": 2,
+    "resumen": "Frente a la playa, con piscina con tobogán y jacuzzi.",
+    "descripcion": "Apartamento frente a la playa para familias pequeñas, con cocina equipada. Acceso a piscina con tobogán, jacuzzi, parrilleras, playa y planta eléctrica del conjunto.",
+    "incluye": [
+      "Acceso directo a la playa",
+      "Piscina con tobogán",
+      "Jacuzzi",
+      "Aire acondicionado",
+      "Wifi",
+      "TV por cable",
+      "Agua caliente",
+      "Planta eléctrica",
+      "Estacionamiento"
+    ],
+    "nota": "",
+    "fotos": [
+      {
+        "archivo": "apto-vista-playa-tucacas/01.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "apto-vista-playa-tucacas/02.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "apto-vista-playa-tucacas/03.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "apto-vista-playa-tucacas/04.webp",
+        "alt": "Terraza"
+      },
+      {
+        "archivo": "apto-vista-playa-tucacas/05.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "apto-vista-playa-tucacas/06.webp",
+        "alt": "Playa y mar"
+      },
+      {
+        "archivo": "apto-vista-playa-tucacas/07.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "apto-vista-playa-tucacas/08.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "apto-vista-playa-tucacas/09.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "apto-vista-playa-tucacas/10.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "apto-vista-playa-tucacas/11.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "apto-vista-playa-tucacas/12.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "apto-vista-playa-tucacas/13.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "apto-vista-playa-tucacas/14.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "apto-vista-playa-tucacas/15.webp",
+        "alt": "Exterior"
+      },
+      {
+        "archivo": "apto-vista-playa-tucacas/16.webp",
+        "alt": "Exterior"
+      },
+      {
+        "archivo": "apto-vista-playa-tucacas/17.webp",
+        "alt": "Parrillera"
+      },
+      {
+        "archivo": "apto-vista-playa-tucacas/18.webp",
+        "alt": "Exterior"
+      },
+      {
+        "archivo": "apto-vista-playa-tucacas/19.webp",
+        "alt": "Exterior"
+      },
+      {
+        "archivo": "apto-vista-playa-tucacas/20.webp",
+        "alt": "Terraza"
+      }
+    ],
+    "videos": [],
+    "enlaces": {
+      "airbnb": "https://www.airbnb.com/rooms/1493749473861086773",
+      "booking": "",
+      "expedia": "",
+      "agoda": "",
+      "tripadvisor": ""
+    },
+    "ubicacion_maps": ""
+  },
+  {
+    "id": "familiar-salida-playa-tucacas",
+    "nombre": "Familiar con salida a Playa y Planta Elect. Total",
+    "tipo": "apartamento",
+    "categoria": "C",
+    "ambito": "nacional",
+    "destino": "venezuela",
+    "zona": "tucacas",
+    "destacada": false,
+    "activa": true,
+    "capacidad": 6,
+    "habitaciones": 1,
+    "banos": 1,
+    "resumen": "Planta baja frente al mar, con camino directo a la playa.",
+    "descripcion": "Apartamento en planta baja frente al mar, pensado para familias pequeñas, con cocina equipada. Acceso a piscina, jacuzzi, parrilleras y camino directo a la playa.",
+    "incluye": [
+      "Salida a la playa",
+      "Piscina",
+      "Jacuzzi",
+      "Aire acondicionado",
+      "Wifi",
+      "TV por cable",
+      "Agua caliente",
+      "Planta eléctrica",
+      "Estacionamiento"
+    ],
+    "nota": "La piscina tiene horario.",
+    "fotos": [
+      {
+        "archivo": "familiar-salida-playa-tucacas/01.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "familiar-salida-playa-tucacas/02.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "familiar-salida-playa-tucacas/03.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "familiar-salida-playa-tucacas/04.webp",
+        "alt": "Exterior"
+      },
+      {
+        "archivo": "familiar-salida-playa-tucacas/05.webp",
+        "alt": "Jardín"
+      },
+      {
+        "archivo": "familiar-salida-playa-tucacas/06.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "familiar-salida-playa-tucacas/07.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "familiar-salida-playa-tucacas/08.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "familiar-salida-playa-tucacas/09.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "familiar-salida-playa-tucacas/10.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "familiar-salida-playa-tucacas/11.webp",
+        "alt": "Jardín"
+      },
+      {
+        "archivo": "familiar-salida-playa-tucacas/12.webp",
+        "alt": "Jardín"
+      },
+      {
+        "archivo": "familiar-salida-playa-tucacas/13.webp",
+        "alt": "Jardín"
+      },
+      {
+        "archivo": "familiar-salida-playa-tucacas/14.webp",
+        "alt": "Terraza"
+      },
+      {
+        "archivo": "familiar-salida-playa-tucacas/15.webp",
+        "alt": "Exterior"
+      },
+      {
+        "archivo": "familiar-salida-playa-tucacas/16.webp",
+        "alt": "Exterior"
+      },
+      {
+        "archivo": "familiar-salida-playa-tucacas/17.webp",
+        "alt": "Exterior"
+      },
+      {
+        "archivo": "familiar-salida-playa-tucacas/18.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "familiar-salida-playa-tucacas/19.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "familiar-salida-playa-tucacas/20.webp",
+        "alt": "Foto de la propiedad"
+      }
+    ],
+    "videos": [],
+    "enlaces": {
+      "airbnb": "https://www.airbnb.com/rooms/1362648293878070325",
+      "booking": "",
+      "expedia": "",
+      "agoda": "",
+      "tripadvisor": ""
+    },
+    "ubicacion_maps": ""
+  },
+  {
+    "id": "casa-guacharaca-vip-lodge",
+    "nombre": "Casa Guacharaca VIP Lodge | Piscina en Morrocoy",
+    "tipo": "casa",
+    "categoria": "B",
+    "ambito": "nacional",
+    "destino": "venezuela",
+    "zona": "sanare",
+    "destacada": true,
+    "activa": true,
+    "capacidad": 15,
+    "habitaciones": 4,
+    "banos": 4,
+    "resumen": "En la montaña con vista al mar y a Morrocoy, con piscina privada.",
+    "descripcion": "Casa en la montaña con vista al mar y al Parque Nacional Morrocoy, con jardín amplio, piscina privada y kiosco con parrillera. Habitaciones con aire acondicionado y baño privado, y servicio de comidas opcional.",
+    "incluye": [
+      "Piscina privada",
+      "Vista al mar",
+      "Aire acondicionado",
+      "Wifi por fibra óptica",
+      "Planta eléctrica",
+      "Kiosco con parrillera",
+      "Estacionamiento privado",
+      "Mascotas con aprobación"
+    ],
+    "nota": "Mascotas con aprobación previa y costo adicional. Traslados en lancha a los cayos aparte.",
+    "fotos": [
+      {
+        "archivo": "casa-guacharaca-vip-lodge/01.webp",
+        "alt": "Jardín"
+      },
+      {
+        "archivo": "casa-guacharaca-vip-lodge/02.webp",
+        "alt": "Terraza"
+      },
+      {
+        "archivo": "casa-guacharaca-vip-lodge/03.webp",
+        "alt": "Jardín"
+      },
+      {
+        "archivo": "casa-guacharaca-vip-lodge/04.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "casa-guacharaca-vip-lodge/05.webp",
+        "alt": "Terraza"
+      },
+      {
+        "archivo": "casa-guacharaca-vip-lodge/06.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "casa-guacharaca-vip-lodge/07.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "casa-guacharaca-vip-lodge/08.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "casa-guacharaca-vip-lodge/09.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "casa-guacharaca-vip-lodge/10.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "casa-guacharaca-vip-lodge/11.webp",
+        "alt": "Comedor"
+      },
+      {
+        "archivo": "casa-guacharaca-vip-lodge/12.webp",
+        "alt": "Comedor"
+      },
+      {
+        "archivo": "casa-guacharaca-vip-lodge/13.webp",
+        "alt": "Comedor"
+      },
+      {
+        "archivo": "casa-guacharaca-vip-lodge/14.webp",
+        "alt": "Comedor"
+      },
+      {
+        "archivo": "casa-guacharaca-vip-lodge/15.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "casa-guacharaca-vip-lodge/16.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "casa-guacharaca-vip-lodge/17.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "casa-guacharaca-vip-lodge/18.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "casa-guacharaca-vip-lodge/19.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "casa-guacharaca-vip-lodge/20.webp",
+        "alt": "Baño"
+      }
+    ],
+    "videos": [],
+    "enlaces": {
+      "airbnb": "https://www.airbnb.com/rooms/808033026351131662",
+      "booking": "",
+      "expedia": "",
+      "agoda": "",
+      "tripadvisor": ""
+    },
+    "ubicacion_maps": ""
+  },
+  {
+    "id": "elige-tu-escape-sanare",
+    "nombre": "Elige tu escape con Planta Elect•Piscina •Áreas",
+    "tipo": "villa",
+    "categoria": "B",
+    "ambito": "nacional",
+    "destino": "venezuela",
+    "zona": "sanare",
+    "destacada": false,
+    "activa": true,
+    "capacidad": 20,
+    "habitaciones": 5,
+    "banos": 5,
+    "resumen": "Villa para grupos de hasta 20 personas en 3.600 m² de áreas verdes.",
+    "descripcion": "Villa familiar cerca de las playas de Morrocoy, a unos 15 minutos de los muelles de Tucacas. Piscina, parrillera, cocina y más de 3.600 m² de áreas verdes para que los niños jueguen.",
+    "incluye": [
+      "Piscina",
+      "Aire acondicionado",
+      "Wifi",
+      "Cocina",
+      "Parrillera",
+      "Áreas verdes",
+      "Planta eléctrica",
+      "Estacionamiento",
+      "Mascotas permitidas"
+    ],
+    "nota": "Incluye lencería.",
+    "fotos": [
+      {
+        "archivo": "elige-tu-escape-sanare/01.webp",
+        "alt": "Terraza"
+      },
+      {
+        "archivo": "elige-tu-escape-sanare/02.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "elige-tu-escape-sanare/03.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "elige-tu-escape-sanare/04.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "elige-tu-escape-sanare/05.webp",
+        "alt": "Playa y mar"
+      },
+      {
+        "archivo": "elige-tu-escape-sanare/06.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "elige-tu-escape-sanare/07.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "elige-tu-escape-sanare/08.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "elige-tu-escape-sanare/09.webp",
+        "alt": "Comedor"
+      },
+      {
+        "archivo": "elige-tu-escape-sanare/10.webp",
+        "alt": "Comedor"
+      },
+      {
+        "archivo": "elige-tu-escape-sanare/11.webp",
+        "alt": "Comedor"
+      },
+      {
+        "archivo": "elige-tu-escape-sanare/12.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "elige-tu-escape-sanare/13.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "elige-tu-escape-sanare/14.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "elige-tu-escape-sanare/15.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "elige-tu-escape-sanare/16.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "elige-tu-escape-sanare/17.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "elige-tu-escape-sanare/18.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "elige-tu-escape-sanare/19.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "elige-tu-escape-sanare/20.webp",
+        "alt": "Baño"
+      }
+    ],
+    "videos": [],
+    "enlaces": {
+      "airbnb": "https://www.airbnb.com/rooms/1339273157963770335",
+      "booking": "",
+      "expedia": "",
+      "agoda": "",
+      "tripadvisor": ""
+    },
+    "ubicacion_maps": ""
+  },
+  {
+    "id": "oasis-familiar-sanare",
+    "nombre": "Oasis Familiar •Piscina•Planta Elect • Capilla",
+    "tipo": "villa",
+    "categoria": "B",
+    "ambito": "nacional",
+    "destino": "venezuela",
+    "zona": "sanare",
+    "destacada": false,
+    "activa": true,
+    "capacidad": 14,
+    "habitaciones": 5,
+    "banos": 2,
+    "resumen": "Villa con piscina privada, jardines y capilla para eventos.",
+    "descripcion": "Villa privada de 3.600 m² con piscina, parrillera y jardines, cerca de las playas de Morrocoy. Tiene capilla privada para eventos y servicios opcionales como cocinero y paseos en lancha.",
+    "incluye": [
+      "Piscina privada",
+      "Aire acondicionado en habitaciones",
+      "Wifi",
+      "Cocina equipada",
+      "Lavadora",
+      "Parrillera",
+      "Jardines",
+      "Planta eléctrica",
+      "Estacionamiento"
+    ],
+    "nota": "La capilla tiene costo adicional. Incluye lencería, no toallas.",
+    "fotos": [
+      {
+        "archivo": "oasis-familiar-sanare/01.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "oasis-familiar-sanare/02.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "oasis-familiar-sanare/03.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "oasis-familiar-sanare/04.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "oasis-familiar-sanare/05.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "oasis-familiar-sanare/06.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "oasis-familiar-sanare/07.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "oasis-familiar-sanare/08.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "oasis-familiar-sanare/09.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "oasis-familiar-sanare/10.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "oasis-familiar-sanare/11.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "oasis-familiar-sanare/12.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "oasis-familiar-sanare/13.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "oasis-familiar-sanare/14.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "oasis-familiar-sanare/15.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "oasis-familiar-sanare/16.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "oasis-familiar-sanare/17.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "oasis-familiar-sanare/18.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "oasis-familiar-sanare/19.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "oasis-familiar-sanare/20.webp",
+        "alt": "Jardín"
+      }
+    ],
+    "videos": [],
+    "enlaces": {
+      "airbnb": "https://www.airbnb.com/rooms/1339186300632013879",
+      "booking": "",
+      "expedia": "",
+      "agoda": "",
+      "tripadvisor": ""
+    },
+    "ubicacion_maps": ""
+  },
+  {
+    "id": "casa-aurora-tucacas",
+    "nombre": "Casa Aurora | Piscina WiFi | Agua de manantial",
+    "tipo": "casa",
+    "categoria": "B",
+    "ambito": "nacional",
+    "destino": "venezuela",
+    "zona": "tucacas",
+    "destacada": false,
+    "activa": true,
+    "capacidad": 12,
+    "habitaciones": 3,
+    "banos": 3,
+    "resumen": "Casa con piscina privada y baño en cada habitación.",
+    "descripcion": "Casa amplia para familias o grupos de hasta 12 personas, con tres habitaciones con baño privado, sala-comedor y cocina equipada. Piscina privada, parrillera y agua de manantial.",
+    "incluye": [
+      "Piscina privada",
+      "Aire acondicionado en habitaciones",
+      "Wifi",
+      "TV satelital",
+      "Cocina equipada",
+      "Agua de manantial",
+      "Parrillera",
+      "Estacionamiento para 5 carros"
+    ],
+    "nota": "Mínimo 2 noches.",
+    "fotos": [
+      {
+        "archivo": "casa-aurora-tucacas/01.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "casa-aurora-tucacas/02.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "casa-aurora-tucacas/03.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "casa-aurora-tucacas/04.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "casa-aurora-tucacas/05.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "casa-aurora-tucacas/06.webp",
+        "alt": "Paseo en lancha"
+      },
+      {
+        "archivo": "casa-aurora-tucacas/07.webp",
+        "alt": "Paseo en lancha"
+      }
+    ],
+    "videos": [],
+    "enlaces": {
+      "airbnb": "https://www.airbnb.com/rooms/1777764045451326018",
+      "booking": "",
+      "expedia": "",
+      "agoda": "",
+      "tripadvisor": ""
+    },
+    "ubicacion_maps": ""
+  },
+  {
+    "id": "escapada-para-4-tucacas",
+    "nombre": "Escapada para 4 | Piscina y Desayuno / Planta Elec",
+    "tipo": "habitacion",
+    "categoria": "C",
+    "ambito": "nacional",
+    "destino": "venezuela",
+    "zona": "tucacas",
+    "destacada": false,
+    "activa": true,
+    "capacidad": 4,
+    "habitaciones": 1,
+    "banos": 1,
+    "resumen": "Habitación privada con desayuno venezolano incluido.",
+    "descripcion": "Habitación privada con aire acondicionado, dos camas matrimoniales y baño privado, en el centro de Tucacas a unos 5 minutos a pie de la playa. Incluye desayuno venezolano y acceso a la piscina.",
+    "incluye": [
+      "Desayuno incluido",
+      "Piscina",
+      "Aire acondicionado",
+      "Wifi",
+      "Baño privado",
+      "Estacionamiento"
+    ],
+    "nota": "",
+    "fotos": [
+      {
+        "archivo": "escapada-para-4-tucacas/01.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "escapada-para-4-tucacas/02.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "escapada-para-4-tucacas/03.webp",
+        "alt": "Comedor"
+      },
+      {
+        "archivo": "escapada-para-4-tucacas/04.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "escapada-para-4-tucacas/05.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "escapada-para-4-tucacas/06.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "escapada-para-4-tucacas/07.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "escapada-para-4-tucacas/08.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "escapada-para-4-tucacas/09.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "escapada-para-4-tucacas/10.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "escapada-para-4-tucacas/11.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "escapada-para-4-tucacas/12.webp",
+        "alt": "Exterior"
+      },
+      {
+        "archivo": "escapada-para-4-tucacas/13.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "escapada-para-4-tucacas/14.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "escapada-para-4-tucacas/15.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "escapada-para-4-tucacas/16.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "escapada-para-4-tucacas/17.webp",
+        "alt": "Foto de la propiedad"
+      }
+    ],
+    "videos": [],
+    "enlaces": {
+      "airbnb": "https://www.airbnb.com/rooms/1463124544530866780",
+      "booking": "",
+      "expedia": "",
+      "agoda": "",
+      "tripadvisor": ""
+    },
+    "ubicacion_maps": ""
+  },
+  {
+    "id": "habitacion-6-personas-tucacas",
+    "nombre": "6 Personas | Piscina | Desayuno Criollo y Planta E",
+    "tipo": "habitacion",
+    "categoria": "C",
+    "ambito": "nacional",
+    "destino": "venezuela",
+    "zona": "tucacas",
+    "destacada": false,
+    "activa": true,
+    "capacidad": 6,
+    "habitaciones": 1,
+    "banos": 1,
+    "resumen": "Habitación para 6 con desayuno criollo incluido.",
+    "descripcion": "Habitación con tres camas matrimoniales, baño privado con agua caliente, aire acondicionado y TV por cable, cerca de la playa y de la entrada a Morrocoy. Incluye desayuno criollo; la posada tiene piscina y restaurante.",
+    "incluye": [
+      "Desayuno incluido",
+      "Piscina",
+      "Aire acondicionado",
+      "Wifi",
+      "TV por cable",
+      "Agua caliente",
+      "Restaurante",
+      "Estacionamiento"
+    ],
+    "nota": "",
+    "fotos": [
+      {
+        "archivo": "habitacion-6-personas-tucacas/01.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "habitacion-6-personas-tucacas/02.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "habitacion-6-personas-tucacas/03.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "habitacion-6-personas-tucacas/04.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "habitacion-6-personas-tucacas/05.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "habitacion-6-personas-tucacas/06.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "habitacion-6-personas-tucacas/07.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "habitacion-6-personas-tucacas/08.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "habitacion-6-personas-tucacas/09.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "habitacion-6-personas-tucacas/10.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "habitacion-6-personas-tucacas/11.webp",
+        "alt": "Exterior"
+      },
+      {
+        "archivo": "habitacion-6-personas-tucacas/12.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "habitacion-6-personas-tucacas/13.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "habitacion-6-personas-tucacas/14.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "habitacion-6-personas-tucacas/15.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "habitacion-6-personas-tucacas/16.webp",
+        "alt": "Paseo en lancha"
+      },
+      {
+        "archivo": "habitacion-6-personas-tucacas/17.webp",
+        "alt": "Paseo en lancha"
+      }
+    ],
+    "videos": [],
+    "enlaces": {
+      "airbnb": "https://www.airbnb.com/rooms/1364060848246987025",
+      "booking": "",
+      "expedia": "",
+      "agoda": "",
+      "tripadvisor": ""
+    },
+    "ubicacion_maps": ""
+  },
+  {
+    "id": "villa-7-personas-sanare",
+    "nombre": "Villa 7 Personas | Piscina y Planta Total",
+    "tipo": "villa",
+    "categoria": "C",
+    "ambito": "nacional",
+    "destino": "venezuela",
+    "zona": "sanare",
+    "destacada": false,
+    "activa": true,
+    "capacidad": 7,
+    "habitaciones": 1,
+    "banos": 2,
+    "resumen": "Villa con mezzanina, patio privado y piscina del condominio.",
+    "descripcion": "Villa para familias o grupos de hasta siete personas, con habitación principal, mezzanina, dos baños y cocina completa. Patio privado con parrillera y acceso a la piscina del condominio.",
+    "incluye": [
+      "Piscina del condominio",
+      "Aire acondicionado",
+      "Wifi",
+      "Cocina completa",
+      "Patio privado con parrillera",
+      "Ducha exterior",
+      "Planta eléctrica",
+      "Estacionamiento"
+    ],
+    "nota": "Hasta 7 personas más un niño pequeño.",
+    "fotos": [
+      {
+        "archivo": "villa-7-personas-sanare/01.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "villa-7-personas-sanare/02.webp",
+        "alt": "Paseo en lancha"
+      },
+      {
+        "archivo": "villa-7-personas-sanare/03.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "villa-7-personas-sanare/04.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "villa-7-personas-sanare/05.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "villa-7-personas-sanare/06.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "villa-7-personas-sanare/07.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "villa-7-personas-sanare/08.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "villa-7-personas-sanare/09.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "villa-7-personas-sanare/10.webp",
+        "alt": "Habitación"
+      },
+      {
+        "archivo": "villa-7-personas-sanare/11.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "villa-7-personas-sanare/12.webp",
+        "alt": "Baño"
+      },
+      {
+        "archivo": "villa-7-personas-sanare/13.webp",
+        "alt": "Exterior"
+      },
+      {
+        "archivo": "villa-7-personas-sanare/14.webp",
+        "alt": "Exterior"
+      },
+      {
+        "archivo": "villa-7-personas-sanare/15.webp",
+        "alt": "Exterior"
+      },
+      {
+        "archivo": "villa-7-personas-sanare/16.webp",
+        "alt": "Exterior"
+      },
+      {
+        "archivo": "villa-7-personas-sanare/17.webp",
+        "alt": "Terraza"
+      },
+      {
+        "archivo": "villa-7-personas-sanare/18.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "villa-7-personas-sanare/19.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "villa-7-personas-sanare/20.webp",
+        "alt": "Piscina"
+      }
+    ],
+    "videos": [],
+    "enlaces": {
+      "airbnb": "https://www.airbnb.com/rooms/1490110677233441961",
+      "booking": "",
+      "expedia": "",
+      "agoda": "",
+      "tripadvisor": ""
+    },
+    "ubicacion_maps": ""
+  }
+]

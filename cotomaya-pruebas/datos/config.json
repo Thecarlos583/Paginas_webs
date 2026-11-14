@@ -1,0 +1,66 @@
+{
+  "_ayuda": "Datos de la marca. Cambie aquí el WhatsApp, las redes, los nombres de las categorías y los mensajes. Un campo vacío \"\" no se muestra.",
+  "marca": "Cotomaya Venezuela",
+  "whatsapp": "584245180022",
+  "whatsapp_visible": "+58 424-5180022",
+  "redes": {
+    "instagram": "",
+    "facebook": "",
+    "tiktok": "",
+    "youtube": ""
+  },
+  "logo": "",
+  "_spline_ayuda": "Escena 3D de Spline para la portada (solo en computadora). Pegue aquí la URL que termina en .splinecode. Vacío \"\" = no se carga nada y se ve la foto de siempre.",
+  "spline_escena": "https://prod.spline.design/6Wq1Q7YGyM-iab9i/scene.splinecode",
+  "ubicacion_maps": "https://www.google.com/maps/search/?api=1&query=Tucacas%2C%20Falc%C3%B3n%2C%20Venezuela",
+  "zona_base": "Tucacas, Falcón",
+  "categorias": {
+    "A": {
+      "nombre": "Lujo",
+      "descripcion": "Propiedades de lujo, con acabados y servicios de primer nivel."
+    },
+    "B": {
+      "nombre": "VIP",
+      "descripcion": "Excelente servicio y comodidad, sin llegar a ser de lujo."
+    },
+    "C": {
+      "nombre": "Standard",
+      "descripcion": "Opciones cómodas y prácticas para disfrutar la playa."
+    }
+  },
+  "tipos": {
+    "villa": {
+      "singular": "Villa",
+      "plural": "Villas"
+    },
+    "casa": {
+      "singular": "Casa",
+      "plural": "Casas"
+    },
+    "apartamento": {
+      "singular": "Apartamento",
+      "plural": "Apartamentos"
+    },
+    "townhouse": {
+      "singular": "Town house",
+      "plural": "Town House"
+    },
+    "penthouse": {
+      "singular": "Penthouse",
+      "plural": "Penthouse"
+    },
+    "habitacion": {
+      "singular": "Habitación con desayuno",
+      "plural": "Habitaciones con desayuno"
+    }
+  },
+  "mensajes": {
+    "general": "Hola, quisiera información para reservar con Cotomaya Venezuela.",
+    "propiedad": "Hola, me interesa la propiedad \"{propiedad}\" en {zona}. ¿Tienen disponibilidad para…?",
+    "tour": "Hola, me interesa {tour} con Cotomaya Venezuela. ¿Qué fechas tienen disponibles?",
+    "zona": "Hola, quisiera opciones de hospedaje en {zona} con Cotomaya Venezuela.",
+    "proximamente": "Hola, quiero saber cuando abran hospedajes en {zona} con Cotomaya Venezuela.",
+    "tours_pronto": "Hola, quisiera saber qué tours {ambito} tienen con Cotomaya Venezuela.",
+    "sin_resultados": "Hola, estoy buscando un hospedaje con Cotomaya Venezuela y no encontré lo que necesito. ¿Me pueden ayudar?"
+  }
+}
