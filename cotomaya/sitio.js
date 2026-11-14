@@ -272,7 +272,7 @@
       });
     });
     /* Logo: si config.json trae "logo" (por ejemplo "fotos/logo.webp"), reemplaza el nombre escrito */
-    if (CFG.logo) $$(".marca-texto").forEach(function (m) { var i = new Image(); i.src = CFG.logo; i.alt = CFG.marca || "Cotomaya Venezuela"; i.height = 40; m.replaceWith(i); });
+    if (CFG.logo) $$("[data-logo]").forEach(function (i) { if (i.getAttribute("src") !== CFG.logo) i.src = CFG.logo; });
     /* El aviso de referencia desaparece solo cuando ya no queda nada de ejemplo */
     $$("[data-aviso-ejemplo]").forEach(function (p) { p.hidden = !d.hayEjemplo; });
   }
