@@ -71,3 +71,30 @@ Botones, chips y etiquetas: píldora (999 px). Tarjetas de propiedad, tours y se
 - **Pestañas Todos / Nacionales / Internacionales:** píldora coral que se desliza.
 - **Servicios de viaje:** tarjeta con ícono propio en círculo petróleo y trazo dorado; al tocar abre una hoja desde abajo (modal en computadora) con el mini formulario. Personas con − y +, fechas con tope, aviso amable si falta un dato, "Cotización según disponibilidad" siempre a la vista.
 - **WhatsApp:** principal en todos los botones; el secundario solo en Contacto y en el pie, con su etiqueta encima.
+
+## 7. Referencias de nivel (qué se toma de cada una, nada copiado)
+
+- **Aman:** el silencio. Mucho aire, fotos grandes que respiran, tipografía serif fina y movimiento lento. De aquí: el ritmo pausado (olas de 15 a 30 s, halo del sol de 6 s) y la serif Cormorant en titulares grandes.
+- **Belmond:** la marca como protagonista editorial: bloques de color de la casa, detalles dorados finos y una palabra en itálica como acento. De aquí: secciones en petróleo con brillos dorados de 1 px y la itálica coral en "al *Caribe*" y "Dónde *estamos*".
+- **Airbnb Luxe:** el pedido a la medida. Fotos inmersivas y un formulario corto que arma el viaje con un "diseñador de viajes". De aquí: la hoja de servicios de viaje con pocas preguntas y el mensaje armado para WhatsApp.
+- **Awwwards (hoteles y viajes, 2026, por ejemplo *Explore Primland*, Site of the Day):** escenas de portada vivas y galerías horizontales con snap. De aquí: el atardecer animado y la galería de destinos que se desliza de lado.
+
+## 8. Movimiento
+
+Regla de oro: **nada queda escondido.** Todo empieza visible y legible; el scroll solo mueve, escala, fija o aclara. Solo se animan `transform` y `opacity`.
+
+| Pieza | Qué hace | Cómo |
+|---|---|---|
+| Portada viva | Cielo de petróleo a coral que respira, sol que sube y brilla (es una ventana redonda con las fotos reales de las propiedades, que se relevan), tres capas de olas a 30, 21 y 15 s con crestas coral y dorada, paralaje leve al bajar | SVG + CSS; paralaje con `requestAnimationFrame` en `sitio.js` |
+| Titular de portada | Palabras en cascada, termina antes de 1 s | CSS |
+| Video de portada | Si `config.json → video_portada` tiene un archivo, va de fondo con las olas encima; vacío, se queda el atardecer | `sitio.js` |
+| Destinos | Galería horizontal con snap; brillo dorado que recorre el borde al tocar (o al pasar el mouse) | CSS (`conic-gradient` que gira dentro de una máscara de 1,5 px) |
+| Propiedades | Tarjetas de vidrio esmerilado sobre petróleo, borde dorado, elevación y zoom de la foto; en computadora se inclinan siguiendo el mouse (máx. 7°) | CSS + `sitio.js` |
+| Tours y yates | Computadora: las tarjetas se fijan y se apilan; la de atrás se achica y se oscurece. Teléfono: lista normal con entrada suave (solo desplazamiento, nunca transparente) | `position: sticky` + **GSAP 3.13 y ScrollTrigger** en `assets/js/` (se cargan solo en computadora) + `animation-timeline: view()` |
+| Mapa de destinos | SVG propio de Venezuela y Colombia (contornos de Natural Earth, dominio público); un punto que late por zona de `destinos.json` (campo `coordenadas`); las zonas muy juntas se agrupan en una lista | CSS + `sitio.js` |
+| Divisores | Ola del color del bloque anterior con una línea dorada | `sitio.js` |
+| Botón coral | Destello dorado cada 7 s (botón Reservar del menú, Ver hospedajes, cierre y Cotizar mi viaje) | CSS |
+| Entre páginas | Fundido con leve subida; menú y barra quedan fijos | View Transitions |
+| Spline (opcional) | Si `config.json → spline_escena` trae una escena, solo en pantallas de 1024 px o más, después de cargar todo; si falla, queda el atardecer. En el teléfono nunca | `assets/js/spline.js` |
+
+Con `prefers-reduced-motion`: todo quieto y visible (olas, sol, halo, puntos, destellos, pila y transiciones apagados; GSAP no se carga).

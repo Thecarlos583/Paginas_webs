@@ -233,7 +233,7 @@
     var precio = t.precio_referencia && !/confirmar/i.test(t.precio_referencia)
       ? '<p class="precio"><b>' + esc(t.precio_referencia) + "</b><em>precio de referencia</em></p>"
       : '<p class="precio precio-consulta">Precio por confirmar</p>';
-    return '<article class="tour">' +
+    return '<article class="tour"><span class="tour-velo" aria-hidden="true"></span>' +
       '<div class="tour-foto">' + (t.fotos[0] ? img(t.fotos[0], t.carpeta, t.alts[0] || "", "(min-width:900px) 30vw, 84vw", 600) : "") + etiquetaEjemplo(t) +
       (t.duracion ? '<span class="tour-dur">' + icono("reloj") + esc(t.duracion) + "</span>" : "") + "</div>" +
       '<div class="tour-texto"><h3>' + esc(t.nombre) + "</h3>" + (t.resumen ? "<p>" + esc(t.resumen) + "</p>" : "") + incl + precio +
@@ -273,6 +273,16 @@
     });
     /* Logo: si config.json trae "logo" (por ejemplo "fotos/logo.webp"), reemplaza el nombre escrito */
     if (CFG.logo) $$("[data-logo]").forEach(function (i) { if (i.getAttribute("src") !== CFG.logo) i.src = CFG.logo; });
+    /* Video de la portada (config.json → video_portada): si existe, va de fondo con las olas encima */
+    var vp = $("[data-video-portada]"), red = navigator.connection;
+    if (vp && CFG.video_portada && !quieto && !(red && red.saveData)) {
+      var v = document.createElement("video");
+      v.muted = true; v.loop = true; v.autoplay = true; v.playsInline = true; v.preload = "metadata";
+      v.setAttribute("muted", ""); v.setAttribute("playsinline", "");
+      v.addEventListener("loadeddata", function () { vp.closest("[data-portada]").classList.add("con-video"); });
+      v.src = CFG.video_portada; vp.appendChild(v);
+      var pv = v.play(); if (pv && pv.catch) pv.catch(function () {});
+    }
     /* El aviso de referencia desaparece solo cuando ya no queda nada de ejemplo */
     $$("[data-aviso-ejemplo]").forEach(function (p) { p.hidden = !d.hayEjemplo; });
   }
@@ -361,11 +371,17 @@
   /* Tarjeta de zona (destinos nacionales e internacionales). Las de "próximamente" llevan su etiqueta */
   function tarjetaZona(d, z) {
     var f = fotoZona(d, z), n = deZona(d, z.id).length, x = d.porDestino[z.destino];
-    return '<a class="destino' + (z.proximamente ? " destino-pronto" : "") + '" href="destino.html?z=' + encodeURIComponent(z.id) + '">' +
+    return '<a class="destino' + (z.proximamente ? " destino-pronto" : "") + '" href="destino.html?z=' + encodeURIComponent(z.id) + '"><span class="borde-oro" aria-hidden="true"></span>' +
       (f ? img(f.r, f.carpeta, "", "(min-width:900px) 34vw, 84vw", 1600) : '<span class="destino-sinfoto" aria-hidden="true">' + icono("ola") + "</span>") +
       '<span class="destino-texto">' + (z.proximamente ? '<span class="pronto-sello">Próximamente</span>' : "") +
       "<strong>" + esc(z.nombre) + "</strong>" + (z.descripcion ? "<small>" + esc(z.descripcion) + "</small>" : "") +
       '<span class="destino-zonas"><span>' + esc(x ? x.nombre : "") + "</span>" + (n ? "<span>" + plural(n, "propiedad", "propiedades") + "</span>" : "") + "</span></span></a>";
+  }
+  /* Al final de los internacionales: cualquier otro país se cotiza con los servicios de viaje */
+  function tarjetaOtroPais() {
+    return '<a class="destino destino-viajes" href="viajes.html"><span class="borde-oro" aria-hidden="true"></span><span class="destino-viajes-ic" aria-hidden="true">' + icono("avion") + "</span>" +
+      '<span class="destino-texto"><strong>¿Viaja a otro país?</strong><small>Boletos aéreos, hoteles en todo el mundo, tours y renta de vehículos. Le cotizamos por WhatsApp.</small>' +
+      '<span class="destino-zonas"><span>Servicios de viaje</span></span></span></a>';
   }
   /* Destinos agrupados: Nacionales e Internacionales */
   function bloquesAmbitos(d, titulo) {
@@ -375,7 +391,8 @@
       zs.sort(function (x, y) { return (x.proximamente === true) - (y.proximamente === true) || deZona(d, y.id).length - deZona(d, x.id).length; });
       return '<div class="ambito-bloque"><div class="ambito-cabeza"><' + titulo + ">" + esc(a.nombre) + "</" + titulo + ">" +
         '<span class="ambito-paises">' + a.destinos.map(function (x) { return '<a href="destino.html?d=' + encodeURIComponent(x.id) + '">' + esc(x.nombre) + "</a>"; }).join("") + "</span></div>" +
-        '<div class="rejilla-destinos deslizable">' + zs.map(function (z) { return tarjetaZona(d, z); }).join("") + "</div></div>";
+        '<div class="rejilla-destinos deslizable">' + zs.map(function (z) { return tarjetaZona(d, z); }).join("") +
+        (a.id === "internacional" ? tarjetaOtroPais() : "") + "</div></div>";
     }).join("");
   }
   function pintarDestinos(d) {
@@ -683,7 +700,7 @@
     /* Otras en la misma zona (o en el mismo país) */
     var otras = d.propiedades.filter(function (x) { return x.id !== p.id && x.zona === p.zona; }).sort(destacadasPrimero), tituloOtras = "Otras propiedades en " + zona, filtro = "zona=" + encodeURIComponent(p.zona);
     if (!otras.length) { otras = d.propiedades.filter(function (x) { return x.id !== p.id && x.destino === p.destino; }).sort(destacadasPrimero); tituloOtras = "Otras propiedades en " + (dest ? dest.nombre : "este destino"); filtro = "ambito=" + encodeURIComponent(p.ambito); }
-    var bloqueOtras = otras.length ? '<section class="seccion seccion-azul"><div class="contenedor"><div class="titulo-fila"><h2>' + esc(tituloOtras) + '</h2><a class="enlace" href="hospedajes.html?' + filtro + '">Ver todas' + icono("flecha") + "</a></div>" +
+    var bloqueOtras = otras.length ? '<section class="seccion oscuro"><div class="contenedor"><div class="titulo-fila"><h2>' + esc(tituloOtras) + '</h2><a class="enlace" href="hospedajes.html?' + filtro + '">Ver todas' + icono("flecha") + "</a></div>" +
       '<div class="rejilla-tarjetas deslizable">' + otras.slice(0, 3).map(function (x) { return tarjeta(d, x); }).join("") + "</div></div></section>" : "";
 
     caja.innerHTML = '<div class="contenedor ficha-cabeza"><nav class="migas" aria-label="Ruta"><a href="hospedajes.html">Hospedajes</a><span aria-hidden="true">/</span>' +
@@ -886,7 +903,7 @@
       caja.innerHTML =
         (z.proximamente && !props.length
           ? '<section class="seccion seccion-clara"><div class="contenedor">' + muyPronto(z.nombre, z.descripcion || "Muy pronto tendremos hospedajes aquí.", msg("proximamente", { zona: z.nombre }), "Quiero saber cuando abra") + "</div></section>"
-          : seccion("seccion-clara", "Hospedajes en " + z.nombre, "", props.length ? rejilla(props) :
+          : seccion(props.length ? "oscuro" : "seccion-clara", "Hospedajes en " + z.nombre, "", props.length ? rejilla(props) :
             '<div class="vacio"><p>Pronto publicaremos hospedajes aquí. Escríbanos y le contamos qué tenemos.</p>' + botonWa("Preguntar por WhatsApp", msg("zona", { zona: z.nombre })) + "</div>")) +
         bloqueTours(tours, z.nombre) +
         (otras.length ? seccion("seccion-clara", "Otras zonas", "", '<div class="rejilla-destinos deslizable">' + otras.map(function (o) { return tarjetaZona(d, o); }).join("") + "</div>") : "");
@@ -902,7 +919,7 @@
       chips.hidden = !zs.length;
       caja.innerHTML =
         (zs.length ? seccion("seccion-clara", "Zonas en " + x.nombre, "", '<div class="rejilla-destinos deslizable">' + zs.map(function (o) { return tarjetaZona(d, o); }).join("") + "</div>") : "") +
-        (propsX.length ? seccion("seccion-azul", "Hospedajes en " + x.nombre, '<a class="enlace" href="hospedajes.html?ambito=' + encodeURIComponent(x.ambito) + '">Filtrar' + icono("flecha") + "</a>", rejilla(propsX)) : "") +
+        (propsX.length ? seccion("oscuro", "Hospedajes en " + x.nombre, '<a class="enlace" href="hospedajes.html?ambito=' + encodeURIComponent(x.ambito) + '">Filtrar' + icono("flecha") + "</a>", rejilla(propsX)) : "") +
         bloqueTours(d.tours.filter(function (t) { return t.destino === x.id; }), x.nombre);
       return;
     }
@@ -915,6 +932,7 @@
     $$("[data-tours-ambito]").forEach(function (caja) {
       var a = caja.getAttribute("data-tours-ambito");
       pintarTours(caja, d.tours.filter(function (t) { return t.ambito === a; }), a);
+      if (caja.classList.contains("pila-tours")) pilaTours(caja);
     });
   };
 
@@ -1160,10 +1178,160 @@
     });
   }
 
+
+  /* ================================================================
+     Movimiento premium. Regla de oro: todo empieza visible y legible;
+     esto solo mueve, escala o aclara. Solo transform y opacity.
+     ================================================================ */
+  var finoMouse = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  var pc = window.matchMedia("(min-width: 900px)");
+
+  /* Portada: el sol se hunde y las tres olas se separan al bajar (paralaje leve) */
+  safe(function () {
+    var port = $("[data-atardecer]"); if (!port || quieto) return;
+    var capas = $$("[data-vel]", port), pend = false;
+    function pintar() {
+      pend = false;
+      var y = window.scrollY;
+      if (y > window.innerHeight * 1.3) return;
+      capas.forEach(function (c) { c.style.transform = "translate3d(0," + (y * +c.getAttribute("data-vel")).toFixed(1) + "px,0)"; });
+    }
+    window.addEventListener("scroll", function () { if (!pend) { pend = true; requestAnimationFrame(pintar); } }, { passive: true });
+    pintar();
+  });
+
+  /* Destinos: un brillo dorado recorre el borde al tocar la tarjeta */
+  safe(function () {
+    if (quieto) return;
+    document.addEventListener("pointerdown", function (ev) {
+      var d = ev.target.closest && ev.target.closest(".destino"); if (!d) return;
+      d.classList.remove("brilla"); void d.offsetWidth; d.classList.add("brilla");
+    }, { passive: true });
+    document.addEventListener("animationend", function (ev) {
+      if (ev.animationName !== "brillo-borde") return;
+      var d = ev.target.closest(".destino"); if (d) d.classList.remove("brilla");
+    });
+  });
+
+  /* Propiedades sobre petróleo: en la computadora se inclinan un poco siguiendo el mouse */
+  safe(function () {
+    if (!finoMouse || quieto) return;
+    var actual = null, ev0 = null, pend = false;
+    function soltar() { if (actual) { actual.style.transform = ""; actual.classList.remove("inclinada"); actual = null; } }
+    function pintar() {
+      pend = false;
+      var t = ev0.target.closest && ev0.target.closest(".oscuro .tarjeta");
+      if (t !== actual) soltar();
+      if (!t || !pc.matches) return;
+      var r = t.getBoundingClientRect(), x = (ev0.clientX - r.left) / r.width - .5, y = (ev0.clientY - r.top) / r.height - .5;
+      t.style.transform = "perspective(900px) rotateX(" + (-y * 6).toFixed(2) + "deg) rotateY(" + (x * 7).toFixed(2) + "deg) translateY(-6px)";
+      t.classList.add("inclinada"); actual = t;
+    }
+    document.addEventListener("pointermove", function (ev) { ev0 = ev; if (!pend) { pend = true; requestAnimationFrame(pintar); } }, { passive: true });
+    document.addEventListener("mouseout", function (ev) { if (!ev.relatedTarget) soltar(); });
+    window.addEventListener("scroll", soltar, { passive: true });
+  });
+
+  /* Galerías de destinos: flechas en la computadora (en el teléfono se desliza con el dedo) */
+  function flechasGaleria() {
+    $$(".rejilla-destinos").forEach(function (g) {
+      var cab = g.previousElementSibling;
+      if (!cab || $(".galeria-flechas", cab) || g.children.length < 2) return;
+      var nav = document.createElement("div");
+      nav.className = "galeria-flechas";
+      nav.innerHTML = '<button type="button" data-g="-1" aria-label="Destinos anteriores">' + icono("izq") + '</button><button type="button" data-g="1" aria-label="Más destinos">' + icono("der") + "</button>";
+      cab.appendChild(nav);
+      nav.addEventListener("click", function (ev) {
+        var b = ev.target.closest("[data-g]"); if (!b) return;
+        g.scrollBy({ left: +b.getAttribute("data-g") * g.clientWidth * .8, behavior: quieto ? "auto" : "smooth" });
+      });
+    });
+  }
+
+  /* Divisores con forma de ola: cada bloque que cambia de color recibe una ola del color del bloque anterior */
+  var OLA_D = "M0 0H1440V12C1300 34 1140 34 1000 18S720 0 560 14 260 36 0 14Z";
+  var OLA_ORO = "M1440 12C1300 34 1140 34 1000 18S720 0 560 14 260 36 0 14";
+  function fondo(el) {
+    var c = getComputedStyle(el).backgroundColor;
+    return /rgba\(0, 0, 0, 0\)|transparent/.test(c) ? getComputedStyle(document.body).backgroundColor : c;
+  }
+  function anterior(el) {
+    var p = el.previousElementSibling;
+    while (p && /^(SCRIPT|TEMPLATE|NOSCRIPT|DIALOG)$/.test(p.tagName)) p = p.previousElementSibling;
+    if (!p && el.parentElement && el.parentElement !== document.body) return anterior(el.parentElement);
+    if (p && !p.matches("section, .pie, .zona-catalogo")) { var s = $$("section, .zona-catalogo", p); if (s.length) p = s[s.length - 1]; }
+    return p;
+  }
+  function olas() {
+    $$("main section.seccion, main .zona-catalogo, main .cierre, .pie").forEach(function (b) {
+      if ($(":scope > .ola-div", b)) return;
+      var p = anterior(b); if (!p || p.offsetHeight < 40) return;
+      var c = fondo(p); if (c === fondo(b)) return;
+      var o = document.createElement("div");
+      o.className = "ola-div"; o.setAttribute("aria-hidden", "true");
+      o.innerHTML = '<svg viewBox="0 0 1440 40" preserveAspectRatio="none" focusable="false"><path d="' + OLA_D + '" fill="' + c + '"/><path class="ola-div-oro" d="' + OLA_ORO + '" vector-effect="non-scaling-stroke"/></svg>';
+      b.insertBefore(o, b.firstChild);
+    });
+  }
+
+  /* Mapa de destinos: un punto que late por zona (datos/destinos.json → coordenadas). Las zonas muy juntas se agrupan */
+  function pintarMapa(d) {
+    var marco = $("[data-mapa-marco]"); if (!marco) return;
+    var caja = $("[data-mapa-puntos]", marco), ds = marco.dataset;
+    var lon0 = +ds.lon0, lat1 = +ds.lat1, k = +ds.k, W = +ds.ancho, H = +ds.alto;
+    var pts = d.zonas.filter(function (z) { return Array.isArray(z.coordenadas) && z.coordenadas.length === 2; }).map(function (z) {
+      var x = (+z.coordenadas[1] - lon0) * k, y = (lat1 - +z.coordenadas[0]) * k;
+      if (!(x >= 0 && y >= 0 && x <= W && y <= H)) { aviso("La zona \"" + z.nombre + "\" queda fuera del mapa de destinos (solo Venezuela y Colombia)."); return null; }
+      return { z: z, x: x, y: y };
+    }).filter(Boolean);
+    var grupos = [];
+    pts.forEach(function (p) {
+      var g = grupos.filter(function (g) { return Math.abs(g.x - p.x) < 36 && Math.abs(g.y - p.y) < 36; })[0];
+      if (!g) { grupos.push({ x: p.x, y: p.y, l: [p] }); return; }
+      g.l.push(p); g.x += (p.x - g.x) / g.l.length; g.y += (p.y - g.y) / g.l.length;
+    });
+    function corto(n) { return String(n).split(",")[0]; }
+    caja.innerHTML = grupos.map(function (g, i) {
+      var estilo = ' style="left:' + (g.x / W * 100).toFixed(2) + "%;top:" + (g.y / H * 100).toFixed(2) + "%;--d:" + (i * .5).toFixed(1) + 's"';
+      if (g.l.length === 1) {
+        var z = g.l[0].z;
+        return '<a class="mapa-punto' + (z.proximamente ? " punto-pronto" : "") + '" href="destino.html?z=' + encodeURIComponent(z.id) + '"' + estilo + "><i></i><span>" +
+          esc(corto(z.nombre)) + (z.proximamente ? " <em>Pronto</em>" : "") + "</span></a>";
+      }
+      var pais = d.porDestino[g.l[0].z.destino];
+      return '<div class="mapa-grupo' + (g.x / W > .6 ? " a-la-izq" : "") + '"' + estilo + '><a class="mapa-punto solo" href="destino.html' + (pais ? "?d=" + encodeURIComponent(pais.id) : "") + '" aria-label="' + esc(pais ? pais.nombre : "Destinos") + '"><i></i></a><ul>' +
+        g.l.map(function (p) { return '<li><a href="destino.html?z=' + encodeURIComponent(p.z.id) + '">' + esc(corto(p.z.nombre)) + "</a></li>"; }).join("") + "</ul></div>";
+    }).join("");
+  }
+
+  /* Tours y yates: en la computadora las tarjetas se apilan al bajar (GSAP + ScrollTrigger, solo ahí) */
+  function cargarScript(src) {
+    return new Promise(function (ok, mal) { var s = document.createElement("script"); s.src = src; s.onload = ok; s.onerror = mal; document.head.appendChild(s); });
+  }
+  function pilaTours(caja) {
+    var tours = $$(".tour", caja);
+    tours.forEach(function (t, i) { t.style.setProperty("--i", i); });
+    if (quieto || tours.length < 2 || !pc.matches) return;
+    var gs = window.gsap ? Promise.resolve() : cargarScript("assets/js/gsap.min.js").then(function () { return cargarScript("assets/js/ScrollTrigger.min.js"); });
+    gs.then(function () {
+      var gsap = window.gsap; if (!gsap || !window.ScrollTrigger) return;
+      gsap.registerPlugin(window.ScrollTrigger);
+      tours.forEach(function (t, i) {
+        var sig = tours[i + 1]; if (!sig) return;
+        var st = { trigger: sig, start: "top bottom", end: "top " + (100 + (i + 1) * 22) + "px", scrub: .5 };
+        gsap.to(t, { scale: .92, ease: "none", scrollTrigger: st });
+        gsap.to($(".tour-velo", t), { opacity: .4, ease: "none", scrollTrigger: { trigger: sig, start: st.start, end: st.end, scrub: .5 } });
+      });
+    }).catch(function () { /* sin GSAP: las tarjetas igual se apilan con CSS */ });
+  }
+
   if (!window.fetch || !window.Promise) return;
   cargar().then(function (d) {
     safe(viajesInicio);
     safe(function () { comun(d); });
     if (PAGINAS[PAGINA]) safe(function () { PAGINAS[PAGINA](d); });
+    safe(function () { pintarMapa(d); });
+    safe(flechasGaleria);
+    safe(olas);
   });
 })();

@@ -981,3 +981,221 @@ h3 { font-size: 1.65rem; }
   .marca-texto { font-size: 1.5rem; }
   .marca-logo { width: 46px; height: 46px; }
 }
+
+/* ================================================================
+   Movimiento premium (noviembre 2026). Todo empieza visible:
+   el movimiento solo desplaza, escala o aclara. Solo transform y opacity.
+   ================================================================ */
+
+/* ---------- Portada viva: atardecer con el motivo del logo ---------- */
+.portada-viva { background: var(--hondo); }
+.portada-viva::after { background: linear-gradient(rgba(7,34,39,.6), rgba(7,34,39,0) 36%); }
+.atardecer { position: absolute; inset: 0; z-index: -1; overflow: hidden; }
+.cielo, .cielo-calido, .atardecer-video { position: absolute; inset: 0; }
+.cielo { background: linear-gradient(180deg, #072227 0%, #0B2F35 24%, #17505A 48%, #8C6A5E 66%, #E2876A 80%, #F2B07F 100%); }
+.cielo-calido { background: radial-gradient(70% 40% at 50% 74%, rgba(248,196,130,.75), rgba(239,125,96,.28) 45%, transparent 72%); animation: respira 8s ease-in-out infinite alternate; }
+@keyframes respira { from { opacity: .35; } to { opacity: 1; } }
+.atardecer-video video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.con-video .cielo-calido, .con-video .sol-capa { display: none; }
+.sol-capa { position: absolute; left: 50%; top: 49%; width: min(60vw, 290px); aspect-ratio: 1; transform: translate3d(0,0,0); margin-left: calc(min(60vw, 290px) / -2); will-change: transform; }
+.sol-sube { position: relative; width: 100%; height: 100%; animation: sol-sube 2.4s cubic-bezier(.2,.7,.2,1) both; }
+@keyframes sol-sube { from { transform: translateY(24%) scale(.94); } }
+.sol-halo { position: absolute; inset: -24%; border-radius: 50%; background: radial-gradient(closest-side, rgba(248,206,140,.6), rgba(239,125,96,.24) 55%, transparent 76%); animation: halo 6s ease-in-out infinite alternate; }
+@keyframes halo { from { transform: scale(.9); opacity: .65; } to { transform: scale(1.06); opacity: 1; } }
+.sol { position: relative; width: 100%; height: 100%; border-radius: 50%; overflow: hidden; background: radial-gradient(circle at 50% 40%, #F7DB98, var(--dorado)); box-shadow: 0 0 0 1px rgba(230,196,127,.9), 0 0 0 8px rgba(212,168,81,.14); }
+.sol img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1.4s ease; }
+.sol img.activa, html:not(.js) .sol img:first-child { opacity: 1; }
+.sol::after { content: ""; position: absolute; inset: 0; background: linear-gradient(rgba(247,190,120,.1), rgba(239,125,96,.26)); }
+.ola-capa { position: absolute; left: 0; bottom: 0; width: 100%; height: 36%; overflow: visible; will-change: transform; }
+.ola-mov { animation: ola-va 30s linear infinite; }
+.ola-2 .ola-mov { animation-duration: 21s; animation-direction: reverse; }
+.ola-3 .ola-mov { animation-duration: 15s; }
+@keyframes ola-va { to { transform: translateX(-1440px); } }
+.ola-relleno { fill: #134A52; }
+.ola-2 .ola-relleno { fill: #0E3C43; }
+.ola-3 .ola-relleno { fill: var(--primario); }
+.ola-cresta { fill: none; stroke: var(--coral); stroke-width: 2; opacity: .9; }
+.ola-2 .ola-cresta { stroke: var(--dorado); stroke-width: 1.5; }
+.ola-3 .ola-cresta { stroke: var(--coral); stroke-width: 1.5; opacity: .6; }
+.portada-viva h1 .cursiva { color: var(--coral-suave); }
+.portada-viva .portada-cielo p { text-shadow: 0 1px 14px rgba(7,34,39,.7); }
+.js .portada-inicio h1 .p { animation-duration: .55s; animation-delay: calc(var(--i) * 70ms + 40ms); }
+.portada-viva .portada-pie { position: relative; z-index: 1; }
+@media (min-width: 900px) {
+  .portada-viva::after { background: linear-gradient(90deg, rgba(7,34,39,.55), rgba(7,34,39,0) 52%), linear-gradient(rgba(7,34,39,.55), rgba(7,34,39,0) 26%); }
+  .sol-capa { left: 73%; top: 17%; width: min(36vw, 500px); margin-left: calc(min(36vw, 500px) / -2); }
+  .ola-capa { height: 34%; }
+  .cielo { background: linear-gradient(180deg, #072227 0%, #0B2F35 22%, #17505A 46%, #8C6A5E 64%, #E2876A 80%, #F2B07F 100%); }
+  .cielo-calido { background: radial-gradient(46% 46% at 73% 62%, rgba(248,196,130,.75), rgba(239,125,96,.28) 45%, transparent 72%); }
+}
+.spline-capa { display: none; }
+@media (min-width: 1024px) {
+  .spline-capa { position: absolute; z-index: -1; inset: 0 0 0 46%; display: block; opacity: 0; transition: opacity 1.2s ease; pointer-events: none; }
+  .spline-capa.lista { opacity: 1; }
+  .spline-capa canvas { display: block; width: 100% !important; height: 100% !important; }
+  .portada:has(.spline-capa.lista) .sol-capa { opacity: 0; transition: opacity 1s ease; }
+}
+
+/* ---------- Destinos: galería horizontal con snap y brillo dorado en el borde ---------- */
+.rejilla-destinos, .rejilla-destinos.deslizable { display: grid; grid-auto-flow: column; grid-template-columns: none; grid-auto-columns: min(80vw, 330px); gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; overscroll-behavior-x: contain; margin-inline: calc(var(--margen) * -1); padding: 6px var(--margen) 16px; scroll-padding-inline: var(--margen); }
+.rejilla-destinos::-webkit-scrollbar { display: none; }
+.rejilla-destinos > * { scroll-snap-align: start; }
+.rejilla-destinos > .vacio, .rejilla-destinos > .pronto { min-width: calc(100vw - 2 * var(--margen)); }
+.destino { min-height: 430px; border-radius: 26px; }
+.destino-texto { padding: 22px; }
+.destino-texto strong { font-size: 2.7rem; font-weight: 600; line-height: .95; }
+.borde-oro { position: absolute; inset: 0; z-index: 1; border-radius: inherit; padding: 1.5px; background: rgba(212,168,81,.42); overflow: hidden; pointer-events: none;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask-composite: exclude; }
+.borde-oro::before { content: ""; position: absolute; left: 50%; top: 50%; width: 190%; aspect-ratio: 1; margin: -95% 0 0 -95%; background: conic-gradient(from 0deg, transparent 0 60%, rgba(246,220,150,.25) 70%, #FFF1C8 82%, #E6C47F 88%, transparent 96%); opacity: 0; }
+.destino.brilla .borde-oro::before { animation: brillo-borde 1.3s cubic-bezier(.4,0,.2,1); }
+@keyframes brillo-borde { 0% { opacity: 0; transform: rotate(-40deg); } 18% { opacity: 1; } 80% { opacity: 1; } 100% { opacity: 0; transform: rotate(320deg); } }
+.galeria-flechas { display: none; }
+@media (min-width: 900px) {
+  .rejilla-destinos, .rejilla-destinos.deslizable { grid-auto-columns: minmax(340px, calc((100% - 40px) / 3.15)); gap: 20px; margin-inline: 0; padding: 6px 0 18px; scroll-padding-inline: 0; }
+  .destino { min-height: 500px; }
+  .destino-texto { padding: 30px; }
+  .destino-texto strong { font-size: 3.3rem; }
+  .destino:hover .borde-oro::before { animation: brillo-borde 1.4s cubic-bezier(.4,0,.2,1); }
+  .galeria-flechas { display: flex; gap: 8px; margin-left: auto; order: 3; }
+  .galeria-flechas button { display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--dorado); color: var(--texto); transition: background-color .2s ease, transform .15s ease; }
+  .galeria-flechas button:hover { background: rgba(212,168,81,.18); }
+  .galeria-flechas button:active { transform: scale(.92); }
+  .titulo-fila .galeria-flechas { margin-left: 0; }
+}
+
+/* ---------- Propiedades: tarjetas de vidrio sobre petróleo ---------- */
+.oscuro { color: var(--blanco); background: radial-gradient(60% 50% at 88% 0%, rgba(239,125,96,.2), transparent 70%), radial-gradient(55% 60% at 0% 100%, rgba(212,168,81,.13), transparent 70%), var(--primario); }
+.oscuro .titulo-fila .enlace, .oscuro .titulo-fila a { color: var(--dorado-claro); }
+.oscuro .tarjeta { background: rgba(19,74,82,.5); color: var(--blanco); border: 1px solid rgba(212,168,81,.42); box-shadow: inset 0 1px 0 rgba(255,255,255,.07), 0 18px 40px rgba(2,16,19,.22); -webkit-backdrop-filter: blur(16px) saturate(1.3); backdrop-filter: blur(16px) saturate(1.3); transition: transform .4s cubic-bezier(.2,.7,.2,1), border-color .3s ease, box-shadow .4s ease; }
+.oscuro .tarjeta:hover, .oscuro .tarjeta:focus-within { transform: translateY(-6px); border-color: var(--dorado); box-shadow: inset 0 1px 0 rgba(255,255,255,.09), 0 28px 54px rgba(2,16,19,.32); }
+.oscuro .tarjeta.inclinada { transition: transform .12s linear, border-color .3s ease, box-shadow .4s ease; }
+.oscuro .tarjeta-foto { background: rgba(255,255,255,.05); }
+.oscuro .t-pista img { transition: transform .9s cubic-bezier(.2,.7,.2,1); }
+.oscuro .tarjeta:hover .t-pista img, .oscuro .tarjeta:active .t-pista img { transform: scale(1.06); }
+.oscuro .tarjeta-tipo { color: rgba(255,255,255,.78); }
+.oscuro .tarjeta-sub { color: var(--dorado-claro); }
+.oscuro .tarjeta-datos .ic { color: var(--dorado); }
+.oscuro .tarjeta .boton-claro { background: transparent; color: var(--blanco); box-shadow: inset 0 0 0 1px var(--dorado); }
+.oscuro .tarjeta .boton-claro:hover { background: rgba(212,168,81,.16); }
+.oscuro .cargando.rejilla-tarjetas::before { background: linear-gradient(100deg, rgba(255,255,255,.05) 30%, rgba(255,255,255,.13) 50%, rgba(255,255,255,.05) 70%); background-size: 300% 100%; }
+.oscuro .vacio, .oscuro .pronto, .oscuro .activo-chip, .oscuro .aviso-sinjs, .oscuro .filtros-caja { color: var(--texto); }
+.oscuro .activos .limpiar, .oscuro .vacio + .limpiar { color: var(--dorado-claro); }
+.zona-catalogo { position: relative; }
+.zona-catalogo .activos { padding-top: 22px; }
+.zona-catalogo .catalogo { padding-top: 22px; }
+.zona-catalogo .tarjeta-texto .boton { margin-top: auto; }
+@media (min-width: 900px) {
+  .oscuro .filtros-caja { background: rgba(19,74,82,.5); color: var(--blanco); border: 1px solid rgba(212,168,81,.35); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
+  .oscuro .chip span { background: transparent; border-color: rgba(255,255,255,.28); color: var(--blanco); }
+  .oscuro .chip input:checked + span { background: var(--coral); border-color: var(--coral); color: var(--hondo); }
+  .oscuro .cat-ayuda { color: rgba(255,255,255,.8); }
+  .oscuro .filtros-pie .limpiar { color: var(--dorado-claro); }
+  .oscuro .grupo-f select { border-color: transparent; }
+}
+
+/* ---------- Tours y yates: se apilan al bajar en la computadora ---------- */
+.tour { position: relative; }
+.tour-velo { position: absolute; inset: 0; z-index: 4; background: var(--hondo); opacity: 0; pointer-events: none; }
+@media (min-width: 900px) {
+  .pila-tours { display: block; }
+  .pila-tours .tour { position: sticky; top: calc(100px + var(--i, 0) * 22px); display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); min-height: 400px; margin-bottom: 40px; transform-origin: 50% 0; border: 1px solid var(--linea); box-shadow: 0 -10px 34px rgba(8,38,43,.12); }
+  .pila-tours .tour-foto { aspect-ratio: auto; height: 100%; min-height: 400px; }
+  .pila-tours .tour-texto { padding: 36px 40px; justify-content: center; gap: 14px; }
+  .pila-tours .tour h3 { font-size: 2.5rem; }
+  .pila-tours > .pronto, .pila-tours > .vacio { position: static; }
+}
+@keyframes entra-suave { from { transform: translateY(30px) scale(.97); } }
+@supports (animation-timeline: view()) {
+  @media (max-width: 899px) and (prefers-reduced-motion: no-preference) {
+    .pila-tours .tour { animation: entra-suave linear both; animation-timeline: view(); animation-range: entry 0% entry 55%; }
+  }
+}
+
+/* ---------- Mapa de destinos (SVG propio, sin mapas de terceros) ---------- */
+.seccion-mapa .mapa-destinos { display: grid; gap: 22px; }
+.mapa-texto p { margin-top: 10px; color: rgba(255,255,255,.84); max-width: 30em; }
+.mapa-lista { list-style: none; margin: 18px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.mapa-lista a { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 8px 14px; border-radius: 999px; border: 1px solid rgba(212,168,81,.45); text-decoration: none; font-weight: 600; font-size: .92rem; transition: background-color .2s ease; }
+.mapa-lista a:hover { background: rgba(212,168,81,.14); }
+.mapa-lista .ic { color: var(--dorado); }
+.mapa-lista em, .mapa-punto em { font-style: normal; font-size: .72rem; padding: 1px 8px; border-radius: 999px; background: var(--coral); color: var(--hondo); }
+.mapa-marco { position: relative; aspect-ratio: 606 / 600; border-radius: 26px; overflow: hidden; border: 1px solid rgba(212,168,81,.35); background: radial-gradient(80% 50% at 55% 18%, rgba(19,74,82,.85), transparent 72%), #08262B; }
+.mapa-svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.pais { fill: #134A52; stroke: var(--dorado); stroke-width: 1.2; stroke-linejoin: round; }
+.mapa-pais { fill: rgba(255,255,255,.5); font: italic 600 28px var(--titulo); text-anchor: middle; }
+.mapa-mar { fill: rgba(230,196,127,.62); font: italic 600 22px var(--titulo); letter-spacing: .18em; text-anchor: middle; }
+.mapa-puntos { position: absolute; inset: 0; }
+.mapa-punto { position: absolute; display: flex; flex-direction: column-reverse; align-items: center; transform: translate(-50%, calc(-100% + 22px)); color: var(--blanco); text-decoration: none; font-weight: 600; font-size: .86rem; }
+.mapa-punto i { position: relative; display: block; width: 44px; height: 44px; flex: none; }
+.mapa-punto i::before, .mapa-punto i::after { content: ""; position: absolute; left: 50%; top: 50%; width: 12px; height: 12px; margin: -6px; border-radius: 50%; }
+.mapa-punto i::before { background: var(--coral); box-shadow: 0 0 0 2px var(--hondo); }
+.mapa-punto i::after { border: 2px solid var(--coral); animation: late 2.4s ease-out infinite; animation-delay: var(--d, 0s); }
+@keyframes late { from { transform: scale(1); opacity: .9; } to { transform: scale(3.2); opacity: 0; } }
+.mapa-punto.punto-pronto i::before { background: var(--dorado); }
+.mapa-punto.punto-pronto i::after { border-color: var(--dorado); }
+.mapa-punto span { display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 999px; background: rgba(7,34,39,.85); border: 1px solid rgba(212,168,81,.5); white-space: nowrap; margin-bottom: -10px; }
+.mapa-punto:hover span { border-color: var(--dorado); }
+.mapa-grupo { position: absolute; }
+.mapa-grupo .mapa-punto { left: 0; top: 0; transform: translate(-50%, -50%); }
+.mapa-grupo ul { position: absolute; top: 20px; left: -18px; list-style: none; margin: 0; padding: 6px; display: grid; gap: 2px; min-width: 150px; border-radius: 16px; background: rgba(7,34,39,.88); border: 1px solid rgba(212,168,81,.5); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+.mapa-grupo.a-la-izq ul { left: auto; right: -18px; }
+.mapa-grupo ul a { display: flex; align-items: center; min-height: 40px; padding: 4px 12px; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: .9rem; }
+.mapa-grupo ul a:hover { background: rgba(212,168,81,.16); }
+@media (min-width: 900px) {
+  .seccion-mapa .mapa-destinos { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); align-items: center; gap: 64px; }
+  .mapa-punto { font-size: .95rem; }
+  .mapa-grupo ul { min-width: 190px; padding: 8px; }
+}
+
+/* ---------- Detalles de marca ---------- */
+/* Divisores con forma de ola (los pone sitio.js con el color del bloque anterior) */
+.ola-div { position: absolute; left: 0; right: 0; top: -1px; height: 22px; z-index: 2; pointer-events: none; }
+.ola-div svg { display: block; width: 100%; height: 100%; }
+.ola-div-oro { fill: none; stroke: var(--dorado); stroke-width: 1; opacity: .55; }
+.pie { position: relative; }
+@media (min-width: 900px) { .ola-div { height: 40px; } }
+
+/* Destello dorado en los botones coral principales, cada pocos segundos */
+.boton-menu, .portada-pie .boton:first-child, .cierre .boton, .viajes-inicio .boton { position: relative; overflow: hidden; isolation: isolate; }
+.boton-menu::after, .portada-pie .boton:first-child::after, .cierre .boton::after, .viajes-inicio .boton::after { content: ""; position: absolute; top: -10%; bottom: -10%; left: 0; width: 40%; z-index: -1; background: linear-gradient(100deg, transparent, rgba(255,243,210,.8), transparent); transform: translateX(-140%) skewX(-18deg); animation: destello 7s ease-in-out infinite; animation-delay: 2s; pointer-events: none; }
+.portada-pie .boton:first-child::after { animation-delay: 1.2s; }
+.cierre .boton::after { animation-delay: 3.4s; }
+@keyframes destello { 0% { transform: translateX(-140%) skewX(-18deg); } 13%, 100% { transform: translateX(340%) skewX(-18deg); } }
+
+/* Transiciones suaves entre páginas (navegadores que las soportan) */
+.cabecera { view-transition-name: cabecera; }
+.barra { view-transition-name: barra; }
+::view-transition-old(root) { animation: vt-sale .2s ease both; }
+::view-transition-new(root) { animation: vt-entra .38s cubic-bezier(.2,.7,.2,1) both; }
+@keyframes vt-sale { to { opacity: 0; } }
+@keyframes vt-entra { from { opacity: 0; transform: translateY(12px); } }
+
+/* Movimiento reducido: todo queda quieto y visible */
+@media (prefers-reduced-motion: reduce) {
+  .ola-mov, .cielo-calido, .sol-halo, .sol-sube, .mapa-punto i::after, .borde-oro::before, .pila-tours .tour,
+  .boton-menu::after, .portada-pie .boton:first-child::after, .cierre .boton::after, .viajes-inicio .boton::after,
+  .js .portada-inicio h1 .p, .hoja-viaje[open] { animation: none !important; }
+  .mapa-punto i::after { opacity: 0; }
+  ::view-transition-old(root), ::view-transition-new(root) { animation: none; }
+  .oscuro .tarjeta:hover, .oscuro .tarjeta:focus-within { transform: none; }
+  .oscuro .tarjeta:hover .t-pista img { transform: none; }
+}
+
+/* Olas del teléfono: más anchas que la pantalla para que se vean suaves, y el sol más arriba */
+.ola-capa { width: max(100%, 1200px); }
+@media (max-width: 899px) {
+  .ola-capa { height: 31%; }
+  .sol-capa { top: 40%; width: min(66vw, 300px); margin-left: calc(min(66vw, 300px) / -2); }
+}
+@media (max-width: 899px) {
+  .viajes-fichas { grid-template-columns: 1fr; }
+  .viajes-fichas a { min-height: 52px; }
+}
+
+/* Tarjeta "¿Viaja a otro país?" al final de los destinos internacionales */
+.destino-viajes { background: radial-gradient(80% 60% at 80% 10%, rgba(239,125,96,.38), transparent 70%), linear-gradient(160deg, var(--petroleo-medio), var(--hondo)); }
+.destino-viajes::after { display: none; }
+.destino-viajes-ic { position: absolute; top: 26px; left: 22px; display: grid; place-items: center; width: 72px; height: 72px; border-radius: 50%; border: 1px solid var(--dorado); color: var(--dorado); }
+.destino-viajes-ic .ic { width: 32px; height: 32px; }
+.destino-viajes .destino-zonas span { background: var(--coral); color: var(--hondo); }

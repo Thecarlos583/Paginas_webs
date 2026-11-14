@@ -1,5 +1,5 @@
 {
-  "_ayuda": "Ámbitos (nacional e internacional), sus países y las zonas de cada país. El id de cada zona es el que va en \"zona\" de cada propiedad. Una zona con \"proximamente\": true se muestra con la etiqueta Próximamente y un botón de WhatsApp.",
+  "_ayuda": "Ámbitos (nacional e internacional), sus países y las zonas de cada país. El id de cada zona es el que va en \"zona\" de cada propiedad. Una zona con \"proximamente\": true se muestra con la etiqueta Próximamente y un botón de WhatsApp. \"coordenadas\": [latitud, longitud] pone el punto en el mapa de destinos (aproximado está bien).",
   "ambitos": [
     {
       "id": "nacional",
@@ -14,30 +14,50 @@
           "zonas": [
             {
               "id": "tucacas",
+              "coordenadas": [
+                10.79,
+                -68.32
+              ],
               "nombre": "Tucacas, Falcón",
               "foto": "",
               "descripcion": "Casas, apartamentos frente a la playa y habitaciones con desayuno, cerca de los muelles de salida a los cayos de Morrocoy."
             },
             {
               "id": "chichiriviche",
+              "coordenadas": [
+                10.93,
+                -68.27
+              ],
               "nombre": "Chichiriviche, Falcón",
               "foto": "",
               "descripcion": "Apartamentos frente al mar con muelle y una casa grande cerca del Golfete de Cuare y del Parque Nacional Morrocoy."
             },
             {
               "id": "sanare",
+              "coordenadas": [
+                10.84,
+                -68.38
+              ],
               "nombre": "Sanare, Morrocoy (Falcón)",
               "foto": "",
               "descripcion": "Villas y casas con piscina rodeadas de naturaleza, cerca de las playas de Morrocoy."
             },
             {
               "id": "ciudad-flamingo",
+              "coordenadas": [
+                10.89,
+                -68.3
+              ],
               "nombre": "Ciudad Flamingo, Falcón",
               "foto": "",
               "descripcion": "Junto al Refugio de Fauna Silvestre de Cuare y cerca de los embarcaderos hacia los cayos."
             },
             {
               "id": "isla-margarita",
+              "coordenadas": [
+                11.0,
+                -63.9
+              ],
               "nombre": "Isla Margarita",
               "foto": "",
               "proximamente": true,
@@ -60,6 +80,10 @@
           "zonas": [
             {
               "id": "santa-marta",
+              "coordenadas": [
+                11.24,
+                -74.2
+              ],
               "nombre": "Santa Marta, Magdalena",
               "foto": "",
               "descripcion": "Cerca del mar, de Playa Bello Horizonte y del aeropuerto de Santa Marta."
