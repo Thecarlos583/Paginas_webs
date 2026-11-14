@@ -62,6 +62,7 @@
     "zona": "Hola, quisiera opciones de hospedaje en {zona} con Cotomaya Venezuela.",
     "proximamente": "Hola, quiero saber cuando abran hospedajes en {zona} con Cotomaya Venezuela.",
     "tours_pronto": "Hola, quisiera saber qué tours {ambito} tienen con Cotomaya Venezuela.",
-    "sin_resultados": "Hola, estoy buscando un hospedaje con Cotomaya Venezuela y no encontré lo que necesito. ¿Me pueden ayudar?"
+    "sin_resultados": "Hola, estoy buscando un hospedaje con Cotomaya Venezuela y no encontré lo que necesito. ¿Me pueden ayudar?",
+    "viaje": "Hola Cotomaya, quiero cotizar {servicio}:"
   }
 }

@@ -831,3 +831,104 @@ html:not(.js) .destino:not(:has(img)), .destino:not(:has(img)) { background: lin
 /* Segundo número de WhatsApp (Contacto y pie) */
 .wa-sec > span { display: grid; line-height: 1.15; }
 .wa-sec small { font-family: var(--cuerpo); font-size: .78rem; font-weight: 600; opacity: .8; letter-spacing: .01em; }
+
+/* ================================================================
+   Servicios de viaje (viajes.html, bloque del inicio y línea en tours)
+   ================================================================ */
+.barra { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+.barra a { font-size: .7rem; letter-spacing: -.01em; }
+.linea-viajes { display: flex; gap: 10px; align-items: flex-start; margin: -6px 0 22px; padding: 14px 16px; border-radius: 16px; background: var(--azul-claro); max-width: 40em; }
+.linea-viajes .ic { color: var(--dorado-oscuro); margin-top: 2px; }
+.linea-viajes a { font-weight: 600; text-underline-offset: 3px; }
+
+.viajes-inicio { display: grid; gap: 20px; }
+.viajes-inicio p { margin-top: 10px; max-width: 34em; }
+.viajes-inicio .botones { margin-top: 0; }
+.viajes-fichas { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.viajes-fichas li:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.viajes-fichas a { display: flex; align-items: center; gap: 10px; min-height: 58px; height: 100%; padding: 10px 14px; border-radius: 16px; background: var(--blanco); font-weight: 600; font-size: .95rem; line-height: 1.2; text-decoration: none; transition: transform .15s ease; }
+.viajes-fichas a:active { transform: scale(.97); }
+.viajes-fichas .ic { color: var(--dorado-oscuro); }
+
+.pasos-viaje { list-style: none; margin: 0 0 28px; padding: 0; display: grid; gap: 10px; counter-reset: pv; }
+.pasos-viaje li { counter-increment: pv; display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 2px 12px; align-items: start; }
+.pasos-viaje li::before { content: counter(pv); grid-row: span 2; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--dorado); color: var(--dorado-oscuro); font-family: var(--titulo); font-size: 1.25rem; }
+.pasos-viaje strong { font-family: var(--titulo); font-size: 1.3rem; line-height: 1.15; }
+.pasos-viaje span { font-size: .95rem; }
+
+.servicios { display: grid; gap: 12px; }
+.servicio { position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 4px 16px; align-items: center; padding: 18px; border-radius: 22px; background: var(--blanco); color: var(--texto); text-decoration: none; box-shadow: 0 1px 0 rgba(11,31,58,.06), 0 10px 28px rgba(11,31,58,.07); transition: transform .2s ease, box-shadow .2s ease; }
+.servicio:active { transform: scale(.98); }
+.servicio-ic { display: grid; place-items: center; width: 56px; height: 56px; border-radius: 50%; background: var(--primario); color: var(--dorado); grid-row: span 2; }
+.servicio-texto { display: grid; gap: 4px; }
+.servicio-texto strong { font-family: var(--titulo); font-weight: 600; font-size: 1.45rem; line-height: 1.1; }
+.servicio-texto small { font-size: .94rem; }
+.servicio-ir { display: inline-flex; align-items: center; gap: 6px; grid-column: 2; font-weight: 600; font-size: .95rem; color: var(--dorado-oscuro); }
+.servicio-ir .ic { transition: transform .2s ease; }
+.servicio:hover .servicio-ir .ic { transform: translateX(4px); }
+.segun-disp { display: flex; gap: 10px; align-items: flex-start; margin-top: 22px; font-weight: 600; }
+.segun-disp .ic { color: var(--dorado-oscuro); margin-top: 2px; }
+
+/* Hoja del mini formulario: sube desde abajo en el teléfono, modal en la computadora */
+html.hoja-abierta, html.hoja-abierta body { overflow: hidden; }
+.hoja-viaje { position: fixed; inset: auto 0 0 0; width: 100%; max-width: 100%; max-height: 92svh; margin: 0; padding: 0; border: 0; border-radius: 26px 26px 0 0; background: var(--fondo); color: var(--texto); box-shadow: 0 -10px 40px rgba(11,31,58,.3); overflow: hidden; }
+.hoja-viaje[open] { display: flex; animation: hoja-sube .32s cubic-bezier(.2,.8,.2,1); }
+.hoja-viaje::backdrop { background: rgba(7,21,41,.62); backdrop-filter: blur(3px); }
+@keyframes hoja-sube { from { transform: translateY(100%); } }
+.hv-caja { display: flex; flex-direction: column; width: 100%; max-height: 92svh; }
+.hv-tope { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 12px; align-items: center; padding: 16px var(--margen) 12px; border-bottom: 1px solid var(--linea); }
+.hv-tope .servicio-ic { width: 46px; height: 46px; grid-row: auto; }
+.hv-tope h2 { font-size: 1.5rem; line-height: 1.1; }
+.hv-tope p { font-size: .82rem; margin-top: 2px; }
+.hv-tope b, .campo-v b { color: var(--dorado-oscuro); margin-left: 2px; }
+.hv-cerrar { display: grid; place-items: center; width: 44px; height: 44px; margin-right: -8px; border-radius: 50%; }
+.hv-campos { display: grid; gap: 16px; padding: 16px var(--margen) 20px; overflow-y: auto; overscroll-behavior: contain; }
+.campo-v { display: grid; gap: 6px; min-width: 0; margin: 0; padding: 0; border: 0; font-weight: 600; font-size: .95rem; }
+.campo-v legend { padding: 0; margin-bottom: 6px; }
+.campo-v input, .campo-v select, .campo-v textarea { width: 100%; min-width: 0; min-height: 50px; padding: 10px 12px; border: 1.5px solid var(--linea); border-radius: 14px; background: var(--blanco); color: var(--texto); font: 400 1rem var(--cuerpo); }
+.campo-v input[type="date"], .campo-v input[type="datetime-local"] { display: block; -webkit-appearance: none; appearance: none; text-align: left; }
+.campo-v textarea { resize: vertical; min-height: 84px; }
+.campo-v input:focus, .campo-v select:focus, .campo-v textarea:focus { border-color: var(--primario); outline: 2px solid var(--dorado); outline-offset: 1px; }
+.campo-numero { grid-template-columns: minmax(0, 1fr) 160px; align-items: center; }
+.campo-numero .contador-p { background: var(--blanco); }
+.segmento { display: flex; flex-wrap: wrap; gap: 6px; }
+.segmento label { position: relative; flex: 1 1 auto; }
+.segmento input { position: absolute; inset: 0; opacity: 0; margin: 0; cursor: pointer; }
+.segmento span { display: flex; align-items: center; justify-content: center; min-height: 46px; padding: 8px 14px; border-radius: 999px; border: 1.5px solid var(--linea); background: var(--blanco); font-weight: 600; text-align: center; transition: background-color .15s ease, color .15s ease, border-color .15s ease; }
+.segmento input:checked + span { background: var(--primario); border-color: var(--primario); color: var(--blanco); }
+.segmento input:focus-visible + span { outline: 3px solid var(--dorado); outline-offset: 2px; }
+.edades { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.edad { display: grid; gap: 4px; font-size: .84rem; }
+.campo-v.falta input, .campo-v.falta select, .campo-v.falta textarea, .campo-v.falta .segmento span { border-color: #B3261E; }
+.campo-v.falta > label, .campo-v.falta > .etq, .campo-v.falta legend { color: #B3261E; }
+.hv-pie { display: grid; gap: 8px; padding: 12px var(--margen) calc(14px + env(safe-area-inset-bottom)); border-top: 1px solid var(--linea); background: var(--fondo); }
+.hv-pie .boton { width: 100%; }
+.hv-disp { font-size: .84rem; text-align: center; font-weight: 600; color: var(--azul-medio); }
+.hv-aviso:empty { display: none; }
+.hv-aviso { padding: 10px 14px; border-radius: 14px; font-size: .92rem; font-weight: 600; }
+.hv-error { background: #FBE9E7; color: #8C1D18; }
+.hv-listo { background: #DCF8E9; color: #0B4D2C; }
+
+@media (min-width: 900px) {
+  .barra a { font-size: .74rem; }
+  .menu { gap: 22px; }
+  .linea-viajes { margin-top: 0; }
+  .viajes-inicio { grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 20px 56px; align-items: center; }
+  .viajes-inicio .botones { grid-column: 1; }
+  .viajes-fichas { grid-column: 2; grid-row: 1 / span 2; }
+  .pasos-viaje { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin-bottom: 40px; }
+  .servicios { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+  .servicio { grid-template-columns: 1fr; align-content: start; gap: 12px; padding: 26px; min-height: 250px; }
+  .servicio-ic { grid-row: auto; width: 64px; height: 64px; }
+  .servicio-ir { grid-column: 1; margin-top: auto; }
+  .servicio:hover { transform: translateY(-4px); box-shadow: 0 1px 0 rgba(11,31,58,.06), 0 20px 40px rgba(11,31,58,.14); }
+  .hoja-viaje { inset: 0; margin: auto; width: min(560px, calc(100vw - 48px)); max-height: min(86vh, 820px); border-radius: 26px; }
+  .hoja-viaje[open] { animation: hoja-aparece .28s cubic-bezier(.2,.8,.2,1); }
+  .hv-caja { max-height: min(86vh, 820px); }
+  .hv-tope, .hv-campos, .hv-pie { padding-inline: 28px; }
+}
+@keyframes hoja-aparece { from { opacity: 0; transform: translateY(16px) scale(.98); } }
+@media (min-width: 900px) and (max-width: 1120px) {
+  .menu { gap: 16px; }
+  .menu a { font-size: .92rem; }
+}

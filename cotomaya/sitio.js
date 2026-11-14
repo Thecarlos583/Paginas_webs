@@ -926,8 +926,243 @@
   };
 
 
+  /* ---- Servicios de viaje: tarjetas desde datos/servicios-viaje.json y mini formulario que arma el WhatsApp ---- */
+  var NOTA_VIAJE = { id: "nota", tipo: "nota", etiqueta: "¿Algo más que debamos saber?", en_mensaje: "Comentarios" };
+  function dosDig(n) { return (n < 10 ? "0" : "") + n; }
+  function isoDia(d) { return d.getFullYear() + "-" + dosDig(d.getMonth() + 1) + "-" + dosDig(d.getDate()); }
+  function hoyISO() { return isoDia(new Date()); }
+  function ahoraISO() { var d = new Date(); return isoDia(d) + "T" + dosDig(d.getHours()) + ":" + dosDig(d.getMinutes()); }
+  function diaSiguiente(iso) { var p = iso.split("-"), d = new Date(+p[0], +p[1] - 1, +p[2] + 1); return isoDia(d); }
+  function fechaBonita(v) {
+    var p = v.split("T"), f = p[0].split("-"), t = f[2] + "/" + f[1] + "/" + f[0];
+    if (p[1]) { var h = p[1].split(":"), hh = +h[0]; t += ", " + (hh % 12 || 12) + ":" + h[1] + (hh < 12 ? " a. m." : " p. m."); }
+    return t;
+  }
+  function edadTexto(v) { return v === "0" ? "menos de 1 año" : v === "1" ? "1 año" : v + " años"; }
+  function unirY(l) { return l.length < 2 ? l.join("") : l.slice(0, -1).join(", ") + " y " + l[l.length - 1]; }
+  function svgViaje(s, tam) {
+    return '<svg class="ic" width="' + tam + '" height="' + tam + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + (s.icono || "") + "</svg>";
+  }
+  function msgViaje(s) { return msg("viaje", { servicio: s.en_mensaje || s.nombre }); }
+  function servicioValido(s, i) {
+    if (!s || !s.id || !s.nombre) { aviso("En servicios-viaje.json, el servicio #" + (i + 1) + " no tiene id o nombre: no se muestra."); return false; }
+    s.campos = lista(s.campos).filter(function (f, k) {
+      if (!f || !f.id || !f.tipo) { aviso("En servicios-viaje.json, el campo #" + (k + 1) + " de \"" + s.nombre + "\" no tiene id o tipo."); return false; }
+      return true;
+    });
+    return true;
+  }
+  function tarjetaServicio(s) {
+    return '<a class="servicio" href="' + esc(waUrl(msgViaje(s))) + '" target="_blank" rel="noopener" data-servicio="' + esc(s.id) + '" id="s-' + esc(s.id) + '">' +
+      '<span class="servicio-ic">' + svgViaje(s, 26) + '</span><span class="servicio-texto"><strong>' + esc(s.nombre) + "</strong><small>" + esc(s.descripcion || "") + "</small></span>" +
+      '<span class="servicio-ir">Cotizar' + icono("flecha") + "</span></a>";
+  }
+
+  function campoViaje(f) {
+    var id = "hv-" + f.id, req = f.obligatorio ? '<b aria-hidden="true">*</b>' : "";
+    var etq = esc(f.etiqueta || f.id) + req;
+    var reqAttr = f.obligatorio ? " required aria-required=\"true\"" : "";
+    var abre = '<div class="campo-v campo-' + esc(f.tipo) + '" data-campo="' + esc(f.id) + '">';
+    switch (f.tipo) {
+      case "opciones":
+        return '<fieldset class="campo-v campo-opciones" data-campo="' + esc(f.id) + '"><legend>' + etq + '</legend><div class="segmento">' +
+          lista(f.opciones).map(function (o, k) {
+            var marcado = f.defecto ? o === f.defecto : k === 0;
+            return '<label><input type="radio" name="' + esc(f.id) + '" value="' + esc(o) + '"' + (marcado ? " checked" : "") + "><span>" + esc(o) + "</span></label>";
+          }).join("") + "</div></fieldset>";
+      case "numero":
+        var def = f.defecto != null ? +f.defecto : (+f.minimo || 0);
+        return abre + '<span class="etq" id="' + id + '-t">' + etq + '</span><div class="contador-p" role="group" aria-labelledby="' + id + '-t">' +
+          '<button type="button" data-menos aria-label="Uno menos">−</button><output data-cuenta aria-live="polite">' + def + "</output>" +
+          '<button type="button" data-mas aria-label="Uno más">+</button></div><input type="hidden" name="' + esc(f.id) + '" value="' + def + '"></div>';
+      case "edades":
+        return abre + '<span class="etq">' + esc(f.etiqueta || "Edades") + '<b aria-hidden="true">*</b></span><div class="edades" data-edades></div></div>';
+      case "nota":
+        return abre + '<label for="' + id + '">' + etq + '</label><textarea id="' + id + '" name="' + esc(f.id) + '" rows="3" maxlength="400" placeholder="Opcional"></textarea></div>';
+      case "fecha":
+      case "fecha_hora":
+        return abre + '<label for="' + id + '">' + etq + '</label><input id="' + id + '" name="' + esc(f.id) + '" type="' + (f.tipo === "fecha" ? "date" : "datetime-local") + '"' + reqAttr + "></div>";
+      default:
+        return abre + '<label for="' + id + '">' + etq + '</label><input id="' + id + '" name="' + esc(f.id) + '" type="text" maxlength="80" autocomplete="off"' +
+          (f.ayuda ? ' placeholder="' + esc(f.ayuda) + '"' : "") + reqAttr + "></div>";
+    }
+  }
+
+  function hojaViaje(servicios) {
+    var dlg = $("[data-hoja-viaje]"); if (!dlg) return null;
+    var form = $("[data-hv-form]", dlg), cajaCampos = $("[data-hv-campos]", dlg), avisoV = $("[data-hv-aviso]", dlg), enviar = $("[data-hv-enviar]", dlg);
+    var s = null, campos = [], desde = null;
+
+    function valores() {
+      var v = {};
+      campos.forEach(function (f) {
+        var el = $('[data-campo="' + f.id + '"]', form);
+        if (f.tipo === "opciones") { var r = $("input:checked", el); v[f.id] = r ? r.value : ""; }
+        else if (f.tipo === "edades") v[f.id] = $$("select", el).map(function (x) { return x.value; });
+        else { var i = $('[name="' + f.id + '"]', el); v[f.id] = i ? String(i.value).trim() : ""; }
+      });
+      return v;
+    }
+    function aplica(f, v) {
+      if (!f.si) return true;
+      var x = v[f.si.campo];
+      if ("es" in f.si) return x === f.si.es;
+      if ("mayor_que" in f.si) return +x > +f.si.mayor_que;
+      return true;
+    }
+    function minimo(f, v) {
+      var base = f.tipo === "fecha" ? hoyISO() : ahoraISO(), ref = v[f.no_antes_de || f.despues_de];
+      if (ref) {
+        var r = f.despues_de && f.tipo === "fecha" ? diaSiguiente(ref) : ref;
+        if (r > base) base = r;
+      }
+      return base;
+    }
+    /* Muestra lo que aplica, pone el tope de las fechas y arma las edades */
+    function repasar() {
+      var v = valores();
+      campos.forEach(function (f) {
+        var el = $('[data-campo="' + f.id + '"]', form);
+        el.hidden = !aplica(f, v);
+        if (f.tipo === "fecha" || f.tipo === "fecha_hora") {
+          var i = $("input", el), m = minimo(f, v);
+          i.min = m;
+          if (i.value && i.value < m) { i.value = ""; v[f.id] = ""; }
+        }
+        if (f.tipo === "edades") {
+          var n = Math.max(0, +v[f.segun] || 0), caja = $("[data-edades]", el), antes = v[f.id];
+          if (caja.children.length !== n) {
+            var ops = '<option value="">Edad</option><option value="0">Menos de 1 año</option>';
+            for (var k = 1; k <= 17; k++) ops += '<option value="' + k + '">' + (k === 1 ? "1 año" : k + " años") + "</option>";
+            var html = "";
+            for (var j = 0; j < n; j++) html += '<label class="edad"><span>Niño ' + (j + 1) + '</span><select name="' + esc(f.id) + "-" + j + '">' + ops + "</select></label>";
+            caja.innerHTML = html;
+            $$("select", caja).forEach(function (sel, j) { if (antes[j]) sel.value = antes[j]; });
+          }
+        }
+      });
+    }
+    function contadores() {
+      $$(".campo-numero", form).forEach(function (el) {
+        var f = campos.filter(function (x) { return x.id === el.dataset.campo; })[0];
+        var out = $("[data-cuenta]", el), campo = $("input", el), min = +f.minimo || 0, max = +f.maximo || 30;
+        function poner(n) { campo.value = n; out.textContent = f.unidad ? plural(n, f.unidad[0], f.unidad[1]) : n; repasar(); }
+        $("[data-menos]", el).addEventListener("click", function () { if (+campo.value > min) poner(+campo.value - 1); });
+        $("[data-mas]", el).addEventListener("click", function () { if (+campo.value < max) poner(+campo.value + 1); });
+        if (f.unidad) out.textContent = plural(+campo.value, f.unidad[0], f.unidad[1]);
+      });
+    }
+    function abrir(serv, boton) {
+      s = serv; desde = boton || document.activeElement;
+      campos = s.campos.concat([NOTA_VIAJE]);
+      $("[data-hv-titulo]", dlg).textContent = s.nombre;
+      $("[data-hv-ic]", dlg).innerHTML = svgViaje(s, 24);
+      cajaCampos.innerHTML = campos.map(campoViaje).join("");
+      avisoV.textContent = ""; avisoV.className = "hv-aviso";
+      contadores(); repasar();
+      if (dlg.showModal) dlg.showModal(); else dlg.setAttribute("open", "");
+      document.documentElement.classList.add("hoja-abierta");
+      cajaCampos.scrollTop = 0;
+      history.replaceState(null, "", "#" + s.id);
+    }
+    function cerrar() { if (dlg.close) dlg.close(); else { dlg.removeAttribute("open"); alCerrar(); } }
+    function alCerrar() {
+      document.documentElement.classList.remove("hoja-abierta");
+      history.replaceState(null, "", location.pathname + location.search);
+      if (desde && desde.focus) desde.focus();
+    }
+    dlg.addEventListener("close", alCerrar);
+    dlg.addEventListener("click", function (ev) { if (ev.target === dlg) cerrar(); });
+    $("[data-hv-cerrar]", dlg).addEventListener("click", cerrar);
+    form.addEventListener("input", function (ev) {
+      var el = ev.target.closest("[data-campo]");
+      if (el) { el.classList.remove("falta"); $$("[aria-invalid]", el).forEach(function (x) { x.removeAttribute("aria-invalid"); }); }
+      if (!$(".falta", form)) { avisoV.textContent = ""; avisoV.className = "hv-aviso"; }
+      repasar();
+    });
+    form.addEventListener("change", repasar);
+    form.addEventListener("submit", function (ev) { ev.preventDefault(); });
+
+    enviar.addEventListener("click", function (ev) {
+      if (!s) { ev.preventDefault(); return; }
+      repasar();
+      var v = valores(), falta = [], mal = [], primero = null;
+      campos.forEach(function (f) {
+        var el = $('[data-campo="' + f.id + '"]', form);
+        if (el.hidden) return;
+        var vacioF = f.tipo === "edades" ? v[f.id].some(function (x) { return x === ""; }) : (f.obligatorio && !v[f.id]);
+        var fueraDeRango = (f.tipo === "fecha" || f.tipo === "fecha_hora") && v[f.id] && v[f.id] < minimo(f, v);
+        if (vacioF) falta.push(f.etiqueta || f.id);
+        if (fueraDeRango) mal.push(f.etiqueta || f.id);
+        if (vacioF || fueraDeRango) {
+          el.classList.add("falta");
+          $$("input, select, textarea", el).forEach(function (x) { if (!x.value || fueraDeRango) x.setAttribute("aria-invalid", "true"); });
+          if (!primero) primero = $("input:not([type=hidden]), select, textarea", el);
+        }
+      });
+      if (falta.length || mal.length) {
+        ev.preventDefault();
+        var t = falta.length ? (falta.length === 1 ? "Solo nos falta un dato para cotizarle: " : "Nos faltan estos datos para cotizarle: ") + unirY(falta) + "." : "";
+        if (mal.length) t += (t ? " " : "") + "Revise " + unirY(mal) + ": no puede ser una fecha pasada ni anterior a la otra.";
+        avisoV.textContent = t; avisoV.className = "hv-aviso hv-error";
+        if (primero) { primero.focus(); if (primero.scrollIntoView) primero.scrollIntoView({ block: "center", behavior: quieto ? "auto" : "smooth" }); }
+        return;
+      }
+      var lineas = [msgViaje(s)];
+      campos.forEach(function (f) {
+        var el = $('[data-campo="' + f.id + '"]', form), x = v[f.id];
+        if (el.hidden) return;
+        if (f.tipo === "numero") { if (!+x) return; x = f.unidad ? plural(+x, f.unidad[0], f.unidad[1]) : x; }
+        else if (f.tipo === "edades") x = unirY(x.map(edadTexto));
+        else if (f.tipo === "fecha" || f.tipo === "fecha_hora") x = x ? fechaBonita(x) : "";
+        if (!x) return;
+        lineas.push((f.en_mensaje || f.etiqueta || f.id) + ": " + x);
+      });
+      enviar.href = waUrl(lineas.join("\n"));
+      avisoV.textContent = "Listo: le abrimos WhatsApp con su pedido. Si no se abrió, toque de nuevo el botón.";
+      avisoV.className = "hv-aviso hv-listo";
+    });
+    return { abrir: abrir };
+  }
+
+  function servicios(cb) {
+    var incrustado = datos("[data-servicios-datos]");
+    bajar("servicios-viaje", null).then(function (j) {
+      var l = j ? (Array.isArray(j) ? j : j.servicios) : incrustado;
+      cb(lista(l).filter(servicioValido));
+    });
+  }
+  PAGINAS.viajes = function () {
+    servicios(function (l) {
+      if (!l.length) return;
+      var caja = $("[data-servicios]");
+      caja.innerHTML = l.map(tarjetaServicio).join("");
+      var hoja = hojaViaje(l); if (!hoja) return;
+      caja.addEventListener("click", function (ev) {
+        var a = ev.target.closest("[data-servicio]"); if (!a) return;
+        var s = l.filter(function (x) { return x.id === a.dataset.servicio; })[0]; if (!s) return;
+        ev.preventDefault(); hoja.abrir(s, a);
+      });
+      var h = location.hash.replace("#", ""), pedido = l.filter(function (x) { return x.id === h; })[0];
+      if (pedido) hoja.abrir(pedido, $('[data-servicio="' + h + '"]'));
+      window.addEventListener("hashchange", function () {
+        var x = location.hash.replace("#", ""), s = l.filter(function (y) { return y.id === x; })[0];
+        if (s && !$("[data-hoja-viaje]").open) hoja.abrir(s, $('[data-servicio="' + x + '"]'));
+      });
+    });
+  };
+  /* En el inicio, los accesos a cada servicio salen del mismo JSON */
+  function viajesInicio() {
+    var caja = $("[data-servicios-inicio]"); if (!caja) return;
+    servicios(function (l) {
+      if (!l.length) return;
+      caja.innerHTML = l.map(function (s) { return '<li><a href="viajes.html#' + encodeURIComponent(s.id) + '">' + svgViaje(s, 22) + "<span>" + esc(s.nombre) + "</span></a></li>"; }).join("");
+    });
+  }
+
   if (!window.fetch || !window.Promise) return;
   cargar().then(function (d) {
+    safe(viajesInicio);
     safe(function () { comun(d); });
     if (PAGINAS[PAGINA]) safe(function () { PAGINAS[PAGINA](d); });
   });

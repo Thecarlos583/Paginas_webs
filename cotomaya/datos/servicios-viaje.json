@@ -1,0 +1,252 @@
+{
+  "_ayuda": "Servicios de viaje. Para agregar uno, copie un bloque de \"servicios\" y cambie id, nombre, descripcion, icono y campos. Tipos de campo: texto, opciones, fecha, fecha_hora, numero, edades y nota. \"obligatorio\": true lo pide antes de enviar. \"si\" muestra el campo solo cuando otro tiene cierto valor ({\"campo\": \"viaje\", \"es\": \"Ida y vuelta\"}) o es mayor que un número ({\"campo\": \"ninos\", \"mayor_que\": 0}). Las fechas nunca aceptan días pasados; \"no_antes_de\" y \"despues_de\" ponen el tope según otra fecha. Al final de cada formulario se agrega solo la pregunta \"¿Algo más que debamos saber?\".",
+  "servicios": [
+    {
+      "id": "boletos",
+      "nombre": "Boletos aéreos",
+      "en_mensaje": "boletos aéreos",
+      "icono": "<path d=\"M21 15.5 13.5 11V5.5a1.5 1.5 0 0 0-3 0V11L3 15.5v2l7.5-2.3V19l-2 1.5V22l3.5-1 3.5 1v-1.5l-2-1.5v-3.8l7.5 2.3z\"/>",
+      "descripcion": "Vuelos nacionales e internacionales, de ida o de ida y vuelta.",
+      "campos": [
+        {
+          "id": "origen",
+          "tipo": "texto",
+          "etiqueta": "Origen",
+          "ayuda": "Ej.: Caracas",
+          "obligatorio": true
+        },
+        {
+          "id": "destino",
+          "tipo": "texto",
+          "etiqueta": "Destino",
+          "ayuda": "Ej.: Madrid",
+          "obligatorio": true
+        },
+        {
+          "id": "viaje",
+          "tipo": "opciones",
+          "etiqueta": "Viaje",
+          "opciones": [
+            "Ida y vuelta",
+            "Solo ida"
+          ],
+          "defecto": "Ida y vuelta",
+          "obligatorio": true
+        },
+        {
+          "id": "ida",
+          "tipo": "fecha",
+          "etiqueta": "Fecha de ida",
+          "obligatorio": true
+        },
+        {
+          "id": "regreso",
+          "tipo": "fecha",
+          "etiqueta": "Fecha de regreso",
+          "obligatorio": true,
+          "no_antes_de": "ida",
+          "si": {
+            "campo": "viaje",
+            "es": "Ida y vuelta"
+          }
+        },
+        {
+          "id": "adultos",
+          "tipo": "numero",
+          "etiqueta": "Adultos",
+          "minimo": 1,
+          "defecto": 1
+        },
+        {
+          "id": "ninos",
+          "tipo": "numero",
+          "etiqueta": "Niños",
+          "minimo": 0,
+          "defecto": 0
+        },
+        {
+          "id": "edades",
+          "tipo": "edades",
+          "etiqueta": "Edades de los niños",
+          "segun": "ninos",
+          "si": {
+            "campo": "ninos",
+            "mayor_que": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "hoteles",
+      "nombre": "Hoteles en todo el mundo",
+      "en_mensaje": "hotel",
+      "icono": "<path d=\"M4.5 21V5.8L12 3.5l7.5 2.3V21\"/><path d=\"M2.5 21h19\"/><path d=\"M8.5 8.5h1M14.5 8.5h1M8.5 12.5h1M14.5 12.5h1\"/><path d=\"M10 21v-4.5h4V21\"/>",
+      "descripcion": "Hospedaje en la ciudad que elija, dentro o fuera de Venezuela.",
+      "campos": [
+        {
+          "id": "destino",
+          "tipo": "texto",
+          "etiqueta": "Destino",
+          "ayuda": "Ciudad o zona, ej.: Bogotá",
+          "obligatorio": true
+        },
+        {
+          "id": "entrada",
+          "tipo": "fecha",
+          "etiqueta": "Entrada",
+          "obligatorio": true
+        },
+        {
+          "id": "salida",
+          "tipo": "fecha",
+          "etiqueta": "Salida",
+          "obligatorio": true,
+          "despues_de": "entrada"
+        },
+        {
+          "id": "adultos",
+          "tipo": "numero",
+          "etiqueta": "Adultos",
+          "minimo": 1,
+          "defecto": 2
+        },
+        {
+          "id": "ninos",
+          "tipo": "numero",
+          "etiqueta": "Niños",
+          "minimo": 0,
+          "defecto": 0
+        },
+        {
+          "id": "habitaciones",
+          "tipo": "numero",
+          "etiqueta": "Habitaciones",
+          "minimo": 1,
+          "defecto": 1
+        }
+      ]
+    },
+    {
+      "id": "tours",
+      "nombre": "Tours",
+      "en_mensaje": "un tour",
+      "icono": "<circle cx=\"12\" cy=\"12\" r=\"8.5\"/><path d=\"m15.6 8.4-2.2 5-5 2.2 2.2-5z\"/>",
+      "descripcion": "Excursiones y paseos en Venezuela y en el mundo.",
+      "campos": [
+        {
+          "id": "destino",
+          "tipo": "texto",
+          "etiqueta": "Destino",
+          "ayuda": "Ej.: Los Roques",
+          "obligatorio": true
+        },
+        {
+          "id": "fecha",
+          "tipo": "fecha",
+          "etiqueta": "Fecha aproximada",
+          "obligatorio": true
+        },
+        {
+          "id": "personas",
+          "tipo": "numero",
+          "etiqueta": "Personas",
+          "minimo": 1,
+          "defecto": 2
+        }
+      ]
+    },
+    {
+      "id": "parques",
+      "nombre": "Parques temáticos en Orlando",
+      "en_mensaje": "entradas a parques temáticos en Orlando",
+      "icono": "<circle cx=\"12\" cy=\"9.5\" r=\"6\"/><path d=\"M12 3.5v12M6 9.5h12M7.8 5.3l8.4 8.4M16.2 5.3l-8.4 8.4\"/><path d=\"m12 9.5-4.2 11.5M12 9.5l4.2 11.5M5.5 21h13\"/>",
+      "descripcion": "Entradas a los parques de Orlando, por días.",
+      "campos": [
+        {
+          "id": "fecha",
+          "tipo": "fecha",
+          "etiqueta": "Fecha aproximada",
+          "obligatorio": true
+        },
+        {
+          "id": "dias",
+          "tipo": "numero",
+          "etiqueta": "Días de parque",
+          "minimo": 1,
+          "defecto": 2,
+          "unidad": [
+            "día",
+            "días"
+          ]
+        },
+        {
+          "id": "adultos",
+          "tipo": "numero",
+          "etiqueta": "Adultos",
+          "minimo": 1,
+          "defecto": 2
+        },
+        {
+          "id": "ninos",
+          "tipo": "numero",
+          "etiqueta": "Niños",
+          "minimo": 0,
+          "defecto": 0
+        },
+        {
+          "id": "edades",
+          "tipo": "edades",
+          "etiqueta": "Edades de los niños",
+          "segun": "ninos",
+          "si": {
+            "campo": "ninos",
+            "mayor_que": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "vehiculos",
+      "nombre": "Renta de vehículos",
+      "en_mensaje": "renta de vehículo",
+      "icono": "<path d=\"M5 17H3.5v-4.3l2-5.2h13l2 5.2V17H19\"/><path d=\"M3.5 12.7h17\"/><circle cx=\"7.5\" cy=\"17\" r=\"1.9\"/><circle cx=\"16.5\" cy=\"17\" r=\"1.9\"/><path d=\"M9.4 17h5.2\"/>",
+      "descripcion": "Carros y camionetas para moverse a su ritmo.",
+      "campos": [
+        {
+          "id": "ciudad",
+          "tipo": "texto",
+          "etiqueta": "Ciudad",
+          "ayuda": "Ej.: Miami",
+          "obligatorio": true
+        },
+        {
+          "id": "retiro",
+          "tipo": "fecha_hora",
+          "etiqueta": "Retiro (fecha y hora)",
+          "en_mensaje": "Retiro",
+          "obligatorio": true
+        },
+        {
+          "id": "entrega",
+          "tipo": "fecha_hora",
+          "etiqueta": "Entrega (fecha y hora)",
+          "en_mensaje": "Entrega",
+          "obligatorio": true,
+          "despues_de": "retiro"
+        },
+        {
+          "id": "tipo",
+          "tipo": "opciones",
+          "etiqueta": "Tipo de vehículo",
+          "opciones": [
+            "Económico",
+            "Mediano",
+            "Camioneta"
+          ],
+          "defecto": "Económico",
+          "obligatorio": true
+        }
+      ]
+    }
+  ]
+}
