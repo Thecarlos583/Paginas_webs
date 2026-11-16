@@ -10,7 +10,7 @@
           "id": "venezuela",
           "nombre": "Venezuela",
           "foto": "",
-          "descripcion": "Villas, casas y apartamentos en Falcón, cerca de Morrocoy.",
+          "descripcion": "Villas, casas, apartamentos y habitaciones en la costa de Falcón, cerca de los cayos de Morrocoy.",
           "zonas": [
             {
               "id": "tucacas",
@@ -20,7 +20,7 @@
               ],
               "nombre": "Tucacas, Falcón",
               "foto": "",
-              "descripcion": "Frente a la playa y cerca de los muelles a los cayos."
+              "descripcion": "Casas, apartamentos frente a la playa y habitaciones con desayuno, cerca de los muelles de salida a los cayos de Morrocoy."
             },
             {
               "id": "chichiriviche",
@@ -30,7 +30,7 @@
               ],
               "nombre": "Chichiriviche, Falcón",
               "foto": "",
-              "descripcion": "Frente al mar con muelle, cerca del Golfete de Cuare."
+              "descripcion": "Apartamentos frente al mar con muelle y una casa grande cerca del Golfete de Cuare y del Parque Nacional Morrocoy."
             },
             {
               "id": "sanare",
@@ -40,7 +40,7 @@
               ],
               "nombre": "Sanare, Morrocoy (Falcón)",
               "foto": "",
-              "descripcion": "Villas con piscina rodeadas de naturaleza."
+              "descripcion": "Villas y casas con piscina rodeadas de naturaleza, cerca de las playas de Morrocoy."
             },
             {
               "id": "ciudad-flamingo",
@@ -50,7 +50,7 @@
               ],
               "nombre": "Ciudad Flamingo, Falcón",
               "foto": "",
-              "descripcion": "Junto al refugio de Cuare y cerca de los embarcaderos."
+              "descripcion": "Junto al Refugio de Fauna Silvestre de Cuare y cerca de los embarcaderos hacia los cayos."
             },
             {
               "id": "isla-margarita",
@@ -61,7 +61,7 @@
               "nombre": "Isla Margarita",
               "foto": "",
               "proximamente": true,
-              "descripcion": "Muy pronto, un apartamento en Isla Margarita."
+              "descripcion": "Muy pronto tendremos un apartamento en Isla Margarita."
             }
           ]
         }
@@ -76,7 +76,7 @@
           "id": "colombia",
           "nombre": "Colombia",
           "foto": "",
-          "descripcion": "Hospedajes en Santa Marta, en el Caribe colombiano.",
+          "descripcion": "Hospedajes de vacaciones en Santa Marta, en el Caribe colombiano.",
           "zonas": [
             {
               "id": "santa-marta",
@@ -86,7 +86,7 @@
               ],
               "nombre": "Santa Marta, Magdalena",
               "foto": "",
-              "descripcion": "Cerca del mar, de Playa Bello Horizonte y del aeropuerto."
+              "descripcion": "Cerca del mar, de Playa Bello Horizonte y del aeropuerto de Santa Marta."
             }
           ]
         }

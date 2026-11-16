@@ -67,7 +67,7 @@
   function dato(e, visible, completo) {
     return '<span title="' + esc(completo) + '">' + emoji(e) + esc(visible) + (completo !== visible ? '<span class="sr"> (' + esc(completo) + ")</span>" : "") + "</span>";
   }
-  function tarifa() { return '<p class="tarifa">' + conEmoji(document.body.getAttribute("data-tarifa") || "💬 Consulte la tarifa para su fecha") + "</p>"; }
+  function tarifa() { return '<p class="tarifa">' + icono("charla") + "<span>" + esc(document.body.getAttribute("data-tarifa") || "Consulte la tarifa para su fecha") + "</span></p>"; }
 
   /* ------------------------------------------------------------ datos */
   var CFG = {}, D = null;
@@ -233,12 +233,9 @@
   function tarjeta(d, p, sizes) {
     var url = "propiedad.html?id=" + encodeURIComponent(p.id);
     var cat = categoria(p.categoria), t = partes(p.nombre);
-    var datos = [], todo = [p.nombre, p.resumen].concat(p.incluye).join(" ");
-    if (p.capacidad) datos.push(dato("👥", String(p.capacidad), plural(p.capacidad, "persona", "personas")));
-    if (p.habitaciones) datos.push(dato("🛏️", String(p.habitaciones), plural(p.habitaciones, "habitación", "habitaciones")));
-    if (p.banos) datos.push(dato("🚿", String(p.banos).replace(".", ","), String(p.banos).replace(".", ",") + (p.banos === 1 ? " baño" : " baños")));
-    if (/piscina/i.test(todo)) datos.push(dato("🏊", "Piscina", "Piscina"));
-    if (/playa|frente al mar/i.test(todo)) datos.push(dato("🏖️", "Playa", "Playa"));
+    var datos = [];
+    if (p.capacidad) datos.push("<span>" + icono("personas") + plural(p.capacidad, "persona", "personas") + "</span>");
+    if (p.habitaciones) datos.push("<span>" + icono("cama") + plural(p.habitaciones, "habitación", "habitaciones") + "</span>");
     var fotos = p.fotos.slice(0, FOTOS_TARJETA), n = fotos.length;
     var sz = sizes || "(min-width:900px) 30vw, 88vw";
     var pista = n ? '<span class="t-pista" data-t-pista>' + fotos.map(function (r, k) {
@@ -276,7 +273,7 @@
   }, true);
 
   function tarjetaTour(t) {
-    var incl = t.incluye.length ? listaEmoji(t.incluye) : "";
+    var incl = t.incluye.length ? '<ul class="lista-check">' + t.incluye.map(function (x) { return "<li>" + icono("check") + esc(x) + "</li>"; }).join("") + "</ul>" : "";
     var precio = tarifa();  /* sin precios: cambian por temporada y fin de semana, se consultan por WhatsApp */
     return '<article class="tour"><span class="tour-velo" aria-hidden="true"></span>' +
       '<div class="tour-foto">' + (t.fotos[0] ? img(t.fotos[0], t.carpeta, t.alts[0] || "", "(min-width:900px) 30vw, 84vw", 600) : "") + etiquetaEjemplo(t) +
@@ -425,7 +422,7 @@
   /* Al final de los internacionales: cualquier otro país se cotiza con los servicios de viaje */
   function tarjetaOtroPais() {
     return '<a class="destino destino-viajes" href="viajes.html"><span class="borde-oro" aria-hidden="true"></span><span class="destino-viajes-ic" aria-hidden="true">' + icono("avion") + "</span>" +
-      '<span class="destino-texto"><strong>¿Viaja a otro país?</strong><small>✈️ Boletos, hoteles, tours y carros. Le cotizamos por WhatsApp.</small>' +
+      '<span class="destino-texto"><strong>¿Viaja a otro país?</strong><small>Boletos aéreos, hoteles en todo el mundo, tours y renta de vehículos. Le cotizamos por WhatsApp.</small>' +
       '<span class="destino-zonas"><span>Servicios de viaje</span></span></span></a>';
   }
   /* Destinos agrupados: Nacionales e Internacionales */
@@ -449,7 +446,7 @@
     var a = (ambito && D && ambito) || "";
     caja.innerHTML = lista.length ? lista.map(tarjetaTour).join("") :
       muyPronto("Tours " + (ambito === "internacional" ? "internacionales" : "nacionales"),
-        "Muy pronto. Escríbanos y le contamos.",
+        "Estamos preparando estas salidas. Escríbanos y le contamos qué tenemos disponible.",
         msg("tours_pronto", { ambito: ambito === "internacional" ? "internacionales" : "nacionales" }));
   }
   /* Opciones de zona según el ámbito elegido (sin zonas "próximamente" ni zonas vacías) */
@@ -682,10 +679,10 @@
       var pausada = d.inactivas.filter(function (x) { return x.id === id; })[0];
       document.title = "Propiedad no disponible · " + (CFG.marca || "Cotomaya Venezuela");
       if (pausada) {
-        noDisponible(caja, "Esta propiedad no está disponible por ahora", "Vea las demás o escríbanos y le buscamos otra.");
+        noDisponible(caja, "Esta propiedad no está disponible por ahora", "Puede ver las demás o escribirnos: con gusto le ayudamos a encontrar otra opción para sus fechas.");
         aviso("La propiedad \"" + id + "\" tiene \"activa\": false en propiedades.json: no se muestra.");
       } else {
-        noDisponible(caja, "No encontramos esa propiedad", "Puede que ya no esté disponible. Vea las demás o escríbanos.");
+        noDisponible(caja, "No encontramos esa propiedad", "Puede que ya no esté disponible o que el enlace esté incompleto. Vea las que tenemos o escríbanos.");
         if (!id) aviso("propiedad.html necesita ?id= en la dirección (por ejemplo propiedad.html?id=casa-aurora-tucacas).");
         else aviso("No existe una propiedad con id \"" + id + "\" en propiedades.json.");
       }
@@ -712,17 +709,17 @@
 
     /* Datos */
     var datos = '<dl class="datos-ficha">' +
-      "<div><dt>" + emoji("🏡") + "Tipo</dt><dd>" + esc(nombreTipo(p.tipo)) + "</dd></div>" +
-      (p.capacidad ? "<div><dt>" + emoji("👥") + "Personas</dt><dd>" + p.capacidad + "</dd></div>" : "") +
-      (p.habitaciones ? "<div><dt>" + emoji("🛏️") + "Habitaciones</dt><dd>" + p.habitaciones + "</dd></div>" : "") +
-      (p.banos ? "<div><dt>" + emoji("🚿") + "Baños</dt><dd>" + String(p.banos).replace(".", ",") + "</dd></div>" : "") +
-      '<div class="ancho"><dt>' + emoji("📍") + "Zona</dt><dd>" + esc(zona) + (dest ? ", " + esc(dest.nombre) : "") + "</dd></div>" +
+      "<div><dt>" + icono("casa") + "Tipo</dt><dd>" + esc(nombreTipo(p.tipo)) + "</dd></div>" +
+      (p.capacidad ? "<div><dt>" + icono("personas") + "Capacidad</dt><dd>" + plural(p.capacidad, "persona", "personas") + "</dd></div>" : "") +
+      (p.habitaciones ? "<div><dt>" + icono("cama") + "Habitaciones</dt><dd>" + p.habitaciones + "</dd></div>" : "") +
+      (p.banos ? "<div><dt>" + icono("bano") + "Baños</dt><dd>" + String(p.banos).replace(".", ",") + "</dd></div>" : "") +
+      '<div class="ancho"><dt>' + icono("mapa") + "Zona</dt><dd>" + esc(zona) + (dest ? ", " + esc(dest.nombre) : "") + "</dd></div>" +
       (cat.nombre ? '<div class="ancho dato-cat"><dt>Categoría</dt><dd><span class="sello-cat">' + esc(cat.nombre) + "</span></dd>" + (cat.descripcion ? "<p>" + esc(cat.descripcion) + "</p>" : "") + "</div>" : "") +
       "</dl>";
 
     /* Reserva: solo las plataformas con enlace, y siempre WhatsApp */
     var plats = PLATAFORMAS.filter(function (x) { return p.enlaces[x[0]]; });
-    var reserva = '<aside class="reserva" aria-label="Reservar">' + "<h2>" + emoji("📅") + "Reservar</h2>" + tarifa() +
+    var reserva = '<aside class="reserva" aria-label="Reservar">' + "<h2>Reservar</h2>" + tarifa() +
       (plats.length ? "<p>Reserve en la plataforma que prefiera:</p><div class=\"plataformas\">" + plats.map(function (x) {
         return '<a class="plat plat-' + x[0] + '" href="' + esc(p.enlaces[x[0]]) + '" target="_blank" rel="noopener">Reservar en ' + x[1] + "<small>Abre " + x[1] + "</small></a>";
       }).join("") + '</div><p class="reserva-o">o directo con nosotros</p>' : "<p>Escríbanos con sus fechas y le confirmamos la disponibilidad.</p>") +
@@ -731,20 +728,21 @@
       "</aside>";
 
     /* Videos (hasta 5): no se descargan hasta que le dan play */
-    var videos = p.videos.length ? '<section class="ficha-bloque"><h2>' + emoji("🎬") + 'Videos</h2><div class="videos">' + p.videos.map(function (v, k) {
+    var videos = p.videos.length ? '<section class="ficha-bloque"><h2>Videos</h2><div class="videos">' + p.videos.map(function (v, k) {
       var portada = v.portada ? '<img src="' + esc(rutaVideo(v.portada)) + '" alt="" loading="lazy" decoding="async" width="640" height="360">' : "";
       return '<div class="video"><button type="button" class="video-play" data-video="' + esc(rutaVideo(v.archivo)) + '" data-portada="' + esc(v.portada ? rutaVideo(v.portada) : "") + '" aria-label="Reproducir video ' + (k + 1) + '">' + portada + "<i>" + icono("play") + "</i></button></div>";
     }).join("") + "</div></section>" : "";
 
-    var incluye = p.incluye.length ? '<section class="ficha-bloque"><h2>' + emoji("✅") + "Qué incluye</h2>" + listaEmoji(p.incluye, "incluye") + "</section>" : "";
+    var incluye = p.incluye.length ? '<section class="ficha-bloque"><h2>Qué incluye</h2><ul class="lista-check incluye">' +
+      p.incluye.map(function (x) { return "<li>" + icono("check") + esc(x) + "</li>"; }).join("") + "</ul></section>" : "";
     var nota = p.nota ? '<p class="nota-ficha">' + icono("info") + "<span>" + esc(p.nota) + "</span></p>" : "";
     var desc = p.descripcion || p.resumen;
-    var texto = desc ? '<section class="ficha-bloque ficha-texto"><h2>' + emoji("🏡") + "La propiedad</h2>" + String(desc).split(/\n+/).map(function (x) { return "<p>" + esc(x) + "</p>"; }).join("") + "</section>" : "";
+    var texto = desc ? '<section class="ficha-bloque ficha-texto"><h2>La propiedad</h2>' + String(desc).split(/\n+/).map(function (x) { return "<p>" + esc(x) + "</p>"; }).join("") + "</section>" : "";
 
     /* Otras en la misma zona (o en el mismo país) */
-    var otras = d.propiedades.filter(function (x) { return x.id !== p.id && x.zona === p.zona; }).sort(destacadasPrimero), tituloOtras = "Otras en " + zona, filtro = "zona=" + encodeURIComponent(p.zona);
-    if (!otras.length) { otras = d.propiedades.filter(function (x) { return x.id !== p.id && x.destino === p.destino; }).sort(destacadasPrimero); tituloOtras = "Otras en " + (dest ? dest.nombre : "este destino"); filtro = "ambito=" + encodeURIComponent(p.ambito); }
-    var bloqueOtras = otras.length ? '<section class="seccion oscuro"><div class="contenedor"><div class="titulo-fila"><h2>' + emoji("🏡") + esc(tituloOtras) + '</h2><a class="enlace" href="hospedajes.html?' + filtro + '">Ver todas' + icono("flecha") + "</a></div>" +
+    var otras = d.propiedades.filter(function (x) { return x.id !== p.id && x.zona === p.zona; }).sort(destacadasPrimero), tituloOtras = "Otras propiedades en " + zona, filtro = "zona=" + encodeURIComponent(p.zona);
+    if (!otras.length) { otras = d.propiedades.filter(function (x) { return x.id !== p.id && x.destino === p.destino; }).sort(destacadasPrimero); tituloOtras = "Otras propiedades en " + (dest ? dest.nombre : "este destino"); filtro = "ambito=" + encodeURIComponent(p.ambito); }
+    var bloqueOtras = otras.length ? '<section class="seccion oscuro"><div class="contenedor"><div class="titulo-fila"><h2>' + esc(tituloOtras) + '</h2><a class="enlace" href="hospedajes.html?' + filtro + '">Ver todas' + icono("flecha") + "</a></div>" +
       '<div class="rejilla-tarjetas deslizable">' + otras.slice(0, 3).map(function (x) { return tarjeta(d, x); }).join("") + "</div></div></section>" : "";
 
     caja.innerHTML = '<div class="contenedor ficha-cabeza"><nav class="migas" aria-label="Ruta"><a href="hospedajes.html">Hospedajes</a><span aria-hidden="true">/</span>' +
@@ -1181,7 +1179,7 @@
         lineas.push((f.en_mensaje || f.etiqueta || f.id) + ": " + x);
       });
       enviar.href = waUrl(lineas.join("\n"));
-      avisoV.textContent = "Listo: le abrimos WhatsApp. Si no abrió, toque de nuevo.";
+      avisoV.textContent = "Listo: le abrimos WhatsApp con su pedido. Si no se abrió, toque de nuevo el botón.";
       avisoV.className = "hv-aviso hv-listo";
     });
     return { abrir: abrir };
@@ -1400,7 +1398,7 @@
     return '<article class="tarjeta tarjeta-barco" id="' + esc(b.id) + '">' +
       '<div class="tarjeta-foto"><span class="t-enlace">' + (n ? '<span class="t-pista" data-t-pista>' + slides.join("") + "</span>" : '<span class="sin-foto">' + icono("camara") + "</span>") + "</span>" + puntos +
       (b.tipo ? '<span class="tarjeta-cat">' + esc(b.tipo.charAt(0).toUpperCase() + b.tipo.slice(1)) + "</span>" : "") + "</div>" +
-      '<div class="tarjeta-texto"><h3>' + emoji("⛵") + esc(b.nombre) + "</h3>" + (b.descripcion ? '<p class="tarjeta-resumen">' + esc(b.descripcion) + "</p>" : "") +
+      '<div class="tarjeta-texto"><h3>' + esc(b.nombre) + "</h3>" + (b.descripcion ? '<p class="tarjeta-resumen">' + esc(b.descripcion) + "</p>" : "") +
       (datos.length ? '<p class="tarjeta-datos">' + datos.join("") + "</p>" : "") + (b.incluye.length ? listaEmoji(b.incluye) : "") + tarifa() +
       '<div class="tarjeta-acciones">' + botonWa("Consultar disponibilidad", msg("embarcacion", { nombre: b.nombre, zona: b.zona || "Morrocoy" }), "boton-reserva") + "</div>" +
       "</div></article>";
@@ -1437,6 +1435,7 @@
     if (PAGINAS[PAGINA]) safe(function () { PAGINAS[PAGINA](d); });
     safe(function () { pintarMapa(d); });
     safe(function () { pintarBarcos(d); });
+    if (PAGINA === "viajes") safe(function () { PAGINAS.tours(d); });
     safe(flechasGaleria);
     safe(olas);
   });
