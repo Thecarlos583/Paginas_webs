@@ -172,7 +172,10 @@
         return;
       }
       var lineas = [D.saludo, ""];
-      campos.forEach(function (c) { var t = texto(c, v[c.id], v); if (t) lineas.push(c.en_mensaje + ": " + t); });
+      campos.forEach(function (c) {
+        var t = texto(c, v[c.id], v); if (!t) return;
+        lineas.push(c.en_mensaje + ": " + (c.tipo === "numero" ? String(v[c.id]) : t));
+      });
       enviar.href = waUrl(lineas.join("\n"));
       aviso.textContent = "Listo: le abrimos WhatsApp con su cotización. Si no se abrió, toque el botón otra vez.";
       aviso.className = "cot-aviso listo";

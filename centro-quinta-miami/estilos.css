@@ -196,6 +196,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .pregunta summary::after { content: "+"; flex: none; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: #FFE1F0; color: var(--fucsia-osc); font-size: 1.3rem; transition: transform .25s ease; }
 .pregunta[open] summary::after { transform: rotate(45deg); }
 .pregunta p { padding: 0 18px 18px; color: var(--gris); }
+.pregunta:not([open]) > p { display: none; }
 
 /* ---------- Cierre y pie ---------- */
 .cierre { display: grid; justify-items: center; gap: 10px; padding: 60px var(--margen) 44px; text-align: center; }
