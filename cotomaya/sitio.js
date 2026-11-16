@@ -1248,9 +1248,8 @@
     });
   }
 
-  /* Divisores con forma de ola: cada bloque que cambia de color recibe una ola del color del bloque anterior */
-  var OLA_D = "M0 0H1440V12C1300 34 1140 34 1000 18S720 0 560 14 260 36 0 14Z";
-  var OLA_ORO = "M1440 12C1300 34 1140 34 1000 18S720 0 560 14 260 36 0 14";
+  /* Divisores con forma de ola: cada bloque que cambia de color recibe la franja de olas de la portada
+     (plantilla data-ola-plantilla, un solo componente) con el color del bloque anterior */
   function fondo(el) {
     var c = getComputedStyle(el).backgroundColor;
     return /rgba\(0, 0, 0, 0\)|transparent/.test(c) ? getComputedStyle(document.body).backgroundColor : c;
@@ -1264,14 +1263,29 @@
   }
   function olas() {
     $$("main section.seccion, main .zona-catalogo, main .cierre, .pie").forEach(function (b) {
-      if ($(":scope > .ola-div", b)) return;
-      var p = anterior(b); if (!p || p.offsetHeight < 40) return;
+      if ($(":scope > .ola-banda.arriba", b)) return;
+      var p = anterior(b); if (!p || p.offsetHeight < 40 || $(":scope > .ola-banda.abajo", p)) return;
       var c = fondo(p); if (c === fondo(b)) return;
-      var o = document.createElement("div");
-      o.className = "ola-div"; o.setAttribute("aria-hidden", "true");
-      o.innerHTML = '<svg viewBox="0 0 1440 40" preserveAspectRatio="none" focusable="false"><path d="' + OLA_D + '" fill="' + c + '"/><path class="ola-div-oro" d="' + OLA_ORO + '" vector-effect="non-scaling-stroke"/></svg>';
+      var t = $("template[data-ola-plantilla]"); if (!t) return;
+      var o = t.content.firstElementChild.cloneNode(true);
+      $("[data-ola-fondo]", o).style.fill = c;
       b.insertBefore(o, b.firstChild);
     });
+    olasVivas();
+  }
+
+  /* Como máximo una ola animada por pantalla: solo se mueve la más visible; las demás quedan quietas */
+  function olasVivas() {
+    var todas = $$(".ola-anima");
+    if (quieto || !todas.length || !("IntersectionObserver" in window)) return;
+    var vis = new Map();
+    var io = new IntersectionObserver(function (ents) {
+      ents.forEach(function (en) { if (en.isIntersecting) vis.set(en.target, en.intersectionRatio); else vis.delete(en.target); });
+      var mejor = null, r = -1;
+      vis.forEach(function (v, k) { if (v > r) { r = v; mejor = k; } });
+      todas.forEach(function (o) { o.classList.toggle("viva", o === mejor); });
+    }, { threshold: [0, .2, .4, .6, .8, 1] });
+    todas.forEach(function (o) { io.observe(o); });
   }
 
   /* Mapa de destinos: un punto que late por zona (datos/destinos.json → coordenadas). Las zonas muy juntas se agrupan */
