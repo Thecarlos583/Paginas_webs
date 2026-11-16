@@ -1336,3 +1336,11 @@ h1 .emoji, h2 .emoji, h3 .emoji, .tres-pasos .emoji, summary .emoji { font-size:
 @media (max-width: 599px) {
   .mapa-marco { width: min(100%, 56svh); margin-inline: auto; }
 }
+/* Una sola embarcación en la computadora: tarjeta horizontal, sin hueco a la derecha */
+@media (min-width: 900px) {
+  .rejilla-barcos > .tarjeta-barco:only-child { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); max-width: 1040px; }
+  .rejilla-barcos > .tarjeta-barco:only-child .tarjeta-foto { aspect-ratio: 4 / 3; }
+  .rejilla-barcos > .tarjeta-barco:only-child .tarjeta-texto { justify-content: center; gap: 14px; padding: 36px 40px; }
+  .rejilla-barcos > .tarjeta-barco:only-child h3 { font-size: 2.4rem; }
+  .rejilla-barcos > .tarjeta-barco:only-child .tarifa, .rejilla-barcos > .tarjeta-barco:only-child .tarjeta-acciones { margin-top: 6px; }
+}

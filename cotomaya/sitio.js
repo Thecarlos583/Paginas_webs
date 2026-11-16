@@ -425,7 +425,7 @@
   /* Al final de los internacionales: cualquier otro país se cotiza con los servicios de viaje */
   function tarjetaOtroPais() {
     return '<a class="destino destino-viajes" href="viajes.html"><span class="borde-oro" aria-hidden="true"></span><span class="destino-viajes-ic" aria-hidden="true">' + icono("avion") + "</span>" +
-      '<span class="destino-texto"><strong>¿Viaja a otro país?</strong><small>Boletos aéreos, hoteles en todo el mundo, tours y renta de vehículos. Le cotizamos por WhatsApp.</small>' +
+      '<span class="destino-texto"><strong>¿Viaja a otro país?</strong><small>✈️ Boletos, hoteles, tours y carros. Le cotizamos por WhatsApp.</small>' +
       '<span class="destino-zonas"><span>Servicios de viaje</span></span></span></a>';
   }
   /* Destinos agrupados: Nacionales e Internacionales */
