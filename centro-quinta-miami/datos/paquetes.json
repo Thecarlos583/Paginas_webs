@@ -11,7 +11,16 @@
     "capacidad": "",
     "horas": "",
     "precio": "",
-    "flyer": ""
+    "flyer": "",
+    "fotos_extra": [
+      "1763959949927-b86ed20b3290",
+      "1705626308236-490402f6c1cd"
+    ],
+    "alts_extra": [
+      "Quinceañera con tiara y vestido azul",
+      "Torta de varios pisos con flores moradas"
+    ],
+    "detalle": "La entrada, el vals, las fotos junto a la piscina y la fiesta con sus amigos. Usted elige la temática y le decimos qué puede incluir."
   },
   {
     "id": "infantil",
@@ -25,7 +34,16 @@
     "capacidad": "",
     "horas": "",
     "precio": "",
-    "flyer": ""
+    "flyer": "",
+    "fotos_extra": [
+      "1531956531700-dc0ee0f1f9a5",
+      "1562967005-a3c85514d3e9"
+    ],
+    "alts_extra": [
+      "Mesa de cumpleaños con gorritos, platos y globos",
+      "Mesa de dulces con globos azules y rosados"
+    ],
+    "detalle": "Piñata, torta, juegos y el espacio para que los niños corran mientras los grandes comparten."
   },
   {
     "id": "revelacion",
@@ -39,7 +57,16 @@
     "capacidad": "",
     "horas": "",
     "precio": "",
-    "flyer": ""
+    "flyer": "",
+    "fotos_extra": [
+      "1768776183122-95c7d3adbf3e",
+      "1760036120418-4b9de114fd3e"
+    ],
+    "alts_extra": [
+      "Letras gigantes iluminadas que dicen baby",
+      "Familia celebrando con confeti rosado"
+    ],
+    "detalle": "Globos, humo de color o confeti: arme el momento a su manera y compártalo con los suyos."
   },
   {
     "id": "graduacion",
@@ -53,7 +80,16 @@
     "capacidad": "",
     "horas": "",
     "precio": "",
-    "flyer": ""
+    "flyer": "",
+    "fotos_extra": [
+      "1758682016275-59c2dd2e0aee",
+      "1758682016284-78f5266d5743"
+    ],
+    "alts_extra": [
+      "Mesa de graduación con globos y arco",
+      "Torta de graduación con birrete y diploma"
+    ],
+    "detalle": "Para la promoción completa o para la familia: un espacio para brindar por el título."
   },
   {
     "id": "fiestas",
@@ -67,7 +103,16 @@
     "capacidad": "",
     "horas": "",
     "precio": "",
-    "flyer": ""
+    "flyer": "",
+    "fotos_extra": [
+      "1770729922936-2f7b0862df34",
+      "1783314863884-be035ed5ed5c"
+    ],
+    "alts_extra": [
+      "Bola de discoteca y banderines en el techo",
+      "Salón con centros de mesa y luz cálida"
+    ],
+    "detalle": "Cumpleaños de adultos, eventos de empresa, bodas o una reunión grande: díganos qué celebra."
   },
   {
     "id": "alquiler",
@@ -81,6 +126,15 @@
     "capacidad": "",
     "horas": "",
     "precio": "",
-    "flyer": ""
+    "flyer": "",
+    "fotos_extra": [
+      "1721733259319-5e2f4ff5d081",
+      "1768851142332-75f3d1b47452"
+    ],
+    "alts_extra": [
+      "Piscina iluminada de noche",
+      "Salón de fiestas con mesas redondas"
+    ],
+    "detalle": "Le alquilamos el lugar y usted trae su decoración, su comida y su gente."
   }
 ]

@@ -26,15 +26,6 @@
   }
   function minutos(v) { var p = v.split(":"); return +p[0] * 60 + +p[1]; }
 
-  /* ---------- Barra de abajo: aparece cuando los botones de la portada quedan atrás ---------- */
-  seguro("barra", function () {
-    var barra = $("[data-barra]"), ref = $(".portada-botones");
-    if (!barra || !ref || !("IntersectionObserver" in window)) { if (barra) barra.classList.add("ver"); return; }
-    new IntersectionObserver(function (es) {
-      es.forEach(function (x) { barra.classList.toggle("ver", !x.isIntersecting && x.boundingClientRect.top < 0); });
-    }).observe(ref);
-  });
-
   /* ---------- Tarjetas de vidrio: brillo que sigue el dedo y leve inclinación con ratón ---------- */
   seguro("tarjetas", function () {
     var fino = window.matchMedia && matchMedia("(hover: hover) and (pointer: fine)").matches && !quieto;
@@ -68,6 +59,7 @@
   var cotizador = null;
   seguro("cotizador", function () {
     var dlg = $("#cotizador"); if (!dlg) return;
+    var esVentana = dlg.tagName === "DIALOG";
     var form = $(".cot-form", dlg), aviso = $("[data-aviso]", dlg), enviar = $("[data-enviar]", dlg);
     var campos = D.campos, desde = null, antes = {};
     var fecha = $('input[type="date"]', form);
@@ -137,15 +129,18 @@
       if (paquete) { var r = $('input[name="paquete"][value="' + paquete + '"]', form); if (r) { r.checked = true; limpiar(nodo("paquete")); } }
       aviso.textContent = ""; aviso.className = "cot-aviso";
       pintar();
+      if (!esVentana) { if (boton) dlg.scrollIntoView({ behavior: quieto ? "auto" : "smooth", block: "start" }); return; }
       if (dlg.showModal) { if (!dlg.open) dlg.showModal(); } else dlg.setAttribute("open", "");
       html.classList.add("hoja-abierta");
       $(".cot-cuerpo", dlg).scrollTop = 0;
     }
     function cerrar() { if (dlg.close) dlg.close(); else { dlg.removeAttribute("open"); alCerrar(); } }
     function alCerrar() { html.classList.remove("hoja-abierta"); if (desde && desde.focus) desde.focus({ preventScroll: true }); }
-    dlg.addEventListener("close", alCerrar);
-    dlg.addEventListener("click", function (ev) { if (ev.target === dlg) cerrar(); });
-    $("[data-cerrar]", dlg).addEventListener("click", cerrar);
+    if (esVentana) {
+      dlg.addEventListener("close", alCerrar);
+      dlg.addEventListener("click", function (ev) { if (ev.target === dlg) cerrar(); });
+      $("[data-cerrar]", dlg).addEventListener("click", cerrar);
+    }
 
     enviar.addEventListener("click", function (ev) {
       var v = pintar(), falta = [], primero = null, nota = "";
@@ -185,7 +180,9 @@
       var b = ev.target.closest("[data-cotizar]"); if (!b) return;
       ev.preventDefault(); abrir(b.getAttribute("data-cotizar"), b);
     });
-    if (location.hash === "#cotizar") abrir("");
+    var pedido = (location.search.match(/[?&]paquete=([a-z0-9-]+)/) || [])[1];
+    if (!esVentana) abrir(pedido || "");
+    else if (location.hash === "#cotizar") abrir("");
     cotizador = { abrir: abrir };
     window.QuintaMiami = cotizador;
   });
@@ -197,8 +194,13 @@
     function mostrar() { var it = lista[i]; img.src = it.src; img.alt = it.alt; pie.textContent = it.titulo || it.alt; }
     function abrir(l, k, b) { lista = l; i = k; desde = b; dlg.classList.toggle("uno", l.length < 2); mostrar(); dlg.showModal(); html.classList.add("hoja-abierta"); }
     function mover(d) { if (lista.length < 2) return; i = (i + d + lista.length) % lista.length; mostrar(); }
-    var fotos = $$("[data-visor]").map(function (b) { return { src: b.dataset.visor, alt: b.dataset.alt }; });
-    $$("[data-visor]").forEach(function (b, k) { b.addEventListener("click", function () { abrir(fotos, k, b); }); });
+    /* Cada grupo (una galería o el mosaico de un paquete) se recorre por separado, solo con las fotos visibles */
+    document.addEventListener("click", function (ev) {
+      var b = ev.target.closest("[data-visor]"); if (!b) return;
+      var grupo = b.closest(".galeria-lista, .pg-fotos") || document;
+      var botones = $$("[data-visor]", grupo).filter(function (x) { var li = x.closest("li"); return !(li && li.hidden); });
+      abrir(botones.map(function (x) { return { src: x.dataset.visor, alt: x.dataset.alt }; }), Math.max(0, botones.indexOf(b)), b);
+    });
     $$("[data-flyer]").forEach(function (b) {
       b.addEventListener("click", function () { abrir([{ src: b.dataset.flyer, alt: "Flyer de " + b.dataset.titulo, titulo: b.dataset.titulo }], 0, b); });
     });
@@ -213,11 +215,25 @@
     dlg.addEventListener("pointerup", function (ev) { if (x0 !== null && Math.abs(ev.clientX - x0) > 50) mover(ev.clientX < x0 ? 1 : -1); x0 = null; });
   });
 
+  /* ---------- Filtros de la galería ---------- */
+  seguro("filtros", function () {
+    $$(".filtros").forEach(function (caja) {
+      var lista = caja.nextElementSibling;
+      caja.addEventListener("click", function (ev) {
+        var b = ev.target.closest("[data-filtro]"); if (!b) return;
+        var f = b.dataset.filtro;
+        $$("[data-filtro]", caja).forEach(function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+        $$("li", lista).forEach(function (li) { li.hidden = f !== "todas" && li.dataset.tipo !== f; });
+      });
+    });
+  });
+
   /* ---------- Espacios en computadora: la sección se fija y la galería avanza de lado al bajar (GSAP) ---------- */
   seguro("espacios", function () {
     if (quieto || !window.matchMedia || !matchMedia("(min-width: 1024px)").matches) return;
-    var sec = $(".espacios"), fijo = $(".espacios-fijo"), pista = $(".espacios-pista"), carril = $(".espacios-carril");
-    if (!sec || !pista) return;
+    var carril = $(".espacios-carril[data-fijar]"); if (!carril) return;
+    var sec = carril.closest(".espacios"), fijo = $(".espacios-fijo", sec), pista = $(".espacios-pista", carril);
+    if (!sec || !fijo || !pista) return;
     function cargar(src) {
       return new Promise(function (ok, mal) { var s = document.createElement("script"); s.src = src; s.onload = ok; s.onerror = mal; document.head.appendChild(s); });
     }

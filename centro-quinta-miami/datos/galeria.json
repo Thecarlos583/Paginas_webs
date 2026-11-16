@@ -1,10 +1,120 @@
-[
-  {"foto": "1760926455212-d42b180ad602", "alt": "Barra junto a la piscina al atardecer", "ancho": 3, "alto": 4},
-  {"foto": "1705626308236-490402f6c1cd", "alt": "Torta de varios pisos con flores moradas y luces", "ancho": 3, "alto": 4},
-  {"foto": "1768776183122-95c7d3adbf3e", "alt": "Letras gigantes iluminadas que dicen baby, con globos", "ancho": 4, "alto": 3},
-  {"foto": "1778867722098-11f09f78eeda", "alt": "Familia celebrando una graduación con decoración de colores", "ancho": 4, "alto": 3},
-  {"foto": "1617201460038-6e5555a8a1f5", "alt": "Globos dorados sobre una mesa de madera", "ancho": 3, "alto": 4},
-  {"foto": "1770729922936-2f7b0862df34", "alt": "Bola de discoteca y banderines colgando del techo", "ancho": 3, "alto": 4},
-  {"foto": "1562967005-a3c85514d3e9", "alt": "Mesa de dulces con globos azules y rosados", "ancho": 4, "alto": 3},
-  {"foto": "1784450441669-2d536cf3c395", "alt": "Mesa de fiesta con flores blancas y globos", "ancho": 3, "alto": 4}
-]
+{
+  "filtros": [
+    [
+      "todas",
+      "Todas"
+    ],
+    [
+      "piscina",
+      "🌊 Piscina"
+    ],
+    [
+      "salones",
+      "🪩 Salones y mesas"
+    ],
+    [
+      "quince",
+      "👑 Quince años"
+    ],
+    [
+      "infantiles",
+      "🎈 Infantiles y revelación"
+    ],
+    [
+      "graduaciones",
+      "🎓 Graduaciones"
+    ]
+  ],
+  "fotos": [
+    {
+      "foto": "1721733259319-5e2f4ff5d081",
+      "alt": "Piscina iluminada de noche con luces de colores",
+      "tipo": "piscina"
+    },
+    {
+      "foto": "1760926455212-d42b180ad602",
+      "alt": "Barra junto a la piscina al atardecer",
+      "tipo": "piscina"
+    },
+    {
+      "foto": "1604348825621-22800b6ed16d",
+      "alt": "Piscina de día con sillas y palmeras",
+      "tipo": "piscina"
+    },
+    {
+      "foto": "1572477722570-8a909f42ca6d",
+      "alt": "Fiesta de día en la piscina",
+      "tipo": "piscina"
+    },
+    {
+      "foto": "1768851142332-75f3d1b47452",
+      "alt": "Salón de fiestas con mesas redondas y lámparas",
+      "tipo": "salones"
+    },
+    {
+      "foto": "1783314863884-be035ed5ed5c",
+      "alt": "Salón con centros de mesa y luz cálida",
+      "tipo": "salones"
+    },
+    {
+      "foto": "1784450441669-2d536cf3c395",
+      "alt": "Mesa de fiesta con flores blancas y globos",
+      "tipo": "salones"
+    },
+    {
+      "foto": "1617201460038-6e5555a8a1f5",
+      "alt": "Globos dorados sobre una mesa de madera",
+      "tipo": "salones"
+    },
+    {
+      "foto": "1770729922936-2f7b0862df34",
+      "alt": "Bola de discoteca y banderines colgando del techo",
+      "tipo": "salones"
+    },
+    {
+      "foto": "1640827013600-1f5411ec366b",
+      "alt": "Quinceañera con vestido de gala y ramo",
+      "tipo": "quince"
+    },
+    {
+      "foto": "1763959949927-b86ed20b3290",
+      "alt": "Quinceañera con tiara y vestido azul",
+      "tipo": "quince"
+    },
+    {
+      "foto": "1705626308236-490402f6c1cd",
+      "alt": "Torta de varios pisos con flores moradas y luces",
+      "tipo": "quince"
+    },
+    {
+      "foto": "1741969494307-55394e3e4071",
+      "alt": "Mesa de cumpleaños con arco de globos rosados",
+      "tipo": "infantiles"
+    },
+    {
+      "foto": "1562967005-a3c85514d3e9",
+      "alt": "Mesa de dulces con globos azules y rosados",
+      "tipo": "infantiles"
+    },
+    {
+      "foto": "1768776183122-95c7d3adbf3e",
+      "alt": "Letras gigantes iluminadas que dicen baby, con globos",
+      "tipo": "infantiles"
+    },
+    {
+      "foto": "1778867722098-11f09f78eeda",
+      "alt": "Familia celebrando una graduación con decoración de colores",
+      "tipo": "graduaciones"
+    },
+    {
+      "foto": "1758682016275-59c2dd2e0aee",
+      "alt": "Mesa de graduación con globos y arco",
+      "tipo": "graduaciones"
+    },
+    {
+      "foto": "1758682016284-78f5266d5743",
+      "alt": "Torta de graduación con birrete y diploma",
+      "tipo": "graduaciones"
+    }
+  ]
+}

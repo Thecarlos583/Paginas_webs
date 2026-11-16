@@ -2,6 +2,10 @@
 
 Neón de fiesta en Miami, sacado del logo: aro morado, palmera verde, isla naranja de atardecer, olas azules, "Quinta" celeste y "Miami" fucsia en letra manuscrita.
 
+## Páginas
+
+Web completa de 6 páginas: Inicio, Paquetes (cada uno en grande con 3 fotos), Espacios (galería fijada que avanza al bajar), Galería (filtros y visor), Cotizar (cotizador en página + preguntas) y Contacto (fachada, WhatsApp, preguntas). En el teléfono, barra fija abajo tipo app (Inicio, Paquetes, Espacios, Galería, Contacto) y arriba Cotizar y WhatsApp; transición suave entre páginas (`@view-transition`).
+
 ## Colores
 
 | Token | Hex | Uso |
