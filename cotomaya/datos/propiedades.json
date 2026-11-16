@@ -719,7 +719,7 @@
   {
     "id": "casa-vista-al-mar-tucacas",
     "nombre": "Hermosa casa con vista al mar • Céntrica • Wi-Fi 12 personas",
-    "tipo": "casa",
+    "tipo": "penthouse",
     "categoria": "C",
     "ambito": "nacional",
     "destino": "venezuela",
@@ -1193,7 +1193,7 @@
   {
     "id": "casa-guacharaca-vip-lodge",
     "nombre": "Casa Guacharaca VIP Lodge | Piscina en Morrocoy",
-    "tipo": "casa",
+    "tipo": "villa",
     "categoria": "B",
     "ambito": "nacional",
     "destino": "venezuela",
@@ -1933,6 +1933,101 @@
     "videos": [],
     "enlaces": {
       "airbnb": "https://www.airbnb.com/rooms/1490110677233441961",
+      "booking": "",
+      "expedia": "",
+      "agoda": "",
+      "tripadvisor": ""
+    },
+    "ubicacion_maps": ""
+  },
+  {
+    "id": "villa-33-personas-sanare",
+    "nombre": "Villa de playa con piscina/Planta Elect. 33 Pers.",
+    "tipo": "villa",
+    "categoria": "B",
+    "ambito": "nacional",
+    "destino": "venezuela",
+    "zona": "sanare",
+    "destacada": false,
+    "activa": true,
+    "capacidad": 33,
+    "habitaciones": 10,
+    "banos": 10.5,
+    "resumen": "Villa privada para grupos grandes, con piscina y planta eléctrica.",
+    "descripcion": "Villa privada para grupos de 30 a 33 personas, con 10 habitaciones y 10 baños y medio.",
+    "incluye": [
+      "Piscina",
+      "Planta eléctrica",
+      "Aire acondicionado",
+      "Wifi",
+      "Cocina",
+      "Parrillera",
+      "Hamacas",
+      "Estacionamiento para 15 carros",
+      "Se admiten mascotas"
+    ],
+    "nota": "",
+    "fotos": [
+      {
+        "archivo": "villa-33-personas-sanare/01.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "villa-33-personas-sanare/02.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "villa-33-personas-sanare/03.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "villa-33-personas-sanare/04.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "villa-33-personas-sanare/05.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "villa-33-personas-sanare/06.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "villa-33-personas-sanare/07.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "villa-33-personas-sanare/08.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "villa-33-personas-sanare/09.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "villa-33-personas-sanare/10.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "villa-33-personas-sanare/11.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "villa-33-personas-sanare/12.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "villa-33-personas-sanare/13.webp",
+        "alt": "Foto de la propiedad"
+      },
+      {
+        "archivo": "villa-33-personas-sanare/14.webp",
+        "alt": "Foto de la propiedad"
+      }
+    ],
+    "videos": [],
+    "enlaces": {
+      "airbnb": "https://www.airbnb.com/rooms/695445851127313821",
       "booking": "",
       "expedia": "",
       "agoda": "",
