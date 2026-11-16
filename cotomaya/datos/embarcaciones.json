@@ -1,0 +1,35 @@
+[
+  {
+    "id": "lancha-deportiva",
+    "nombre": "Lancha deportiva",
+    "tipo": "lancha deportiva",
+    "capacidad": "",
+    "descripcion": "Lancha con toldo para pasear por los cayos.",
+    "incluye": [],
+    "zona": "cayos de Morrocoy",
+    "fotos": [
+      {
+        "archivo": "lancha-deportiva/01.webp",
+        "alt": "Lancha blanca y azul con toldo sobre agua cristalina en un cayo"
+      },
+      {
+        "archivo": "lancha-deportiva/02.webp",
+        "alt": "Lancha blanca y azul con toldo, motor fuera de borda, junto al muelle"
+      },
+      {
+        "archivo": "lancha-deportiva/03.webp",
+        "alt": "Asientos acolchados de la lancha bajo el toldo azul"
+      }
+    ],
+    "videos": [
+      {
+        "archivo": "lancha-deportiva/video-1.mp4",
+        "portada": "lancha-deportiva/video-1.webp"
+      },
+      {
+        "archivo": "lancha-deportiva/video-2.mp4",
+        "portada": "lancha-deportiva/video-2.webp"
+      }
+    ]
+  }
+]

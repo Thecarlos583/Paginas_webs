@@ -5,8 +5,14 @@ Todo lo que cambia (propiedades, destinos, tours, WhatsApp) vive en la carpeta `
 - `datos/propiedades.json`: las propiedades.
 - `datos/destinos.json`: Nacionales e Internacionales, sus países y las zonas de cada país.
 - `datos/tours.json`: los paseos en yate y los tours.
-- `datos/config.json`: WhatsApp, redes, logo, categorías, nombres de los tipos y mensajes.
+- `datos/embarcaciones.json`: los yates y las lanchas (sección "⛵ Yates y lanchas" de Tours).
+- `datos/textos.json`: los textos fijos de las páginas (títulos y frases cortas). Después de cambiarlos, Carlos vuelve a generar el sitio.
+- `datos/config.json`: WhatsApp, redes, logo, categorías, nombres de los tipos, mensajes y el video de Yates y lanchas.
 - `datos-fuente/fotos-airbnb.json`: de dónde se bajaron las fotos de cada propiedad (no lo lee la página).
+
+> **Sin precios en ninguna parte.** Las tarifas cambian por temporada y por fin de semana: todo se consulta por WhatsApp. Donde iría un precio sale "💬 Consulte la tarifa para su fecha" con su botón. No agregue campos de precio.
+>
+> **Textos cortos:** una o dos líneas en el teléfono, con un emoji al inicio como máximo. Lo largo va como lista corta.
 
 > **Regla de oro de los nombres:** una propiedad **nunca** lleva su nombre real en la web. Solo el nombre de marketing, que es el mismo título que tiene en Airbnb, copiado tal cual. Tampoco van nombres de anfitriones, reseñas, estrellas ni "Superhost".
 
@@ -78,8 +84,21 @@ Si una plataforma queda en `""`, su botón no aparece. TripAdvisor hoy solo acep
 - **Zona nueva** (por ejemplo, otra playa de Falcón): en `destinos.json`, dentro de `zonas` del país, copie un bloque y cambie `id`, `nombre` y `descripcion`. `foto` vacía `""` = usa una foto de las propiedades de esa zona.
 - **Quitar el "Próximamente" de Isla Margarita:** en `destinos.json`, en la zona `isla-margarita`, borre `"proximamente": true,` (o póngalo en `false`) y cambie la `descripcion`. Después cargue el apartamento con `"zona": "isla-margarita"`.
 - **País nuevo** (por ejemplo, Panamá): en `destinos.json`, dentro del ámbito `internacional`, copie el bloque de Colombia y cambie `id` (`panama`), `nombre`, `descripcion` y `zonas`.
-- **Tour:** en `tours.json`, copie un bloque. `ambito` es `nacional` o `internacional` (así sale en su grupo de la página de Tours), y `zona` es el `id` de la zona. En `precio_referencia` ponga por ejemplo `$30 por persona`, o `Por confirmar`. Mientras un precio no esté confirmado, deje `"ejemplo": true`: así sale la etiqueta "Ejemplo" y el aviso del pie. Un grupo sin tours muestra "Muy pronto" con un botón de WhatsApp.
+- **Tour:** en `tours.json`, copie un bloque. `ambito` es `nacional` o `internacional` (así sale en su grupo de la página de Tours), y `zona` es el `id` de la zona. No lleva precio: la tarjeta dice "💬 Consulte la tarifa para su fecha" y el botón "Consultar disponibilidad". Mientras el paseo no esté confirmado, deje `"ejemplo": true`: así sale la etiqueta "Ejemplo" y el aviso del pie. Un grupo sin tours muestra "Muy pronto" con un botón de WhatsApp.
 - Fotos de tours: guárdelas en `fotos/tours/` y escriba solo el nombre del archivo, o use una ruta que empiece por `fotos/`.
+
+## 4b. Yates y lanchas
+
+En `datos/embarcaciones.json` hay un bloque por embarcación. Para agregar un yate o una lancha, copie un bloque y cámbielo:
+
+- `id`: minúsculas y guiones (`yate-azul`). `nombre`: como se llama (por ahora "Lancha deportiva"; la clienta confirma el nombre real).
+- `tipo`: `yate` o `lancha deportiva`. `zona`: por ejemplo `cayos de Morrocoy`.
+- `capacidad` (número de personas) e `incluye` (lista corta): si están vacíos, la página no los muestra.
+- `descripcion`: una línea.
+- `fotos`: en `fotos/embarcaciones/<id>/`, en WebP de 1600 px como máximo, cada una con su `-600.webp` (use `preparar-fotos.py`). `videos`: MP4 sin audio con su portada `.webp` (el mismo `preparar-video.py`, o como dice el prompt 34: H.264, 720 px de alto como máximo, sin audio, `+faststart`).
+- El botón "Consultar disponibilidad" manda: "Hola Cotomaya, quiero información de la {nombre} para un paseo por {zona}" (se cambia en `config.json` > `mensajes` > `embarcacion`).
+
+El video de fondo de la cabecera de la sección está en `config.json` > `video_yates` (`archivo` y `portada`). Los videos cargan solo cuando se acercan a la pantalla; con ahorro de datos se ve solo la portada.
 
 ## 5. WhatsApp, redes, logo y categorías
 
@@ -88,18 +107,19 @@ Todo en `datos/config.json`:
 - `whatsapp_principal`: el número principal sin `+` ni espacios (ejemplo `584145991961`). `whatsapp_principal_visible`: como se lee (`+58 414-5991961`). Lo usan todos los botones de la página.
 - `whatsapp_secundario` y `whatsapp_secundario_visible`: el segundo número, que sale en Contacto y en el pie. `etiqueta_whatsapp_secundario`: el texto que va encima (por ahora "Otro número de contacto"). Si deja `whatsapp_secundario` vacío, ese botón desaparece.
 - `redes`: pegue el enlace de Instagram, Facebook, TikTok o YouTube. Vacía `""` = no se muestra.
-- `logo`: cuando haya logo, guárdelo como `fotos/logo.webp` y escriba `"logo": "fotos/logo.webp"`.
+- `logo`: la insignia oficial, `img/logo-cotomaya-160.webp`. El original está en `img/logo-cotomaya-original.jpg`; si la clienta manda el archivo con fondo transparente, se rehacen la insignia y el favicon (`img/favicon-32.png`, `favicon-180.png`, `favicon-512.png`).
 - `categorias`: cambie el `nombre` y la `descripcion` de A (Lujo), B (VIP) y C (Standard). La descripción sale en la ficha y en el filtro.
-- `mensajes`: el texto que llega por WhatsApp. `{propiedad}`, `{zona}` y `{tour}` se reemplazan solos.
+- `mensajes`: el texto que llega por WhatsApp. `{propiedad}`, `{zona}`, `{tour}` y `{nombre}` se reemplazan solos.
 
 ## 6. Colores
 
-Están en `estilos.css`, al principio (`:root`): azul marino, azul claro y dorado, aprobados por la clienta. El dorado claro nunca va como texto sobre blanco: para eso está `--dorado-oscuro`.
+Están en `estilos.css`, al principio (`:root`), y explicados en `DESIGN.md`: los del logo (turquesa, coral y dorado) más azul marino y naranja, con fondos claros. **Nada de negro:** lo más oscuro es el azul marino `#16305A`. Los botones de reserva van en naranja. El dorado nunca va como texto sobre claro: para eso está `--dorado-oscuro`.
 
 ## 7. Antes de publicar
 
 1. Abra la web con el servidor local (arriba) y pulse F12 > Consola: si falta un campo o una zona no existe, sale un aviso que dice `[Cotomaya]` con el nombre de la propiedad.
 2. Revise en el teléfono (F12 > el ícono del celular): inicio, el catálogo (Nacionales e Internacionales), la ficha nueva y sus botones.
+   Carlos además corre el verificador con `--cruces`: comprueba que nada decorativo ni animado tape textos o botones.
 3. Toque los botones de Airbnb, Booking, etc. de las propiedades que cambió.
 4. Si `preparar-fotos` o `preparar-video` avisaron que la web pasa de 500 MB, no publique sin hablarlo.
 5. Publique como siempre (`publicar.ps1` de la skill webs-carlos). La carpeta `fotos-originales/` no se sube.

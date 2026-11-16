@@ -1,0 +1,121 @@
+{
+  "_ayuda": "Textos fijos de las páginas. Cortos: una o dos líneas en el teléfono, un emoji al inicio como máximo. *palabra* va en cursiva. Después de cambiarlos hay que volver a generar el sitio con python _generadores/cotomaya.py.",
+  "portada_titulo": "Su casa frente al *Caribe*",
+  "portada_texto": "🏖️ Casas de playa, tours y yates.",
+  "pase_titulo": "¿A dónde va?",
+  "pase_talon": "Vea lo disponible.",
+  "tipos_titulo": "🔑 ¿Qué lugar busca?",
+  "destacadas_titulo": "🏡 Propiedades destacadas",
+  "destinos_titulo": "🌴 Destinos",
+  "mapa_titulo": "📍 Dónde *estamos*",
+  "mapa_texto": "Toque un punto y vea lo que hay.",
+  "tours_titulo": "⛵ Paseos en yate y tours",
+  "yates_inicio_titulo": "⛵ Yates y lanchas",
+  "yates_inicio_texto": "Lanchas para pasear por los cayos de Morrocoy.",
+  "viajes_titulo": "✈️ ¿Viaja a otro destino?",
+  "viajes_texto": "Boletos, hoteles, tours, parques y carros. Le cotizamos por WhatsApp.",
+  "reservar_titulo": "💬 Cómo reservar",
+  "pasos": [
+    [
+      "Elija",
+      "Hospedaje o paseo."
+    ],
+    [
+      "Escríbanos",
+      "Sus fechas y cuántos son."
+    ],
+    [
+      "Confirme",
+      "Le decimos cómo pagar."
+    ]
+  ],
+  "cierre_titulo": "📅 ¿Ya sabe a dónde quiere ir?",
+  "cierre_texto": "Díganos fechas y personas. Le respondemos por WhatsApp.",
+  "pie_texto": "🌴 Hospedajes, tours y paseos en yate por Morrocoy.",
+  "pie_aviso": "Algunos tours son de referencia.",
+  "tarifa": "💬 Consulte la tarifa para su fecha",
+  "hospedajes_titulo": "Hospedajes",
+  "hospedajes_lead": "🏡 Villas, casas y apartamentos. Filtre y elija.",
+  "hospedajes_cierre_titulo": "🔎 ¿No encuentra lo que busca?",
+  "hospedajes_cierre_texto": "Cuéntenos fechas, destino y personas. Le escribimos con opciones.",
+  "destino_titulo": "Destinos",
+  "destino_lead": "🌴 Elija a dónde ir y vea lo que tenemos.",
+  "tours_pagina_titulo": "Tours y yates",
+  "tours_pagina_lead": "⛵ Paseos por los cayos de Morrocoy desde Tucacas.",
+  "tours_nacionales_titulo": "⛵ Tours nacionales",
+  "tours_nacionales_texto": "De Tucacas a los cayos de Morrocoy.",
+  "yates_titulo": "⛵ Yates y lanchas",
+  "yates_texto": "Elija la embarcación y consulte su fecha.",
+  "tours_internacionales_titulo": "✈️ Tours internacionales",
+  "tours_internacionales_texto": "Salidas fuera de Venezuela, empezando por Colombia.",
+  "linea_viajes": "¿Boletos, hotel o tour en otro país?",
+  "combinar_titulo": "🏡 ¿Se queda unos días?",
+  "combinar_texto": "Hospedaje y paseo en yate juntos. Se lo armamos.",
+  "tours_cierre_titulo": "📅 ¿Ya sabe qué día quiere salir?",
+  "tours_cierre_texto": "Díganos fecha y personas. Le respondemos por WhatsApp.",
+  "dia_titulo": "☀️ Mueva el sol y vea el día",
+  "dia_texto": "Un día en el agua. Horas de ejemplo.",
+  "carta_titulo": "🗺️ Toque un cayo y vea el camino",
+  "carta_texto": "Morrocoy desde el espacio. Ruta aproximada.",
+  "reservar_pagina_titulo": "Cómo reservar",
+  "reservar_lead": "💬 Por su plataforma favorita o directo por WhatsApp.",
+  "forma_plataforma_titulo": "🏨 En su plataforma favorita",
+  "forma_plataforma_texto": "En cada ficha verá dónde está publicada.",
+  "forma_whatsapp_titulo": "💬 Directo por WhatsApp",
+  "forma_whatsapp_texto": "Envíenos propiedad o paseo, fechas y personas.",
+  "simple_titulo": "✅ Así de simple",
+  "pago": "💳 Le indicamos las formas de pago por WhatsApp.",
+  "preguntas_titulo": "❓ Preguntas frecuentes",
+  "preguntas": [
+    [
+      "🕑 ¿A qué hora es la entrada y la salida?",
+      "Depende de la propiedad. Se lo indicamos al reservar."
+    ],
+    [
+      "🐶 ¿Aceptan mascotas?",
+      "Depende de la propiedad. Lo verá en su ficha."
+    ],
+    [
+      "👶 ¿Pueden ir niños?",
+      "Díganos las edades y le confirmamos."
+    ],
+    [
+      "🎒 ¿Qué llevo al paseo en yate?",
+      "Traje de baño, toalla, protector solar, gorra y lentes. Lo que lleve al cayo se regresa con usted."
+    ],
+    [
+      "🌧️ ¿Y si hay mal tiempo?",
+      "La salida depende del mar y del viento. Se lo confirmamos al reservar."
+    ],
+    [
+      "💳 ¿Cómo pago?",
+      "Le indicamos las formas de pago por WhatsApp."
+    ]
+  ],
+  "contacto_titulo": "Nosotros y contacto",
+  "contacto_lead": "💬 Hospedajes, tours y paseos en yate en un solo lugar.",
+  "nosotros": [
+    "⛵ Paseos en yate y lancha a los cayos de Morrocoy, desde Tucacas.",
+    "🏡 Propiedades de vacaciones en Venezuela y Colombia.",
+    "✈️ Hospedajes y tours nacionales e internacionales."
+  ],
+  "viajes_pagina_titulo": "Servicios de viaje",
+  "viajes_pagina_lead": "✈️ Boletos, hoteles, tours, parques y carros.",
+  "pasos_viaje": [
+    [
+      "Elija el servicio",
+      "Toque la tarjeta."
+    ],
+    [
+      "Cuéntenos su viaje",
+      "Fechas, destino y personas."
+    ],
+    [
+      "Reciba su cotización",
+      "Por WhatsApp."
+    ]
+  ],
+  "segun_disponibilidad": "Cotización según disponibilidad.",
+  "viajes_cierre_titulo": "🧳 ¿Arma un viaje completo?",
+  "viajes_cierre_texto": "Boletos, hotel y paseos juntos. Le cotizamos todo."
+}

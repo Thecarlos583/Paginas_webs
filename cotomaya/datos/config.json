@@ -18,15 +18,15 @@
   "categorias": {
     "A": {
       "nombre": "Lujo",
-      "descripcion": "Propiedades de lujo, con acabados y servicios de primer nivel."
+      "descripcion": "Acabados y servicios de primer nivel."
     },
     "B": {
       "nombre": "VIP",
-      "descripcion": "Excelente servicio y comodidad, sin llegar a ser de lujo."
+      "descripcion": "Excelente servicio y comodidad."
     },
     "C": {
       "nombre": "Standard",
-      "descripcion": "Opciones cómodas y prácticas para disfrutar la playa."
+      "descripcion": "Cómodas y prácticas para disfrutar la playa."
     }
   },
   "tipos": {
@@ -57,14 +57,19 @@
   },
   "mensajes": {
     "general": "Hola Cotomaya, requiero información",
-    "propiedad": "Hola, me interesa la propiedad \"{propiedad}\" en {zona}. ¿Tienen disponibilidad para…?",
-    "tour": "Hola, me interesa {tour} con Cotomaya Venezuela. ¿Qué fechas tienen disponibles?",
+    "propiedad": "Hola Cotomaya, quiero consultar la disponibilidad de \"{propiedad}\" en {zona} para estas fechas:",
+    "tour": "Hola Cotomaya, quiero consultar disponibilidad de {tour} para esta fecha:",
     "zona": "Hola, quisiera opciones de hospedaje en {zona} con Cotomaya Venezuela.",
     "proximamente": "Hola, quiero saber cuando abran hospedajes en {zona} con Cotomaya Venezuela.",
     "tours_pronto": "Hola, quisiera saber qué tours {ambito} tienen con Cotomaya Venezuela.",
     "sin_resultados": "Hola, estoy buscando un hospedaje con Cotomaya Venezuela y no encontré lo que necesito. ¿Me pueden ayudar?",
-    "viaje": "Hola Cotomaya, quiero cotizar {servicio}:"
+    "viaje": "Hola Cotomaya, quiero cotizar {servicio}:",
+    "embarcacion": "Hola Cotomaya, quiero información de la {nombre} para un paseo por {zona}"
   },
   "video_portada": "",
-  "spline_escena": ""
+  "spline_escena": "",
+  "video_yates": {
+    "archivo": "fotos/embarcaciones/cayos-aereo.mp4",
+    "portada": "fotos/embarcaciones/cayos-aereo.webp"
+  }
 }

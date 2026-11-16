@@ -42,6 +42,33 @@
   }
   function icono(n) { var t = $('template[data-ic="' + n + '"]'); return t ? t.innerHTML : ""; }
 
+  /* Emojis: uno al inicio de títulos, listas y datos clave (aparte, aria-hidden, para que no se lean en voz alta) */
+  function emoji(e) { return '<span class="emoji" aria-hidden="true">' + e + "</span>"; }
+  var RE_EMOJI = null;
+  try { RE_EMOJI = new RegExp("^(\\p{Extended_Pictographic}\\uFE0F?)\\s+(.*)$", "u"); } catch (err) { /* navegador viejo: sin separar */ }
+  function conEmoji(t) {
+    var m = RE_EMOJI && String(t || "").match(RE_EMOJI);
+    return m ? emoji(m[1]) + esc(m[2]) : esc(t);
+  }
+  var EMOJIS = [[/desayuno/i, "☕"], [/jacuzzi/i, "🛁"], [/mesa de pool|billar/i, "🎱"], [/piscina/i, "🏊"], [/muelle|capit/i, "⚓"],
+    [/playa|frente al mar|vista al mar/i, "🏖️"], [/aire/i, "❄️"], [/wifi/i, "📶"], [/\btv\b|smart tv/i, "📺"], [/cocina/i, "🍳"],
+    [/parrill|kiosco/i, "🔥"], [/planta el/i, "⚡"], [/estacionamiento|puesto/i, "🚗"], [/mascota/i, "🐶"], [/agua/i, "💧"],
+    [/jard|verde/i, "🌳"], [/lavadora/i, "🧺"], [/restaurante|comida/i, "🍽️"], [/hamaca/i, "🌴"], [/terraza|tumbona/i, "☀️"],
+    [/ducha|baño/i, "🚿"], [/ascensor/i, "🏢"], [/vigilancia|cámara/i, "🔒"], [/infantil|niños/i, "🧒"], [/cava|hielo/i, "🧊"],
+    [/brindis/i, "🥂"], [/música/i, "🎶"], [/sol/i, "🌅"], [/cayo/i, "🏝️"], [/trabajo/i, "💻"], [/lencer/i, "🛏️"]];
+  function emojiDe(t) {
+    for (var i = 0; i < EMOJIS.length; i++) if (EMOJIS[i][0].test(t)) return EMOJIS[i][1];
+    return "✅";
+  }
+  function listaEmoji(items, clase) {
+    return '<ul class="lista-emoji ' + (clase || "") + '">' + items.map(function (x) { return "<li>" + emoji(emojiDe(x)) + esc(x) + "</li>"; }).join("") + "</ul>";
+  }
+  /* Dato corto con emoji: "👥 32" (el lector de pantalla oye "32 personas") */
+  function dato(e, visible, completo) {
+    return '<span title="' + esc(completo) + '">' + emoji(e) + esc(visible) + (completo !== visible ? '<span class="sr"> (' + esc(completo) + ")</span>" : "") + "</span>";
+  }
+  function tarifa() { return '<p class="tarifa">' + conEmoji(document.body.getAttribute("data-tarifa") || "💬 Consulte la tarifa para su fecha") + "</p>"; }
+
   /* ------------------------------------------------------------ datos */
   var CFG = {}, D = null;
   var RESPALDO_CFG = {
@@ -144,6 +171,22 @@
     d.hayEjemplo = d.propiedades.concat(d.tours).some(function (x) { return x.ejemplo === true; });
     return d;
   }
+  /* embarcaciones.json: [ { id, nombre, tipo, capacidad, descripcion, incluye, zona, fotos, videos } ] */
+  function validarBarcos(lista_) {
+    var vistos = {};
+    return lista(lista_).filter(function (b, i) {
+      if (!b || !b.id || !b.nombre) { aviso("En embarcaciones.json, el bloque #" + (i + 1) + " no tiene id o nombre: no se muestra."); return false; }
+      if (vistos[b.id]) { aviso("En embarcaciones.json, el id \"" + b.id + "\" está repetido."); return false; }
+      vistos[b.id] = 1;
+      if (b.activa === false) return false;
+      var fotos = [], alts = [];
+      lista(b.fotos).forEach(function (f) { var r = f && typeof f === "object" ? f.archivo : f; if (r) { fotos.push(r); alts.push(f.alt || ""); } });
+      b.fotos = fotos; b.alts = alts; b.incluye = lista(b.incluye).filter(Boolean);
+      b.videos = lista(b.videos).filter(function (v) { return v && v.archivo; });
+      b.carpeta = "fotos/embarcaciones/";
+      return true;
+    });
+  }
   function nombreZona(d, id) { var z = d.porZona[id]; return z ? z.nombre : (id || ""); }
   function deZona(d, id) { return d.propiedades.filter(function (p) { return p.zona === id; }); }
   function destacadasPrimero(a, b) { return (b.destacada === true) - (a.destacada === true); }
@@ -167,8 +210,8 @@
     if (D) return D;
     D = bajar("config", RESPALDO_CFG).then(function (cfg) {
       CFG = cfg || RESPALDO_CFG;
-      return Promise.all([bajar("destinos", { ambitos: [] }), bajar("propiedades", []), bajar("tours", [])]);
-    }).then(function (r) { return validar({ destinos: r[0], propiedades: r[1], tours: r[2] }); });
+      return Promise.all([bajar("destinos", { ambitos: [] }), bajar("propiedades", []), bajar("tours", []), bajar("embarcaciones", [])]);
+    }).then(function (r) { var d = validar({ destinos: r[0], propiedades: r[1], tours: r[2] }); d.embarcaciones = validarBarcos(r[3]); return d; });
     return D;
   }
 
@@ -190,9 +233,12 @@
   function tarjeta(d, p, sizes) {
     var url = "propiedad.html?id=" + encodeURIComponent(p.id);
     var cat = categoria(p.categoria), t = partes(p.nombre);
-    var datos = [];
-    if (p.capacidad) datos.push("<span>" + icono("personas") + plural(p.capacidad, "persona", "personas") + "</span>");
-    if (p.habitaciones) datos.push("<span>" + icono("cama") + plural(p.habitaciones, "habitación", "habitaciones") + "</span>");
+    var datos = [], todo = [p.nombre, p.resumen].concat(p.incluye).join(" ");
+    if (p.capacidad) datos.push(dato("👥", String(p.capacidad), plural(p.capacidad, "persona", "personas")));
+    if (p.habitaciones) datos.push(dato("🛏️", String(p.habitaciones), plural(p.habitaciones, "habitación", "habitaciones")));
+    if (p.banos) datos.push(dato("🚿", String(p.banos).replace(".", ","), String(p.banos).replace(".", ",") + (p.banos === 1 ? " baño" : " baños")));
+    if (/piscina/i.test(todo)) datos.push(dato("🏊", "Piscina", "Piscina"));
+    if (/playa|frente al mar/i.test(todo)) datos.push(dato("🏖️", "Playa", "Playa"));
     var fotos = p.fotos.slice(0, FOTOS_TARJETA), n = fotos.length;
     var sz = sizes || "(min-width:900px) 30vw, 88vw";
     var pista = n ? '<span class="t-pista" data-t-pista>' + fotos.map(function (r, k) {
@@ -209,7 +255,8 @@
       '<h3><a href="' + url + '">' + esc(t[0]) + "</a></h3>" + (t[1] ? '<p class="tarjeta-sub">' + esc(t[1]) + "</p>" : "") +
       (p.resumen ? '<p class="tarjeta-resumen">' + esc(p.resumen) + "</p>" : "") +
       '<p class="tarjeta-datos">' + datos.join("") + "</p>" +
-      '<a class="boton boton-chico boton-claro" href="' + url + '">Ver propiedad' + icono("flecha") + "</a>" +
+      '<div class="tarjeta-acciones">' + botonWa("Consultar disponibilidad", msg("propiedad", { propiedad: p.nombre, zona: nombreZona(d, p.zona) }), "boton-reserva") +
+      '<a class="enlace tarjeta-ver" href="' + url + '">Ver fotos y detalles' + icono("flecha") + "</a></div>" +
       "</div></article>";
   }
   /* Fotos dentro de las tarjetas: los puntos siguen la foto; flechas en la computadora */
@@ -229,15 +276,13 @@
   }, true);
 
   function tarjetaTour(t) {
-    var incl = t.incluye.length ? '<ul class="lista-check">' + t.incluye.map(function (x) { return "<li>" + icono("check") + esc(x) + "</li>"; }).join("") + "</ul>" : "";
-    var precio = t.precio_referencia && !/confirmar/i.test(t.precio_referencia)
-      ? '<p class="precio"><b>' + esc(t.precio_referencia) + "</b><em>precio de referencia</em></p>"
-      : '<p class="precio precio-consulta">Precio por confirmar</p>';
+    var incl = t.incluye.length ? listaEmoji(t.incluye) : "";
+    var precio = tarifa();  /* sin precios: cambian por temporada y fin de semana, se consultan por WhatsApp */
     return '<article class="tour"><span class="tour-velo" aria-hidden="true"></span>' +
       '<div class="tour-foto">' + (t.fotos[0] ? img(t.fotos[0], t.carpeta, t.alts[0] || "", "(min-width:900px) 30vw, 84vw", 600) : "") + etiquetaEjemplo(t) +
       (t.duracion ? '<span class="tour-dur">' + icono("reloj") + esc(t.duracion) + "</span>" : "") + "</div>" +
       '<div class="tour-texto"><h3>' + esc(t.nombre) + "</h3>" + (t.resumen ? "<p>" + esc(t.resumen) + "</p>" : "") + incl + precio +
-      botonWa("Consultar por WhatsApp", msg("tour", { tour: t.nombre }), "boton-chico") +
+      botonWa("Consultar disponibilidad", msg("tour", { tour: t.nombre }), "boton-reserva") +
       "</div></article>";
   }
   /* Bloque "Muy pronto": nunca tarjetas inventadas */
@@ -404,7 +449,7 @@
     var a = (ambito && D && ambito) || "";
     caja.innerHTML = lista.length ? lista.map(tarjetaTour).join("") :
       muyPronto("Tours " + (ambito === "internacional" ? "internacionales" : "nacionales"),
-        "Estamos preparando estas salidas. Escríbanos y le contamos qué tenemos disponible.",
+        "Muy pronto. Escríbanos y le contamos.",
         msg("tours_pronto", { ambito: ambito === "internacional" ? "internacionales" : "nacionales" }));
   }
   /* Opciones de zona según el ámbito elegido (sin zonas "próximamente" ni zonas vacías) */
@@ -637,10 +682,10 @@
       var pausada = d.inactivas.filter(function (x) { return x.id === id; })[0];
       document.title = "Propiedad no disponible · " + (CFG.marca || "Cotomaya Venezuela");
       if (pausada) {
-        noDisponible(caja, "Esta propiedad no está disponible por ahora", "Puede ver las demás o escribirnos: con gusto le ayudamos a encontrar otra opción para sus fechas.");
+        noDisponible(caja, "Esta propiedad no está disponible por ahora", "Vea las demás o escríbanos y le buscamos otra.");
         aviso("La propiedad \"" + id + "\" tiene \"activa\": false en propiedades.json: no se muestra.");
       } else {
-        noDisponible(caja, "No encontramos esa propiedad", "Puede que ya no esté disponible o que el enlace esté incompleto. Vea las que tenemos o escríbanos.");
+        noDisponible(caja, "No encontramos esa propiedad", "Puede que ya no esté disponible. Vea las demás o escríbanos.");
         if (!id) aviso("propiedad.html necesita ?id= en la dirección (por ejemplo propiedad.html?id=casa-aurora-tucacas).");
         else aviso("No existe una propiedad con id \"" + id + "\" en propiedades.json.");
       }
@@ -667,40 +712,39 @@
 
     /* Datos */
     var datos = '<dl class="datos-ficha">' +
-      "<div><dt>" + icono("casa") + "Tipo</dt><dd>" + esc(nombreTipo(p.tipo)) + "</dd></div>" +
-      (p.capacidad ? "<div><dt>" + icono("personas") + "Capacidad</dt><dd>" + plural(p.capacidad, "persona", "personas") + "</dd></div>" : "") +
-      (p.habitaciones ? "<div><dt>" + icono("cama") + "Habitaciones</dt><dd>" + p.habitaciones + "</dd></div>" : "") +
-      (p.banos ? "<div><dt>" + icono("bano") + "Baños</dt><dd>" + String(p.banos).replace(".", ",") + "</dd></div>" : "") +
-      '<div class="ancho"><dt>' + icono("mapa") + "Zona</dt><dd>" + esc(zona) + (dest ? ", " + esc(dest.nombre) : "") + "</dd></div>" +
+      "<div><dt>" + emoji("🏡") + "Tipo</dt><dd>" + esc(nombreTipo(p.tipo)) + "</dd></div>" +
+      (p.capacidad ? "<div><dt>" + emoji("👥") + "Personas</dt><dd>" + p.capacidad + "</dd></div>" : "") +
+      (p.habitaciones ? "<div><dt>" + emoji("🛏️") + "Habitaciones</dt><dd>" + p.habitaciones + "</dd></div>" : "") +
+      (p.banos ? "<div><dt>" + emoji("🚿") + "Baños</dt><dd>" + String(p.banos).replace(".", ",") + "</dd></div>" : "") +
+      '<div class="ancho"><dt>' + emoji("📍") + "Zona</dt><dd>" + esc(zona) + (dest ? ", " + esc(dest.nombre) : "") + "</dd></div>" +
       (cat.nombre ? '<div class="ancho dato-cat"><dt>Categoría</dt><dd><span class="sello-cat">' + esc(cat.nombre) + "</span></dd>" + (cat.descripcion ? "<p>" + esc(cat.descripcion) + "</p>" : "") + "</div>" : "") +
       "</dl>";
 
     /* Reserva: solo las plataformas con enlace, y siempre WhatsApp */
     var plats = PLATAFORMAS.filter(function (x) { return p.enlaces[x[0]]; });
-    var reserva = '<aside class="reserva" aria-label="Reservar">' + "<h2>Reservar</h2>" +
+    var reserva = '<aside class="reserva" aria-label="Reservar">' + "<h2>" + emoji("📅") + "Reservar</h2>" + tarifa() +
       (plats.length ? "<p>Reserve en la plataforma que prefiera:</p><div class=\"plataformas\">" + plats.map(function (x) {
         return '<a class="plat plat-' + x[0] + '" href="' + esc(p.enlaces[x[0]]) + '" target="_blank" rel="noopener">Reservar en ' + x[1] + "<small>Abre " + x[1] + "</small></a>";
       }).join("") + '</div><p class="reserva-o">o directo con nosotros</p>' : "<p>Escríbanos con sus fechas y le confirmamos la disponibilidad.</p>") +
-      botonWa("Reservar por WhatsApp", mensaje, "boton-wa") +
+      botonWa("Consultar disponibilidad", mensaje, "boton-reserva") +
       (p.ubicacion_maps ? '<a class="boton boton-claro" href="' + esc(p.ubicacion_maps) + '" target="_blank" rel="noopener">' + icono("mapa") + "<span>Ver en Google Maps</span></a>" : "") +
       "</aside>";
 
     /* Videos (hasta 5): no se descargan hasta que le dan play */
-    var videos = p.videos.length ? '<section class="ficha-bloque"><h2>Videos</h2><div class="videos">' + p.videos.map(function (v, k) {
+    var videos = p.videos.length ? '<section class="ficha-bloque"><h2>' + emoji("🎬") + 'Videos</h2><div class="videos">' + p.videos.map(function (v, k) {
       var portada = v.portada ? '<img src="' + esc(rutaVideo(v.portada)) + '" alt="" loading="lazy" decoding="async" width="640" height="360">' : "";
       return '<div class="video"><button type="button" class="video-play" data-video="' + esc(rutaVideo(v.archivo)) + '" data-portada="' + esc(v.portada ? rutaVideo(v.portada) : "") + '" aria-label="Reproducir video ' + (k + 1) + '">' + portada + "<i>" + icono("play") + "</i></button></div>";
     }).join("") + "</div></section>" : "";
 
-    var incluye = p.incluye.length ? '<section class="ficha-bloque"><h2>Qué incluye</h2><ul class="lista-check incluye">' +
-      p.incluye.map(function (x) { return "<li>" + icono("check") + esc(x) + "</li>"; }).join("") + "</ul></section>" : "";
+    var incluye = p.incluye.length ? '<section class="ficha-bloque"><h2>' + emoji("✅") + "Qué incluye</h2>" + listaEmoji(p.incluye, "incluye") + "</section>" : "";
     var nota = p.nota ? '<p class="nota-ficha">' + icono("info") + "<span>" + esc(p.nota) + "</span></p>" : "";
     var desc = p.descripcion || p.resumen;
-    var texto = desc ? '<section class="ficha-bloque ficha-texto"><h2>La propiedad</h2>' + String(desc).split(/\n+/).map(function (x) { return "<p>" + esc(x) + "</p>"; }).join("") + "</section>" : "";
+    var texto = desc ? '<section class="ficha-bloque ficha-texto"><h2>' + emoji("🏡") + "La propiedad</h2>" + String(desc).split(/\n+/).map(function (x) { return "<p>" + esc(x) + "</p>"; }).join("") + "</section>" : "";
 
     /* Otras en la misma zona (o en el mismo país) */
-    var otras = d.propiedades.filter(function (x) { return x.id !== p.id && x.zona === p.zona; }).sort(destacadasPrimero), tituloOtras = "Otras propiedades en " + zona, filtro = "zona=" + encodeURIComponent(p.zona);
-    if (!otras.length) { otras = d.propiedades.filter(function (x) { return x.id !== p.id && x.destino === p.destino; }).sort(destacadasPrimero); tituloOtras = "Otras propiedades en " + (dest ? dest.nombre : "este destino"); filtro = "ambito=" + encodeURIComponent(p.ambito); }
-    var bloqueOtras = otras.length ? '<section class="seccion oscuro"><div class="contenedor"><div class="titulo-fila"><h2>' + esc(tituloOtras) + '</h2><a class="enlace" href="hospedajes.html?' + filtro + '">Ver todas' + icono("flecha") + "</a></div>" +
+    var otras = d.propiedades.filter(function (x) { return x.id !== p.id && x.zona === p.zona; }).sort(destacadasPrimero), tituloOtras = "Otras en " + zona, filtro = "zona=" + encodeURIComponent(p.zona);
+    if (!otras.length) { otras = d.propiedades.filter(function (x) { return x.id !== p.id && x.destino === p.destino; }).sort(destacadasPrimero); tituloOtras = "Otras en " + (dest ? dest.nombre : "este destino"); filtro = "ambito=" + encodeURIComponent(p.ambito); }
+    var bloqueOtras = otras.length ? '<section class="seccion oscuro"><div class="contenedor"><div class="titulo-fila"><h2>' + emoji("🏡") + esc(tituloOtras) + '</h2><a class="enlace" href="hospedajes.html?' + filtro + '">Ver todas' + icono("flecha") + "</a></div>" +
       '<div class="rejilla-tarjetas deslizable">' + otras.slice(0, 3).map(function (x) { return tarjeta(d, x); }).join("") + "</div></div></section>" : "";
 
     caja.innerHTML = '<div class="contenedor ficha-cabeza"><nav class="migas" aria-label="Ruta"><a href="hospedajes.html">Hospedajes</a><span aria-hidden="true">/</span>' +
@@ -1137,7 +1181,7 @@
         lineas.push((f.en_mensaje || f.etiqueta || f.id) + ": " + x);
       });
       enviar.href = waUrl(lineas.join("\n"));
-      avisoV.textContent = "Listo: le abrimos WhatsApp con su pedido. Si no se abrió, toque de nuevo el botón.";
+      avisoV.textContent = "Listo: le abrimos WhatsApp. Si no abrió, toque de nuevo.";
       avisoV.className = "hv-aviso hv-listo";
     });
     return { abrir: abrir };
@@ -1188,7 +1232,7 @@
 
   /* Portada: el sol se hunde y las tres olas se separan al bajar (paralaje leve) */
   safe(function () {
-    var port = $("[data-atardecer]"); if (!port || quieto) return;
+    var port = $("[data-atardecer]"); if (!port || quieto || !pc.matches) return;  /* en el teléfono, quietos: así nunca se cruzan con los botones */
     var capas = $$("[data-vel]", port), pend = false;
     function pintar() {
       pend = false;
@@ -1265,7 +1309,7 @@
     $$("main section.seccion, main .zona-catalogo, main .cierre, .pie").forEach(function (b) {
       if ($(":scope > .ola-banda.arriba", b)) return;
       var p = anterior(b); if (!p || p.offsetHeight < 40 || $(":scope > .ola-banda.abajo", p)) return;
-      var c = fondo(p); if (c === fondo(b)) return;
+      var c = fondo(p); if (c === fondo(b) && getComputedStyle(b).backgroundImage === "none") return;
       var t = $("template[data-ola-plantilla]"); if (!t) return;
       var o = t.content.firstElementChild.cloneNode(true);
       $("[data-ola-fondo]", o).style.fill = c;
@@ -1339,12 +1383,60 @@
     }).catch(function () { /* sin GSAP: las tarjetas igual se apilan con CSS */ });
   }
 
+  /* Yates y lanchas: una tarjeta por embarcación (fotos y videos en el mismo carrusel), sin precio */
+  function tarjetaBarco(b) {
+    var slides = b.fotos.map(function (r, k) { return img(r, b.carpeta, b.alts[k] || "", "(min-width:900px) 30vw, 88vw", 600); })
+      .concat(b.videos.map(function (v) {
+        return '<video class="t-video" muted loop playsinline preload="none" aria-label="Video a bordo de la ' + esc(b.nombre) + '" data-src="' + esc(b.carpeta + v.archivo) + '"' +
+          (v.portada ? ' poster="' + esc(b.carpeta + v.portada) + '"' : "") + "></video>";
+      }));
+    var n = slides.length;
+    var puntos = n > 1 ? '<span class="t-puntos" aria-hidden="true">' + slides.map(function (_, k) { return "<i" + (k ? "" : ' class="on"') + "></i>"; }).join("") + "</span>" +
+      '<button type="button" class="t-flecha t-ant" data-t-mover="-1" aria-label="Foto anterior">' + icono("izq") + "</button>" +
+      '<button type="button" class="t-flecha t-sig" data-t-mover="1" aria-label="Foto siguiente">' + icono("der") + "</button>" : "";
+    var datos = [];
+    if (b.capacidad) datos.push(dato("👥", String(b.capacidad), plural(+b.capacidad || b.capacidad, "persona", "personas")));
+    if (b.zona) datos.push(dato("📍", b.zona.charAt(0).toUpperCase() + b.zona.slice(1), b.zona));
+    return '<article class="tarjeta tarjeta-barco" id="' + esc(b.id) + '">' +
+      '<div class="tarjeta-foto"><span class="t-enlace">' + (n ? '<span class="t-pista" data-t-pista>' + slides.join("") + "</span>" : '<span class="sin-foto">' + icono("camara") + "</span>") + "</span>" + puntos +
+      (b.tipo ? '<span class="tarjeta-cat">' + esc(b.tipo.charAt(0).toUpperCase() + b.tipo.slice(1)) + "</span>" : "") + "</div>" +
+      '<div class="tarjeta-texto"><h3>' + emoji("⛵") + esc(b.nombre) + "</h3>" + (b.descripcion ? '<p class="tarjeta-resumen">' + esc(b.descripcion) + "</p>" : "") +
+      (datos.length ? '<p class="tarjeta-datos">' + datos.join("") + "</p>" : "") + (b.incluye.length ? listaEmoji(b.incluye) : "") + tarifa() +
+      '<div class="tarjeta-acciones">' + botonWa("Consultar disponibilidad", msg("embarcacion", { nombre: b.nombre, zona: b.zona || "Morrocoy" }), "boton-reserva") + "</div>" +
+      "</div></article>";
+  }
+  function pintarBarcos(d) {
+    $$("[data-embarcaciones]").forEach(function (caja) {
+      caja.classList.remove("cargando");
+      caja.innerHTML = d.embarcaciones.length ? d.embarcaciones.map(tarjetaBarco).join("") :
+        muyPronto("Muy pronto, yates y lanchas", "Escríbanos y le contamos qué embarcaciones tenemos.", msg("general"));
+    });
+    videosDiferidos();
+  }
+  /* Videos que cargan solo al acercarse a la pantalla. Con ahorro de datos (o movimiento reducido) queda solo la portada */
+  function videosDiferidos() {
+    var red = navigator.connection, ahorro = red && red.saveData;
+    var vids = $$("video[data-src]");
+    if (!vids.length || ahorro || quieto || !("IntersectionObserver" in window)) return;
+    var io = new IntersectionObserver(function (ents) {
+      ents.forEach(function (en) {
+        var v = en.target;
+        if (en.isIntersecting) {
+          if (!v.src) { v.src = v.dataset.src; v.load(); }
+          var pr = v.play(); if (pr && pr.catch) pr.catch(function () {});
+        } else if (v.src) v.pause();
+      });
+    }, { rootMargin: "300px 0px" });
+    vids.forEach(function (v) { io.observe(v); });
+  }
+
   if (!window.fetch || !window.Promise) return;
   cargar().then(function (d) {
     safe(viajesInicio);
     safe(function () { comun(d); });
     if (PAGINAS[PAGINA]) safe(function () { PAGINAS[PAGINA](d); });
     safe(function () { pintarMapa(d); });
+    safe(function () { pintarBarcos(d); });
     safe(flechasGaleria);
     safe(olas);
   });
