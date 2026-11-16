@@ -1,0 +1,10 @@
+[
+  {"icono": "silla", "nombre": "Mobiliario", "texto": "Mesas, sillas y mantelería"},
+  {"icono": "sonido", "nombre": "Sonido", "texto": "Música para la pista"},
+  {"icono": "globo", "nombre": "Decoración", "texto": "A su temática y colores"},
+  {"icono": "bandeja", "nombre": "Mesonero", "texto": "Atención a sus invitados"},
+  {"icono": "parrilla", "nombre": "Parrillera", "texto": "Para la carne del compartir"},
+  {"icono": "agua", "nombre": "Piscina", "texto": "Para los que se animan"},
+  {"icono": "luz", "nombre": "Iluminación", "texto": "Luces para la noche"},
+  {"icono": "estrella", "nombre": "Animación infantil", "texto": "Juegos para los niños"}
+]

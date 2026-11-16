@@ -1,0 +1,17 @@
+{
+  "nombre_logo": "Quinta Miami",
+  "lema": "Espacios para Eventos",
+  "nombre_negocio": "Centro Quinta Miami",
+  "whatsapp": "584124363162",
+  "whatsapp_visible": "+58 412 4363162",
+  "mensaje_general": "Hola Centro Quinta Miami, quiero información",
+  "mensaje_llegar": "Hola Centro Quinta Miami, ¿me indican cómo llegar?",
+  "dominio": "centroquintamiami.com",
+  "titulo_portada": "Su evento, en un espacio para recordar",
+  "ubicacion": "Ubicación por confirmar",
+  "instagram": "",
+  "logo": "assets/img/logo.webp",
+  "fachada": "assets/img/fachada.webp",
+  "video_portada": "",
+  "_ayuda": "logo y fachada: rutas dentro de la carpeta (assets/img/...); vacíos = logo provisional y marcador. El generador las llena solo si encuentra los archivos en Descargas. video_portada: ruta a un .mp4 liviano; vacío = escena de neón."
+}

@@ -1,0 +1,14 @@
+{
+  "_ayuda": "Cada bloque de campos es una pregunta del cotizador. Tipos: paquete, fecha, hora, numero, casillas, texto. Para agregar un servicio, agregue su nombre a servicios. Luego corra el generador.",
+  "saludo": "Hola Centro Quinta Miami, quiero cotizar un evento 🎉",
+  "campos": [
+    {"id": "paquete", "tipo": "paquete", "etiqueta": "Tipo de evento", "en_mensaje": "Paquete", "emoji": "🎉", "obligatorio": true},
+    {"id": "fecha", "tipo": "fecha", "etiqueta": "Fecha del evento", "en_mensaje": "Fecha", "emoji": "📅", "obligatorio": true},
+    {"id": "inicio", "tipo": "hora", "etiqueta": "Hora de inicio", "en_mensaje": "Empieza", "emoji": "🕓", "obligatorio": true, "desde": "08:00", "hasta": "22:00", "cada_minutos": 30},
+    {"id": "fin", "tipo": "hora", "etiqueta": "Hora de fin", "en_mensaje": "Termina", "emoji": "🌙", "obligatorio": false, "desde": "10:00", "hasta": "02:00", "cada_minutos": 30},
+    {"id": "invitados", "tipo": "numero", "etiqueta": "Cantidad de invitados", "en_mensaje": "Invitados", "emoji": "👥", "obligatorio": true, "minimo": 0, "maximo": 600, "paso": 5, "unidad": ["invitado", "invitados"]},
+    {"id": "servicios", "tipo": "casillas", "etiqueta": "Servicios que le interesan", "en_mensaje": "Me interesa", "emoji": "✨", "obligatorio": false},
+    {"id": "nota", "tipo": "texto", "etiqueta": "¿Algo más que debamos saber?", "en_mensaje": "Detalles", "emoji": "📝", "obligatorio": false, "ayuda": "Temática, edades de los niños, alguna idea..."}
+  ],
+  "servicios": ["Mobiliario", "Sonido", "Decoración", "Mesonero", "Parrillera", "Uso de la piscina", "Iluminación", "Animación infantil"]
+}
