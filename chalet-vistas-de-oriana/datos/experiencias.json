@@ -1,0 +1,74 @@
+{
+  "_ayuda": "Experiencias de referencia, según disponibilidad. momento: manana, tarde o noche.",
+  "momentos": {
+    "manana": "Mañana",
+    "tarde": "Tarde",
+    "noche": "Noche"
+  },
+  "lista": [
+    {
+      "id": "amanecer",
+      "nombre": "Amanecer en la terraza",
+      "momento": "manana",
+      "texto": "Café en mano mientras la neblina se levanta.",
+      "foto": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05",
+      "alt": "Montañas verdes con neblina al amanecer"
+    },
+    {
+      "id": "desayuno",
+      "nombre": "Desayuno sin apuro",
+      "momento": "manana",
+      "texto": "La mesa servida frente al verde, según disponibilidad.",
+      "foto": "https://images.unsplash.com/photo-1771217022632-4de64c7af397",
+      "alt": "Desayuno en una terraza frente al bosque"
+    },
+    {
+      "id": "jardin",
+      "nombre": "Paseo por el jardín",
+      "momento": "manana",
+      "texto": "Un recorrido corto entre flores para empezar el día.",
+      "foto": "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae",
+      "alt": "Camino entre flores en el jardín"
+    },
+    {
+      "id": "lectura",
+      "nombre": "Tarde de lectura",
+      "momento": "tarde",
+      "texto": "Un libro, una manta y la vista de fondo.",
+      "foto": "https://images.unsplash.com/photo-1519710164239-da123dc03ef4",
+      "alt": "Rincón claro con mesa redonda y plantas"
+    },
+    {
+      "id": "atardecer",
+      "nombre": "Atardecer al aire libre",
+      "momento": "tarde",
+      "texto": "Sillas afuera para ver cómo cambia el cielo.",
+      "foto": "https://images.unsplash.com/photo-1694946698394-612cb992734b",
+      "alt": "Sillas alrededor de una fogata al atardecer"
+    },
+    {
+      "id": "celebrar",
+      "nombre": "Celebrar algo especial",
+      "momento": "noche",
+      "texto": "Cuéntenos si viene a celebrar y vemos cómo acompañarlo.",
+      "foto": "https://images.unsplash.com/photo-1758659461883-88c29af4f78c",
+      "alt": "Mesa y sillas afuera bajo un cielo estrellado"
+    },
+    {
+      "id": "estrellas",
+      "nombre": "Noche de estrellas",
+      "momento": "noche",
+      "texto": "Cielo despejado y silencio para mirar hacia arriba.",
+      "foto": "https://images.unsplash.com/photo-1519681393784-d120267933ba",
+      "alt": "Cielo estrellado sobre la montaña"
+    },
+    {
+      "id": "dormir",
+      "nombre": "Dormir sin reloj",
+      "momento": "noche",
+      "texto": "Sin alarmas ni apuro: la habitación lista para descansar.",
+      "foto": "https://images.unsplash.com/photo-1618773928121-c32242e63f39",
+      "alt": "Cama blanca con lámparas cálidas"
+    }
+  ]
+}
