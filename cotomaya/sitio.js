@@ -1379,12 +1379,50 @@
     var estado = { s: 1, tx: 0, ty: 0, grupo: null, zona: null };
     var fichaInicial = ficha ? ficha.innerHTML : "";
     function f() { return marco.clientWidth / W; }
+    /* Lo que se ve: el mapa se redibuja como vector (viewBox) en cada cuadro, así nunca se pixela */
+    var vista = { s: 1, tx: 0, ty: 0 }, anim = 0;
+    var gruesos = $$(".pais", lienzo), finos = $$(".pais-detalle", lienzo);
+    function posiciones(v) {
+      var e = f(), k = e * v.s;
+      marco.classList.toggle("detalle", v.s > 6);
+      /* Del mapa general a la costa detallada, pegado a la distancia: entre 3x y 9x se funden, así nunca queda vacío */
+      var t = Math.max(0, Math.min(1, (Math.log(v.s) - Math.log(3)) / (Math.log(9) - Math.log(3))));
+      gruesos.forEach(function (x) { x.style.opacity = (1 - t).toFixed(3); });
+      finos.forEach(function (x) { x.style.opacity = t.toFixed(3); });
+      lienzo.setAttribute("viewBox", (-v.tx / k).toFixed(4) + " " + (-v.ty / k).toFixed(4) + " " + (W / v.s).toFixed(4) + " " + (H / v.s).toFixed(4));
+      grupos.forEach(function (g) {
+        var cx = g.x * k + v.tx, cy = g.y * k + v.ty, abierto = estado.grupo === g;
+        var gp = $('[data-grupo="' + g.i + '"]', caja);
+        if (gp) gp.style.transform = "translate(" + cx.toFixed(1) + "px," + cy.toFixed(1) + "px)";
+        g.l.forEach(function (p) {
+          var b = $('[data-z="' + p.z.id + '"]', caja); if (!b) return;
+          var x = g.l.length > 1 && !abierto ? cx : p.x * k + v.tx, y = g.l.length > 1 && !abierto ? cy : p.y * k + v.ty;
+          b.style.transform = "translate(" + x.toFixed(1) + "px," + y.toFixed(1) + "px)";
+        });
+      });
+    }
+    /* Viaje suave de la vista actual a la nueva: el acercamiento va en escala logarítmica, como volar sobre el mapa */
+    function ir() {
+      var desde = { s: vista.s, tx: vista.tx, ty: vista.ty }, hasta = { s: estado.s, tx: estado.tx, ty: estado.ty };
+      colocar();
+      cancelAnimationFrame(anim);
+      if (quieto) { vista = hasta; posiciones(vista); return; }
+      var e = f(), cw = marco.clientWidth, ch = marco.clientHeight;
+      function centro(v) { return { x: (cw / 2 - v.tx) / (e * v.s), y: (ch / 2 - v.ty) / (e * v.s) }; }
+      var c0 = centro(desde), c1 = centro(hasta), l0 = Math.log(desde.s), l1 = Math.log(hasta.s), t0 = performance.now(), D = 950;
+      posiciones(desde);
+      function paso(ahora) {
+        var k = Math.min(1, (ahora - t0) / D), q = k < .5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2;
+        var s = Math.exp(l0 + (l1 - l0) * q), cx = c0.x + (c1.x - c0.x) * q, cy = c0.y + (c1.y - c0.y) * q;
+        vista = k >= 1 ? hasta : { s: s, tx: cw / 2 - cx * e * s, ty: ch / 2 - cy * e * s };
+        posiciones(vista);
+        if (k < 1) anim = requestAnimationFrame(paso);
+      }
+      anim = requestAnimationFrame(paso);
+    }
     function colocar() {
       var e = f(), cw = marco.clientWidth, ch = marco.clientHeight;
-      lienzo.style.transform = "translate(" + estado.tx.toFixed(1) + "px," + estado.ty.toFixed(1) + "px) scale(" + estado.s.toFixed(3) + ")";
-      lienzo.style.setProperty("--trazo", (1.3 / estado.s).toFixed(4));  /* la costa siempre de ~1 px, aunque el mapa se agrande */
       marco.classList.toggle("cerca", estado.s > 1);
-      marco.classList.toggle("detalle", estado.s > 6);
       grupos.forEach(function (g) {
         var cx = g.x * e * estado.s + estado.tx, cy = g.y * e * estado.s + estado.ty, abierto = estado.grupo === g;
         var gp = $('[data-grupo="' + g.i + '"]', caja);
@@ -1471,15 +1509,15 @@
       if (p.g.l.length > 1) { estado.grupo = p.g; acercar(p.g, zoomGrupo(p.g)); }
       else { estado.grupo = null; acercar(p.g, 1.9); }
       estado.zona = id;
-      colocar(); pintarFicha(p.z);
+      ir(); pintarFicha(p.z);
       $$("[data-mapa-zona]").forEach(function (a) { a.classList.toggle("activo", a.getAttribute("data-mapa-zona") === id); });
     }
     function abrirGrupo(g) {
-      estado.grupo = g; estado.zona = null; acercar(g, zoomGrupo(g)); colocar(); pintarFicha(null);
+      estado.grupo = g; estado.zona = null; acercar(g, zoomGrupo(g)); ir(); pintarFicha(null);
       $$("[data-mapa-zona]").forEach(function (a) { a.classList.remove("activo"); });
     }
     function todo() {
-      estado.grupo = null; estado.zona = null; acercar(null); colocar(); pintarFicha(null);
+      estado.grupo = null; estado.zona = null; acercar(null); ir(); pintarFicha(null);
       $$("[data-mapa-zona]").forEach(function (a) { a.classList.remove("activo"); });
     }
     caja.addEventListener("click", function (ev) {
@@ -1502,11 +1540,12 @@
       requestAnimationFrame(function () {
         pend = false; marco.classList.add("sin-transicion");
         var g = estado.grupo || (estado.zona && pts.filter(function (x) { return x.z.id === estado.zona; })[0].g);
-        if (g) acercar(g, g.l.length > 1 ? zoomGrupo(g) : estado.s); colocar();
+        if (g) acercar(g, g.l.length > 1 ? zoomGrupo(g) : estado.s); else acercar(null);
+        cancelAnimationFrame(anim); colocar(); vista = { s: estado.s, tx: estado.tx, ty: estado.ty }; posiciones(vista);
         requestAnimationFrame(function () { marco.classList.remove("sin-transicion"); });
       });
     });
-    marco.classList.add("sin-transicion"); colocar();
+    marco.classList.add("sin-transicion"); colocar(); posiciones(vista);
     requestAnimationFrame(function () { marco.classList.remove("sin-transicion"); marco.classList.add("listo"); });
   }
 

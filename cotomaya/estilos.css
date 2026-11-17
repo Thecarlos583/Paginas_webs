@@ -1447,3 +1447,10 @@ h1 .emoji, h2 .emoji, h3 .emoji, .tres-pasos .emoji, summary .emoji { font-size:
 .mapa-svg .pais-detalle { fill: #2E5794; }
 
 .mapa-puntos .mapa-grupo-punto.abierto { opacity: 0; pointer-events: none; }
+
+/* El mapa ya no se estira como imagen: se redibuja como vector (viewBox) y los puntos se mueven con JS, sin transiciones CSS de transform */
+.mapa-svg { transform: none !important; transition: none !important; will-change: auto; }
+.mapa-svg .pais, .mapa-svg .pais-detalle { vector-effect: non-scaling-stroke; stroke-width: 1.3; transition: opacity .45s ease; }
+.mapa-puntos .mapa-punto { transition: opacity .35s ease !important; will-change: transform; }
+.mapa-marco.detalle .pais-detalle, .mapa-marco.detalle .mapa-svg .pais { transition-delay: 0s; }
+.mapa-svg .pais, .mapa-svg .pais-detalle { transition: none !important; }
