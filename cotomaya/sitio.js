@@ -225,7 +225,7 @@
   /* ------------------------------------------------------------ piezas que se repiten */
   function etiquetaEjemplo(x) { return x.ejemplo === true ? '<span class="ejemplo">Ejemplo</span>' : ""; }
   function botonWa(texto, mensaje, clase) {
-    return '<a class="boton ' + (clase || "") + '" href="' + esc(waUrl(mensaje)) + '" target="_blank" rel="noopener">' + icono("wa") + "<span>" + esc(texto) + "</span></a>";
+    return '<a class="boton ' + (clase || "") + '" href="' + esc(waUrl(mensaje)) + '" target="_blank" rel="noopener noreferrer">' + icono("wa") + "<span>" + esc(texto) + "</span></a>";
   }
 
   /* Tarjeta de propiedad: hasta 5 fotos que se deslizan con el dedo (o con flechas en la computadora) */
@@ -308,7 +308,7 @@
       Object.keys(redes).forEach(function (k) {
         if (!redes[k]) return;
         var a = document.createElement("a");
-        a.href = redes[k]; a.target = "_blank"; a.rel = "noopener";
+        a.href = redes[k]; a.target = "_blank"; a.rel = "noopener noreferrer";
         a.innerHTML = icono(k === "instagram" ? "instagram" : "globo") + "<span>" + esc(nombres[k] || k) + "</span>";
         caja.appendChild(a);
       });
@@ -721,10 +721,10 @@
     var plats = PLATAFORMAS.filter(function (x) { return p.enlaces[x[0]]; });
     var reserva = '<aside class="reserva" aria-label="Reservar">' + "<h2>Reservar</h2>" + tarifa() +
       (plats.length ? "<p>Reserve en la plataforma que prefiera:</p><div class=\"plataformas\">" + plats.map(function (x) {
-        return '<a class="plat plat-' + x[0] + '" href="' + esc(p.enlaces[x[0]]) + '" target="_blank" rel="noopener">Reservar en ' + x[1] + "<small>Abre " + x[1] + "</small></a>";
+        return '<a class="plat plat-' + x[0] + '" href="' + esc(p.enlaces[x[0]]) + '" target="_blank" rel="noopener noreferrer">Reservar en ' + x[1] + "<small>Abre " + x[1] + "</small></a>";
       }).join("") + '</div><p class="reserva-o">o directo con nosotros</p>' : "<p>Escríbanos con sus fechas y le confirmamos la disponibilidad.</p>") +
       botonWa("Consultar disponibilidad", mensaje, "boton-reserva") +
-      (p.ubicacion_maps ? '<a class="boton boton-claro" href="' + esc(p.ubicacion_maps) + '" target="_blank" rel="noopener">' + icono("mapa") + "<span>Ver en Google Maps</span></a>" : "") +
+      (p.ubicacion_maps ? '<a class="boton boton-claro" href="' + esc(p.ubicacion_maps) + '" target="_blank" rel="noopener noreferrer">' + icono("mapa") + "<span>Ver en Google Maps</span></a>" : "") +
       "</aside>";
 
     /* Videos (hasta 5): no se descargan hasta que le dan play */
@@ -896,19 +896,15 @@
     elegir(cayos[0].id);
   });
 
-  /* Mapa real: carga al acercarse */
+  /* Mapa real: solo carga cuando el visitante lo pide (Google no ve nada antes) */
   safe(function () {
-    var m = $("[data-mapa]"); if (!m) return;
-    function poner() {
+    var m = $("[data-mapa]"), b = $("[data-cargar-mapa]"); if (!m || !b) return;
+    b.addEventListener("click", function () {
       if (m.classList.contains("cargado")) return;
       var f = document.createElement("iframe");
-      f.src = m.dataset.mapa; f.title = "Mapa de Tucacas, Falcón"; f.loading = "lazy"; f.referrerPolicy = "no-referrer-when-downgrade";
+      f.src = m.dataset.mapa; f.title = "Mapa de Tucacas, Falcón"; f.referrerPolicy = "strict-origin-when-cross-origin";
       m.textContent = ""; m.appendChild(f); m.classList.add("cargado");
-    }
-    if ("IntersectionObserver" in window) {
-      var o = new IntersectionObserver(function (en) { if (en[0].isIntersecting) { o.disconnect(); poner(); } }, { rootMargin: "400px" });
-      o.observe(m);
-    } else poner();
+    });
   });
 
 
@@ -1013,7 +1009,7 @@
     return true;
   }
   function tarjetaServicio(s) {
-    return '<a class="servicio" href="' + esc(waUrl(msgViaje(s))) + '" target="_blank" rel="noopener" data-servicio="' + esc(s.id) + '" id="s-' + esc(s.id) + '">' +
+    return '<a class="servicio" href="' + esc(waUrl(msgViaje(s))) + '" target="_blank" rel="noopener noreferrer" data-servicio="' + esc(s.id) + '" id="s-' + esc(s.id) + '">' +
       '<span class="servicio-ic">' + svgViaje(s, 26) + '</span><span class="servicio-texto"><strong>' + esc(s.nombre) + "</strong><small>" + esc(s.descripcion || "") + "</small></span>" +
       '<span class="servicio-ir">Cotizar' + icono("flecha") + "</span></a>";
   }

@@ -1,0 +1,20 @@
+{
+  "_nota": "Datos legales de Cotomaya. Lo que diga [POR LLENAR] impide publicar la página que lo usa. hecho_por vacío = sin línea de la agencia.",
+  "actualizado": "17 de noviembre de 2026",
+  "titular": "[POR LLENAR]",
+  "rif": "[POR LLENAR]",
+  "direccion": "[POR LLENAR]",
+  "correo": "[POR LLENAR]",
+  "horario_atencion": "[POR LLENAR]",
+  "hecho_por": "",
+  "hecho_por_url": "",
+  "reservas": {
+    "anticipo": "[POR LLENAR]",
+    "como_se_confirma": "[POR LLENAR]",
+    "cancelacion": "[POR LLENAR]",
+    "entrada": "[POR LLENAR]",
+    "salida": "[POR LLENAR]",
+    "normas": "[POR LLENAR]",
+    "formas_de_pago": "[POR LLENAR]"
+  }
+}

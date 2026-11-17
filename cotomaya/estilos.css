@@ -1460,3 +1460,36 @@ h1 .emoji, h2 .emoji, h3 .emoji, .tres-pasos .emoji, summary .emoji { font-size:
 .mapa-puntos .mapa-punto { transition: opacity .35s ease !important; will-change: transform; }
 .mapa-marco.detalle .pais-detalle, .mapa-marco.detalle .mapa-svg .pais { transition-delay: 0s; }
 .mapa-svg .pais, .mapa-svg .pais-detalle { transition: none !important; }
+
+/* ================================================================
+   Base legal (17/11/2026): páginas legales y mapa que carga al tocar.
+   Misma paleta turquesa de la clienta; nada nuevo en el diseño.
+   ================================================================ */
+.mapa-aviso { display: grid; justify-items: center; gap: 8px; padding: 22px; text-align: center; }
+.mapa-aviso .ic { color: var(--coral); }
+.mapa-aviso strong { font-family: var(--titulo); font-size: 1.6rem; line-height: 1.1; }
+.mapa-aviso p { color: var(--azul-medio); font-size: .95rem; max-width: 22em; }
+.mapa-aviso .boton { margin-top: 8px; }
+.cabeza-legal { min-height: 0; }
+.cabeza-legal .cabeza-texto { padding-top: 110px; padding-bottom: 56px; }
+.cabeza-legal h1 { font-size: clamp(2.4rem, 10vw, 4.4rem); }
+.legal { max-width: 760px; }
+.legal h2 { font-size: clamp(1.7rem, 6.4vw, 2.4rem); margin: 36px 0 12px; }
+.legal h2:first-child { margin-top: 0; }
+.legal p, .legal li { line-height: 1.6; }
+.legal ul { margin: 0; padding-left: 1.2em; display: grid; gap: 8px; }
+.legal li::marker { color: var(--coral); }
+.legal a { color: var(--dorado-oscuro); text-underline-offset: 3px; }
+.legal-intro { font-size: 1.12rem; padding: 14px 18px; border-left: 2px solid var(--dorado); background: var(--tarjeta); border-radius: 0 16px 16px 0; }
+.legal-datos { display: grid; gap: 8px; margin: 0; }
+.legal-datos > div { display: grid; gap: 2px; padding: 12px 16px; border-radius: 16px; background: var(--tarjeta); }
+.legal-datos dt { font-size: .86rem; font-weight: 600; color: var(--azul-medio); }
+.legal-datos dd { margin: 0; }
+.legal-lista-fotos { margin-top: 10px !important; font-size: .95rem; }
+.legal-fecha { margin-top: 36px; font-size: .9rem; color: var(--azul-medio); }
+.legal mark { background: var(--coral); color: var(--tinta); padding: 0 6px; border-radius: 6px; }
+.pie-aviso a { text-underline-offset: 3px; }
+@media (min-width: 900px) {
+  .cabeza-legal .cabeza-texto { padding-top: 150px; padding-bottom: 80px; }
+  .legal-datos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
