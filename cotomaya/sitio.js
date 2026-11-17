@@ -970,7 +970,6 @@
     $$("[data-tours-ambito]").forEach(function (caja) {
       var a = caja.getAttribute("data-tours-ambito");
       pintarTours(caja, d.tours.filter(function (t) { return t.ambito === a; }), a);
-      if (caja.classList.contains("pila-tours")) pilaTours(caja);
     });
   };
 
@@ -1545,26 +1544,6 @@
     requestAnimationFrame(function () { marco.classList.remove("sin-transicion"); marco.classList.add("listo"); });
   }
 
-  /* Tours y yates: en la computadora las tarjetas se apilan al bajar (GSAP + ScrollTrigger, solo ahí) */
-  function cargarScript(src) {
-    return new Promise(function (ok, mal) { var s = document.createElement("script"); s.src = src; s.onload = ok; s.onerror = mal; document.head.appendChild(s); });
-  }
-  function pilaTours(caja) {
-    var tours = $$(".tour", caja);
-    tours.forEach(function (t, i) { t.style.setProperty("--i", i); });
-    if (quieto || tours.length < 2 || !pc.matches) return;
-    var gs = window.gsap ? Promise.resolve() : cargarScript("assets/js/gsap.min.js").then(function () { return cargarScript("assets/js/ScrollTrigger.min.js"); });
-    gs.then(function () {
-      var gsap = window.gsap; if (!gsap || !window.ScrollTrigger) return;
-      gsap.registerPlugin(window.ScrollTrigger);
-      tours.forEach(function (t, i) {
-        var sig = tours[i + 1]; if (!sig) return;
-        var st = { trigger: sig, start: "top bottom", end: "top " + (100 + (i + 1) * 22) + "px", scrub: .5 };
-        gsap.to(t, { scale: .92, ease: "none", scrollTrigger: st });
-        gsap.to($(".tour-velo", t), { opacity: .4, ease: "none", scrollTrigger: { trigger: sig, start: st.start, end: st.end, scrub: .5 } });
-      });
-    }).catch(function () { /* sin GSAP: las tarjetas igual se apilan con CSS */ });
-  }
 
   /* Yates y lanchas: una tarjeta por embarcación (fotos y videos en el mismo carrusel), sin precio */
   function tarjetaBarco(b) {

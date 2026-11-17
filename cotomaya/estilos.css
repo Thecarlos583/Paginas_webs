@@ -1106,23 +1106,9 @@ h3 { font-size: 1.65rem; }
   .oscuro .grupo-f select { border-color: transparent; }
 }
 
-/* ---------- Tours y yates: se apilan al bajar en la computadora ---------- */
+/* ---------- Tours y yates: tarjetas normales (el apilado se quitó el 17-11 porque trababa la página) ---------- */
 .tour { position: relative; }
-.tour-velo { position: absolute; inset: 0; z-index: 4; background: var(--hondo); opacity: 0; pointer-events: none; }
-@media (min-width: 900px) {
-  .pila-tours { display: block; }
-  .pila-tours .tour { position: sticky; top: calc(100px + var(--i, 0) * 22px); display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); min-height: 400px; margin-bottom: 40px; transform-origin: 50% 0; border: 1px solid var(--linea); box-shadow: 0 -10px 34px rgba(9,56,66,.12); }
-  .pila-tours .tour-foto { aspect-ratio: auto; height: 100%; min-height: 400px; }
-  .pila-tours .tour-texto { padding: 36px 40px; justify-content: center; gap: 14px; }
-  .pila-tours .tour h3 { font-size: 2.5rem; }
-  .pila-tours > .pronto, .pila-tours > .vacio { position: static; }
-}
-@keyframes entra-suave { from { transform: translateY(30px) scale(.97); } }
-@supports (animation-timeline: view()) {
-  @media (max-width: 899px) and (prefers-reduced-motion: no-preference) {
-    .pila-tours .tour { animation: entra-suave linear both; animation-timeline: view(); animation-range: entry 0% entry 55%; }
-  }
-}
+.tour-velo { display: none; }
 
 /* ---------- Mapa de destinos (SVG propio, sin mapas de terceros) ---------- */
 .seccion-mapa .mapa-destinos { display: grid; gap: 22px; }
@@ -1199,7 +1185,7 @@ h3 { font-size: 1.65rem; }
 
 /* Movimiento reducido: todo queda quieto y visible */
 @media (prefers-reduced-motion: reduce) {
-  .ola-mov, .cielo-calido, .sol-halo, .sol-sube, .mapa-punto i::after, .borde-oro::before, .pila-tours .tour,
+  .ola-mov, .cielo-calido, .sol-halo, .sol-sube, .mapa-punto i::after, .borde-oro::before,
   .boton-menu::after, .portada-pie .boton:first-child::after, .cierre .boton::after, .viajes-inicio .boton::after,
   .js .portada-inicio h1 .p, .hoja-viaje[open] { animation: none !important; }
   .mapa-punto i::after { opacity: 0; }
@@ -1253,7 +1239,6 @@ h1 .emoji, h2 .emoji, h3 .emoji, .tres-pasos .emoji, summary .emoji { font-size:
 .tarifa { display: flex; align-items: center; gap: 8px; }
 .tarifa .ic { width: 20px; height: 20px; color: var(--coral-oscuro); flex: none; }
 .oscuro .tarifa .ic { color: var(--dorado-claro); }
-@media (min-width: 900px) { .pila-tours .tour-texto > .tarifa { margin-top: 6px; } }
 .tarjeta-acciones { display: grid; gap: 8px; margin-top: auto; padding-top: 6px; }
 .tarjeta-texto > .tarifa + .tarjeta-acciones { margin-top: 0; }
 .tarjeta .tarjeta-acciones .boton, .tour .boton-reserva, .reserva .boton-reserva { width: 100%; margin-top: 0; align-self: stretch; }

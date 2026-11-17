@@ -98,11 +98,11 @@ Regla de oro: **nada queda escondido.** Todo empieza visible y legible; el scrol
 | Video de portada | Si `config.json → video_portada` tiene un archivo, va de fondo con las olas encima; vacío, se queda el atardecer | `sitio.js` |
 | Destinos | Galería horizontal con snap; brillo dorado que recorre el borde al tocar (o al pasar el mouse) | CSS (`conic-gradient` que gira dentro de una máscara de 1,5 px) |
 | Propiedades | Tarjetas de vidrio esmerilado sobre turquesa, borde dorado, elevación y zoom de la foto; en computadora se inclinan siguiendo el mouse (máx. 7°) | CSS + `sitio.js` |
-| Tours y yates | Computadora: las tarjetas se fijan y se apilan; la de atrás se achica y se oscurece. Teléfono: lista normal con entrada suave (solo desplazamiento, nunca transparente) | `position: sticky` + **GSAP 3.13 y ScrollTrigger** en `assets/js/` (se cargan solo en computadora) + `animation-timeline: view()` |
+| Tours y yates | Tarjetas normales, sin animación al bajar. El apilado y el video aéreo de la cabecera de Yates se quitaron el 17-11 porque trababan la página: la cabecera de Yates lleva la foto fija del mismo plano. | — |
 | Mapa de destinos | SVG propio de Venezuela y Colombia (Natural Earth). Al tocar un punto o un nombre de la lista, el mapa se acerca suave a ese destino; las zonas muy juntas (Falcón) salen como un solo punto; al tocarlo, el mapa hace de lupa: se acerca lo justo para separarlas y cambia a la costa detallada real de Morrocoy (Natural Earth 1:10m, `cotomaya_semilla/costa-falcon.json`), con cada destino en su lugar real y sin líneas. La ficha del destino (foto, descripción, cuántas propiedades, Ver hospedajes) va al lado del mapa en la computadora y debajo en el teléfono, nunca encima. Los nombres buscan el lado donde caben. "Ver todo el mapa" vuelve | CSS (transform) + `sitio.js` |
 | Olas en más partes | Franja de olas de la portada en divisores, cabeceras internas, pie y Yates; solo se mueve la más visible | `ola_banda()` + `sitio.js` (IntersectionObserver) |
 | Botón coral | Destello dorado cada 7 s (botón Reservar del menú, Ver hospedajes, cierre y Cotizar mi viaje) | CSS |
 | Entre páginas | Fundido con leve subida; menú y barra quedan fijos | View Transitions |
 | Spline (opcional) | Si `config.json → spline_escena` trae una escena, solo en pantallas de 1024 px o más, después de cargar todo; si falla, queda el atardecer. En el teléfono nunca | `assets/js/spline.js` |
 
-Con `prefers-reduced-motion`: todo quieto y visible (olas, sol, halo, puntos, destellos, pila y transiciones apagados; GSAP no se carga).
+Con `prefers-reduced-motion`: todo quieto y visible (olas, sol, halo, puntos, destellos, transiciones apagados).

@@ -32,6 +32,5 @@ Página web estática (GitHub Pages). Revisado el 17 de noviembre de 2026.
 
 ## Letras, librerías e íconos
 - Cormorant Garamond y Wix Madefor Text: SIL Open Font License 1.1, alojadas en `assets/fuentes/`.
-- GSAP y ScrollTrigger (`assets/js/`): licencia estándar gratuita de GSAP, uso comercial permitido.
 - Spline (`assets/js/spline.js`): apagado; solo carga el runtime si `spline_escena` tiene una escena. Si se enciende, revisar su licencia; el generador ya abre la política de contenido para Spline.
 - Íconos: dibujados para esta web.
