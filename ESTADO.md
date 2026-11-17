@@ -27,7 +27,7 @@ El repo **público** con las webs de clientes, las vistas previas para prospecto
 | vista-previa/* | Vistas previas viejas (El Manantial, Fisiosalud, Doña Casilda, Las Ross, etc.) | Publicadas |
 
 ## Pendientes, en orden de prioridad
-1. Cotomaya: que la clienta revise la paleta turquesa y mande los datos legales (titular, RIF, dirección, correo, horario, anticipo, pagos, cancelación, entrada y salida, normas). Faltan también el logo con fondo transparente, el nombre real y la capacidad de la lancha, y el contrato. Lista y mensaje para la clienta en `contexto-claude-code\clientes\cotomaya\pendientes-web.md`. Para volver a la versión anterior: `git checkout antes-de-colores-claros -- cotomaya` y commit.
+1. Cotomaya: que la clienta revise la paleta turquesa y mande los datos legales (titular, RIF, dirección, correo, horario, anticipo, pagos, cancelación, entrada y salida, normas). Falta también el nombre real y la capacidad de la lancha. El logo actual es el definitivo. Lista y mensaje para la clienta en `contexto-claude-code\clientes\cotomaya\pendientes-web.md`. Para volver a la versión anterior: `git checkout antes-de-colores-claros -- cotomaya` y commit.
    - Cotomaya pruebas: Carlos revisa los toques visuales; lo que le guste se pasa a la real por `_generadores/` (spline_escena vacío). Lo que no, se borra la carpeta. Pagos y acuerdos con cada cliente: solo en `agencia-carlos\contexto\clientes.md` (este repo es público).
 2. Golondrinas: cargar las fotos y videos que faltan cuando lleguen. Su video promocional no se sube a redes.
 3. Quinta Escape: fotos nuevas con la churuata y el botón de Cupo cuando Cupo salga.
