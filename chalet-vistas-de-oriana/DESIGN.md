@@ -49,3 +49,8 @@ Vista previa para la Sra. Irene (prospecto). Lujo botánico y sereno, sacado del
 - Láminas: entran en cascada con la foto que se aclara desde un marco interior (siempre visibles; solo cambia la máscara y la escala).
 - Galería "Lo que se vive aquí": avanza de lado al bajar en computadora; en el teléfono, deslizamiento normal.
 - Con prefers-reduced-motion: todo quieto y la espiral ya dibujada.
+
+## Web completa (8 páginas)
+Inicio, El chalet (recorrido con foto fija en arco), Habitaciones (filtro por "ideal para" y láminas que se voltean), ficha por habitación (carrusel y mini armador), Experiencias (arme su itinerario por días), Galería (filtros, visor y presentación con acercamiento lento), Reservar (elección visual de habitación, motivo, hora, vista previa del mensaje y espiral que se completa) y Contacto (mensaje armado por WhatsApp).
+- Teléfono y tableta: barra de abajo (Inicio, Habitaciones, Reservar al centro, Galería, Más) y hoja "Más" con todas las páginas. Menú arriba desde 1100 px.
+- Transiciones entre páginas con View Transitions (el menú queda fijo).
