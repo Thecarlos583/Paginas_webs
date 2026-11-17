@@ -745,3 +745,15 @@ body.pausado *, body.pausado *::before, body.pausado *::after { animation-play-s
   .spa-adelanto { padding-top: 64px; }
 }
 @media (max-width: 380px) { .arm-fechas { grid-template-columns: minmax(0, 1fr); } }
+.paso-hora { align-self: flex-start; }
+.filtros { align-self: start; }
+@media (min-width: 1100px) {
+  .formas.horizontal .formas-fijo { height: 100vh; padding-top: calc(var(--cab) + 20px); padding-bottom: 20px; justify-content: flex-start; }
+  .formas.horizontal .formas-cabeza { margin-bottom: 20px; }
+  .formas.horizontal .tarjeta { width: min(34vw, 480px); }
+  .formas.horizontal .tarjeta-foto img { aspect-ratio: auto; height: clamp(160px, 30vh, 300px); }
+  .formas.horizontal .tarjeta-cuerpo { gap: 8px; padding: 16px 18px 18px; }
+  .cielo-fotos { aspect-ratio: auto; height: min(46vh, 440px); }
+  .cielo .cielo-fijo h2 { font-size: clamp(2.3rem, 4.4vw, 3.8rem); }
+}
+@media (max-width: 1099.98px) { .cielo-fondos { display: none; } }
