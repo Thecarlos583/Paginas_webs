@@ -89,7 +89,6 @@ p { margin: 0; text-wrap: pretty; }
 .marca-texto small { font-family: var(--cuerpo); font-weight: 400; font-size: .78rem; letter-spacing: .02em; }
 .marca img { height: 40px; width: auto; }
 .menu, .boton-menu { display: none; }
-.estela { position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: var(--dorado); transform: scaleX(var(--avance, 0)); transform-origin: left; }
 .cabecera.sobre-foto { position: fixed; left: 0; right: 0; background: transparent; transition: background-color .25s ease; }
 .cabecera.sobre-foto::before { background: transparent; }
 .cabecera.sobre-foto.solida, .cabecera.sobre-foto.solida::before { background: var(--primario); }
