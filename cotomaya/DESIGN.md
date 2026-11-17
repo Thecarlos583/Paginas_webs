@@ -1,6 +1,8 @@
 # Sistema de diseño de Cotomaya Venezuela
 
-Paleta clara de noviembre 2026 (prompt 34): los colores del logo oficial más azul marino, naranja y coral. **Nada de negro ni fondos casi negros**: lo más oscuro de toda la web es el azul marino `#16305A`. La página se ve luminosa, con fondos blanco cálido y arena en la mayoría de las secciones. Los valores salen de `:root` en `estilos.css`; si cambia el CSS, se actualiza este archivo.
+**Paleta elegida por la clienta el 17/11/2026** (mandó una foto de la portada y dijo: "Estos colores es lo que prefiero, con el movimiento de olas y el logo de COTOMAYA"). Turquesa profundo de la portada como fondo de **toda** la página, un turquesa más claro de respiro para alternar, naranja en los botones, coral en acentos, dorado en detalles y arena en los textos. **Nada de negro ni de fondos claros.** Ningún cambio futuro aclara ni oscurece esta paleta sin pedido de la clienta. Los valores salen de `:root` en `estilos.css`; si cambia el CSS, se actualiza este archivo.
+
+Por qué este turquesa: la foto de la clienta es de la versión del 14/11 (petróleo `#0B2F35`) vista en una laptop, donde se ve más clara (entre `#124C5A` y `#1C4C60`). Ese mismo `#0B2F35` es el que en el catálogo se leía como negro, así que la base es el tono que ella ve en su foto: `#134F5D`.
 
 > Logo oficial: insignia redonda (sol dorado con olas coral, "COTOMAYA · TOURISM & SERVICE"). Original sin tocar en `img/logo-cotomaya-original.jpg`; insignia recortada con transparencia en `img/logo-cotomaya.png` / `.webp` (512 px) y `img/logo-cotomaya-160.webp` (menú y pie); favicon con solo el sol y las olas en `img/favicon-32.png`, `favicon-180.png` (iPhone) y `favicon-512.png`. El marcador viejo quedó en `img/descartados/`. En `datos/config.json` el campo `"logo"` apunta a la insignia. Conviene pedirle a la clienta el archivo original con fondo transparente.
 
@@ -8,33 +10,29 @@ Paleta clara de noviembre 2026 (prompt 34): los colores del logo oficial más az
 
 | Variable | Código | Nombre | Para qué se usa |
 |---|---|---|---|
-| `--hondo` | `#16305A` | Azul marino | El tono más oscuro permitido. Pie, barra de abajo del teléfono, texto sobre naranja, coral y dorado, velos de fotos. |
-| `--primario` | `#1B3B6F` | Azul marino | Menú, las pocas secciones oscuras (propiedades destacadas, catálogo), botón secundario, chips marcados. |
-| `--petroleo-medio` | `#2B5089` | Marino medio | Tarjetas de vidrio sobre marino y hover del botón marino. |
-| `--azul-medio` | `#3B5A86` | Azul texto | Textos secundarios sobre claro (tipo de propiedad, ayudas, migas). |
-| `--turquesa` | `#1F7F89` | Turquesa del logo (tono medio) | Franjas y fondos de acento: sección del mapa, ola de atrás de las franjas, brillo de las secciones marinas. |
-| `--turquesa-oscuro` | `#15646C` | | Turquesa como texto sobre claro. |
-| `--turquesa-claro` | `#E3F2F1` | | Fondo claro de acento (sección de destinos y preguntas). |
-| `--naranja` | `#F28C38` | Naranja del aro del logo | **Botones principales de reserva** ("Consultar disponibilidad", "Reservar por WhatsApp", "Buscar"). |
-| `--naranja-suave` | `#F6A05A` | | Hover del botón naranja. |
-| `--coral` | `#EF7D60` | Coral de las olas y las letras | Acentos, íconos, crestas de las olas, pestaña elegida, página actual en la barra, sellos "Pronto". |
-| `--coral-oscuro` | `#B1462B` | | Coral como texto sobre arena. |
-| `--dorado` | `#D4A851` | Dorado del sol | Solo detalles finos: bordes de 1 px, brillos, destellos, línea de las olas. |
-| `--dorado-claro` | `#E6C47F` | | Dorado como texto sobre marino. |
-| `--dorado-oscuro` | `#7A5A17` | | Dorado como texto sobre claro. Nunca `--dorado` como texto sobre claro. |
-| `--fondo` | `#FFFBF5` | Blanco cálido | Fondo general y secciones claras. |
-| `--azul-claro` | `#F6EEE2` | Arena | Secciones alternas, cajas y chips. |
-| `--linea` | `#E8DCC8` | | Bordes de campos y divisiones. |
-| `--texto` | `#16305A` | Azul marino | Texto normal y títulos. |
-| WhatsApp | `#25D366` / texto `#16305A` | | Solo el botón flotante y `.boton-wa`. |
+| `--fondo` / `--primario` | `#134F5D` | Turquesa profundo (portada) | Fondo principal: portada, menú, secciones, catálogo. |
+| `--azul-claro` | `#1C6676` | Turquesa de respiro | Secciones alternas, cajas y chips. |
+| `--tarjeta` | `#19606E` | Turquesa de tarjeta | Tarjetas, campos, fichas y hojas. |
+| `--petroleo-medio` / `--azul-claro-2` | `#22707F` | Turquesa medio | Hover del botón turquesa, tarjetas de vidrio, países del mapa. |
+| `--hondo` | `#0F4552` | Turquesa hondo | El fondo más oscuro permitido: pie y barra de abajo del teléfono. |
+| `--tinta` | `#0A3540` | | **Solo texto** sobre naranja, coral, dorado y verde WhatsApp. Nunca fondo. |
+| `--texto` | `#F6EEE2` | Arena | Texto normal y títulos. |
+| `--azul-medio` | `#CFE3E2` | Texto suave | Textos secundarios (tipo de propiedad, ayudas, migas). |
+| `--naranja` | `#F28C38` | Naranja del aro del logo | **Botones principales** ("Ver hospedajes", "Consultar disponibilidad", "Reservar"). |
+| `--coral` | `#EF7D60` | Coral de las olas y las letras | Acentos, íconos, crestas de las olas, pestaña elegida, sellos "Pronto". |
+| `--coral-oscuro` | `#FFD3C4` | | Coral como texto sobre turquesa. |
+| `--dorado` | `#D4A851` | Dorado del sol | Solo detalles finos: bordes de 1 px, brillos, línea de las olas. |
+| `--dorado-claro` / `--dorado-oscuro` | `#F0D49A` / `#F2D9A4` | | Dorado como texto sobre turquesa. |
+| `--linea` | `#4A8794` | | Bordes de campos y divisiones. |
+| WhatsApp | `#25D366` / texto `#0A3540` | | Solo el botón flotante y `.boton-wa`. |
 
-Los nombres viejos de las variables (`--azul-medio`, `--azul-claro`, `--petroleo-medio`) se conservaron para no romper reglas; el comentario de `:root` dice qué son ahora.
+Los nombres viejos de las variables (`--azul-medio`, `--azul-claro`, `--petroleo-medio`, `--dorado-oscuro`) se conservaron para no romper reglas; el comentario de `:root` dice qué son ahora.
 
-**Contraste medido (mínimo 4,5:1):** texto marino sobre blanco cálido 12,7 y sobre arena 11,4; azul texto sobre arena 6,1; marino sobre naranja (botón) 5,4; marino sobre coral 4,8; marino sobre verde WhatsApp 6,6; blanco sobre marino 13,1 y sobre marino de secciones 11,0; blanco sobre marino medio 8,0; blanco sobre turquesa 4,7; dorado claro sobre marino 6,6; dorado oscuro sobre arena 5,5; coral oscuro sobre arena 4,8 y sobre blanco cálido 5,4; turquesa oscuro sobre blanco cálido 6,6.
+**Contraste medido (mínimo 4,5:1):** arena sobre turquesa profundo 7,9, sobre respiro 5,7, sobre tarjeta 6,2 y sobre el pie 9,2; texto suave sobre tarjeta 5,4 y sobre respiro 4,9; dorado texto sobre respiro 4,7 y sobre tarjeta 5,2; coral texto sobre respiro 4,8; error `#FFCFC7` sobre respiro 4,7; tinta sobre naranja 5,4, sobre coral 4,9, sobre dorado 6,0 y sobre verde WhatsApp 6,6. La palabra "Caribe" en coral (`#F4937A`) es titular grande (3:1 basta): 4,0.
 
-**El atardecer de la portada** va de azul marino arriba a turquesa, naranja, coral y dorado abajo. Olas de la portada: turquesa (atrás), azul turquesa y marino (adelante), con crestas coral y dorada.
+**El atardecer de la portada** va de turquesa profundo arriba a turquesa, naranja, coral y dorado abajo. Olas de la portada: turquesa (atrás), turquesa medio y hondo (adelante), con crestas coral y dorada.
 
-Velos sobre fotos: azul marino con poca opacidad, solo lo necesario para leer (`rgba(22,48,90, .4 → .82)`), más una sombra suave en el texto. Sombras siempre en azul marino, nunca negras.
+Velos sobre fotos y capas translúcidas: turquesa profundo con poca opacidad (`rgba(19,79,93, .3 → .6)`), solo lo necesario para leer, más una sombra suave en el texto. Sombras siempre en turquesa hondo (`rgba(9,56,66,…)`), nunca negras.
 
 ### Olas en más partes
 
@@ -69,17 +67,17 @@ Botones, chips y etiquetas: píldora (999 px). Tarjetas de propiedad, tours y se
 
 ## 5. Sombras
 
-- Tarjeta clara: `0 1px 0 rgba(22,48,90,.06), 0 10px 28px rgba(22,48,90,.07)`; al pasar el mouse `0 20px 40px rgba(22,48,90,.14)`.
-- Tarjeta de vidrio sobre marino: sin sombra negra; borde dorado de 1 px y elevación con `translateY`.
-- Hoja de viajes: `0 -10px 40px rgba(22,48,90,.3)`.
+- Tarjeta: `0 1px 0 rgba(9,56,66,.06), 0 10px 28px rgba(9,56,66,.07)`; al pasar el mouse `0 20px 40px rgba(9,56,66,.14)`.
+- Tarjeta de vidrio sobre turquesa: sin sombra negra; borde dorado de 1 px y elevación con `translateY`.
+- Hoja de viajes: `0 -10px 40px rgba(9,56,66,.3)`.
 
 ## 6. Piezas
 
-- **Botón principal (`.boton`):** naranja con texto azul marino. Secundario `.boton-claro`: azul marino con texto blanco. `.boton-blanco`: blanco cálido con texto marino (sobre fotos). `.boton-wa`: verde WhatsApp con texto marino.
-- **Etiqueta de categoría en la foto:** azul marino translúcido con borde dorado de 1 px y texto dorado claro.
+- **Botón principal (`.boton`):** naranja con texto tinta. Secundario `.boton-claro`: turquesa con texto blanco. `.boton-blanco`: borde arena de 1,5 px sobre turquesa translúcido, como el "Chat por WhatsApp" de la portada de la foto. `.boton-wa`: verde WhatsApp con texto tinta.
+- **Etiqueta de categoría en la foto:** turquesa translúcido con borde dorado de 1 px y texto dorado claro.
 - **Sellos "Muy pronto":** coral.
 - **Pestañas Todos / Nacionales / Internacionales:** píldora coral que se desliza.
-- **Servicios de viaje:** tarjeta con ícono propio en círculo azul marino y trazo dorado; al tocar abre una hoja desde abajo (modal en computadora) con el mini formulario. Personas con − y +, fechas con tope, aviso amable si falta un dato, "Cotización según disponibilidad" siempre a la vista.
+- **Servicios de viaje:** tarjeta con ícono propio en círculo turquesa y trazo dorado; al tocar abre una hoja desde abajo (modal en computadora) con el mini formulario. Personas con − y +, fechas con tope, aviso amable si falta un dato, "Cotización según disponibilidad" siempre a la vista.
 - **WhatsApp:** principal en todos los botones; el secundario solo en Contacto y en el pie, con su etiqueta encima.
 
 ## 7. Referencias de nivel (qué se toma de cada una, nada copiado)
@@ -95,11 +93,11 @@ Regla de oro: **nada queda escondido.** Todo empieza visible y legible; el scrol
 
 | Pieza | Qué hace | Cómo |
 |---|---|---|
-| Portada viva | Cielo de azul marino a turquesa, naranja y coral que respira, sol que sube y brilla (es una ventana redonda con las fotos reales de las propiedades, que se relevan), tres capas de olas a 30, 21 y 15 s con crestas coral y dorada, paralaje leve al bajar | SVG + CSS; paralaje con `requestAnimationFrame` en `sitio.js` |
+| Portada viva | Cielo de turquesa profundo a turquesa, naranja y coral que respira, sol que sube y brilla (es una ventana redonda con las fotos reales de las propiedades, que se relevan), tres capas de olas a 30, 21 y 15 s con crestas coral y dorada, paralaje leve al bajar | SVG + CSS; paralaje con `requestAnimationFrame` en `sitio.js` |
 | Titular de portada | Palabras en cascada, termina antes de 1 s | CSS |
 | Video de portada | Si `config.json → video_portada` tiene un archivo, va de fondo con las olas encima; vacío, se queda el atardecer | `sitio.js` |
 | Destinos | Galería horizontal con snap; brillo dorado que recorre el borde al tocar (o al pasar el mouse) | CSS (`conic-gradient` que gira dentro de una máscara de 1,5 px) |
-| Propiedades | Tarjetas de vidrio esmerilado sobre azul marino, borde dorado, elevación y zoom de la foto; en computadora se inclinan siguiendo el mouse (máx. 7°) | CSS + `sitio.js` |
+| Propiedades | Tarjetas de vidrio esmerilado sobre turquesa, borde dorado, elevación y zoom de la foto; en computadora se inclinan siguiendo el mouse (máx. 7°) | CSS + `sitio.js` |
 | Tours y yates | Computadora: las tarjetas se fijan y se apilan; la de atrás se achica y se oscurece. Teléfono: lista normal con entrada suave (solo desplazamiento, nunca transparente) | `position: sticky` + **GSAP 3.13 y ScrollTrigger** en `assets/js/` (se cargan solo en computadora) + `animation-timeline: view()` |
 | Mapa de destinos | SVG propio de Venezuela y Colombia (Natural Earth). Al tocar un punto o un nombre de la lista, el mapa se acerca suave a ese destino; las zonas muy juntas (Falcón) salen como un solo punto; al tocarlo, el mapa hace de lupa: se acerca lo justo para separarlas y cambia a la costa detallada real de Morrocoy (Natural Earth 1:10m, `cotomaya_semilla/costa-falcon.json`), con cada destino en su lugar real y sin líneas. La ficha del destino (foto, descripción, cuántas propiedades, Ver hospedajes) va al lado del mapa en la computadora y debajo en el teléfono, nunca encima. Los nombres buscan el lado donde caben. "Ver todo el mapa" vuelve | CSS (transform) + `sitio.js` |
 | Olas en más partes | Franja de olas de la portada en divisores, cabeceras internas, pie y Yates; solo se mueve la más visible | `ola_banda()` + `sitio.js` (IntersectionObserver) |
