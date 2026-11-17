@@ -1,0 +1,12 @@
+{
+  "_ayuda": "Normas de camping de ejemplo, en pestañas. Cámbielas por las reales del negocio.",
+  "ejemplo": true,
+  "pestanas": [
+    {"id": "convivencia", "nombre": "Convivencia", "puntos": ["Silencio a partir de las 10:00 p.m.", "Música a volumen bajo, que no pase de su parcela.", "Los niños siempre con un adulto responsable."]},
+    {"id": "fuego", "nombre": "Fuego", "puntos": ["Fogatas solo en la zona de fogata o en la parrillera.", "Nada de fuego dentro ni cerca de las carpas.", "Apague bien las brasas antes de dormir."]},
+    {"id": "naturaleza", "nombre": "Naturaleza", "puntos": ["Lo que trae, se lo lleva: bolsas de basura a la vista.", "No corte ramas ni plantas para leña; hay leña a la venta.", "No alimente a los animales del lugar."]},
+    {"id": "mascotas", "nombre": "Mascotas", "puntos": ["Bienvenidas con aviso previo.", "Siempre con correa en las áreas comunes.", "Usted recoge lo que deje su mascota."]},
+    {"id": "horarios", "nombre": "Entrada y salida", "puntos": ["Acampar: entrada 2:00 p.m. y salida 12:00 m.", "Pasadía: de 9:00 a.m. a 5:00 p.m.", "El portón cierra a las 10:00 p.m.; avise si llega tarde."]},
+    {"id": "pagos", "nombre": "Reserva y pagos", "puntos": ["La reserva se aparta con el 50 % por adelantado.", "Pago móvil, Zelle o divisas en efectivo.", "Si cancela con 72 horas de aviso, se le guarda el abono para otra fecha."]}
+  ]
+}

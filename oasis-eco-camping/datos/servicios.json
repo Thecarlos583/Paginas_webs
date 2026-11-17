@@ -1,0 +1,12 @@
+{
+  "_ayuda": "Servicios del camping. Todos 'según disponibilidad' hasta que el negocio los confirme. 'icono' es uno de: banos, fogata, parrilla, carro, vigilancia, agua, hamaca, luz.",
+  "nota": "Según disponibilidad",
+  "servicios": [
+    {"icono": "banos", "nombre": "Baños y duchas", "texto": "Compartidos, limpios cada mañana."},
+    {"icono": "fogata", "nombre": "Zona de fogata", "texto": "Con leña a la venta y bancos alrededor."},
+    {"icono": "parrilla", "nombre": "Parrillera", "texto": "Traiga su carbón; avísenos para apartarla."},
+    {"icono": "carro", "nombre": "Estacionamiento", "texto": "Dentro del terreno, cerca de las parcelas."},
+    {"icono": "vigilancia", "nombre": "Vigilancia", "texto": "Portón cerrado y ronda en la noche."},
+    {"icono": "hamaca", "nombre": "Zona de sombra", "texto": "Árboles grandes para colgar su hamaca."}
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "_ayuda": "Datos generales. Al tener el WhatsApp real, cambie 'whatsapp' (58 + número sin el cero) y 'whatsapp_mostrar'. Si 'mostrar_precios' es false, todos los precios cambian a 'Consulte la tarifa'. Después corra: python _generadores/oasis.py",
+  "nombre": "Oasis Eco Camping & Spa",
+  "nombre_corto": "Oasis",
+  "zona": "San Sebastián de los Reyes",
+  "estado": "Aragua",
+  "modo_demo": true,
+  "whatsapp": "580000000000",
+  "whatsapp_mostrar": "+58 000 0000000",
+  "mensaje_whatsapp": "Hola Oasis Eco Camping & Spa, quiero información para acampar",
+  "mensaje_glamping": "Hola Oasis, quiero que me avisen cuando abra el glamping",
+  "mensaje_ubicacion": "Hola Oasis Eco Camping & Spa, ¿me pueden enviar la ubicación para llegar?",
+  "mensaje_spa": "Hola Oasis Eco Camping & Spa, quiero reservar en el spa",
+  "instagram": "",
+  "mostrar_precios": true,
+  "moneda": "$",
+  "horario_atencion": [
+    {"dias": "Lunes a viernes", "horas": "8:00 a.m. a 6:00 p.m."},
+    {"dias": "Sábados, domingos y feriados", "horas": "7:00 a.m. a 8:00 p.m."}
+  ],
+  "horario_ejemplo": true,
+  "pagos": ["Pago móvil", "Zelle", "Divisas en efectivo"],
+  "pagos_ejemplo": true,
+  "video_portada": "https://videos.pexels.com/video-files/5042814/5042814-sd_960_540_30fps.mp4",
+  "poster_portada": "https://images.pexels.com/videos/5042814/4k-8-acqua-alberi-5042814.jpeg?auto=compress&w=1260&h=750&dpr=1",
+  "foto_compartir": "https://images.unsplash.com/photo-1537225228614-56cc3556d7ed?w=1200&h=630&fit=crop&q=70",
+  "url": "https://thecarlos583.github.io/Paginas_webs/oasis-eco-camping/",
+  "aviso_demo": "Página de ejemplo con datos ficticios. Fotos referenciales."
+}

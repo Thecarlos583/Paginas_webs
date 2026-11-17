@@ -1,0 +1,30 @@
+{
+  "_ayuda": "Fotos de la galería (referenciales de Unsplash). 'foto' es el código de Unsplash; cuando lleguen las reales, ponga la ruta (fotos/xxx.webp). categoria: camping, spa, naturaleza o noche.",
+  "categorias": {"camping": "Camping", "spa": "Spa", "naturaleza": "Naturaleza", "noche": "Noche"},
+  "fotos": [
+    {"foto": "1537225228614-56cc3556d7ed", "alt": "Carpa armada con una hamaca entre los árboles", "categoria": "camping"},
+    {"foto": "1517824806704-9040b037703b", "alt": "Vía láctea sobre una carpa iluminada", "categoria": "noche"},
+    {"foto": "1544161515-4ab6ce6db874", "alt": "Masaje con aceite en la espalda", "categoria": "spa"},
+    {"foto": "1432405972618-c60b0225b8f9", "alt": "Caída de agua entre piedras y vegetación", "categoria": "naturaleza"},
+    {"foto": "1504280390367-361c6d9f38f4", "alt": "Vista desde dentro de la carpa hacia los árboles", "categoria": "camping"},
+    {"foto": "1475483768296-6163e08872a1", "alt": "Amigos alrededor de una fogata en la noche", "categoria": "noche"},
+    {"foto": "1515377905703-c4788e51af15", "alt": "Gotero con aceite esencial sobre la mano", "categoria": "spa"},
+    {"foto": "1518495973542-4542c06a5843", "alt": "Sol entre las ramas de un árbol grande", "categoria": "naturaleza"},
+    {"foto": "1533873984035-25970ab07461", "alt": "Carpas en la pradera con neblina al amanecer", "categoria": "camping"},
+    {"foto": "1486915309851-b0cc1f8a0084", "alt": "Chispas saliendo de una fogata", "categoria": "noche"},
+    {"foto": "1600334089648-b0d9d3028eb2", "alt": "Piedras calientes sobre la espalda con flores blancas", "categoria": "spa"},
+    {"foto": "1497250681960-ef046c08a56e", "alt": "Helechos verdes vistos desde arriba", "categoria": "naturaleza"},
+    {"foto": "1414016642750-7fdd78dc33d9", "alt": "Persona con una taza caliente junto a su carpa", "categoria": "camping"},
+    {"foto": "1708175530492-a873df8d5597", "alt": "Sillas bajo un cielo lleno de estrellas", "categoria": "noche"},
+    {"foto": "1620733723572-11c53f73a416", "alt": "Varillas de aroma y velas encendidas", "categoria": "spa"},
+    {"foto": "1506744038136-46273834b3fb", "alt": "Río entre árboles con la luz de la mañana", "categoria": "naturaleza"},
+    {"foto": "1525811902-f2342640856e", "alt": "Fogata humeante junto a una carpa de lona", "categoria": "camping"},
+    {"foto": "1504851149312-7a075b496cc7", "alt": "Estrellas vistas entre las copas de los árboles", "categoria": "noche"},
+    {"foto": "1519823551278-64ac92734fb1", "alt": "Manos dando un masaje firme en la espalda", "categoria": "spa"},
+    {"foto": "1447752875215-b2761acb3c5d", "alt": "Puente de madera en medio del bosque", "categoria": "naturaleza"},
+    {"foto": "1694946698394-612cb992734b", "alt": "Sillas alrededor de una fogata al atardecer", "categoria": "camping"},
+    {"foto": "1537905569824-f89f14cceb68", "alt": "Carpa iluminada bajo el cielo de la noche", "categoria": "noche"},
+    {"foto": "1530053969600-caed2596d242", "alt": "Agua turquesa vista desde abajo de la superficie", "categoria": "spa"},
+    {"foto": "1542273917363-3b1817f69a2d", "alt": "Bosque de montaña con neblina", "categoria": "naturaleza"}
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "_ayuda": "Lo que se vive en Oasis. 'momentos' alimenta la escena 'De la tarde a las estrellas' del inicio (cielo: tarde, atardecer, fogata, noche).",
+  "momentos": [
+    {"hora": "2:00 p.m.", "titulo": "Llegada", "texto": "Le recibimos en el portón y le mostramos su parcela o su carpa.", "foto": "1501703979959-797917eb21c8", "alt": "Carpa en un claro rodeado de árboles", "cielo": "tarde"},
+    {"hora": "3:00 p.m.", "titulo": "Armar la carpa", "texto": "Con sombra y sin apuro. Si eligió carpa equipada, ya está lista.", "foto": "1537225228614-56cc3556d7ed", "alt": "Carpa armada con una hamaca entre los árboles", "cielo": "tarde"},
+    {"hora": "4:30 p.m.", "titulo": "Spa", "texto": "Un masaje o el circuito de agua mientras baja el sol.", "foto": "1544161515-4ab6ce6db874", "alt": "Masaje con aceite en la espalda", "cielo": "atardecer"},
+    {"hora": "7:00 p.m.", "titulo": "Fogata", "texto": "Leña, conversación y algo en la parrilla.", "foto": "1475483768296-6163e08872a1", "alt": "Amigos alrededor de una fogata en la noche", "cielo": "fogata"},
+    {"hora": "9:30 p.m.", "titulo": "Noche de estrellas", "texto": "Lejos de las luces del pueblo, el cielo se llena.", "foto": "1517824806704-9040b037703b", "alt": "Vía láctea sobre una carpa iluminada", "cielo": "noche"}
+  ],
+  "experiencias": [
+    {"id": "fogata", "titulo": "Fogata", "texto": "Cada noche se prende la fogata en la zona común. Usted trae los malvaviscos.", "foto": "1486915309851-b0cc1f8a0084", "alt": "Chispas saliendo de una fogata"},
+    {"id": "estrellas", "titulo": "Noche de estrellas", "texto": "Apagamos las luces de las áreas comunes a las 10:00 p.m. para ver el cielo.", "foto": "1537905569824-f89f14cceb68", "alt": "Carpa iluminada bajo el cielo de la noche"},
+    {"id": "cafe", "titulo": "Mañana con café", "texto": "Café recién colado desde las 7:00 a.m. para despertar con calma.", "foto": "1414016642750-7fdd78dc33d9", "alt": "Persona con una taza caliente junto a su carpa"},
+    {"id": "caminatas", "titulo": "Caminatas por el lugar", "texto": "Senderos cortos dentro del terreno, entre árboles y sombra.", "foto": "1501555088652-021faa106b9b", "alt": "Caminante con morral en un valle verde"},
+    {"id": "spa", "titulo": "Descanso en el spa", "texto": "Masajes y circuito de agua con reserva, para cerrar el día.", "foto": "1600334089648-b0d9d3028eb2", "alt": "Piedras calientes sobre la espalda con flores blancas"}
+  ],
+  "fin_de_semana": [
+    {"dia": "Sábado", "pasos": [
+      {"hora": "2:00 p.m.", "texto": "Llegada y carpa lista"},
+      {"hora": "4:30 p.m.", "texto": "Masaje o circuito de agua"},
+      {"hora": "7:00 p.m.", "texto": "Parrilla y fogata"},
+      {"hora": "10:00 p.m.", "texto": "Luces apagadas y cielo de estrellas"}
+    ]},
+    {"dia": "Domingo", "pasos": [
+      {"hora": "7:00 a.m.", "texto": "Café junto a la carpa"},
+      {"hora": "8:30 a.m.", "texto": "Caminata por los senderos"},
+      {"hora": "10:00 a.m.", "texto": "Desayuno y hamaca"},
+      {"hora": "12:00 m.", "texto": "Salida, o se queda de pasadía hasta las 5:00 p.m."}
+    ]}
+  ]
+}

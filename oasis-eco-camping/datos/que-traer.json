@@ -1,0 +1,9 @@
+{
+  "_ayuda": "Lista de qué traer, por grupos. Cada ficha de hospedaje tiene además su propia lista corta en hospedaje.json.",
+  "grupos": [
+    {"nombre": "Para dormir", "cosas": ["Carpa, si eligió parcela", "Saco de dormir o sábana", "Almohada pequeña", "Colchoneta, si eligió parcela"]},
+    {"nombre": "Ropa", "cosas": ["Abrigo ligero para la noche", "Traje de baño", "Zapatos cerrados para caminar", "Impermeable entre mayo y octubre"]},
+    {"nombre": "Cuidado", "cosas": ["Repelente", "Protector solar y gorra", "Linterna con pilas", "Sus medicinas personales"]},
+    {"nombre": "Comida", "cosas": ["Cava con hielo", "Agua para tomar", "Carbón para la parrillera", "Bolsas para la basura"]}
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "_ayuda": "Formas de hospedaje. Para abrir el glamping: cambie 'proximamente' a false y póngale precio, capacidad, horario e incluye. 'articulo' va delante del nombre en los mensajes de WhatsApp. 'unidad' sale junto al precio. 'noches': false si es de un solo día.",
+  "opciones": [
+    {
+      "id": "parcela",
+      "nombre": "Parcela para su carpa",
+      "articulo": "la",
+      "corto": "Parcela",
+      "ejemplo": true,
+      "proximamente": false,
+      "resumen": "Usted trae su carpa y nosotros ponemos el terreno, la sombra y los baños.",
+      "descripcion": "Un espacio plano con grama y sombra para armar su propia carpa. Ideal para grupos de amigos y familias que ya tienen su equipo y quieren dormir afuera, con baños, duchas y fogata cerca.",
+      "precio": 8,
+      "unidad": "por persona, por noche",
+      "noches": true,
+      "capacidad": 6,
+      "capacidad_texto": "Hasta 6 personas por parcela",
+      "carpa_incluida": false,
+      "entrada": "2:00 p.m.",
+      "salida": "12:00 m.",
+      "incluye": ["Espacio plano con grama y sombra", "Baños y duchas compartidos", "Zona de fogata compartida", "Estacionamiento cerca", "Vigilancia en la noche"],
+      "que_traer": ["Su carpa, con estacas y lona de piso", "Colchoneta o saco de dormir", "Linterna o lámpara", "Repelente y protector solar"],
+      "fotos": [
+        {"foto": "1537225228614-56cc3556d7ed", "alt": "Carpa armada con una hamaca entre los árboles"},
+        {"foto": "1501703979959-797917eb21c8", "alt": "Carpa en un claro rodeado de árboles"},
+        {"foto": "1525811902-f2342640856e", "alt": "Fogata humeante junto a una carpa de lona"},
+        {"foto": "1533873984035-25970ab07461", "alt": "Carpas en la pradera con neblina al amanecer"},
+        {"foto": "1496545672447-f699b503d270", "alt": "Carpa con el sol de la tarde detrás"}
+      ]
+    },
+    {
+      "id": "carpa-equipada",
+      "nombre": "Carpa equipada",
+      "articulo": "la",
+      "corto": "Carpa equipada",
+      "ejemplo": true,
+      "proximamente": false,
+      "resumen": "La carpa ya armada, con colchones, almohadas y lámpara. Usted solo llega.",
+      "descripcion": "Para quien quiere acampar sin cargar equipo. Al llegar, la carpa está armada con colchones, almohadas, sábanas y una lámpara. Usted trae su ropa, su comida y las ganas de desconectarse.",
+      "precio": 15,
+      "unidad": "por persona, por noche",
+      "noches": true,
+      "capacidad": 4,
+      "capacidad_texto": "De 2 a 4 personas",
+      "carpa_incluida": true,
+      "entrada": "2:00 p.m.",
+      "salida": "12:00 m.",
+      "incluye": ["Carpa armada antes de su llegada", "Colchones, almohadas y sábanas", "Lámpara recargable", "Baños y duchas compartidos", "Zona de fogata y estacionamiento"],
+      "que_traer": ["Ropa cómoda y un abrigo ligero para la noche", "Toalla y artículos de aseo", "Linterna", "Repelente y protector solar"],
+      "fotos": [
+        {"foto": "1504280390367-361c6d9f38f4", "alt": "Vista desde dentro de la carpa hacia los árboles"},
+        {"foto": "1786809614359-19ea5dc3ac01", "alt": "Interior de una carpa de lona con mesa de madera"},
+        {"foto": "1790960280753-ebca4a951205", "alt": "Puerta de la carpa abierta hacia los árboles"},
+        {"foto": "1537905569824-f89f14cceb68", "alt": "Carpa iluminada bajo el cielo de la noche"},
+        {"foto": "1532339142463-fd0a8979791a", "alt": "Vista desde la carpa abierta hacia la pradera"}
+      ]
+    },
+    {
+      "id": "pasadia",
+      "nombre": "Pasadía",
+      "articulo": "el",
+      "corto": "Pasadía",
+      "ejemplo": true,
+      "proximamente": false,
+      "resumen": "Entrada de día para disfrutar el lugar, la sombra y el spa, sin dormir.",
+      "descripcion": "Un día completo en Oasis sin pasar la noche: sombra, áreas verdes, parrillera y la opción de sumar un masaje o el circuito de agua del spa. Perfecto para un domingo en familia.",
+      "precio": 6,
+      "unidad": "por persona, por día",
+      "noches": false,
+      "capacidad": 20,
+      "capacidad_texto": "Grupos de hasta 20 personas",
+      "carpa_incluida": false,
+      "entrada": "9:00 a.m.",
+      "salida": "5:00 p.m.",
+      "incluye": ["Acceso a las áreas verdes", "Baños y duchas", "Parrillera, según disponibilidad", "Estacionamiento", "Spa con reserva aparte"],
+      "que_traer": ["Traje de baño y toalla", "Comida y bebidas en una cava", "Protector solar y gorra", "Carbón si va a usar la parrillera"],
+      "fotos": [
+        {"foto": "1432405972618-c60b0225b8f9", "alt": "Caída de agua entre piedras y vegetación"},
+        {"foto": "1694946698394-612cb992734b", "alt": "Sillas alrededor de una fogata al atardecer"},
+        {"foto": "1518495973542-4542c06a5843", "alt": "Sol entre las ramas de un árbol grande"},
+        {"foto": "1506744038136-46273834b3fb", "alt": "Río entre árboles con la luz de la mañana"},
+        {"foto": "1447752875215-b2761acb3c5d", "alt": "Puente de madera en medio del bosque"}
+      ]
+    },
+    {
+      "id": "glamping",
+      "nombre": "Glamping",
+      "articulo": "el",
+      "corto": "Glamping",
+      "ejemplo": true,
+      "proximamente": true,
+      "resumen": "Carpas con cama de verdad y más comodidad. Estamos preparándolo.",
+      "descripcion": "La siguiente etapa de Oasis: dormir en la naturaleza con la comodidad de una habitación.",
+      "precio": null,
+      "unidad": "",
+      "noches": true,
+      "capacidad": 2,
+      "capacidad_texto": "Para parejas",
+      "carpa_incluida": true,
+      "entrada": "",
+      "salida": "",
+      "incluye": [],
+      "que_traer": [],
+      "fotos": [
+        {"foto": "1478827536114-da961b7f86d2", "alt": "Carpa grande iluminada bajo un cielo de estrellas"},
+        {"foto": "1769952180972-fc91c7190158", "alt": "Vista de las montañas desde la cama, por la puerta abierta de la carpa"},
+        {"foto": "1783696521772-e3ba2c4ef0b5", "alt": "Domo iluminado por dentro en la noche"},
+        {"foto": "1772423847112-c978f25f7a61", "alt": "Domo blanco entre colinas verdes"},
+        {"foto": "1700463108326-6970b071dcc5", "alt": "Fila de carpas iluminadas en la noche"}
+      ]
+    }
+  ]
+}

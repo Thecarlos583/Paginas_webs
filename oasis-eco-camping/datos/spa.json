@@ -1,0 +1,31 @@
+{
+  "_ayuda": "Servicios del spa (todos de ejemplo). 'nombre_msj' es como sale en el mensaje de WhatsApp.",
+  "servicios": [
+    {"id": "relajante", "nombre": "Masaje relajante", "nombre_msj": "masaje relajante", "minutos": 60, "precio": 25, "ejemplo": true,
+     "texto": "Presión suave y aceite tibio para soltar la semana entera.",
+     "foto": "1544161515-4ab6ce6db874", "alt": "Masaje con aceite en la espalda"},
+    {"id": "descontracturante", "nombre": "Masaje descontracturante", "nombre_msj": "masaje descontracturante", "minutos": 60, "precio": 30, "ejemplo": true,
+     "texto": "Más firme, en cuello, espalda y hombros cargados.",
+     "foto": "1519823551278-64ac92734fb1", "alt": "Manos dando un masaje firme en la espalda"},
+    {"id": "circuito", "nombre": "Circuito de agua", "nombre_msj": "circuito de agua", "minutos": 45, "precio": 15, "ejemplo": true,
+     "texto": "Hidromasaje y agua fría por turnos para despertar el cuerpo.",
+     "foto": "1530053969600-caed2596d242", "alt": "Agua turquesa vista desde abajo de la superficie"},
+    {"id": "aromaterapia", "nombre": "Aromaterapia", "nombre_msj": "aromaterapia", "minutos": 45, "precio": 20, "ejemplo": true,
+     "texto": "Aceites esenciales y respiración lenta, sin apuro.",
+     "foto": "1515377905703-c4788e51af15", "alt": "Gotero con aceite esencial sobre la mano"},
+    {"id": "piedras", "nombre": "Masaje con piedras calientes", "nombre_msj": "masaje con piedras calientes", "minutos": 50, "precio": 28, "ejemplo": true,
+     "texto": "El calor de las piedras afloja lo que las manos no alcanzan.",
+     "foto": "1600334089648-b0d9d3028eb2", "alt": "Piedras calientes sobre la espalda con flores blancas"}
+  ],
+  "plan": {
+    "nombre": "Camping + spa",
+    "texto": "Una noche en carpa equipada y un masaje relajante para cada persona.",
+    "precio": 38,
+    "unidad": "por persona",
+    "ejemplo": true,
+    "mensaje": "Hola Oasis Eco Camping & Spa, quiero el plan Camping + spa (carpa equipada y masaje relajante)",
+    "foto": "1540555700478-4be289fbecef",
+    "alt": "Toallas dobladas, aceite y flores del spa"
+  },
+  "notas": ["Reserve el spa con un día de anticipación.", "Puede usarlo si viene de pasadía o si acampa.", "Un masaje a la vez por cabina, en horario de 10:00 a.m. a 6:00 p.m."]
+}

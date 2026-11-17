@@ -1,0 +1,9 @@
+{
+  "_ayuda": "Lugares reales cerca, solo con fuente. Sin distancias inventadas: la del embalse es la que da la fuente desde el pueblo, no desde Oasis.",
+  "lugares": [
+    {"nombre": "Embalse de Camatagua", "texto": "El gran embalse sobre el río Guárico, a unos 10 km al este del pueblo según la fuente.", "fuente": "Wikipedia", "url": "https://es.wikipedia.org/wiki/San_Sebastián_de_los_Reyes_(Venezuela)", "icono": "agua"},
+    {"nombre": "Río Guárico", "texto": "San Sebastián está en su orilla izquierda; corta entre las galeras de piedra caliza.", "fuente": "Wikipedia", "url": "https://es.wikipedia.org/wiki/San_Sebastián_de_los_Reyes_(Venezuela)", "icono": "rio"},
+    {"nombre": "Santuario de Nuestra Señora de la Caridad", "texto": "Lugar de peregrinación del pueblo, a tres cuadras de la iglesia de San Sebastián Mártir.", "fuente": "Wikipedia", "url": "https://es.wikipedia.org/wiki/San_Sebastián_de_los_Reyes_(Venezuela)", "icono": "iglesia"},
+    {"nombre": "Plaza Bolívar", "texto": "Con la estatua del Libertador hecha por el escultor del pueblo, Andrés Rodríguez Ramírez.", "fuente": "Wikipedia", "url": "https://es.wikipedia.org/wiki/San_Sebastián_de_los_Reyes_(Venezuela)", "icono": "plaza"}
+  ]
+}

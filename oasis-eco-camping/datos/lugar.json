@@ -1,0 +1,22 @@
+{
+  "_ayuda": "Página El lugar. 'zona' y 'clima' son datos reales del pueblo con su fuente; 'terreno' y 'etapas' son de ejemplo hasta que el negocio cuente lo suyo.",
+  "intro": "Un terreno con sombra, grama y cielo abierto en San Sebastián de los Reyes. Hoy es camping con spa; mañana, también glamping.",
+  "terreno": [
+    {"titulo": "Zona de parcelas", "texto": "Espacios planos con grama y árboles para armar su carpa.", "foto": "1533873984035-25970ab07461", "alt": "Carpas en la pradera con neblina al amanecer"},
+    {"titulo": "Carpas equipadas", "texto": "Armadas antes de su llegada, con colchones y lámpara.", "foto": "1504280390367-361c6d9f38f4", "alt": "Vista desde dentro de la carpa hacia los árboles"},
+    {"titulo": "Fogata y parrillera", "texto": "El punto de encuentro cuando cae la tarde.", "foto": "1694946698394-612cb992734b", "alt": "Sillas alrededor de una fogata al atardecer"},
+    {"titulo": "El spa", "texto": "Cabinas de masaje y circuito de agua entre árboles.", "foto": "1620733723572-11c53f73a416", "alt": "Varillas de aroma y velas encendidas"}
+  ],
+  "terreno_ejemplo": true,
+  "zona": [
+    {"dato": "367 m", "texto": "de altura, donde la Serranía del Interior baja hacia los Llanos."},
+    {"dato": "25 a 26 °C", "texto": "de temperatura media durante todo el año."},
+    {"dato": "Mayo a octubre", "texto": "es la temporada de lluvias; junio y julio, los meses más lluviosos."},
+    {"dato": "Río Guárico", "texto": "pasa por el pueblo, entre las galeras de piedra caliza."}
+  ],
+  "zona_fuente": {"nombre": "Wikipedia", "url": "https://es.wikipedia.org/wiki/San_Sebastián_de_los_Reyes_(Venezuela)"},
+  "etapas": [
+    {"cuando": "Hoy", "titulo": "Camping y spa", "texto": "Parcela para su carpa, carpa equipada, pasadía y spa."},
+    {"cuando": "Pronto", "titulo": "Glamping", "texto": "Carpas grandes con cama de verdad. Todavía sin fecha."}
+  ]
+}
