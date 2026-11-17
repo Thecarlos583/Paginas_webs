@@ -1,0 +1,14 @@
+{
+  "_ayuda": "Servicios según disponibilidad. Para quitar uno, borre su bloque. Íconos disponibles: cafe, hoja, coche, wifi, fuego, toalla, montana, campana.",
+  "nota": "Según disponibilidad. Confírmelos por WhatsApp antes de su llegada.",
+  "lista": [
+    {"icono": "cafe", "nombre": "Desayuno"},
+    {"icono": "hoja", "nombre": "Jardín y áreas verdes"},
+    {"icono": "montana", "nombre": "Terraza con vista"},
+    {"icono": "coche", "nombre": "Estacionamiento"},
+    {"icono": "wifi", "nombre": "Internet"},
+    {"icono": "toalla", "nombre": "Lencería y toallas"},
+    {"icono": "campana", "nombre": "Atención personalizada"},
+    {"icono": "fuego", "nombre": "Rincón para la noche"}
+  ]
+}

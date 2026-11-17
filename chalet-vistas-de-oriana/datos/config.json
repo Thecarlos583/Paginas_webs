@@ -1,0 +1,87 @@
+{
+  "_ayuda": "Datos del chalet. Un campo vacío \"\" no se muestra. Las fotos de Unsplash son de referencia: cámbielas por rutas como \"fotos/portada.webp\" cuando lleguen las del chalet.",
+  "nombre": "Chalet Vistas de Oriana",
+  "whatsapp": "580000000000",
+  "whatsapp_visible": "+58 000 0000000",
+  "mensaje_whatsapp": "Hola Chalet Vistas de Oriana, quiero información para hospedarme",
+  "instagram": "",
+  "ubicacion": "",
+  "ubicacion_maps": "",
+  "logo": "img/logo-marcador.svg",
+  "foto_portada": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4",
+  "video_portada": "",
+  "momentos": [
+    {
+      "titulo": "Amanecer",
+      "texto": "La neblina se levanta y la montaña aparece de a poco.",
+      "foto": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05",
+      "alt": "Montañas verdes con neblina al amanecer"
+    },
+    {
+      "titulo": "Jardín",
+      "texto": "Un paseo corto entre flores antes del café.",
+      "foto": "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae",
+      "alt": "Camino de tierra entre arbustos con flores rosadas"
+    },
+    {
+      "titulo": "Desayuno",
+      "texto": "La mesa servida frente al verde, sin apuro.",
+      "foto": "https://images.unsplash.com/photo-1771217022632-4de64c7af397",
+      "alt": "Desayuno sobre una terraza de madera frente al bosque"
+    },
+    {
+      "titulo": "Terraza",
+      "texto": "Sillas al aire libre para ver caer la tarde.",
+      "foto": "https://images.unsplash.com/photo-1694946698394-612cb992734b",
+      "alt": "Sillas alrededor de una fogata en el jardín al atardecer"
+    },
+    {
+      "titulo": "Noche",
+      "texto": "Cielo despejado y silencio de montaña.",
+      "foto": "https://images.unsplash.com/photo-1519681393784-d120267933ba",
+      "alt": "Cielo estrellado sobre una montaña nevada"
+    }
+  ],
+  "galeria": [
+    {
+      "foto": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4",
+      "alt": "Montañas sobre un mar de nubes al amanecer"
+    },
+    {
+      "foto": "https://images.unsplash.com/photo-1615874959474-d609969a20ed",
+      "alt": "Habitación clara con cojines naranja y plantas"
+    },
+    {
+      "foto": "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae",
+      "alt": "Camino entre flores en el jardín"
+    },
+    {
+      "foto": "https://images.unsplash.com/photo-1611892440504-42a792e24d32",
+      "alt": "Habitación de madera con vista al jardín"
+    },
+    {
+      "foto": "https://images.unsplash.com/photo-1771217022632-4de64c7af397",
+      "alt": "Desayuno en una terraza frente al bosque"
+    },
+    {
+      "foto": "https://images.unsplash.com/photo-1590490360182-c33d57733427",
+      "alt": "Habitación con sofá, cortinas largas y lámparas cálidas"
+    },
+    {
+      "foto": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b",
+      "alt": "Valle con pinos y montañas al fondo"
+    },
+    {
+      "foto": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b",
+      "alt": "Habitación con ventanales y luz de la tarde"
+    },
+    {
+      "foto": "https://images.unsplash.com/photo-1504754524776-8f4f37790ca0",
+      "alt": "Mesa de desayuno con frutas, huevos y jugos"
+    },
+    {
+      "foto": "https://images.unsplash.com/photo-1519681393784-d120267933ba",
+      "alt": "Cielo estrellado sobre la montaña"
+    }
+  ]
+}

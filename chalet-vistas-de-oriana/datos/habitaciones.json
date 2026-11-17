@@ -1,0 +1,50 @@
+[
+  {
+    "id": "suite-ave-del-paraiso",
+    "ejemplo": true,
+    "nombre": "Suite Ave del Paraíso",
+    "linea": "La más amplia, con detalles en naranja y verde como la flor que le da nombre.",
+    "descripcion": "Luz de mañana, plantas y colores cálidos para descansar sin reloj.",
+    "personas": "",
+    "cama": "",
+    "vista": "",
+    "incluye": [],
+    "fotos": [
+      {"foto": "https://images.unsplash.com/photo-1615874959474-d609969a20ed", "alt": "Habitación clara con cojines naranja y plantas"},
+      {"foto": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85", "alt": "Cama tapizada con cojines y lámparas de noche"},
+      {"foto": "https://images.unsplash.com/photo-1618773928121-c32242e63f39", "alt": "Cama blanca con lámparas cálidas a los lados"}
+    ]
+  },
+  {
+    "id": "habitacion-espiral",
+    "ejemplo": true,
+    "nombre": "Habitación Espiral",
+    "linea": "Madera cálida y ventanales que dan al verde.",
+    "descripcion": "Tonos de tierra, textiles suaves y una ventana para ver cómo cambia la luz durante el día.",
+    "personas": "",
+    "cama": "",
+    "vista": "",
+    "incluye": [],
+    "fotos": [
+      {"foto": "https://images.unsplash.com/photo-1611892440504-42a792e24d32", "alt": "Habitación de madera con puerta abierta hacia el jardín"},
+      {"foto": "https://images.unsplash.com/photo-1566665797739-1674de7a421a", "alt": "Cama con cobija azul y luces colgantes"},
+      {"foto": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304", "alt": "Habitación amplia con cama grande y ventanal"}
+    ]
+  },
+  {
+    "id": "habitacion-jardin",
+    "ejemplo": true,
+    "nombre": "Habitación Jardín",
+    "linea": "Sencilla y luminosa, a pocos pasos de las flores.",
+    "descripcion": "Para quien quiere salir temprano al jardín con un café en la mano y volver a descansar.",
+    "personas": "",
+    "cama": "",
+    "vista": "",
+    "incluye": [],
+    "fotos": [
+      {"foto": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b", "alt": "Habitación con cama blanca, piso de madera y ventanales abiertos"},
+      {"foto": "https://images.unsplash.com/photo-1649083048819-3fcd37423f45", "alt": "Cama con sábanas blancas y lámparas de noche"},
+      {"foto": "https://images.unsplash.com/photo-1519710164239-da123dc03ef4", "alt": "Rincón claro con mesa redonda y plantas"}
+    ]
+  }
+]
