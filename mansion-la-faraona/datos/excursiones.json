@@ -1,0 +1,13 @@
+{
+  "_nota": "Flyer de CamScanner (10-09-2026). Precio por persona, al destino de su preferencia.",
+  "titulo": "Excursiones de fin de semana",
+  "resumen": "Salga desde Faraona a conocer tres destinos de Carabobo. Usted elige el destino.",
+  "precio": 99,
+  "unidad": "por persona, al destino de su preferencia",
+  "flyer": "flyer-excursiones",
+  "destinos": [
+    {"id": "parque-dunas", "nombre": "Parque Dunas", "texto": "Parque acuático con toboganes y piscinas, para un día de familia."},
+    {"id": "campo-carabobo", "nombre": "Campo Carabobo", "texto": "El campo de la Batalla de Carabobo, con su arco y su paseo monumental."},
+    {"id": "las-trincheras", "nombre": "Aguas Termales Las Trincheras", "texto": "Las aguas termales de Las Trincheras, para un baño caliente entre montañas."}
+  ]
+}

@@ -1,0 +1,96 @@
+{
+ "preguntas": [
+  {
+   "p": "¿Los precios están en dólares?",
+   "r": "Los precios están en REF y no incluyen IVA. La forma de pago se la confirmamos por WhatsApp."
+  },
+  {
+   "p": "¿Cuánto pagan los niños?",
+   "r": "Los niños de 3 a 8 años pagan el 50 % del plan del adulto. En el plan de Semana Santa el catálogo lo indica de 4 a 8 años."
+  },
+  {
+   "p": "¿A qué hora es el Full Day?",
+   "r": "De 9:00 a. m. a 5:00 p. m. El Full Night es de 6:00 p. m. a 12:00 a. m."
+  },
+  {
+   "p": "¿A qué hora es la entrada y la salida del hospedaje?",
+   "r": "Entrada a partir de las 2:00 p. m. y salida antes de las 12:00 m. En los planes de temporada, entrada 10:00 a. m. y salida 4:00 p. m."
+  },
+  {
+   "p": "¿Puedo llevar mi comida o mis bebidas?",
+   "r": "No se permite entrar comidas ni bebidas sin la autorización de la empresa. El Full Day Oro incluye un descorche gratis de una botella de 0,75 L por grupo familiar, y hay tarifas de descorche para lo demás."
+  },
+  {
+   "p": "¿Las tarifas valen en temporada?",
+   "r": "Las tarifas normales no aplican en Navidad, Año Nuevo, Carnaval, Semana Santa, fiestas patrias ni feriados. Para esas fechas están los planes de temporada."
+  },
+  {
+   "p": "¿Hay descuento entre semana?",
+   "r": "Sí: de domingo a jueves, 10 % de descuento en el plan de hospedaje con comidas."
+  },
+  {
+   "p": "¿El salón viene con la habitación?",
+   "r": "No. Los salones no están incluidos en el precio de las habitaciones; tienen su propia tarifa por persona. Los invitados de un evento tienen descuento especial en las habitaciones."
+  },
+  {
+   "p": "¿Puedo pagar por partes?",
+   "r": "Sí, con las facilidades de pago: usted elige la fecha y el servicio, le congelamos el precio y abona en los plazos que le queden cómodos, durante 12 meses."
+  },
+  {
+   "p": "¿Hace falta reservar?",
+   "r": "Sí. Todos los planes son con previa reservación y los cupos son limitados. Escríbanos por WhatsApp con la fecha y el número de personas."
+  },
+  {
+   "p": "¿Hay wifi y luz si se va la electricidad?",
+   "r": "Sí: zona wifi y planta eléctrica propia, además de pozo de agua."
+  },
+  {
+   "p": "¿Dónde quedan?",
+   "r": "En el sector Barrera Norte, Fincas de Sabana del Medio, municipio Libertador, estado Carabobo, a 15 minutos de Valencia."
+  }
+ ],
+ "reglamento": [
+  {
+   "t": "Visitas y conducta",
+   "i": [
+    "Las visitas se coordinan con la administración.",
+    "No se permite la entrada en estado de embriaguez, con más personas de las acordadas, con animales ni sin identificación.",
+    "Se prohíbe el porte de armas.",
+    "La empresa se reserva el derecho de admisión."
+   ]
+  },
+  {
+   "t": "Instalaciones",
+   "i": [
+    "Use las instalaciones con responsabilidad: los daños corren por cuenta del huésped.",
+    "Estacionamiento gratis en las áreas indicadas.",
+    "No se permite vender comida ni bebidas dentro de la casa.",
+    "En la piscina: solo traje de baño, sin comida, bebidas ni envases de vidrio. Horario de 9:00 a. m. a 5:00 p. m."
+   ]
+  },
+  {
+   "t": "Comedor",
+   "i": [
+    "Se entra con camisa y calzado.",
+    "Desayuno de 8:00 a 10:00 a. m. y almuerzo de 12:00 m. a 2:00 p. m., salvo acuerdo previo.",
+    "Las dietas especiales requieren indicación médica escrita."
+   ]
+  },
+  {
+   "t": "Habitaciones",
+   "i": [
+    "No se fuma en las habitaciones ni en los salones.",
+    "No se permiten cocinillas, parrilleras, cafeteras ni tostadoras en las habitaciones.",
+    "Los afiches se cuelgan con estambre o hilo, nunca con pegamento.",
+    "La pérdida de la llave o del control del aire acondicionado tiene un cargo adicional."
+   ]
+  },
+  {
+   "t": "Salones y cambios",
+   "i": [
+    "El horario de los salones es el del contrato.",
+    "La administración puede ajustar estas normas avisando con anticipación."
+   ]
+  }
+ ]
+}

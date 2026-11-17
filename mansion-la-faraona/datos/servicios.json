@@ -1,0 +1,145 @@
+{
+ "_nota": "CATÁLOGO págs. 20 y 21; web actual (Servicios). Precios en REF, no incluyen IVA.",
+ "menu": [
+  {
+   "nombre": "Parrilla",
+   "detalle": "Carne, yuca y ensalada rallada",
+   "precio": 15
+  },
+  {
+   "nombre": "Pollo a la plancha",
+   "detalle": "Milanesa de pollo, papas al vapor y ensalada mixta",
+   "precio": 12
+  },
+  {
+   "nombre": "Ración de 5 tequeños",
+   "detalle": "Con salsa tártara",
+   "precio": 5
+  },
+  {
+   "nombre": "Ración de 5 empanaditas de pollo",
+   "detalle": "Con salsa tártara",
+   "precio": 5
+  },
+  {
+   "nombre": "Hamburguesa",
+   "detalle": "",
+   "precio": 8
+  },
+  {
+   "nombre": "Perro caliente",
+   "detalle": "",
+   "precio": 2
+  }
+ ],
+ "bebidas": [
+  {
+   "nombre": "Whisky 12 años, botella",
+   "detalle": "Con hielo, 1 soda y 1 agua",
+   "precio": 60
+  },
+  {
+   "nombre": "Ron, botella",
+   "detalle": "Con hielo y 1 L de refresco",
+   "precio": 40
+  },
+  {
+   "nombre": "Vino tinto, botella",
+   "detalle": "",
+   "precio": 25
+  },
+  {
+   "nombre": "Refresco o papelón con limón",
+   "detalle": "",
+   "precio": 2
+  },
+  {
+   "nombre": "Cerveza pequeña",
+   "detalle": "",
+   "precio": 1.5
+  }
+ ],
+ "descorche": [
+  {
+   "nombre": "Whisky 12 años",
+   "detalle": "Botella de 0,75 L, con hielo, 1 soda y 1 agua",
+   "precio": 15
+  },
+  {
+   "nombre": "Ron",
+   "detalle": "Botella de 0,75 L, con hielo y refresco",
+   "precio": 15
+  },
+  {
+   "nombre": "Vino tinto",
+   "detalle": "Botella de 0,75 L",
+   "precio": 10
+  },
+  {
+   "nombre": "Cerveza de lata",
+   "detalle": "",
+   "precio": 2
+  }
+ ],
+ "brigada": [
+  {
+   "nombre": "Director general",
+   "precio": 50,
+   "regla": "Uno por evento: es el responsable del evento."
+  },
+  {
+   "nombre": "Cocinero",
+   "precio": 50,
+   "regla": "Uno por cada 150 personas."
+  },
+  {
+   "nombre": "Asistente de cocina",
+   "precio": 20,
+   "regla": "Uno por cada cocinero."
+  },
+  {
+   "nombre": "Mantenimiento",
+   "precio": 20,
+   "regla": "Uno por evento, por área."
+  },
+  {
+   "nombre": "Mesonero",
+   "precio": 40,
+   "regla": "Uno por cada 20 personas."
+  },
+  {
+   "nombre": "Ayudante de mesonero",
+   "precio": 20,
+   "regla": "Uno por cada 30 personas."
+  },
+  {
+   "nombre": "Vigilante",
+   "precio": 20,
+   "regla": "En todos los eventos; la cantidad según el evento."
+  }
+ ],
+ "brigada_nota": "Horario de servicio de 7 a 8 horas. La comida del personal corre por cuenta del cliente.",
+ "otros": [
+  {
+   "id": "transporte",
+   "nombre": "Transporte",
+   "texto": "Traslados calificados y seguros para su grupo."
+  },
+  {
+   "id": "catering",
+   "nombre": "Catering",
+   "texto": "Servicio de comida a su medida, con personal calificado."
+  },
+  {
+   "id": "festejo",
+   "nombre": "Festejo",
+   "texto": "Sonido, montaje y animación para su celebración."
+  },
+  {
+   "id": "excursiones",
+   "nombre": "Excursiones",
+   "texto": "Salidas de fin de semana a Parque Dunas, Campo Carabobo y Las Trincheras.",
+   "enlace": "temporadas.html#excursiones"
+  }
+ ]
+}

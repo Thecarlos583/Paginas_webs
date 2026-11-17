@@ -1,0 +1,221 @@
+{
+ "categorias": {
+  "piscinas": "Piscinas",
+  "eventos": "Eventos",
+  "habitaciones": "Habitaciones",
+  "comida": "Comida",
+  "instalaciones": "Instalaciones"
+ },
+ "items": [
+  {
+   "id": "aerea-hd",
+   "cat": "instalaciones",
+   "alt": "Vista aérea del complejo con la piscina semiolímpica y los techos rojos"
+  },
+  {
+   "id": "v:portada-pc",
+   "cat": "piscinas",
+   "alt": "Video de la piscina semiolímpica con sus tumbonas"
+  },
+  {
+   "id": "piscina-cascada",
+   "cat": "piscinas",
+   "alt": "Piscina con barra cascada entre palmeras"
+  },
+  {
+   "id": "evento-toldo-1",
+   "cat": "eventos",
+   "alt": "Montaje de evento bajo toldo junto a la piscina"
+  },
+  {
+   "id": "habitacion-c",
+   "cat": "habitaciones",
+   "alt": "Habitación matrimonial con cubrecama naranja"
+  },
+  {
+   "id": "parrilla",
+   "cat": "comida",
+   "alt": "Parrilla de leña"
+  },
+  {
+   "id": "v:dia-parrilla",
+   "cat": "comida",
+   "alt": "Video de la parrilla con fuego"
+  },
+  {
+   "id": "piscina-semiolimpica",
+   "cat": "piscinas",
+   "alt": "Piscina semiolímpica rodeada de jardines"
+  },
+  {
+   "id": "salon-principal",
+   "cat": "eventos",
+   "alt": "Salón principal con piso claro y arcos"
+  },
+  {
+   "id": "v:salon-lujo",
+   "cat": "eventos",
+   "alt": "Video del salón de lujo montado para un evento"
+  },
+  {
+   "id": "habitacion-b",
+   "cat": "habitaciones",
+   "alt": "Habitación con dos camas y ventana"
+  },
+  {
+   "id": "tasca-barra",
+   "cat": "comida",
+   "alt": "Barra de la tasca"
+  },
+  {
+   "id": "inflables-piscina",
+   "cat": "piscinas",
+   "alt": "Inflables de unicornio en la piscina"
+  },
+  {
+   "id": "evento-toldo-2",
+   "cat": "eventos",
+   "alt": "Mesas vestidas para un evento al aire libre"
+  },
+  {
+   "id": "toro-mecanico",
+   "cat": "instalaciones",
+   "alt": "Toro mecánico sobre colchón inflable"
+  },
+  {
+   "id": "v:hab-cuadruples",
+   "cat": "habitaciones",
+   "alt": "Video de la habitación cuádruple"
+  },
+  {
+   "id": "aerea-piscinas",
+   "cat": "instalaciones",
+   "alt": "Vista aérea de las dos piscinas"
+  },
+  {
+   "id": "caney-restaurante",
+   "cat": "comida",
+   "alt": "Caney restaurante con mesas"
+  },
+  {
+   "id": "evento-toldo-3",
+   "cat": "eventos",
+   "alt": "Toldo blanco montado junto a la piscina"
+  },
+  {
+   "id": "piscina-burbujas",
+   "cat": "piscinas",
+   "alt": "Piscina con burbujas y rodillos inflables"
+  },
+  {
+   "id": "habitacion-a",
+   "cat": "habitaciones",
+   "alt": "Habitación con dos camas"
+  },
+  {
+   "id": "pasapalos",
+   "cat": "comida",
+   "alt": "Mesa de pasapalos"
+  },
+  {
+   "id": "jardin-evento",
+   "cat": "eventos",
+   "alt": "Evento con toldos sobre el jardín"
+  },
+  {
+   "id": "tobogan",
+   "cat": "instalaciones",
+   "alt": "Tobogán inflable junto a la piscina"
+  },
+  {
+   "id": "v:tasca-video",
+   "cat": "comida",
+   "alt": "Video de la tasca con pared de piedra"
+  },
+  {
+   "id": "piscina-inflables",
+   "cat": "piscinas",
+   "alt": "Vista aérea de la piscina con inflables y toldos"
+  },
+  {
+   "id": "dormitorio",
+   "cat": "habitaciones",
+   "alt": "Dormitorio con literas para grupos"
+  },
+  {
+   "id": "salon-montaje",
+   "cat": "eventos",
+   "alt": "Salón con mesas vestidas en verde"
+  },
+  {
+   "id": "flamboyan",
+   "cat": "instalaciones",
+   "alt": "Flamboyán en flor"
+  },
+  {
+   "id": "tasca-sala",
+   "cat": "comida",
+   "alt": "Sala de la tasca con muebles y arcos de ladrillo"
+  },
+  {
+   "id": "piscina-grupo",
+   "cat": "piscinas",
+   "alt": "Grupo en la piscina durante un Full Day"
+  },
+  {
+   "id": "evento-toldo-4",
+   "cat": "eventos",
+   "alt": "Evento bajo toldo con vista a la piscina"
+  },
+  {
+   "id": "v:recorrido-habitacion",
+   "cat": "habitaciones",
+   "alt": "Video de una habitación con dos camas"
+  },
+  {
+   "id": "sala-pool",
+   "cat": "instalaciones",
+   "alt": "Sala con mesa de pool"
+  },
+  {
+   "id": "v:cancha",
+   "cat": "instalaciones",
+   "alt": "Video de la cancha techada"
+  },
+  {
+   "id": "jardin-arbol",
+   "cat": "instalaciones",
+   "alt": "Jardín con árbol y piscina al fondo"
+  },
+  {
+   "id": "terraza-montaje",
+   "cat": "eventos",
+   "alt": "Terraza montada para una cena al atardecer"
+  },
+  {
+   "id": "piscina-pequena",
+   "cat": "piscinas",
+   "alt": "Piscina pequeña rodeada de vegetación"
+  },
+  {
+   "id": "techo-madera",
+   "cat": "instalaciones",
+   "alt": "Espacio techado con vigas de madera y mesas"
+  },
+  {
+   "id": "salon-lucrecia",
+   "cat": "eventos",
+   "alt": "Salón Lucrecia montado para una charla"
+  },
+  {
+   "id": "aerea-habitaciones",
+   "cat": "instalaciones",
+   "alt": "Vista aérea de las habitaciones entre jardines"
+  },
+  {
+   "id": "v:piscina-cascada-video",
+   "cat": "piscinas",
+   "alt": "Video de la piscina con barra cascada"
+  }
+ ]
+}

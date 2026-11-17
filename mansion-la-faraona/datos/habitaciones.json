@@ -1,0 +1,67 @@
+{
+  "_nota": "Tarifas por noche del CATÁLOGO (pág. 3: tarifa individual; pág. 6: todo incluido 3D/2N; págs. 4 y 5: grupos y alquiler).",
+  "planes_comida": [
+    {"id": "solo", "nombre": "Solo habitación", "corto": "Solo habitación"},
+    {"id": "desayuno", "nombre": "Con desayuno", "corto": "Desayuno"},
+    {"id": "cena-desayuno", "nombre": "Con cena y desayuno", "corto": "Cena y desayuno"},
+    {"id": "tres-comidas", "nombre": "Con cena, desayuno y almuerzo", "corto": "Las tres comidas"}
+  ],
+  "comun": ["Agua caliente", "Aire acondicionado con su control", "TV por cable", "Wifi", "Planta eléctrica", "Piscinas, sauna y canchas incluidas"],
+  "horario": "Entrada a partir de las 2:00 p. m. · salida antes de las 12:00 m.",
+  "descuento": "De domingo a jueves, 10 % de descuento en el plan de hospedaje con comidas.",
+  "habitaciones": [
+    {
+      "id": "matrimonial",
+      "nombre": "Matrimonial o doble",
+      "articulo": "la habitación",
+      "capacidad": 2,
+      "capacidad_texto": "Para 2 personas",
+      "descripcion": "Cama matrimonial o dos camas, para una pareja o dos amigos. Cerca de las piscinas y los jardines.",
+      "tarifas": {"solo": 55, "desayuno": 75, "cena-desayuno": 98, "tres-comidas": 128},
+      "todo_incluido": 300,
+      "fotos": ["habitacion-c", "habitacion-a", "aerea-habitaciones", "jardin-arbol"],
+      "video": "hab-dobles",
+      "video_texto": true
+    },
+    {
+      "id": "triple",
+      "nombre": "Triple",
+      "articulo": "la habitación",
+      "capacidad": 3,
+      "capacidad_texto": "Para 3 personas",
+      "descripcion": "Tres camas para una familia pequeña o un grupo de amigos.",
+      "tarifas": {"solo": 68, "desayuno": 98, "cena-desayuno": 131, "tres-comidas": 176},
+      "todo_incluido": 412,
+      "fotos": ["habitacion-a", "habitacion-b", "aerea-habitaciones", "piscina-semiolimpica"],
+      "video": "hab-triples",
+      "video_texto": true
+    },
+    {
+      "id": "cuadruple",
+      "nombre": "Cuádruple",
+      "articulo": "la habitación",
+      "capacidad": 4,
+      "capacidad_texto": "Para 4 personas",
+      "descripcion": "La de la familia completa: espacio para cuatro, con baño y aire acondicionado.",
+      "tarifas": {"solo": 80, "desayuno": 120, "cena-desayuno": 165, "tres-comidas": 225},
+      "todo_incluido": 520,
+      "fotos": ["habitacion-b", "habitacion-a", "habitacion-c", "piscina-jardin"],
+      "video": "hab-cuadruples",
+      "video_texto": true
+    },
+    {
+      "id": "dormitorio",
+      "nombre": "Dormitorio para 34 personas",
+      "articulo": "el dormitorio",
+      "capacidad": 34,
+      "capacidad_texto": "34 personas cada uno · hay 2",
+      "descripcion": "Dos dormitorios con aire acondicionado y baños múltiples, pensados para campamentos y grupos grandes.",
+      "solo_grupos": true,
+      "tarifas_grupo": {"desayuno": 595, "cena-desayuno": 978, "tres-comidas": 1403},
+      "alquiler": 697,
+      "fotos": ["dormitorio", "aerea-hd", "tobogan-ninos", "piscina-familias"],
+      "video": "hab-multiples",
+      "video_texto": true
+    }
+  ]
+}

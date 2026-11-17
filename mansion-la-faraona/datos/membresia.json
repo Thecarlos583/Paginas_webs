@@ -1,0 +1,35 @@
+{
+ "_nota": "CATÁLOGO págs. 12 a 14.",
+ "precio": 450,
+ "unidad": "pago anual, sin cargo mensual por mantenimiento",
+ "vigencia": "12 meses",
+ "que_es": "Un programa de suscripción anual: con un solo pago, su empresa o asociación obtiene descuentos en los espacios y servicios de Mansión La Faraona durante 12 meses, con la tarifa congelada.",
+ "para_quien": [
+  "Empresas",
+  "Asociaciones",
+  "Agencias de viajes",
+  "Corporaciones",
+  "Sociedades civiles"
+ ],
+ "para_que": "Planificar la recreación, el descanso y el turismo social de su gente, previstos en la LOPCYMAT, y organizar sus propias actividades: Full Day, hospedaje, quince años, bodas, retiros familiares y espirituales, congresos, talleres, aniversarios y lanzamientos de productos.",
+ "descuento_50": [
+  "Entrada y uso de instalaciones: piscinas, cancha de usos múltiples techada, cancha de bolas criollas, sauna, parque infantil, área de juegos y áreas verdes",
+  "Habitaciones en distintos tipos de ocupación",
+  "Espacios: salones, terraza, caney, jardín y tasca"
+ ],
+ "descuento_10": [
+  "Alimentos y bebidas",
+  "Todos los eventos que planifica Mansión La Faraona: plan todo incluido, Full Day, eventos, servicios especiales y promociones"
+ ],
+ "obsequio": "1 noche de alojamiento con desayuno para 2 personas, más 36 pases a las instalaciones, válidos durante la membresía (12 meses).",
+ "facilidades": {
+  "titulo": "Facilidades de pago",
+  "texto": "Un sistema de abonos para todos los servicios y eventos, válido por 12 meses.",
+  "pasos": [
+   "Elija la fecha y los servicios que desea.",
+   "Le congelamos el precio.",
+   "Programe sus abonos en los plazos que le sean más cómodos.",
+   "Al completar el valor, disfrute su servicio o evento sin preocupaciones."
+  ]
+ }
+}

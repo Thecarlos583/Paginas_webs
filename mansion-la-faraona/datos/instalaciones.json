@@ -1,0 +1,219 @@
+{
+ "_nota": "Capacidades: CATÁLOGO pág. 9 (salones) y 10; PRESENTACIÓN pág. 5 cuando el catálogo no la trae. Diferencias anotadas en 'fuente'.",
+ "espacios": [
+  {
+   "id": "piscina-semiolimpica",
+   "nombre": "Piscina semiolímpica",
+   "grupo": "piscinas",
+   "capacidad": "",
+   "para": "Nadar de verdad, con carriles, y tomar sol en las tumbonas.",
+   "foto": "piscina-semiolimpica",
+   "video": "dia-piscina",
+   "video_texto": false
+  },
+  {
+   "id": "piscina-cascada",
+   "nombre": "Piscina con barra cascada",
+   "grupo": "piscinas",
+   "capacidad": "",
+   "para": "La piscina del ambiente: barra con cascada, inflables y música.",
+   "foto": "piscina-cascada",
+   "video": "piscina-cascada-video",
+   "video_texto": true
+  },
+  {
+   "id": "terraza",
+   "nombre": "Terraza frente a la piscina",
+   "grupo": "eventos",
+   "capacidad": "Cap. 350 personas",
+   "para": "Fiestas al aire libre y montajes con toldos junto al agua.",
+   "foto": "terraza-montaje",
+   "fuente": "Catálogo: 350. Presentación: 400."
+  },
+  {
+   "id": "salon-principal",
+   "nombre": "Salón principal de lujo",
+   "grupo": "eventos",
+   "capacidad": "Cap. 250 personas",
+   "para": "Bodas, 15 años y congresos, con aire acondicionado.",
+   "foto": "salon-principal",
+   "video": "salon-lujo",
+   "video_texto": true,
+   "fuente": "Catálogo pág. 9: 250. Catálogo pág. 10: 300. Presentación: 200."
+  },
+  {
+   "id": "salon-lucrecia",
+   "nombre": "Salón Lucrecia",
+   "grupo": "eventos",
+   "capacidad": "Cap. 100 personas",
+   "para": "Talleres y reuniones, con pantalla de 2,4 m, sonido y video beam.",
+   "foto": "salon-lucrecia",
+   "video": "salon-corporativo",
+   "video_texto": true
+  },
+  {
+   "id": "caney",
+   "nombre": "Caney restaurante",
+   "grupo": "comida",
+   "capacidad": "Cap. 50 personas",
+   "para": "Desayunos, almuerzos y celebraciones pequeñas bajo techo de palma.",
+   "foto": "caney-restaurante"
+  },
+  {
+   "id": "tasca",
+   "nombre": "Tasca con cantina",
+   "grupo": "comida",
+   "capacidad": "Para 100 personas",
+   "para": "Pared de piedra, aire acondicionado, karaoke y la música de la noche.",
+   "foto": "tasca-barra",
+   "video": "tasca-video",
+   "video_texto": true
+  },
+  {
+   "id": "parrilla",
+   "nombre": "Parrilla",
+   "grupo": "comida",
+   "capacidad": "",
+   "para": "La parrilla de leña de los almuerzos del Full Day.",
+   "foto": "parrilla",
+   "video": "dia-parrilla",
+   "video_texto": false
+  },
+  {
+   "id": "jardin",
+   "nombre": "Área jardín",
+   "grupo": "eventos",
+   "capacidad": "Cap. 250 personas",
+   "para": "Bodas y eventos con toldos sobre la grama, entre árboles.",
+   "foto": "jardin-evento"
+  },
+  {
+   "id": "cancha",
+   "nombre": "Cancha de usos múltiples techada",
+   "grupo": "deporte",
+   "capacidad": "",
+   "para": "Fútbol sala, básquet y voleibol, a la sombra.",
+   "foto": "v:cancha",
+   "video": "cancha",
+   "video_texto": true
+  },
+  {
+   "id": "bolas-criollas",
+   "nombre": "Cancha de bolas criollas",
+   "grupo": "deporte",
+   "capacidad": "",
+   "para": "El juego de siempre para la tarde en familia.",
+   "foto": ""
+  },
+  {
+   "id": "sauna",
+   "nombre": "Sauna",
+   "grupo": "deporte",
+   "capacidad": "",
+   "para": "Un rato de vapor entre piscina y piscina.",
+   "foto": ""
+  },
+  {
+   "id": "juegos",
+   "nombre": "Pool, futbolito, dominó y ping pong",
+   "grupo": "deporte",
+   "capacidad": "",
+   "para": "Juegos de mesa para cuando baja el sol.",
+   "foto": "sala-pool"
+  },
+  {
+   "id": "recreativos",
+   "nombre": "Toro mecánico, pared de escalar e inflables",
+   "grupo": "ninos",
+   "capacidad": "",
+   "para": "Los equipos recreativos que piden los niños (y los grandes).",
+   "foto": "toro-mecanico"
+  },
+  {
+   "id": "parque-infantil",
+   "nombre": "Parque infantil y gimnasio al aire libre",
+   "grupo": "ninos",
+   "capacidad": "",
+   "para": "Columpios, toboganes y aparatos para ejercitarse al aire libre.",
+   "foto": "tobogan-ninos"
+  },
+  {
+   "id": "habitaciones",
+   "nombre": "20 habitaciones",
+   "grupo": "hospedaje",
+   "capacidad": "De 2 hasta 12 personas",
+   "para": "Se acondicionan para 2, 4, 6, 8 y hasta 12 personas. Capacidad tipo campamento de 300 a 400 personas.",
+   "foto": "aerea-habitaciones",
+   "video": "recorrido-habitacion",
+   "video_texto": false,
+   "enlace": "hospedaje.html"
+  },
+  {
+   "id": "dormitorios",
+   "nombre": "2 dormitorios",
+   "grupo": "hospedaje",
+   "capacidad": "34 personas cada uno",
+   "para": "Con aire acondicionado y baños múltiples, para campamentos.",
+   "foto": "dormitorio",
+   "enlace": "habitacion-dormitorio.html",
+   "fuente": "Presentación: capacidad 70 personas entre los dos."
+  }
+ ],
+ "servicios_base": [
+  "Sonido profesional y karaoke",
+  "Equipos audiovisuales",
+  "Wifi",
+  "Planta eléctrica",
+  "Pozo de agua a 80 m",
+  "Seguridad privada",
+  "Servicio médico",
+  "6 salas de baños comunes",
+  "Estacionamiento amplio"
+ ],
+ "grupos": {
+  "piscinas": "Piscinas",
+  "eventos": "Salones y espacios",
+  "comida": "Comer y beber",
+  "deporte": "Deporte y juegos",
+  "ninos": "Para los niños",
+  "hospedaje": "Dormir"
+ },
+ "mapa": [
+  {
+   "id": "cancha",
+   "x": 27,
+   "y": 43,
+   "nombre": "Cancha techada"
+  },
+  {
+   "id": "habitaciones",
+   "x": 16,
+   "y": 53,
+   "nombre": "Habitaciones"
+  },
+  {
+   "id": "piscina-semiolimpica",
+   "x": 50,
+   "y": 62,
+   "nombre": "Piscina semiolímpica"
+  },
+  {
+   "id": "terraza",
+   "x": 76,
+   "y": 64,
+   "nombre": "Terraza"
+  },
+  {
+   "id": "jardin",
+   "x": 72,
+   "y": 83,
+   "nombre": "Jardín"
+  },
+  {
+   "id": "piscina-cascada",
+   "x": 33,
+   "y": 89,
+   "nombre": "Piscina con barra cascada"
+  }
+ ]
+}

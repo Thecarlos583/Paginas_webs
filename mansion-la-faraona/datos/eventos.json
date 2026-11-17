@@ -1,0 +1,92 @@
+{
+  "_nota": "CATÁLOGO págs. 7 a 11 y PRESENTACIÓN págs. 9 a 11.",
+  "sociales": ["Cumpleaños", "Bodas", "15 años", "Bautizos", "Comuniones", "Aniversarios", "Reencuentros familiares o religiosos", "Campamentos religiosos"],
+  "full_day_tematicos": ["Día de los Enamorados", "Día de la Madre y del Padre", "Día del Trabajador", "Día del Niño", "Día de la Raza", "Full Day temático"],
+  "corporativos": ["Talleres", "Presentaciones de productos o servicios", "Ruedas de prensa", "Giras de presentación", "Aniversarios y celebraciones de empresa", "Eventos deportivos", "Integración de equipos y responsabilidad social", "Ferias y exposiciones", "Juntas de accionistas", "Fiesta de fin de año", "Convenciones", "Incentivos para empleados", "Programación anual de recreación exigida por la LOPCYMAT"],
+  "planes": [
+    {
+      "id": "bodas-15-anos",
+      "grupo": "sociales",
+      "nombre": "Plan de bodas y 15 años",
+      "articulo": "el",
+      "resumen": "Todo listo para 60 invitados en el salón principal con aire acondicionado.",
+      "horario": "7 horas de evento",
+      "incluye": ["Salón principal con aire acondicionado", "Festejo: mesas y sillas", "Menú principal: strogonoff de pollo con puré y ensalada César", "Pasapalos variados (600)", "Refrescos: 12 de 2 litros", "Descorche de 8 botellas de vino espumante", "Descorche de 12 botellas de whisky o ron de 0,75 L", "DJ con sonido", "1 habitación matrimonial por una noche, con desayunos", "Personal: chef, mesoneros, ayudantes, mantenimiento, portero, vigilantes y coordinador"],
+      "desde": 3500,
+      "unidad": "para 60 personas",
+      "tabla": {"columnas": ["Precio"], "filas": [["Paquete para 60 personas", 3500]]},
+      "condiciones": ["Nuestros precios no incluyen el IVA.", "Si requiere otros servicios, o más o menos invitados, consúltenos."],
+      "foto": "salon-montaje",
+      "fotos": ["salon-montaje", "salon-principal", "evento-toldo-1", "terraza-montaje"],
+      "video": "salon-lujo",
+      "video_texto": true,
+      "cotizar": "evento"
+    },
+    {
+      "id": "promocion-salon",
+      "grupo": "corporativos",
+      "nombre": "Promoción salón para talleres y eventos corporativos",
+      "articulo": "la",
+      "resumen": "El Salón Lucrecia con pantalla grande, comidas y logística para 25 a 50 participantes.",
+      "horario": "8:00 a. m. a 4:00 p. m.",
+      "incluye": ["Salón Lucrecia", "Pantalla grande de 2,4 m", "Sonido y video beam de alta resolución", "Uso de instalaciones", "Desayuno, almuerzo con postre y jugos", "2 refrigerios: dulces y salados", "Hidratación permanente: café, agua y té", "Servicio de personal", "Organización y logística", "Planta eléctrica"],
+      "desde": 65,
+      "unidad": "por participante",
+      "tabla": {"columnas": ["Precio"], "filas": [["Por participante (25 a 50 personas)", 65]]},
+      "condiciones": ["Capacidad de 25 a 50 personas.", "Previa reservación.", "Nuestros precios no incluyen el IVA."],
+      "foto": "salon-lucrecia",
+      "fotos": ["salon-lucrecia", "salon-arcos", "caney-restaurante", "jardin-piscina"],
+      "video": "salon-corporativo",
+      "video_texto": true,
+      "cotizar": "evento"
+    },
+    {
+      "id": "campamentos",
+      "grupo": "campamentos",
+      "nombre": "Campamentos vacacionales y corporativos",
+      "articulo": "los",
+      "resumen": "Planes de 3 días y 2 noches o semanales, con pernocta, para niños y adolescentes de 7 a 17 años.",
+      "horario": "Temporada julio, agosto y septiembre de 2026",
+      "incluye": ["Alimentación balanceada servida en horas reglamentarias: desayunos, almuerzos, meriendas y cenas", "Hidratación permanente (agua y hielo)", "20 habitaciones que se acondicionan para 6, 8, 10 y 12 personas", "2 dormitorios con aire acondicionado y baños múltiples, de 34 personas cada uno", "Mesas de pool, futbolito y ping pong", "Toro mecánico, pared de escalar, colchones inflables y juegos de mesa", "Salón de lujo y equipos audiovisuales con sonido profesional", "Equipos de ejercicio al aire libre", "Piscina con barra cascada y piscina semiolímpica", "Caney restaurante y servicio médico", "Cancha de usos múltiples techada", "Planta eléctrica y pozo a 80 m", "Seguridad privada, zona wifi y áreas verdes", "Personal: director, coordinador, cocinero, ayudantes de cocina, vigilantes, aseadores, camareras, operadores, portero y salvavidas"],
+      "desde": 399,
+      "unidad": "por persona, sin programa de recreación",
+      "tabla": {"columnas": ["Precio"], "filas": [["Desde, por persona (sin programa de recreación)", 399]]},
+      "condiciones": ["Para niños y adolescentes desde 7 hasta 17 años.", "Previa reservación.", "No incluye IVA."],
+      "foto": "tobogan-ninos",
+      "fotos": ["tobogan-ninos", "dormitorio", "toro-mecanico", "piscina-familias"],
+      "video": "cancha",
+      "video_texto": true,
+      "cotizar": "campamento"
+    },
+    {
+      "id": "dia-de-campo",
+      "grupo": "campamentos",
+      "nombre": "Día de campo corporativo",
+      "articulo": "el",
+      "resumen": "Un día de campamento de 9 a 5 con almuerzo, merienda e instalaciones, para niños de 7 a 17 años.",
+      "horario": "9:00 a. m. a 5:00 p. m. · temporada julio, agosto y septiembre de 2026",
+      "incluye": ["Instalaciones", "Almuerzo", "Merienda", "Hidratación", "Personal", "Piscina con barra cascada y piscina semiolímpica", "Cancha de usos múltiples techada y parque infantil", "Parque de cuerdas, pared de escalar y toro mecánico", "Mesas de pool y futbolito, colchones inflables y sonido"],
+      "desde": 35,
+      "unidad": "por persona, sin programa de recreación",
+      "tabla": {"columnas": ["Precio"], "filas": [["Por persona (sin programa de recreación)", 35]]},
+      "condiciones": ["Para niños entre los 7 y 17 años.", "Tarifa sujeta a cambio sin previo aviso.", "Previa reservación.", "No incluye IVA."],
+      "foto": "piscina-familias",
+      "fotos": ["piscina-familias", "tobogan", "toro-mecanico", "jardin-piscina"],
+      "video": "dia-piscina",
+      "cotizar": "campamento"
+    }
+  ],
+  "salones": {
+    "_nota": "CATÁLOGO pág. 9. Precio por persona; en todos los casos las horas son continuas.",
+    "filas": [
+      {"espacio": "Salón Principal", "capacidad": 250, "condicion": "Mínimo 50 personas, 8 horas", "nota": "No incluye equipos audiovisuales, sillas ni mesas", "precio": 7.5},
+      {"espacio": "Salón Principal", "capacidad": 250, "condicion": "Mínimo 50 personas, 4 horas", "nota": "No incluye equipos audiovisuales, sillas ni mesas", "precio": 5},
+      {"espacio": "Salón Lucrecia", "capacidad": 100, "condicion": "Mínimo 25 personas, 8 horas", "nota": "Incluye equipos audiovisuales y muebles", "precio": 12.5},
+      {"espacio": "Salón Lucrecia", "capacidad": 100, "condicion": "Mínimo 25 personas, 4 horas", "nota": "Incluye equipos audiovisuales y muebles", "precio": 10},
+      {"espacio": "Caney", "capacidad": 50, "condicion": "Mínimo 25 personas, 8 horas", "nota": "Incluye sillas y mesas", "precio": 6},
+      {"espacio": "Terraza piscina", "capacidad": 350, "condicion": "Mínimo 50 personas, 8 horas", "nota": "No incluye sillas, mesas ni toldos", "precio": 3.75},
+      {"espacio": "Área jardín", "capacidad": 250, "condicion": "Mínimo 50 personas, 8 horas", "nota": "No incluye sillas, mesas ni toldos", "precio": 3.75}
+    ],
+    "notas": ["En todos los casos las horas son continuas.", "Descuento especial para los invitados en la tarifa de las habitaciones."]
+  }
+}
