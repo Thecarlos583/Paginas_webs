@@ -36,7 +36,7 @@ button { font: inherit; color: inherit; }
 .saltar { position: absolute; left: 12px; top: -60px; z-index: 100; background: var(--hoja); color: #fff; padding: 10px 14px; border-radius: 8px; }
 .saltar:focus { top: 12px; }
 .ico { width: 20px; height: 20px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
-.emoji { font-style: normal; font-size: .62em; vertical-align: .12em; margin-right: .1em; }
+.emoji { font-style: normal; margin-right: .2em; }
 .envoltura { width: 100%; max-width: 1180px; margin: 0 auto; padding: 0 20px; }
 body.con-modal { overflow: hidden; }
 
