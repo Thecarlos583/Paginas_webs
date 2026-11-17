@@ -629,3 +629,138 @@ fieldset.campo { border: 0; padding: 0; margin: 0 0 16px; min-width: 0; }
   .lamina-v.volteada .lamina-frente { visibility: hidden; }
   .progreso-trazo { transition: none; }
 }
+
+/* =====================================================================
+   Prompt 39 nuevo: precios de ejemplo, filtros, comparador, fin de semana,
+   políticas en pestañas, mini armador del inicio
+   ===================================================================== */
+.lamina-foto { position: relative; }
+.etiqueta-ejemplo {
+  display: inline-block; padding: 3px 9px; border-radius: 999px; vertical-align: middle;
+  background: rgba(251, 247, 239, .94); color: var(--dorado-t); border: 1px solid rgba(184, 147, 90, .7);
+  font: 600 .7rem/1.3 var(--sans); letter-spacing: .08em; text-transform: uppercase;
+}
+.lamina-foto .etiqueta-ejemplo { position: absolute; top: 12px; left: 12px; }
+.precio { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 6px; margin-top: 14px; color: var(--hoja); }
+.precio strong { font: italic 400 1.7rem/1 var(--serif); color: var(--hoja); }
+.precio span { color: var(--suave); font-size: .9rem; }
+.precio small { flex-basis: 100%; color: var(--suave); font-size: .76rem; }
+.precio .precio-consulte { color: var(--hoja); font-weight: 600; font-size: .95rem; }
+.precio-grande strong { font-size: 2.3rem; }
+.lamina-botones .chip-comparar { min-height: 40px; padding: 0 14px; font-size: .85rem; }
+
+/* Franja horizontal de habitaciones (inicio y "otras") */
+.laminas-franja {
+  display: grid; grid-auto-flow: column; grid-auto-columns: min(82vw, 340px); gap: 18px;
+  overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding: 0 20px; padding: 6px 20px 18px;
+  scrollbar-width: thin; scrollbar-color: var(--dorado) transparent; overscroll-behavior-x: contain;
+}
+.laminas-franja .lamina { scroll-snap-align: start; }
+@media (min-width: 900px) {
+  .laminas-franja { grid-template-columns: none; grid-auto-columns: minmax(300px, 1fr); max-width: 1180px; margin: 0 auto; }
+}
+
+/* Filtros con panel en el teléfono */
+.filtros-cabeza { margin-bottom: 14px; }
+.filtros-panel { display: grid; gap: 14px; margin-bottom: 26px; padding: 16px; border: 1px solid rgba(184, 147, 90, .6); border-radius: 14px; background: var(--marfil); }
+.js .filtros-panel { display: none; }
+.js .filtros-panel.abierto { display: grid; }
+.filtros { display: grid; gap: 14px; }
+.filtro-grupo { border: 0; margin: 0; padding: 0; min-width: 0; }
+.filtro-grupo legend { padding: 0; margin-bottom: 8px; font: 600 .8rem/1 var(--sans); letter-spacing: .06em; color: var(--dorado-t); }
+.filtro-grupo .chips-fila { display: flex; flex-wrap: wrap; gap: 8px; }
+.filtros-panel [data-limpiar-filtros] { justify-self: start; color: var(--hoja); font-size: .92rem; text-decoration: underline; text-underline-offset: 4px; }
+.sin-resultados { padding: 28px 20px; text-align: center; border: 1px dashed var(--dorado); border-radius: 14px; background: var(--marfil); }
+.sin-resultados[hidden] { display: none; }
+.sin-resultados p { max-width: 46ch; margin: 0 auto; color: var(--texto); }
+@media (min-width: 900px) {
+  .filtros-abrir { display: none; }
+  .js .filtros-panel, .filtros-panel { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 18px; }
+  .filtros { display: flex; flex-wrap: wrap; gap: 18px 34px; }
+}
+
+/* Comparador: tarjetas que se deslizan en el teléfono, columnas en computadora */
+.comparador { background: var(--marfil); }
+.comparar-pista {
+  display: grid; grid-auto-flow: column; grid-auto-columns: min(84vw, 360px); gap: 16px;
+  overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding: 0 20px; padding: 4px 20px 18px;
+  scrollbar-width: thin; scrollbar-color: var(--dorado) transparent;
+}
+.comparar-col { scroll-snap-align: start; display: flex; flex-direction: column; background: #fff; border: 1px solid rgba(184, 147, 90, .7); border-radius: 14px; overflow: hidden; }
+.comparar-foto img { width: 100%; aspect-ratio: 16 / 10; height: auto; object-fit: cover; }
+.comparar-cuerpo { padding: 16px 18px 18px; display: flex; flex-direction: column; flex: 1; }
+.comparar-cuerpo h3 { margin-top: 6px; font: italic 400 1.5rem/1.15 var(--serif); }
+.comparar-cuerpo dl { margin: 14px 0 0; }
+.comparar-cuerpo dl > div { display: grid; grid-template-columns: 7.2em 1fr; gap: 10px; padding: 9px 0; border-top: 1px solid rgba(184, 147, 90, .35); }
+.comparar-cuerpo dt { font: 600 .8rem/1.4 var(--sans); color: var(--dorado-t); }
+.comparar-cuerpo dd { margin: 0; font-size: .92rem; color: var(--texto); }
+.comparar-cuerpo dd ul { margin: 0; padding-left: 1.1em; }
+.comparar-cuerpo dd small { display: block; color: var(--suave); font-size: .74rem; }
+.comparar-cuerpo dd strong { font: italic 400 1.3rem/1 var(--serif); color: var(--hoja); }
+.comparar-botones { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; margin-top: auto; padding-top: 16px; }
+.comparar-falta { align-self: center; max-width: 30ch; padding: 20px; color: var(--suave); }
+@media (min-width: 900px) {
+  .comparar-pista { grid-auto-flow: row; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-columns: auto; max-width: 1180px; margin: 0 auto; overflow: visible; }
+}
+
+/* Estimado del armador */
+.estimado { margin: 0 0 14px; padding: 12px 14px; border-radius: 10px; background: rgba(184, 147, 90, .12); border: 1px solid rgba(184, 147, 90, .45); color: var(--texto); font-size: .92rem; }
+.estimado[hidden] { display: none; }
+.estimado strong { color: var(--hoja); }
+.estimado small { display: block; margin-top: 2px; color: var(--suave); font-size: .76rem; }
+.eleccion-precio { display: block; margin-top: 3px; font-style: normal; font-weight: 500; font-size: .78rem; color: var(--dorado-t); }
+
+/* Qué incluye, en detalle */
+.incluye { background: var(--arena); }
+.incluye-lista { gap: 22px 28px; }
+@media (min-width: 600px) { .incluye-lista { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1000px) { .confirmamos-lista.incluye-lista { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+
+/* Plan de fin de semana: un sol cruza la línea */
+.finde { background: var(--marfil); }
+.finde-cuerpo { position: relative; padding-left: 34px; }
+.finde-linea { --vertical: 1; position: absolute; left: 10px; top: 6px; bottom: 6px; width: 1px; background: linear-gradient(var(--dorado), rgba(184, 147, 90, .25)); }
+.finde-sol {
+  position: absolute; left: -9px; top: -9px; width: 19px; height: 19px; border-radius: 50%;
+  background: radial-gradient(circle, #F4C77B 0 45%, #E39A4C 46% 100%); box-shadow: 0 0 0 5px rgba(227, 154, 76, .18), 0 0 18px rgba(227, 154, 76, .55);
+  will-change: transform;
+}
+.finde-dias { list-style: none; margin: 0; padding: 0; display: grid; gap: 30px; }
+.finde-nombre { font: 600 .8rem/1 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--dorado-t); }
+.finde-dia h3 { margin-top: 8px; font: italic 400 1.7rem/1.15 var(--serif); transition: color .4s; }
+.finde-dia ol { list-style: none; margin: 14px 0 0; padding: 0; display: grid; gap: 10px; }
+.finde-dia ol li { display: grid; grid-template-columns: 5.6em 1fr; gap: 10px; padding-top: 10px; border-top: 1px solid rgba(184, 147, 90, .35); }
+.finde-dia time { font-weight: 600; font-size: .86rem; color: var(--hoja); }
+.finde-dia span { color: var(--texto); font-size: .95rem; }
+.finde-dia.activo h3 { color: var(--naranja-h); }
+@media (min-width: 900px) {
+  .finde-cuerpo { padding: 40px 0 0; }
+  .finde-linea { --vertical: 0; left: 0; right: 0; top: 9px; bottom: auto; width: auto; height: 1px; background: linear-gradient(90deg, var(--dorado), rgba(184, 147, 90, .25)); }
+  .finde-dias { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; }
+}
+
+/* Políticas en pestañas */
+.politicas { background: var(--arena); }
+.politicas-caja { border: 1px solid rgba(184, 147, 90, .6); border-radius: 16px; background: var(--marfil); padding: 10px 18px 22px; }
+.politicas-caja .pestanas { margin: 0 -8px 8px; }
+.politicas-caja .pestana { display: inline-flex; align-items: center; gap: 8px; }
+.politica h3 { font: italic 400 1.45rem/1.2 var(--serif); margin: 8px 0 10px; }
+.politica ul { margin: 0; padding-left: 1.15em; display: grid; gap: 8px; }
+.js .politica h3 { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.politica[hidden] { display: none; }
+
+/* Mini armador del inicio y de contacto */
+.mini-reserva { background: var(--bosque); color: #fff; }
+.mini-reserva h2 { color: #fff; font: italic 400 clamp(2rem, 7vw, 3rem)/1.1 var(--serif); }
+.mini-reserva-texto p { margin-top: 10px; color: rgba(255, 255, 255, .86); }
+.mini-reserva-dentro { display: grid; gap: 22px; }
+.mini-reserva-form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; padding: 18px; border-radius: 16px; background: var(--marfil); color: var(--texto); }
+.mini-reserva-form .campo { margin: 0; }
+.mini-reserva-form .boton { grid-column: 1 / -1; }
+@media (min-width: 900px) {
+  .mini-reserva-dentro { grid-template-columns: minmax(0, .8fr) minmax(0, 1.4fr); align-items: center; }
+  .mini-reserva-form { grid-template-columns: 1.2fr 1.2fr .8fr .8fr auto; align-items: end; }
+  .mini-reserva-form .boton { grid-column: auto; }
+}
+.enlace-wa { display: inline-flex; align-items: center; gap: 6px; margin-top: 8px; min-height: 44px; }
+@media (prefers-reduced-motion: reduce) { .finde-sol { display: none; } }

@@ -70,5 +70,67 @@
       "foto": "https://images.unsplash.com/photo-1618773928121-c32242e63f39",
       "alt": "Cama blanca con lámparas cálidas"
     }
-  ]
+  ],
+  "finde": {
+    "dias": [
+      {
+        "dia": "Viernes",
+        "lema": "Llegar y soltar",
+        "planes": [
+          [
+            "3:00 p. m.",
+            "Llegada, café de bienvenida y a acomodarse"
+          ],
+          [
+            "5:30 p. m.",
+            "Atardecer en la terraza"
+          ],
+          [
+            "8:00 p. m.",
+            "Noche tranquila junto a la fogata"
+          ]
+        ]
+      },
+      {
+        "dia": "Sábado",
+        "lema": "Un día sin reloj",
+        "planes": [
+          [
+            "6:30 a. m.",
+            "Amanecer con la neblina levantándose"
+          ],
+          [
+            "8:30 a. m.",
+            "Desayuno largo en el comedor"
+          ],
+          [
+            "11:00 a. m.",
+            "Paseo por el jardín y lectura"
+          ],
+          [
+            "7:30 p. m.",
+            "Cena especial si celebra algo"
+          ]
+        ]
+      },
+      {
+        "dia": "Domingo",
+        "lema": "Despedirse sin prisa",
+        "planes": [
+          [
+            "7:00 a. m.",
+            "Último amanecer desde la cama"
+          ],
+          [
+            "9:00 a. m.",
+            "Desayuno en la terraza"
+          ],
+          [
+            "12:00 m.",
+            "Salida, con ganas de volver"
+          ]
+        ]
+      }
+    ]
+  }
 }

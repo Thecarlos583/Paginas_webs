@@ -50,7 +50,18 @@ Vista previa para la Sra. Irene (prospecto). Lujo botánico y sereno, sacado del
 - Galería "Lo que se vive aquí": avanza de lado al bajar en computadora; en el teléfono, deslizamiento normal.
 - Con prefers-reduced-motion: todo quieto y la espiral ya dibujada.
 
-## Web completa (8 páginas)
-Inicio, El chalet (recorrido con foto fija en arco), Habitaciones (filtro por "ideal para" y láminas que se voltean), ficha por habitación (carrusel y mini armador), Experiencias (arme su itinerario por días), Galería (filtros, visor y presentación con acercamiento lento), Reservar (elección visual de habitación, motivo, hora, vista previa del mensaje y espiral que se completa) y Contacto (mensaje armado por WhatsApp).
+## Web completa (7 páginas + 4 fichas = 11 HTML)
+| Página | Lo que lleva |
+|---|---|
+| `index.html` | Portada "La vista se abre" (espiral + video Pexels con póster), bienvenida en 3 ideas, franja horizontal con las 4 habitaciones y precio, lo que se vive (galería horizontal fijada en PC), adelanto de experiencias, lo que incluye, galería, preguntas, mini armador "¿Ya tiene fecha?" que lleva a Reservar, ubicación por confirmar |
+| `habitaciones.html` | Filtros por personas, tipo y vista guardados en la URL (panel "Filtrar" en el teléfono), contador, mensaje si no hay resultados, láminas que se voltean con precio de ejemplo, comparador de 2 o 3 (tarjetas que se deslizan en el teléfono) |
+| `habitacion-<id>.html` (4) | Carrusel con visor (deslizar, flechas, Esc), datos, precio, comodidades, mini armador con estimado, WhatsApp armado, otras habitaciones |
+| `el-chalet.html` | Recorrido por 6 espacios con foto fija, qué incluye en detalle, un día en el chalet |
+| `experiencias.html` | Arme su itinerario por días + plan de fin de semana (viernes a domingo) con un sol que cruza la línea. Sin "Cerca del chalet" porque no hay zona |
+| `galeria.html` | Mosaico con filtros (habitaciones, espacios, momentos), visor y presentación |
+| `reservar.html` | Armador completo con estimado y espiral de progreso, políticas en pestañas, preguntas en acordeón |
+| `contacto.html` | WhatsApp, ubicación por confirmar, horario de atención de ejemplo, formulario a WhatsApp, preguntas, mini armador |
+
+Frente a Cotomaya (15 HTML, la mayoría catálogos de 18 propiedades, viajes y yates): Oriana tiene un solo producto (4 habitaciones), así que iguala sus herramientas (catálogo con filtros en URL, fichas, visor, armador, reservar con políticas) y suma comparador, estimado, itinerario y plan de fin de semana.
 - Teléfono y tableta: barra de abajo (Inicio, Habitaciones, Reservar al centro, Galería, Más) y hoja "Más" con todas las páginas. Menú arriba desde 1100 px.
 - Transiciones entre páginas con View Transitions (el menú queda fijo).

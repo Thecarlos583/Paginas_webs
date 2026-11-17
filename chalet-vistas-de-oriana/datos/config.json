@@ -1,5 +1,5 @@
 {
-  "_ayuda": "Datos del chalet. Un campo vacío \"\" no se muestra. Las fotos de Unsplash son de referencia: cámbielas por rutas como \"fotos/portada.webp\" cuando lleguen las del chalet.",
+  "_ayuda": "Datos del chalet. Un campo vacío \"\" no se muestra. Las fotos de Unsplash son de referencia: cámbielas por rutas como \"fotos/portada.webp\" cuando lleguen las del chalet. Con mostrar_precios en false, los precios cambian a 'Consulte la tarifa'.",
   "nombre": "Chalet Vistas de Oriana",
   "whatsapp": "580000000000",
   "whatsapp_visible": "+58 000 0000000",
@@ -9,7 +9,7 @@
   "ubicacion_maps": "",
   "logo": "img/logo-marcador.svg",
   "foto_portada": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4",
-  "video_portada": "",
+  "video_portada": "https://videos.pexels.com/video-files/6989020/6989020-sd_960_540_25fps.mp4",
   "momentos": [
     {
       "titulo": "Amanecer",
@@ -42,92 +42,20 @@
       "alt": "Cielo estrellado sobre una montaña nevada"
     }
   ],
-  "galeria": [
-    {
-      "foto": "https://images.unsplash.com/photo-1615874959474-d609969a20ed",
-      "alt": "Habitación clara con cojines naranja y plantas",
-      "categoria": "habitaciones"
-    },
-    {
-      "foto": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4",
-      "alt": "Montañas sobre un mar de nubes al amanecer",
-      "categoria": "vista"
-    },
-    {
-      "foto": "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae",
-      "alt": "Camino entre flores en el jardín",
-      "categoria": "espacios"
-    },
-    {
-      "foto": "https://images.unsplash.com/photo-1611892440504-42a792e24d32",
-      "alt": "Habitación de madera con vista al jardín",
-      "categoria": "habitaciones"
-    },
-    {
-      "foto": "https://images.unsplash.com/photo-1771217022632-4de64c7af397",
-      "alt": "Desayuno en una terraza frente al bosque",
-      "categoria": "espacios"
-    },
-    {
-      "foto": "https://images.unsplash.com/photo-1590490360182-c33d57733427",
-      "alt": "Habitación con sofá, cortinas largas y lámparas cálidas",
-      "categoria": "habitaciones"
-    },
-    {
-      "foto": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b",
-      "alt": "Valle con pinos y montañas al fondo",
-      "categoria": "vista"
-    },
-    {
-      "foto": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b",
-      "alt": "Habitación con ventanales y luz de la tarde",
-      "categoria": "habitaciones"
-    },
-    {
-      "foto": "https://images.unsplash.com/photo-1504754524776-8f4f37790ca0",
-      "alt": "Mesa de desayuno con frutas, huevos y jugos",
-      "categoria": "espacios"
-    },
-    {
-      "foto": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05",
-      "alt": "Montañas verdes con neblina",
-      "categoria": "vista"
-    },
-    {
-      "foto": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85",
-      "alt": "Cama tapizada con cojines y lámparas de noche",
-      "categoria": "habitaciones"
-    },
-    {
-      "foto": "https://images.unsplash.com/photo-1694946698394-612cb992734b",
-      "alt": "Sillas alrededor de una fogata al atardecer",
-      "categoria": "espacios"
-    },
-    {
-      "foto": "https://images.unsplash.com/photo-1566665797739-1674de7a421a",
-      "alt": "Cama con cobija azul y luces colgantes",
-      "categoria": "habitaciones"
-    },
-    {
-      "foto": "https://images.unsplash.com/photo-1519681393784-d120267933ba",
-      "alt": "Cielo estrellado sobre la montaña",
-      "categoria": "vista"
-    }
-  ],
   "espacios": [
-    {
-      "id": "habitaciones",
-      "titulo": "Las habitaciones",
-      "texto": "Cada una con su carácter: colores cálidos, buena luz y textiles suaves para descansar de verdad.",
-      "foto": "https://images.unsplash.com/photo-1615874959474-d609969a20ed",
-      "alt": "Habitación clara con cojines naranja y plantas"
-    },
     {
       "id": "vista",
       "titulo": "La vista",
-      "texto": "La razón del nombre. Se mira desde la ventana, desde la terraza y desde la mesa del desayuno.",
+      "texto": "La razón del nombre. Se mira desde la ventana, la terraza y la mesa del desayuno.",
       "foto": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4",
       "alt": "Montañas sobre un mar de nubes al amanecer"
+    },
+    {
+      "id": "terraza",
+      "titulo": "La terraza",
+      "texto": "Al aire libre, para el desayuno, la lectura o la conversación larga.",
+      "foto": "https://images.unsplash.com/photo-1771217022632-4de64c7af397",
+      "alt": "Desayuno sobre una terraza de madera frente al bosque"
     },
     {
       "id": "jardin",
@@ -137,23 +65,28 @@
       "alt": "Camino de tierra entre arbustos con flores"
     },
     {
-      "id": "terraza",
-      "titulo": "La terraza",
-      "texto": "Un lugar al aire libre para el desayuno, la lectura o la conversación larga.",
-      "foto": "https://images.unsplash.com/photo-1771217022632-4de64c7af397",
-      "alt": "Desayuno sobre una terraza de madera frente al bosque"
+      "id": "salon",
+      "titulo": "El salón",
+      "texto": "Sillones, plantas y buena luz para las tardes de lluvia.",
+      "foto": "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0",
+      "alt": "Salón con sillones, plantas y cuadros"
     },
     {
-      "id": "noche",
-      "titulo": "El rincón de la noche",
-      "texto": "Sillas afuera para ver caer la tarde y quedarse un rato bajo el cielo.",
+      "id": "comedor",
+      "titulo": "El comedor",
+      "texto": "Una mesa larga donde se sirve el desayuno sin apuro.",
+      "foto": "https://images.unsplash.com/photo-1617806118233-18e1de247200",
+      "alt": "Comedor con sillas verdes y plantas"
+    },
+    {
+      "id": "comunes",
+      "titulo": "Áreas comunes",
+      "texto": "Sillas afuera y fogata para ver caer la tarde bajo el cielo.",
       "foto": "https://images.unsplash.com/photo-1694946698394-612cb992734b",
       "alt": "Sillas alrededor de una fogata en el jardín al atardecer"
     }
   ],
-  "categorias_galeria": {
-    "habitaciones": "Habitaciones",
-    "espacios": "Espacios",
-    "vista": "La vista"
-  }
+  "mostrar_precios": true,
+  "moneda": "$",
+  "horario_atencion": "Todos los días, de 8:00 a. m. a 8:00 p. m."
 }

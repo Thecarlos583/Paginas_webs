@@ -1,7 +1,9 @@
 [
-  {"pregunta": "¿Cómo reservo?", "respuesta": "Escríbanos con la habitación, las fechas y cuántas personas vienen. Le confirmamos la disponibilidad. Consúltenos por WhatsApp."},
-  {"pregunta": "¿A qué hora es la entrada y la salida?", "respuesta": "Los horarios se confirman al momento de reservar. Consúltenos por WhatsApp."},
-  {"pregunta": "¿Puedo llevar a mi mascota?", "respuesta": "Cuéntenos qué mascota es y la revisamos con gusto. Consúltenos por WhatsApp."},
-  {"pregunta": "¿Qué formas de pago aceptan?", "respuesta": "Le indicamos las formas de pago disponibles al confirmar su reserva. Consúltenos por WhatsApp."},
-  {"pregunta": "¿Cómo llego al chalet?", "respuesta": "Le enviamos la ubicación exacta y las indicaciones para llegar. Consúltenos por WhatsApp."}
+  {"pregunta": "¿Cómo reservo?", "respuesta": "Arme su consulta en Reservar o escríbanos con la habitación, las fechas y cuántas personas vienen. Le confirmamos la disponibilidad por WhatsApp."},
+  {"pregunta": "¿A qué hora es la entrada y la salida?", "respuesta": "La entrada es desde las 3:00 p. m. y la salida hasta las 12:00 m. Si necesita otro horario, avísenos."},
+  {"pregunta": "¿Puedo llevar a mi mascota?", "respuesta": "Sí, mascotas pequeñas en habitaciones seleccionadas. Avísenos al reservar."},
+  {"pregunta": "¿Qué formas de pago aceptan?", "respuesta": "Pago móvil, Zelle o divisas en efectivo. Para apartar la fecha se abona el 50 %."},
+  {"pregunta": "¿El desayuno está incluido?", "respuesta": "Sí, todas las habitaciones incluyen desayuno para los huéspedes."},
+  {"pregunta": "¿Pueden ayudarme a preparar una sorpresa?", "respuesta": "Con gusto. Cuéntenos qué celebra al reservar y lo organizamos juntos, según disponibilidad."},
+  {"pregunta": "¿Cómo llego al chalet?", "respuesta": "Le enviamos la ubicación exacta y las indicaciones para llegar cuando consulte su fecha."}
 ]

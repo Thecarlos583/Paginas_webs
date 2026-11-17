@@ -1,0 +1,9 @@
+{
+  "_ayuda": "Políticas de ejemplo. Cámbielas por las del chalet. Cada bloque es una pestaña en Reservar.",
+  "lista": [
+    {"id": "horarios", "titulo": "Entrada y salida", "icono": "calendario", "puntos": ["Entrada desde las 3:00 p. m.", "Salida hasta las 12:00 m.", "Si llega antes o se va más tarde, avísenos y lo coordinamos según disponibilidad."]},
+    {"id": "cancelacion", "titulo": "Cancelación", "icono": "girar", "puntos": ["Cambio de fecha sin costo avisando con 7 días de anticipación.", "Con menos de 7 días, el abono queda como crédito para otra fecha.", "Le confirmamos todo por escrito al reservar."]},
+    {"id": "mascotas", "titulo": "Mascotas", "icono": "hoja", "puntos": ["Aceptamos mascotas pequeñas en habitaciones seleccionadas.", "Avísenos al reservar para preparar la habitación.", "En áreas comunes, siempre con correa."]},
+    {"id": "pagos", "titulo": "Formas de pago", "icono": "estrella", "puntos": ["Pago móvil, Zelle o divisas en efectivo.", "Para apartar la fecha se abona el 50 %.", "El resto se paga al llegar."]}
+  ]
+}

@@ -1,14 +1,46 @@
 {
   "_ayuda": "Servicios según disponibilidad. Para quitar uno, borre su bloque. Íconos disponibles: cafe, hoja, coche, wifi, fuego, toalla, montana, campana.",
-  "nota": "Según disponibilidad. Confírmelos por WhatsApp antes de su llegada.",
+  "nota": "Incluido en su estadía, según disponibilidad.",
   "lista": [
-    {"icono": "cafe", "nombre": "Desayuno"},
-    {"icono": "hoja", "nombre": "Jardín y áreas verdes"},
-    {"icono": "montana", "nombre": "Terraza con vista"},
-    {"icono": "coche", "nombre": "Estacionamiento"},
-    {"icono": "wifi", "nombre": "Internet"},
-    {"icono": "toalla", "nombre": "Lencería y toallas"},
-    {"icono": "campana", "nombre": "Atención personalizada"},
-    {"icono": "fuego", "nombre": "Rincón para la noche"}
+    {
+      "icono": "cafe",
+      "nombre": "Desayuno",
+      "detalle": "Servido en el comedor o en la terraza, cada mañana."
+    },
+    {
+      "icono": "hoja",
+      "nombre": "Jardín y áreas verdes",
+      "detalle": "Caminos entre flores para pasear cuando quiera."
+    },
+    {
+      "icono": "montana",
+      "nombre": "Terraza con vista",
+      "detalle": "Sillas y mesas al aire libre frente a la montaña."
+    },
+    {
+      "icono": "coche",
+      "nombre": "Estacionamiento",
+      "detalle": "Dentro del chalet, sin costo adicional."
+    },
+    {
+      "icono": "wifi",
+      "nombre": "Internet",
+      "detalle": "Wifi en las áreas comunes y las habitaciones."
+    },
+    {
+      "icono": "toalla",
+      "nombre": "Lencería y toallas",
+      "detalle": "Sábanas de algodón, cobijas y toallas para cada huésped."
+    },
+    {
+      "icono": "campana",
+      "nombre": "Atención personalizada",
+      "detalle": "Le ayudamos con sorpresas, horarios y recomendaciones."
+    },
+    {
+      "icono": "fuego",
+      "nombre": "Rincón para la noche",
+      "detalle": "Fogata y sillas afuera, según el clima."
+    }
   ]
 }

@@ -8,6 +8,7 @@
   var HORNEAR = params.has("hornear");
   var QUIETO = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
   var ESCRITORIO = window.matchMedia && matchMedia("(min-width: 900px) and (hover: hover)").matches;
+  var FICHA_ID = document.body ? document.body.getAttribute("data-habitacion") || "" : "";
   var D = {};
   try { D = JSON.parse(document.getElementById("datos-chalet").textContent); } catch (err) { D = {}; }
 
@@ -74,18 +75,28 @@
     if (lleno(h.vista)) d.push(ico("vista", "ico ico-violeta") + "<span>" + esc(h.vista) + "</span>");
     return d.length ? '<ul class="datos-hab">' + d.map(function (x) { return "<li>" + x + "</li>"; }).join("") + "</ul>" : "";
   }
-  function urlHab(h) { return "habitacion.html?id=" + encodeURIComponent(h.id); }
+  function urlHab(h) { return "habitacion-" + encodeURIComponent(h.id) + ".html"; }
   function fotoHab(h, k) { return (h.fotos && h.fotos[k || 0]) || { foto: "", alt: "" }; }
+  function verPrecios() { return cfg().mostrar_precios !== false; }
+  function precioNum(h) { var p = h && +h.precio; return verPrecios() && p > 0 ? p : 0; }
+  function dinero(n) { return (cfg().moneda || "$") + String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, "."); }
+  function precioHTML(h, clase) {
+    var p = precioNum(h);
+    if (!p) return '<p class="precio ' + (clase || "") + '"><span class="precio-consulte">💬 Consulte la tarifa</span></p>';
+    return '<p class="precio ' + (clase || "") + '"><strong>' + dinero(p) + "</strong> <span>por noche</span>" +
+      (h.ejemplo ? '<small>Precio de ejemplo</small>' : "") + "</p>";
+  }
+  function etiquetaEjemplo(h) { return h.ejemplo ? '<span class="etiqueta-ejemplo">Ejemplo</span>' : ""; }
   function botonConsultar(h, chico) {
     return '<button class="boton boton-naranja' + (chico ? " boton-chico" : "") + '" type="button" data-cotizar data-habitacion="' + esc(h.id) + '">Consultar disponibilidad</button>';
   }
   function lamina(h, i) {
     var url = urlHab(h);
     return '<article class="lamina">' +
-      '<a class="lamina-foto" href="' + url + '" tabindex="-1" aria-hidden="true"><span class="lamina-mascara">' + img(fotoHab(h), 600, 1.25, "(min-width: 900px) 30vw, 92vw") + "</span></a>" +
-      '<div class="lamina-texto"><p class="lamina-num">Lámina ' + romano(i) + "</p>" +
+      '<a class="lamina-foto" href="' + url + '" tabindex="-1" aria-hidden="true"><span class="lamina-mascara">' + img(fotoHab(h), 600, 1.25, "(min-width: 900px) 30vw, 92vw") + "</span>" + etiquetaEjemplo(h) + "</a>" +
+      '<div class="lamina-texto"><p class="lamina-num">Lámina ' + romano(i) + (lleno(h.tipo) ? " · " + esc(h.tipo) : "") + "</p>" +
       '<h3 class="lamina-nombre"><a href="' + url + '">' + esc(h.nombre) + "</a></h3>" +
-      (lleno(h.linea) ? '<p class="lamina-linea">' + esc(h.linea) + "</p>" : "") + datosHab(h) +
+      (lleno(h.linea) ? '<p class="lamina-linea">' + esc(h.linea) + "</p>" : "") + datosHab(h) + precioHTML(h) +
       '<div class="lamina-botones"><a class="enlace" href="' + url + '">Ver habitación</a>' + botonConsultar(h, true) + "</div></div></article>";
   }
   /* Lámina que se voltea: al frente la foto; al dorso la ficha de herbario */
@@ -93,14 +104,16 @@
     var url = urlHab(h), tags = (h.ideal_para || []).filter(lleno);
     var incluye = (h.incluye || []).filter(lleno);
     var mini = (h.fotos || []).slice(0, 3).map(function (f) { return '<span class="dorso-mini">' + img(f, 200, 1, "120px") + "</span>"; }).join("");
-    return '<article class="lamina lamina-v" data-tags="' + esc(tags.join("|")) + '">' +
+    return '<article class="lamina lamina-v" data-id="' + esc(h.id) + '" data-capacidad="' + esc(h.capacidad || "") + '" data-tipo="' + esc(h.tipo || "") + '" data-vista="' + esc(h.vista_tipo || "") + '">' +
       '<div class="lamina-giro">' +
       '<div class="lamina-cara lamina-frente">' +
-      '<a class="lamina-foto" href="' + url + '" tabindex="-1" aria-hidden="true"><span class="lamina-mascara">' + img(fotoHab(h), 600, 1.25, "(min-width: 900px) 30vw, 92vw") + "</span></a>" +
-      '<div class="lamina-texto"><p class="lamina-num">Lámina ' + romano(i) + "</p>" +
+      '<a class="lamina-foto" href="' + url + '" tabindex="-1" aria-hidden="true"><span class="lamina-mascara">' + img(fotoHab(h), 600, 1.25, "(min-width: 900px) 30vw, 92vw") + "</span>" + etiquetaEjemplo(h) + "</a>" +
+      '<div class="lamina-texto"><p class="lamina-num">Lámina ' + romano(i) + (lleno(h.tipo) ? " · " + esc(h.tipo) : "") + "</p>" +
       '<h3 class="lamina-nombre"><a href="' + url + '">' + esc(h.nombre) + "</a></h3>" +
-      (lleno(h.linea) ? '<p class="lamina-linea">' + esc(h.linea) + "</p>" : "") +
-      '<div class="lamina-botones"><button class="enlace enlace-boton" type="button" data-voltear aria-label="Ver al dorso: ' + esc(h.nombre) + '">' + ico("girar") + "Ver al dorso</button>" + botonConsultar(h, true) + "</div></div></div>" +
+      (lleno(h.linea) ? '<p class="lamina-linea">' + esc(h.linea) + "</p>" : "") + datosHab(h) + precioHTML(h) +
+      '<div class="lamina-botones"><a class="boton boton-claro boton-chico" href="' + url + '">Ver habitación</a>' +
+      '<button class="chip-boton chip-comparar" type="button" data-comparar="' + esc(h.id) + '" aria-pressed="false">Comparar</button>' +
+      '<button class="enlace enlace-boton" type="button" data-voltear aria-label="Ver al dorso: ' + esc(h.nombre) + '">' + ico("girar") + "Al dorso</button></div></div></div>" +
       '<div class="lamina-cara lamina-dorso" aria-hidden="true" inert>' +
       '<p class="lamina-num">Lámina ' + romano(i) + ", al dorso</p>" +
       '<h3 class="lamina-nombre">' + esc(h.nombre) + "</h3>" +
@@ -127,17 +140,58 @@
       return '<button class="mosaico-item" type="button" data-visor="' + desde + '" data-i="' + i + '" data-cat="' + esc(g.categoria || "") + '" aria-label="Ver en grande: ' + esc(g.alt) + '">' + img(g, 640, prop, "(min-width: 900px) 33vw, 50vw") + "</button>";
     }).join("");
   }
+  /* ---------- Filtros del catálogo y comparador ---------- */
+  function unicos(habs, campo) {
+    var v = [];
+    habs.forEach(function (h) { if (lleno(h[campo]) && v.indexOf(h[campo]) < 0) v.push(h[campo]); });
+    return v.map(function (x) { return [x, x]; });
+  }
+  var FILTROS = [
+    { clave: "capacidad", titulo: "Personas", valores: function () { return [["2", "Hasta 2"], ["3", "3 o más"]]; },
+      cumple: function (l, v) { var c = +l.getAttribute("data-capacidad") || 0; return v === "2" ? c <= 2 : c >= 3; } },
+    { clave: "tipo", titulo: "Tipo", valores: function (h) { return unicos(h, "tipo"); },
+      cumple: function (l, v) { return l.getAttribute("data-tipo") === v; } },
+    { clave: "vista", titulo: "Vista", valores: function (h) { return unicos(h, "vista_tipo"); },
+      cumple: function (l, v) { return l.getAttribute("data-vista") === v; } }
+  ];
+  var comparando = null, comparoUsuario = !!params.get("comparar");
+  function idsComparar(habs) {
+    if (comparando) return comparando;
+    var desdeUrl = (params.get("comparar") || "").split(",").filter(function (id) { return habs.some(function (h) { return h.id === id; }); });
+    comparando = desdeUrl.length ? desdeUrl.slice(0, 3) : habs.slice(0, 2).map(function (h) { return h.id; });
+    return comparando;
+  }
+  function pintarComparador(habs) {
+    var el = $('[data-pinta="comparador"]'); if (!el) return;
+    var ids = idsComparar(habs), elegidas = ids.map(function (id) { return habs.filter(function (h) { return h.id === id; })[0]; }).filter(Boolean);
+    function fila(t, v) { return "<div><dt>" + t + "</dt><dd>" + v + "</dd></div>"; }
+    el.innerHTML = elegidas.map(function (h) {
+      var inc = (h.incluye || []).filter(lleno);
+      return '<article class="comparar-col"><a class="comparar-foto" href="' + urlHab(h) + '" tabindex="-1" aria-hidden="true">' + img(fotoHab(h), 520, 0.62, "(min-width: 900px) 30vw, 80vw") + "</a>" +
+        '<div class="comparar-cuerpo"><p class="lamina-num">' + esc(h.tipo || "") + "</p><h3>" + esc(h.nombre) + "</h3><dl>" +
+        fila("Capacidad", esc(h.personas || "")) + fila("Cama", esc(h.cama || "")) + fila("Vista", esc(h.vista || "")) +
+        fila("Comodidades", inc.length ? "<ul>" + inc.map(function (x) { return "<li>" + esc(x) + "</li>"; }).join("") + "</ul>" : "") +
+        fila("Precio", precioNum(h) ? "<strong>" + dinero(precioNum(h)) + "</strong> por noche" + (h.ejemplo ? "<small>Precio de ejemplo</small>" : "") : "💬 Consulte la tarifa") +
+        '</dl><div class="comparar-botones"><a class="enlace" href="' + urlHab(h) + '">Ver habitación</a>' + botonConsultar(h, true) + "</div></div></article>";
+    }).join("") + (elegidas.length < 2 ? '<p class="comparar-falta">Marque “Comparar” en otra habitación para verlas lado a lado.</p>' : "");
+    $$("[data-comparar]").forEach(function (b) { b.setAttribute("aria-pressed", String(ids.indexOf(b.getAttribute("data-comparar")) > -1)); b.textContent = ids.indexOf(b.getAttribute("data-comparar")) > -1 ? "✓ Comparando" : "Comparar"; });
+    var c = $("[data-comparar-cuenta]"); if (c) c.textContent = elegidas.length + (elegidas.length === 1 ? " habitación elegida" : " habitaciones elegidas") + " (máximo 3)";
+  }
+
   function experiencias() { return ((D.experiencias || {}).lista || []).filter(function (x) { return x && lleno(x.id) && lleno(x.nombre); }); }
 
   function pintarTodo() {
     var habs = habitacionesValidas(), c = cfg();
-    pintar("habitaciones", habs.slice(0, 3).map(lamina).join(""));
+    pintar("habitaciones", habs.map(lamina).join(""));
     pintar("habitaciones-todas", habs.map(laminaVolteo).join(""));
-    var tags = [];
-    habs.forEach(function (h) { (h.ideal_para || []).forEach(function (t) { if (lleno(t) && tags.indexOf(t) < 0) tags.push(t); }); });
-    pintar("filtros", ['<button type="button" class="chip-boton" data-filtro="" aria-pressed="true">Todas</button>'].concat(tags.map(function (t) {
-      return '<button type="button" class="chip-boton" data-filtro="' + esc(t) + '" aria-pressed="false">' + esc(t) + "</button>";
-    })).join(""));
+    pintar("filtros", FILTROS.map(function (g) {
+      var vals = g.valores(habs);
+      return '<fieldset class="filtro-grupo"><legend>' + g.titulo + "</legend><div class=\"chips-fila\">" +
+        ['<button type="button" class="chip-boton" data-filtro="' + g.clave + '" data-valor="" aria-pressed="true">Todas</button>'].concat(vals.map(function (v) {
+          return '<button type="button" class="chip-boton" data-filtro="' + g.clave + '" data-valor="' + esc(v[0]) + '" aria-pressed="false">' + esc(v[1]) + "</button>";
+        })).join("") + "</div></fieldset>";
+    }).join(""));
+    pintarComparador(habs);
 
     pintar("momentos", (c.momentos || []).map(function (m, i) {
       return '<figure class="momento">' + img(m, 720, 1.2, "(min-width: 900px) 34vw, 78vw") +
@@ -150,10 +204,10 @@
       return "<li>" + ico(x.icono || "hoja", "ico ico-serv") + "<span>" + esc(x.nombre) + "</span></li>";
     }).join(""));
 
-    var gal = c.galeria || [];
+    var gal = (D.galeria || {}).fotos || [];
     pintar("galeria-inicio", mosaicoHTML(gal.slice(0, 6), "galeria"));
     pintar("galeria", mosaicoHTML(gal, "galeria"));
-    var cats = c.categorias_galeria || {};
+    var cats = (D.galeria || {}).categorias || {};
     pintar("filtros-galeria", ['<button type="button" class="chip-boton" data-filtro-galeria="" aria-pressed="true">Todas</button>'].concat(Object.keys(cats).map(function (k) {
       return '<button type="button" class="chip-boton" data-filtro-galeria="' + esc(k) + '" aria-pressed="false">' + esc(cats[k]) + "</button>";
     })).join(""));
@@ -188,7 +242,8 @@
 
     pintar("eleccion", habs.map(function (h, i) {
       return '<label class="eleccion-item"><input type="radio" name="habitacion" value="' + esc(h.id) + '"' + (params.get("habitacion") === h.id ? " checked" : "") + ">" +
-        '<span class="eleccion-caja">' + img(fotoHab(h), 300, 0.75, "160px") + '<span class="eleccion-texto"><small>Lámina ' + romano(i) + "</small>" + esc(h.nombre) + "</span></span></label>";
+        '<span class="eleccion-caja">' + img(fotoHab(h), 300, 0.75, "160px") + '<span class="eleccion-texto"><small>Lámina ' + romano(i) + (lleno(h.personas) ? " · " + esc(h.personas) : "") + "</small>" + esc(h.nombre) +
+        (precioNum(h) ? '<em class="eleccion-precio">' + dinero(precioNum(h)) + " la noche" + (h.ejemplo ? " (ejemplo)" : "") + "</em>" : "") + "</span></span></label>";
     }).join("") + '<label class="eleccion-item eleccion-nose"><input type="radio" name="habitacion" value=""' + (params.get("habitacion") ? "" : "") + '><span class="eleccion-caja"><span class="eleccion-icono">' + ico("pregunta") + '</span><span class="eleccion-texto"><small>Sin decidir</small>Todavía no sé</span></span></label>');
 
     pintarFicha(habs);
@@ -209,6 +264,7 @@
       '<label class="campo"><span>Salida</span><input type="date" name="salida" required></label></div>' +
       '<p class="noches" aria-live="polite" data-noches></p>' +
       '<div class="campo-doble">' + cont("adultos", "Adultos", 1, 2) + cont("ninos", "Niños", 0, 0) + "</div>" +
+      '<p class="estimado" aria-live="polite" data-estimado hidden></p>' +
       '<p class="cotizador-error" role="alert" data-error></p>' +
       '<button class="boton boton-naranja boton-ancho" type="submit">' + ico("whatsapp") + "Consultar por WhatsApp</button></form>";
   }
@@ -216,14 +272,9 @@
   function pintarFicha(habs) {
     var ficha = $('[data-pinta="ficha"]');
     if (!ficha) return;
-    var id = params.get("id"), h = null, pos = -1;
+    var id = FICHA_ID, h = null, pos = -1;
     habs.forEach(function (x, i) { if (x.id === id) { h = x; pos = i; } });
-    if (!h) {
-      if (HORNEAR) { ficha.setAttribute("data-hornear", "no"); pintar("otras", habs.map(lamina).join("")); return; }
-      location.replace("habitaciones.html");
-      return;
-    }
-    document.title = h.nombre + " | Chalet Vistas de Oriana";
+    if (!h) { aviso("La habitación \"" + id + "\" ya no está en habitaciones.json."); return; }
     var fotos = (h.fotos || []).filter(function (f) { return f && lleno(f.foto); });
     var incluye = (h.incluye || []).filter(lleno), tags = (h.ideal_para || []).filter(lleno);
     var msg = "Hola Chalet Vistas de Oriana, quiero información de la " + h.nombre + ".";
@@ -239,11 +290,11 @@
       "</div>" +
       '<div class="ficha-texto">' +
       '<nav class="migas" aria-label="Ruta"><a href="habitaciones.html">Habitaciones</a> <span aria-hidden="true">/</span> <span>' + esc(h.nombre) + "</span></nav>" +
-      '<p class="lamina-num">Lámina ' + romano(pos) + "</p>" +
+      '<p class="lamina-num">Lámina ' + romano(pos) + (lleno(h.tipo) ? " · " + esc(h.tipo) : "") + " " + etiquetaEjemplo(h) + "</p>" +
       "<h1>" + esc(h.nombre) + "</h1>" +
       (lleno(h.linea) ? '<p class="ficha-linea">' + esc(h.linea) + "</p>" : "") +
       (lleno(h.descripcion) ? '<p class="ficha-desc">' + esc(h.descripcion) + "</p>" : "") +
-      datosHab(h) +
+      datosHab(h) + precioHTML(h, "precio-grande") +
       (tags.length ? '<p class="dorso-sub">Ideal para</p><ul class="etiquetas">' + tags.map(function (t) { return "<li>" + esc(t) + "</li>"; }).join("") + "</ul>" : "") +
       (incluye.length ? '<h2 class="ficha-sub">Incluye</h2><ul class="ficha-incluye">' + incluye.map(function (x) { return "<li>" + ico("hoja") + esc(x) + "</li>"; }).join("") + "</ul>" : "") +
       camposMini(h) +
@@ -314,6 +365,14 @@
       var n = a && b ? noches(a, b) : 0;
       txtN.textContent = n > 0 ? "🌙 " + n + (n === 1 ? " noche" : " noches") : "";
       err.textContent = "";
+      var est = $("[data-estimado]", form);
+      if (est) {
+        var hab = habitacionesValidas().filter(function (x) { return x.id === valor("habitacion"); })[0], p = precioNum(hab);
+        est.hidden = !verPrecios();
+        est.innerHTML = !p ? "Elija una habitación y sus fechas para ver un estimado." :
+          n > 0 ? "Estimado: <strong>" + dinero(p) + " × " + n + (n === 1 ? " noche" : " noches") + " = " + dinero(p * n) + "</strong><small>Estimado con precios de ejemplo</small>" :
+          "Desde <strong>" + dinero(p) + "</strong> la noche. Elija sus fechas para ver el estimado.<small>Estimado con precios de ejemplo</small>";
+      }
       var vm = $("[data-vista-mensaje]", form);
       if (vm) { var m = mensaje(); vm.textContent = m || "Complete las fechas para ver su consulta."; vm.classList.toggle("lista", !!m); }
       progreso();
@@ -350,6 +409,16 @@
       abrirWA(mensaje());
     });
     form.__actualizar = actualizar;
+    /* Reservar llega con los datos del mini armador del inicio (?llegada=&salida=&adultos=&ninos=) */
+    if (form.hasAttribute("data-completo")) {
+      var pl = fecha(params.get("llegada")), ps = fecha(params.get("salida"));
+      if (pl && pl >= hoy) lleg.value = iso(pl);
+      if (ps && pl && ps > pl) sal.value = iso(ps);
+      [["adultos", 1], ["ninos", 0]].forEach(function (k) {
+        var v = parseInt(params.get(k[0]), 10), o = $('[data-contador="' + k[0] + '"] output', form);
+        if (o && !isNaN(v)) o.textContent = Math.max(k[1], Math.min(20, v));
+      });
+    }
     actualizar();
   }
 
@@ -401,14 +470,46 @@
   }
 
   /* ---------- Filtros (habitaciones y galería) y láminas que se voltean ---------- */
+  var estadoFiltros = {};
+  function aplicarFiltros() {
+    var n = 0, total = 0;
+    $$("[data-filtro]").forEach(function (b) { b.setAttribute("aria-pressed", String((estadoFiltros[b.getAttribute("data-filtro")] || "") === b.getAttribute("data-valor"))); });
+    $$(".lamina-v").forEach(function (l) {
+      total++;
+      var ok = FILTROS.every(function (g) { var v = estadoFiltros[g.clave]; return !v || g.cumple(l, v); });
+      l.hidden = !ok; if (ok) n++;
+    });
+    var activos = FILTROS.filter(function (g) { return estadoFiltros[g.clave]; }).length;
+    var c = $("[data-cuenta]"); if (c) c.textContent = n + (n === 1 ? " habitación" : " habitaciones") + (activos ? " de " + total : "");
+    var vacio = $("[data-vacio]"); if (vacio) vacio.hidden = n > 0;
+    var bf = $("[data-abrir-filtros] span"); if (bf) bf.textContent = activos ? "Filtrar (" + activos + ")" : "Filtrar";
+  }
+  function guardarURL() {
+    if (!window.history || !history.replaceState) return;
+    var q = new URLSearchParams(location.search);
+    FILTROS.forEach(function (g) { if (estadoFiltros[g.clave]) q.set(g.clave, estadoFiltros[g.clave]); else q.delete(g.clave); });
+    if (comparoUsuario && comparando) q.set("comparar", comparando.join(","));
+    var s = q.toString();
+    try { history.replaceState(null, "", location.pathname + (s ? "?" + s : "") + location.hash); } catch (e) {}
+  }
   function iniciarFiltros() {
+    if ($(".lamina-v")) {
+      FILTROS.forEach(function (g) { var v = params.get(g.clave); if (v && $('[data-filtro="' + g.clave + '"][data-valor="' + v + '"]')) estadoFiltros[g.clave] = v; });
+      aplicarFiltros();
+    }
+    var panel = $("[data-panel-filtros]"), abrirF = $("[data-abrir-filtros]");
+    if (panel && abrirF) abrirF.addEventListener("click", function () {
+      var abierto = panel.classList.toggle("abierto"); abrirF.setAttribute("aria-expanded", String(abierto));
+    });
     document.addEventListener("click", function (ev) {
       var f = ev.target.closest && ev.target.closest("[data-filtro]");
-      if (f) {
-        var t = f.getAttribute("data-filtro"), n = 0;
-        $$("[data-filtro]").forEach(function (b) { b.setAttribute("aria-pressed", String(b === f)); });
-        $$(".lamina-v").forEach(function (l) { var ok = !t || (l.getAttribute("data-tags") || "").split("|").indexOf(t) > -1; l.hidden = !ok; if (ok) n++; });
-        var c = $("[data-cuenta]"); if (c) c.textContent = n + (n === 1 ? " habitación" : " habitaciones") + (t ? " ideales para " + t.toLowerCase() : "");
+      if (f) { estadoFiltros[f.getAttribute("data-filtro")] = f.getAttribute("data-valor"); aplicarFiltros(); guardarURL(); }
+      if (ev.target.closest && ev.target.closest("[data-limpiar-filtros]")) { estadoFiltros = {}; aplicarFiltros(); guardarURL(); }
+      var cmp = ev.target.closest && ev.target.closest("[data-comparar]");
+      if (cmp) {
+        var habs = habitacionesValidas(), ids = idsComparar(habs).slice(), id = cmp.getAttribute("data-comparar"), k = ids.indexOf(id);
+        if (k > -1) ids.splice(k, 1); else { ids.push(id); if (ids.length > 3) ids.shift(); }
+        comparando = ids; comparoUsuario = true; pintarComparador(habs); guardarURL();
       }
       var g = ev.target.closest && ev.target.closest("[data-filtro-galeria]");
       if (g) {
@@ -426,7 +527,61 @@
         setTimeout(function () { var x = $(dado ? ".lamina-dorso .dorso-volver" : ".lamina-frente [data-voltear]", l); if (x) x.focus({ preventScroll: true }); }, QUIETO ? 0 : 350);
       }
     });
-    var c = $("[data-cuenta]"); if (c) c.textContent = $$(".lamina-v").length + " habitaciones";
+  }
+
+  /* ---------- Mini armador del inicio: sin días pasados y la salida después de la llegada ---------- */
+  function iniciarMiniReserva() {
+    $$(".mini-reserva-form").forEach(function (f) {
+      var l = f.elements.llegada, s = f.elements.salida, hoy = hoyCero();
+      l.min = iso(hoy);
+      function ajustar() {
+        var a = fecha(l.value), m = new Date(a || hoy); m.setDate(m.getDate() + 1);
+        s.min = iso(m);
+        if (a && fecha(s.value) && fecha(s.value) <= a) s.value = iso(m);
+      }
+      l.addEventListener("change", ajustar); ajustar();
+    });
+  }
+
+  /* ---------- Pestañas de políticas ---------- */
+  function iniciarPestanas() {
+    $$("[data-pestanas]").forEach(function (grupo) {
+      var tabs = $$('[role="tab"]', grupo);
+      function elegir(t, foco) {
+        tabs.forEach(function (x) {
+          var si = x === t; x.setAttribute("aria-selected", String(si)); x.tabIndex = si ? 0 : -1;
+          var p = document.getElementById(x.getAttribute("aria-controls")); if (p) p.hidden = !si;
+        });
+        if (foco) t.focus();
+      }
+      tabs.forEach(function (t, i) {
+        t.addEventListener("click", function () { elegir(t); });
+        t.addEventListener("keydown", function (ev) {
+          var d = ev.key === "ArrowRight" ? 1 : ev.key === "ArrowLeft" ? -1 : 0;
+          if (d) { ev.preventDefault(); elegir(tabs[(i + d + tabs.length) % tabs.length], true); }
+        });
+      });
+      if (tabs[0]) elegir(tabs[0]);
+    });
+  }
+
+  /* ---------- Plan de fin de semana: el sol cruza la línea al bajar ---------- */
+  function iniciarSol() {
+    var sec = $("[data-finde]"), sol = $("[data-sol]"); if (!sec || !sol || QUIETO) return;
+    var linea = $(".finde-linea", sec), pendiente = false;
+    function mover() {
+      pendiente = false;
+      var r = sec.getBoundingClientRect(), vh = window.innerHeight;
+      var p = Math.max(0, Math.min(1, (vh * 0.75 - r.top) / Math.max(1, r.height)));
+      var vertical = getComputedStyle(linea).getPropertyValue("--vertical").trim() === "1";
+      var largo = vertical ? linea.clientHeight : linea.clientWidth;
+      sol.style.transform = vertical ? "translate3d(0," + (p * largo).toFixed(1) + "px,0)" : "translate3d(" + (p * largo).toFixed(1) + "px,0,0)";
+      var dias = $$(".finde-dia", sec), k = Math.min(dias.length - 1, Math.floor(p * dias.length));
+      dias.forEach(function (d, j) { d.classList.toggle("activo", j === k); });
+    }
+    window.addEventListener("scroll", function () { if (!pendiente) { pendiente = true; requestAnimationFrame(mover); } }, { passive: true });
+    window.addEventListener("resize", mover);
+    mover();
   }
 
   /* ---------- Visor de fotos y presentación ---------- */
@@ -435,7 +590,7 @@
       var items = $$('.mosaico-item[data-visor="galeria"]').filter(function (b) { return !b.hidden; });
       return items.map(function (b) { var im = $("img", b); return { foto: (b.__foto || ""), alt: im ? im.alt : "", el: b }; });
     }
-    var h = habitacionesValidas().filter(function (x) { return x.id === params.get("id"); })[0];
+    var h = habitacionesValidas().filter(function (x) { return x.id === FICHA_ID; })[0];
     return ((h && h.fotos) || []).map(function (f) { return { foto: f.foto, alt: f.alt }; });
   }
   function fotoDeBoton(b) {
@@ -656,7 +811,7 @@
   /* ---------- Datos frescos en línea ---------- */
   function leerJSON() {
     if (!/^https?:/.test(location.protocol) || !window.fetch) return Promise.resolve(false);
-    var nombres = ["config", "habitaciones", "servicios", "preguntas", "experiencias"];
+    var nombres = ["config", "habitaciones", "servicios", "preguntas", "experiencias", "galeria", "politicas"];
     return Promise.all(nombres.map(function (n) {
       return fetch("datos/" + n + ".json", { cache: "no-cache" }).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
         .catch(function (e) { aviso("No se pudo leer datos/" + n + ".json (" + e.message + "). Revise comas, comillas y llaves."); return null; });
@@ -670,13 +825,13 @@
   function interactivos() {
     $$("form[data-armador]").forEach(armador);
     iniciarItinerario(); iniciarRecorrido();
-    var c = $("[data-cuenta]"); if (c && !c.textContent) c.textContent = $$(".lamina-v").length + " habitaciones";
+    if ($(".lamina-v")) aplicarFiltros();
   }
   function arrancar() {
     try { pintarTodo(); } catch (e) { aviso("Error al pintar: " + e.message); }
     raiz.dataset.pintado = "1";
     if (HORNEAR) return;
-    iniciarCotizador(); iniciarMenu(); iniciarFiltros(); iniciarVisor(); iniciarPresentacion(); iniciarContacto();
+    iniciarCotizador(); iniciarMenu(); iniciarFiltros(); iniciarVisor(); iniciarPresentacion(); iniciarContacto(); iniciarPestanas(); iniciarSol(); iniciarMiniReserva();
     interactivos();
     leerJSON().then(function (cambio) {
       if (cambio) { try { pintarTodo(); interactivos(); } catch (e) { aviso("Error al pintar: " + e.message); } }
