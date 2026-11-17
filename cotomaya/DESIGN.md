@@ -4,7 +4,7 @@
 
 Por qué este turquesa: la foto de la clienta es de la versión del 14/11 (petróleo `#0B2F35`) vista en una laptop, donde se ve más clara (entre `#124C5A` y `#1C4C60`). Ese mismo `#0B2F35` es el que en el catálogo se leía como negro, así que la base es el tono que ella ve en su foto: `#134F5D`.
 
-> Logo oficial: insignia redonda (sol dorado con olas coral, "COTOMAYA · TOURISM & SERVICE"). Original sin tocar en `img/logo-cotomaya-original.jpg`; insignia recortada con transparencia en `img/logo-cotomaya.png` / `.webp` (512 px) y `img/logo-cotomaya-160.webp` (menú y pie); favicon con solo el sol y las olas en `img/favicon-32.png`, `favicon-180.png` (iPhone) y `favicon-512.png`. El marcador viejo quedó en `img/descartados/`. En `datos/config.json` el campo `"logo"` apunta a la insignia. Conviene pedirle a la clienta el archivo original con fondo transparente.
+> Logo oficial: insignia redonda (sol dorado con olas coral, "COTOMAYA · TOURISM & SERVICE"). Original sin tocar en `img/logo-cotomaya-original.jpg`; insignia recortada con transparencia en `img/logo-cotomaya.png` / `.webp` (512 px) y `img/logo-cotomaya-160.webp` (menú y pie); favicon con solo el sol y las olas en `img/favicon-32.png`, `favicon-180.png` (iPhone) y `favicon-512.png`. El marcador viejo quedó en `img/descartados/`. En `datos/config.json` el campo `"logo"` apunta a la insignia. Es el definitivo: la clienta no tiene otro archivo (17-11), no se le vuelve a pedir.
 
 ## 1. Colores
 
