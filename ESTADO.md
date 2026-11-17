@@ -39,3 +39,5 @@ El repo **público** con las webs de clientes, las vistas previas para prospecto
 - Sin animaciones que van apareciendo al bajar.
 - El chalet tiene repo y dominio propios (`chaletrancholuis`).
 - Los prompts de cada web están en `agencia-carlos\claude\prompt-*.md`.
+
+- 17-nov: Cotomaya con el WhatsApp 0414-5991961 suspendido por ahora; todo va al 0414-2506516 (ver `whatsapp_suspendido` en `cotomaya/datos/config.json`).
