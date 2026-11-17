@@ -57,7 +57,7 @@ Hojas de palma en línea dorada fina (SVG propio), como las palmas del catálogo
 ## Componentes
 Cabecera verde con insignia · barra de abajo (Inicio, Hospedaje, Planes, Eventos, WhatsApp) · tarjeta de plan (foto o video, horario, íconos de lo que incluye, "desde", Ver plan) · tabla de tarifas que en el teléfono se vuelve tarjetas · medallón · acordeón · pestañas con transición · visor de fotos y videos · hoja del cotizador (abajo en el teléfono, modal en PC) · contador de precio que rueda · mapa aéreo con puntos.
 
-## Páginas (13 principales + 19 fichas de plan + 4 de habitación = 36)
+## Páginas (11 principales + 19 fichas de plan + 4 de habitación = 34)
 | Página | Lleva |
 |---|---|
 | `index.html` | portada con video (horizontal en PC, vertical en el teléfono), buscador rápido, precios de entrada, 6 accesos grandes, reloj de sol "El día en Faraona", instalaciones en galería horizontal, promociones con flyers, quiénes somos, cierre |
@@ -74,4 +74,4 @@ Cabecera verde con insignia · barra de abajo (Inicio, Hospedaje, Planes, Evento
 | `reservar.html` | cotizador completo, condiciones, reglamento y preguntas frecuentes |
 | `contacto.html` | dirección, Cómo llegar, WhatsApp, fijos, correos, redes, RTN y licencia |
 
-**Cotomaya:** 12 páginas visibles (inicio, hospedajes, propiedad, destino, tours, viajes, embarcaciones, galería, reservar, contacto, privacidad, créditos), con las fichas armadas por JavaScript en una sola página `propiedad.html?id=`. **Faraona: 36 archivos HTML con el contenido escrito en cada uno**, más catálogo, comparador, mapa y reloj de sol.
+**Cotomaya:** 12 páginas visibles (inicio, hospedajes, propiedad, destino, tours, viajes, embarcaciones, galería, reservar, contacto, privacidad, créditos), con las fichas armadas por JavaScript en una sola página `propiedad.html?id=`. **Faraona: 34 archivos HTML con el contenido escrito en cada uno**, más catálogo, comparador, mapa y reloj de sol.

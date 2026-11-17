@@ -506,6 +506,7 @@ details.plegado > summary::-webkit-details-marker { display: none; }
 details.plegado > summary svg { width: 20px; height: 20px; transition: transform .3s; flex: none; color: var(--dorado-texto); }
 details.plegado[open] > summary svg { transform: rotate(45deg); }
 details.plegado > div { padding: 0 18px 18px; display: grid; gap: 18px; }
+details:not([open]) > div { display: none; }
 .callouts { display: grid; gap: 12px; }
 @media (min-width: 700px) { .callouts { grid-template-columns: 1fr 1fr; } }
 .callout { display: grid; grid-template-columns: 40px 1fr; gap: 12px; padding: 16px; border-radius: var(--r); background: var(--beige); }
