@@ -1,5 +1,5 @@
 {
-  "_ayuda": "Datos del chalet. Un campo vacío \"\" no se muestra. Las fotos de Unsplash son de referencia: cámbielas por rutas como \"fotos/portada.webp\" cuando lleguen las del chalet. Con mostrar_precios en false, los precios cambian a 'Consulte la tarifa'.",
+  "_ayuda": "Datos del chalet. Un campo vacío \"\" no se muestra. Las fotos de Unsplash son de referencia: cámbielas por rutas como \"fotos/portada.webp\" cuando lleguen las del chalet. Con mostrar_precios en false, los precios cambian a 'Consulte la tarifa'. logo: ruta del logo que mande el chalet (vacío = el nombre en letra).",
   "nombre": "Chalet Vistas de Oriana",
   "whatsapp": "580000000000",
   "whatsapp_visible": "+58 000 0000000",
@@ -7,7 +7,7 @@
   "instagram": "",
   "ubicacion": "",
   "ubicacion_maps": "",
-  "logo": "img/logo-marcador.svg",
+  "logo": "",
   "foto_portada": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4",
   "video_portada": "https://videos.pexels.com/video-files/6989020/6989020-sd_960_540_25fps.mp4",
   "momentos": [
@@ -88,5 +88,23 @@
   ],
   "mostrar_precios": true,
   "moneda": "$",
-  "horario_atencion": "Todos los días, de 8:00 a. m. a 8:00 p. m."
+  "horario_atencion": "Todos los días, de 8:00 a. m. a 8:00 p. m.",
+  "horas": {
+    "amanecer": {
+      "foto": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4",
+      "alt": "Montañas sobre un mar de nubes al amanecer"
+    },
+    "manana": {
+      "foto": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05",
+      "alt": "Montañas verdes con neblina en la mañana"
+    },
+    "atardecer": {
+      "foto": "https://images.unsplash.com/photo-1490682143684-14369e18dce8",
+      "alt": "Sol dorado entre montañas al atardecer"
+    },
+    "noche": {
+      "foto": "https://images.unsplash.com/photo-1519681393784-d120267933ba",
+      "alt": "Cielo estrellado sobre la montaña"
+    }
+  }
 }

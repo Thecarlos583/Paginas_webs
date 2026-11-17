@@ -1,4 +1,16 @@
-# Chalet Vistas de Oriana: sistema de diseño
+# Chalet Vistas de Oriana: sistema de diseño (v4, 17-11: "el mirador a cada hora")
+
+> Reemplaza la paleta y la tipografía de abajo (marfil, Rosarivo cursiva, láminas con borde): Carlos las vio básicas.
+> Referencias: Eriro (collage asimétrico y titular fino), Mooser (fotos con curvas orgánicas, navegación en píldora), Mohonk (verde profundo protagonista).
+
+- **Concepto:** la web abre a la hora del reloj del visitante (5-9 amanecer, 9-17 mañana, 17-19 atardecer, resto noche) y cuatro botones en la portada cambian la hora: cambia la foto y se reilumina toda la página (variables CSS por `html[data-hora]`, se guarda en sessionStorage).
+- **Color por hora:** mañana niebla #EAF0E8 / tinta #15382A; amanecer #E9E7F1 / #26296A; atardecer #F5E8DA / #6B2E0C; noche #0E2419 / #EEF4E8. Fijos: naranja ave del paraíso #F28C28 con letra #10291D (botones), violeta #3B3E9A (enlaces).
+- **Letra:** Italiana (títulos grandes, sin cursiva) + Hanken Grotesk (texto, contadores y cifras chicas).
+- **Forma:** nada de cajas con borde. Fotos con forma de hoja (`border-radius: var(--r) 0`, alternando), listas con líneas finas, formularios con línea abajo, el mini armador como una frase con huecos.
+- **Logo:** solo el que mande el chalet (`config.json → logo`); vacío = el nombre en letra. Nunca uno dibujado.
+
+---
+
 
 Vista previa para la Sra. Irene (prospecto). Lujo botánico y sereno, sacado del logo: espiral arena y dorada, rama oscura, flor ave del paraíso, letras en verde hoja.
 

@@ -49,10 +49,10 @@
     });
     var fp = $("[data-foto-portada]");
     if (fp && lleno(c.foto_portada) && !esUnsplash(c.foto_portada)) { fp.removeAttribute("srcset"); fp.src = c.foto_portada; }
-    var vista = $("[data-vista]"), ahorro = navigator.connection && navigator.connection.saveData;
-    if (vista && lleno(c.video_portada) && !ahorro && !QUIETO && !$("video", vista)) {
+    var vista = $('[data-capa="amanecer"]'), ahorro = navigator.connection && navigator.connection.saveData;
+    if (vista && lleno(c.video_portada) && !ahorro && !QUIETO && !HORNEAR && !$("video", vista)) {
       var v = document.createElement("video");
-      v.muted = true; v.loop = true; v.autoplay = true; v.playsInline = true; v.preload = "metadata";
+      v.muted = true; v.loop = true; v.autoplay = raiz.getAttribute("data-hora") === "amanecer"; v.playsInline = true; v.preload = "metadata";
       v.setAttribute("muted", ""); v.setAttribute("playsinline", ""); v.setAttribute("aria-hidden", "true");
       v.src = c.video_portada; vista.appendChild(v);
     }
@@ -94,7 +94,7 @@
     var url = urlHab(h);
     return '<article class="lamina">' +
       '<a class="lamina-foto" href="' + url + '" tabindex="-1" aria-hidden="true"><span class="lamina-mascara">' + img(fotoHab(h), 600, 1.25, "(min-width: 900px) 30vw, 92vw") + "</span>" + etiquetaEjemplo(h) + "</a>" +
-      '<div class="lamina-texto"><p class="lamina-num">Lámina ' + romano(i) + (lleno(h.tipo) ? " · " + esc(h.tipo) : "") + "</p>" +
+      '<div class="lamina-texto">' +
       '<h3 class="lamina-nombre"><a href="' + url + '">' + esc(h.nombre) + "</a></h3>" +
       (lleno(h.linea) ? '<p class="lamina-linea">' + esc(h.linea) + "</p>" : "") + datosHab(h) + precioHTML(h) +
       '<div class="lamina-botones"><a class="enlace" href="' + url + '">Ver habitación</a>' + botonConsultar(h, true) + "</div></div></article>";
@@ -108,14 +108,13 @@
       '<div class="lamina-giro">' +
       '<div class="lamina-cara lamina-frente">' +
       '<a class="lamina-foto" href="' + url + '" tabindex="-1" aria-hidden="true"><span class="lamina-mascara">' + img(fotoHab(h), 600, 1.25, "(min-width: 900px) 30vw, 92vw") + "</span>" + etiquetaEjemplo(h) + "</a>" +
-      '<div class="lamina-texto"><p class="lamina-num">Lámina ' + romano(i) + (lleno(h.tipo) ? " · " + esc(h.tipo) : "") + "</p>" +
+      '<div class="lamina-texto">' +
       '<h3 class="lamina-nombre"><a href="' + url + '">' + esc(h.nombre) + "</a></h3>" +
       (lleno(h.linea) ? '<p class="lamina-linea">' + esc(h.linea) + "</p>" : "") + datosHab(h) + precioHTML(h) +
       '<div class="lamina-botones"><a class="boton boton-claro boton-chico" href="' + url + '">Ver habitación</a>' +
       '<button class="chip-boton chip-comparar" type="button" data-comparar="' + esc(h.id) + '" aria-pressed="false">Comparar</button>' +
       '<button class="enlace enlace-boton" type="button" data-voltear aria-label="Ver al dorso: ' + esc(h.nombre) + '">' + ico("girar") + "Al dorso</button></div></div></div>" +
       '<div class="lamina-cara lamina-dorso" aria-hidden="true" inert>' +
-      '<p class="lamina-num">Lámina ' + romano(i) + ", al dorso</p>" +
       '<h3 class="lamina-nombre">' + esc(h.nombre) + "</h3>" +
       (lleno(h.descripcion) ? '<p class="dorso-texto">' + esc(h.descripcion) + "</p>" : "") +
       (tags.length ? '<p class="dorso-sub">Ideal para</p><ul class="etiquetas">' + tags.map(function (t) { return "<li>" + esc(t) + "</li>"; }).join("") + "</ul>" : "") +
@@ -168,7 +167,7 @@
     el.innerHTML = elegidas.map(function (h) {
       var inc = (h.incluye || []).filter(lleno);
       return '<article class="comparar-col"><a class="comparar-foto" href="' + urlHab(h) + '" tabindex="-1" aria-hidden="true">' + img(fotoHab(h), 520, 0.62, "(min-width: 900px) 30vw, 80vw") + "</a>" +
-        '<div class="comparar-cuerpo"><p class="lamina-num">' + esc(h.tipo || "") + "</p><h3>" + esc(h.nombre) + "</h3><dl>" +
+        '<div class="comparar-cuerpo"><h3>' + esc(h.nombre) + "</h3><dl>" + fila("Tipo", esc(h.tipo || "")) +
         fila("Capacidad", esc(h.personas || "")) + fila("Cama", esc(h.cama || "")) + fila("Vista", esc(h.vista || "")) +
         fila("Comodidades", inc.length ? "<ul>" + inc.map(function (x) { return "<li>" + esc(x) + "</li>"; }).join("") + "</ul>" : "") +
         fila("Precio", precioNum(h) ? "<strong>" + dinero(precioNum(h)) + "</strong> por noche" + (h.ejemplo ? "<small>Precio de ejemplo</small>" : "") : "💬 Consulte la tarifa") +
@@ -242,9 +241,9 @@
 
     pintar("eleccion", habs.map(function (h, i) {
       return '<label class="eleccion-item"><input type="radio" name="habitacion" value="' + esc(h.id) + '"' + (params.get("habitacion") === h.id ? " checked" : "") + ">" +
-        '<span class="eleccion-caja">' + img(fotoHab(h), 300, 0.75, "160px") + '<span class="eleccion-texto"><small>Lámina ' + romano(i) + (lleno(h.personas) ? " · " + esc(h.personas) : "") + "</small>" + esc(h.nombre) +
+        '<span class="eleccion-caja">' + img(fotoHab(h), 300, 0.75, "160px") + '<span class="eleccion-texto">' + esc(h.nombre) + (lleno(h.personas) ? "<small>" + esc(h.personas) + "</small>" : "") +
         (precioNum(h) ? '<em class="eleccion-precio">' + dinero(precioNum(h)) + " la noche" + (h.ejemplo ? " (ejemplo)" : "") + "</em>" : "") + "</span></span></label>";
-    }).join("") + '<label class="eleccion-item eleccion-nose"><input type="radio" name="habitacion" value=""' + (params.get("habitacion") ? "" : "") + '><span class="eleccion-caja"><span class="eleccion-icono">' + ico("pregunta") + '</span><span class="eleccion-texto"><small>Sin decidir</small>Todavía no sé</span></span></label>');
+    }).join("") + '<label class="eleccion-item eleccion-nose"><input type="radio" name="habitacion" value=""' + (params.get("habitacion") ? "" : "") + '><span class="eleccion-caja"><span class="eleccion-icono">' + ico("pregunta") + '</span><span class="eleccion-texto">Todavía no sé<small>Le ayudamos a elegir</small></span></span></label>');
 
     pintarFicha(habs);
     var sel = $("[data-lista-habitaciones]");
@@ -290,7 +289,7 @@
       "</div>" +
       '<div class="ficha-texto">' +
       '<nav class="migas" aria-label="Ruta"><a href="habitaciones.html">Habitaciones</a> <span aria-hidden="true">/</span> <span>' + esc(h.nombre) + "</span></nav>" +
-      '<p class="lamina-num">Lámina ' + romano(pos) + (lleno(h.tipo) ? " · " + esc(h.tipo) : "") + " " + etiquetaEjemplo(h) + "</p>" +
+      (h.ejemplo ? '<p class="ficha-ejemplo">' + etiquetaEjemplo(h) + "</p>" : "") +
       "<h1>" + esc(h.nombre) + "</h1>" +
       (lleno(h.linea) ? '<p class="ficha-linea">' + esc(h.linea) + "</p>" : "") +
       (lleno(h.descripcion) ? '<p class="ficha-desc">' + esc(h.descripcion) + "</p>" : "") +
@@ -526,6 +525,29 @@
         dr.toggleAttribute("inert", !dado); dr.setAttribute("aria-hidden", String(!dado));
         setTimeout(function () { var x = $(dado ? ".lamina-dorso .dorso-volver" : ".lamina-frente [data-voltear]", l); if (x) x.focus({ preventScroll: true }); }, QUIETO ? 0 : 350);
       }
+    });
+  }
+
+  /* ---------- El mirador a cada hora: la página se ilumina como la vista a esa hora ---------- */
+  var COLOR_BARRA = { amanecer: "#E9E6F2", manana: "#EAF0E8", atardecer: "#F6E7D6", noche: "#0E2419" };
+  function ponerHora(h, guardar) {
+    if (!COLOR_BARRA[h]) h = "manana";
+    raiz.setAttribute("data-hora", h);
+    $$("[data-hora-boton]").forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-hora-boton") === h)); });
+    var tc = $('meta[name="theme-color"]'); if (tc) tc.setAttribute("content", COLOR_BARRA[h]);
+    if (guardar) { try { sessionStorage.setItem("oriana-hora", h); } catch (e) {} }
+    var v = $('[data-capa="amanecer"] video'); if (v) { if (h === "amanecer") { var p = v.play(); if (p && p.catch) p.catch(function () {}); } else v.pause(); }
+  }
+  function iniciarHoras() {
+    ponerHora(raiz.getAttribute("data-hora") || "manana", false);
+    /* Mientras se ve la portada, su propio botón de WhatsApp basta: el flotante aparece al bajar */
+    var heroe = $(".heroe");
+    if (heroe && "IntersectionObserver" in window) {
+      new IntersectionObserver(function (ent) { document.body.classList.toggle("con-heroe", ent[0].isIntersecting); }, { threshold: 0.35 }).observe(heroe);
+    }
+    document.addEventListener("click", function (ev) {
+      var b = ev.target.closest && ev.target.closest("[data-hora-boton]");
+      if (b) ponerHora(b.getAttribute("data-hora-boton"), true);
     });
   }
 
@@ -791,11 +813,6 @@
     var base = "https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/";
     cargar(base + "gsap.min.js").then(function () { return cargar(base + "ScrollTrigger.min.js"); }).then(function () {
       var g = window.gsap; g.registerPlugin(window.ScrollTrigger);
-      $$(".laminas").forEach(function (grupo) {
-        var ls = $$(".lamina", grupo); if (!ls.length) return;
-        g.fromTo(ls, { y: 36 }, { y: 0, duration: 0.9, ease: "power3.out", stagger: 0.12, clearProps: "transform", scrollTrigger: { trigger: grupo, start: "top 85%" } });
-        ls.forEach(function (l) { var im = $(".lamina-mascara img", l); if (im) g.fromTo(im, { scale: 1.12 }, { scale: 1, duration: 1.4, ease: "power2.out", scrollTrigger: { trigger: grupo, start: "top 85%" } }); l.classList.add("entro"); });
-      });
       var sec = $(".momentos"), pista = $(".momentos-pista");
       if (sec && pista) {
         var dist = function () { return Math.max(0, pista.scrollWidth - pista.clientWidth); };
@@ -831,7 +848,7 @@
     try { pintarTodo(); } catch (e) { aviso("Error al pintar: " + e.message); }
     raiz.dataset.pintado = "1";
     if (HORNEAR) return;
-    iniciarCotizador(); iniciarMenu(); iniciarFiltros(); iniciarVisor(); iniciarPresentacion(); iniciarContacto(); iniciarPestanas(); iniciarSol(); iniciarMiniReserva();
+    iniciarCotizador(); iniciarMenu(); iniciarFiltros(); iniciarVisor(); iniciarPresentacion(); iniciarContacto(); iniciarPestanas(); iniciarSol(); iniciarMiniReserva(); iniciarHoras();
     interactivos();
     leerJSON().then(function (cambio) {
       if (cambio) { try { pintarTodo(); interactivos(); } catch (e) { aviso("Error al pintar: " + e.message); } }
