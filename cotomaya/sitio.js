@@ -1330,10 +1330,12 @@
     todas.forEach(function (o) { io.observe(o); });
   }
 
-  /* Mapa de destinos: un punto que late por zona (datos/destinos.json → coordenadas). Las zonas muy juntas se agrupan */
+  /* Mapa de destinos: un punto por zona (datos/destinos.json → coordenadas). Al tocar un destino el mapa se acerca;
+     las zonas muy juntas (las de Falcón) salen como un solo punto que se abre en abanico. La ficha muestra el destino elegido. */
   function pintarMapa(d) {
     var marco = $("[data-mapa-marco]"); if (!marco) return;
-    var caja = $("[data-mapa-puntos]", marco), ds = marco.dataset;
+    var lienzo = $("[data-mapa-lienzo]", marco), caja = $("[data-mapa-puntos]", marco), hilos = $("[data-mapa-hilos]", marco);
+    var ficha = $("[data-mapa-ficha]"), volver = $("[data-mapa-volver]", marco), ds = marco.dataset;
     var lon0 = +ds.lon0, lat1 = +ds.lat1, k = +ds.k, W = +ds.ancho, H = +ds.alto;
     var pts = d.zonas.filter(function (z) { return Array.isArray(z.coordenadas) && z.coordenadas.length === 2; }).map(function (z) {
       var x = (+z.coordenadas[1] - lon0) * k, y = (lat1 - +z.coordenadas[0]) * k;
@@ -1343,21 +1345,160 @@
     var grupos = [];
     pts.forEach(function (p) {
       var g = grupos.filter(function (g) { return Math.abs(g.x - p.x) < 36 && Math.abs(g.y - p.y) < 36; })[0];
-      if (!g) { grupos.push({ x: p.x, y: p.y, l: [p] }); return; }
-      g.l.push(p); g.x += (p.x - g.x) / g.l.length; g.y += (p.y - g.y) / g.l.length;
+      if (!g) { g = { x: p.x, y: p.y, l: [] }; grupos.push(g); }
+      g.l.push(p); g.x += (p.x - g.x) / g.l.length; g.y += (p.y - g.y) / g.l.length; p.g = g;
     });
     function corto(n) { return String(n).split(",")[0]; }
-    caja.innerHTML = grupos.map(function (g, i) {
-      var estilo = ' style="left:' + (g.x / W * 100).toFixed(2) + "%;top:" + (g.y / H * 100).toFixed(2) + "%;--d:" + (i * .5).toFixed(1) + 's"';
-      if (g.l.length === 1) {
-        var z = g.l[0].z;
-        return '<a class="mapa-punto' + (z.proximamente ? " punto-pronto" : "") + '" href="destino.html?z=' + encodeURIComponent(z.id) + '"' + estilo + "><i></i><span>" +
-          esc(corto(z.nombre)) + (z.proximamente ? " <em>Pronto</em>" : "") + "</span></a>";
-      }
+    /* Nombre del grupo: lo que tienen en común (por ejemplo "Falcón"), o el país */
+    grupos.forEach(function (g, gi) {
+      g.i = gi;
+      if (g.l.length < 2) return;
+      var comun = ["Falcón"].concat(g.l[0].z.nombre.split(/[,()]/).map(function (x) { return x.trim(); }).filter(Boolean))
+        .filter(function (w) { return g.l.every(function (p) { return p.z.nombre.indexOf(w) > -1; }); })[0];
       var pais = d.porDestino[g.l[0].z.destino];
-      return '<div class="mapa-grupo' + (g.x / W > .6 ? " a-la-izq" : "") + '"' + estilo + '><a class="mapa-punto solo" href="destino.html' + (pais ? "?d=" + encodeURIComponent(pais.id) : "") + '" aria-label="' + esc(pais ? pais.nombre : "Destinos") + '"><i></i></a><ul>' +
-        g.l.map(function (p) { return '<li><a href="destino.html?z=' + encodeURIComponent(p.z.id) + '">' + esc(corto(p.z.nombre)) + "</a></li>"; }).join("") + "</ul></div>";
+      g.nombre = comun || (pais ? pais.nombre : "Destinos");
+      /* Abanico en el orden real: cada destino sale hacia donde queda de verdad, repartidos parejo */
+      var n = g.l.length, paso = 2 * Math.PI / n, orden = g.l.slice().sort(function (a, b) { return Math.atan2(a.y - g.y, a.x - g.x) - Math.atan2(b.y - g.y, b.x - g.x); });
+      var sx = 0, sy = 0;
+      orden.forEach(function (p, i) { var a = Math.atan2(p.y - g.y, p.x - g.x) - i * paso; sx += Math.cos(a); sy += Math.sin(a); });
+      var base = Math.atan2(sy, sx);
+      orden.forEach(function (p, i) { p.ang = base + i * paso; });
+    });
+    caja.innerHTML = grupos.map(function (g) {
+      if (g.l.length > 1) {
+        return '<button type="button" class="mapa-punto mapa-grupo-punto" data-grupo="' + g.i + '" aria-label="' + esc(g.nombre + ": " + g.l.length + " destinos") + '"><i></i><span>' +
+          esc(g.nombre) + " <b>" + g.l.length + "</b></span></button>" +
+          g.l.map(function (p) {
+            return '<button type="button" class="mapa-punto en-abanico" data-z="' + esc(p.z.id) + '" tabindex="-1"><i></i><span>' + esc(corto(p.z.nombre)) + (p.z.proximamente ? " <em>Pronto</em>" : "") + "</span></button>";
+          }).join("");
+      }
+      var z = g.l[0].z;
+      return '<button type="button" class="mapa-punto' + (z.proximamente ? " punto-pronto" : "") + '" data-z="' + esc(z.id) + '"><i></i><span>' + esc(corto(z.nombre)) + (z.proximamente ? " <em>Pronto</em>" : "") + "</span></button>";
     }).join("");
+    hilos.innerHTML = pts.filter(function (p) { return p.g.l.length > 1; }).map(function (p) { return '<i data-hilo="' + esc(p.z.id) + '"></i>'; }).join("");
+
+    var estado = { s: 1, tx: 0, ty: 0, grupo: null, zona: null };
+    var fichaInicial = ficha ? ficha.innerHTML : "";
+    function f() { return marco.clientWidth / W; }
+    function colocar() {
+      var e = f(), cw = marco.clientWidth, ch = marco.clientHeight;
+      lienzo.style.transform = "translate(" + estado.tx.toFixed(1) + "px," + estado.ty.toFixed(1) + "px) scale(" + estado.s.toFixed(3) + ")";
+      marco.classList.toggle("cerca", estado.s > 1);
+      grupos.forEach(function (g) {
+        var cx = g.x * e * estado.s + estado.tx, cy = g.y * e * estado.s + estado.ty, abierto = estado.grupo === g;
+        var gp = $('[data-grupo="' + g.i + '"]', caja);
+        if (gp) { gp.style.transform = "translate(" + cx.toFixed(1) + "px," + cy.toFixed(1) + "px)"; gp.classList.toggle("abierto", abierto); gp.setAttribute("aria-expanded", abierto ? "true" : "false"); }
+        var n = g.l.length, radio = Math.min(cw, ch) * (cw < 500 ? .22 : .24);
+        g.l.forEach(function (p, k) {
+          var b = $('[data-z="' + p.z.id + '"]', caja); if (!b) return;
+          var px = p.x * e * estado.s + estado.tx, py = p.y * e * estado.s + estado.ty;
+          if (n > 1) {
+            /* abanico hacia abajo y a los lados, para no salirse del mapa por arriba */
+            var ang = p.ang;
+            var fx = abierto ? cx + Math.cos(ang) * radio : cx, fy = abierto ? cy + Math.sin(ang) * radio : cy;
+            b.style.transform = "translate(" + fx.toFixed(1) + "px," + fy.toFixed(1) + "px)";
+            b.style.transitionDelay = abierto ? (k * 60) + "ms" : "0ms";
+            b.classList.toggle("visible", abierto);
+            /* el nombre va hacia afuera; si no cabe, al otro lado; si tampoco, arriba */
+            var lw = ($("span", b) || b).offsetWidth, der = fx + 14 + lw <= cw - 6, izq = fx - 14 - lw >= 6;
+            var lado = Math.cos(ang) >= 0 ? (der ? "der" : izq ? "izq" : "arriba") : (izq ? "izq" : der ? "der" : "arriba");
+            b.classList.toggle("izq", lado === "izq"); b.classList.toggle("arriba", lado === "arriba");
+            b.style.setProperty("--dx", lado === "arriba" ? Math.max(6 - (fx - lw / 2), Math.min(0, cw - 6 - (fx + lw / 2))).toFixed(1) + "px" : "0px");
+            b.tabIndex = abierto ? 0 : -1;
+            var h = $('[data-hilo="' + p.z.id + '"]', hilos);
+            if (h) {
+              h.style.transform = "translate(" + cx.toFixed(1) + "px," + cy.toFixed(1) + "px) rotate(" + ang.toFixed(3) + "rad) scaleX(" + (abierto ? 1 : 0) + ")";
+              h.style.width = radio.toFixed(1) + "px";
+              h.style.transitionDelay = abierto ? (k * 60) + "ms" : "0ms";
+            }
+          } else {
+            b.style.transform = "translate(" + px.toFixed(1) + "px," + py.toFixed(1) + "px)";
+          }
+          b.classList.toggle("activo", estado.zona === p.z.id);
+          b.setAttribute("aria-pressed", estado.zona === p.z.id ? "true" : "false");
+        });
+      });
+      if (volver) volver.hidden = estado.s === 1;
+      var sueltos = $$(".mapa-punto:not(.en-abanico)", caja).map(function (b) {
+        var m = /translate\(([-\d.]+)px,\s*([-\d.]+)px\)/.exec(b.style.transform) || [0, 0, 0];
+        var sp = $("span", b), lw = sp ? sp.offsetWidth : 0, x = +m[1];
+        b.classList.remove("abajo");
+        b.style.setProperty("--dx", Math.max(6 - (x - lw / 2), Math.min(0, cw - 6 - (x + lw / 2))).toFixed(1) + "px");
+        return { b: b, x: x, y: +m[2], lw: lw };
+      });
+      /* De izquierda a derecha: cada nombre va arriba; si choca con uno ya puesto, abajo; si también choca, se queda arriba */
+      var puestos = { arriba: [], abajo: [] };
+      sueltos.filter(function (o) { return o.lw && !(estado.s > 1 && !o.b.classList.contains("activo")); })
+        .sort(function (a, b) { return a.x - b.x; }).forEach(function (o) {
+          var dx = parseFloat(o.b.style.getPropertyValue("--dx")) || 0, i0 = o.x - o.lw / 2 + dx, i1 = o.x + o.lw / 2 + dx;
+          function choca(nivel) { return puestos[nivel].some(function (q) { return Math.abs(q.y - o.y) < 34 && i0 < q.i1 + 6 && q.i0 < i1 + 6; }); }
+          var nivel = !choca("arriba") ? "arriba" : !choca("abajo") ? "abajo" : "arriba";
+          o.b.classList.toggle("abajo", nivel === "abajo");
+          puestos[nivel].push({ y: o.y, i0: i0, i1: i1 });
+        });
+    }
+    function acercar(g, s) {
+      var e = f(), cw = marco.clientWidth, ch = marco.clientHeight;
+      if (!g) { estado.s = 1; estado.tx = 0; estado.ty = 0; return; }
+      estado.s = s;
+      var tx = cw / 2 - g.x * e * s, ty = ch / 2 - g.y * e * s;
+      estado.tx = Math.min(0, Math.max(cw - cw * s, tx));
+      estado.ty = Math.min(0, Math.max(ch - ch * s, ty));
+    }
+    function pintarFicha(z) {
+      if (!ficha) return;
+      if (!z) { ficha.innerHTML = fichaInicial; return; }
+      var props = deZona(d, z.id), foto = fotoZona(d, z);
+      var boton = z.proximamente
+        ? botonWa("Quiero saber cuando abra", msg("proximamente", { zona: z.nombre }), "boton-chico")
+        : '<a class="boton boton-chico" href="destino.html?z=' + encodeURIComponent(z.id) + '">Ver hospedajes' + icono("flecha") + "</a>";
+      ficha.innerHTML = '<div class="mapa-ficha-caja">' + (foto ? '<div class="mapa-ficha-foto">' + img(foto.r, foto.carpeta, foto.alt || z.nombre, "(min-width:900px) 18vw, 40vw", 600) + "</div>" : "") +
+        '<div class="mapa-ficha-texto"><h3>' + esc(z.nombre) + (z.proximamente ? ' <span class="pronto-sello">Próximamente</span>' : "") + "</h3>" +
+        (z.descripcion ? "<p>" + esc(z.descripcion) + "</p>" : "") +
+        (props.length ? '<p class="mapa-ficha-cuenta">' + icono("casa") + plural(props.length, "propiedad", "propiedades") + "</p>" : "") + boton + "</div></div>";
+    }
+    function elegirZona(id) {
+      var p = pts.filter(function (x) { return x.z.id === id; })[0]; if (!p) return;
+      if (p.g.l.length > 1) { estado.grupo = p.g; acercar(p.g, 2.4); }
+      else { estado.grupo = null; acercar(p.g, 1.9); }
+      estado.zona = id;
+      colocar(); pintarFicha(p.z);
+      $$("[data-mapa-zona]").forEach(function (a) { a.classList.toggle("activo", a.getAttribute("data-mapa-zona") === id); });
+    }
+    function abrirGrupo(g) {
+      estado.grupo = g; estado.zona = null; acercar(g, 2.4); colocar(); pintarFicha(null);
+      $$("[data-mapa-zona]").forEach(function (a) { a.classList.remove("activo"); });
+    }
+    function todo() {
+      estado.grupo = null; estado.zona = null; acercar(null); colocar(); pintarFicha(null);
+      $$("[data-mapa-zona]").forEach(function (a) { a.classList.remove("activo"); });
+    }
+    caja.addEventListener("click", function (ev) {
+      var b = ev.target.closest("button"); if (!b) return;
+      if (b.hasAttribute("data-grupo")) { var g = grupos[+b.getAttribute("data-grupo")]; if (estado.grupo === g) todo(); else abrirGrupo(g); }
+      else if (b.hasAttribute("data-z")) elegirZona(b.getAttribute("data-z"));
+    });
+    if (volver) volver.addEventListener("click", todo);
+    /* La lista de la izquierda mueve el mapa (sin JS sigue llevando a la página del destino) */
+    $$("[data-mapa-zona]").forEach(function (a) {
+      a.addEventListener("click", function (ev) {
+        ev.preventDefault();
+        elegirZona(a.getAttribute("data-mapa-zona"));
+        if (window.innerWidth < 900) marco.scrollIntoView({ behavior: quieto ? "auto" : "smooth", block: "center" });
+      });
+    });
+    var pend = false;
+    window.addEventListener("resize", function () {
+      if (pend) return; pend = true;
+      requestAnimationFrame(function () {
+        pend = false; marco.classList.add("sin-transicion");
+        var g = estado.grupo || (estado.zona && pts.filter(function (x) { return x.z.id === estado.zona; })[0].g);
+        if (g) acercar(g, estado.s); colocar();
+        requestAnimationFrame(function () { marco.classList.remove("sin-transicion"); });
+      });
+    });
+    marco.classList.add("sin-transicion"); colocar();
+    requestAnimationFrame(function () { marco.classList.remove("sin-transicion"); marco.classList.add("listo"); });
   }
 
   /* Tours y yates: en la computadora las tarjetas se apilan al bajar (GSAP + ScrollTrigger, solo ahí) */

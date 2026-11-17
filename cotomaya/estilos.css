@@ -1344,3 +1344,90 @@ h1 .emoji, h2 .emoji, h3 .emoji, .tres-pasos .emoji, summary .emoji { font-size:
   .rejilla-barcos > .tarjeta-barco:only-child h3 { font-size: 2.4rem; }
   .rejilla-barcos > .tarjeta-barco:only-child .tarifa, .rejilla-barcos > .tarjeta-barco:only-child .tarjeta-acciones { margin-top: 6px; }
 }
+
+/* ================================================================
+   Mapa de destinos interactivo (16-11): se acerca al destino elegido; Falcón se abre en abanico;
+   la ficha del destino va al lado (computadora) o debajo (teléfono), nunca encima del mapa.
+   ================================================================ */
+.mapa-destinos { grid-template-areas: "texto" "marco" "ficha"; }
+.mapa-texto { grid-area: texto; }
+.mapa-marco { grid-area: marco; }
+.mapa-ficha { grid-area: ficha; }
+.mapa-svg { transform-origin: 0 0; transition: transform .9s cubic-bezier(.3,.7,.2,1); will-change: transform; }
+.mapa-svg .pais { vector-effect: non-scaling-stroke; }
+.mapa-puntos, .mapa-hilos { position: absolute; inset: 0; pointer-events: none; }
+.mapa-puntos .mapa-punto { position: absolute; left: 0; top: 0; display: block; width: 44px; height: 44px; margin: -22px 0 0 -22px; padding: 0; border-radius: 50%; pointer-events: auto;
+  transition: transform .9s cubic-bezier(.3,.7,.2,1), opacity .35s ease; color: var(--blanco); font: 600 .86rem/1.2 var(--cuerpo); }
+.mapa-puntos .mapa-punto i { position: absolute; inset: 0; width: 44px; height: 44px; }
+.mapa-puntos .mapa-punto span { position: absolute; left: 50%; bottom: calc(50% + 14px); transform: translateX(-50%); display: inline-flex; align-items: center; gap: 6px;
+  padding: 4px 11px; border-radius: 999px; background: rgba(22,48,90,.9); border: 1px solid rgba(212,168,81,.55); white-space: nowrap; margin: 0; transition: background-color .2s ease, border-color .2s ease; }
+.mapa-puntos .mapa-punto span b { display: inline-grid; place-items: center; min-width: 20px; height: 20px; padding: 0 5px; border-radius: 999px; background: var(--coral); color: var(--hondo); font-size: .76rem; }
+.mapa-puntos .mapa-punto:hover span, .mapa-puntos .mapa-punto:focus-visible span { border-color: var(--dorado); }
+.mapa-puntos .mapa-punto.activo span { background: var(--naranja); border-color: var(--naranja); color: var(--hondo); }
+.mapa-puntos .mapa-punto.activo span em { background: var(--hondo); color: var(--blanco); }
+.mapa-puntos .en-abanico { opacity: 0; pointer-events: none; }
+.mapa-puntos .en-abanico.visible { opacity: 1; pointer-events: auto; }
+.mapa-puntos .en-abanico span { bottom: auto; top: 50%; left: calc(50% + 12px); transform: translateY(-50%); }
+.mapa-puntos .en-abanico.izq span { left: auto; right: calc(50% + 12px); }
+.mapa-puntos .mapa-grupo-punto.abierto span { opacity: 0; }
+.mapa-puntos .mapa-grupo-punto.abierto i::after { animation: none; opacity: 0; }
+.mapa-hilos i { position: absolute; left: 0; top: 0; height: 1px; transform-origin: 0 50%; background: linear-gradient(90deg, rgba(230,196,127,.9), rgba(239,125,96,.7));
+  transition: transform .9s cubic-bezier(.3,.7,.2,1); }
+.mapa-volver { position: absolute; right: 12px; top: 12px; z-index: 2; display: inline-flex; align-items: center; gap: 6px; min-height: 40px; padding: 6px 14px;
+  border-radius: 999px; background: var(--fondo); color: var(--hondo); font-weight: 600; font-size: .88rem; box-shadow: 0 6px 18px rgba(22,48,90,.3); }
+.mapa-volver[hidden] { display: none; }
+.mapa-marco.sin-transicion .mapa-svg, .mapa-marco.sin-transicion .mapa-punto, .mapa-marco.sin-transicion .mapa-hilos i { transition: none !important; }
+.mapa-ficha { min-width: 0; }
+.mapa-ficha-texto h3 { font-size: 1.7rem; }
+.mapa-ficha-texto p { margin-top: 6px; color: rgba(255,255,255,.88); }
+.mapa-ficha-caja { display: grid; grid-template-columns: 38% minmax(0, 1fr); gap: 14px; align-items: center; padding: 12px; border-radius: 22px;
+  background: rgba(43,80,137,.5); border: 1px solid rgba(212,168,81,.42); animation: ficha-entra .45s cubic-bezier(.2,.7,.2,1); }
+@keyframes ficha-entra { from { transform: translateY(8px); } }
+.mapa-ficha-foto { aspect-ratio: 1; border-radius: 16px; overflow: hidden; background: var(--hondo); }
+.mapa-ficha-foto img { width: 100%; height: 100%; object-fit: cover; }
+.mapa-ficha-caja h3 { font-size: 1.5rem; }
+.mapa-ficha-caja h3 .pronto-sello { vertical-align: middle; font-size: .72rem; }
+.mapa-ficha-cuenta { display: flex; align-items: center; gap: 6px; font-weight: 600; color: var(--dorado-claro) !important; }
+.mapa-ficha-cuenta .ic { width: 18px; height: 18px; }
+.mapa-ficha-caja .boton { margin-top: 10px; }
+.mapa-lista a.activo { background: var(--naranja); border-color: var(--naranja); color: var(--hondo); }
+.mapa-lista a.activo .ic { color: var(--hondo); }
+@media (min-width: 900px) {
+  .seccion-mapa .mapa-destinos { grid-template-areas: "texto marco" "ficha marco"; grid-template-rows: auto 1fr; align-items: start; row-gap: 26px; }
+  .mapa-marco { align-self: center; }
+  .mapa-ficha-caja { grid-template-columns: 150px minmax(0, 1fr); padding: 14px; }
+  .mapa-puntos .mapa-punto { font-size: .95rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mapa-svg, .mapa-puntos .mapa-punto, .mapa-hilos i { transition: none !important; }
+  .mapa-ficha-caja { animation: none; }
+}
+
+/* Espacios: dos secciones claras seguidas no suman su aire (Viajes → Tours internacionales) */
+.seccion-clara + .seccion-clara { padding-top: 0; }
+/* Servicios de viaje: 5 tarjetas sin hueco a la derecha (3 arriba, 2 abajo a lo ancho) */
+@media (min-width: 900px) {
+  .servicios { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .servicios > * { grid-column: span 2; }
+  .servicios > :nth-child(4):nth-last-child(2), .servicios > :nth-child(5):last-child { grid-column: span 3; }
+}
+
+/* Mapa: nombres que no se tapan ni se salen; al acercarse solo se ven los del abanico y el elegido */
+.mapa-puntos .mapa-punto span { transform: translateX(calc(-50% + var(--dx, 0px))); }
+.mapa-puntos .mapa-punto.abajo span { bottom: auto; top: calc(50% + 14px); }
+.mapa-puntos .en-abanico span { transform: translateY(-50%); }
+.mapa-puntos .en-abanico.arriba span { top: auto; right: auto; left: 50%; bottom: calc(50% + 12px); transform: translateX(calc(-50% + var(--dx, 0px))); }
+.mapa-marco.cerca .mapa-puntos > .mapa-punto:not(.en-abanico):not(.activo) span { opacity: 0; visibility: hidden; }
+.mapa-puntos .mapa-grupo-punto.abierto span { visibility: hidden; }
+.mapa-mar, .mapa-pais { transition: opacity .4s ease; }
+.mapa-marco.cerca .mapa-mar, .mapa-marco.cerca .mapa-pais { opacity: 0; }
+@media (max-width: 899px) {
+  .mapa-ficha-caja { grid-template-columns: 96px minmax(0, 1fr); align-items: start; }
+  .mapa-ficha-caja h3 { font-size: 1.35rem; }
+  .mapa-ficha-caja .boton { white-space: nowrap; }
+}
+
+/* Viajes: los tours internacionales siguen a los servicios sin un hueco grande */
+#servicios { padding-bottom: 44px; }
+.seccion-pegada { padding-top: 12px; }
+@media (min-width: 900px) { #servicios { padding-bottom: 64px; } .seccion-pegada { padding-top: 16px; } }
