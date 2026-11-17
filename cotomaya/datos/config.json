@@ -1,10 +1,10 @@
 {
   "_ayuda": "Datos de la marca. Cambie aquí el WhatsApp, las redes, los nombres de las categorías y los mensajes. Un campo vacío \"\" no se muestra.",
   "marca": "Cotomaya Venezuela",
-  "whatsapp_principal": "584145991961",
-  "whatsapp_principal_visible": "+58 414-5991961",
-  "whatsapp_secundario": "584142506516",
-  "whatsapp_secundario_visible": "+58 414-2506516",
+  "whatsapp_principal": "584142506516",
+  "whatsapp_principal_visible": "+58 414-2506516",
+  "whatsapp_secundario": "",
+  "whatsapp_secundario_visible": "",
   "etiqueta_whatsapp_secundario": "Otro número de contacto",
   "redes": {
     "instagram": "",
@@ -71,5 +71,10 @@
   "video_yates": {
     "archivo": "fotos/embarcaciones/cayos-aereo.mp4",
     "portada": "fotos/embarcaciones/cayos-aereo.webp"
+  },
+  "whatsapp_suspendido": {
+    "numero": "584145991961",
+    "visible": "+58 414-5991961",
+    "nota": "Suspendido por pedido de la clienta el 17/11/2026. Para reactivarlo: volver a ponerlo en whatsapp_principal (o en whatsapp_secundario) y regenerar."
   }
 }
