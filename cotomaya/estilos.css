@@ -1431,3 +1431,19 @@ h1 .emoji, h2 .emoji, h3 .emoji, .tres-pasos .emoji, summary .emoji { font-size:
 #servicios { padding-bottom: 44px; }
 .seccion-pegada { padding-top: 12px; }
 @media (min-width: 900px) { #servicios { padding-bottom: 64px; } .seccion-pegada { padding-top: 16px; } }
+
+/* Lupa de Falcón: la costa detallada aparece al acercarse; los destinos van en su lugar real */
+.mapa-svg .pais-detalle { fill: #2B5089; stroke: var(--dorado); stroke-width: 1.4; stroke-linejoin: round; vector-effect: non-scaling-stroke; opacity: 0; transition: opacity .5s ease; }
+.mapa-marco.detalle .pais-detalle { opacity: 1; transition-delay: .45s; }
+.mapa-svg .pais { transition: opacity .5s ease; }
+.mapa-marco.detalle .mapa-svg .pais { opacity: 0; transition-delay: .45s; }
+.mapa-svg, .mapa-puntos .mapa-punto { transition-duration: 1.1s; }
+.mapa-puntos .en-abanico.abajo span { top: calc(50% + 12px); bottom: auto; left: 50%; right: auto; transform: translateX(-50%); }
+.mapa-puntos .en-abanico.arriba span { transform: translateX(-50%); }
+.mapa-marco.detalle .mapa-puntos .mapa-punto i::before { box-shadow: 0 0 0 3px var(--fondo); }
+
+/* El borde de los países y la costa detallada quedan finos a cualquier acercamiento */
+.mapa-svg .pais, .mapa-svg .pais-detalle { vector-effect: none; stroke-width: var(--trazo, 1.3); transition: opacity .5s ease, stroke-width 1.1s cubic-bezier(.3,.7,.2,1); }
+.mapa-svg .pais-detalle { fill: #2E5794; }
+
+.mapa-puntos .mapa-grupo-punto.abierto { opacity: 0; pointer-events: none; }

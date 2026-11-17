@@ -1334,7 +1334,7 @@
      las zonas muy juntas (las de Falcón) salen como un solo punto que se abre en abanico. La ficha muestra el destino elegido. */
   function pintarMapa(d) {
     var marco = $("[data-mapa-marco]"); if (!marco) return;
-    var lienzo = $("[data-mapa-lienzo]", marco), caja = $("[data-mapa-puntos]", marco), hilos = $("[data-mapa-hilos]", marco);
+    var lienzo = $("[data-mapa-lienzo]", marco), caja = $("[data-mapa-puntos]", marco);
     var ficha = $("[data-mapa-ficha]"), volver = $("[data-mapa-volver]", marco), ds = marco.dataset;
     var lon0 = +ds.lon0, lat1 = +ds.lat1, k = +ds.k, W = +ds.ancho, H = +ds.alto;
     var pts = d.zonas.filter(function (z) { return Array.isArray(z.coordenadas) && z.coordenadas.length === 2; }).map(function (z) {
@@ -1375,7 +1375,6 @@
       var z = g.l[0].z;
       return '<button type="button" class="mapa-punto' + (z.proximamente ? " punto-pronto" : "") + '" data-z="' + esc(z.id) + '"><i></i><span>' + esc(corto(z.nombre)) + (z.proximamente ? " <em>Pronto</em>" : "") + "</span></button>";
     }).join("");
-    hilos.innerHTML = pts.filter(function (p) { return p.g.l.length > 1; }).map(function (p) { return '<i data-hilo="' + esc(p.z.id) + '"></i>'; }).join("");
 
     var estado = { s: 1, tx: 0, ty: 0, grupo: null, zona: null };
     var fichaInicial = ficha ? ficha.innerHTML : "";
@@ -1383,34 +1382,38 @@
     function colocar() {
       var e = f(), cw = marco.clientWidth, ch = marco.clientHeight;
       lienzo.style.transform = "translate(" + estado.tx.toFixed(1) + "px," + estado.ty.toFixed(1) + "px) scale(" + estado.s.toFixed(3) + ")";
+      lienzo.style.setProperty("--trazo", (1.3 / estado.s).toFixed(4));  /* la costa siempre de ~1 px, aunque el mapa se agrande */
       marco.classList.toggle("cerca", estado.s > 1);
+      marco.classList.toggle("detalle", estado.s > 6);
       grupos.forEach(function (g) {
         var cx = g.x * e * estado.s + estado.tx, cy = g.y * e * estado.s + estado.ty, abierto = estado.grupo === g;
         var gp = $('[data-grupo="' + g.i + '"]', caja);
         if (gp) { gp.style.transform = "translate(" + cx.toFixed(1) + "px," + cy.toFixed(1) + "px)"; gp.classList.toggle("abierto", abierto); gp.setAttribute("aria-expanded", abierto ? "true" : "false"); }
-        var n = g.l.length, radio = Math.min(cw, ch) * (cw < 500 ? .22 : .24);
-        g.l.forEach(function (p, k) {
+        var n = g.l.length, ocupados = [];
+        if (abierto && volver) { var vr = volver.getBoundingClientRect(), mr = marco.getBoundingClientRect(); ocupados.push([vr.left - mr.left - 6, vr.top - mr.top - 6, vr.right - mr.left + 6, vr.bottom - mr.top + 6]); }
+        /* los puntos del grupo (en su posición real) no se tapan con los nombres */
+        g.l.forEach(function (p) { var x = p.x * e * estado.s + estado.tx, y = p.y * e * estado.s + estado.ty; ocupados.push([x - 9, y - 9, x + 9, y + 9]); });
+        g.l.forEach(function (p) {
           var b = $('[data-z="' + p.z.id + '"]', caja); if (!b) return;
           var px = p.x * e * estado.s + estado.tx, py = p.y * e * estado.s + estado.ty;
           if (n > 1) {
-            /* abanico hacia abajo y a los lados, para no salirse del mapa por arriba */
-            var ang = p.ang;
-            var fx = abierto ? cx + Math.cos(ang) * radio : cx, fy = abierto ? cy + Math.sin(ang) * radio : cy;
-            b.style.transform = "translate(" + fx.toFixed(1) + "px," + fy.toFixed(1) + "px)";
-            b.style.transitionDelay = abierto ? (k * 60) + "ms" : "0ms";
+            /* Lupa: cada destino en su lugar real. El nombre va donde quepa: derecha, izquierda, arriba o abajo */
+            b.style.transform = "translate(" + px.toFixed(1) + "px," + py.toFixed(1) + "px)";
             b.classList.toggle("visible", abierto);
-            /* el nombre va hacia afuera; si no cabe, al otro lado; si tampoco, arriba */
-            var lw = ($("span", b) || b).offsetWidth, der = fx + 14 + lw <= cw - 6, izq = fx - 14 - lw >= 6;
-            var lado = Math.cos(ang) >= 0 ? (der ? "der" : izq ? "izq" : "arriba") : (izq ? "izq" : der ? "der" : "arriba");
-            b.classList.toggle("izq", lado === "izq"); b.classList.toggle("arriba", lado === "arriba");
-            b.style.setProperty("--dx", lado === "arriba" ? Math.max(6 - (fx - lw / 2), Math.min(0, cw - 6 - (fx + lw / 2))).toFixed(1) + "px" : "0px");
             b.tabIndex = abierto ? 0 : -1;
-            var h = $('[data-hilo="' + p.z.id + '"]', hilos);
-            if (h) {
-              h.style.transform = "translate(" + cx.toFixed(1) + "px," + cy.toFixed(1) + "px) rotate(" + ang.toFixed(3) + "rad) scaleX(" + (abierto ? 1 : 0) + ")";
-              h.style.width = radio.toFixed(1) + "px";
-              h.style.transitionDelay = abierto ? (k * 60) + "ms" : "0ms";
+            var sp = $("span", b), lw = sp ? sp.offsetWidth : 0, lh = sp ? sp.offsetHeight : 0, elegido = "der";
+            if (abierto) {
+              var cand = { der: [px + 14, py - lh / 2, px + 14 + lw, py + lh / 2], izq: [px - 14 - lw, py - lh / 2, px - 14, py + lh / 2],
+                arriba: [px - lw / 2, py - 14 - lh, px + lw / 2, py - 14], abajo: [px - lw / 2, py + 14, px + lw / 2, py + 14 + lh] };
+              var libre = function (r) {
+                if (r[0] < 6 || r[1] < 6 || r[2] > cw - 6 || r[3] > ch - 6) return false;
+                return !ocupados.some(function (o) { return r[0] < o[2] && o[0] < r[2] && r[1] < o[3] && o[1] < r[3]; });
+              };
+              elegido = ["der", "izq", "arriba", "abajo"].filter(function (k) { return libre(cand[k]); })[0] || "der";
+              ocupados.push(cand[elegido]);
             }
+            b.classList.toggle("izq", elegido === "izq"); b.classList.toggle("arriba", elegido === "arriba"); b.classList.toggle("abajo", elegido === "abajo");
+            b.style.setProperty("--dx", "0px");
           } else {
             b.style.transform = "translate(" + px.toFixed(1) + "px," + py.toFixed(1) + "px)";
           }
@@ -1445,6 +1448,12 @@
       estado.tx = Math.min(0, Math.max(cw - cw * s, tx));
       estado.ty = Math.min(0, Math.max(ch - ch * s, ty));
     }
+    /* Cuánto acercar un grupo: que los dos destinos más cercanos queden a unos 56 px en la pantalla */
+    function zoomGrupo(g) {
+      var min = Infinity;
+      g.l.forEach(function (a, i) { g.l.forEach(function (b, j) { if (j > i) min = Math.min(min, Math.hypot(a.x - b.x, a.y - b.y)); }); });
+      return Math.max(2.4, Math.min(80, (marco.clientWidth < 500 ? 62 : 84) / (Math.max(min, .01) * f())));
+    }
     function pintarFicha(z) {
       if (!ficha) return;
       if (!z) { ficha.innerHTML = fichaInicial; return; }
@@ -1459,14 +1468,14 @@
     }
     function elegirZona(id) {
       var p = pts.filter(function (x) { return x.z.id === id; })[0]; if (!p) return;
-      if (p.g.l.length > 1) { estado.grupo = p.g; acercar(p.g, 2.4); }
+      if (p.g.l.length > 1) { estado.grupo = p.g; acercar(p.g, zoomGrupo(p.g)); }
       else { estado.grupo = null; acercar(p.g, 1.9); }
       estado.zona = id;
       colocar(); pintarFicha(p.z);
       $$("[data-mapa-zona]").forEach(function (a) { a.classList.toggle("activo", a.getAttribute("data-mapa-zona") === id); });
     }
     function abrirGrupo(g) {
-      estado.grupo = g; estado.zona = null; acercar(g, 2.4); colocar(); pintarFicha(null);
+      estado.grupo = g; estado.zona = null; acercar(g, zoomGrupo(g)); colocar(); pintarFicha(null);
       $$("[data-mapa-zona]").forEach(function (a) { a.classList.remove("activo"); });
     }
     function todo() {
@@ -1493,7 +1502,7 @@
       requestAnimationFrame(function () {
         pend = false; marco.classList.add("sin-transicion");
         var g = estado.grupo || (estado.zona && pts.filter(function (x) { return x.z.id === estado.zona; })[0].g);
-        if (g) acercar(g, estado.s); colocar();
+        if (g) acercar(g, g.l.length > 1 ? zoomGrupo(g) : estado.s); colocar();
         requestAnimationFrame(function () { marco.classList.remove("sin-transicion"); });
       });
     });
