@@ -42,30 +42,13 @@
   }
   function icono(n) { var t = $('template[data-ic="' + n + '"]'); return t ? t.innerHTML : ""; }
 
-  /* Emojis: uno al inicio de títulos, listas y datos clave (aparte, aria-hidden, para que no se lean en voz alta) */
-  function emoji(e) { return '<span class="emoji" aria-hidden="true">' + e + "</span>"; }
-  var RE_EMOJI = null;
-  try { RE_EMOJI = new RegExp("^(\\p{Extended_Pictographic}\\uFE0F?)\\s+(.*)$", "u"); } catch (err) { /* navegador viejo: sin separar */ }
-  function conEmoji(t) {
-    var m = RE_EMOJI && String(t || "").match(RE_EMOJI);
-    return m ? emoji(m[1]) + esc(m[2]) : esc(t);
+  /* Lista con ícono de línea (mismo estilo que "Incluye" de tours y fichas) */
+  function listaCheck(items) {
+    return '<ul class="lista-check">' + items.map(function (x) { return "<li>" + icono("check") + esc(x) + "</li>"; }).join("") + "</ul>";
   }
-  var EMOJIS = [[/desayuno/i, "☕"], [/jacuzzi/i, "🛁"], [/mesa de pool|billar/i, "🎱"], [/piscina/i, "🏊"], [/muelle|capit/i, "⚓"],
-    [/playa|frente al mar|vista al mar/i, "🏖️"], [/aire/i, "❄️"], [/wifi/i, "📶"], [/\btv\b|smart tv/i, "📺"], [/cocina/i, "🍳"],
-    [/parrill|kiosco/i, "🔥"], [/planta el/i, "⚡"], [/estacionamiento|puesto/i, "🚗"], [/mascota/i, "🐶"], [/agua/i, "💧"],
-    [/jard|verde/i, "🌳"], [/lavadora/i, "🧺"], [/restaurante|comida/i, "🍽️"], [/hamaca/i, "🌴"], [/terraza|tumbona/i, "☀️"],
-    [/ducha|baño/i, "🚿"], [/ascensor/i, "🏢"], [/vigilancia|cámara/i, "🔒"], [/infantil|niños/i, "🧒"], [/cava|hielo/i, "🧊"],
-    [/brindis/i, "🥂"], [/música/i, "🎶"], [/sol/i, "🌅"], [/cayo/i, "🏝️"], [/trabajo/i, "💻"], [/lencer/i, "🛏️"]];
-  function emojiDe(t) {
-    for (var i = 0; i < EMOJIS.length; i++) if (EMOJIS[i][0].test(t)) return EMOJIS[i][1];
-    return "✅";
-  }
-  function listaEmoji(items, clase) {
-    return '<ul class="lista-emoji ' + (clase || "") + '">' + items.map(function (x) { return "<li>" + emoji(emojiDe(x)) + esc(x) + "</li>"; }).join("") + "</ul>";
-  }
-  /* Dato corto con emoji: "👥 32" (el lector de pantalla oye "32 personas") */
+  /* Dato corto con ícono de línea: "32" (el lector de pantalla oye "32 personas") */
   function dato(e, visible, completo) {
-    return '<span title="' + esc(completo) + '">' + emoji(e) + esc(visible) + (completo !== visible ? '<span class="sr"> (' + esc(completo) + ")</span>" : "") + "</span>";
+    return '<span title="' + esc(completo) + '">' + icono(e) + esc(visible) + (completo !== visible ? '<span class="sr"> (' + esc(completo) + ")</span>" : "") + "</span>";
   }
   function tarifa() { return '<p class="tarifa">' + icono("charla") + "<span>" + esc(document.body.getAttribute("data-tarifa") || "Consulte la tarifa para su fecha") + "</span></p>"; }
 
@@ -1557,13 +1540,13 @@
       '<button type="button" class="t-flecha t-ant" data-t-mover="-1" aria-label="Foto anterior">' + icono("izq") + "</button>" +
       '<button type="button" class="t-flecha t-sig" data-t-mover="1" aria-label="Foto siguiente">' + icono("der") + "</button>" : "";
     var datos = [];
-    if (b.capacidad) datos.push(dato("👥", String(b.capacidad), plural(+b.capacidad || b.capacidad, "persona", "personas")));
-    if (b.zona) datos.push(dato("📍", b.zona.charAt(0).toUpperCase() + b.zona.slice(1), b.zona));
+    if (b.capacidad) datos.push(dato("personas", String(b.capacidad), plural(+b.capacidad || b.capacidad, "persona", "personas")));
+    if (b.zona) datos.push(dato("mapa", b.zona.charAt(0).toUpperCase() + b.zona.slice(1), b.zona));
     return '<article class="tarjeta tarjeta-barco" id="' + esc(b.id) + '">' +
       '<div class="tarjeta-foto"><span class="t-enlace">' + (n ? '<span class="t-pista" data-t-pista>' + slides.join("") + "</span>" : '<span class="sin-foto">' + icono("camara") + "</span>") + "</span>" + puntos +
       (b.tipo ? '<span class="tarjeta-cat">' + esc(b.tipo.charAt(0).toUpperCase() + b.tipo.slice(1)) + "</span>" : "") + "</div>" +
       '<div class="tarjeta-texto"><h3>' + esc(b.nombre) + "</h3>" + (b.descripcion ? '<p class="tarjeta-resumen">' + esc(b.descripcion) + "</p>" : "") +
-      (datos.length ? '<p class="tarjeta-datos">' + datos.join("") + "</p>" : "") + (b.incluye.length ? listaEmoji(b.incluye) : "") + tarifa() +
+      (datos.length ? '<p class="tarjeta-datos">' + datos.join("") + "</p>" : "") + (b.incluye.length ? listaCheck(b.incluye) : "") + tarifa() +
       '<div class="tarjeta-acciones">' + botonWa("Consultar disponibilidad", msg("embarcacion", { nombre: b.nombre, zona: b.zona || "Morrocoy" }), "boton-reserva") + "</div>" +
       "</div></article>";
   }

@@ -1,5 +1,5 @@
 {
-  "_ayuda": "Textos fijos de las páginas. *palabra* va en cursiva. Sin emojis en títulos ni botones (solo en descripciones de yates y lanchas). Después de cambiarlos hay que volver a generar el sitio con python _generadores/cotomaya.py.",
+  "_ayuda": "Textos fijos de las páginas. *palabra* va en cursiva. Sin emojis en títulos, menú, botones, etiquetas, tarjetas ni pie; en descripciones, uno por bloque como máximo. Después de cambiarlos hay que volver a generar el sitio con python _generadores/cotomaya.py.",
   "portada_titulo": "Su casa frente al *Caribe*",
   "portada_texto": "Villas, casas, apartamentos y habitaciones de vacaciones en Venezuela y Colombia, y paseos en yate por los cayos de Morrocoy.",
   "pase_titulo": "¿A dónde va?",
