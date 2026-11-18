@@ -64,7 +64,8 @@
     "tours_pronto": "Hola, quisiera saber qué tours {ambito} tienen con Cotomaya Venezuela.",
     "sin_resultados": "Hola, estoy buscando un hospedaje con Cotomaya Venezuela y no encontré lo que necesito. ¿Me pueden ayudar?",
     "viaje": "Hola Cotomaya, quiero cotizar {servicio}:",
-    "embarcacion": "Hola Cotomaya, quiero información de la {nombre} para un paseo por {zona}"
+    "embarcacion": "Hola Cotomaya, quiero información de la {nombre} para un paseo por {zona}",
+    "propietarios": "Hola Cotomaya, tengo una propiedad y quiero información sobre la gestión"
   },
   "video_portada": "",
   "spline_escena": "",

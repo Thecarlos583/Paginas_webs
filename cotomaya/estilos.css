@@ -1465,3 +1465,20 @@ h3 { font-size: 1.65rem; }
   .cabeza-legal .cabeza-texto { padding-top: 150px; padding-bottom: 80px; }
   .legal-datos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
+
+/* Somos Property Managers (inicio) y su línea en el pie (prompt 34b): mismas piezas que el bloque de viajes */
+.emoji { display: inline-block; margin-right: .32em; font-style: normal; }
+.pm { display: grid; gap: 20px; }
+.pm-cabeza p { margin-top: 10px; max-width: 34em; }
+.pm .botones { margin-top: 0; }
+.pm-puntos { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.pm-puntos li { display: flex; align-items: center; gap: 10px; min-width: 0; min-height: 58px; padding: 10px 14px; border-radius: 16px; background: var(--tarjeta); font-weight: 600; font-size: .95rem; line-height: 1.2; }
+.pm-puntos li:first-child { grid-column: 1 / -1; }
+.pm-puntos .ic { flex: none; color: var(--dorado-oscuro); }
+.pie-pm { margin: -2px 0 10px; font-size: .84rem; font-weight: 600; letter-spacing: .04em; color: var(--dorado-claro); }
+@media (min-width: 900px) {
+  .pm { gap: 28px; }
+  .pm-puntos { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; }
+  .pm-puntos li:first-child { grid-column: auto; }
+  .pm-puntos li { flex-direction: column; align-items: flex-start; gap: 14px; min-height: 128px; padding: 20px 18px; font-size: 1rem; }
+}

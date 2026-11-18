@@ -32,6 +32,17 @@
   "cierre_titulo": "¿Ya sabe a dónde quiere ir?",
   "cierre_texto": "Díganos las fechas y cuántos son. Le respondemos por WhatsApp con las opciones disponibles.",
   "pie_texto": "Hospedajes vacacionales nacionales e internacionales, tours y paseos en yate por los cayos de Morrocoy.",
+  "pm_titulo": "Somos Property Managers",
+  "pm_texto": "Gestión integral de la propiedad, operaciones, limpieza, mantenimiento y experiencia del huésped.",
+  "pm_puntos": [
+    "Gestión integral de la propiedad",
+    "Operaciones",
+    "Limpieza",
+    "Mantenimiento",
+    "Experiencia del huésped"
+  ],
+  "pm_boton": "¿Tiene una propiedad? Escríbanos",
+  "pie_pm": "Property Managers · Gestión integral de la propiedad",
   "pie_aviso": "Algunos tours son de referencia.",
   "tarifa": "Consulte la tarifa para su fecha",
   "hospedajes_titulo": "Hospedajes vacacionales",
