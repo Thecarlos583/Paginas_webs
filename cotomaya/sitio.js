@@ -638,7 +638,8 @@
   }
 
   /* ---- Ficha de propiedad ---- */
-  var PLATAFORMAS = [["airbnb", "Airbnb"], ["booking", "Booking"], ["expedia", "Expedia"], ["agoda", "Agoda"], ["tripadvisor", "TripAdvisor"]];
+  /* Las únicas plataformas que maneja la clienta (18/11/2026): Airbnb y Stay */
+  var PLATAFORMAS = [["airbnb", "Airbnb"], ["stay", "Stay"]];
   function rutaVideo(r) { return /^https?:\/\//.test(r) || /^fotos\//.test(r) ? r : "fotos/propiedades/" + r; }
   function youtube(u) {
     var m = String(u).match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|shorts\/|embed\/))([\w-]{6,})/);
@@ -956,11 +957,10 @@
     });
   };
 
-  /* ---- Cómo reservar: las plataformas que de verdad tienen enlaces ---- */
-  PAGINAS.reservar = function (d) {
+  /* ---- Cómo reservar: las plataformas que maneja Cotomaya (la lista PLATAFORMAS) ---- */
+  PAGINAS.reservar = function () {
     var caja = $("[data-plats-usadas]"); if (!caja) return;
-    var usadas = PLATAFORMAS.filter(function (x) { return d.propiedades.some(function (p) { return p.enlaces[x[0]]; }); });
-    if (usadas.length) caja.innerHTML = usadas.map(function (x) { return "<span>" + x[1] + "</span>"; }).join("");
+    caja.innerHTML = PLATAFORMAS.map(function (x) { return "<span>" + x[1] + "</span>"; }).join("");
   };
 
 

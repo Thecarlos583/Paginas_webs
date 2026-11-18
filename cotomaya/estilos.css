@@ -605,10 +605,7 @@ html:not(.js) .dia-escena img:first-child { opacity: 1; }
 .plat:active { transform: scale(.98); }
 .plat small { font-weight: 400; font-size: .84rem; opacity: .9; }
 .plat-airbnb { background: #FF385C; color: #fff; }
-.plat-booking { background: #003580; color: #fff; }
-.plat-expedia { background: #FDDB32; color: var(--tinta); }
-.plat-tripadvisor { background: #34E0A1; color: var(--tinta); }
-.plat-agoda { background: var(--tarjeta); color: var(--texto); border: 1.5px solid var(--linea); }
+.plat-stay { background: var(--tarjeta); color: var(--texto); border: 1.5px solid var(--linea); }
 .reserva-o { display: flex; align-items: center; gap: 10px; font-size: .86rem; color: var(--azul-medio); font-weight: 600; }
 .reserva-o::before, .reserva-o::after { content: ""; flex: 1; height: 1px; background: var(--linea); }
 .reserva .boton { width: 100%; }
