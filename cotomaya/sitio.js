@@ -154,7 +154,8 @@
     d.hayEjemplo = d.propiedades.concat(d.tours).some(function (x) { return x.ejemplo === true; });
     return d;
   }
-  /* embarcaciones.json: [ { id, nombre, tipo, capacidad, descripcion, incluye, zona, fotos, videos } ] */
+  /* embarcaciones.json: [ { id, nombre, tipo, capacidad, descripcion, incluye, horario, salida, zona, mensaje, fotos, videos } ]
+     horario, salida y mensaje son opcionales: si faltan, no se muestran (y el mensaje sale de config.mensajes.embarcacion) */
   function validarBarcos(lista_) {
     var vistos = {};
     return lista(lista_).filter(function (b, i) {
@@ -164,7 +165,12 @@
       if (b.activa === false) return false;
       var fotos = [], alts = [];
       lista(b.fotos).forEach(function (f) { var r = f && typeof f === "object" ? f.archivo : f; if (r) { fotos.push(r); alts.push(f.alt || ""); } });
-      b.fotos = fotos; b.alts = alts; b.incluye = lista(b.incluye).filter(Boolean);
+      b.fotos = fotos; b.alts = alts;
+      /* "incluye": textos sueltos (lista con check) o { texto, corto, icono } para la fila de íconos de los yates */
+      b.incluye = lista(b.incluye).map(function (x) {
+        if (x && typeof x === "object") return x.texto ? { texto: String(x.texto), corto: String(x.corto || x.texto), icono: x.icono || "" } : null;
+        return x ? { texto: String(x), corto: String(x), icono: "" } : null;
+      }).filter(Boolean);
       b.videos = lista(b.videos).filter(function (v) { return v && v.archivo; });
       b.carpeta = "fotos/embarcaciones/";
       return true;
@@ -1542,12 +1548,22 @@
     var datos = [];
     if (b.capacidad) datos.push(dato("personas", String(b.capacidad), plural(+b.capacidad || b.capacidad, "persona", "personas")));
     if (b.zona) datos.push(dato("mapa", b.zona.charAt(0).toUpperCase() + b.zona.slice(1), b.zona));
-    return '<article class="tarjeta tarjeta-barco" id="' + esc(b.id) + '">' +
+    var lineas = [];
+    if (b.horario) lineas.push(["reloj", "Horario", b.horario]);
+    if (b.salida) lineas.push(["ancla", "Salida", b.salida]);
+    var lineasHtml = lineas.length ? '<ul class="barco-lineas">' + lineas.map(function (l) { return "<li>" + icono(l[0]) + "<span><b>" + esc(l[1]) + "</b> " + esc(l[2]) + "</span></li>"; }).join("") + "</ul>" : "";
+    var conIconos = b.incluye.some(function (x) { return x.icono; });
+    var incluyeHtml = !b.incluye.length ? "" : !conIconos ? listaCheck(b.incluye.map(function (x) { return x.texto; })) :
+      '<div class="barco-incluye"><p class="barco-incluye-titulo">Incluye</p><ul>' + b.incluye.map(function (x) {
+        return '<li title="' + esc(x.texto) + '">' + (icono(x.icono) || icono("check")) + '<span aria-hidden="true">' + esc(x.corto) + '</span><span class="sr">' + esc(x.texto) + "</span></li>";
+      }).join("") + "</ul></div>";
+    var mensaje = b.mensaje ? String(b.mensaje) : msg("embarcacion", { nombre: b.nombre, zona: b.zona || "Morrocoy" });
+    return '<article class="tarjeta tarjeta-barco' + (conIconos ? " con-incluye" : "") + '" id="' + esc(b.id) + '">' +
       '<div class="tarjeta-foto"><span class="t-enlace">' + (n ? '<span class="t-pista" data-t-pista>' + slides.join("") + "</span>" : '<span class="sin-foto">' + icono("camara") + "</span>") + "</span>" + puntos +
       (b.tipo ? '<span class="tarjeta-cat">' + esc(b.tipo.charAt(0).toUpperCase() + b.tipo.slice(1)) + "</span>" : "") + "</div>" +
       '<div class="tarjeta-texto"><h3>' + esc(b.nombre) + "</h3>" + (b.descripcion ? '<p class="tarjeta-resumen">' + esc(b.descripcion) + "</p>" : "") +
-      (datos.length ? '<p class="tarjeta-datos">' + datos.join("") + "</p>" : "") + (b.incluye.length ? listaCheck(b.incluye) : "") + tarifa() +
-      '<div class="tarjeta-acciones">' + botonWa("Consultar disponibilidad", msg("embarcacion", { nombre: b.nombre, zona: b.zona || "Morrocoy" }), "boton-reserva") + "</div>" +
+      (datos.length ? '<p class="tarjeta-datos">' + datos.join("") + "</p>" : "") + lineasHtml + incluyeHtml + tarifa() +
+      '<div class="tarjeta-acciones">' + botonWa("Consultar disponibilidad", mensaje, "boton-reserva") + "</div>" +
       "</div></article>";
   }
   function pintarBarcos(d) {

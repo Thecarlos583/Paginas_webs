@@ -1250,6 +1250,17 @@ h3 { font-size: 1.65rem; }
 .tarjeta-barco .tarjeta-foto { aspect-ratio: 1 / 1; }
 .t-video { flex: 0 0 100%; width: 100%; height: 100%; object-fit: cover; scroll-snap-align: start; scroll-snap-stop: always; background: var(--hondo); }
 .tarjeta-barco .lista-check { margin-top: 2px; }
+/* Yate: horario y salida, y lo que incluye como fila de íconos con una palabra (embarcaciones.json) */
+.barco-lineas { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; font-size: .94rem; }
+.barco-lineas li { display: flex; gap: 8px; align-items: flex-start; }
+.barco-lineas .ic { flex: none; width: 20px; height: 20px; margin-top: 1px; color: var(--azul-medio); }
+.oscuro .barco-lineas .ic { color: var(--dorado); }
+.barco-lineas b { font-weight: 600; }
+.barco-incluye-titulo { margin: 2px 0 8px; font-size: .78rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; opacity: .85; }
+.barco-incluye ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(68px, 1fr)); gap: 12px 6px; }
+.barco-incluye li { display: flex; flex-direction: column; align-items: center; gap: 5px; text-align: center; font-size: .8rem; line-height: 1.2; }
+.barco-incluye .ic { width: 22px; height: 22px; color: var(--dorado-oscuro); }
+.oscuro .barco-incluye .ic { color: var(--dorado); }
 
 /* Bloque corto en el inicio: franja turquesa que lleva a Yates y lanchas */
 .seccion-yates-inicio { color: var(--blanco); background: radial-gradient(60% 70% at 100% 0%, rgba(239,125,96,.2), transparent 70%), radial-gradient(55% 60% at 0% 100%, rgba(31,127,137,.4), transparent 72%), var(--primario); }
@@ -1314,13 +1325,17 @@ h3 { font-size: 1.65rem; }
 @media (max-width: 599px) {
   .mapa-marco { width: min(100%, 56svh); margin-inline: auto; }
 }
-/* Una sola embarcación en la computadora: tarjeta horizontal, sin hueco a la derecha */
+/* Embarcaciones en la computadora: una tarjeta horizontal debajo de otra (la de la lancha se ve igual que cuando estaba sola) */
 @media (min-width: 900px) {
-  .rejilla-barcos > .tarjeta-barco:only-child { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); max-width: 1040px; }
-  .rejilla-barcos > .tarjeta-barco:only-child .tarjeta-foto { aspect-ratio: 4 / 3; }
-  .rejilla-barcos > .tarjeta-barco:only-child .tarjeta-texto { justify-content: center; gap: 14px; padding: 36px 40px; }
-  .rejilla-barcos > .tarjeta-barco:only-child h3 { font-size: 2.4rem; }
-  .rejilla-barcos > .tarjeta-barco:only-child .tarifa, .rejilla-barcos > .tarjeta-barco:only-child .tarjeta-acciones { margin-top: 6px; }
+  .rejilla-barcos { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .rejilla-barcos > .tarjeta-barco { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); max-width: 1040px; }
+  .rejilla-barcos > .tarjeta-barco .tarjeta-foto { aspect-ratio: 4 / 3; }
+  .rejilla-barcos > .tarjeta-barco .tarjeta-texto { justify-content: center; gap: 14px; padding: 36px 40px; }
+  .rejilla-barcos > .tarjeta-barco h3 { font-size: 2.4rem; }
+  .rejilla-barcos > .tarjeta-barco .tarifa, .rejilla-barcos > .tarjeta-barco .tarjeta-acciones { margin-top: 6px; }
+  /* El yate trae más datos: la foto acompaña todo el alto del texto */
+  .rejilla-barcos > .tarjeta-barco.con-incluye .tarjeta-foto { aspect-ratio: auto; align-self: stretch; min-height: 100%; }
+  .rejilla-barcos > .tarjeta-barco.con-incluye .tarjeta-texto { gap: 12px; padding: 32px 40px; }
 }
 
 /* ================================================================

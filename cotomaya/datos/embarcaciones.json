@@ -1,5 +1,108 @@
 [
   {
+    "id": "yate-sundancer-42",
+    "nombre": "Yate Sundancer 42",
+    "tipo": "yate",
+    "capacidad": "12",
+    "descripcion": "Tour en yate de 42 pies por tres destinos de Morrocoy.",
+    "incluye": [
+      {
+        "texto": "WiFi Starlink",
+        "corto": "WiFi",
+        "icono": "wifi"
+      },
+      {
+        "texto": "Parrillera",
+        "corto": "Parrillera",
+        "icono": "parrilla"
+      },
+      {
+        "texto": "Sonido Bluetooth",
+        "corto": "Sonido",
+        "icono": "sonido"
+      },
+      {
+        "texto": "TV",
+        "corto": "TV",
+        "icono": "tv"
+      },
+      {
+        "texto": "Aire acondicionado",
+        "corto": "Aire",
+        "icono": "aire"
+      },
+      {
+        "texto": "Cama",
+        "corto": "Cama",
+        "icono": "cama"
+      },
+      {
+        "texto": "Baño",
+        "corto": "Baño",
+        "icono": "bano"
+      },
+      {
+        "texto": "Cava",
+        "corto": "Cava",
+        "icono": "cava"
+      },
+      {
+        "texto": "Salvavidas",
+        "corto": "Salvavidas",
+        "icono": "salvavidas"
+      },
+      {
+        "texto": "Capitán",
+        "corto": "Capitán",
+        "icono": "timon"
+      },
+      {
+        "texto": "Ayudante",
+        "corto": "Ayudante",
+        "icono": "ayudante"
+      }
+    ],
+    "horario": "9:30 a. m. a 5:00 p. m.",
+    "salida": "Muelle privado en Morrocoy, Las Luisas",
+    "zona": "cayos de Morrocoy",
+    "mensaje": "Hola Cotomaya, quiero información del Yate Sundancer 42 para un tour por Morrocoy",
+    "fotos": [
+      {
+        "archivo": "yate-sundancer-42/exterior-perfil.webp",
+        "alt": "El yate de perfil sobre agua turquesa en Morrocoy"
+      },
+      {
+        "archivo": "yate-sundancer-42/exterior-lado.webp",
+        "alt": "El yate de lado, con el cielo y la montaña al fondo"
+      },
+      {
+        "archivo": "yate-sundancer-42/proa-cayos.webp",
+        "alt": "Vista desde la proa del yate hacia los cayos"
+      },
+      {
+        "archivo": "yate-sundancer-42/cubierta.webp",
+        "alt": "Cubierta del yate con toldo y asientos"
+      },
+      {
+        "archivo": "yate-sundancer-42/salon.webp",
+        "alt": "Salón interior del yate con sofá y TV"
+      },
+      {
+        "archivo": "yate-sundancer-42/cocina.webp",
+        "alt": "Cocina del yate"
+      },
+      {
+        "archivo": "yate-sundancer-42/camarote.webp",
+        "alt": "Camarote del yate con cama"
+      },
+      {
+        "archivo": "yate-sundancer-42/bano.webp",
+        "alt": "Baño del yate"
+      }
+    ],
+    "videos": []
+  },
+  {
     "id": "lancha-deportiva",
     "nombre": "Lancha deportiva",
     "tipo": "lancha deportiva",
