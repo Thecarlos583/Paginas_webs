@@ -104,19 +104,70 @@
   },
   {
     "id": "yate-flybridge",
-    "nombre": "Yate con flybridge",
+    "nombre": "Yate Sedan Bridge Carver 42",
     "tipo": "yate",
-    "capacidad": "",
-    "descripcion": "Yate con flybridge, salón, comedor, cocina y camarote.",
-    "incluye": [],
-    "horario": "",
-    "salida": "",
-    "zona": "",
-    "mensaje": "Hola Cotomaya, quiero información del yate con flybridge",
+    "capacidad": "12",
+    "descripcion": "Tour en yate de 42 pies por tres destinos de Morrocoy.",
+    "incluye": [
+      {
+        "texto": "Parrillera",
+        "corto": "Parrillera",
+        "icono": "parrilla"
+      },
+      {
+        "texto": "Sonido Bluetooth",
+        "corto": "Sonido",
+        "icono": "sonido"
+      },
+      {
+        "texto": "TV",
+        "corto": "TV",
+        "icono": "tv"
+      },
+      {
+        "texto": "Salvavidas",
+        "corto": "Salvavidas",
+        "icono": "salvavidas"
+      },
+      {
+        "texto": "Cava",
+        "corto": "Cava",
+        "icono": "cava"
+      },
+      {
+        "texto": "Cama",
+        "corto": "Cama",
+        "icono": "cama"
+      },
+      {
+        "texto": "Aire acondicionado",
+        "corto": "Aire",
+        "icono": "aire"
+      },
+      {
+        "texto": "Baño",
+        "corto": "Baño",
+        "icono": "bano"
+      },
+      {
+        "texto": "Capitán",
+        "corto": "Capitán",
+        "icono": "timon"
+      },
+      {
+        "texto": "Ayudante",
+        "corto": "Ayudante",
+        "icono": "ayudante"
+      }
+    ],
+    "horario": "9:30 a. m. a 5:00 p. m.",
+    "salida": "Muelle privado en Morrocoy, Las Luisas",
+    "zona": "cayos de Morrocoy",
+    "mensaje": "Hola Cotomaya, quiero información del Yate Sedan Bridge Carver 42 para un tour por Morrocoy",
     "fotos": [
       {
         "archivo": "yate-flybridge/aerea.webp",
-        "alt": "El yate con flybridge sobre agua turquesa entre los cayos, visto desde el aire"
+        "alt": "El yate sobre agua turquesa entre los cayos, visto desde el aire"
       },
       {
         "archivo": "yate-flybridge/popa-flybridge.webp",
