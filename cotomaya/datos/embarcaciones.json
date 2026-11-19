@@ -103,6 +103,45 @@
     "videos": []
   },
   {
+    "id": "yate-flybridge",
+    "nombre": "Yate con flybridge",
+    "tipo": "yate",
+    "capacidad": "",
+    "descripcion": "Yate con flybridge, salón, comedor, cocina y camarote.",
+    "incluye": [],
+    "horario": "",
+    "salida": "",
+    "zona": "",
+    "mensaje": "Hola Cotomaya, quiero información del yate con flybridge",
+    "fotos": [
+      {
+        "archivo": "yate-flybridge/aerea.webp",
+        "alt": "El yate con flybridge sobre agua turquesa entre los cayos, visto desde el aire"
+      },
+      {
+        "archivo": "yate-flybridge/popa-flybridge.webp",
+        "alt": "Popa y flybridge del yate en el muelle"
+      },
+      {
+        "archivo": "yate-flybridge/salon.webp",
+        "alt": "Salón del yate con sofá en L"
+      },
+      {
+        "archivo": "yate-flybridge/comedor.webp",
+        "alt": "Comedor del yate con mesa y sofá"
+      },
+      {
+        "archivo": "yate-flybridge/cocina.webp",
+        "alt": "Pasillo del yate con cocina, nevera y TV"
+      },
+      {
+        "archivo": "yate-flybridge/camarote.webp",
+        "alt": "Camarote del yate con cama"
+      }
+    ],
+    "videos": []
+  },
+  {
     "id": "lancha-deportiva",
     "nombre": "Lancha deportiva",
     "tipo": "lancha deportiva",
