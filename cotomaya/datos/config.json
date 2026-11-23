@@ -82,5 +82,9 @@
     "numero": "584145991961",
     "visible": "+58 414-5991961",
     "nota": "Suspendido por pedido de la clienta el 17/11/2026. Para reactivarlo: volver a ponerlo en whatsapp_principal (o en whatsapp_secundario) y regenerar."
+  },
+  "video_tv": {
+    "archivo": "fotos/tours/comercial-tv.mp4",
+    "portada": "fotos/tours/comercial-tv.webp"
   }
 }

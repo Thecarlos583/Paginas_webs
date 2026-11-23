@@ -38,25 +38,5 @@
     ],
     "ejemplo": true,
     "activa": true
-  },
-  {
-    "id": "atardecer-en-yate",
-    "nombre": "Atardecer en yate",
-    "tipo": "yate",
-    "ambito": "nacional",
-    "destino": "venezuela",
-    "zona": "tucacas",
-    "duracion": "Unas 2 horas",
-    "resumen": "Se sale cuando baja el calor y se apaga el motor frente al sol.",
-    "incluye": [
-      "Salida al final de la tarde",
-      "Parada para ver el sol caer",
-      "Brindis a bordo"
-    ],
-    "fotos": [
-      "fotos/yate-3.webp"
-    ],
-    "ejemplo": true,
-    "activa": true
   }
 ]

@@ -617,6 +617,8 @@ html:not(.js) .dia-escena img:first-child { opacity: 1; }
 .video-play img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .video-play i { position: relative; display: grid; place-items: center; width: 64px; height: 64px; border-radius: 50%; background: rgba(255,255,255,.9); color: var(--tinta); box-shadow: 0 6px 20px rgba(9,56,66,.3); transition: transform .2s ease; }
 .video-play:hover i { transform: scale(1.08); }
+.video-tv { aspect-ratio: 848/350; max-width: 860px; margin: 32px auto 0; box-shadow: 0 18px 40px rgba(9,56,66,.28); }
+.video-tv video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 @media (max-width: 899px) {
   .ficha-cuerpo { display: flex; flex-direction: column; gap: 30px; }
   .ficha-izq { display: contents; }
@@ -1247,6 +1249,8 @@ h3 { font-size: 1.65rem; }
 .yates-cabeza-texto { padding-top: 90px; padding-bottom: 54px; }
 .yates-cabeza-texto h2, .yates-cabeza-texto p { text-shadow: 0 1px 14px rgba(9,56,66,.55); }
 .yates-cabeza-texto p { margin-top: 8px; font-weight: 600; }
+.yates-cabeza-texto .yates-horario { display: flex; align-items: flex-start; gap: 8px; margin-top: 12px; max-width: 34em; font-size: .95rem; color: var(--dorado-claro); }
+.yates-horario .ic { flex: none; margin-top: 2px; }
 .rejilla-barcos { grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); }
 .tarjeta-barco .tarjeta-foto { aspect-ratio: 1 / 1; }
 .t-video { flex: 0 0 100%; width: 100%; height: 100%; object-fit: cover; scroll-snap-align: start; scroll-snap-stop: always; background: var(--hondo); }

@@ -792,6 +792,17 @@
     });
   };
 
+  /* Comercial de TV en Tours (config.video_tv): el video se pide recién al tocar play */
+  document.addEventListener("click", function (ev) {
+    var b = ev.target.closest("[data-video-tv]"); if (!b) return;
+    var el = document.createElement("video");
+    el.controls = true; el.preload = "none"; el.playsInline = true;
+    if (b.dataset.portada) el.poster = b.dataset.portada;
+    el.src = b.dataset.videoTv;
+    b.parentNode.replaceChild(el, b);
+    var pr = el.play(); if (pr && pr.catch) pr.catch(function () {});
+  });
+
   /* ---- Piezas de la vista previa: el mar hoy, mueva el sol, carta de los cayos y mapa ---- */
   function datos(sel, r) { var n = $(sel, r); return n ? JSON.parse(n.textContent) : null; }
   /* El mar hoy: pronóstico real de Open-Meteo, con texto de respaldo */
