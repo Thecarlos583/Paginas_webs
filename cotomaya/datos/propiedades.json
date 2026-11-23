@@ -2,6 +2,8 @@
   {
     "id": "condo-ciudad-flamingo",
     "nombre": "Condo Privado | Planta Total | Pet Friendly gratis",
+    "codigo": "",
+    "linea": "",
     "tipo": "apartamento",
     "categoria": "B",
     "ambito": "nacional",
@@ -116,8 +118,10 @@
     "ubicacion_maps": ""
   },
   {
-    "id": "villa-naturaleza-sanare",
-    "nombre": "Villa en medio de la naturaleza• Planta Elect",
+    "id": "villa-a12",
+    "nombre": "Villa A12 | En medio de la naturaleza",
+    "codigo": "A12",
+    "linea": "En medio de la naturaleza",
     "tipo": "villa",
     "categoria": "A",
     "ambito": "nacional",
@@ -144,83 +148,83 @@
     "nota": "No se admiten mascotas.",
     "fotos": [
       {
-        "archivo": "villa-naturaleza-sanare/01.webp",
+        "archivo": "villa-a12/01.webp",
         "alt": "Foto de la propiedad"
       },
       {
-        "archivo": "villa-naturaleza-sanare/02.webp",
+        "archivo": "villa-a12/02.webp",
         "alt": "Piscina"
       },
       {
-        "archivo": "villa-naturaleza-sanare/03.webp",
+        "archivo": "villa-a12/03.webp",
         "alt": "Piscina"
       },
       {
-        "archivo": "villa-naturaleza-sanare/04.webp",
+        "archivo": "villa-a12/04.webp",
         "alt": "Paseo en lancha"
       },
       {
-        "archivo": "villa-naturaleza-sanare/05.webp",
+        "archivo": "villa-a12/05.webp",
         "alt": "Sala"
       },
       {
-        "archivo": "villa-naturaleza-sanare/06.webp",
+        "archivo": "villa-a12/06.webp",
         "alt": "Sala"
       },
       {
-        "archivo": "villa-naturaleza-sanare/07.webp",
+        "archivo": "villa-a12/07.webp",
         "alt": "Cocina"
       },
       {
-        "archivo": "villa-naturaleza-sanare/08.webp",
+        "archivo": "villa-a12/08.webp",
         "alt": "Habitación"
       },
       {
-        "archivo": "villa-naturaleza-sanare/09.webp",
+        "archivo": "villa-a12/09.webp",
         "alt": "Habitación"
       },
       {
-        "archivo": "villa-naturaleza-sanare/10.webp",
+        "archivo": "villa-a12/10.webp",
         "alt": "Baño"
       },
       {
-        "archivo": "villa-naturaleza-sanare/11.webp",
+        "archivo": "villa-a12/11.webp",
         "alt": "Habitación"
       },
       {
-        "archivo": "villa-naturaleza-sanare/12.webp",
+        "archivo": "villa-a12/12.webp",
         "alt": "Habitación"
       },
       {
-        "archivo": "villa-naturaleza-sanare/13.webp",
+        "archivo": "villa-a12/13.webp",
         "alt": "Baño"
       },
       {
-        "archivo": "villa-naturaleza-sanare/14.webp",
+        "archivo": "villa-a12/14.webp",
         "alt": "Baño"
       },
       {
-        "archivo": "villa-naturaleza-sanare/15.webp",
+        "archivo": "villa-a12/15.webp",
         "alt": "Baño"
       },
       {
-        "archivo": "villa-naturaleza-sanare/16.webp",
+        "archivo": "villa-a12/16.webp",
         "alt": "Exterior"
       },
       {
-        "archivo": "villa-naturaleza-sanare/17.webp",
+        "archivo": "villa-a12/17.webp",
         "alt": "Exterior"
       },
       {
-        "archivo": "villa-naturaleza-sanare/18.webp",
+        "archivo": "villa-a12/18.webp",
         "alt": "Exterior"
       },
       {
-        "archivo": "villa-naturaleza-sanare/19.webp",
+        "archivo": "villa-a12/19.webp",
         "alt": "Exterior"
       },
       {
-        "archivo": "villa-naturaleza-sanare/20.webp",
+        "archivo": "villa-a12/20.webp",
         "alt": "Piscina"
       }
     ],
@@ -234,6 +238,8 @@
   {
     "id": "apto-muelle-chichiriviche",
     "nombre": "Apto con muelle • Playa • Planta Elect. Total",
+    "codigo": "",
+    "linea": "",
     "tipo": "apartamento",
     "categoria": "C",
     "ambito": "nacional",
@@ -351,6 +357,8 @@
   {
     "id": "casa-playa-pet-chichiriviche",
     "nombre": "Casa de Playa PET friendly• Planta Elect Total",
+    "codigo": "",
+    "linea": "",
     "tipo": "casa",
     "categoria": "B",
     "ambito": "nacional",
@@ -469,6 +477,8 @@
   {
     "id": "frente-al-mar-1hab-chichiriviche",
     "nombre": "Frente al mar | Planta eléctrica total y Playa",
+    "codigo": "",
+    "linea": "",
     "tipo": "apartamento",
     "categoria": "C",
     "ambito": "nacional",
@@ -584,6 +594,8 @@
   {
     "id": "frente-al-mar-2hab-chichiriviche",
     "nombre": "Frente al Mar • Planta Elec. • Playa y muelle",
+    "codigo": "",
+    "linea": "",
     "tipo": "apartamento",
     "categoria": "C",
     "ambito": "nacional",
@@ -701,6 +713,8 @@
   {
     "id": "casa-vista-al-mar-tucacas",
     "nombre": "Hermoso penthouse con vista al mar • Céntrico • Wi-Fi 12 personas",
+    "codigo": "",
+    "linea": "",
     "tipo": "penthouse",
     "categoria": "C",
     "ambito": "nacional",
@@ -817,6 +831,8 @@
   {
     "id": "margarita-beach-house-santa-marta",
     "nombre": "Margarita Beach House, a minutos de Playa Bello Horizonte",
+    "codigo": "",
+    "linea": "",
     "tipo": "casa",
     "categoria": "B",
     "ambito": "internacional",
@@ -931,6 +947,8 @@
   {
     "id": "apto-vista-playa-tucacas",
     "nombre": "Apto vista a la playa • Planta Elect y Wi-Fi",
+    "codigo": "",
+    "linea": "",
     "tipo": "apartamento",
     "categoria": "C",
     "ambito": "nacional",
@@ -1047,6 +1065,8 @@
   {
     "id": "familiar-salida-playa-tucacas",
     "nombre": "Familiar con salida a Playa y Planta Elect. Total",
+    "codigo": "",
+    "linea": "",
     "tipo": "apartamento",
     "categoria": "C",
     "ambito": "nacional",
@@ -1161,8 +1181,10 @@
     "ubicacion_maps": ""
   },
   {
-    "id": "casa-guacharaca-vip-lodge",
-    "nombre": "Casa Guacharaca VIP Lodge | Piscina en Morrocoy",
+    "id": "villa-g15",
+    "nombre": "Villa G15 | Hospedaje VIP con bella vista",
+    "codigo": "G15",
+    "linea": "Hospedaje VIP con bella vista",
     "tipo": "villa",
     "categoria": "B",
     "ambito": "nacional",
@@ -1188,83 +1210,83 @@
     "nota": "Mascotas con aprobación previa y costo adicional. Traslados en lancha a los cayos aparte.",
     "fotos": [
       {
-        "archivo": "casa-guacharaca-vip-lodge/01.webp",
+        "archivo": "villa-g15/01.webp",
         "alt": "Jardín"
       },
       {
-        "archivo": "casa-guacharaca-vip-lodge/02.webp",
+        "archivo": "villa-g15/02.webp",
         "alt": "Terraza"
       },
       {
-        "archivo": "casa-guacharaca-vip-lodge/03.webp",
+        "archivo": "villa-g15/03.webp",
         "alt": "Jardín"
       },
       {
-        "archivo": "casa-guacharaca-vip-lodge/04.webp",
+        "archivo": "villa-g15/04.webp",
         "alt": "Foto de la propiedad"
       },
       {
-        "archivo": "casa-guacharaca-vip-lodge/05.webp",
+        "archivo": "villa-g15/05.webp",
         "alt": "Terraza"
       },
       {
-        "archivo": "casa-guacharaca-vip-lodge/06.webp",
+        "archivo": "villa-g15/06.webp",
         "alt": "Sala"
       },
       {
-        "archivo": "casa-guacharaca-vip-lodge/07.webp",
+        "archivo": "villa-g15/07.webp",
         "alt": "Cocina"
       },
       {
-        "archivo": "casa-guacharaca-vip-lodge/08.webp",
+        "archivo": "villa-g15/08.webp",
         "alt": "Cocina"
       },
       {
-        "archivo": "casa-guacharaca-vip-lodge/09.webp",
+        "archivo": "villa-g15/09.webp",
         "alt": "Cocina"
       },
       {
-        "archivo": "casa-guacharaca-vip-lodge/10.webp",
+        "archivo": "villa-g15/10.webp",
         "alt": "Cocina"
       },
       {
-        "archivo": "casa-guacharaca-vip-lodge/11.webp",
+        "archivo": "villa-g15/11.webp",
         "alt": "Comedor"
       },
       {
-        "archivo": "casa-guacharaca-vip-lodge/12.webp",
+        "archivo": "villa-g15/12.webp",
         "alt": "Comedor"
       },
       {
-        "archivo": "casa-guacharaca-vip-lodge/13.webp",
+        "archivo": "villa-g15/13.webp",
         "alt": "Comedor"
       },
       {
-        "archivo": "casa-guacharaca-vip-lodge/14.webp",
+        "archivo": "villa-g15/14.webp",
         "alt": "Comedor"
       },
       {
-        "archivo": "casa-guacharaca-vip-lodge/15.webp",
+        "archivo": "villa-g15/15.webp",
         "alt": "Habitación"
       },
       {
-        "archivo": "casa-guacharaca-vip-lodge/16.webp",
+        "archivo": "villa-g15/16.webp",
         "alt": "Habitación"
       },
       {
-        "archivo": "casa-guacharaca-vip-lodge/17.webp",
+        "archivo": "villa-g15/17.webp",
         "alt": "Habitación"
       },
       {
-        "archivo": "casa-guacharaca-vip-lodge/18.webp",
+        "archivo": "villa-g15/18.webp",
         "alt": "Habitación"
       },
       {
-        "archivo": "casa-guacharaca-vip-lodge/19.webp",
+        "archivo": "villa-g15/19.webp",
         "alt": "Baño"
       },
       {
-        "archivo": "casa-guacharaca-vip-lodge/20.webp",
+        "archivo": "villa-g15/20.webp",
         "alt": "Baño"
       }
     ],
@@ -1276,8 +1298,10 @@
     "ubicacion_maps": ""
   },
   {
-    "id": "elige-tu-escape-sanare",
-    "nombre": "Elige tu escape con Planta Elect•Piscina •Áreas",
+    "id": "villa-a20",
+    "nombre": "Villa A20 | Villa grande con planta eléctrica, piscina y áreas",
+    "codigo": "A20",
+    "linea": "Villa grande con planta eléctrica, piscina y áreas",
     "tipo": "villa",
     "categoria": "B",
     "ambito": "nacional",
@@ -1304,83 +1328,83 @@
     "nota": "Incluye lencería.",
     "fotos": [
       {
-        "archivo": "elige-tu-escape-sanare/01.webp",
+        "archivo": "villa-a20/01.webp",
         "alt": "Terraza"
       },
       {
-        "archivo": "elige-tu-escape-sanare/02.webp",
+        "archivo": "villa-a20/02.webp",
         "alt": "Piscina"
       },
       {
-        "archivo": "elige-tu-escape-sanare/03.webp",
+        "archivo": "villa-a20/03.webp",
         "alt": "Piscina"
       },
       {
-        "archivo": "elige-tu-escape-sanare/04.webp",
+        "archivo": "villa-a20/04.webp",
         "alt": "Piscina"
       },
       {
-        "archivo": "elige-tu-escape-sanare/05.webp",
+        "archivo": "villa-a20/05.webp",
         "alt": "Playa y mar"
       },
       {
-        "archivo": "elige-tu-escape-sanare/06.webp",
+        "archivo": "villa-a20/06.webp",
         "alt": "Piscina"
       },
       {
-        "archivo": "elige-tu-escape-sanare/07.webp",
+        "archivo": "villa-a20/07.webp",
         "alt": "Sala"
       },
       {
-        "archivo": "elige-tu-escape-sanare/08.webp",
+        "archivo": "villa-a20/08.webp",
         "alt": "Sala"
       },
       {
-        "archivo": "elige-tu-escape-sanare/09.webp",
+        "archivo": "villa-a20/09.webp",
         "alt": "Comedor"
       },
       {
-        "archivo": "elige-tu-escape-sanare/10.webp",
+        "archivo": "villa-a20/10.webp",
         "alt": "Comedor"
       },
       {
-        "archivo": "elige-tu-escape-sanare/11.webp",
+        "archivo": "villa-a20/11.webp",
         "alt": "Comedor"
       },
       {
-        "archivo": "elige-tu-escape-sanare/12.webp",
+        "archivo": "villa-a20/12.webp",
         "alt": "Foto de la propiedad"
       },
       {
-        "archivo": "elige-tu-escape-sanare/13.webp",
+        "archivo": "villa-a20/13.webp",
         "alt": "Habitación"
       },
       {
-        "archivo": "elige-tu-escape-sanare/14.webp",
+        "archivo": "villa-a20/14.webp",
         "alt": "Habitación"
       },
       {
-        "archivo": "elige-tu-escape-sanare/15.webp",
+        "archivo": "villa-a20/15.webp",
         "alt": "Habitación"
       },
       {
-        "archivo": "elige-tu-escape-sanare/16.webp",
+        "archivo": "villa-a20/16.webp",
         "alt": "Habitación"
       },
       {
-        "archivo": "elige-tu-escape-sanare/17.webp",
+        "archivo": "villa-a20/17.webp",
         "alt": "Baño"
       },
       {
-        "archivo": "elige-tu-escape-sanare/18.webp",
+        "archivo": "villa-a20/18.webp",
         "alt": "Baño"
       },
       {
-        "archivo": "elige-tu-escape-sanare/19.webp",
+        "archivo": "villa-a20/19.webp",
         "alt": "Baño"
       },
       {
-        "archivo": "elige-tu-escape-sanare/20.webp",
+        "archivo": "villa-a20/20.webp",
         "alt": "Baño"
       }
     ],
@@ -1392,8 +1416,10 @@
     "ubicacion_maps": ""
   },
   {
-    "id": "oasis-familiar-sanare",
-    "nombre": "Oasis Familiar •Piscina•Planta Elect • Capilla",
+    "id": "villa-v14",
+    "nombre": "Villa V14 | Un oasis de relax con piscina, planta eléctrica y capilla",
+    "codigo": "V14",
+    "linea": "Un oasis de relax con piscina, planta eléctrica y capilla",
     "tipo": "villa",
     "categoria": "B",
     "ambito": "nacional",
@@ -1420,83 +1446,83 @@
     "nota": "La capilla tiene costo adicional. Incluye lencería, no toallas.",
     "fotos": [
       {
-        "archivo": "oasis-familiar-sanare/01.webp",
+        "archivo": "villa-v14/01.webp",
         "alt": "Piscina"
       },
       {
-        "archivo": "oasis-familiar-sanare/02.webp",
+        "archivo": "villa-v14/02.webp",
         "alt": "Foto de la propiedad"
       },
       {
-        "archivo": "oasis-familiar-sanare/03.webp",
+        "archivo": "villa-v14/03.webp",
         "alt": "Piscina"
       },
       {
-        "archivo": "oasis-familiar-sanare/04.webp",
+        "archivo": "villa-v14/04.webp",
         "alt": "Piscina"
       },
       {
-        "archivo": "oasis-familiar-sanare/05.webp",
+        "archivo": "villa-v14/05.webp",
         "alt": "Piscina"
       },
       {
-        "archivo": "oasis-familiar-sanare/06.webp",
+        "archivo": "villa-v14/06.webp",
         "alt": "Sala"
       },
       {
-        "archivo": "oasis-familiar-sanare/07.webp",
+        "archivo": "villa-v14/07.webp",
         "alt": "Sala"
       },
       {
-        "archivo": "oasis-familiar-sanare/08.webp",
+        "archivo": "villa-v14/08.webp",
         "alt": "Sala"
       },
       {
-        "archivo": "oasis-familiar-sanare/09.webp",
+        "archivo": "villa-v14/09.webp",
         "alt": "Sala"
       },
       {
-        "archivo": "oasis-familiar-sanare/10.webp",
+        "archivo": "villa-v14/10.webp",
         "alt": "Cocina"
       },
       {
-        "archivo": "oasis-familiar-sanare/11.webp",
+        "archivo": "villa-v14/11.webp",
         "alt": "Cocina"
       },
       {
-        "archivo": "oasis-familiar-sanare/12.webp",
+        "archivo": "villa-v14/12.webp",
         "alt": "Cocina"
       },
       {
-        "archivo": "oasis-familiar-sanare/13.webp",
+        "archivo": "villa-v14/13.webp",
         "alt": "Habitación"
       },
       {
-        "archivo": "oasis-familiar-sanare/14.webp",
+        "archivo": "villa-v14/14.webp",
         "alt": "Habitación"
       },
       {
-        "archivo": "oasis-familiar-sanare/15.webp",
+        "archivo": "villa-v14/15.webp",
         "alt": "Habitación"
       },
       {
-        "archivo": "oasis-familiar-sanare/16.webp",
+        "archivo": "villa-v14/16.webp",
         "alt": "Habitación"
       },
       {
-        "archivo": "oasis-familiar-sanare/17.webp",
+        "archivo": "villa-v14/17.webp",
         "alt": "Baño"
       },
       {
-        "archivo": "oasis-familiar-sanare/18.webp",
+        "archivo": "villa-v14/18.webp",
         "alt": "Baño"
       },
       {
-        "archivo": "oasis-familiar-sanare/19.webp",
+        "archivo": "villa-v14/19.webp",
         "alt": "Baño"
       },
       {
-        "archivo": "oasis-familiar-sanare/20.webp",
+        "archivo": "villa-v14/20.webp",
         "alt": "Jardín"
       }
     ],
@@ -1510,6 +1536,8 @@
   {
     "id": "casa-aurora-tucacas",
     "nombre": "Casa Aurora | Piscina WiFi | Agua de manantial",
+    "codigo": "",
+    "linea": "",
     "tipo": "casa",
     "categoria": "B",
     "ambito": "nacional",
@@ -1573,6 +1601,8 @@
   {
     "id": "escapada-para-4-tucacas",
     "nombre": "Escapada para 4 | Piscina y Desayuno / Planta Elec",
+    "codigo": "",
+    "linea": "",
     "tipo": "habitacion",
     "categoria": "C",
     "ambito": "nacional",
@@ -1674,6 +1704,8 @@
   {
     "id": "habitacion-6-personas-tucacas",
     "nombre": "6 Personas | Piscina | Desayuno Criollo y Planta E",
+    "codigo": "",
+    "linea": "",
     "tipo": "habitacion",
     "categoria": "C",
     "ambito": "nacional",
@@ -1775,8 +1807,10 @@
     "ubicacion_maps": ""
   },
   {
-    "id": "villa-7-personas-sanare",
-    "nombre": "Villa 7 Personas | Piscina y Planta Total",
+    "id": "villa-vr7",
+    "nombre": "Villa VR7 | Con parrillera, piscina y planta eléctrica total",
+    "codigo": "VR7",
+    "linea": "Con parrillera, piscina y planta eléctrica total",
     "tipo": "villa",
     "categoria": "C",
     "ambito": "nacional",
@@ -1802,83 +1836,83 @@
     "nota": "Hasta 7 personas más un niño pequeño.",
     "fotos": [
       {
-        "archivo": "villa-7-personas-sanare/01.webp",
+        "archivo": "villa-vr7/01.webp",
         "alt": "Foto de la propiedad"
       },
       {
-        "archivo": "villa-7-personas-sanare/02.webp",
+        "archivo": "villa-vr7/02.webp",
         "alt": "Paseo en lancha"
       },
       {
-        "archivo": "villa-7-personas-sanare/03.webp",
+        "archivo": "villa-vr7/03.webp",
         "alt": "Foto de la propiedad"
       },
       {
-        "archivo": "villa-7-personas-sanare/04.webp",
+        "archivo": "villa-vr7/04.webp",
         "alt": "Habitación"
       },
       {
-        "archivo": "villa-7-personas-sanare/05.webp",
+        "archivo": "villa-vr7/05.webp",
         "alt": "Foto de la propiedad"
       },
       {
-        "archivo": "villa-7-personas-sanare/06.webp",
+        "archivo": "villa-vr7/06.webp",
         "alt": "Sala"
       },
       {
-        "archivo": "villa-7-personas-sanare/07.webp",
+        "archivo": "villa-vr7/07.webp",
         "alt": "Sala"
       },
       {
-        "archivo": "villa-7-personas-sanare/08.webp",
+        "archivo": "villa-vr7/08.webp",
         "alt": "Cocina"
       },
       {
-        "archivo": "villa-7-personas-sanare/09.webp",
+        "archivo": "villa-vr7/09.webp",
         "alt": "Habitación"
       },
       {
-        "archivo": "villa-7-personas-sanare/10.webp",
+        "archivo": "villa-vr7/10.webp",
         "alt": "Habitación"
       },
       {
-        "archivo": "villa-7-personas-sanare/11.webp",
+        "archivo": "villa-vr7/11.webp",
         "alt": "Baño"
       },
       {
-        "archivo": "villa-7-personas-sanare/12.webp",
+        "archivo": "villa-vr7/12.webp",
         "alt": "Baño"
       },
       {
-        "archivo": "villa-7-personas-sanare/13.webp",
+        "archivo": "villa-vr7/13.webp",
         "alt": "Exterior"
       },
       {
-        "archivo": "villa-7-personas-sanare/14.webp",
+        "archivo": "villa-vr7/14.webp",
         "alt": "Exterior"
       },
       {
-        "archivo": "villa-7-personas-sanare/15.webp",
+        "archivo": "villa-vr7/15.webp",
         "alt": "Exterior"
       },
       {
-        "archivo": "villa-7-personas-sanare/16.webp",
+        "archivo": "villa-vr7/16.webp",
         "alt": "Exterior"
       },
       {
-        "archivo": "villa-7-personas-sanare/17.webp",
+        "archivo": "villa-vr7/17.webp",
         "alt": "Terraza"
       },
       {
-        "archivo": "villa-7-personas-sanare/18.webp",
+        "archivo": "villa-vr7/18.webp",
         "alt": "Piscina"
       },
       {
-        "archivo": "villa-7-personas-sanare/19.webp",
+        "archivo": "villa-vr7/19.webp",
         "alt": "Piscina"
       },
       {
-        "archivo": "villa-7-personas-sanare/20.webp",
+        "archivo": "villa-vr7/20.webp",
         "alt": "Piscina"
       }
     ],
@@ -1890,8 +1924,10 @@
     "ubicacion_maps": ""
   },
   {
-    "id": "villa-33-personas-sanare",
-    "nombre": "Villa de playa con piscina/Planta Elect. 33 Pers.",
+    "id": "villa-m33",
+    "nombre": "Villa M33 | Con piscina y planta eléctrica, para 33 personas",
+    "codigo": "M33",
+    "linea": "Con piscina y planta eléctrica, para 33 personas",
     "tipo": "villa",
     "categoria": "B",
     "ambito": "nacional",
@@ -1918,59 +1954,59 @@
     "nota": "",
     "fotos": [
       {
-        "archivo": "villa-33-personas-sanare/01.webp",
+        "archivo": "villa-m33/01.webp",
         "alt": "Foto de la propiedad"
       },
       {
-        "archivo": "villa-33-personas-sanare/02.webp",
+        "archivo": "villa-m33/02.webp",
         "alt": "Foto de la propiedad"
       },
       {
-        "archivo": "villa-33-personas-sanare/03.webp",
+        "archivo": "villa-m33/03.webp",
         "alt": "Foto de la propiedad"
       },
       {
-        "archivo": "villa-33-personas-sanare/04.webp",
+        "archivo": "villa-m33/04.webp",
         "alt": "Foto de la propiedad"
       },
       {
-        "archivo": "villa-33-personas-sanare/05.webp",
+        "archivo": "villa-m33/05.webp",
         "alt": "Foto de la propiedad"
       },
       {
-        "archivo": "villa-33-personas-sanare/06.webp",
+        "archivo": "villa-m33/06.webp",
         "alt": "Foto de la propiedad"
       },
       {
-        "archivo": "villa-33-personas-sanare/07.webp",
+        "archivo": "villa-m33/07.webp",
         "alt": "Foto de la propiedad"
       },
       {
-        "archivo": "villa-33-personas-sanare/08.webp",
+        "archivo": "villa-m33/08.webp",
         "alt": "Foto de la propiedad"
       },
       {
-        "archivo": "villa-33-personas-sanare/09.webp",
+        "archivo": "villa-m33/09.webp",
         "alt": "Foto de la propiedad"
       },
       {
-        "archivo": "villa-33-personas-sanare/10.webp",
+        "archivo": "villa-m33/10.webp",
         "alt": "Foto de la propiedad"
       },
       {
-        "archivo": "villa-33-personas-sanare/11.webp",
+        "archivo": "villa-m33/11.webp",
         "alt": "Foto de la propiedad"
       },
       {
-        "archivo": "villa-33-personas-sanare/12.webp",
+        "archivo": "villa-m33/12.webp",
         "alt": "Foto de la propiedad"
       },
       {
-        "archivo": "villa-33-personas-sanare/13.webp",
+        "archivo": "villa-m33/13.webp",
         "alt": "Foto de la propiedad"
       },
       {
-        "archivo": "villa-33-personas-sanare/14.webp",
+        "archivo": "villa-m33/14.webp",
         "alt": "Foto de la propiedad"
       }
     ],

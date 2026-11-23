@@ -74,6 +74,12 @@
     if (m < 1) return [n.trim(), ""];
     return [n.slice(0, m).trim(), n.slice(m + 1).trim()];
   }
+  /* Con "codigo" (lo manda la clienta), el título es el tipo y el código ("Villa G15") y debajo va "linea".
+     Sin código, se usa el título de Airbnb partido como siempre. El nombre real nunca se publica. */
+  function tituloProp(p) {
+    var c = String(p.codigo || "").trim();
+    return c ? [nombreTipo(p.tipo) + " " + c, String(p.linea || "").trim()] : partes(p.nombre);
+  }
 
   function bajar(nombre, defecto) {
     return fetch("datos/" + nombre + ".json", { cache: "no-cache" })
@@ -137,7 +143,7 @@
       p.videos = lista(p.videos).filter(function (v) { return v && v.archivo; });
       if (p.videos.length > 5) { aviso("\"" + p.nombre + "\" tiene " + p.videos.length + " videos: se muestran los primeros 5."); p.videos = p.videos.slice(0, 5); }
       p.capacidad = +p.capacidad || 0; p.habitaciones = +p.habitaciones || 0; p.banos = +p.banos || 0;
-      p.carpeta = "fotos/propiedades/";  /* las rutas traen la carpeta: "casa-aurora-tucacas/01.webp" */
+      p.carpeta = "fotos/propiedades/";  /* las rutas traen la carpeta: "villa-g15/01.webp" */
       if (p.activa === false || p.pausada === true) { inactivas.push(p); return false; }
       return true;
     });
@@ -221,7 +227,7 @@
   var FOTOS_TARJETA = 5;
   function tarjeta(d, p, sizes) {
     var url = "propiedad.html?id=" + encodeURIComponent(p.id);
-    var cat = categoria(p.categoria), t = partes(p.nombre);
+    var cat = categoria(p.categoria), t = tituloProp(p);
     var datos = [];
     if (p.capacidad) datos.push("<span>" + icono("personas") + plural(p.capacidad, "persona", "personas") + "</span>");
     if (p.habitaciones) datos.push("<span>" + icono("cama") + plural(p.habitaciones, "habitación", "habitaciones") + "</span>");
@@ -241,7 +247,7 @@
       '<h3><a href="' + url + '">' + esc(t[0]) + "</a></h3>" + (t[1] ? '<p class="tarjeta-sub">' + esc(t[1]) + "</p>" : "") +
       (p.resumen ? '<p class="tarjeta-resumen">' + esc(p.resumen) + "</p>" : "") +
       '<p class="tarjeta-datos">' + datos.join("") + "</p>" +
-      '<div class="tarjeta-acciones">' + botonWa("Consultar disponibilidad", msg("propiedad", { propiedad: p.nombre, zona: nombreZona(d, p.zona) }), "boton-reserva") +
+      '<div class="tarjeta-acciones">' + botonWa("Consultar disponibilidad", msg("propiedad", { propiedad: t[0], zona: nombreZona(d, p.zona) }), "boton-reserva") +
       '<a class="enlace tarjeta-ver" href="' + url + '">Ver fotos y detalles' + icono("flecha") + "</a></div>" +
       "</div></article>";
   }
@@ -673,15 +679,16 @@
         aviso("La propiedad \"" + id + "\" tiene \"activa\": false en propiedades.json: no se muestra.");
       } else {
         noDisponible(caja, "No encontramos esa propiedad", "Puede que ya no esté disponible o que el enlace esté incompleto. Vea las que tenemos o escríbanos.");
-        if (!id) aviso("propiedad.html necesita ?id= en la dirección (por ejemplo propiedad.html?id=casa-aurora-tucacas).");
+        if (!id) aviso("propiedad.html necesita ?id= en la dirección (por ejemplo propiedad.html?id=villa-g15).");
         else aviso("No existe una propiedad con id \"" + id + "\" en propiedades.json.");
       }
       return;
     }
-    document.title = p.nombre + " · " + (CFG.marca || "Cotomaya Venezuela");
+    var tp = tituloProp(p);
+    document.title = tp[0] + " · " + (CFG.marca || "Cotomaya Venezuela");
     var md = $('meta[name="description"]'); if (md && p.resumen) md.setAttribute("content", p.resumen);
     var cat = categoria(p.categoria), dest = d.porDestino[p.destino], zona = nombreZona(d, p.zona), amb = d.porAmbito[p.ambito];
-    var mensaje = msg("propiedad", { propiedad: p.nombre, zona: zona });
+    var mensaje = msg("propiedad", { propiedad: tp[0], zona: zona });
 
     /* Galería: en el teléfono se desliza con el dedo; en la computadora, mosaico de 5 y visor con todas */
     var n = p.fotos.length, gal = "";
@@ -738,7 +745,8 @@
     caja.innerHTML = '<div class="contenedor ficha-cabeza"><nav class="migas" aria-label="Ruta"><a href="hospedajes.html">Hospedajes</a><span aria-hidden="true">/</span>' +
       (amb ? '<a href="hospedajes.html?ambito=' + encodeURIComponent(p.ambito) + '">' + esc(amb.nombre) + '</a><span aria-hidden="true">/</span>' : "") +
       '<a href="destino.html?z=' + encodeURIComponent(p.zona) + '">' + esc(zona) + "</a></nav>" +
-      "<h1>" + esc(p.nombre) + (p.ejemplo === true ? ' <span class="ejemplo ejemplo-ficha">Ejemplo</span>' : "") + "</h1>" +
+      "<h1>" + esc(tp[0]) + (p.ejemplo === true ? ' <span class="ejemplo ejemplo-ficha">Ejemplo</span>' : "") + "</h1>" +
+      (tp[1] ? '<p class="ficha-linea">' + esc(tp[1]) + "</p>" : "") +
       '<p class="ficha-sub">' + esc(nombreTipo(p.tipo)) + " · " + esc(zona) + (cat.nombre ? ' · <span class="sello-cat">' + esc(cat.nombre) + "</span>" : "") + "</p></div>" +
       gal + '<div class="contenedor ficha-cuerpo"><div class="ficha-izq">' + datos + nota + texto + incluye + videos + "</div>" + reserva + "</div>" + bloqueOtras;
 
