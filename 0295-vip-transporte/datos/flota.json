@@ -1,0 +1,44 @@
+{"vehiculos": [
+  {"id": "sedan", "nombre": "Sedán ejecutivo", "articulo": "el", "ejemplo": true, "tipo": "Sedán",
+   "pasajeros": 3, "maletas": 2,
+   "resumen": "Cómodo y discreto para una a tres personas con maletas medianas.",
+   "ideal": ["Ejecutivos que van a una reunión", "Parejas del aeropuerto al hotel", "Cenas y salidas de noche"],
+   "servicios": ["traslado", "horas", "empresas"],
+   "comodidades": ["Aire acondicionado", "Asientos de cuero", "Agua fría a bordo", "Cargador de teléfono", "Vidrios ahumados"],
+   "desde": 25, "por_hora": 18, "recorrido": 90,
+   "fotos": [
+     {"f": "px:8425035", "alt": "Chofer abre la puerta trasera de un sedán negro frente a un edificio"},
+     {"f": "px:8425027", "alt": "Pasajera sube a un sedán negro mientras el chofer sostiene la puerta"},
+     {"f": "px:15774577", "alt": "Chofer de abrigo oscuro junto a la puerta abierta de un sedán"},
+     {"f": "px:8425050", "alt": "Pasajera y chofer caminan hacia un sedán negro"},
+     {"f": "px:8425057", "alt": "Mano que abre la puerta de un sedán negro con gotas de lluvia"}
+   ]},
+  {"id": "camioneta", "nombre": "Camioneta ejecutiva", "articulo": "la", "ejemplo": true, "tipo": "Camioneta",
+   "pasajeros": 6, "maletas": 4,
+   "resumen": "Espacio para la familia o el equipo de trabajo, con maletero amplio y asientos altos.",
+   "ideal": ["Familias con niños y maletas", "Equipos de trabajo de hasta seis", "Recorridos por la isla"],
+   "servicios": ["traslado", "horas", "recorrido", "evento", "empresas"],
+   "comodidades": ["Aire acondicionado", "Tres filas de asientos", "Agua fría a bordo", "Cargadores en cada fila", "Silla para niños a pedido"],
+   "desde": 35, "por_hora": 25, "recorrido": 120,
+   "fotos": [
+     {"f": "px:36377051", "alt": "Chofer de traje junto a una camioneta negra frente a un hotel"},
+     {"f": "px:9927972", "alt": "Camioneta negra estacionada entre palmeras"},
+     {"f": "px:31698472", "alt": "Camioneta negra frente a una casa moderna"},
+     {"f": "px:10054684", "alt": "Asientos de cuero negro de una camioneta"},
+     {"f": "px:4149331", "alt": "Camioneta negra estacionada de perfil"}
+   ]},
+  {"id": "van", "nombre": "Van ejecutiva", "articulo": "la", "ejemplo": true, "tipo": "Van",
+   "pasajeros": 12, "maletas": 10,
+   "resumen": "Para grupos, bodas y delegaciones: todos juntos y con sus maletas en un solo viaje.",
+   "ideal": ["Grupos y delegaciones", "Invitados de bodas y eventos", "Equipos completos que llegan juntos"],
+   "servicios": ["traslado", "horas", "recorrido", "evento", "empresas"],
+   "comodidades": ["Aire acondicionado por fila", "Asientos reclinables", "Agua fría a bordo", "Cargadores en cada fila", "Puerta lateral amplia"],
+   "desde": 50, "por_hora": 35, "recorrido": 170,
+   "fotos": [
+     {"f": "px:16954180", "alt": "Van negra con la puerta lateral abierta y un asiento de cuero claro"},
+     {"f": "px:17246680", "alt": "Interior de una van con asientos de cuero y luces cálidas"},
+     {"f": "px:5717577", "alt": "Pasajera trabaja con su laptop en el asiento de una van"},
+     {"f": "px:5717642", "alt": "Pasajera con laptop en un asiento amplio de cuero"},
+     {"f": "px:17455633", "alt": "Van negra estacionada con la puerta lateral abierta"}
+   ]}
+]}

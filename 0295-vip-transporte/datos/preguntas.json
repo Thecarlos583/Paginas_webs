@@ -1,0 +1,11 @@
+{"preguntas": [
+  {"p": "¿Qué pasa si mi vuelo se retrasa?", "r": "Seguimos su vuelo con el número que nos manda. Si se atrasa, el chofer llega a la nueva hora sin costo extra.", "tema": "traslado"},
+  {"p": "¿Dónde me espera el chofer en el aeropuerto?", "r": "A la salida de llegadas nacionales o internacionales, con un letrero con su nombre. Le mandamos su nombre y su foto por WhatsApp antes de aterrizar.", "tema": "traslado"},
+  {"p": "¿El precio es por persona o por vehículo?", "r": "Por vehículo, para todo el grupo que quepa en él. El precio no cambia si viajan una o tres personas en el sedán.", "tema": "general"},
+  {"p": "¿Cómo pago?", "r": "Pago móvil, Zelle o divisas en efectivo. Le confirmamos el monto en bolívares a la tasa del día si paga en bolívares.", "tema": "general"},
+  {"p": "¿Tienen sillas para niños?", "r": "Sí, a pedido y sin costo. Díganos la edad del niño al cotizar para llevar la silla adecuada.", "tema": "general"},
+  {"p": "¿Puedo llevar a mi mascota?", "r": "Sí, en su transportín. Avísenos al cotizar para preparar el vehículo.", "tema": "general"},
+  {"p": "¿Con cuánto tiempo debo reservar?", "r": "Lo ideal es un día antes. Para el mismo día, escríbanos y le decimos si hay vehículo disponible.", "tema": "general"},
+  {"p": "¿Cómo funciona el servicio por horas?", "r": "Reserva un mínimo de 3 horas. El chofer queda a su disposición y va a donde usted necesite dentro de la isla. Si se alarga, sumamos la hora extra al final.", "tema": "horas"},
+  {"p": "¿Trabajan con hoteles y agencias?", "r": "Sí. Con un convenio tiene tarifas fijas por ruta, atención prioritaria y una relación mensual de servicios.", "tema": "empresas"}
+]}

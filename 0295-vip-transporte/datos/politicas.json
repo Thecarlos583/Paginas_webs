@@ -1,0 +1,7 @@
+{"politicas": [
+  {"id": "espera", "titulo": "Espera en el aeropuerto", "puntos": ["Incluye 60 minutos de espera desde que aterriza su vuelo.", "Si el vuelo se atrasa, esperamos sin costo: seguimos la hora real de llegada.", "Pasada la hora de espera, cada 30 minutos extra se cobra aparte (le avisamos antes)."]},
+  {"id": "equipaje", "titulo": "Equipaje", "puntos": ["Cada vehículo indica cuántas maletas grandes caben.", "Equipos de buceo, tablas o cajas grandes: avísenos al cotizar.", "El chofer ayuda a subir y bajar todas las maletas."]},
+  {"id": "cancelacion", "titulo": "Cancelación", "puntos": ["Sin costo si cancela con 24 horas de anticipación.", "Con menos de 24 horas, se cobra el 50 % del traslado.", "Si su vuelo se cancela, movemos el traslado a la nueva fecha sin cargo."]},
+  {"id": "ninos", "titulo": "Niños y sillas", "puntos": ["Sillas para bebés y elevadores sin costo, a pedido.", "Díganos la edad de cada niño para llevar la silla correcta.", "Los niños cuentan como pasajeros para la capacidad del vehículo."]},
+  {"id": "pagos", "titulo": "Formas de pago", "puntos": ["Pago móvil, Zelle o divisas en efectivo.", "En bolívares, al cambio del día.", "Empresas con convenio: relación y pago mensual."]}
+]}

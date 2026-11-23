@@ -1,0 +1,22 @@
+{
+  "lugares": [
+    {"id": "pampatar", "texto": "Nuestra base. La bahía, el Castillo de San Carlos de Borromeo y los hoteles frente al mar.", "foto": "px:5274758", "alt": "Lancha cruzando agua turquesa"},
+    {"id": "porlamar", "texto": "El centro de compras de la isla: avenidas, centros comerciales y la mayoría de los hoteles.", "foto": "px:11884648", "alt": "Carro negro en una avenida con palmeras"},
+    {"id": "aeropuerto", "texto": "El Aeropuerto Internacional Santiago Mariño, la puerta de entrada de casi todos los visitantes.", "foto": "px:33105021", "alt": "Avión de hélice en una pista rodeada de verde"},
+    {"id": "punta-de-piedras", "texto": "El muelle del ferry que une la isla con tierra firme.", "foto": "px:16965236", "alt": "Ferris de pasajeros navegando en el mar"},
+    {"id": "la-asuncion", "texto": "La capital del estado, con su catedral y el Castillo de Santa Rosa.", "foto": "px:2743156", "alt": "Palmeras frente al mar"},
+    {"id": "juan-griego", "texto": "La bahía del norte, el Fortín de La Galera y los atardeceres más fotografiados de la isla.", "foto": "px:2570473", "alt": "Orilla con arena clara y cielo con nubes"},
+    {"id": "playa-el-agua", "texto": "La playa más conocida de Margarita: arena larga, palmeras y mar abierto.", "foto": "px:16569751", "alt": "Playa de arena blanca y agua turquesa"}
+  ],
+  "recorrido": {
+    "titulo": "Un día por la isla",
+    "nota": "Recorrido sugerido. Lo armamos a su gusto: puede quitar, sumar o cambiar el orden.",
+    "paradas": [
+      {"momento": "Mañana", "lugar": "pampatar", "texto": "Salida desde su hotel y visita al Castillo de San Carlos de Borromeo."},
+      {"momento": "Media mañana", "lugar": "la-asuncion", "texto": "La catedral y la vista desde el Castillo de Santa Rosa."},
+      {"momento": "Mediodía", "lugar": "playa-el-agua", "texto": "Playa y almuerzo frente al mar."},
+      {"momento": "Tarde", "lugar": "juan-griego", "texto": "Subida al Fortín de La Galera para ver el atardecer."},
+      {"momento": "Noche", "lugar": "porlamar", "texto": "Regreso a su hotel o parada para cenar."}
+    ]
+  }
+}

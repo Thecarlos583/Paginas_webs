@@ -1,0 +1,29 @@
+{
+  "nombre": "0295 VIP Transporte Ejecutivo",
+  "nombre_corto": "0295 VIP",
+  "lema": "Transporte ejecutivo en Margarita",
+  "zona": "Pampatar, isla de Margarita",
+  "estado": "Nueva Esparta",
+  "url": "https://thecarlos583.github.io/Paginas_webs/0295-vip-transporte/",
+  "tema": "0295-vip-transporte",
+  "whatsapp": "584129131218",
+  "whatsapp_visible": "+58 412 913 1218",
+  "mensaje_whatsapp": "Hola 0295 VIP, quiero cotizar un traslado",
+  "saludo_mensaje": "Hola 0295 VIP",
+  "moneda": "$",
+  "mostrar_precios": true,
+  "demo": true,
+  "aviso_demo": "Página de ejemplo con datos ficticios. Fotos referenciales.",
+  "instagram": "",
+  "horario": [
+    {"dias": "Lunes a viernes", "horas": "6:00 a. m. a 10:00 p. m.", "n": [1, 2, 3, 4, 5]},
+    {"dias": "Sábados y domingos", "horas": "6:00 a. m. a 11:00 p. m.", "n": [6, 0]},
+    {"dias": "Traslados de madrugada", "horas": "Con reserva previa", "n": []}
+  ],
+  "portada": {
+    "titulo": "Su traslado en Margarita, puntual y con estilo",
+    "linea": "Lo buscamos en el aeropuerto, el ferry o su hotel y lo llevamos a donde vaya en la isla.",
+    "ruta": "aeropuerto-pampatar"
+  },
+  "minimo_horas": 3
+}
