@@ -1,5 +1,5 @@
 # ESTADO de Paginas_webs
-Actualizado: 23-nov-2026 (Golondrinas prompt-45, correcciones del Sr. Pedro). Contexto del negocio: `%USERPROFILE%gencia-carlos\AGENTS.md` y `contexto\clientes.md`.
+Actualizado: 23-nov-2026 (Golondrinas prompt-45, correcciones del Sr. Pedro). Contexto del negocio: `%USERPROFILE%\agencia-carlos\AGENTS.md` y `contexto\clientes.md`.
 
 ## Qué es
 El repo **público** con las webs de clientes, las vistas previas para prospectos y las páginas modelo de la agencia. Cada carpeta es una web estática independiente. Es público a propósito: GitHub Pages gratis solo publica repos públicos. Por eso aquí **nunca** van claves, pagos ni datos privados de clientes.
