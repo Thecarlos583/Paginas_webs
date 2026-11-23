@@ -1,9 +1,9 @@
 [
   {
-    "id": "condo-ciudad-flamingo",
-    "nombre": "Condo Privado | Planta Total | Pet Friendly gratis",
-    "codigo": "",
-    "linea": "",
+    "id": "apartamento-p32",
+    "nombre": "Apartamento P32 | Condominio privado, planta eléctrica total y mascotas sin costo",
+    "codigo": "P32",
+    "linea": "Condominio privado, planta eléctrica total y mascotas sin costo",
     "tipo": "apartamento",
     "categoria": "B",
     "ambito": "nacional",
@@ -30,43 +30,43 @@
     "nota": "Lencería y toallas no incluidas. Traslados en lancha y tours aparte.",
     "fotos": [
       {
-        "archivo": "condo-ciudad-flamingo/01.webp",
+        "archivo": "apartamento-p32/01.webp",
         "alt": "Piscina"
       },
       {
-        "archivo": "condo-ciudad-flamingo/02.webp",
+        "archivo": "apartamento-p32/02.webp",
         "alt": "Piscina"
       },
       {
-        "archivo": "condo-ciudad-flamingo/03.webp",
+        "archivo": "apartamento-p32/03.webp",
         "alt": "Piscina"
       },
       {
-        "archivo": "condo-ciudad-flamingo/04.webp",
+        "archivo": "apartamento-p32/04.webp",
         "alt": "Comedor"
       },
       {
-        "archivo": "condo-ciudad-flamingo/05.webp",
+        "archivo": "apartamento-p32/05.webp",
         "alt": "Sala"
       },
       {
-        "archivo": "condo-ciudad-flamingo/06.webp",
+        "archivo": "apartamento-p32/06.webp",
         "alt": "Cocina"
       },
       {
-        "archivo": "condo-ciudad-flamingo/07.webp",
+        "archivo": "apartamento-p32/07.webp",
         "alt": "Cocina"
       },
       {
-        "archivo": "condo-ciudad-flamingo/08.webp",
+        "archivo": "apartamento-p32/08.webp",
         "alt": "Habitación"
       },
       {
-        "archivo": "condo-ciudad-flamingo/09.webp",
+        "archivo": "apartamento-p32/09.webp",
         "alt": "Habitación"
       },
       {
-        "archivo": "condo-ciudad-flamingo/10.webp",
+        "archivo": "apartamento-p32/10.webp",
         "alt": "Baño"
       }
     ],
@@ -156,10 +156,10 @@
     "ubicacion_maps": ""
   },
   {
-    "id": "apto-muelle-chichiriviche",
-    "nombre": "Apto con muelle • Playa • Planta Elect. Total",
-    "codigo": "",
-    "linea": "",
+    "id": "apartamento-l7",
+    "nombre": "Apartamento L7 | Con muelle y planta eléctrica total",
+    "codigo": "L7",
+    "linea": "Con muelle y planta eléctrica total",
     "tipo": "apartamento",
     "categoria": "C",
     "ambito": "nacional",
@@ -187,43 +187,43 @@
     "nota": "",
     "fotos": [
       {
-        "archivo": "apto-muelle-chichiriviche/01.webp",
+        "archivo": "apartamento-l7/01.webp",
         "alt": "Sala"
       },
       {
-        "archivo": "apto-muelle-chichiriviche/02.webp",
+        "archivo": "apartamento-l7/02.webp",
         "alt": "Exterior"
       },
       {
-        "archivo": "apto-muelle-chichiriviche/03.webp",
+        "archivo": "apartamento-l7/03.webp",
         "alt": "Cocina"
       },
       {
-        "archivo": "apto-muelle-chichiriviche/04.webp",
+        "archivo": "apartamento-l7/04.webp",
         "alt": "Habitación"
       },
       {
-        "archivo": "apto-muelle-chichiriviche/05.webp",
+        "archivo": "apartamento-l7/05.webp",
         "alt": "Habitación"
       },
       {
-        "archivo": "apto-muelle-chichiriviche/06.webp",
+        "archivo": "apartamento-l7/06.webp",
         "alt": "Comedor"
       },
       {
-        "archivo": "apto-muelle-chichiriviche/07.webp",
+        "archivo": "apartamento-l7/07.webp",
         "alt": "Habitación"
       },
       {
-        "archivo": "apto-muelle-chichiriviche/08.webp",
+        "archivo": "apartamento-l7/08.webp",
         "alt": "Exterior"
       },
       {
-        "archivo": "apto-muelle-chichiriviche/09.webp",
+        "archivo": "apartamento-l7/09.webp",
         "alt": "Exterior"
       },
       {
-        "archivo": "apto-muelle-chichiriviche/10.webp",
+        "archivo": "apartamento-l7/10.webp",
         "alt": "Baño"
       }
     ],
@@ -235,10 +235,10 @@
     "ubicacion_maps": ""
   },
   {
-    "id": "casa-playa-pet-chichiriviche",
-    "nombre": "Casa de Playa PET friendly• Planta Elect Total",
-    "codigo": "",
-    "linea": "",
+    "id": "casa-v20",
+    "nombre": "Casa V20 | Con piscina, admite mascotas y planta eléctrica",
+    "codigo": "V20",
+    "linea": "Con piscina, admite mascotas y planta eléctrica",
     "tipo": "casa",
     "categoria": "B",
     "ambito": "nacional",
@@ -267,43 +267,43 @@
     "nota": "Las mascotas tienen un costo adicional.",
     "fotos": [
       {
-        "archivo": "casa-playa-pet-chichiriviche/01.webp",
+        "archivo": "casa-v20/01.webp",
         "alt": "Foto de la propiedad"
       },
       {
-        "archivo": "casa-playa-pet-chichiriviche/02.webp",
+        "archivo": "casa-v20/02.webp",
         "alt": "Foto de la propiedad"
       },
       {
-        "archivo": "casa-playa-pet-chichiriviche/03.webp",
+        "archivo": "casa-v20/03.webp",
         "alt": "Foto de la propiedad"
       },
       {
-        "archivo": "casa-playa-pet-chichiriviche/04.webp",
+        "archivo": "casa-v20/04.webp",
         "alt": "Foto de la propiedad"
       },
       {
-        "archivo": "casa-playa-pet-chichiriviche/05.webp",
+        "archivo": "casa-v20/05.webp",
         "alt": "Habitación"
       },
       {
-        "archivo": "casa-playa-pet-chichiriviche/06.webp",
+        "archivo": "casa-v20/06.webp",
         "alt": "Comedor"
       },
       {
-        "archivo": "casa-playa-pet-chichiriviche/07.webp",
+        "archivo": "casa-v20/07.webp",
         "alt": "Cocina"
       },
       {
-        "archivo": "casa-playa-pet-chichiriviche/08.webp",
+        "archivo": "casa-v20/08.webp",
         "alt": "Habitación"
       },
       {
-        "archivo": "casa-playa-pet-chichiriviche/09.webp",
+        "archivo": "casa-v20/09.webp",
         "alt": "Habitación"
       },
       {
-        "archivo": "casa-playa-pet-chichiriviche/10.webp",
+        "archivo": "casa-v20/10.webp",
         "alt": "Baño"
       }
     ],
@@ -315,10 +315,10 @@
     "ubicacion_maps": ""
   },
   {
-    "id": "frente-al-mar-1hab-chichiriviche",
-    "nombre": "Frente al mar | Planta eléctrica total y Playa",
-    "codigo": "",
-    "linea": "",
+    "id": "apartamento-l6",
+    "nombre": "Apartamento L6 | Frente al mar, con playa y planta eléctrica total",
+    "codigo": "L6",
+    "linea": "Frente al mar, con playa y planta eléctrica total",
     "tipo": "apartamento",
     "categoria": "C",
     "ambito": "nacional",
@@ -344,43 +344,43 @@
     "nota": "Hasta 7 personas con costo adicional. No se admiten mascotas.",
     "fotos": [
       {
-        "archivo": "frente-al-mar-1hab-chichiriviche/01.webp",
+        "archivo": "apartamento-l6/01.webp",
         "alt": "Sala"
       },
       {
-        "archivo": "frente-al-mar-1hab-chichiriviche/02.webp",
+        "archivo": "apartamento-l6/02.webp",
         "alt": "Habitación"
       },
       {
-        "archivo": "frente-al-mar-1hab-chichiriviche/03.webp",
+        "archivo": "apartamento-l6/03.webp",
         "alt": "Habitación"
       },
       {
-        "archivo": "frente-al-mar-1hab-chichiriviche/04.webp",
+        "archivo": "apartamento-l6/04.webp",
         "alt": "Comedor"
       },
       {
-        "archivo": "frente-al-mar-1hab-chichiriviche/05.webp",
+        "archivo": "apartamento-l6/05.webp",
         "alt": "Playa y mar"
       },
       {
-        "archivo": "frente-al-mar-1hab-chichiriviche/06.webp",
+        "archivo": "apartamento-l6/06.webp",
         "alt": "Cocina"
       },
       {
-        "archivo": "frente-al-mar-1hab-chichiriviche/07.webp",
+        "archivo": "apartamento-l6/07.webp",
         "alt": "Comedor"
       },
       {
-        "archivo": "frente-al-mar-1hab-chichiriviche/08.webp",
+        "archivo": "apartamento-l6/08.webp",
         "alt": "Habitación"
       },
       {
-        "archivo": "frente-al-mar-1hab-chichiriviche/09.webp",
+        "archivo": "apartamento-l6/09.webp",
         "alt": "Baño"
       },
       {
-        "archivo": "frente-al-mar-1hab-chichiriviche/10.webp",
+        "archivo": "apartamento-l6/10.webp",
         "alt": "Exterior"
       }
     ],
@@ -392,10 +392,10 @@
     "ubicacion_maps": ""
   },
   {
-    "id": "frente-al-mar-2hab-chichiriviche",
-    "nombre": "Frente al Mar • Planta Elec. • Playa y muelle",
-    "codigo": "",
-    "linea": "",
+    "id": "apartamento-l8",
+    "nombre": "Apartamento L8 | Frente al mar, con playa, muelle y planta eléctrica",
+    "codigo": "L8",
+    "linea": "Frente al mar, con playa, muelle y planta eléctrica",
     "tipo": "apartamento",
     "categoria": "C",
     "ambito": "nacional",
@@ -423,43 +423,43 @@
     "nota": "No se admiten mascotas.",
     "fotos": [
       {
-        "archivo": "frente-al-mar-2hab-chichiriviche/01.webp",
+        "archivo": "apartamento-l8/01.webp",
         "alt": "Exterior"
       },
       {
-        "archivo": "frente-al-mar-2hab-chichiriviche/02.webp",
+        "archivo": "apartamento-l8/02.webp",
         "alt": "Paseo en lancha"
       },
       {
-        "archivo": "frente-al-mar-2hab-chichiriviche/03.webp",
+        "archivo": "apartamento-l8/03.webp",
         "alt": "Playa y mar"
       },
       {
-        "archivo": "frente-al-mar-2hab-chichiriviche/04.webp",
+        "archivo": "apartamento-l8/04.webp",
         "alt": "Foto de la propiedad"
       },
       {
-        "archivo": "frente-al-mar-2hab-chichiriviche/05.webp",
+        "archivo": "apartamento-l8/05.webp",
         "alt": "Habitación"
       },
       {
-        "archivo": "frente-al-mar-2hab-chichiriviche/06.webp",
+        "archivo": "apartamento-l8/06.webp",
         "alt": "Cocina"
       },
       {
-        "archivo": "frente-al-mar-2hab-chichiriviche/07.webp",
+        "archivo": "apartamento-l8/07.webp",
         "alt": "Foto de la propiedad"
       },
       {
-        "archivo": "frente-al-mar-2hab-chichiriviche/08.webp",
+        "archivo": "apartamento-l8/08.webp",
         "alt": "Habitación"
       },
       {
-        "archivo": "frente-al-mar-2hab-chichiriviche/09.webp",
+        "archivo": "apartamento-l8/09.webp",
         "alt": "Baño"
       },
       {
-        "archivo": "frente-al-mar-2hab-chichiriviche/10.webp",
+        "archivo": "apartamento-l8/10.webp",
         "alt": "Parrillera"
       }
     ],
@@ -471,10 +471,10 @@
     "ubicacion_maps": ""
   },
   {
-    "id": "casa-vista-al-mar-tucacas",
-    "nombre": "Hermoso penthouse con vista al mar • Céntrico • Wi-Fi 12 personas",
-    "codigo": "",
-    "linea": "",
+    "id": "penthouse-ph8",
+    "nombre": "Penthouse PH8 | Vista al mar, céntrico, con wifi, para 12 personas",
+    "codigo": "PH8",
+    "linea": "Vista al mar, céntrico, con wifi, para 12 personas",
     "tipo": "penthouse",
     "categoria": "C",
     "ambito": "nacional",
@@ -501,43 +501,43 @@
     "nota": "Lencería y toallas con costo adicional.",
     "fotos": [
       {
-        "archivo": "casa-vista-al-mar-tucacas/01.webp",
+        "archivo": "penthouse-ph8/01.webp",
         "alt": "Sala"
       },
       {
-        "archivo": "casa-vista-al-mar-tucacas/02.webp",
+        "archivo": "penthouse-ph8/02.webp",
         "alt": "Piscina"
       },
       {
-        "archivo": "casa-vista-al-mar-tucacas/03.webp",
+        "archivo": "penthouse-ph8/03.webp",
         "alt": "Piscina"
       },
       {
-        "archivo": "casa-vista-al-mar-tucacas/04.webp",
+        "archivo": "penthouse-ph8/04.webp",
         "alt": "Exterior"
       },
       {
-        "archivo": "casa-vista-al-mar-tucacas/05.webp",
+        "archivo": "penthouse-ph8/05.webp",
         "alt": "Piscina"
       },
       {
-        "archivo": "casa-vista-al-mar-tucacas/06.webp",
+        "archivo": "penthouse-ph8/06.webp",
         "alt": "Sala"
       },
       {
-        "archivo": "casa-vista-al-mar-tucacas/07.webp",
+        "archivo": "penthouse-ph8/07.webp",
         "alt": "Cocina"
       },
       {
-        "archivo": "casa-vista-al-mar-tucacas/08.webp",
+        "archivo": "penthouse-ph8/08.webp",
         "alt": "Habitación"
       },
       {
-        "archivo": "casa-vista-al-mar-tucacas/09.webp",
+        "archivo": "penthouse-ph8/09.webp",
         "alt": "Baño"
       },
       {
-        "archivo": "casa-vista-al-mar-tucacas/10.webp",
+        "archivo": "penthouse-ph8/10.webp",
         "alt": "Exterior"
       }
     ],
@@ -549,10 +549,10 @@
     "ubicacion_maps": ""
   },
   {
-    "id": "margarita-beach-house-santa-marta",
-    "nombre": "Margarita Beach House, a minutos de Playa Bello Horizonte",
-    "codigo": "",
-    "linea": "",
+    "id": "casa-m8",
+    "nombre": "Casa M8 | Beach house a minutos de la playa Bello Horizonte",
+    "codigo": "M8",
+    "linea": "Beach house a minutos de la playa Bello Horizonte",
     "tipo": "casa",
     "categoria": "B",
     "ambito": "internacional",
@@ -577,43 +577,43 @@
     "nota": "",
     "fotos": [
       {
-        "archivo": "margarita-beach-house-santa-marta/01.webp",
+        "archivo": "casa-m8/01.webp",
         "alt": "Terraza"
       },
       {
-        "archivo": "margarita-beach-house-santa-marta/02.webp",
+        "archivo": "casa-m8/02.webp",
         "alt": "Terraza"
       },
       {
-        "archivo": "margarita-beach-house-santa-marta/03.webp",
+        "archivo": "casa-m8/03.webp",
         "alt": "Habitación"
       },
       {
-        "archivo": "margarita-beach-house-santa-marta/04.webp",
+        "archivo": "casa-m8/04.webp",
         "alt": "Terraza"
       },
       {
-        "archivo": "margarita-beach-house-santa-marta/05.webp",
+        "archivo": "casa-m8/05.webp",
         "alt": "Cocina"
       },
       {
-        "archivo": "margarita-beach-house-santa-marta/06.webp",
+        "archivo": "casa-m8/06.webp",
         "alt": "Cocina"
       },
       {
-        "archivo": "margarita-beach-house-santa-marta/07.webp",
+        "archivo": "casa-m8/07.webp",
         "alt": "Cocina"
       },
       {
-        "archivo": "margarita-beach-house-santa-marta/08.webp",
+        "archivo": "casa-m8/08.webp",
         "alt": "Habitación"
       },
       {
-        "archivo": "margarita-beach-house-santa-marta/09.webp",
+        "archivo": "casa-m8/09.webp",
         "alt": "Sala"
       },
       {
-        "archivo": "margarita-beach-house-santa-marta/10.webp",
+        "archivo": "casa-m8/10.webp",
         "alt": "Baño"
       }
     ],
@@ -625,10 +625,10 @@
     "ubicacion_maps": ""
   },
   {
-    "id": "apto-vista-playa-tucacas",
-    "nombre": "Apto vista a la playa • Planta Elect y Wi-Fi",
-    "codigo": "",
-    "linea": "",
+    "id": "apartamento-v6",
+    "nombre": "Apartamento V6 | Con vista a la playa, planta eléctrica y wifi",
+    "codigo": "V6",
+    "linea": "Con vista a la playa, planta eléctrica y wifi",
     "tipo": "apartamento",
     "categoria": "C",
     "ambito": "nacional",
@@ -655,43 +655,43 @@
     "nota": "",
     "fotos": [
       {
-        "archivo": "apto-vista-playa-tucacas/01.webp",
+        "archivo": "apartamento-v6/01.webp",
         "alt": "Piscina"
       },
       {
-        "archivo": "apto-vista-playa-tucacas/02.webp",
+        "archivo": "apartamento-v6/02.webp",
         "alt": "Piscina"
       },
       {
-        "archivo": "apto-vista-playa-tucacas/03.webp",
+        "archivo": "apartamento-v6/03.webp",
         "alt": "Terraza"
       },
       {
-        "archivo": "apto-vista-playa-tucacas/04.webp",
+        "archivo": "apartamento-v6/04.webp",
         "alt": "Terraza"
       },
       {
-        "archivo": "apto-vista-playa-tucacas/05.webp",
+        "archivo": "apartamento-v6/05.webp",
         "alt": "Sala"
       },
       {
-        "archivo": "apto-vista-playa-tucacas/06.webp",
+        "archivo": "apartamento-v6/06.webp",
         "alt": "Cocina"
       },
       {
-        "archivo": "apto-vista-playa-tucacas/07.webp",
+        "archivo": "apartamento-v6/07.webp",
         "alt": "Cocina"
       },
       {
-        "archivo": "apto-vista-playa-tucacas/08.webp",
+        "archivo": "apartamento-v6/08.webp",
         "alt": "Habitación"
       },
       {
-        "archivo": "apto-vista-playa-tucacas/09.webp",
+        "archivo": "apartamento-v6/09.webp",
         "alt": "Baño"
       },
       {
-        "archivo": "apto-vista-playa-tucacas/10.webp",
+        "archivo": "apartamento-v6/10.webp",
         "alt": "Exterior"
       }
     ],
@@ -703,10 +703,10 @@
     "ubicacion_maps": ""
   },
   {
-    "id": "familiar-salida-playa-tucacas",
-    "nombre": "Familiar con salida a Playa y Planta Elect. Total",
-    "codigo": "",
-    "linea": "",
+    "id": "apartamento-v6p",
+    "nombre": "Apartamento V6P | Familiar, con salida a la playa y planta eléctrica total",
+    "codigo": "V6P",
+    "linea": "Familiar, con salida a la playa y planta eléctrica total",
     "tipo": "apartamento",
     "categoria": "C",
     "ambito": "nacional",
@@ -733,43 +733,43 @@
     "nota": "La piscina tiene horario.",
     "fotos": [
       {
-        "archivo": "familiar-salida-playa-tucacas/01.webp",
+        "archivo": "apartamento-v6p/01.webp",
         "alt": "Piscina"
       },
       {
-        "archivo": "familiar-salida-playa-tucacas/02.webp",
+        "archivo": "apartamento-v6p/02.webp",
         "alt": "Foto de la propiedad"
       },
       {
-        "archivo": "familiar-salida-playa-tucacas/03.webp",
+        "archivo": "apartamento-v6p/03.webp",
         "alt": "Jardín"
       },
       {
-        "archivo": "familiar-salida-playa-tucacas/04.webp",
+        "archivo": "apartamento-v6p/04.webp",
         "alt": "Exterior"
       },
       {
-        "archivo": "familiar-salida-playa-tucacas/05.webp",
+        "archivo": "apartamento-v6p/05.webp",
         "alt": "Exterior"
       },
       {
-        "archivo": "familiar-salida-playa-tucacas/06.webp",
+        "archivo": "apartamento-v6p/06.webp",
         "alt": "Jardín"
       },
       {
-        "archivo": "familiar-salida-playa-tucacas/07.webp",
+        "archivo": "apartamento-v6p/07.webp",
         "alt": "Cocina"
       },
       {
-        "archivo": "familiar-salida-playa-tucacas/08.webp",
+        "archivo": "apartamento-v6p/08.webp",
         "alt": "Sala"
       },
       {
-        "archivo": "familiar-salida-playa-tucacas/09.webp",
+        "archivo": "apartamento-v6p/09.webp",
         "alt": "Baño"
       },
       {
-        "archivo": "familiar-salida-playa-tucacas/10.webp",
+        "archivo": "apartamento-v6p/10.webp",
         "alt": "Exterior"
       }
     ],
@@ -1014,10 +1014,10 @@
     "ubicacion_maps": ""
   },
   {
-    "id": "casa-aurora-tucacas",
-    "nombre": "Casa Aurora | Piscina WiFi | Agua de manantial",
-    "codigo": "",
-    "linea": "",
+    "id": "casa-a12",
+    "nombre": "Casa A12 | Con piscina, wifi y agua de manantial",
+    "codigo": "A12",
+    "linea": "Con piscina, wifi y agua de manantial",
     "tipo": "casa",
     "categoria": "B",
     "ambito": "nacional",
@@ -1043,23 +1043,23 @@
     "nota": "Mínimo 2 noches.",
     "fotos": [
       {
-        "archivo": "casa-aurora-tucacas/01.webp",
+        "archivo": "casa-a12/01.webp",
         "alt": "Foto de la propiedad"
       },
       {
-        "archivo": "casa-aurora-tucacas/02.webp",
+        "archivo": "casa-a12/02.webp",
         "alt": "Foto de la propiedad"
       },
       {
-        "archivo": "casa-aurora-tucacas/03.webp",
+        "archivo": "casa-a12/03.webp",
         "alt": "Foto de la propiedad"
       },
       {
-        "archivo": "casa-aurora-tucacas/04.webp",
+        "archivo": "casa-a12/04.webp",
         "alt": "Foto de la propiedad"
       },
       {
-        "archivo": "casa-aurora-tucacas/05.webp",
+        "archivo": "casa-a12/05.webp",
         "alt": "Foto de la propiedad"
       }
     ],
