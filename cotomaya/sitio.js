@@ -803,7 +803,7 @@
     var pr = el.play(); if (pr && pr.catch) pr.catch(function () {});
   });
 
-  /* ---- Piezas de la vista previa: el mar hoy, mueva el sol, carta de los cayos y mapa ---- */
+  /* ---- Piezas de Tours y Destinos: el mar hoy, mueva el sol, carta de los cayos y mapa ---- */
   function datos(sel, r) { var n = $(sel, r); return n ? JSON.parse(n.textContent) : null; }
   /* El mar hoy: pronóstico real de Open-Meteo, con texto de respaldo */
   safe(function () {

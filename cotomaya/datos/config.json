@@ -1,6 +1,7 @@
 {
   "_ayuda": "Datos de la marca. Cambie aquí el WhatsApp, las redes, los nombres de las categorías y los mensajes. Un campo vacío \"\" no se muestra.",
   "marca": "Cotomaya Venezuela",
+  "dominio": "",
   "whatsapp_principal": "584142506516",
   "whatsapp_principal_visible": "+58 414-2506516",
   "whatsapp_secundario": "",

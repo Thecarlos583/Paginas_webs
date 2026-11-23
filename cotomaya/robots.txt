@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://thecarlos583.github.io/Paginas_webs/cotomaya/sitemap.xml
