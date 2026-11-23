@@ -31,7 +31,7 @@
     "fotos": [
       {
         "archivo": "condo-ciudad-flamingo/01.webp",
-        "alt": "Foto de la propiedad"
+        "alt": "Piscina"
       },
       {
         "archivo": "condo-ciudad-flamingo/02.webp",
@@ -43,70 +43,30 @@
       },
       {
         "archivo": "condo-ciudad-flamingo/04.webp",
-        "alt": "Paseo en lancha"
-      },
-      {
-        "archivo": "condo-ciudad-flamingo/05.webp",
-        "alt": "Piscina"
-      },
-      {
-        "archivo": "condo-ciudad-flamingo/06.webp",
-        "alt": "Sala"
-      },
-      {
-        "archivo": "condo-ciudad-flamingo/07.webp",
-        "alt": "Sala"
-      },
-      {
-        "archivo": "condo-ciudad-flamingo/08.webp",
-        "alt": "Sala"
-      },
-      {
-        "archivo": "condo-ciudad-flamingo/09.webp",
-        "alt": "Cocina"
-      },
-      {
-        "archivo": "condo-ciudad-flamingo/10.webp",
-        "alt": "Cocina"
-      },
-      {
-        "archivo": "condo-ciudad-flamingo/11.webp",
-        "alt": "Cocina"
-      },
-      {
-        "archivo": "condo-ciudad-flamingo/12.webp",
-        "alt": "Cocina"
-      },
-      {
-        "archivo": "condo-ciudad-flamingo/13.webp",
         "alt": "Comedor"
       },
       {
-        "archivo": "condo-ciudad-flamingo/14.webp",
+        "archivo": "condo-ciudad-flamingo/05.webp",
+        "alt": "Sala"
+      },
+      {
+        "archivo": "condo-ciudad-flamingo/06.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "condo-ciudad-flamingo/07.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "condo-ciudad-flamingo/08.webp",
         "alt": "Habitación"
       },
       {
-        "archivo": "condo-ciudad-flamingo/15.webp",
+        "archivo": "condo-ciudad-flamingo/09.webp",
         "alt": "Habitación"
       },
       {
-        "archivo": "condo-ciudad-flamingo/16.webp",
-        "alt": "Habitación"
-      },
-      {
-        "archivo": "condo-ciudad-flamingo/17.webp",
-        "alt": "Habitación"
-      },
-      {
-        "archivo": "condo-ciudad-flamingo/18.webp",
-        "alt": "Baño"
-      },
-      {
-        "archivo": "condo-ciudad-flamingo/19.webp",
-        "alt": "Baño"
-      },
-      {
-        "archivo": "condo-ciudad-flamingo/20.webp",
+        "archivo": "condo-ciudad-flamingo/10.webp",
         "alt": "Baño"
       }
     ],
@@ -149,7 +109,7 @@
     "fotos": [
       {
         "archivo": "villa-a12/01.webp",
-        "alt": "Foto de la propiedad"
+        "alt": "Piscina"
       },
       {
         "archivo": "villa-a12/02.webp",
@@ -157,19 +117,19 @@
       },
       {
         "archivo": "villa-a12/03.webp",
-        "alt": "Piscina"
+        "alt": "Foto de la propiedad"
       },
       {
         "archivo": "villa-a12/04.webp",
-        "alt": "Paseo en lancha"
+        "alt": "Sala"
       },
       {
         "archivo": "villa-a12/05.webp",
-        "alt": "Sala"
+        "alt": "Exterior"
       },
       {
         "archivo": "villa-a12/06.webp",
-        "alt": "Sala"
+        "alt": "Exterior"
       },
       {
         "archivo": "villa-a12/07.webp",
@@ -177,7 +137,7 @@
       },
       {
         "archivo": "villa-a12/08.webp",
-        "alt": "Habitación"
+        "alt": "Baño"
       },
       {
         "archivo": "villa-a12/09.webp",
@@ -186,46 +146,6 @@
       {
         "archivo": "villa-a12/10.webp",
         "alt": "Baño"
-      },
-      {
-        "archivo": "villa-a12/11.webp",
-        "alt": "Habitación"
-      },
-      {
-        "archivo": "villa-a12/12.webp",
-        "alt": "Habitación"
-      },
-      {
-        "archivo": "villa-a12/13.webp",
-        "alt": "Baño"
-      },
-      {
-        "archivo": "villa-a12/14.webp",
-        "alt": "Baño"
-      },
-      {
-        "archivo": "villa-a12/15.webp",
-        "alt": "Baño"
-      },
-      {
-        "archivo": "villa-a12/16.webp",
-        "alt": "Exterior"
-      },
-      {
-        "archivo": "villa-a12/17.webp",
-        "alt": "Exterior"
-      },
-      {
-        "archivo": "villa-a12/18.webp",
-        "alt": "Exterior"
-      },
-      {
-        "archivo": "villa-a12/19.webp",
-        "alt": "Exterior"
-      },
-      {
-        "archivo": "villa-a12/20.webp",
-        "alt": "Piscina"
       }
     ],
     "videos": [],
@@ -272,79 +192,39 @@
       },
       {
         "archivo": "apto-muelle-chichiriviche/02.webp",
-        "alt": "Habitación"
+        "alt": "Exterior"
       },
       {
         "archivo": "apto-muelle-chichiriviche/03.webp",
-        "alt": "Comedor"
+        "alt": "Cocina"
       },
       {
         "archivo": "apto-muelle-chichiriviche/04.webp",
-        "alt": "Paseo en lancha"
+        "alt": "Habitación"
       },
       {
         "archivo": "apto-muelle-chichiriviche/05.webp",
-        "alt": "Cocina"
+        "alt": "Habitación"
       },
       {
         "archivo": "apto-muelle-chichiriviche/06.webp",
-        "alt": "Sala"
+        "alt": "Comedor"
       },
       {
         "archivo": "apto-muelle-chichiriviche/07.webp",
-        "alt": "Sala"
+        "alt": "Habitación"
       },
       {
         "archivo": "apto-muelle-chichiriviche/08.webp",
-        "alt": "Sala"
+        "alt": "Exterior"
       },
       {
         "archivo": "apto-muelle-chichiriviche/09.webp",
-        "alt": "Cocina"
+        "alt": "Exterior"
       },
       {
         "archivo": "apto-muelle-chichiriviche/10.webp",
-        "alt": "Cocina"
-      },
-      {
-        "archivo": "apto-muelle-chichiriviche/11.webp",
-        "alt": "Comedor"
-      },
-      {
-        "archivo": "apto-muelle-chichiriviche/12.webp",
-        "alt": "Comedor"
-      },
-      {
-        "archivo": "apto-muelle-chichiriviche/13.webp",
-        "alt": "Comedor"
-      },
-      {
-        "archivo": "apto-muelle-chichiriviche/14.webp",
-        "alt": "Habitación"
-      },
-      {
-        "archivo": "apto-muelle-chichiriviche/15.webp",
-        "alt": "Habitación"
-      },
-      {
-        "archivo": "apto-muelle-chichiriviche/16.webp",
         "alt": "Baño"
-      },
-      {
-        "archivo": "apto-muelle-chichiriviche/17.webp",
-        "alt": "Baño"
-      },
-      {
-        "archivo": "apto-muelle-chichiriviche/18.webp",
-        "alt": "Exterior"
-      },
-      {
-        "archivo": "apto-muelle-chichiriviche/19.webp",
-        "alt": "Exterior"
-      },
-      {
-        "archivo": "apto-muelle-chichiriviche/20.webp",
-        "alt": "Exterior"
       }
     ],
     "videos": [],
@@ -408,62 +288,22 @@
       },
       {
         "archivo": "casa-playa-pet-chichiriviche/06.webp",
-        "alt": "Sala"
+        "alt": "Comedor"
       },
       {
         "archivo": "casa-playa-pet-chichiriviche/07.webp",
-        "alt": "Sala"
+        "alt": "Cocina"
       },
       {
         "archivo": "casa-playa-pet-chichiriviche/08.webp",
-        "alt": "Cocina"
+        "alt": "Habitación"
       },
       {
         "archivo": "casa-playa-pet-chichiriviche/09.webp",
-        "alt": "Cocina"
+        "alt": "Habitación"
       },
       {
         "archivo": "casa-playa-pet-chichiriviche/10.webp",
-        "alt": "Cocina"
-      },
-      {
-        "archivo": "casa-playa-pet-chichiriviche/11.webp",
-        "alt": "Cocina"
-      },
-      {
-        "archivo": "casa-playa-pet-chichiriviche/12.webp",
-        "alt": "Comedor"
-      },
-      {
-        "archivo": "casa-playa-pet-chichiriviche/13.webp",
-        "alt": "Comedor"
-      },
-      {
-        "archivo": "casa-playa-pet-chichiriviche/14.webp",
-        "alt": "Comedor"
-      },
-      {
-        "archivo": "casa-playa-pet-chichiriviche/15.webp",
-        "alt": "Habitación"
-      },
-      {
-        "archivo": "casa-playa-pet-chichiriviche/16.webp",
-        "alt": "Habitación"
-      },
-      {
-        "archivo": "casa-playa-pet-chichiriviche/17.webp",
-        "alt": "Habitación"
-      },
-      {
-        "archivo": "casa-playa-pet-chichiriviche/18.webp",
-        "alt": "Baño"
-      },
-      {
-        "archivo": "casa-playa-pet-chichiriviche/19.webp",
-        "alt": "Baño"
-      },
-      {
-        "archivo": "casa-playa-pet-chichiriviche/20.webp",
         "alt": "Baño"
       }
     ],
@@ -505,7 +345,7 @@
     "fotos": [
       {
         "archivo": "frente-al-mar-1hab-chichiriviche/01.webp",
-        "alt": "Habitación"
+        "alt": "Sala"
       },
       {
         "archivo": "frente-al-mar-1hab-chichiriviche/02.webp",
@@ -521,66 +361,26 @@
       },
       {
         "archivo": "frente-al-mar-1hab-chichiriviche/05.webp",
-        "alt": "Exterior"
-      },
-      {
-        "archivo": "frente-al-mar-1hab-chichiriviche/06.webp",
-        "alt": "Sala"
-      },
-      {
-        "archivo": "frente-al-mar-1hab-chichiriviche/07.webp",
-        "alt": "Sala"
-      },
-      {
-        "archivo": "frente-al-mar-1hab-chichiriviche/08.webp",
-        "alt": "Cocina"
-      },
-      {
-        "archivo": "frente-al-mar-1hab-chichiriviche/09.webp",
-        "alt": "Cocina"
-      },
-      {
-        "archivo": "frente-al-mar-1hab-chichiriviche/10.webp",
-        "alt": "Cocina"
-      },
-      {
-        "archivo": "frente-al-mar-1hab-chichiriviche/11.webp",
-        "alt": "Cocina"
-      },
-      {
-        "archivo": "frente-al-mar-1hab-chichiriviche/12.webp",
         "alt": "Playa y mar"
       },
       {
-        "archivo": "frente-al-mar-1hab-chichiriviche/13.webp",
+        "archivo": "frente-al-mar-1hab-chichiriviche/06.webp",
+        "alt": "Cocina"
+      },
+      {
+        "archivo": "frente-al-mar-1hab-chichiriviche/07.webp",
         "alt": "Comedor"
       },
       {
-        "archivo": "frente-al-mar-1hab-chichiriviche/14.webp",
-        "alt": "Comedor"
-      },
-      {
-        "archivo": "frente-al-mar-1hab-chichiriviche/15.webp",
-        "alt": "Comedor"
-      },
-      {
-        "archivo": "frente-al-mar-1hab-chichiriviche/16.webp",
+        "archivo": "frente-al-mar-1hab-chichiriviche/08.webp",
         "alt": "Habitación"
       },
       {
-        "archivo": "frente-al-mar-1hab-chichiriviche/17.webp",
+        "archivo": "frente-al-mar-1hab-chichiriviche/09.webp",
         "alt": "Baño"
       },
       {
-        "archivo": "frente-al-mar-1hab-chichiriviche/18.webp",
-        "alt": "Baño"
-      },
-      {
-        "archivo": "frente-al-mar-1hab-chichiriviche/19.webp",
-        "alt": "Exterior"
-      },
-      {
-        "archivo": "frente-al-mar-1hab-chichiriviche/20.webp",
+        "archivo": "frente-al-mar-1hab-chichiriviche/10.webp",
         "alt": "Exterior"
       }
     ],
@@ -624,19 +424,19 @@
     "fotos": [
       {
         "archivo": "frente-al-mar-2hab-chichiriviche/01.webp",
-        "alt": "Foto de la propiedad"
+        "alt": "Exterior"
       },
       {
         "archivo": "frente-al-mar-2hab-chichiriviche/02.webp",
-        "alt": "Playa y mar"
+        "alt": "Paseo en lancha"
       },
       {
         "archivo": "frente-al-mar-2hab-chichiriviche/03.webp",
-        "alt": "Foto de la propiedad"
+        "alt": "Playa y mar"
       },
       {
         "archivo": "frente-al-mar-2hab-chichiriviche/04.webp",
-        "alt": "Exterior"
+        "alt": "Foto de la propiedad"
       },
       {
         "archivo": "frente-al-mar-2hab-chichiriviche/05.webp",
@@ -644,63 +444,23 @@
       },
       {
         "archivo": "frente-al-mar-2hab-chichiriviche/06.webp",
-        "alt": "Sala"
+        "alt": "Cocina"
       },
       {
         "archivo": "frente-al-mar-2hab-chichiriviche/07.webp",
-        "alt": "Paseo en lancha"
+        "alt": "Foto de la propiedad"
       },
       {
         "archivo": "frente-al-mar-2hab-chichiriviche/08.webp",
-        "alt": "Cocina"
+        "alt": "Habitación"
       },
       {
         "archivo": "frente-al-mar-2hab-chichiriviche/09.webp",
-        "alt": "Cocina"
+        "alt": "Baño"
       },
       {
         "archivo": "frente-al-mar-2hab-chichiriviche/10.webp",
-        "alt": "Cocina"
-      },
-      {
-        "archivo": "frente-al-mar-2hab-chichiriviche/11.webp",
-        "alt": "Cocina"
-      },
-      {
-        "archivo": "frente-al-mar-2hab-chichiriviche/12.webp",
-        "alt": "Comedor"
-      },
-      {
-        "archivo": "frente-al-mar-2hab-chichiriviche/13.webp",
-        "alt": "Habitación"
-      },
-      {
-        "archivo": "frente-al-mar-2hab-chichiriviche/14.webp",
-        "alt": "Habitación"
-      },
-      {
-        "archivo": "frente-al-mar-2hab-chichiriviche/15.webp",
-        "alt": "Habitación"
-      },
-      {
-        "archivo": "frente-al-mar-2hab-chichiriviche/16.webp",
-        "alt": "Baño"
-      },
-      {
-        "archivo": "frente-al-mar-2hab-chichiriviche/17.webp",
-        "alt": "Baño"
-      },
-      {
-        "archivo": "frente-al-mar-2hab-chichiriviche/18.webp",
-        "alt": "Baño"
-      },
-      {
-        "archivo": "frente-al-mar-2hab-chichiriviche/19.webp",
         "alt": "Parrillera"
-      },
-      {
-        "archivo": "frente-al-mar-2hab-chichiriviche/20.webp",
-        "alt": "Exterior"
       }
     ],
     "videos": [],
@@ -754,11 +514,11 @@
       },
       {
         "archivo": "casa-vista-al-mar-tucacas/04.webp",
-        "alt": "Sala"
+        "alt": "Exterior"
       },
       {
         "archivo": "casa-vista-al-mar-tucacas/05.webp",
-        "alt": "Sala"
+        "alt": "Piscina"
       },
       {
         "archivo": "casa-vista-al-mar-tucacas/06.webp",
@@ -770,55 +530,15 @@
       },
       {
         "archivo": "casa-vista-al-mar-tucacas/08.webp",
-        "alt": "Cocina"
+        "alt": "Habitación"
       },
       {
         "archivo": "casa-vista-al-mar-tucacas/09.webp",
-        "alt": "Habitación"
+        "alt": "Baño"
       },
       {
         "archivo": "casa-vista-al-mar-tucacas/10.webp",
-        "alt": "Habitación"
-      },
-      {
-        "archivo": "casa-vista-al-mar-tucacas/11.webp",
-        "alt": "Habitación"
-      },
-      {
-        "archivo": "casa-vista-al-mar-tucacas/12.webp",
-        "alt": "Habitación"
-      },
-      {
-        "archivo": "casa-vista-al-mar-tucacas/13.webp",
-        "alt": "Baño"
-      },
-      {
-        "archivo": "casa-vista-al-mar-tucacas/14.webp",
-        "alt": "Baño"
-      },
-      {
-        "archivo": "casa-vista-al-mar-tucacas/15.webp",
         "alt": "Exterior"
-      },
-      {
-        "archivo": "casa-vista-al-mar-tucacas/16.webp",
-        "alt": "Exterior"
-      },
-      {
-        "archivo": "casa-vista-al-mar-tucacas/17.webp",
-        "alt": "Exterior"
-      },
-      {
-        "archivo": "casa-vista-al-mar-tucacas/18.webp",
-        "alt": "Piscina"
-      },
-      {
-        "archivo": "casa-vista-al-mar-tucacas/19.webp",
-        "alt": "Piscina"
-      },
-      {
-        "archivo": "casa-vista-al-mar-tucacas/20.webp",
-        "alt": "Foto de la propiedad"
       }
     ],
     "videos": [],
@@ -866,75 +586,35 @@
       },
       {
         "archivo": "margarita-beach-house-santa-marta/03.webp",
-        "alt": "Sala"
+        "alt": "Habitación"
       },
       {
         "archivo": "margarita-beach-house-santa-marta/04.webp",
-        "alt": "Habitación"
+        "alt": "Terraza"
       },
       {
         "archivo": "margarita-beach-house-santa-marta/05.webp",
-        "alt": "Terraza"
+        "alt": "Cocina"
       },
       {
         "archivo": "margarita-beach-house-santa-marta/06.webp",
-        "alt": "Sala"
+        "alt": "Cocina"
       },
       {
         "archivo": "margarita-beach-house-santa-marta/07.webp",
-        "alt": "Sala"
+        "alt": "Cocina"
       },
       {
         "archivo": "margarita-beach-house-santa-marta/08.webp",
-        "alt": "Sala"
+        "alt": "Habitación"
       },
       {
         "archivo": "margarita-beach-house-santa-marta/09.webp",
-        "alt": "Cocina"
+        "alt": "Sala"
       },
       {
         "archivo": "margarita-beach-house-santa-marta/10.webp",
-        "alt": "Cocina"
-      },
-      {
-        "archivo": "margarita-beach-house-santa-marta/11.webp",
-        "alt": "Cocina"
-      },
-      {
-        "archivo": "margarita-beach-house-santa-marta/12.webp",
-        "alt": "Cocina"
-      },
-      {
-        "archivo": "margarita-beach-house-santa-marta/13.webp",
-        "alt": "Habitación"
-      },
-      {
-        "archivo": "margarita-beach-house-santa-marta/14.webp",
-        "alt": "Habitación"
-      },
-      {
-        "archivo": "margarita-beach-house-santa-marta/15.webp",
-        "alt": "Habitación"
-      },
-      {
-        "archivo": "margarita-beach-house-santa-marta/16.webp",
         "alt": "Baño"
-      },
-      {
-        "archivo": "margarita-beach-house-santa-marta/17.webp",
-        "alt": "Baño"
-      },
-      {
-        "archivo": "margarita-beach-house-santa-marta/18.webp",
-        "alt": "Baño"
-      },
-      {
-        "archivo": "margarita-beach-house-santa-marta/19.webp",
-        "alt": "Baño"
-      },
-      {
-        "archivo": "margarita-beach-house-santa-marta/20.webp",
-        "alt": "Terraza"
       }
     ],
     "videos": [],
@@ -984,7 +664,7 @@
       },
       {
         "archivo": "apto-vista-playa-tucacas/03.webp",
-        "alt": "Piscina"
+        "alt": "Terraza"
       },
       {
         "archivo": "apto-vista-playa-tucacas/04.webp",
@@ -996,63 +676,23 @@
       },
       {
         "archivo": "apto-vista-playa-tucacas/06.webp",
-        "alt": "Playa y mar"
+        "alt": "Cocina"
       },
       {
         "archivo": "apto-vista-playa-tucacas/07.webp",
-        "alt": "Sala"
+        "alt": "Cocina"
       },
       {
         "archivo": "apto-vista-playa-tucacas/08.webp",
-        "alt": "Cocina"
-      },
-      {
-        "archivo": "apto-vista-playa-tucacas/09.webp",
-        "alt": "Cocina"
-      },
-      {
-        "archivo": "apto-vista-playa-tucacas/10.webp",
-        "alt": "Cocina"
-      },
-      {
-        "archivo": "apto-vista-playa-tucacas/11.webp",
         "alt": "Habitación"
       },
       {
-        "archivo": "apto-vista-playa-tucacas/12.webp",
+        "archivo": "apto-vista-playa-tucacas/09.webp",
         "alt": "Baño"
       },
       {
-        "archivo": "apto-vista-playa-tucacas/13.webp",
-        "alt": "Baño"
-      },
-      {
-        "archivo": "apto-vista-playa-tucacas/14.webp",
-        "alt": "Baño"
-      },
-      {
-        "archivo": "apto-vista-playa-tucacas/15.webp",
+        "archivo": "apto-vista-playa-tucacas/10.webp",
         "alt": "Exterior"
-      },
-      {
-        "archivo": "apto-vista-playa-tucacas/16.webp",
-        "alt": "Exterior"
-      },
-      {
-        "archivo": "apto-vista-playa-tucacas/17.webp",
-        "alt": "Parrillera"
-      },
-      {
-        "archivo": "apto-vista-playa-tucacas/18.webp",
-        "alt": "Exterior"
-      },
-      {
-        "archivo": "apto-vista-playa-tucacas/19.webp",
-        "alt": "Exterior"
-      },
-      {
-        "archivo": "apto-vista-playa-tucacas/20.webp",
-        "alt": "Terraza"
       }
     ],
     "videos": [],
@@ -1094,7 +734,7 @@
     "fotos": [
       {
         "archivo": "familiar-salida-playa-tucacas/01.webp",
-        "alt": "Foto de la propiedad"
+        "alt": "Piscina"
       },
       {
         "archivo": "familiar-salida-playa-tucacas/02.webp",
@@ -1102,7 +742,7 @@
       },
       {
         "archivo": "familiar-salida-playa-tucacas/03.webp",
-        "alt": "Piscina"
+        "alt": "Jardín"
       },
       {
         "archivo": "familiar-salida-playa-tucacas/04.webp",
@@ -1110,11 +750,11 @@
       },
       {
         "archivo": "familiar-salida-playa-tucacas/05.webp",
-        "alt": "Jardín"
+        "alt": "Exterior"
       },
       {
         "archivo": "familiar-salida-playa-tucacas/06.webp",
-        "alt": "Sala"
+        "alt": "Jardín"
       },
       {
         "archivo": "familiar-salida-playa-tucacas/07.webp",
@@ -1122,7 +762,7 @@
       },
       {
         "archivo": "familiar-salida-playa-tucacas/08.webp",
-        "alt": "Habitación"
+        "alt": "Sala"
       },
       {
         "archivo": "familiar-salida-playa-tucacas/09.webp",
@@ -1130,47 +770,7 @@
       },
       {
         "archivo": "familiar-salida-playa-tucacas/10.webp",
-        "alt": "Baño"
-      },
-      {
-        "archivo": "familiar-salida-playa-tucacas/11.webp",
-        "alt": "Jardín"
-      },
-      {
-        "archivo": "familiar-salida-playa-tucacas/12.webp",
-        "alt": "Jardín"
-      },
-      {
-        "archivo": "familiar-salida-playa-tucacas/13.webp",
-        "alt": "Jardín"
-      },
-      {
-        "archivo": "familiar-salida-playa-tucacas/14.webp",
-        "alt": "Terraza"
-      },
-      {
-        "archivo": "familiar-salida-playa-tucacas/15.webp",
         "alt": "Exterior"
-      },
-      {
-        "archivo": "familiar-salida-playa-tucacas/16.webp",
-        "alt": "Exterior"
-      },
-      {
-        "archivo": "familiar-salida-playa-tucacas/17.webp",
-        "alt": "Exterior"
-      },
-      {
-        "archivo": "familiar-salida-playa-tucacas/18.webp",
-        "alt": "Piscina"
-      },
-      {
-        "archivo": "familiar-salida-playa-tucacas/19.webp",
-        "alt": "Foto de la propiedad"
-      },
-      {
-        "archivo": "familiar-salida-playa-tucacas/20.webp",
-        "alt": "Foto de la propiedad"
       }
     ],
     "videos": [],
@@ -1231,62 +831,22 @@
       },
       {
         "archivo": "villa-g15/06.webp",
-        "alt": "Sala"
+        "alt": "Comedor"
       },
       {
         "archivo": "villa-g15/07.webp",
-        "alt": "Cocina"
+        "alt": "Comedor"
       },
       {
         "archivo": "villa-g15/08.webp",
-        "alt": "Cocina"
+        "alt": "Habitación"
       },
       {
         "archivo": "villa-g15/09.webp",
-        "alt": "Cocina"
+        "alt": "Habitación"
       },
       {
         "archivo": "villa-g15/10.webp",
-        "alt": "Cocina"
-      },
-      {
-        "archivo": "villa-g15/11.webp",
-        "alt": "Comedor"
-      },
-      {
-        "archivo": "villa-g15/12.webp",
-        "alt": "Comedor"
-      },
-      {
-        "archivo": "villa-g15/13.webp",
-        "alt": "Comedor"
-      },
-      {
-        "archivo": "villa-g15/14.webp",
-        "alt": "Comedor"
-      },
-      {
-        "archivo": "villa-g15/15.webp",
-        "alt": "Habitación"
-      },
-      {
-        "archivo": "villa-g15/16.webp",
-        "alt": "Habitación"
-      },
-      {
-        "archivo": "villa-g15/17.webp",
-        "alt": "Habitación"
-      },
-      {
-        "archivo": "villa-g15/18.webp",
-        "alt": "Habitación"
-      },
-      {
-        "archivo": "villa-g15/19.webp",
-        "alt": "Baño"
-      },
-      {
-        "archivo": "villa-g15/20.webp",
         "alt": "Baño"
       }
     ],
@@ -1329,11 +889,11 @@
     "fotos": [
       {
         "archivo": "villa-a20/01.webp",
-        "alt": "Terraza"
+        "alt": "Piscina"
       },
       {
         "archivo": "villa-a20/02.webp",
-        "alt": "Piscina"
+        "alt": "Terraza"
       },
       {
         "archivo": "villa-a20/03.webp",
@@ -1341,70 +901,30 @@
       },
       {
         "archivo": "villa-a20/04.webp",
-        "alt": "Piscina"
+        "alt": "Sala"
       },
       {
         "archivo": "villa-a20/05.webp",
-        "alt": "Playa y mar"
+        "alt": "Comedor"
       },
       {
         "archivo": "villa-a20/06.webp",
-        "alt": "Piscina"
+        "alt": "Comedor"
       },
       {
         "archivo": "villa-a20/07.webp",
-        "alt": "Sala"
+        "alt": "Habitación"
       },
       {
         "archivo": "villa-a20/08.webp",
-        "alt": "Sala"
+        "alt": "Habitación"
       },
       {
         "archivo": "villa-a20/09.webp",
-        "alt": "Comedor"
-      },
-      {
-        "archivo": "villa-a20/10.webp",
-        "alt": "Comedor"
-      },
-      {
-        "archivo": "villa-a20/11.webp",
-        "alt": "Comedor"
-      },
-      {
-        "archivo": "villa-a20/12.webp",
         "alt": "Foto de la propiedad"
       },
       {
-        "archivo": "villa-a20/13.webp",
-        "alt": "Habitación"
-      },
-      {
-        "archivo": "villa-a20/14.webp",
-        "alt": "Habitación"
-      },
-      {
-        "archivo": "villa-a20/15.webp",
-        "alt": "Habitación"
-      },
-      {
-        "archivo": "villa-a20/16.webp",
-        "alt": "Habitación"
-      },
-      {
-        "archivo": "villa-a20/17.webp",
-        "alt": "Baño"
-      },
-      {
-        "archivo": "villa-a20/18.webp",
-        "alt": "Baño"
-      },
-      {
-        "archivo": "villa-a20/19.webp",
-        "alt": "Baño"
-      },
-      {
-        "archivo": "villa-a20/20.webp",
+        "archivo": "villa-a20/10.webp",
         "alt": "Baño"
       }
     ],
@@ -1451,7 +971,7 @@
       },
       {
         "archivo": "villa-v14/02.webp",
-        "alt": "Foto de la propiedad"
+        "alt": "Piscina"
       },
       {
         "archivo": "villa-v14/03.webp",
@@ -1463,7 +983,7 @@
       },
       {
         "archivo": "villa-v14/05.webp",
-        "alt": "Piscina"
+        "alt": "Sala"
       },
       {
         "archivo": "villa-v14/06.webp",
@@ -1471,59 +991,19 @@
       },
       {
         "archivo": "villa-v14/07.webp",
-        "alt": "Sala"
+        "alt": "Cocina"
       },
       {
         "archivo": "villa-v14/08.webp",
-        "alt": "Sala"
+        "alt": "Habitación"
       },
       {
         "archivo": "villa-v14/09.webp",
-        "alt": "Sala"
+        "alt": "Habitación"
       },
       {
         "archivo": "villa-v14/10.webp",
-        "alt": "Cocina"
-      },
-      {
-        "archivo": "villa-v14/11.webp",
-        "alt": "Cocina"
-      },
-      {
-        "archivo": "villa-v14/12.webp",
-        "alt": "Cocina"
-      },
-      {
-        "archivo": "villa-v14/13.webp",
-        "alt": "Habitación"
-      },
-      {
-        "archivo": "villa-v14/14.webp",
-        "alt": "Habitación"
-      },
-      {
-        "archivo": "villa-v14/15.webp",
-        "alt": "Habitación"
-      },
-      {
-        "archivo": "villa-v14/16.webp",
-        "alt": "Habitación"
-      },
-      {
-        "archivo": "villa-v14/17.webp",
         "alt": "Baño"
-      },
-      {
-        "archivo": "villa-v14/18.webp",
-        "alt": "Baño"
-      },
-      {
-        "archivo": "villa-v14/19.webp",
-        "alt": "Baño"
-      },
-      {
-        "archivo": "villa-v14/20.webp",
-        "alt": "Jardín"
       }
     ],
     "videos": [],
@@ -1581,14 +1061,6 @@
       {
         "archivo": "casa-aurora-tucacas/05.webp",
         "alt": "Foto de la propiedad"
-      },
-      {
-        "archivo": "casa-aurora-tucacas/06.webp",
-        "alt": "Paseo en lancha"
-      },
-      {
-        "archivo": "casa-aurora-tucacas/07.webp",
-        "alt": "Paseo en lancha"
       }
     ],
     "videos": [],
@@ -1631,19 +1103,19 @@
       },
       {
         "archivo": "escapada-para-4-tucacas/02.webp",
-        "alt": "Habitación"
+        "alt": "Piscina"
       },
       {
         "archivo": "escapada-para-4-tucacas/03.webp",
-        "alt": "Comedor"
+        "alt": "Piscina"
       },
       {
         "archivo": "escapada-para-4-tucacas/04.webp",
-        "alt": "Piscina"
+        "alt": "Habitación"
       },
       {
         "archivo": "escapada-para-4-tucacas/05.webp",
-        "alt": "Piscina"
+        "alt": "Habitación"
       },
       {
         "archivo": "escapada-para-4-tucacas/06.webp",
@@ -1655,43 +1127,15 @@
       },
       {
         "archivo": "escapada-para-4-tucacas/08.webp",
-        "alt": "Habitación"
+        "alt": "Baño"
       },
       {
         "archivo": "escapada-para-4-tucacas/09.webp",
-        "alt": "Baño"
-      },
-      {
-        "archivo": "escapada-para-4-tucacas/10.webp",
-        "alt": "Baño"
-      },
-      {
-        "archivo": "escapada-para-4-tucacas/11.webp",
-        "alt": "Baño"
-      },
-      {
-        "archivo": "escapada-para-4-tucacas/12.webp",
-        "alt": "Exterior"
-      },
-      {
-        "archivo": "escapada-para-4-tucacas/13.webp",
         "alt": "Piscina"
       },
       {
-        "archivo": "escapada-para-4-tucacas/14.webp",
-        "alt": "Foto de la propiedad"
-      },
-      {
-        "archivo": "escapada-para-4-tucacas/15.webp",
-        "alt": "Foto de la propiedad"
-      },
-      {
-        "archivo": "escapada-para-4-tucacas/16.webp",
-        "alt": "Foto de la propiedad"
-      },
-      {
-        "archivo": "escapada-para-4-tucacas/17.webp",
-        "alt": "Foto de la propiedad"
+        "archivo": "escapada-para-4-tucacas/10.webp",
+        "alt": "Exterior"
       }
     ],
     "videos": [],
@@ -1744,59 +1188,31 @@
       },
       {
         "archivo": "habitacion-6-personas-tucacas/04.webp",
-        "alt": "Piscina"
+        "alt": "Baño"
       },
       {
         "archivo": "habitacion-6-personas-tucacas/05.webp",
-        "alt": "Foto de la propiedad"
+        "alt": "Baño"
       },
       {
         "archivo": "habitacion-6-personas-tucacas/06.webp",
-        "alt": "Habitación"
+        "alt": "Baño"
       },
       {
         "archivo": "habitacion-6-personas-tucacas/07.webp",
-        "alt": "Habitación"
+        "alt": "Foto de la propiedad"
       },
       {
         "archivo": "habitacion-6-personas-tucacas/08.webp",
-        "alt": "Baño"
-      },
-      {
-        "archivo": "habitacion-6-personas-tucacas/09.webp",
-        "alt": "Baño"
-      },
-      {
-        "archivo": "habitacion-6-personas-tucacas/10.webp",
-        "alt": "Baño"
-      },
-      {
-        "archivo": "habitacion-6-personas-tucacas/11.webp",
         "alt": "Exterior"
       },
       {
-        "archivo": "habitacion-6-personas-tucacas/12.webp",
+        "archivo": "habitacion-6-personas-tucacas/09.webp",
         "alt": "Piscina"
       },
       {
-        "archivo": "habitacion-6-personas-tucacas/13.webp",
+        "archivo": "habitacion-6-personas-tucacas/10.webp",
         "alt": "Foto de la propiedad"
-      },
-      {
-        "archivo": "habitacion-6-personas-tucacas/14.webp",
-        "alt": "Foto de la propiedad"
-      },
-      {
-        "archivo": "habitacion-6-personas-tucacas/15.webp",
-        "alt": "Foto de la propiedad"
-      },
-      {
-        "archivo": "habitacion-6-personas-tucacas/16.webp",
-        "alt": "Paseo en lancha"
-      },
-      {
-        "archivo": "habitacion-6-personas-tucacas/17.webp",
-        "alt": "Paseo en lancha"
       }
     ],
     "videos": [],
@@ -1837,11 +1253,11 @@
     "fotos": [
       {
         "archivo": "villa-vr7/01.webp",
-        "alt": "Foto de la propiedad"
+        "alt": "Piscina"
       },
       {
         "archivo": "villa-vr7/02.webp",
-        "alt": "Paseo en lancha"
+        "alt": "Piscina"
       },
       {
         "archivo": "villa-vr7/03.webp",
@@ -1849,71 +1265,31 @@
       },
       {
         "archivo": "villa-vr7/04.webp",
-        "alt": "Habitación"
+        "alt": "Piscina"
       },
       {
         "archivo": "villa-vr7/05.webp",
-        "alt": "Foto de la propiedad"
+        "alt": "Sala"
       },
       {
         "archivo": "villa-vr7/06.webp",
-        "alt": "Sala"
+        "alt": "Foto de la propiedad"
       },
       {
         "archivo": "villa-vr7/07.webp",
-        "alt": "Sala"
+        "alt": "Habitación"
       },
       {
         "archivo": "villa-vr7/08.webp",
-        "alt": "Cocina"
+        "alt": "Habitación"
       },
       {
         "archivo": "villa-vr7/09.webp",
-        "alt": "Habitación"
+        "alt": "Sala"
       },
       {
         "archivo": "villa-vr7/10.webp",
-        "alt": "Habitación"
-      },
-      {
-        "archivo": "villa-vr7/11.webp",
-        "alt": "Baño"
-      },
-      {
-        "archivo": "villa-vr7/12.webp",
-        "alt": "Baño"
-      },
-      {
-        "archivo": "villa-vr7/13.webp",
-        "alt": "Exterior"
-      },
-      {
-        "archivo": "villa-vr7/14.webp",
-        "alt": "Exterior"
-      },
-      {
-        "archivo": "villa-vr7/15.webp",
-        "alt": "Exterior"
-      },
-      {
-        "archivo": "villa-vr7/16.webp",
-        "alt": "Exterior"
-      },
-      {
-        "archivo": "villa-vr7/17.webp",
-        "alt": "Terraza"
-      },
-      {
-        "archivo": "villa-vr7/18.webp",
-        "alt": "Piscina"
-      },
-      {
-        "archivo": "villa-vr7/19.webp",
-        "alt": "Piscina"
-      },
-      {
-        "archivo": "villa-vr7/20.webp",
-        "alt": "Piscina"
+        "alt": "Cocina"
       }
     ],
     "videos": [],
@@ -1991,22 +1367,6 @@
       },
       {
         "archivo": "villa-m33/10.webp",
-        "alt": "Foto de la propiedad"
-      },
-      {
-        "archivo": "villa-m33/11.webp",
-        "alt": "Foto de la propiedad"
-      },
-      {
-        "archivo": "villa-m33/12.webp",
-        "alt": "Foto de la propiedad"
-      },
-      {
-        "archivo": "villa-m33/13.webp",
-        "alt": "Foto de la propiedad"
-      },
-      {
-        "archivo": "villa-m33/14.webp",
         "alt": "Foto de la propiedad"
       }
     ],
