@@ -1376,5 +1376,164 @@
       "stay": ""
     },
     "ubicacion_maps": ""
+  },
+  {
+    "id": "casa-adicora",
+    "nombre": "Casa en Adícora",
+    "codigo": "",
+    "linea": "",
+    "tipo": "casa",
+    "categoria": "",
+    "ambito": "nacional",
+    "destino": "venezuela",
+    "zona": "adicora",
+    "destacada": false,
+    "activa": true,
+    "capacidad": 18,
+    "habitaciones": 6,
+    "banos": 0,
+    "resumen": "Para turistas, familias y grupos de amigos, cerca de las playas de Adícora, reconocidas para el kitesurf.",
+    "descripcion": "Casa en Adícora, en la península de Paraguaná, para 18 personas en 6 habitaciones: 3 matrimoniales, con una cama matrimonial cada una, y 3 cuádruples, con una cama matrimonial y una litera de dos camas individuales cada una.\nLas habitaciones tienen agua caliente, Smart TV, lencería de lujo, edredones, clósets, baño privado, espejos de cuerpo completo y toallas para usar dentro de la casa.\nNuestro compromiso: confidencialidad, privacidad, seguridad y buena atención.",
+    "incluye": [
+      "Piscina",
+      "Admite mascotas (con condiciones)",
+      "Servicio de catering (no incluye alimentos)",
+      "Planta eléctrica de respaldo",
+      "Internet por fibra óptica",
+      "Lavandería",
+      "Vigilancia y seguridad",
+      "Estacionamiento privado",
+      "Área de parrilleras",
+      "Jardín amplio con grama",
+      "Ducha al aire libre",
+      "Espacio para lavar y guardar equipos de kitesurf",
+      "Zona de descanso con puff y hamacas"
+    ],
+    "nota": "Niños menores de 3 años, gratis; menores de 5 años, 50 % de descuento.",
+    "fotos": [
+      {
+        "archivo": "casa-adicora/01.webp",
+        "alt": "Jardín con sillas y palmeras"
+      },
+      {
+        "archivo": "casa-adicora/02.webp",
+        "alt": "Fachada de noche con palmeras"
+      },
+      {
+        "archivo": "casa-adicora/03.webp",
+        "alt": "Porche con lámpara colgante"
+      },
+      {
+        "archivo": "casa-adicora/04.webp",
+        "alt": "Terraza con comedor exterior"
+      },
+      {
+        "archivo": "casa-adicora/05.webp",
+        "alt": "Jardín lateral"
+      },
+      {
+        "archivo": "casa-adicora/06.webp",
+        "alt": "Hamaca entre palmas"
+      },
+      {
+        "archivo": "casa-adicora/07.webp",
+        "alt": "Comedor"
+      },
+      {
+        "archivo": "casa-adicora/08.webp",
+        "alt": "Baño con puerta corrediza"
+      },
+      {
+        "archivo": "casa-adicora/09.webp",
+        "alt": "Baño con azulejos"
+      },
+      {
+        "archivo": "casa-adicora/10.webp",
+        "alt": "Lavamanos"
+      }
+    ],
+    "videos": [],
+    "enlaces": {
+      "airbnb": "",
+      "stay": ""
+    },
+    "ubicacion_maps": ""
+  },
+  {
+    "id": "hacienda-yaracuy",
+    "nombre": "Hacienda ecológica en Yaracuy",
+    "codigo": "",
+    "linea": "",
+    "tipo": "posada",
+    "categoria": "",
+    "ambito": "nacional",
+    "destino": "venezuela",
+    "zona": "yaracuy",
+    "destacada": false,
+    "activa": true,
+    "capacidad": 0,
+    "habitaciones": 0,
+    "banos": 0,
+    "resumen": "Para escapar de la rutina y conectar con la naturaleza de Yaracuy.",
+    "descripcion": "Para escapar de la rutina y conectar con la naturaleza de Yaracuy.\nLo que le espera: senderos entre árboles gigantes; fauna silvestre, con aves exóticas, monos y mariposas; ríos, cascada y pozas para desconectarse, y cacao de origen.\nHospedaje en suites, habitaciones y cabañas.",
+    "incluye": [],
+    "nota": "",
+    "fotos": [
+      {
+        "archivo": "hacienda-yaracuy/01.webp",
+        "alt": "Jardín con caminos y las casas"
+      },
+      {
+        "archivo": "hacienda-yaracuy/02.webp",
+        "alt": "Piscina"
+      },
+      {
+        "archivo": "hacienda-yaracuy/03.webp",
+        "alt": "Terraza con tumbonas y frutas"
+      },
+      {
+        "archivo": "hacienda-yaracuy/04.webp",
+        "alt": "Jardín con flores"
+      },
+      {
+        "archivo": "hacienda-yaracuy/05.webp",
+        "alt": "Casa con grama"
+      },
+      {
+        "archivo": "hacienda-yaracuy/06.webp",
+        "alt": "Caney con techo de madera"
+      },
+      {
+        "archivo": "hacienda-yaracuy/07.webp",
+        "alt": "Comedor con lámparas tejidas"
+      },
+      {
+        "archivo": "hacienda-yaracuy/08.webp",
+        "alt": "Suite"
+      },
+      {
+        "archivo": "hacienda-yaracuy/09.webp",
+        "alt": "Habitación con lámpara tejida"
+      },
+      {
+        "archivo": "hacienda-yaracuy/10.webp",
+        "alt": "Habitación"
+      }
+    ],
+    "videos": [
+      {
+        "archivo": "hacienda-yaracuy/video-1.mp4",
+        "portada": "hacienda-yaracuy/video-1.webp"
+      },
+      {
+        "archivo": "hacienda-yaracuy/video-2.mp4",
+        "portada": "hacienda-yaracuy/video-2.webp"
+      }
+    ],
+    "enlaces": {
+      "airbnb": "",
+      "stay": ""
+    },
+    "ubicacion_maps": ""
   }
 ]

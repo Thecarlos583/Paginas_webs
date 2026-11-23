@@ -50,6 +50,10 @@
       "singular": "Penthouse",
       "plural": "Penthouse"
     },
+    "posada": {
+      "singular": "Posada",
+      "plural": "Posadas"
+    },
     "habitacion": {
       "singular": "Habitación con desayuno",
       "plural": "Habitaciones con desayuno"

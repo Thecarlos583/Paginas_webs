@@ -10,7 +10,7 @@
           "id": "venezuela",
           "nombre": "Venezuela",
           "foto": "",
-          "descripcion": "Villas, casas, apartamentos y habitaciones en la costa de Falcón, cerca de los cayos de Morrocoy.",
+          "descripcion": "Villas, casas, apartamentos y habitaciones en la costa de Falcón, cerca de los cayos de Morrocoy, y también en Adícora y Yaracuy.",
           "zonas": [
             {
               "id": "tucacas",
@@ -51,6 +51,26 @@
               "nombre": "Ciudad Flamingo, Falcón",
               "foto": "",
               "descripcion": "Junto al Refugio de Fauna Silvestre de Cuare y cerca de los embarcaderos hacia los cayos."
+            },
+            {
+              "id": "adicora",
+              "coordenadas": [
+                11.94,
+                -69.8
+              ],
+              "nombre": "Adícora, Falcón",
+              "foto": "",
+              "descripcion": "Una casa para grupos en la península de Paraguaná, cerca de las playas de Adícora, reconocidas para el kitesurf."
+            },
+            {
+              "id": "yaracuy",
+              "coordenadas": [
+                10.34,
+                -68.74
+              ],
+              "nombre": "Yaracuy",
+              "foto": "",
+              "descripcion": "Una hacienda ecológica para escapar de la rutina y conectar con la naturaleza."
             },
             {
               "id": "isla-margarita",
