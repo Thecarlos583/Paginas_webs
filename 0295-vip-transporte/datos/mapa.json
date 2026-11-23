@@ -3,17 +3,133 @@
   "ancho": 1060,
   "alto": 540,
   "costas": [
-    {"nombre": "Macanao", "puntos": [[58,292],[78,242],[136,206],[226,186],[318,190],[398,214],[446,256],[458,300],[438,344],[378,384],[290,404],[192,400],[112,370],[66,332]]},
-    {"nombre": "Margarita oriental", "puntos": [[712,196],[734,152],[768,122],[800,96],[832,70],[862,52],[880,40],[898,56],[908,88],[930,132],[962,198],[988,250],[996,298],[984,330],[950,350],[910,372],[870,394],[830,414],[790,430],[742,450],[700,456],[650,456],[598,460],[540,464],[512,446],[500,412],[512,372],[560,350],[622,328],[676,298],[700,256]]},
-    {"nombre": "La Restinga", "puntos": [[446,282],[520,270],[600,258],[664,246],[704,234],[708,246],[668,258],[604,270],[524,282],[452,296]]}
+    {
+      "nombre": "Macanao",
+      "puntos": [
+        [50, 300],
+        [70, 245],
+        [125, 205],
+        [215, 183],
+        [305, 186],
+        [385, 208],
+        [430, 245],
+        [440, 292],
+        [420, 340],
+        [365, 382],
+        [280, 402],
+        [185, 398],
+        [105, 368],
+        [60, 335]
+      ],
+      "rugosidad": 9
+    },
+    {
+      "nombre": "Margarita oriental",
+      "puntos": [
+        [727, 178],
+        [760, 140],
+        [800, 100],
+        [840, 62],
+        [866, 42],
+        [888, 58],
+        [898, 90],
+        [925, 140],
+        [955, 200],
+        [978, 252],
+        [985, 298],
+        [965, 330],
+        [930, 352],
+        [898, 370],
+        [860, 392],
+        [815, 415],
+        [770, 440],
+        [730, 458],
+        [680, 462],
+        [620, 462],
+        [560, 462],
+        [528, 452],
+        [540, 420],
+        [570, 395],
+        [588, 360],
+        [594, 320],
+        [600, 282],
+        [622, 254],
+        [662, 234],
+        [700, 212]
+      ],
+      "rugosidad": 8
+    },
+    {
+      "nombre": "La Restinga",
+      "puntos": [
+        [428, 240],
+        [500, 234],
+        [560, 232],
+        [606, 240],
+        [606, 252],
+        [560, 247],
+        [500, 249],
+        [434, 256]
+      ],
+      "rugosidad": 0
+    }
   ],
   "lugares": [
-    {"id": "aeropuerto", "nombre": "Aeropuerto Santiago Mariño", "corto": "Aeropuerto", "x": 724, "y": 432, "etiqueta": "abajo"},
-    {"id": "porlamar", "nombre": "Porlamar", "corto": "Porlamar", "x": 900, "y": 366, "etiqueta": "abajo"},
-    {"id": "pampatar", "nombre": "Pampatar", "corto": "Pampatar", "x": 978, "y": 300, "etiqueta": "izquierda"},
-    {"id": "playa-el-agua", "nombre": "Playa El Agua", "corto": "Playa El Agua", "x": 900, "y": 90, "etiqueta": "derecha"},
-    {"id": "juan-griego", "nombre": "Juan Griego", "corto": "Juan Griego", "x": 726, "y": 188, "etiqueta": "izquierda"},
-    {"id": "la-asuncion", "nombre": "La Asunción", "corto": "La Asunción", "x": 880, "y": 248, "etiqueta": "izquierda"},
-    {"id": "punta-de-piedras", "nombre": "Punta de Piedras (ferry)", "corto": "Punta de Piedras", "x": 530, "y": 452, "etiqueta": "arriba"}
+    {
+      "id": "aeropuerto",
+      "nombre": "Aeropuerto Santiago Mariño",
+      "corto": "Aeropuerto",
+      "x": 724,
+      "y": 432,
+      "etiqueta": "abajo"
+    },
+    {
+      "id": "porlamar",
+      "nombre": "Porlamar",
+      "corto": "Porlamar",
+      "x": 900,
+      "y": 366,
+      "etiqueta": "abajo"
+    },
+    {
+      "id": "pampatar",
+      "nombre": "Pampatar",
+      "corto": "Pampatar",
+      "x": 978,
+      "y": 300,
+      "etiqueta": "izquierda"
+    },
+    {
+      "id": "playa-el-agua",
+      "nombre": "Playa El Agua",
+      "corto": "Playa El Agua",
+      "x": 900,
+      "y": 90,
+      "etiqueta": "derecha"
+    },
+    {
+      "id": "juan-griego",
+      "nombre": "Juan Griego",
+      "corto": "Juan Griego",
+      "x": 728,
+      "y": 182,
+      "etiqueta": "izquierda"
+    },
+    {
+      "id": "la-asuncion",
+      "nombre": "La Asunción",
+      "corto": "La Asunción",
+      "x": 880,
+      "y": 248,
+      "etiqueta": "izquierda"
+    },
+    {
+      "id": "punta-de-piedras",
+      "nombre": "Punta de Piedras (ferry)",
+      "corto": "Punta de Piedras",
+      "x": 540,
+      "y": 446,
+      "etiqueta": "arriba"
+    }
   ]
 }
