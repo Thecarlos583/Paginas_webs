@@ -583,3 +583,6 @@ img[src*="jardin-muro"] { object-position: 50% 58%; }
 .par-fotos { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
 .par-fotos .ampliar { aspect-ratio: 3 / 4; }
 .pasos .paso { padding-top: 10px; margin-top: 0; font-size: 1.02rem; line-height: 1.45; }
+.tira-rutas { margin-top: 34px; }
+.mapa-junto { margin-top: 40px; }
+@media (min-width: 900px) { .tira.tira-rutas { grid-template-columns: repeat(3, 1fr); } .tira-rutas .ampliar { aspect-ratio: 4 / 3; } }
