@@ -26,7 +26,7 @@
 
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;scroll-padding-top:calc(var(--cab) + 30px)}
-body{margin:0;background:var(--fondo);color:var(--texto);font:400 1.0625rem/1.55 var(--cuerpo);overflow-x:clip;-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--fondo);color:var(--texto);font:400 1.0625rem/1.55 var(--cuerpo);overflow-x:clip;-webkit-font-smoothing:antialiased;padding-bottom:calc(var(--barra) + env(safe-area-inset-bottom))}
 img{display:block;max-width:100%;height:auto}
 h1,h2,h3{font-family:var(--titulos);font-weight:400;line-height:1.08;margin:0;text-wrap:balance;color:var(--primario)}
 h1{font-size:2.45rem}
@@ -309,7 +309,7 @@ button,input{font:inherit;color:inherit}
 .sigue img{width:100%;height:100%;min-height:0;object-fit:cover}
 
 /* Pie */
-.pie{background:var(--primario);color:#EAF0F2;padding-block:34px calc(var(--barra) + 30px + env(safe-area-inset-bottom))}
+.pie{background:var(--primario);color:#EAF0F2;padding-block:34px 30px}
 .pie-rejilla{display:grid;gap:26px}
 .pie .marca{font-size:1.8rem}
 .pie p{margin-top:6px}
@@ -393,6 +393,7 @@ button,input{font:inherit;color:inherit}
   .cab-nav a:hover,.cab-nav button:hover,.cab-nav a[aria-current]{background-size:100% 2px}
   .cab-nav .boton{min-height:44px;padding:8px 16px;background-image:none;font-size:.95rem}
   .marca{font-size:1.9rem}
+  body{padding-bottom:0}
   .barra{display:none}
   .flotante{right:26px;bottom:26px;width:auto;height:58px;padding:0 19px;gap:0;border-radius:29px;overflow:hidden}
   .flotante span{display:block;max-width:0;overflow:hidden;white-space:nowrap;font-weight:600;transition:max-width .4s var(--suave),margin .4s var(--suave)}

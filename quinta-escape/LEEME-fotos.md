@@ -1,19 +1,21 @@
 # Fotos de Quinta Escape
 
-Todas las fotos de hoy son **referenciales** (Unsplash). Para cambiar una, reemplace el archivo en `fotos/` con el mismo nombre, en WebP, y su miniatura `-600` (600 px de ancho). No hay que tocar el código.
+Desde el 23-11-2026 son **fotos reales del Sr. Víctor** (procesadas: WebP calidad 80, máximo 1600 px, miniatura -600, sin datos de ubicación ni de cámara). Los originales no van al repo.
+Para cambiar una, reemplace el archivo en `fotos/` con el mismo nombre, en WebP, y su miniatura `-600`. Si cambia la proporción, regenere (`python _generadores/quinta_escape.py`) para que el ancho y alto queden bien. Los textos alternativos están en el generador (lista GALERIA y cada página).
 
-| Foto | Qué va | Dónde sale |
+| Foto | Qué es | Dónde sale |
 |---|---|---|
-| `portada` | La casa o la playa, la mejor foto | Inicio (portada), Galería |
-| `casa-1` | Casa completa | La casa, Inicio |
-| `casa-2` | Fachada o entrada | Tarifas, La casa, Inicio |
-| `casa-3` | Vista desde la casa | Cómo reservar, Inicio |
-| `piscina` | Piscina | Piscina y churuata, Inicio |
-| `churuata` | Churuata | Piscina y churuata, Inicio |
-| `parrillera` | Parrillera | Piscina y churuata |
-| `habitacion-1` a `habitacion-4` | Habitaciones | La casa (la 1), Galería |
-| `playa` | Playa Corrales | Playa y zona, Cómo llegar, Inicio |
-| `galeria-1` a `galeria-10` | Fotos sueltas | Galería; la 2 en Inicio, la 4 en Cómo llegar, la 5 en Reglamento, la 6 en La casa |
+| `portada` | Casa amarilla con piscina entre palmeras | Inicio (portada, 1.a), Galería |
+| `piscina` | Piscina con cascada y el mar al fondo | Inicio (portada, 2.a), Piscina y churuata, Galería |
+| `churuata` | Churuata con barra | Inicio (día sábado), Piscina y churuata, Galería |
+| `churuata-2` | Piscina y churuata iluminada al atardecer (horizontal) | Inicio (portada, 3.a) |
+| `parrillera` | Parrillera de ladrillo | Piscina y churuata, Galería |
+| `casa-1` | Frente de la casa con comedor y piscina | La casa, Inicio |
+| `casa-2` | Fachada y estacionamiento | Tarifas, La casa, Galería |
+| `casa-3` | Vista al mar desde la casa | Cómo reservar, Inicio (viernes), Galería |
+| `habitacion-1` a `habitacion-3` | Habitaciones | La casa (la 1), Galería |
+| `playa` | Playa vista desde lo alto | Playa y zona, Cómo llegar, Inicio |
+| `galeria-1` a `galeria-26` | Sala, cocina, comedor, baño, piscina, churuata, playa | Galería; la 2 en Inicio, la 3 en Inicio (domingo), la 4 en Cómo llegar, la 5 en Reglamento, la 6 en La casa |
 | `logo.webp` | Logo, sin fondo y en claro | Cabecera y pie. Si existe, reemplaza solo el nombre escrito |
 
 Colores: las 5 variables al inicio de `estilos.css`.
