@@ -564,3 +564,22 @@ img[src*="jardin-muro"] { object-position: 50% 58%; }
 @media (min-width: 900px) { .duende-foto .ampliar { aspect-ratio: 4 / 5; } .duende .acciones .btn { flex: 0 0 auto; } }
 .sello-ruta { display: inline-flex; align-items: center; gap: 8px; margin: 0 0 14px; padding: 7px 14px 7px 9px; border: 1.5px solid var(--verde); border-radius: 999px; color: var(--verde); font: 600 .9rem/1.2 var(--sans); background: #fff; }
 .sello-ruta svg { width: 22px; height: 22px; flex: none; }
+
+/* prompt-45: fotos del Sr. Pedro */
+.cabanas-fotos.cuatro { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; height: 360px; }
+@media (min-width: 760px) { .cabanas-fotos.cuatro { height: 440px; } }
+.espacio-fotos.libre { height: auto; grid-template-columns: 1fr 1fr; grid-template-rows: none; }
+.espacio-fotos.libre .ampliar { aspect-ratio: 3 / 4; }
+.espacio-fotos.libre .e0 { grid-row: auto; }
+.espacio-fotos.libre.impar .e0 { grid-column: 1 / -1; aspect-ratio: 4 / 3; }
+.espacio-texto .lista-habs { margin-top: 18px; }
+.ambiente { display: grid; gap: 22px; margin-bottom: 56px; }
+.ambiente .cita { margin-bottom: 0; }
+@media (min-width: 900px) {
+  .ambiente { grid-template-columns: 1fr 1.2fr; gap: 56px; align-items: center; }
+  .espacio .espacio-fotos { order: -1; }
+  .espacio-inv .espacio-fotos { order: 2; }
+}
+.par-fotos { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.par-fotos .ampliar { aspect-ratio: 3 / 4; }
+.pasos .paso { padding-top: 10px; margin-top: 0; font-size: 1.02rem; line-height: 1.45; }
