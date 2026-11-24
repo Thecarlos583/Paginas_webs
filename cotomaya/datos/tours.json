@@ -17,7 +17,7 @@
       "fotos/yate-1.webp"
     ],
     "ejemplo": true,
-    "activa": true
+    "activa": false
   },
   {
     "id": "yate-por-el-dia",
@@ -37,6 +37,6 @@
       "fotos/yate-2.webp"
     ],
     "ejemplo": true,
-    "activa": true
+    "activa": false
   }
 ]

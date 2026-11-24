@@ -453,7 +453,9 @@
 
   PAGINAS.inicio = function (d) {
     pintarDestinos(d);
-    pintarTours($("[data-tours-inicio]"), d.tours.filter(function (t) { return t.ambito === "nacional"; }).slice(0, 3), "nacional");
+    var toursIni = d.tours.filter(function (t) { return t.ambito === "nacional"; }).slice(0, 3), secTours = $("#tours");
+    if (!toursIni.length && secTours && $("[data-tours-inicio]")) secTours.hidden = true;  /* sin tours activos: la sección no aparece */
+    else pintarTours($("[data-tours-inicio]"), toursIni, "nacional");
     /* Buscador: las zonas cambian según Nacional o Internacional */
     var pase = $("[data-pase]");
     if (pase) {
@@ -978,7 +980,15 @@
   PAGINAS.tours = function (d) {
     $$("[data-tours-ambito]").forEach(function (caja) {
       var a = caja.getAttribute("data-tours-ambito");
-      pintarTours(caja, d.tours.filter(function (t) { return t.ambito === a; }), a);
+      var lista = d.tours.filter(function (t) { return t.ambito === a; });
+      /* Tours nacionales sin ninguno activo: el bloque se oculta (los paseos en barco están en Yates y lanchas) */
+      var grupo = caja.closest(".grupo-tours");
+      if (a === "nacional" && !lista.length && grupo) {
+        grupo.hidden = true;
+        $$('a[href="#nacionales"]').forEach(function (x) { x.hidden = true; });
+        return;
+      }
+      pintarTours(caja, lista, a);
     });
   };
 

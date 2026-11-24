@@ -5,7 +5,7 @@ Página web estática (GitHub Pages). Revisado el 17 de noviembre de 2026.
 ## Fotos y videos
 - Propiedades: fotos de sus anuncios, que administra Cotomaya Venezuela (la clienta las pidió para la web).
 - Lancha: fotos y videos de Cotomaya Venezuela.
-- Wikimedia Commons (las de paseos van marcadas "Ejemplo"):
+- Wikimedia Commons:
 
 | Foto | Autor | Licencia | Fuente |
 |---|---|---|---|
