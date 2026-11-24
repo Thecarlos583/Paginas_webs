@@ -586,3 +586,26 @@ img[src*="jardin-muro"] { object-position: 50% 58%; }
 .tira-rutas { margin-top: 34px; }
 .mapa-junto { margin-top: 40px; }
 @media (min-width: 900px) { .tira.tira-rutas { grid-template-columns: repeat(3, 1fr); } .tira-rutas .ampliar { aspect-ratio: 4 / 3; } }
+
+/* ===================== prompt-45b: correcciones del Sr. Pedro (2.ª ronda) ===================== */
+/* Título de la portada letra por letra, una sola vez al cargar */
+.portada .pal { animation: none; white-space: nowrap; }
+.portada .le { display: inline-block; animation: letra .55s cubic-bezier(.2, .7, .2, 1) both; animation-delay: calc(.12s + var(--i) * .032s); }
+.portada .bajada { animation-delay: .5s; }
+.portada .acciones { animation-delay: .6s; }
+@keyframes letra { from { opacity: 0; transform: translateY(.38em) rotate(4deg); } }
+
+/* Cuatro puntos debajo de la portada: fila en computadora, dos filas de dos en el teléfono */
+.puntos-banda { background: var(--blanco); border-bottom: 1px solid var(--linea); }
+.puntos { display: grid; grid-template-columns: 1fr 1fr; }
+.punto { display: grid; justify-items: center; align-content: start; gap: 10px; padding: 24px 10px 22px; text-align: center; font: 500 1.02rem/1.3 var(--serif); color: var(--hondo); }
+.punto:nth-child(odd) { border-right: 1px solid var(--linea); }
+.punto:nth-child(-n+2) { border-bottom: 1px solid var(--linea); }
+.ic-linea { width: 44px; height: 44px; color: var(--verde); }
+.punto span { max-width: 15ch; }
+@media (min-width: 760px) {
+  .puntos { grid-template-columns: repeat(4, 1fr); }
+  .punto { padding: 34px 18px 30px; font-size: 1.12rem; border-bottom: 0 !important; border-right: 1px solid var(--linea); }
+  .punto:last-child { border-right: 0; }
+  .ic-linea { width: 50px; height: 50px; }
+}
