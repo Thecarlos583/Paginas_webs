@@ -223,7 +223,70 @@
     });
   }
 
+  /* Detalles al entrar en pantalla (prompt-45b). Todo empieza visible: solo se mueve o se termina de dibujar.
+     Sin IntersectionObserver o con movimiento reducido, no se hace nada y todo queda quieto. */
+  function alVer(els, inicial, despues, umbral) {
+    if (reducido || !("IntersectionObserver" in window) || !els.length) return;
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (x) {
+        if (!x.isIntersecting) return;
+        io.unobserve(x.target);
+        requestAnimationFrame(function () { x.target.classList.add("vivo"); });
+        if (despues) setTimeout(function () { x.target.classList.remove(inicial, "vivo"); }, despues);
+      });
+    }, { threshold: umbral || 0.25, rootMargin: "0px 0px -6% 0px" });
+    els.forEach(function (el) { el.classList.add(inicial); io.observe(el); });
+  }
+  function initDetalles() {
+    alVer(qa(".puntos"), "preparado", 0, 0.3);
+    alVer(qa(".divisor"), "preparado", 0, 0.6);
+    alVer(qa(".espacio-fotos .ampliar, .cabanas-fotos .ampliar, .duende-foto .ampliar, .par-fotos .ampliar, .ampliar.foto-alta, .tarjeta-foto"), "revela", 1600, 0.2);
+  }
+
+  /* Galería de experiencias: en computadora avanza de lado al bajar; en el teléfono se desliza con el dedo */
+  function initTiraHorizontal() {
+    if (reducido) return;
+    var mq = window.matchMedia("(min-width: 900px)");
+    var tiras = qa(".tira-rutas").filter(function (t) { return t.children.length > 3; });
+    if (!tiras.length) return;
+    var pend = false;
+    function mover() {
+      pend = false;
+      var vh = window.innerHeight;
+      tiras.forEach(function (t) {
+        if (!t.classList.contains("horizontal")) return;
+        var r = t.getBoundingClientRect(), extra = t.scrollWidth - t.clientWidth;
+        var p = (vh - r.top) / (vh + r.height);
+        p = Math.max(0, Math.min(1, (p - 0.15) / 0.6));
+        t.style.transform = "translate3d(" + (-p * extra).toFixed(1) + "px,0,0)";
+      });
+    }
+    function pedir() { if (!pend) { pend = true; requestAnimationFrame(mover); } }
+    function aplicar() {
+      tiras.forEach(function (t) {
+        t.classList.toggle("horizontal", mq.matches);
+        var sec = t.closest(".seccion");
+        if (sec) sec.classList.toggle("sec-horizontal", mq.matches);
+        if (!mq.matches) t.style.transform = "";
+      });
+      pedir();
+    }
+    aplicar();
+    window.addEventListener("scroll", pedir, { passive: true });
+    window.addEventListener("resize", aplicar);
+    /* con teclado: si una foto recibe el foco, la tira se corre para que quede a la vista */
+    tiras.forEach(function (t) {
+      t.addEventListener("focusin", function (e) {
+        if (!t.classList.contains("horizontal")) return;
+        var b = e.target.getBoundingClientRect();
+        if (b.right > window.innerWidth || b.left < 0) { t.style.transform = "translate3d(" + (-(e.target.offsetLeft)) + "px,0,0)"; }
+      });
+    });
+  }
+
   safe(initMenu, "menu");
+  safe(initDetalles, "detalles");
+  safe(initTiraHorizontal, "tira-horizontal");
   safe(initMapaCarga, "mapa-carga");
   safe(initVisor, "visor");
   safe(initFiltro, "filtro");
