@@ -451,7 +451,7 @@
           (vuelo ? ", " + (esFerry ? "ferry " : "vuelo ") + vuelo : "") + ".";
         if (val("viaje") === "vuelta") {
           var f2 = val("fecha_regreso"), h2 = val("hora_regreso");
-          t += f2 ? " Con regreso el " + fechaTexto(f2) + (h2 ? " a las " + horaTexto(h2) : "") + "." : " Con regreso (le confirmo la fecha).";
+          t += f2 ? " Con regreso el " + fechaTexto(f2) + (h2 ? " a las " + horaTexto(h2) : ".") : " Con regreso (le confirmo la fecha).";
         }
       } else if (s.tipo === "horas") {
         var h = Math.max(DATOS.minimo_horas || 1, +val("horas") || 0);

@@ -92,7 +92,7 @@ em{font-style:normal;color:var(--tinta-suave);font-size:.9em}
 .barra-abajo .barra-wa{color:#7FE0A6}
 
 /* ---------- mapa ---------- */
-.mapa{margin:0}
+.mapa{margin:0;overflow:hidden}
 .mapa-lienzo{position:relative;aspect-ratio:1060/540}
 .mapa-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
 .m-rejilla path{stroke:rgba(186,194,204,.09);stroke-width:1;fill:none}
@@ -128,10 +128,12 @@ em{font-style:normal;color:var(--tinta-suave);font-size:.9em}
 .portada{background:var(--noche);color:var(--marfil);position:relative;padding-top:18px}
 .portada::before{content:"";position:absolute;inset:0;background:radial-gradient(70% 60% at 75% 40%,rgba(59,194,186,.09),transparent 70%);pointer-events:none}
 .portada-in{display:grid;gap:10px;position:relative}
-.portada-mapa{margin-inline:-20px;overflow:hidden}
-.portada-mapa .mapa-lienzo{width:150%;margin-left:-42%}
-.portada-mapa .m-coord{left:30%}
-.portada-mapa .m-mar{left:31%}
+.portada-mapa{margin-inline:-20px}
+@media (max-width:699px){
+  .mapa .mapa-lienzo{width:150%;margin-left:-42%}
+  .mapa .m-coord{left:30%}
+  .mapa .m-mar{left:31%}
+}
 .portada .botones .btn{padding-inline:1.15em}
 .portada-texto h1{color:var(--marfil);animation:titular .7s var(--suave) .15s both}
 @keyframes titular{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
@@ -479,6 +481,7 @@ legend{margin-bottom:8px;padding:0}
 .ico-mas{color:var(--dorado-osc);transition:transform .3s var(--suave)}
 .preguntas details[open] .ico-mas{transform:rotate(45deg)}
 .preguntas details p{color:var(--tinta-suave);padding-bottom:16px;margin:0}
+.preguntas details:not([open]) p{display:none}
 
 /* ---------- la isla ---------- */
 .isla-mapa-sec{background:var(--noche);padding-top:10px}
@@ -623,7 +626,7 @@ body.sin-scroll{overflow:hidden}
 /* ---------- teléfono pequeño ---------- */
 @media (max-width:999px){
   .pie-in{grid-template-columns:repeat(2,minmax(0,1fr));gap:30px 18px}
-  .pie-marca,.pie-in .pie-col:last-child{grid-column:1/-1}
+  .pie-marca{grid-column:1/-1}
 }
 @media (max-width:380px){
   .cab-nombre small{display:none}
@@ -692,9 +695,7 @@ body.sin-scroll{overflow:hidden}
   .serv-grandes{grid-template-columns:1.25fr 1fr}
   .serv-grande{aspect-ratio:auto;height:480px}
   .portada-mapa{margin-inline:0}
-  .portada-mapa .mapa-lienzo{width:100%;margin-left:0}
-  .portada-mapa .m-coord{left:4%}
-  .portada-mapa .m-mar{left:4%}
+
   .catalogo-in{grid-template-columns:270px minmax(0,1fr);gap:40px;align-items:start}
   .filtrar-btn{display:none}
   .filtros{position:sticky;top:calc(var(--cab) + 20px);transform:none;visibility:visible;box-shadow:none;border-radius:10px;border:var(--borde);background:var(--blanco);z-index:1;max-height:none}

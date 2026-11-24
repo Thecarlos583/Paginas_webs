@@ -11,7 +11,7 @@
    "para": "Para quien llega o sale en ferry y quiere llegar con calma al muelle.",
    "pasos": ["Nos dice la hora de salida o de llegada del ferry.", "Calculamos la hora de buscarlo para llegar con calma.", "Lo esperamos en el muelle o lo dejamos en la entrada.", "Ayudamos con las maletas hasta la puerta."],
    "incluye": ["Hora de salida calculada por nosotros", "Espera en el muelle", "Ayuda con las maletas", "Agua fría a bordo"],
-   "foto": "px:16965236", "alt": "Ferris de pasajeros navegando en el mar Caribe",
+   "foto": "px:16965236", "alt": "Barcos de pasajeros navegando en el mar Caribe",
    "fotos": [{"f": "px:40317141", "alt": "Ferri entrando a una marina con veleros"}, {"f": "px:5274758", "alt": "Lancha cruzando agua turquesa"}]},
   {"id": "por-horas", "tipo": "horas", "nombre": "Servicio ejecutivo por horas", "articulo": "el",
    "linea": "Un vehículo con chofer a su disposición, el tiempo que necesite.",
@@ -40,5 +40,5 @@
    "pasos": ["Nos cuenta cuántos traslados hace al mes.", "Le proponemos tarifas fijas por ruta.", "Pide cada traslado por WhatsApp con un mensaje.", "Recibe la relación de servicios al final del mes."],
    "incluye": ["Tarifas fijas por ruta", "Atención prioritaria", "Relación mensual de servicios", "Factura a nombre de la empresa"],
    "foto": "1521791136064-7986c2920216", "alt": "Apretón de manos sobre una mesa de reuniones",
-   "fotos": [{"f": "px:15535499", "alt": "Chofer de traje guarda una maleta en el maletero"}, {"f": "px:8052886", "alt": "Dos ejecutivos revisan documentos en el asiento trasero"}]}
+   "fotos": [{"f": "px:9623799", "alt": "Pasajero habla por teléfono durante el traslado"}, {"f": "px:8052886", "alt": "Dos ejecutivos revisan documentos en el asiento trasero"}]}
 ]}
