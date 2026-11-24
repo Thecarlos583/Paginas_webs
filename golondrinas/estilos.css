@@ -706,3 +706,6 @@ img[src*="jardin-muro"] { object-position: 50% 58%; }
   .ampliar::before { display: none; }
   .tira-rutas.horizontal { transform: none !important; }
 }
+
+/* Pie: íconos de los enlaces de mapa */
+.pie p a svg { width: 20px; height: 20px; flex: none; color: var(--naranja-claro); }
