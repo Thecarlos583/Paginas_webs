@@ -693,3 +693,8 @@ body.pausado *, body.pausado *::before, body.pausado *::after { animation-play-s
 .dia-sub a { color: var(--oro-claro); }
 .pregunta:not([open]) p { display: none; }
 @media (max-width: 899px) { .cierre .causticas { display: none; } }
+.ficha-botones .btn, .pasos-cta .btn, .celeb-botones .btn { white-space: nowrap; flex: 1 1 auto; }
+.horas li { flex-wrap: wrap; }
+.horas b { margin-left: auto; text-align: right; }
+@media (max-width: 520px) { .diasol .fila-2 { grid-template-columns: minmax(0, 1fr); } }
+@media (min-width: 900px) { .ficha-botones .btn, .pasos-cta .btn, .celeb-botones .btn { flex: 0 0 auto; } }

@@ -109,9 +109,10 @@
     if (!fecha) { texto.textContent = "Elija una fecha y verá a qué hora sale y se pone el sol ese día."; return; }
     var s = solDelDia(fecha);
     var dorada = s.pone - 0.75;
-    var t = "El " + fechaLarga(fecha) + " el sol sale a las " + hora12(s.sale) + " y se pone a las " + hora12(s.pone) + ".";
+    function cierra(x) { return /\.$/.test(x) ? x : x + "."; }
+    var t = cierra("El " + fechaLarga(fecha) + " el sol sale a las " + hora12(s.sale) + " y se pone a las " + hora12(s.pone));
     if (p) {
-      t += " Su plan va de " + hora12(p.horas[0]) + " a " + hora12(p.horas[1]) + "; la luz dorada para las fotos empieza a las " + hora12(dorada) + ".";
+      t += " " + cierra("Su plan va de " + hora12(p.horas[0]) + " a " + hora12(p.horas[1]) + " y la luz dorada para las fotos empieza a las " + hora12(dorada));
       if (p.horas[1] > s.pone) t += " Al final ya está oscureciendo.";
     }
     texto.textContent = t;
@@ -182,15 +183,16 @@
       if (!f) { avisar("Falta la fecha: elija el día de su visita."); fecha.focus(); return; }
       if (f < hoy) { avisar("Esa fecha ya pasó. Elija hoy o un día que venga."); fecha.focus(); return; }
       if (ad < 1) { avisar("Indique al menos un adulto."); form.elements.adultos.focus(); return; }
-      if (tot > p.max) { avisar(p.nombre + " recibe hasta " + p.max + " personas. Si son más, escríbanos y lo conversamos."); form.elements.adultos.focus(); return; }
-      if (tot < p.min) { avisar(p.nombre + " es desde " + p.min + " personas." + (p.tipo === "grupo" ? " Para menos, le sirve el pasadía familiar." : " Si son menos, escríbanos y lo conversamos.")); form.elements.adultos.focus(); return; }
+      if (tot > p.max) { avisar("Este plan recibe hasta " + p.max + " personas. Si son más, escríbanos y lo conversamos."); form.elements.adultos.focus(); return; }
+      if (tot < p.min) { avisar("Este plan es desde " + p.min + " personas." + (p.tipo === "grupo" ? " Para menos, le sirve el pasadía familiar." : " Si son menos, escríbanos y lo conversamos.")); form.elements.adultos.focus(); return; }
       var msg = D.saludo + ", quiero reservar " + p.con_articulo + " para el " + fechaLarga(f) + ", " + plural(ad, "adulto", "adultos") + (ni ? " y " + plural(ni, "niño", "niños") : "") + ".";
       var c = form.elements.celebra && !($("[data-solo-celebra]", form) || {}).hidden ? celebra(form.elements.celebra.value) : null;
       if (c) msg += " Es " + c.msj + ".";
       var nota = (form.elements.nota.value || "").replace(/\s+/g, " ").trim();
       if (nota) msg += " Nota: " + nota + (/[.!?]$/.test(nota) ? "" : ".");
       avisar("Listo, se abre WhatsApp con su mensaje.", true);
-      var w = window.open(waURL(msg), "_blank", "noopener"); if (!w) location.href = waURL(msg);
+      var w = window.open(waURL(msg), "_blank");
+      if (w) { try { w.opener = null; } catch (err) {} } else location.href = waURL(msg);
     });
     var api = {
       form: form,
