@@ -1,8 +1,6 @@
 /* Quinta Escape. Lo que se cambia a mano está en CONFIG. */
 var CONFIG = {
-  /* Enlace de Google Maps: por confirmar con la ubicación del dueño. Cámbielo solo aquí. */
-  mapa: "https://www.google.com/maps/search/?api=1&query=Playa%20Corrales%2C%20Chirimena%2C%20Miranda%2C%20Venezuela",
-  mapaEmbebido: "https://maps.google.com/maps?q=Playa%20Corrales%2C%20Chirimena%2C%20Miranda%2C%20Venezuela&z=14&output=embed",
+  /* La ubicación de la casa (Google Maps, ruta y mapa) se cambia en el generador: LAT, LON y PLACE_ID. */
   /* Formularios de Google del dueño: POR CONFIRMAR. Pegue aquí los enlaces de sus Google Forms.
      Mientras digan "POR CONFIRMAR", los botones piden el formulario por WhatsApp. */
   formRegistro: "POR CONFIRMAR",
@@ -15,7 +13,7 @@ var CONFIG = {
   /* Fechas que se tratan como temporada alta en el armador. Navidad y fin de año: rango por confirmar con el dueño. */
   navidadDesde: [12, 20],
   navidadHasta: [1, 6],
-  lat: 10.62, lon: -66.17
+  lat: 10.6075, lon: -66.1662
 };
 
 (function () {
@@ -56,29 +54,19 @@ var CONFIG = {
     return "";
   }
 
-  /* Logo: si existe fotos/logo.webp, reemplaza el nombre escrito */
-  function initLogo() {
-    var img = new Image();
-    img.onload = function () {
-      $$(".marca").forEach(function (m) {
-        var i = new Image(); i.src = img.src; i.alt = "Quinta Escape";
-        m.textContent = ""; m.appendChild(i);
-      });
-    };
-    img.src = "fotos/logo.webp";
-  }
-
   function initMapa() {
-    $$("[data-mapa]").forEach(function (a) { a.href = CONFIG.mapa; });
     $$("[data-form]").forEach(function (a) {
       var u = a.getAttribute("data-form") === "registro" ? CONFIG.formRegistro : CONFIG.formSolicitud;
       if (/^https?:\/\//.test(u)) a.href = u;
     });
-    var b = $("[data-cargar-mapa]");
-    if (b) b.addEventListener("click", function () {
-      var f = document.createElement("iframe");
-      f.src = CONFIG.mapaEmbebido; f.title = "Mapa de Playa Corrales, Chirimena"; f.loading = "lazy";
-      b.parentNode.appendChild(f); b.remove();
+    /* El mapa de Google se carga solo al tocar "Ver mapa" */
+    $$("[data-cargar-mapa]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var f = document.createElement("iframe");
+        f.src = b.getAttribute("data-src"); f.title = "Mapa de Quinta Escape en Playa Corrales, Chirimena"; f.loading = "lazy";
+        f.setAttribute("allowfullscreen", "");
+        var caja = b.parentNode; caja.classList.add("cargado"); caja.appendChild(f); caja.removeChild(b);
+      });
     });
   }
 
@@ -89,10 +77,12 @@ var CONFIG = {
     function abrir(e) {
       e.preventDefault(); quien = e.currentTarget;
       hoja.classList.add("abierta"); fondo.classList.add("abierta");
+      $$("[data-abrir-hoja]").forEach(function (b) { b.setAttribute("aria-expanded", "true"); });
       var c = $("[data-cerrar-hoja]", hoja); if (c) c.focus();
     }
     function cerrar() {
       hoja.classList.remove("abierta"); fondo.classList.remove("abierta");
+      $$("[data-abrir-hoja]").forEach(function (b) { b.setAttribute("aria-expanded", "false"); });
       if (quien) quien.focus();
     }
     $$("[data-abrir-hoja]").forEach(function (b) { b.addEventListener("click", abrir); });
@@ -115,7 +105,80 @@ var CONFIG = {
       var sig = fotos[(i + 1) % fotos.length];
       if (!sig.complete) return;
       fotos[i].classList.remove("ve"); i = (i + 1) % fotos.length; sig.classList.add("ve");
-    }, 6500);
+    }, 7000);
+  }
+
+  /* Lo esencial: los números ya se ven y cuentan una vez hasta su valor */
+  function initCuenta() {
+    if (quieto) return;
+    $$("[data-cuenta]").forEach(function (el) {
+      var fin = +el.getAttribute("data-cuenta"), pre = el.getAttribute("data-pre") || "", desde = Math.round(fin * .55), t0 = null;
+      function paso(t) {
+        if (!t0) t0 = t;
+        var k = Math.min(1, (t - t0) / 1100), v = Math.round(desde + (fin - desde) * (1 - Math.pow(1 - k, 3)));
+        el.textContent = pre + v;
+        if (k < 1) requestAnimationFrame(paso);
+      }
+      setTimeout(function () { requestAnimationFrame(paso); }, 650);
+    });
+  }
+
+  /* Fotos que se abren desde un marco un poco más chico, siempre visibles; y la ola que se dibuja */
+  function initRevela() {
+    if (quieto || !("IntersectionObserver" in window)) return;
+    var alto = window.innerHeight;
+    var els = $$(".revela, .ola").filter(function (el) { return el.getBoundingClientRect().top > alto * .9; });
+    if (!els.length) return;
+    els.forEach(function (el) { el.classList.add("pre"); });
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.remove("pre"); io.unobserve(e.target); } });
+    }, { threshold: .18 });
+    els.forEach(function (el) { io.observe(el); });
+  }
+
+  /* De la tarde a la noche: el fondo y la foto pasan a la noche al bajar (en teléfono, por tramos) */
+  function initAnochecer() {
+    var s = $("[data-anochecer]"); if (!s) return;
+    s.classList.add("vivo");
+    if (quieto) { s.style.setProperty("--n", "1"); s.classList.add("de-noche"); return; }
+    var pend = false, tel = !matchMedia("(min-width:980px)").matches;
+    function pinta() {
+      pend = false;
+      var r = s.getBoundingClientRect(), alto = window.innerHeight;
+      var p = (alto * .85 - r.top) / (r.height * .9);
+      p = Math.max(0, Math.min(1, p));
+      if (tel) p = p < .34 ? 0 : (p < .67 ? .5 : 1);
+      s.style.setProperty("--n", p.toFixed(3));
+      s.classList.toggle("de-noche", p > .5);
+    }
+    window.addEventListener("scroll", function () { if (!pend) { pend = true; requestAnimationFrame(pinta); } }, { passive: true });
+    window.addEventListener("resize", function () { tel = !matchMedia("(min-width:980px)").matches; pinta(); });
+    pinta();
+  }
+
+  /* Los espacios avanzan en horizontal al bajar (solo en computadora; en el teléfono se deslizan con el dedo) */
+  function initHorizontal() {
+    var s = $("[data-horizontal]"); if (!s) return;
+    var pista = $(".espacios", s); if (!pista) return;
+    var mq = matchMedia("(min-width:980px)"), pend = false, rec = 0;
+    function pinta() {
+      pend = false;
+      if (!s.classList.contains("activo")) return;
+      var r = s.getBoundingClientRect();
+      var p = Math.max(0, Math.min(1, -r.top / Math.max(1, rec)));
+      pista.style.transform = "translate3d(" + (-p * rec).toFixed(1) + "px,0,0)";
+    }
+    function medir() {
+      if (!mq.matches || quieto) { s.classList.remove("activo"); s.style.height = ""; pista.style.transform = ""; return; }
+      s.classList.add("activo");
+      rec = Math.max(0, pista.scrollWidth - pista.parentNode.clientWidth);
+      s.style.height = (window.innerHeight + rec) + "px";
+      pinta();
+    }
+    window.addEventListener("scroll", function () { if (!pend) { pend = true; requestAnimationFrame(pinta); } }, { passive: true });
+    window.addEventListener("resize", medir);
+    window.addEventListener("load", medir);
+    medir();
   }
 
   /* Paralaje suave en las fotos grandes */
@@ -327,6 +390,6 @@ var CONFIG = {
   }
 
   safe(initFlotante, "flotante");
-  safe(initLogo, "logo"); safe(initMapa, "mapa"); safe(initHoja, "hoja"); safe(initPortada, "portada"); safe(initParalaje, "paralaje");
+  safe(initMapa, "mapa"); safe(initCuenta, "cuenta"); safe(initRevela, "revela"); safe(initAnochecer, "anochecer"); safe(initHorizontal, "horizontal"); safe(initHoja, "hoja"); safe(initPortada, "portada"); safe(initParalaje, "paralaje");
   safe(initArmador, "armador"); safe(initDias, "dias"); safe(initHoy, "hoy"); safe(initColores, "colores"); safe(initGaleria, "galeria");
 })();

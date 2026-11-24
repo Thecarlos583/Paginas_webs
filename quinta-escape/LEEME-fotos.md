@@ -1,23 +1,19 @@
 # Fotos de Quinta Escape
 
-Desde el 23-11-2026 son **fotos reales del Sr. Víctor** (procesadas: WebP calidad 80, máximo 1600 px, miniatura -600, sin datos de ubicación ni de cámara). Los originales no van al repo.
-Para cambiar una, reemplace el archivo en `fotos/` con el mismo nombre, en WebP, y su miniatura `-600`. Si cambia la proporción, regenere (`python _generadores/quinta_escape.py`) para que el ancho y alto queden bien. Los textos alternativos están en el generador (lista GALERIA y cada página).
+Son **fotos reales del Sr. Vitor**: 38 de su carpeta (23-11-2026) y 18 de su web quintaescape.com (24-11-2026, con su permiso; se procesan con `_generadores/quinta_escape_fotos_web.py`). Todas en WebP calidad 80, máximo 1600 px, miniatura -600, sin datos de ubicación ni de cámara. Los originales no van al repo.
+Para cambiar una, reemplace el archivo en `fotos/` con el mismo nombre, en WebP, y su miniatura `-600`. Si cambia la proporción, regenere (`python _generadores/quinta_escape.py`). Los textos alternativos están en el generador.
 
 | Foto | Qué es | Dónde sale |
 |---|---|---|
-| `portada` | Casa amarilla con piscina entre palmeras | Inicio (portada, 1.a), Galería |
-| `piscina` | Piscina con cascada y el mar al fondo | Inicio (portada, 2.a), Piscina y churuata, Galería |
-| `churuata` | Churuata con barra | Inicio (día sábado), Piscina y churuata, Galería |
-| `churuata-2` | Piscina y churuata iluminada al atardecer (horizontal) | Inicio (portada, 3.a) |
-| `parrillera` | Parrillera de ladrillo | Piscina y churuata, Galería |
-| `casa-1` | Frente de la casa con comedor y piscina | La casa, Inicio |
-| `casa-2` | Fachada y estacionamiento | Tarifas, La casa, Galería |
-| `casa-3` | Vista al mar desde la casa | Cómo reservar, Inicio (viernes), Galería |
-| `habitacion-1` a `habitacion-3` | Habitaciones | La casa (la 1), Galería |
-| `playa` | Playa vista desde lo alto | Playa y zona, Cómo llegar, Inicio |
-| `galeria-1` a `galeria-26` | Sala, cocina, comedor, baño, piscina, churuata, playa | Galería; la 2 en Inicio, la 3 en Inicio (domingo), la 4 en Cómo llegar, la 5 en Reglamento, la 6 en La casa |
-| `logo.webp` | Logo, sin fondo y en claro | Cabecera y pie. Si existe, reemplaza solo el nombre escrito |
+| `galeria-12` | Comedor techado mirando a la piscina, la churuata y el mar | Inicio (portada, 1.a), Galería |
+| `churuata-2` / `galeria-21` | Churuata al atardecer / piscina de noche | Inicio (portada, 2.a y 3.a) |
+| `vitor-yadilka` | Los dueños | Inicio (Bienvenidos) |
+| `galeria-22` / `noche-piscina` | Piscina al atardecer / de noche | Piscina y churuata (De la tarde a la noche) |
+| `chef`, `jardin` | Chef local, jardín | La casa |
+| `playa-corrales` ... `playa-el-banquito` | Una foto por playa (de su web) | Playas y zona; `playa-corrales` también en el mapa |
+| `golondrinas`, `atardecer`, `luna` | Lo que se ve desde la casa | Playas y zona, Inicio (noche), Galería |
+| `logo-insignia.webp`, `logo-64.png` | Insignia del logo de su web, sin fondo | Cabecera, pie e ícono de la pestaña |
 
 Colores: las 5 variables al inicio de `estilos.css`.
-Enlace de Google Maps: `CONFIG.mapa` al inicio de `sitio.js` (por confirmar con la ubicación del dueño).
-Formularios de Registro y Solicitud de reserva: `CONFIG.formRegistro` y `CONFIG.formSolicitud` en el mismo lugar (POR CONFIRMAR; mientras tanto los botones piden el formulario por WhatsApp).
+Ubicación (Google Maps, ruta, Waze y mapa incrustado): solo en el generador, constantes LAT, LON y PLACE_ID.
+Formularios de Registro y Solicitud de reserva: `CONFIG.formRegistro` y `CONFIG.formSolicitud` al inicio de `sitio.js` (POR CONFIRMAR; mientras tanto los botones piden el formulario por WhatsApp).
