@@ -1,0 +1,68 @@
+{
+  "nota": "Según disponibilidad",
+  "espacios": [
+    {
+      "id": "piscina",
+      "icono": "piscina",
+      "nombre": "Piscina",
+      "linea": "El centro del día.",
+      "texto": "Una piscina amplia con zona baja para los niños y zona honda para nadar. Se limpia cada mañana antes de abrir.",
+      "datos": ["Zona baja de 0,90 m", "Zona honda de 1,60 m", "Abierta de 9:00 a.m. a 6:00 p.m."],
+      "foto": ["1576013551627-0cc20b96c2a7", "Piscina rodeada de jardín y árboles"]
+    },
+    {
+      "id": "parrillera",
+      "icono": "parrilla",
+      "nombre": "Área de parrillera",
+      "linea": "Para el que sabe asar.",
+      "texto": "Parrillera techada con mesón para preparar la carne y lavaplatos al lado. Usted trae el carbón y la comida.",
+      "datos": ["Parrillera techada", "Mesón y lavaplatos", "Se aparta con el plan de grupo"],
+      "foto": ["1555939594-58d7cb561ad1", "Pinchos y carnes recién salidos de la parrilla"]
+    },
+    {
+      "id": "caney",
+      "icono": "caney",
+      "nombre": "Caney y toldos",
+      "linea": "Sombra cuando el sol pega fuerte.",
+      "texto": "Un caney de techo de palma junto a la piscina y toldos que se arman según el tamaño del grupo.",
+      "datos": ["Caney para 30 personas", "Toldos para grupos", "A pasos de la piscina"],
+      "foto": ["1563911302283-d2bc129e7570", "Piscina con palmeras y un caney de palma al fondo"]
+    },
+    {
+      "id": "mesas",
+      "icono": "mesa",
+      "nombre": "Mesas y sillas",
+      "linea": "Su puesto, apenas llega.",
+      "texto": "Mesas plásticas y sillas para cada grupo. En celebraciones se juntan en mesas largas para que todos coman juntos.",
+      "datos": ["Una mesa por cada 6 personas", "Mesas largas para celebraciones", "Manteles, según disponibilidad"],
+      "foto": ["1464366400600-7168b8af9bc3", "Mesas largas bajo un toldo de rayas"]
+    },
+    {
+      "id": "verdes",
+      "icono": "arbol",
+      "nombre": "Áreas verdes",
+      "linea": "Para correr, jugar y echarse en la grama.",
+      "texto": "Grama y árboles alrededor de la piscina, con espacio para jugar pelota y para las fotos de la celebración.",
+      "datos": ["Grama con sombra de árboles", "Espacio para juegos", "Buen sitio para las fotos"],
+      "foto": ["1558904541-efa843a96f01", "Grama verde recién cortada"]
+    },
+    {
+      "id": "banos",
+      "icono": "ducha",
+      "nombre": "Baños y duchas",
+      "linea": "Limpios durante todo el día.",
+      "texto": "Baños de damas y caballeros, y duchas para quitarse el cloro antes de irse. Se revisan varias veces al día.",
+      "datos": ["Baños de damas y caballeros", "Duchas a la salida de la piscina", "Vestidor para cambiarse"],
+      "foto": ["1584622650111-993a426fbf0a", "Baño claro con ducha de vidrio"]
+    },
+    {
+      "id": "estacionamiento",
+      "icono": "carro",
+      "nombre": "Estacionamiento",
+      "linea": "Dentro de la casa club.",
+      "texto": "Estacionamiento interno para los carros de su grupo. Si vienen en autobús, avísenos para dejarle el espacio libre.",
+      "datos": ["Puestos dentro del portón", "Espacio para autobús, avisando", "Vigilado durante el día"],
+      "foto": ["1470224114660-3f6686c562eb", "Estacionamiento visto desde arriba con un carro amarillo"]
+    }
+  ]
+}

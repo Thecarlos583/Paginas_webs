@@ -1,0 +1,9 @@
+{
+  "pestanas": [
+    ["horario", "Horario", ["Pasadías de 9:00 a.m. a 6:00 p.m.", "Celebraciones de 10:00 a.m. a 7:00 p.m.", "Para decorar, puede llegar una hora antes.", "La piscina cierra 30 minutos antes de la salida."]],
+    ["comida", "Comida y bebida", ["Puede traer su comida, su carbón y sus bebidas.", "Nada de envases de vidrio en el área de la piscina.", "No se come dentro de la piscina.", "Al irse, la basura va en las bolsas que le damos."]],
+    ["ninos", "Niños en la piscina", ["Todo niño en el agua con un adulto pendiente.", "Los que no saben nadar, con flotador o salvavidas.", "La zona baja es para los más pequeños.", "Prohibido correr alrededor de la piscina."]],
+    ["musica", "Música", ["Corneta propia a volumen moderado.", "Música hasta las 7:00 p.m.", "En el alquiler exclusivo, el volumen lo decide su grupo dentro de lo razonable."]],
+    ["mascotas", "Mascotas", ["Solo perros pequeños, con correa.", "Fuera del área de la piscina.", "Avísenos al reservar."]]
+  ]
+}

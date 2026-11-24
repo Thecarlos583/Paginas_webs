@@ -1,0 +1,8 @@
+{
+  "grupos": [
+    ["Para el agua", ["Traje de baño y uno de repuesto", "Toallas", "Protector solar", "Lentes de sol y gorra", "Cholas o sandalias"]],
+    ["Para comer", ["Comida y bebidas (sin envases de vidrio)", "Carbón y pinzas, si va a asar", "Hielo y cava", "Platos, vasos y servilletas"]],
+    ["Para los niños", ["Flotador o salvavidas", "Ropa seca para el regreso", "Juguetes de agua", "Merienda"]],
+    ["Para la celebración", ["Decoración y cinta", "Torta y velas", "Corneta", "Bolsas para recoger"]]
+  ]
+}

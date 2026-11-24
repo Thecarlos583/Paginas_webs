@@ -1,0 +1,37 @@
+{
+  "slug": "casa-club-villa-52",
+  "nombre": "Casa Club Villa 52",
+  "corto": "Villa 52",
+  "numero": "52",
+  "zona": "Charallave, Miranda",
+  "ciudad": "Charallave",
+  "url": "https://thecarlos583.github.io/Paginas_webs/casa-club-villa-52/",
+  "whatsapp": "584143101188",
+  "whatsapp_ver": "+58 414 310 1188",
+  "mensaje_general": "Hola Villa 52, quiero información para un pasadía",
+  "saludo_msj": "Hola Villa 52",
+  "mostrar_precios": true,
+  "moneda": "$",
+  "lat": 10.2433,
+  "lon": -66.8612,
+  "utc": -4,
+  "lema": "Su pasadía en Charallave, con piscina y espacio para celebrar",
+  "descripcion": "Piscina, parrillera y áreas verdes en Charallave para pasadías en familia, grupos, alquiler exclusivo y celebraciones. Reserve por WhatsApp.",
+  "video_portada": "https://upload.wikimedia.org/wikipedia/commons/transcoded/9/97/Outdoor_swimming_pool_2_2019-09-13.webm/Outdoor_swimming_pool_2_2019-09-13.webm.480p.vp9.webm",
+  "poster_portada": "1530053969600-caed2596d242",
+  "foto_portada_movil": "1785631906232-476237ba23d9",
+  "credito_video": "Video de la portada: FASTILY, CC BY-SA 4.0, Wikimedia Commons",
+  "credito_video_url": "https://commons.wikimedia.org/wiki/File:Outdoor_swimming_pool_2_2019-09-13.webm",
+  "horario_atencion": [
+    ["Lunes a viernes", "8:00 a.m. a 6:00 p.m."],
+    ["Sábados y domingos", "7:30 a.m. a 7:00 p.m."],
+    ["Días feriados", "7:30 a.m. a 7:00 p.m."]
+  ],
+  "formas_pago": [
+    ["Pago móvil", "En bolívares, a la tasa del día."],
+    ["Zelle", "Con el nombre de quien reserva en la nota."],
+    ["Divisas en efectivo", "El día del pasadía, al llegar."]
+  ],
+  "abono": "Para apartar la fecha se pide un abono del 50 %. El resto se paga al llegar.",
+  "personas_max": 60
+}

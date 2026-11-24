@@ -1,0 +1,80 @@
+{
+  "tipos": [
+    {
+      "id": "cumpleanos",
+      "nombre": "Cumpleaños",
+      "msj": "un cumpleaños",
+      "linea": "La torta, los globos y la piscina toda la tarde.",
+      "descripcion": "Los niños en el agua, los grandes en la sombra y la torta cuando caiga el sol. Puede decorar a su gusto el área apartada y traer su propia comida o pedir ayuda para organizarla.",
+      "ideas": ["Mesa de torta y dulces con su decoración", "Arco de globos en el área apartada", "Inflable para los niños, según disponibilidad", "Música propia hasta las 7:00 p.m."],
+      "invitados": "De 10 a 50 invitados",
+      "plan": "celebraciones",
+      "fotos": [
+        ["1602631985686-1bb0e6a8696e", "Cumpleaños al aire libre con letrero y banderines"],
+        ["1741969494307-55394e3e4071", "Mesa de cumpleaños con arco de globos rosados"],
+        ["1496843916299-590492c751f4", "Piñas con gorros de fiesta y globos"],
+        ["1464349095431-e9a21285b5f3", "Torta de cumpleaños de colores con chispas"]
+      ]
+    },
+    {
+      "id": "bautizo",
+      "nombre": "Bautizos",
+      "msj": "un bautizo",
+      "linea": "Después de la iglesia, almuerzo en familia junto al agua.",
+      "descripcion": "Llegan de la misa con los padrinos y el almuerzo ya tiene dónde servirse. Mesas con manteles claros, una mesa de dulces para el recuerdo y sombra para los abuelos.",
+      "ideas": ["Mesas con manteles claros", "Mesa de dulces y recordatorios", "Área tranquila para el bebé y los abuelos", "Almuerzo servido o parrilla, según disponibilidad"],
+      "invitados": "De 15 a 50 invitados",
+      "plan": "celebraciones",
+      "fotos": [
+        ["1519225421980-715cb0215aed", "Mesa larga con manteles blancos y flores"],
+        ["1562967005-a3c85514d3e9", "Mesa de dulces con globos azules y rosados"],
+        ["1784450441669-2d536cf3c395", "Mesa de fiesta con flores blancas y globos"],
+        ["1617201460038-6e5555a8a1f5", "Globos dorados sobre una mesa de madera"]
+      ]
+    },
+    {
+      "id": "familiar",
+      "nombre": "Reuniones familiares",
+      "msj": "una reunión familiar",
+      "linea": "La familia completa, por fin en un mismo sitio.",
+      "descripcion": "El reencuentro de los primos, el aniversario de los abuelos o el almuerzo de fin de año. Parrillera para el que sabe asar, piscina para los muchachos y mesas juntas para todos.",
+      "ideas": ["Mesas juntas en el caney", "Parrillera reservada para la familia", "Torta o brindis para el aniversario", "Fotos de familia en las áreas verdes"],
+      "invitados": "De 15 a 60 personas",
+      "plan": "alquiler-exclusivo",
+      "fotos": [
+        ["1511795409834-ef04bbd61622", "Mesa larga decorada con flores para una reunión"],
+        ["1609220136736-443140cffec6", "Papá con sus dos hijos al aire libre"],
+        ["1594041680534-e8c8cdebd659", "Carne asada con papas en la parrilla"],
+        ["1621112904887-419379ce6824", "Mesa larga al aire libre con luces colgantes"]
+      ]
+    },
+    {
+      "id": "empresa",
+      "nombre": "Reuniones de empresa",
+      "msj": "una reunión de empresa",
+      "linea": "El compartir del equipo, fuera de la oficina.",
+      "descripcion": "Fin de año, celebración de metas o un día de integración. Una mañana de reunión bajo el caney y una tarde de piscina y parrilla, con el espacio solo para su equipo si lo prefiere.",
+      "ideas": ["Mesas para una charla corta bajo el caney", "Almuerzo a la parrilla para el equipo", "Espacio exclusivo sin otros visitantes", "Bebidas frías para la tarde, según disponibilidad"],
+      "invitados": "De 10 a 60 personas",
+      "plan": "alquiler-exclusivo",
+      "fotos": [
+        ["1517048676732-d65bc937f952", "Equipo de trabajo conversando alrededor de una mesa"],
+        ["1600880292203-757bb62b4baf", "Dos compañeros de trabajo celebrando una meta"],
+        ["1528605248644-14dd04022da1", "Grupo comiendo y conversando en una mesa larga"],
+        ["1551024709-8f23befc6f87", "Tres bebidas frías de colores sobre una barra"]
+      ]
+    }
+  ],
+  "organizar": [
+    ["decoracion", "Decoración", "Globos, manteles y mesa de torta en el área apartada. Puede traer la suya."],
+    ["comida", "Comida", "Parrilla, almuerzo servido o su propia comida. Le decimos qué hay disponible."],
+    ["musica", "Música", "Corneta propia a volumen moderado hasta las 7:00 p.m."],
+    ["ninos", "Para los niños", "Inflable o animación con proveedores de la zona, según disponibilidad."]
+  ],
+  "pasos": [
+    ["Escríbanos la fecha", "Por WhatsApp, con cuántos invitados y qué celebra."],
+    ["Le confirmamos el espacio", "Le decimos qué área queda para usted y qué se puede organizar."],
+    ["Aparta con el abono", "Con el 50 % la fecha queda suya."],
+    ["Llega a decorar", "Una hora antes de los invitados, si lo necesita."]
+  ]
+}
