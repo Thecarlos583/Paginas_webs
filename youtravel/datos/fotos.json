@@ -1,0 +1,802 @@
+{
+ "canaima-auyantepui": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/Kerepakupai_Ven%C3%A1_II.JPG/{w}px-Kerepakupai_Ven%C3%A1_II.JPG",
+  "alt": "Pared del Auyantepui con la selva al pie",
+  "autor": "Sinfinitu",
+  "licencia": "CC BY 3.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Kerepakupai_Ven%C3%A1_II.JPG",
+  "archivo": "Kerepakupai Vená II.JPG",
+  "ancho": 3456,
+  "alto": 2304
+ },
+ "canaima-salto": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/Salto_del_Angel-Canaima-Venezuela18.JPG/{w}px-Salto_del_Angel-Canaima-Venezuela18.JPG",
+  "alt": "El Salto Ángel cayendo entre nubes",
+  "autor": "Diego Delso",
+  "licencia": "CC BY 3.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Salto_del_Angel-Canaima-Venezuela18.JPG",
+  "archivo": "Salto del Angel-Canaima-Venezuela18.JPG",
+  "ancho": 2560,
+  "alto": 1920
+ },
+ "canaima-hacha": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8b/Paisaje_Laguna_Canaima2.JPG/{w}px-Paisaje_Laguna_Canaima2.JPG",
+  "alt": "Salto El Hacha en la laguna de Canaima",
+  "autor": "Larry Ojeda",
+  "licencia": "CC BY-SA 3.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Paisaje_Laguna_Canaima2.JPG",
+  "archivo": "Paisaje Laguna Canaima2.JPG",
+  "ancho": 2560,
+  "alto": 1920
+ },
+ "canaima-laguna": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Canaima_Lagoon_in_Venezuela_001.JPG/{w}px-Canaima_Lagoon_in_Venezuela_001.JPG",
+  "alt": "Laguna de Canaima con los tepuyes al fondo",
+  "autor": "autor en Wikimedia",
+  "licencia": "CC BY-SA 3.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Canaima_Lagoon_in_Venezuela_001.JPG",
+  "archivo": "Canaima Lagoon in Venezuela 001.JPG",
+  "ancho": 1600,
+  "alto": 600
+ },
+ "canaima-palmas": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/Paisaje_Laguna_Canaima.JPG/{w}px-Paisaje_Laguna_Canaima.JPG",
+  "alt": "Palmeras a la orilla de la laguna de Canaima",
+  "autor": "Larry Ojeda",
+  "licencia": "CC BY-SA 3.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Paisaje_Laguna_Canaima.JPG",
+  "archivo": "Paisaje Laguna Canaima.JPG",
+  "ancho": 2560,
+  "alto": 1920
+ },
+ "canaima-saltos": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Salto-El-Hacha-y-Ucaima.jpg/{w}px-Salto-El-Hacha-y-Ucaima.jpg",
+  "alt": "Saltos y sabana en el Parque Nacional Canaima",
+  "autor": "Wilnel José Verdú Guerrero",
+  "licencia": "CC BY-SA 4.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Salto-El-Hacha-y-Ucaima.jpg",
+  "archivo": "Salto-El-Hacha-y-Ucaima.jpg",
+  "ancho": 2000,
+  "alto": 1125
+ },
+ "gs-tepuy": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/be/Kukenan_Roraima_GS.jpg/{w}px-Kukenan_Roraima_GS.jpg",
+  "alt": "Tepuyes sobre la Gran Sabana",
+  "autor": "Paolo Costa Baldi",
+  "licencia": "CC BY-SA 3.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Kukenan_Roraima_GS.jpg",
+  "archivo": "Kukenan Roraima GS.jpg",
+  "ancho": 4851,
+  "alto": 1533
+ },
+ "gs-camino": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/Monte_Roraima_e_Kukenan_Tepui_no_retorno_a_casa.jpg/{w}px-Monte_Roraima_e_Kukenan_Tepui_no_retorno_a_casa.jpg",
+  "alt": "Camino de tierra hacia los tepuyes",
+  "autor": "Ney Teixeira de Freitas Guimarães Filho",
+  "licencia": "CC BY-SA 4.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Monte_Roraima_e_Kukenan_Tepui_no_retorno_a_casa.jpg",
+  "archivo": "Monte Roraima e Kukenan Tepui no retorno a casa.jpg",
+  "ancho": 5467,
+  "alto": 3644
+ },
+ "gs-jaspe": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/Gran_Sabana%2C_Venezuela_03.jpg/{w}px-Gran_Sabana%2C_Venezuela_03.jpg",
+  "alt": "Quebrada de Jaspe con su lecho rojo",
+  "autor": "Wilfredor",
+  "licencia": "CC0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Gran_Sabana,_Venezuela_03.jpg",
+  "archivo": "Gran Sabana, Venezuela 03.jpg",
+  "ancho": 4608,
+  "alto": 2592
+ },
+ "gs-kama": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/El_majestuoso_Salto_Kama_Meru.JPG/{w}px-El_majestuoso_Salto_Kama_Meru.JPG",
+  "alt": "Salto Kama Merú con arcoíris",
+  "autor": "Vanessa mora mejias",
+  "licencia": "CC BY-SA 3.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:El_majestuoso_Salto_Kama_Meru.JPG",
+  "archivo": "El majestuoso Salto Kama Meru.JPG",
+  "ancho": 3264,
+  "alto": 2448
+ },
+ "gs-churuatas": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/Gran_Sabana%2C_Venezuela_02.jpg/{w}px-Gran_Sabana%2C_Venezuela_02.jpg",
+  "alt": "Churuatas en la Gran Sabana",
+  "autor": "Wilfredor",
+  "licencia": "CC0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Gran_Sabana,_Venezuela_02.jpg",
+  "archivo": "Gran Sabana, Venezuela 02.jpg",
+  "ancho": 4608,
+  "alto": 2592
+ },
+ "gs-atardecer": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/Monte_Roraima_e_Kukenan_Tepui_ao_amanhecer.jpg/{w}px-Monte_Roraima_e_Kukenan_Tepui_ao_amanhecer.jpg",
+  "alt": "Atardecer con carpas en la sabana",
+  "autor": "Ney Teixeira de Freitas Guimarães Filho",
+  "licencia": "CC BY-SA 4.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Monte_Roraima_e_Kukenan_Tepui_ao_amanhecer.jpg",
+  "archivo": "Monte Roraima e Kukenan Tepui ao amanhecer.jpg",
+  "ancho": 5472,
+  "alto": 3648
+ },
+ "lr-aerea": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/El_gran_roque.jpg/{w}px-El_gran_roque.jpg",
+  "alt": "Vista aérea del Gran Roque y sus arrecifes",
+  "autor": "Marianela Diaz",
+  "licencia": "CC BY 2.5",
+  "pagina": "https://commons.wikimedia.org/wiki/File:El_gran_roque.jpg",
+  "archivo": "El gran roque.jpg",
+  "ancho": 1600,
+  "alto": 1200
+ },
+ "lr-cayo": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Cayo_de_agua_los_roques_by_ORGBLUEWATER.webp/{w}px-Cayo_de_agua_los_roques_by_ORGBLUEWATER.webp",
+  "alt": "Banco de arena de Cayo de Agua desde el aire",
+  "autor": "Orgbluewater",
+  "licencia": "CC BY-SA 4.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Cayo_de_agua_los_roques_by_ORGBLUEWATER.webp",
+  "archivo": "Cayo de agua los roques by ORGBLUEWATER.webp",
+  "ancho": 1600,
+  "alto": 899
+ },
+ "lr-agua": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/El_Gran_Roque_espera.JPG/{w}px-El_Gran_Roque_espera.JPG",
+  "alt": "Agua turquesa frente a un cayo de Los Roques",
+  "autor": "M. Celeste Rabbat",
+  "licencia": "CC BY-SA 3.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:El_Gran_Roque_espera.JPG",
+  "archivo": "El Gran Roque espera.JPG",
+  "ancho": 3264,
+  "alto": 2448
+ },
+ "lr-pueblo": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Gran_roque.jpg/{w}px-Gran_roque.jpg",
+  "alt": "Playa y casas del Gran Roque",
+  "autor": "Juan valero",
+  "licencia": "CC BY-SA 3.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Gran_roque.jpg",
+  "archivo": "Gran roque.jpg",
+  "ancho": 1600,
+  "alto": 1200
+ },
+ "lr-arena": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/Threatening_storm_in_Los_Roques.jpg/{w}px-Threatening_storm_in_Los_Roques.jpg",
+  "alt": "Arena blanca y mar turquesa en Los Roques",
+  "autor": "Tucanrecords",
+  "licencia": "CC BY-SA 3.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Threatening_storm_in_Los_Roques.jpg",
+  "archivo": "Threatening storm in Los Roques.jpg",
+  "ancho": 4592,
+  "alto": 3056
+ },
+ "lr-lanchas": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/Atardecer_en_El_gran_Roque.JPG/{w}px-Atardecer_en_El_gran_Roque.JPG",
+  "alt": "Lanchas al atardecer en el Gran Roque",
+  "autor": "Damián Loza",
+  "licencia": "CC BY-SA 3.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Atardecer_en_El_gran_Roque.JPG",
+  "archivo": "Atardecer en El gran Roque.JPG",
+  "ancho": 2560,
+  "alto": 1920
+ },
+ "mg-palmeras": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/Palmeras_y_sombrillas_en_Playa_El_Agua.jpg/{w}px-Palmeras_y_sombrillas_en_Playa_El_Agua.jpg",
+  "alt": "Playa con palmeras en la Isla de Margarita",
+  "autor": "User:Wilfredor",
+  "licencia": "CC0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Palmeras_y_sombrillas_en_Playa_El_Agua.jpg",
+  "archivo": "Palmeras y sombrillas en Playa El Agua.jpg",
+  "ancho": 3072,
+  "alto": 2048
+ },
+ "mg-cocoteros": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/05/A_orillas_de_playa_el_agua%2C_Margarita.jpg/{w}px-A_orillas_de_playa_el_agua%2C_Margarita.jpg",
+  "alt": "Cocoteros frente al mar en Playa El Agua",
+  "autor": "DISRAMOS",
+  "licencia": "CC BY-SA 3.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:A_orillas_de_playa_el_agua,_Margarita.jpg",
+  "archivo": "A orillas de playa el agua, Margarita.jpg",
+  "ancho": 3264,
+  "alto": 2448
+ },
+ "mg-orilla": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a2/Banistas_en_Playa_El_Agua.jpg/{w}px-Banistas_en_Playa_El_Agua.jpg",
+  "alt": "Orilla de arena blanca en Margarita",
+  "autor": "User:Wilfredor",
+  "licencia": "CC0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Banistas_en_Playa_El_Agua.jpg",
+  "archivo": "Banistas en Playa El Agua.jpg",
+  "ancho": 3072,
+  "alto": 2048
+ },
+ "mg-bahia": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/Playa_El_Agua_desde_lo_alto_01.jpg/{w}px-Playa_El_Agua_desde_lo_alto_01.jpg",
+  "alt": "Bahía con palmeras en la Isla de Margarita",
+  "autor": "Wilfredor",
+  "licencia": "CC0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Playa_El_Agua_desde_lo_alto_01.jpg",
+  "archivo": "Playa El Agua desde lo alto 01.jpg",
+  "ancho": 2400,
+  "alto": 1468
+ },
+ "mg-atardecer": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/Juan_Griego_Sunset.jpg/{w}px-Juan_Griego_Sunset.jpg",
+  "alt": "Atardecer con peñeros en Juan Griego",
+  "autor": "Wilfredor",
+  "licencia": "CC0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Juan_Griego_Sunset.jpg",
+  "archivo": "Juan Griego Sunset.jpg",
+  "ancho": 4288,
+  "alto": 2443
+ },
+ "mg-castillo": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Panoramic_view_of_Pampatar%2C_Margarita_Island.jpg/{w}px-Panoramic_view_of_Pampatar%2C_Margarita_Island.jpg",
+  "alt": "Garita del castillo de Pampatar frente al mar",
+  "autor": "Wilfredor",
+  "licencia": "CC0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Panoramic_view_of_Pampatar,_Margarita_Island.jpg",
+  "archivo": "Panoramic view of Pampatar, Margarita Island.jpg",
+  "ancho": 4288,
+  "alto": 2848
+ },
+ "mo-playa": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/Cayo_Sombrero.-_Edo.Falcon.jpg/{w}px-Cayo_Sombrero.-_Edo.Falcon.jpg",
+  "alt": "Playa de arena blanca en un cayo de Morrocoy",
+  "autor": "MissDieiipi",
+  "licencia": "CC BY-SA 3.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Cayo_Sombrero.-_Edo.Falcon.jpg",
+  "archivo": "Cayo Sombrero.- Edo.Falcon.jpg",
+  "ancho": 2560,
+  "alto": 1920
+ },
+ "mo-palmera": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0d/Cayo_Sombrero%2C_Chichiriviche%2C_Falc%C3%B3n%2C_Venezuela.jpg/{w}px-Cayo_Sombrero%2C_Chichiriviche%2C_Falc%C3%B3n%2C_Venezuela.jpg",
+  "alt": "Palmera inclinada sobre la arena de Cayo Sombrero",
+  "autor": "Raphael.Bracca",
+  "licencia": "CC BY-SA 3.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Cayo_Sombrero,_Chichiriviche,_Falc%C3%B3n,_Venezuela.jpg",
+  "archivo": "Cayo Sombrero, Chichiriviche, Falcón, Venezuela.jpg",
+  "ancho": 1600,
+  "alto": 1200
+ },
+ "mo-cayo": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cb/Morrocoy_sea_island.JPG/{w}px-Morrocoy_sea_island.JPG",
+  "alt": "Cayo pequeño en el mar de Morrocoy",
+  "autor": "Regisrob",
+  "licencia": "CC BY 3.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Morrocoy_sea_island.JPG",
+  "archivo": "Morrocoy sea island.JPG",
+  "ancho": 3648,
+  "alto": 2736
+ },
+ "mo-bajo": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/Morrocoy_sea.JPG/{w}px-Morrocoy_sea.JPG",
+  "alt": "Aguas bajas y claras en Morrocoy",
+  "autor": "Regisrob",
+  "licencia": "CC BY 3.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Morrocoy_sea.JPG",
+  "archivo": "Morrocoy sea.JPG",
+  "ancho": 3648,
+  "alto": 2736
+ },
+ "mo-orilla": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/Cayo_Sombrero.-_Edo.Falcon4.JPG/{w}px-Cayo_Sombrero.-_Edo.Falcon4.JPG",
+  "alt": "Orilla de Cayo Sombrero",
+  "autor": "MissDieiipi",
+  "licencia": "CC BY-SA 3.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Cayo_Sombrero.-_Edo.Falcon4.JPG",
+  "archivo": "Cayo Sombrero.- Edo.Falcon4.JPG",
+  "ancho": 4608,
+  "alto": 3456
+ },
+ "me-laguna": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/Laguna_de_Mucubaj%C3%AD%2C_Merida%2C_Venezuela.jpg/{w}px-Laguna_de_Mucubaj%C3%AD%2C_Merida%2C_Venezuela.jpg",
+  "alt": "Laguna de Mucubají bajo el cielo azul",
+  "autor": "Michitura",
+  "licencia": "CC BY-SA 4.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Laguna_de_Mucubaj%C3%AD,_Merida,_Venezuela.jpg",
+  "archivo": "Laguna de Mucubají, Merida, Venezuela.jpg",
+  "ancho": 2592,
+  "alto": 1667
+ },
+ "me-paramo": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/09/Laguna_de_Mucubaji_III.jpg/{w}px-Laguna_de_Mucubaji_III.jpg",
+  "alt": "Camino del páramo merideño",
+  "autor": "Rjcastillo",
+  "licencia": "CC BY-SA 3.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Laguna_de_Mucubaji_III.jpg",
+  "archivo": "Laguna de Mucubaji III.jpg",
+  "ancho": 4562,
+  "alto": 2788
+ },
+ "me-sierra": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/Pico_Bolivar-_Merida_Venezuela.jpg/{w}px-Pico_Bolivar-_Merida_Venezuela.jpg",
+  "alt": "Sierra Nevada de Mérida con nieve",
+  "autor": "Odalis ortega",
+  "licencia": "CC BY-SA 3.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Pico_Bolivar-_Merida_Venezuela.jpg",
+  "archivo": "Pico Bolivar- Merida Venezuela.jpg",
+  "ancho": 3264,
+  "alto": 2448
+ },
+ "me-picos": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/Llegando_al_Pico_Bolivar..jpg/{w}px-Llegando_al_Pico_Bolivar..jpg",
+  "alt": "Rumbo al Pico Bolívar entre picos nevados",
+  "autor": "ALJB",
+  "licencia": "CC BY-SA 3.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Llegando_al_Pico_Bolivar..jpg",
+  "archivo": "Llegando al Pico Bolivar..jpg",
+  "ancho": 3072,
+  "alto": 2304
+ },
+ "me-nubes": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/Sierra_Nevada_de_Merida%28Cordillera_de_los_Andes%29-_Venezuela_Paramos.JPG/{w}px-Sierra_Nevada_de_Merida%28Cordillera_de_los_Andes%29-_Venezuela_Paramos.JPG",
+  "alt": "Valle andino entre nubes",
+  "autor": "Alejandro Barrios",
+  "licencia": "CC BY-SA 3.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Sierra_Nevada_de_Merida(Cordillera_de_los_Andes)-_Venezuela_Paramos.JPG",
+  "archivo": "Sierra Nevada de Merida(Cordillera de los Andes)- Venezuela Paramos.JPG",
+  "ancho": 3989,
+  "alto": 2847
+ },
+ "me-pinos": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1f/Laguna-de-Mucubaji-Merida-Venezuela.jpg/{w}px-Laguna-de-Mucubaji-Merida-Venezuela.jpg",
+  "alt": "Laguna de Mucubají rodeada de pinos",
+  "autor": "Renier Chico",
+  "licencia": "CC BY-SA 3.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Laguna-de-Mucubaji-Merida-Venezuela.jpg",
+  "archivo": "Laguna-de-Mucubaji-Merida-Venezuela.jpg",
+  "ancho": 2048,
+  "alto": 1536
+ },
+ "pzo-llovizna": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/63/Parque_La_Llovizna_%282011-05%29_04.jpg/{w}px-Parque_La_Llovizna_%282011-05%29_04.jpg",
+  "alt": "Saltos del río Caroní en el Parque La Llovizna",
+  "autor": "Wguayana",
+  "licencia": "CC0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Parque_La_Llovizna_(2011-05)_04.jpg",
+  "archivo": "Parque La Llovizna (2011-05) 04.jpg",
+  "ancho": 3264,
+  "alto": 2448
+ },
+ "pzo-cachamay": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c2/Embalse_Macagua_-_Salto_La_Llovizna_-_R%C3%ADo_Caron%C3%AD.jpg/{w}px-Embalse_Macagua_-_Salto_La_Llovizna_-_R%C3%ADo_Caron%C3%AD.jpg",
+  "alt": "Salto La Llovizna con arcoíris en el río Caroní",
+  "autor": "Gabrielphoto985",
+  "licencia": "CC BY-SA 4.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Embalse_Macagua_-_Salto_La_Llovizna_-_R%C3%ADo_Caron%C3%AD.jpg",
+  "archivo": "Embalse Macagua - Salto La Llovizna - Río Caroní.jpg",
+  "ancho": 2060,
+  "alto": 1373
+ },
+ "pzo-rio": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/Parque_La_Llovizna_%282011-05%29_17.jpg/{w}px-Parque_La_Llovizna_%282011-05%29_17.jpg",
+  "alt": "Río Caroní en Puerto Ordaz",
+  "autor": "Wguayana",
+  "licencia": "CC0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Parque_La_Llovizna_(2011-05)_17.jpg",
+  "archivo": "Parque La Llovizna (2011-05) 17.jpg",
+  "ancho": 3264,
+  "alto": 2448
+ },
+ "pc-playa": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/Natura_Park_beach%2C_view_towards_the_southeast%2C_Punta_Cana%2C_2004.jpg/{w}px-Natura_Park_beach%2C_view_towards_the_southeast%2C_Punta_Cana%2C_2004.jpg",
+  "alt": "Playa de Punta Cana con palmeras",
+  "autor": "DimiTalen",
+  "licencia": "CC0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Natura_Park_beach,_view_towards_the_southeast,_Punta_Cana,_2004.jpg",
+  "archivo": "Natura Park beach, view towards the southeast, Punta Cana, 2004.jpg",
+  "ancho": 2272,
+  "alto": 1704
+ },
+ "pc-palmas": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/2023_-_Playa_Bavaro_Punta_Cana_-_01.jpg/{w}px-2023_-_Playa_Bavaro_Punta_Cana_-_01.jpg",
+  "alt": "Palmeras sobre la arena en Punta Cana",
+  "autor": "Oleg Yunakov",
+  "licencia": "CC BY-SA 4.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:2023_-_Playa_Bavaro_Punta_Cana_-_01.jpg",
+  "archivo": "2023 - Playa Bavaro Punta Cana - 01.jpg",
+  "ancho": 4032,
+  "alto": 3024
+ },
+ "pc-orilla": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Punta_Cana_Beach_01.jpg/{w}px-Punta_Cana_Beach_01.jpg",
+  "alt": "Orilla con palmeras en Punta Cana",
+  "autor": "NoonIcarus",
+  "licencia": "CC BY-SA 3.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Punta_Cana_Beach_01.jpg",
+  "archivo": "Punta Cana Beach 01.jpg",
+  "ancho": 2592,
+  "alto": 1456
+ },
+ "pc-cocos": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/Punta_Cana_Beach_02.jpg/{w}px-Punta_Cana_Beach_02.jpg",
+  "alt": "Cocoteros bajo el cielo del Caribe",
+  "autor": "NoonIcarus",
+  "licencia": "CC BY-SA 3.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Punta_Cana_Beach_02.jpg",
+  "archivo": "Punta Cana Beach 02.jpg",
+  "ancho": 2592,
+  "alto": 1456
+ },
+ "pc-mar": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d3/Punta_Cana_Beach_03.jpg/{w}px-Punta_Cana_Beach_03.jpg",
+  "alt": "Mar tranquilo en Punta Cana",
+  "autor": "NoonIcarus",
+  "licencia": "CC BY-SA 3.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Punta_Cana_Beach_03.jpg",
+  "archivo": "Punta Cana Beach 03.jpg",
+  "ancho": 2592,
+  "alto": 1456
+ },
+ "cu-casas": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/59/Facades_of_Handelskade%2C_Willemstad%2C_Cura%C3%A7ao_-_February_2020.jpg/{w}px-Facades_of_Handelskade%2C_Willemstad%2C_Cura%C3%A7ao_-_February_2020.jpg",
+  "alt": "Casas de colores en Willemstad, Curazao",
+  "autor": "Martin Falbisoner",
+  "licencia": "CC BY-SA 4.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Facades_of_Handelskade,_Willemstad,_Cura%C3%A7ao_-_February_2020.jpg",
+  "archivo": "Facades of Handelskade, Willemstad, Curaçao - February 2020.jpg",
+  "ancho": 5605,
+  "alto": 2584
+ },
+ "cu-puente": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fe/Queen_Emma_Bridge_and_Handelskade%2C_Willemstad%2C_Cura%C3%A7ao_-_February_2020_-_01.jpg/{w}px-Queen_Emma_Bridge_and_Handelskade%2C_Willemstad%2C_Cura%C3%A7ao_-_February_2020_-_01.jpg",
+  "alt": "Puente flotante frente a Willemstad",
+  "autor": "Martin Falbisoner",
+  "licencia": "CC BY-SA 4.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Queen_Emma_Bridge_and_Handelskade,_Willemstad,_Cura%C3%A7ao_-_February_2020_-_01.jpg",
+  "archivo": "Queen Emma Bridge and Handelskade, Willemstad, Curaçao - February 2020 - 01.jpg",
+  "ancho": 5519,
+  "alto": 2350
+ },
+ "cu-frente": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/Handelskade_Willemstad_-_Curacao.jpg/{w}px-Handelskade_Willemstad_-_Curacao.jpg",
+  "alt": "Fachadas del puerto de Willemstad",
+  "autor": "Fraganda",
+  "licencia": "CC BY-SA 4.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Handelskade_Willemstad_-_Curacao.jpg",
+  "archivo": "Handelskade Willemstad - Curacao.jpg",
+  "ancho": 5280,
+  "alto": 2970
+ },
+ "cu-playa": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Beach_Klein_Curacao_%2835864727094%29.jpg/{w}px-Beach_Klein_Curacao_%2835864727094%29.jpg",
+  "alt": "Playa de arena blanca en Curazao",
+  "autor": "dronepicr",
+  "licencia": "CC BY 2.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Beach_Klein_Curacao_(35864727094).jpg",
+  "archivo": "Beach Klein Curacao (35864727094).jpg",
+  "ancho": 5302,
+  "alto": 3535
+ },
+ "cu-costa": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/07/Curacao_Tugboat_beach_%2835890036793%29.jpg/{w}px-Curacao_Tugboat_beach_%2835890036793%29.jpg",
+  "alt": "Costa turquesa de Curazao",
+  "autor": "dronepicr",
+  "licencia": "CC BY 2.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Curacao_Tugboat_beach_(35890036793).jpg",
+  "archivo": "Curacao Tugboat beach (35890036793).jpg",
+  "ancho": 6000,
+  "alto": 4000
+ },
+ "cu-aerea": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/Curacao_Jan_Thiel_Beach_%28213574247%29.jpeg/{w}px-Curacao_Jan_Thiel_Beach_%28213574247%29.jpeg",
+  "alt": "Ensenada de Curazao vista desde el aire",
+  "autor": "Dronepicr",
+  "licencia": "CC BY 3.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Curacao_Jan_Thiel_Beach_(213574247).jpeg",
+  "archivo": "Curacao Jan Thiel Beach (213574247).jpeg",
+  "ancho": 2048,
+  "alto": 1150
+ },
+ "ct-catedral": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Cartagena%2C_Colombia_-_Laslovarga_%28101%29.jpg/{w}px-Cartagena%2C_Colombia_-_Laslovarga_%28101%29.jpg",
+  "alt": "Cúpula y murallas de Cartagena de Indias",
+  "autor": "Laslovarga",
+  "licencia": "CC BY-SA 4.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Cartagena,_Colombia_-_Laslovarga_(101).jpg",
+  "archivo": "Cartagena, Colombia - Laslovarga (101).jpg",
+  "ancho": 5184,
+  "alto": 3456
+ },
+ "ct-balcones": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b0/Cartagena%2C_Colombia_street_scenes_%2824143543979%29.jpg/{w}px-Cartagena%2C_Colombia_street_scenes_%2824143543979%29.jpg",
+  "alt": "Balcones de madera en Cartagena",
+  "autor": "Joe Ross from Lansing, Michigan",
+  "licencia": "CC BY-SA 2.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Cartagena,_Colombia_street_scenes_(24143543979).jpg",
+  "archivo": "Cartagena, Colombia street scenes (24143543979).jpg",
+  "ancho": 2047,
+  "alto": 1356
+ },
+ "ct-plaza": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f5/Cartagena%2C_Colombia_street_scene_%2824315285866%29.jpg/{w}px-Cartagena%2C_Colombia_street_scene_%2824315285866%29.jpg",
+  "alt": "Plaza colonial de Cartagena",
+  "autor": "Joe Ross from Lansing, Michigan",
+  "licencia": "CC BY-SA 2.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Cartagena,_Colombia_street_scene_(24315285866).jpg",
+  "archivo": "Cartagena, Colombia street scene (24315285866).jpg",
+  "ancho": 2048,
+  "alto": 1536
+ },
+ "ct-calle": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/Cartagena%2C_Colombia_Street_Scenes_%2824336200131%29.jpg/{w}px-Cartagena%2C_Colombia_Street_Scenes_%2824336200131%29.jpg",
+  "alt": "Calle con flores en la ciudad amurallada",
+  "autor": "Joe Ross from Lansing, Michigan",
+  "licencia": "CC BY-SA 2.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Cartagena,_Colombia_Street_Scenes_(24336200131).jpg",
+  "archivo": "Cartagena, Colombia Street Scenes (24336200131).jpg",
+  "ancho": 2047,
+  "alto": 1356
+ },
+ "ct-baluarte": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/Cartagena%2C_view_from_old_city_walls.jpg/{w}px-Cartagena%2C_view_from_old_city_walls.jpg",
+  "alt": "Baluarte con cañones frente al mar en Cartagena",
+  "autor": "Leon petrosyan",
+  "licencia": "CC BY-SA 4.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Cartagena,_view_from_old_city_walls.jpg",
+  "archivo": "Cartagena, view from old city walls.jpg",
+  "ancho": 3456,
+  "alto": 2592
+ },
+ "ct-casas": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Cartagena_de_indias_casa.jpg/{w}px-Cartagena_de_indias_casa.jpg",
+  "alt": "Casas coloniales de Cartagena",
+  "autor": "Xemenendura",
+  "licencia": "CC BY-SA 4.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Cartagena_de_indias_casa.jpg",
+  "archivo": "Cartagena de indias casa.jpg",
+  "ancho": 4000,
+  "alto": 3000
+ },
+ "cz-machu": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/Machu_Picchu%2C_Per%C3%BA%2C_2015-07-30%2C_DD_41.JPG/{w}px-Machu_Picchu%2C_Per%C3%BA%2C_2015-07-30%2C_DD_41.JPG",
+  "alt": "Machu Picchu con el Huayna Picchu",
+  "autor": "Diego Delso",
+  "licencia": "CC BY-SA 4.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Machu_Picchu,_Per%C3%BA,_2015-07-30,_DD_41.JPG",
+  "archivo": "Machu Picchu, Perú, 2015-07-30, DD 41.JPG",
+  "ancho": 5598,
+  "alto": 4346
+ },
+ "cz-terrazas": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/71/Machu_Picchu%2C_Per%C3%BA%2C_2015-07-30%2C_DD_47.JPG/{w}px-Machu_Picchu%2C_Per%C3%BA%2C_2015-07-30%2C_DD_47.JPG",
+  "alt": "Terrazas de Machu Picchu",
+  "autor": "Diego Delso",
+  "licencia": "CC BY-SA 4.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Machu_Picchu,_Per%C3%BA,_2015-07-30,_DD_47.JPG",
+  "archivo": "Machu Picchu, Perú, 2015-07-30, DD 47.JPG",
+  "ancho": 8669,
+  "alto": 5763
+ },
+ "cz-vista": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/Machu_Picchu%2C_Per%C3%BA%2C_2015-07-30%2C_DD_37.jpg/{w}px-Machu_Picchu%2C_Per%C3%BA%2C_2015-07-30%2C_DD_37.jpg",
+  "alt": "Machu Picchu entre montañas",
+  "autor": "Diego Delso",
+  "licencia": "CC BY-SA 4.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Machu_Picchu,_Per%C3%BA,_2015-07-30,_DD_37.jpg",
+  "archivo": "Machu Picchu, Perú, 2015-07-30, DD 37.jpg",
+  "ancho": 7946,
+  "alto": 5325
+ },
+ "cz-plaza": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Iglesia_de_la_Compa%C3%B1%C3%ADa_de_Jes%C3%BAs%2C_Plaza_de_Armas%2C_Cusco%2C_Per%C3%BA%2C_2015-07-31%2C_DD_75.JPG/{w}px-Iglesia_de_la_Compa%C3%B1%C3%ADa_de_Jes%C3%BAs%2C_Plaza_de_Armas%2C_Cusco%2C_Per%C3%BA%2C_2015-07-31%2C_DD_75.JPG",
+  "alt": "Plaza de Armas del Cusco",
+  "autor": "Diego Delso",
+  "licencia": "CC BY-SA 4.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Iglesia_de_la_Compa%C3%B1%C3%ADa_de_Jes%C3%BAs,_Plaza_de_Armas,_Cusco,_Per%C3%BA,_2015-07-31,_DD_75.JPG",
+  "archivo": "Iglesia de la Compañía de Jesús, Plaza de Armas, Cusco, Perú, 2015-07-31, DD 75.JPG",
+  "ancho": 7605,
+  "alto": 5070
+ },
+ "cz-portales": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cb/Iglesia_de_la_Compa%C3%B1%C3%ADa_de_Jes%C3%BAs%2C_Plaza_de_Armas%2C_Cusco%2C_Per%C3%BA%2C_2015-07-31%2C_DD_58.JPG/{w}px-Iglesia_de_la_Compa%C3%B1%C3%ADa_de_Jes%C3%BAs%2C_Plaza_de_Armas%2C_Cusco%2C_Per%C3%BA%2C_2015-07-31%2C_DD_58.JPG",
+  "alt": "Portales de la Plaza de Armas del Cusco",
+  "autor": "Diego Delso",
+  "licencia": "CC BY-SA 4.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Iglesia_de_la_Compa%C3%B1%C3%ADa_de_Jes%C3%BAs,_Plaza_de_Armas,_Cusco,_Per%C3%BA,_2015-07-31,_DD_58.JPG",
+  "archivo": "Iglesia de la Compañía de Jesús, Plaza de Armas, Cusco, Perú, 2015-07-31, DD 58.JPG",
+  "ancho": 7614,
+  "alto": 4012
+ },
+ "cz-iglesia": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/Catedral%2C_Plaza_de_Armas%2C_Cusco%2C_Per%C3%BA%2C_2015-07-31%2C_DD_57.JPG/{w}px-Catedral%2C_Plaza_de_Armas%2C_Cusco%2C_Per%C3%BA%2C_2015-07-31%2C_DD_57.JPG",
+  "alt": "Fachada de piedra de una iglesia del Cusco",
+  "autor": "Diego Delso",
+  "licencia": "CC BY-SA 4.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Catedral,_Plaza_de_Armas,_Cusco,_Per%C3%BA,_2015-07-31,_DD_57.JPG",
+  "archivo": "Catedral, Plaza de Armas, Cusco, Perú, 2015-07-31, DD 57.JPG",
+  "ancho": 6347,
+  "alto": 5274
+ },
+ "eu-granvia": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/92/Gran_V%C3%ADa_%28Madrid%29_1.jpg/{w}px-Gran_V%C3%ADa_%28Madrid%29_1.jpg",
+  "alt": "Gran Vía de Madrid",
+  "autor": "Felipe Gabaldón",
+  "licencia": "CC BY 2.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Gran_V%C3%ADa_(Madrid)_1.jpg",
+  "archivo": "Gran Vía (Madrid) 1.jpg",
+  "ancho": 4310,
+  "alto": 2868
+ },
+ "eu-plazamayor": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/Plaza_Mayor%2C_Madrid_20180720.jpg/{w}px-Plaza_Mayor%2C_Madrid_20180720.jpg",
+  "alt": "Plaza Mayor de Madrid",
+  "autor": "Suicasmo",
+  "licencia": "CC BY-SA 4.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Plaza_Mayor,_Madrid_20180720.jpg",
+  "archivo": "Plaza Mayor, Madrid 20180720.jpg",
+  "ancho": 5184,
+  "alto": 3456
+ },
+ "eu-eiffel": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/Eiffel_Tower_by_the_Seine_river%2C_Paris%2C_2_March_2014.jpg/{w}px-Eiffel_Tower_by_the_Seine_river%2C_Paris%2C_2_March_2014.jpg",
+  "alt": "Torre Eiffel junto al Sena",
+  "autor": "Nicolas Halftermeyer",
+  "licencia": "CC BY-SA 3.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Eiffel_Tower_by_the_Seine_river,_Paris,_2_March_2014.jpg",
+  "archivo": "Eiffel Tower by the Seine river, Paris, 2 March 2014.jpg",
+  "ancho": 3264,
+  "alto": 2448
+ },
+ "eu-paris": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/Eiffel_st-jacques_horz_jms.jpg/{w}px-Eiffel_st-jacques_horz_jms.jpg",
+  "alt": "París con la Torre Eiffel al fondo",
+  "autor": "ThePromenader",
+  "licencia": "CC BY-SA 3.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Eiffel_st-jacques_horz_jms.jpg",
+  "archivo": "Eiffel st-jacques horz jms.jpg",
+  "ancho": 2400,
+  "alto": 1600
+ },
+ "eu-sena": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Eiffel_Tower_and_Pont_Alexandre_III_at_night.jpg/{w}px-Eiffel_Tower_and_Pont_Alexandre_III_at_night.jpg",
+  "alt": "El Sena de noche en París",
+  "autor": "Getfunky Paris",
+  "licencia": "CC BY 2.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Eiffel_Tower_and_Pont_Alexandre_III_at_night.jpg",
+  "archivo": "Eiffel Tower and Pont Alexandre III at night.jpg",
+  "ancho": 4288,
+  "alto": 2748
+ },
+ "eu-madrid": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Gran_V%C3%ADa_%28Madrid%29_42.jpg/{w}px-Gran_V%C3%ADa_%28Madrid%29_42.jpg",
+  "alt": "Edificios de la Gran Vía de Madrid",
+  "autor": "Felipe Gabaldón from Spain",
+  "licencia": "CC BY 2.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Gran_V%C3%ADa_(Madrid)_42.jpg",
+  "archivo": "Gran Vía (Madrid) 42.jpg",
+  "ancho": 3930,
+  "alto": 2616
+ },
+ "av-ala": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c1/Sunset_from_a_plane_%28Unsplash%29.jpg/{w}px-Sunset_from_a_plane_%28Unsplash%29.jpg",
+  "alt": "Ala de avión al atardecer",
+  "autor": "Paul-Vincent Roll paviro",
+  "licencia": "CC0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Sunset_from_a_plane_(Unsplash).jpg",
+  "archivo": "Sunset from a plane (Unsplash).jpg",
+  "ancho": 5046,
+  "alto": 3360
+ },
+ "av-ala2": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1e/Sunset_on_plane_%28Unsplash%29.jpg/{w}px-Sunset_on_plane_%28Unsplash%29.jpg",
+  "alt": "Ala de avión contra el sol",
+  "autor": "Jacky Lo hclojacky",
+  "licencia": "CC0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Sunset_on_plane_(Unsplash).jpg",
+  "archivo": "Sunset on plane (Unsplash).jpg",
+  "ancho": 4896,
+  "alto": 3264
+ },
+ "av-cielo": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9e/Atardecerala.JPG/{w}px-Atardecerala.JPG",
+  "alt": "Ala de avión sobre las nubes",
+  "autor": "Aleposta",
+  "licencia": "CC BY-SA 4.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Atardecerala.JPG",
+  "archivo": "Atardecerala.JPG",
+  "ancho": 3072,
+  "alto": 2048
+ },
+ "hotel": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/Hotel_room_interior_at_hotel_Radisson_Blu_Oulu.jpg/{w}px-Hotel_room_interior_at_hotel_Radisson_Blu_Oulu.jpg",
+  "alt": "Habitación de hotel con ventanal",
+  "autor": "JIP",
+  "licencia": "CC BY-SA 3.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Hotel_room_interior_at_hotel_Radisson_Blu_Oulu.jpg",
+  "archivo": "Hotel room interior at hotel Radisson Blu Oulu.jpg",
+  "ancho": 4032,
+  "alto": 3024
+ },
+ "pasaporte": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/Germany_D%C3%BCsseldorf_Passport_Stamp.jpg/{w}px-Germany_D%C3%BCsseldorf_Passport_Stamp.jpg",
+  "alt": "Sello de entrada en un pasaporte",
+  "autor": "NagerLB",
+  "licencia": "CC BY-SA 4.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Germany_D%C3%BCsseldorf_Passport_Stamp.jpg",
+  "archivo": "Germany Düsseldorf Passport Stamp.jpg",
+  "ancho": 1770,
+  "alto": 1310
+ },
+ "maleta": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/Holiday_Packing_List_-_Packing_Luggage_for_Vacation.jpg/{w}px-Holiday_Packing_List_-_Packing_Luggage_for_Vacation.jpg",
+  "alt": "Maleta abierta con cámara y audífonos",
+  "autor": "Familydestinationsguide.com Images",
+  "licencia": "CC BY 2.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Holiday_Packing_List_-_Packing_Luggage_for_Vacation.jpg",
+  "archivo": "Holiday Packing List - Packing Luggage for Vacation.jpg",
+  "ancho": 4500,
+  "alto": 3000
+ },
+ "traslado": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6a/Packing_Suitcase_in_Car_Boot_for_a_Holiday.jpg/{w}px-Packing_Suitcase_in_Car_Boot_for_a_Holiday.jpg",
+  "alt": "Viajero guardando su maleta en el carro",
+  "autor": "Familydestinationsguide.com Images",
+  "licencia": "CC BY 2.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Packing_Suitcase_in_Car_Boot_for_a_Holiday.jpg",
+  "archivo": "Packing Suitcase in Car Boot for a Holiday.jpg",
+  "ancho": 4000,
+  "alto": 2667
+ },
+ "piscina": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/92/Ideal_Beach_Resort_Pool_Mahabalipuram_Sep22_R16_06310.jpg/{w}px-Ideal_Beach_Resort_Pool_Mahabalipuram_Sep22_R16_06310.jpg",
+  "alt": "Piscina de hotel con palmeras",
+  "autor": "This Photo was taken by Timothy A. Gonsalves.  Feel free to ",
+  "licencia": "CC BY-SA 4.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Ideal_Beach_Resort_Pool_Mahabalipuram_Sep22_R16_06310.jpg",
+  "archivo": "Ideal Beach Resort Pool Mahabalipuram Sep22 R16 06310.jpg",
+  "ancho": 5109,
+  "alto": 3406
+ },
+ "piscina2": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Swimming_pool_and_main_building_of_Amantaka_luxury_Resort_%26_Hotel_in_Luang_Prabang_Laos.jpg/{w}px-Swimming_pool_and_main_building_of_Amantaka_luxury_Resort_%26_Hotel_in_Luang_Prabang_Laos.jpg",
+  "alt": "Piscina larga frente a un hotel",
+  "autor": "Basile Morin",
+  "licencia": "CC BY-SA 4.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Swimming_pool_and_main_building_of_Amantaka_luxury_Resort_%26_Hotel_in_Luang_Prabang_Laos.jpg",
+  "archivo": "Swimming pool and main building of Amantaka luxury Resort & Hotel in Luang Prabang Laos.jpg",
+  "ancho": 6666,
+  "alto": 3750
+ },
+ "grupo": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Hikers_%288641037364%29.jpg/{w}px-Hikers_%288641037364%29.jpg",
+  "alt": "Grupo caminando por un valle",
+  "autor": "LassenNPS",
+  "licencia": "Public domain",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Hikers_(8641037364).jpg",
+  "archivo": "Hikers (8641037364).jpg",
+  "ancho": 3648,
+  "alto": 2736
+ },
+ "grupo2": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/Group_of_hikers_having_lunch_along_the_Pinnel_Mountain_National_Recreation_Trail_%2829060567153%29.jpg/{w}px-Group_of_hikers_having_lunch_along_the_Pinnel_Mountain_National_Recreation_Trail_%2829060567153%29.jpg",
+  "alt": "Grupo descansando en la montaña",
+  "autor": "Bureau of Land Management Alaska",
+  "licencia": "CC BY 2.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Group_of_hikers_having_lunch_along_the_Pinnel_Mountain_National_Recreation_Trail_(29060567153).jpg",
+  "archivo": "Group of hikers having lunch along the Pinnel Mountain National Recreation Trail (29060567153).jpg",
+  "ancho": 2272,
+  "alto": 1704
+ },
+ "aeropuerto": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/Entrance_to_terminal_A_of_Warsaw_Chopin_Airport.jpg/{w}px-Entrance_to_terminal_A_of_Warsaw_Chopin_Airport.jpg",
+  "alt": "Entrada a la terminal de un aeropuerto",
+  "autor": "PerpetualTraveler",
+  "licencia": "CC BY-SA 4.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Entrance_to_terminal_A_of_Warsaw_Chopin_Airport.jpg",
+  "archivo": "Entrance to terminal A of Warsaw Chopin Airport.jpg",
+  "ancho": 4096,
+  "alto": 3072
+ },
+ "aeropuerto2": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4e/New_terminal_building_at_Faisalabad_International_Airport_11.jpg/{w}px-New_terminal_building_at_Faisalabad_International_Airport_11.jpg",
+  "alt": "Sala de llegadas de un aeropuerto",
+  "autor": "Umair Tariq",
+  "licencia": "CC BY-SA 4.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:New_terminal_building_at_Faisalabad_International_Airport_11.jpg",
+  "archivo": "New terminal building at Faisalabad International Airport 11.jpg",
+  "ancho": 4032,
+  "alto": 3024
+ }
+}

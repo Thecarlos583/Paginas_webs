@@ -1,0 +1,40 @@
+{
+ "slug": "youtravel",
+ "tema": "youtravel",
+ "nombre": "YouTravel Agencia de Viajes",
+ "nombre_corto": "YouTravel",
+ "marca": {"palabra": "youtravel", "bajada": "agencia de viajes", "logo": null, "logo_claro": null},
+ "ciudad": "Puerto Ordaz",
+ "estado": "estado Bolívar",
+ "direccion": "Centro Comercial Portofino, Puerto Ordaz, estado Bolívar",
+ "direccion_corta": "C.C. Portofino, Puerto Ordaz",
+ "maps_busqueda": "YouTravel Agencia de Viajes, Centro Comercial Portofino, Puerto Ordaz",
+ "whatsapp": "584249572232",
+ "whatsapp_ver": "+58 424 957 2232",
+ "wa_general": "Hola YouTravel, quiero información para un viaje",
+ "saludo_wa": "Hola YouTravel",
+ "salida": "Puerto Ordaz",
+ "mostrar_precios": true,
+ "moneda": "US$",
+ "instagram": null,
+ "demo": true,
+ "aviso": "Página de ejemplo con datos ficticios. Fotos referenciales.",
+ "horario_ejemplo": true,
+ "horario": [["Lunes a viernes", "8:30 a. m. a 5:30 p. m."], ["Sábados", "9:00 a. m. a 1:00 p. m."], ["Domingos y feriados", "Por WhatsApp"]],
+ "colores": {"tema": "#141A2E", "fondo": "#FAF9F7"},
+ "descripcion": "Agencia de viajes en Puerto Ordaz: paquetes nacionales e internacionales, boletos aéreos, hoteles, traslados y viajes de grupo. Cotice por WhatsApp.",
+ "portada": {
+  "titulo": "Su próximo viaje empieza aquí",
+  "linea": "Paquetes, boletos y hoteles armados desde Puerto Ordaz. Usted nos dice a dónde; nosotros nos ocupamos del resto.",
+  "video": "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c6/Aerial_view_of_sand_beach._Top_view_sea_waves._Drone_footage.webm/Aerial_view_of_sand_beach._Top_view_sea_waves._Drone_footage.webm.480p.vp9.webm",
+  "video_credito": {"archivo": "Aerial view of sand beach. Top view sea waves. Drone footage.webm", "autor": "Nature video, HD - 4K", "licencia": "CC BY 3.0", "pagina": "https://commons.wikimedia.org/wiki/File:Aerial_view_of_sand_beach._Top_view_sea_waves._Drone_footage.webm"},
+  "poster": "lr-cayo"
+ },
+ "como_funciona": [
+  {"titulo": "Nos escribe", "texto": "Por WhatsApp o desde el cotizador: a dónde, cuándo y cuántos viajan."},
+  {"titulo": "Le armamos el viaje", "texto": "Le mandamos opciones con vuelos, hotel y traslados, y ajustamos hasta que le guste."},
+  {"titulo": "Viaja tranquilo", "texto": "Le enviamos sus boletos y reservas, y seguimos pendientes durante el viaje."}
+ ],
+ "pagos": ["Pago móvil", "Zelle", "Divisas en efectivo"],
+ "url_publica": "https://thecarlos583.github.io/Paginas_webs/youtravel/"
+}

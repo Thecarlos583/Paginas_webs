@@ -1,0 +1,7 @@
+[
+ {"id": "reserva", "titulo": "Reserva", "puntos": ["Con el abono indicado en la cotización se aparta su cupo.", "El saldo se paga antes de la fecha límite de cada viaje.", "Le enviamos la confirmación por escrito por WhatsApp."]},
+ {"id": "cambios", "titulo": "Cambios", "puntos": ["Los cambios de fecha o de nombre dependen de lo que permita cada aerolínea y cada hotel.", "Si el cambio tiene costo, se lo decimos antes de hacerlo.", "Pida el cambio con la mayor anticipación posible."]},
+ {"id": "cancelacion", "titulo": "Cancelación", "puntos": ["Si cancela con anticipación, el reembolso sigue las condiciones de cada proveedor.", "Algunas tarifas aéreas no son reembolsables; se lo avisamos al cotizar.", "Las cancelaciones se piden por escrito."]},
+ {"id": "equipaje", "titulo": "Equipaje", "puntos": ["Cada boleto trae su propia franquicia de equipaje; se la indicamos al cotizar.", "En vuelos pequeños, como los de Canaima o Los Roques, el equipaje permitido es menor.", "Lleve en el equipaje de mano sus documentos y medicinas."]},
+ {"id": "pagos", "titulo": "Pagos", "puntos": ["Pago móvil, Zelle o divisas en efectivo.", "Los montos en bolívares se calculan a la tasa del día.", "Cada pago se confirma con un comprobante."]}
+]

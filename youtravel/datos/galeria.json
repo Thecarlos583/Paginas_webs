@@ -1,0 +1,12 @@
+{
+ "categorias": [["playas", "Playas"], ["montana", "Montaña"], ["ciudades", "Ciudades"], ["internacional", "Internacional"]],
+ "fotos": [
+  ["lr-cayo", "playas"], ["canaima-salto", "montana"], ["cu-casas", "internacional"], ["mg-atardecer", "playas"],
+  ["gs-jaspe", "montana"], ["ct-balcones", "ciudades"], ["lr-agua", "playas"], ["cz-machu", "internacional"],
+  ["me-laguna", "montana"], ["eu-sena", "ciudades"], ["mo-palmera", "playas"], ["gs-kama", "montana"],
+  ["pc-palmas", "internacional"], ["eu-plazamayor", "ciudades"], ["mg-castillo", "playas"], ["canaima-hacha", "montana"],
+  ["cu-costa", "internacional"], ["ct-baluarte", "ciudades"], ["lr-lanchas", "playas"], ["me-nubes", "montana"],
+  ["cz-terrazas", "internacional"], ["eu-granvia", "ciudades"], ["mo-cayo", "playas"], ["gs-atardecer", "montana"],
+  ["pzo-cachamay", "montana"], ["cz-plaza", "ciudades"], ["pc-cocos", "internacional"], ["mg-bahia", "playas"]
+ ]
+}
