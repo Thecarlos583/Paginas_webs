@@ -203,7 +203,28 @@
     v.addEventListener("ended", function () { b.hidden = false; });
   }
 
+  /* Mapa de Google: se carga solo al tocar "Ver mapa", para no hacer lenta la página */
+  function initMapaCarga() {
+    qa("[data-ver-mapa]").forEach(function (a) {
+      a.addEventListener("click", function (ev) {
+        var caja = a.closest(".mapa-carga");
+        if (!caja || caja.classList.contains("cargado")) return;
+        ev.preventDefault();
+        var f = document.createElement("iframe");
+        f.title = "Mapa de Google con la ubicación de la posada";
+        f.setAttribute("loading", "lazy");
+        f.setAttribute("referrerpolicy", "no-referrer-when-downgrade");
+        f.setAttribute("allowfullscreen", "");
+        f.src = caja.getAttribute("data-embed");
+        caja.appendChild(f);
+        caja.classList.add("cargado");
+        f.focus();
+      });
+    });
+  }
+
   safe(initMenu, "menu");
+  safe(initMapaCarga, "mapa-carga");
   safe(initVisor, "visor");
   safe(initFiltro, "filtro");
   safe(initVideo, "video");

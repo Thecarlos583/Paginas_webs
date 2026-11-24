@@ -609,3 +609,28 @@ img[src*="jardin-muro"] { object-position: 50% 58%; }
   .punto:last-child { border-right: 0; }
   .ic-linea { width: 50px; height: 50px; }
 }
+
+/* Ubicación: mapa que se carga solo al tocarlo + dos botones grandes */
+.ancla { display: block; position: relative; top: -12px; }
+.ubi { display: grid; gap: 28px; align-items: center; }
+.ubi-texto .senal { margin-bottom: 26px; }
+.ubi-texto > p:last-child { margin-top: 10px; }
+.ubi-botones .btn-grande { flex: 1 1 240px; min-height: 58px; font-size: 1.05rem; }
+.ubi-botones .btn-grande svg { width: 23px; height: 23px; }
+.mapa-carga { position: relative; border-radius: 22px; overflow: hidden; aspect-ratio: 4 / 3.6; background: var(--suave); box-shadow: 0 0 0 1px var(--linea), 0 18px 40px rgba(12, 48, 36, .1); }
+.mapa-carga > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 45%; }
+.mapa-carga::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(12, 48, 36, .05) 40%, rgba(12, 48, 36, .72)); pointer-events: none; }
+.ver-mapa { position: absolute; z-index: 2; left: 50%; top: 50%; transform: translate(-50%, -50%); display: inline-flex; align-items: center; gap: 10px; min-height: 54px; padding: 12px 24px; border-radius: 999px; background: #fff; color: var(--hondo); font-weight: 600; text-decoration: none; box-shadow: 0 12px 30px rgba(12, 48, 36, .35); transition: transform .2s ease; }
+.ver-mapa:hover { transform: translate(-50%, -50%) scale(1.04); }
+.ver-mapa:active { transform: translate(-50%, -50%) scale(.96); }
+.ver-mapa svg { width: 22px; height: 22px; color: var(--naranja-texto); }
+.mapa-lugar { position: absolute; z-index: 2; left: 16px; right: 16px; bottom: 14px; color: #fff; font-size: .92rem; font-weight: 500; }
+.mapa-carga iframe { position: absolute; inset: 0; z-index: 3; width: 100%; height: 100%; border: 0; }
+.mapa-carga.cargado::after, .mapa-carga.cargado .ver-mapa, .mapa-carga.cargado .mapa-lugar { display: none; }
+.mapa-junto .mapa-carga { aspect-ratio: 4 / 3.6; }
+@media (min-width: 900px) {
+  .ubi { grid-template-columns: 1fr 1fr; gap: 64px; }
+  .ubi .mapa-carga { order: -1; aspect-ratio: 1; }
+  .mapa-junto .mapa-carga { aspect-ratio: 21 / 9; }
+  .ubi-botones .btn-grande { flex: 0 1 auto; }
+}
