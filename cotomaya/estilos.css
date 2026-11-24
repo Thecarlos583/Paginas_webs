@@ -706,6 +706,11 @@ html:not(.js) .dia-escena img:first-child { opacity: 1; }
   .tira button { aspect-ratio: auto; border-radius: 0; }
   .tira button:first-child { grid-row: span 2; }
   .tira button:nth-child(n+6) { display: none; }
+  /* Fichas con menos de 5 fotos: la rejilla se acomoda para no dejar huecos */
+  .tira:has(> button:nth-child(2):last-child) { grid-template-columns: 1fr 1fr; grid-template-rows: 468px; }
+  .tira:has(> button:nth-child(2):last-child) button:first-child { grid-row: auto; }
+  .tira:has(> button:nth-child(3):last-child) { grid-template-columns: 2fr 1fr; }
+  .tira:has(> button:nth-child(4):last-child) button:nth-child(4) { grid-column: span 2; }
   .tira button img { transition: transform .6s ease, filter .3s ease; }
   .tira button:hover img { transform: scale(1.04); filter: brightness(1.05); }
   .tira-galeria { border-radius: 24px; overflow: hidden; }

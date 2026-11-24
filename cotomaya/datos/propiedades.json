@@ -1535,5 +1535,63 @@
       "stay": ""
     },
     "ubicacion_maps": ""
+  },
+  {
+    "id": "posada-rb40",
+    "nombre": "Posada RB40 | Hospedaje de vacaciones en El Tuque",
+    "codigo": "RB40",
+    "linea": "Hospedaje de vacaciones en El Tuque",
+    "tipo": "posada",
+    "categoria": "",
+    "ambito": "nacional",
+    "destino": "venezuela",
+    "zona": "tucacas",
+    "destacada": false,
+    "activa": true,
+    "capacidad": 40,
+    "habitaciones": 11,
+    "banos": 0,
+    "resumen": "Habitaciones, apartamento privado y piscina para grupos de hasta 40 personas.",
+    "descripcion": "Hospedaje de vacaciones en El Tuque, Tucacas, ideal para familias, grupos y viajes especiales. Capacidad aproximada de 39 a 40 personas.\nHabitaciones: 3 matrimoniales con cama queen; 5 cuádruples, cada una con una litera y una cama queen, y 1 quíntuple con 2 camas queen y una cama individual. Todas tienen nevera ejecutiva.\nApartamento privado para 6 a 8 personas: 2 habitaciones y 2 baños. La principal con cama queen y la segunda con cama queen y litera. Tiene aire acondicionado, lencería y toallas, y cocina equipada con nevera y cocina eléctrica.\nÁreas sociales: piscina, parrillera con fregadero, baños independientes para damas y caballeros y espacios para compartir en grupo.\nServicios extra, a consultar: persona adicional, cocinera, limpieza extra, traslado local y mascotas (indique raza y cantidad).\nPago por Zelle; euros y bolívares, a consultar.\nCambios de fecha sin costo avisando con al menos 21 días de anticipación, sujetos a disponibilidad y a la tarifa de la temporada. El anticipo no es reembolsable; en casos de fuerza mayor comprobados se da un crédito válido por 6 meses. Si el huésped no llega o se retira antes, no hay reembolso.",
+    "incluye": [
+      "Piscina",
+      "Parrillera con fregadero",
+      "Nevera ejecutiva en cada habitación",
+      "Baños para damas y caballeros en el área social",
+      "Apartamento privado con aire acondicionado",
+      "Lencería y toallas en el apartamento",
+      "Cocina equipada en el apartamento",
+      "Acepta mascotas"
+    ],
+    "nota": "Reserva con 50 % de anticipo y el 50 % restante al llegar.",
+    "fotos": [
+      {
+        "archivo": "posada-rb40/01.webp",
+        "alt": "Casa de dos pisos con piscina"
+      },
+      {
+        "archivo": "posada-rb40/02.webp",
+        "alt": "Piscina y terraza al atardecer"
+      },
+      {
+        "archivo": "posada-rb40/03.webp",
+        "alt": "Terraza con sombrilla junto a la piscina"
+      }
+    ],
+    "videos": [
+      {
+        "archivo": "posada-rb40/video-1.mp4",
+        "portada": "posada-rb40/video-1.webp"
+      },
+      {
+        "archivo": "posada-rb40/video-2.mp4",
+        "portada": "posada-rb40/video-2.webp"
+      }
+    ],
+    "enlaces": {
+      "airbnb": "",
+      "stay": ""
+    },
+    "ubicacion_maps": ""
   }
 ]
