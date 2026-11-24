@@ -51,6 +51,7 @@ button,input{font:inherit;color:inherit}
 /* Botones: rectos arriba y redondos abajo, como el borde de un toldo */
 .boton{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:52px;padding:12px 20px;border:0;border-radius:5px 5px 24px 24px;background:var(--acento);color:#fff;font-weight:600;font-size:1rem;line-height:1.2;text-decoration:none;text-align:center;cursor:pointer;transition:transform .18s var(--suave),background-color .2s}
 .boton svg{flex:none;width:21px;height:21px;fill:currentColor}
+svg.pin{fill:none!important;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .boton:hover{background:#A63D1F}
 .boton:active{transform:translateY(3px) scale(.985)}
 .boton.azul{background:var(--primario)}
@@ -214,9 +215,12 @@ button,input{font:inherit;color:inherit}
 .social-txt li::before{content:"";position:absolute;left:0;top:.5em;width:8px;height:11px;border-radius:0 0 50% 50%/0 0 100% 100%;background:var(--acento)}
 
 /* Playa */
-.colores{display:flex;height:150px;margin-top:18px;overflow:hidden;border-radius:0 0 26px 26px}
-.colores button{flex:1 1 0;min-width:0;display:flex;align-items:flex-end;padding:10px;border:0;color:#fff;font-weight:600;font-size:.9rem;line-height:1.2;text-align:left;cursor:pointer;transition:flex-grow .5s var(--suave)}
-.colores button span{opacity:0;transition:opacity .25s;white-space:nowrap}
+.colores{display:flex;height:220px;gap:4px;margin-top:18px;overflow:hidden;border-radius:0 0 26px 26px}
+.colores button{position:relative;flex:1 1 0;min-width:0;display:flex;background:var(--primario);align-items:flex-end;padding:10px;border:0;color:#fff;font-weight:600;font-size:.9rem;line-height:1.2;text-align:left;cursor:pointer;transition:flex-grow .5s var(--suave)}
+.colores button img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s var(--suave)}
+.colores button::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 55%,rgba(9,30,46,.62))}
+.colores button[aria-pressed=false] img{transform:scale(1.15)}
+.colores button span{position:relative;z-index:1;opacity:0;transition:opacity .25s;white-space:nowrap;text-shadow:0 1px 3px rgba(0,0,0,.5)}
 .colores button[aria-pressed=true]{flex-grow:3.4}
 .colores button[aria-pressed=true] span{opacity:1}
 .cerca{position:relative;margin-top:6px}
@@ -227,6 +231,8 @@ button,input{font:inherit;color:inherit}
 .cerca small{display:block;font-weight:600;font-size:.92rem;color:#8F3519}
 .cerca h3{font-size:1.35rem}
 .cerca p{margin-top:3px}
+.ver-mapa{display:inline-flex;align-items:center;gap:6px;min-height:44px;margin-top:2px;color:var(--primario);font-weight:600;font-size:.95rem;text-decoration:underline;text-underline-offset:3px}
+.ver-mapa svg{width:18px;height:18px;flex:none}
 
 /* Tarifas */
 .tabla{width:100%;border-collapse:collapse}
@@ -273,6 +279,13 @@ button,input{font:inherit;color:inherit}
 .ruta{display:grid;gap:0}
 .ruta li{display:grid;grid-template-columns:minmax(0,1fr);padding:12px 0;border-bottom:1px solid #DCCFB8}
 .ruta b{font:400 1.35rem/1.15 var(--titulos);color:var(--primario)}
+.paseos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:18px}
+.paseos a{display:flex;align-items:center;gap:10px;height:100%;min-height:64px;padding:10px 12px;background:var(--arena2);border-radius:0 0 18px 18px;color:var(--texto);text-decoration:none;transition:background-color .2s}
+.paseos a:hover{background:#E2D4BC}
+.paseos li:last-child:nth-child(odd){grid-column:1/-1}
+.paseos svg{width:22px;height:22px;flex:none;color:var(--acento)}
+.paseos b{display:block;font:400 1.08rem/1.15 var(--titulos);color:var(--primario)}
+.paseos small{display:block;margin-top:2px;font-size:.82rem;line-height:1.25;color:#3F5364}
 .mapa-caja{position:relative;display:grid;place-items:center;min-height:320px;padding:22px;overflow:hidden;background:var(--primario);border-radius:0 0 26px 26px;text-align:center}
 .mapa-caja img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.42}
 .mapa-caja .boton{position:relative}
@@ -302,6 +315,15 @@ button,input{font:inherit;color:inherit}
 .comentarios{display:grid;gap:16px}
 
 /* Siga recorriendo */
+.remate{display:grid;gap:22px;padding:24px 20px;background:var(--primario);color:#EAF0F2;border-radius:0 0 26px 26px}
+.remate h2{color:#fff}
+.remate-txt p{margin:8px 0 16px}
+.remate-ir small{display:block;margin-bottom:8px;font-size:.9rem;color:#C9D6DD}
+.remate-ir div{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.remate-ir a{display:block;color:#fff;text-decoration:none}
+.remate-ir img{display:block;width:100%;aspect-ratio:3/2;height:auto;object-fit:cover;border-radius:0 0 16px 16px;transition:transform .5s var(--suave)}
+.remate-ir span{display:block;margin-top:6px;font:400 1.2rem/1.15 var(--titulos)}
+.remate-ir a:hover img{transform:scale(1.03)}
 .sigue{display:grid;grid-template-columns:minmax(0,1fr) 104px;height:100px;align-items:stretch;background:var(--arena2);text-decoration:none;border-radius:0 0 22px 22px;overflow:hidden}
 .sigue div{padding:15px 16px;align-self:center}
 .sigue small{display:block;font-size:.9rem}
@@ -461,7 +483,7 @@ button,input{font:inherit;color:inherit}
   .social .contenedor{padding:0;max-width:none}
   .social-txt{padding-block:30px}
 
-  .colores{height:230px}
+  .colores{height:320px}
   .colores button{padding:18px;font-size:1.1rem}
   .bloques2{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:72px;align-items:start}
   .cerca{columns:2;column-gap:48px}
@@ -484,6 +506,10 @@ button,input{font:inherit;color:inherit}
   .galeria{grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;grid-auto-rows:calc((min(100vw,1240px) - 2*var(--margen) - 36px)/4)}
   .galeria button:hover img{transform:scale(1.05)}
   .comentarios{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);align-items:center;gap:60px}
+  .remate{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:48px;padding:40px 44px}
+  .remate-ir span{font-size:1.5rem}
+  .paseos{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .paseos li:last-child:nth-child(odd){grid-column:auto}
   .sigue{grid-template-columns:minmax(0,1fr) 300px;height:180px}
   .sigue div{padding:30px 36px}
   .sigue b{font-size:2.2rem}
