@@ -49,3 +49,4 @@ El repo **público** con las webs de clientes, las vistas previas para prospecto
 - Los prompts de cada web están en `agencia-carlos\claude\prompt-*.md`.
 
 - 17-nov: Cotomaya con el WhatsApp 0414-5991961 suspendido por ahora; todo va al 0414-2506516 (ver `whatsapp_suspendido` en `cotomaya/datos/config.json`).
+- 24-nov (34f número): Cotomaya con el +58 424-5180022 como principal en todos los botones (66 enlaces); el +58 414-2506516 queda de segundo contacto solo en Contacto y pie (11 enlaces). Regreso: etiqueta `antes-de-numero-principal`. Pendiente: nada de este cambio.
