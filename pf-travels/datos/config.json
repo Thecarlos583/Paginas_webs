@@ -47,7 +47,7 @@
  "fuentes_url": "https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Libre+Franklin:wght@400;500;600;700&display=swap",
  "descripcion": "Agencia de viajes en el Aeropuerto Josefa Camejo, Punto Fijo: paquetes nacionales e internacionales, boletos aéreos, hoteles, traslados y viajes de grupo. Cotice por WhatsApp.",
  "portada": {
-  "titulo": "Desde Paraguaná, a donde lo lleve *el viento*",
+  "titulo": "A donde lo lleve *el viento*",
   "linea": "Paquetes, boletos y hoteles armados en el Aeropuerto Josefa Camejo. Usted nos dice a dónde; nosotros nos ocupamos del resto.",
   "video": "https://upload.wikimedia.org/wikipedia/commons/transcoded/f/f0/Ocean_surface_waves_03.ogv/Ocean_surface_waves_03.ogv.480p.vp9.webm",
   "video_credito": {
@@ -77,5 +77,6 @@
   "Zelle",
   "Divisas en efectivo"
  ],
- "url_publica": "https://thecarlos583.github.io/Paginas_webs/pf-travels/"
+ "url_publica": "https://thecarlos583.github.io/Paginas_webs/pf-travels/",
+ "og_imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/42/Efecto_del_viento_sobre_las_arenas.jpg/1280px-Efecto_del_viento_sobre_las_arenas.jpg"
 }
