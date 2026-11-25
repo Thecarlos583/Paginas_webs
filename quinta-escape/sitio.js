@@ -1,12 +1,12 @@
 /* Quinta Escape. Lo que se cambia a mano está en CONFIG. */
 var CONFIG = {
   /* La ubicación de la casa (Google Maps, ruta y mapa) se cambia en el generador: LAT, LON y PLACE_ID. */
-  /* Formularios de Google del dueño: POR CONFIRMAR. Pegue aquí los enlaces de sus Google Forms.
-     Mientras digan "POR CONFIRMAR", los botones piden el formulario por WhatsApp. */
-  formRegistro: "POR CONFIRMAR",
+  /* Formulario de Solicitud de reserva del dueño: POR CONFIRMAR. Pegue aquí el enlace de su Google Form.
+     Mientras diga "POR CONFIRMAR", el botón pide la solicitud por WhatsApp. */
   formSolicitud: "POR CONFIRMAR",
   whatsapp: "584142773926",
-  tarifaFinde: 480,      /* viernes a domingo, hasta 8 personas */
+  tarifaFinde: 480,      /* "Fines de semana desde $480": viernes a domingo, hasta 8 personas */
+  tarifaSemana: 360,     /* "Planes de lunes a jueves desde $360" */
   incluidas: 8,
   adicional: 60,         /* por persona, por fin de semana */
   maximo: 14,
@@ -56,7 +56,7 @@ var CONFIG = {
 
   function initMapa() {
     $$("[data-form]").forEach(function (a) {
-      var u = a.getAttribute("data-form") === "registro" ? CONFIG.formRegistro : CONFIG.formSolicitud;
+      var u = CONFIG.formSolicitud;
       if (/^https?:\/\//.test(u)) a.href = u;
     });
     /* El mapa de Google se carga solo al tocar "Ver mapa" */
@@ -203,16 +203,19 @@ var CONFIG = {
   /* Firma: el armador con las 14 franjas */
   function initArmador() {
     $$("[data-armador]").forEach(function (caja) {
-      var st = { personas: CONFIG.incluidas, mascotas: 0, llegada: null, salida: null };
+      var st = { personas: CONFIG.incluidas, mascotas: 0, llegada: null, salida: null, semana: false };
       var franjas = $$(".franjas i", caja), num = $("[data-num]", caja), pie = $("[data-pie]", caja), aviso = $("[data-aviso]", caja),
         boton = $("[data-wa]", caja), outP = $("[data-personas]", caja), outM = $("[data-mascotas]", caja),
         chips = $(".chips", caja), fechas = $(".fechas", caja), inL = $("[data-llegada]", caja), inS = $("[data-salida]", caja);
       var hoy = dia0(new Date());
 
       function cuenta() {
-        var r = { precio: null, pie: "", avisos: [] }, p = st.personas, a = st.llegada, b = st.salida;
+        var r = { precio: null, desde: false, pie: "", avisos: [] }, p = st.personas, a = st.llegada, b = st.salida;
         var base = CONFIG.tarifaFinde + Math.max(0, p - CONFIG.incluidas) * CONFIG.adicional;
-        if (!a || !b) {
+        if (st.semana && (!a || !b)) {
+          r.precio = CONFIG.tarifaSemana; r.desde = true; r.pie = "planes de lunes a jueves";
+          r.avisos.push("El precio exacto según personas y fechas se lo confirmamos por WhatsApp.");
+        } else if (!a || !b) {
           r.precio = base; r.pie = "fin de semana de viernes a domingo";
           if (p <= 2) r.avisos.push("Las parejas se reciben de lunes a jueves en temporada baja, con algunas excepciones. Pregúntenos por su fecha.");
         } else {
@@ -224,19 +227,20 @@ var CONFIG = {
           else if (finde) {
             r.precio = base; r.pie = "por este fin de semana";
             if (p <= 2) { r.precio = null; r.avisos.push("Las parejas se reciben de lunes a jueves en temporada baja, con algunas excepciones. Pregúntenos por esta fecha."); }
-          } else if (semana) r.avisos.push("De lunes a jueves en temporada baja hay tarifas reducidas. Se las cotizamos por WhatsApp.");
+          } else if (semana) { r.precio = CONFIG.tarifaSemana; r.desde = true; r.pie = "planes de lunes a jueves"; r.avisos.push("El precio exacto según personas y fechas se lo confirmamos por WhatsApp."); }
           else if (n >= 2) r.avisos.push("Estas fechas se cotizan por WhatsApp.");
         }
         if (st.mascotas > 0) r.avisos.push("Cada mascota lleva un pago extra, que se confirma por WhatsApp.");
-        if (p >= CONFIG.maximo) r.avisos.push("Son 14 camas: ese es el máximo de la casa.");
+        if (p >= CONFIG.maximo) r.avisos.push("Camas para 14 personas: ese es el máximo de la casa.");
         return r;
       }
       function mensaje(r) {
-        var t = "Hola, quisiera un presupuesto para Quinta Escape.\n";
+        var t = "Hola, quisiera un presupuesto para Quinta Escape.\nVi en la web: fines de semana desde $" + CONFIG.tarifaFinde + " y planes de lunes a jueves desde $" + CONFIG.tarifaSemana + ".\n";
+        if (st.semana && !(st.llegada && st.salida)) t += "Me interesa un plan de lunes a jueves.\n";
         t += st.llegada && st.salida ? "Fechas: del " + largo(st.llegada) + " al " + largo(st.salida) + ".\n" : "Fechas: por definir.\n";
         t += "Personas: " + st.personas + ".\n";
         if (st.mascotas) t += "Mascotas: " + st.mascotas + ".\n";
-        if (r.precio !== null && st.llegada) t += "En la web me sale una referencia de $" + r.precio + ".\n";
+        if (r.precio !== null && st.llegada) t += "En la web me sale una referencia " + (r.desde ? "desde $" : "de $") + r.precio + ".\n";
         return t + "¿Tienen disponibilidad?";
       }
       function pinta() {
@@ -245,7 +249,7 @@ var CONFIG = {
         $("[data-menos]", caja).disabled = st.personas <= 1;
         $("[data-mas]", caja).disabled = st.personas >= CONFIG.maximo;
         var r = cuenta();
-        num.textContent = r.precio !== null ? "$" + r.precio : "Se consulta";
+        num.textContent = r.precio !== null ? (r.desde ? "Desde $" : "$") + r.precio : "Se consulta";
         num.classList.toggle("consulta", r.precio === null);
         pie.textContent = r.precio !== null ? r.pie : "por WhatsApp";
         aviso.hidden = !r.avisos.length; aviso.textContent = r.avisos.join(" ");
@@ -261,14 +265,21 @@ var CONFIG = {
         b.textContent = viernes.getDate() + (viernes.getMonth() === dom.getMonth() ? "" : " " + MESES[viernes.getMonth()].slice(0, 3)) + " al " + dom.getDate() + " " + MESES[dom.getMonth()].slice(0, 3);
         b.addEventListener("click", function () {
           var ya = b.getAttribute("aria-pressed") === "true";
-          marcar(ya ? null : b); st.llegada = ya ? null : viernes; st.salida = ya ? null : dom;
+          marcar(ya ? null : b); st.semana = false; st.llegada = ya ? null : viernes; st.salida = ya ? null : dom;
           fechas.hidden = true; pinta();
         });
         chips.appendChild(b);
       })(suma(v, i * 7));
+      var sem = document.createElement("button");
+      sem.type = "button"; sem.className = "chip"; sem.textContent = "Lunes a jueves"; sem.setAttribute("aria-pressed", "false");
+      sem.addEventListener("click", function () {
+        var ya = sem.getAttribute("aria-pressed") === "true";
+        marcar(ya ? null : sem); st.semana = !ya; st.llegada = null; st.salida = null; inL.value = ""; inS.value = ""; fechas.hidden = ya; pinta();
+      });
+      chips.appendChild(sem);
       var otra = document.createElement("button");
       otra.type = "button"; otra.className = "chip"; otra.textContent = "Otras fechas"; otra.setAttribute("aria-pressed", "false");
-      otra.addEventListener("click", function () { marcar(otra); fechas.hidden = false; st.llegada = inL.value ? deIso(inL.value) : null; st.salida = inS.value ? deIso(inS.value) : null; pinta(); inL.focus(); });
+      otra.addEventListener("click", function () { marcar(otra); st.semana = false; fechas.hidden = false; st.llegada = inL.value ? deIso(inL.value) : null; st.salida = inS.value ? deIso(inS.value) : null; pinta(); inL.focus(); });
       chips.appendChild(otra);
       fechas.hidden = true;
       inL.min = iso(hoy); inS.min = iso(suma(hoy, 1));
@@ -384,11 +395,35 @@ var CONFIG = {
 
   /* El botón flotante no tapa el botón de la portada mientras este se ve */
   function initFlotante() {
-    var f = $(".flotante"), h = $(".portada-txt .boton");
+    var f = $(".flotante"), h = $(".entrada .boton");
     if (!f || !h || !("IntersectionObserver" in window)) return;
     new IntersectionObserver(function (e) { f.classList.toggle("escondido", e[0].isIntersecting); }, { threshold: 0 }).observe(h);
   }
 
+  /* Videos cortos en bucle (46c): cargan al acercarse, la versión -tel en el teléfono, y se pausan al salir.
+     Con "ahorro de datos" o movimiento reducido se queda la foto póster. */
+  function initVideos() {
+    var vids = $$("video[data-pc]"); if (!vids.length) return;
+    var con = navigator.connection || {}, ahorro = con.saveData || /2g/.test(con.effectiveType || "");
+    if (quieto || ahorro || !("IntersectionObserver" in window)) return;
+    var pc = window.matchMedia("(min-width:768px)").matches;
+    function juega(v) { var pr = v.play(); if (pr && pr.catch) pr.catch(function () {}); }
+    var io = new IntersectionObserver(function (ents) {
+      ents.forEach(function (en) {
+        var v = en.target;
+        if (en.isIntersecting) {
+          if (!v.getAttribute("src")) {
+            v.src = v.getAttribute(pc ? "data-pc" : "data-movil");
+            v.addEventListener("playing", function () { v.classList.add("listo"); }, { once: true });
+          }
+          juega(v);
+        } else if (!v.paused) v.pause();
+      });
+    }, { rootMargin: "200px 0px" });
+    vids.forEach(function (v) { io.observe(v); });
+  }
+
+  safe(initVideos, "videos");
   safe(initFlotante, "flotante");
   safe(initMapa, "mapa"); safe(initCuenta, "cuenta"); safe(initRevela, "revela"); safe(initAnochecer, "anochecer"); safe(initHorizontal, "horizontal"); safe(initHoja, "hoja"); safe(initPortada, "portada"); safe(initParalaje, "paralaje");
   safe(initArmador, "armador"); safe(initDias, "dias"); safe(initHoy, "hoy"); safe(initColores, "colores"); safe(initGaleria, "galeria");

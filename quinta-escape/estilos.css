@@ -67,7 +67,7 @@ svg.pin{fill:none!important;stroke:currentColor;stroke-width:1.8;stroke-linecap:
 .oscura .enlace{color:#fff}
 .botones{display:grid;gap:10px;margin-top:20px}
 
-/* Cabecera con el fleco del toldo: 14 franjas, las mismas 14 camas de la casa */
+/* Cabecera con el fleco del toldo: 14 franjas, camas para 14 personas */
 .tapa{position:fixed;z-index:31;top:-400px;left:0;right:0;height:400px;background:var(--primario)}
 .cab{position:sticky;top:0;z-index:30;background:var(--primario);color:#fff;padding-top:env(safe-area-inset-top)}
 .cab-fila{display:flex;align-items:center;justify-content:space-between;gap:20px;height:var(--cab)}
@@ -744,4 +744,98 @@ details[open]>summary .chev{transform:rotate(180deg)}
   .boton::after{display:none}
   .anochecer::before,.anochecer figure.noche{transition:none}
   .espacio,.lugar,.se-ve li,.remate-ir a,.espacio img,.lugar img,.se-ve img{transition:none}
+}
+
+/* ===== 46c: lo que pidió el Sr. Vitor (25-11-2026) ===== */
+/* Portada: la piscina, la churuata y el mar sin recortar; el texto va sobre el mar en movimiento */
+.entrada{background:var(--primario)}
+.entrada-foto{position:relative;margin:0}
+.entrada-foto img{display:block;width:100%;height:auto}
+.entrada-foto::after{content:"";position:absolute;left:0;right:0;bottom:0;height:42%;background:linear-gradient(to bottom,rgba(15,58,90,0),rgba(15,58,90,.86));pointer-events:none}
+.entrada-txt{position:relative;padding:0 var(--margen) 20px;color:#fff}
+.entrada-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s ease}
+.entrada-video.listo{opacity:.6}
+.entrada-txt::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(to bottom,rgba(15,58,90,.94),rgba(15,58,90,.72))}
+.entrada-contenido{position:relative;z-index:2}
+.entrada h1{margin-top:-2.45em;font-size:2.35rem;color:#fff;text-shadow:0 2px 16px rgba(5,20,32,.45)}
+.entrada h1 span{display:inline-block;opacity:0;transform:translateY(.42em);animation:palabra .7s var(--suave) forwards;animation-delay:calc(.12s + var(--i)*.07s)}
+.entrada-sub{margin-top:10px;font-size:.98rem;line-height:1.4;color:#EAF1F4}
+.precios-entrada{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px;margin:12px 0 14px}
+.precios-entrada li{padding-left:10px;border-left:2px solid var(--coral)}
+.precios-entrada span{display:block;font-size:.8rem;line-height:1.25;color:#D5E2E9}
+.precios-entrada b{display:block;margin-top:2px;font:400 1.6rem/1.05 var(--titulos);color:#fff}
+.camas-entrada{margin-top:10px;font-size:.84rem;line-height:1.35;color:#D5E2E9}
+
+/* Lo que le espera: escenas grandes con foto o video y su texto abajo */
+.vid{background:var(--primario)}
+.escenas{padding:52px 0 36px;background:var(--papel)}
+.escenas-cab p{margin-top:8px;max-width:46ch}
+.escenas-pista{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:18px var(--margen) 8px;scrollbar-width:none;overscroll-behavior-x:contain}
+.escenas-pista::-webkit-scrollbar{display:none}
+.escena{position:relative;flex:0 0 78vw;aspect-ratio:3/4;overflow:hidden;border-radius:4px 4px 28px 28px;background:var(--primario);scroll-snap-align:center}
+.escena img,.escena video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.escena-txt{position:absolute;left:0;right:0;bottom:0;padding:64px 18px 18px;color:#fff;background:linear-gradient(to bottom,rgba(8,26,40,0),rgba(8,26,40,.84) 52%)}
+.escena-txt small{display:block;font-weight:600;font-size:.78rem;letter-spacing:.12em;color:var(--coral)}
+.escena-txt h3{margin-top:4px;color:#fff}
+.escena-txt p{margin-top:6px;font-size:.95rem;line-height:1.4;color:#E6EEF2}
+
+.escena video[poster*="piscina-mar"],.escena video[poster*="olas"]{object-position:50% 85%}
+
+/* Franjas de fotos y videos que se deslizan de lado */
+.tira-sec .seccion-t{max-width:1240px}
+.tira-sec .seccion-t p{margin-top:8px;max-width:60ch}
+.tira{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:16px var(--margen) 6px;scrollbar-width:none;overscroll-behavior-x:contain}
+.tira::-webkit-scrollbar{display:none}
+.tira li{flex:0 0 68vw;scroll-snap-align:center}
+.tira img,.tira video{display:block;width:100%;aspect-ratio:3/4;height:auto;object-fit:cover;object-position:50% 70%;border-radius:4px 4px 22px 22px;background:var(--arena2)}
+.tira p{margin-top:8px;font-weight:600;font-size:.95rem;color:var(--primario)}
+.tira-noche{background:#0B2233}
+.tira-noche h2,.tira-noche p,.tira-noche .tira p{color:#fff}
+.tira-noche .seccion-t p{color:#C9D6DD}
+.tira-clara{background:var(--papel)}
+
+/* Piscina: dos videos lado a lado */
+.duo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;margin-top:16px}
+.duo figure{margin:0}
+.duo video{display:block;width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:4px 4px 22px 22px}
+.duo figcaption{margin-top:8px;font-weight:600;font-size:.92rem;color:var(--primario)}
+
+/* Galería: videos que se tocan para ver */
+.videos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:16px}
+.videos video{display:block;width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 80%;border-radius:4px 4px 22px 22px;background:var(--primario)}
+.videos p{margin-top:8px;font-weight:600;font-size:.92rem;color:var(--primario)}
+
+@media (min-width:640px){
+  .escena{flex-basis:40vw;aspect-ratio:4/5}
+  .duo{max-width:480px}
+  .tira li{flex-basis:38vw}
+  .videos{grid-template-columns:repeat(4,minmax(0,1fr))}
+}
+@media (min-width:768px){
+  .entrada h1{font-size:3rem}
+}
+@media (min-width:980px){
+  .entrada{display:grid;grid-template-columns:minmax(0,1fr) auto;height:calc(100svh - var(--cab));min-height:560px;max-height:920px}
+  .entrada-foto{order:2;height:100%;aspect-ratio:4/3;max-width:68vw}
+  .entrada-foto img{height:100%;object-fit:cover}
+  .entrada-foto::after{display:none}
+  .entrada-txt{order:1;display:flex;align-items:flex-end;padding:48px 44px 46px}
+  .entrada-txt::before{background:linear-gradient(to top,rgba(15,58,90,.95) 40%,rgba(15,58,90,.3))}
+  .entrada h1{margin-top:0;font-size:clamp(2.6rem,3.3vw,4rem)}
+  .entrada-sub{font-size:1.08rem;margin-top:14px}
+  .precios-entrada{margin:18px 0 20px}
+  .precios-entrada b{font-size:2.1rem}
+  .precios-entrada span{font-size:.86rem}
+  .escenas{padding:90px 0 70px}
+  .escenas-pista{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;max-width:1240px;margin-inline:auto;overflow:visible;padding-inline:var(--margen)}
+  .escena{aspect-ratio:4/5}
+  .tira{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:18px;max-width:1240px;margin-inline:auto;overflow:visible;padding-inline:var(--margen)}
+  .duo-sec{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:64px;align-items:center}
+  .duo-sec .seccion-t{margin-bottom:0}
+  .duo{max-width:none;gap:22px;margin-top:0}
+  .duo video{aspect-ratio:3/4;object-position:50% 80%}
+}
+@media (prefers-reduced-motion:reduce){
+  .entrada h1 span{animation:none;opacity:1;transform:none}
+  .entrada-video{transition:none}
 }
