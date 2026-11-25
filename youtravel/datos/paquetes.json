@@ -65,12 +65,12 @@
   "resumen": "Playa El Agua, Juan Griego al atardecer y el castillo de Pampatar, con hotel y desayunos.",
   "incluye": ["vuelo", "hospedaje", "desayunos", "traslados", "excursiones"],
   "incluye_texto": ["Vuelo ida y vuelta Puerto Ordaz a Porlamar", "4 noches de hotel cerca de la playa", "Desayunos", "Traslados aeropuerto y hotel", "Paseo por la isla con chofer"],
-  "no_incluye": ["Almuerzos y cenas", "Paseo a Coche o Cubagua (se cotiza aparte)", "Gastos personales"],
+  "no_incluye": ["Almuerzos y cenas", "Paseo a las islas vecinas (se cotiza aparte)", "Gastos personales"],
   "itinerario": [
    {"titulo": "Llegada", "texto": "Vuelo a Porlamar, traslado al hotel y tarde de playa."},
    {"titulo": "Playa El Agua", "texto": "Día completo en Playa El Agua o Parguito."},
    {"titulo": "Vuelta a la isla", "texto": "Pampatar, La Asunción y el atardecer en Juan Griego."},
-   {"titulo": "Día libre", "texto": "Compras en Porlamar o paseo opcional a Coche."},
+   {"titulo": "Día libre", "texto": "Compras en Porlamar o paseo opcional a una isla vecina."},
    {"titulo": "Regreso", "texto": "Desayuno y vuelo de vuelta a Puerto Ordaz."}
   ],
   "fotos": ["mg-palmeras", "mg-cocoteros", "mg-atardecer", "mg-castillo", "mg-bahia"]

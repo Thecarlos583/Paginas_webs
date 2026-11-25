@@ -1,0 +1,51 @@
+/* Service worker sencillo: guarda las páginas de la agencia para abrir rápido.
+   Páginas: primero la red (para ver siempre lo último) y, sin conexión, la copia guardada.
+   CSS, JS e íconos: la copia guardada (cambian de nombre con ?v= en cada versión).
+   Fotos y videos de otros sitios: no se tocan (los maneja el navegador). */
+var CACHE = "agencia-25c6bddb";
+var ARCHIVOS = ["./", "index.html", "paquetes.html", "destinos.html", "servicios.html", "grupos.html", "galeria.html", "cotizar.html", "contacto.html", "creditos.html", "paquete-canaima-salto-angel.html", "paquete-gran-sabana.html", "paquete-los-roques.html", "paquete-isla-de-margarita.html", "paquete-merida-andes.html", "paquete-morrocoy.html", "paquete-punta-cana.html", "paquete-curazao.html", "paquete-cartagena.html", "paquete-cusco-machu-picchu.html", "paquete-madrid-paris.html", "estilos.css?v=25c6bddb", "sitio.js?v=25c6bddb", "manifest.webmanifest", "img/favicon-32.png"];
+
+self.addEventListener("install", function (ev) {
+  ev.waitUntil(
+    caches.open(CACHE).then(function (c) {
+      return Promise.all(ARCHIVOS.map(function (a) { return c.add(a).catch(function () {}); }));
+    }).then(function () { return self.skipWaiting(); })
+  );
+});
+
+self.addEventListener("activate", function (ev) {
+  ev.waitUntil(
+    caches.keys().then(function (ks) {
+      return Promise.all(ks.filter(function (k) { return k.indexOf("agencia-") === 0 && k !== CACHE; })
+        .map(function (k) { return caches.delete(k); }));
+    }).then(function () { return self.clients.claim(); })
+  );
+});
+
+self.addEventListener("fetch", function (ev) {
+  var req = ev.request;
+  if (req.method !== "GET") return;
+  var url = new URL(req.url);
+  if (url.origin !== location.origin) return;
+  var esPagina = req.mode === "navigate" || /\.html$|\/$/.test(url.pathname);
+  if (esPagina) {
+    ev.respondWith(
+      fetch(req).then(function (r) {
+        var copia = r.clone();
+        caches.open(CACHE).then(function (c) { c.put(req, copia); });
+        return r;
+      }).catch(function () {
+        return caches.match(req, { ignoreSearch: true }).then(function (r) { return r || caches.match("./index.html"); });
+      })
+    );
+    return;
+  }
+  ev.respondWith(
+    caches.match(req).then(function (r) {
+      return r || fetch(req).then(function (resp) {
+        if (resp.ok) { var copia = resp.clone(); caches.open(CACHE).then(function (c) { c.put(req, copia); }); }
+        return resp;
+      });
+    })
+  );
+});

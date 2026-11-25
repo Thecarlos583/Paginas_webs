@@ -41,7 +41,7 @@ El degradado solo vive en: el botón principal, el aro, una línea fina por pant
 - Sombras: casi ninguna; solo lo que flota (hoja del cotizador, visor, barra de abajo).
 - Motivo: rutas curvas finas que salen de un aro (SVG generado), como divisores y fondos sutiles. En el teléfono, máximo una animada por pantalla.
 
-## Páginas (21) frente a Cotomaya (15)
+## Páginas (20) frente a Cotomaya (15)
 | YouTravel | Lleva | En Cotomaya |
 |---|---|---|
 | index.html | Portada "El aro se abre", buscador rápido, tablero de paquetes destacados, destinos en galería horizontal (fijada en PC), servicios, "Cómo funciona" con el avioncito, cierre | index |
