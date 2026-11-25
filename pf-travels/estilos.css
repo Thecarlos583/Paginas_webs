@@ -800,7 +800,8 @@ h1, h2, h3, h4 { font-weight: 400; letter-spacing: -.01em; line-height: 1.02; }
 /* ---------- líneas de viento ---------- */
 .viento { pointer-events: none; }
 .viento path { fill: none; stroke: var(--arena-honda); stroke-width: 1.2; vector-effect: non-scaling-stroke; }
-.enc-viento { position: absolute; left: 0; right: 0; bottom: 18px; width: 100%; height: 64px; z-index: 1; animation: dibuja-ruta 1.8s .1s var(--suave) both; }
+.enc:not(.enc-con-foto) { padding: 36px 0 64px; }
+.enc-viento { position: absolute; left: 0; right: 0; bottom: 8px; width: 100%; height: 44px; z-index: 1; animation: dibuja-ruta 1.8s .1s var(--suave) both; }
 .enc-con-foto .enc-viento { display: none; }
 .enc-foto::after { background: linear-gradient(180deg, rgba(var(--velo), .2) 0%, rgba(var(--velo), .45) 40%, rgba(var(--velo), .9) 100%); }
 .viento-pie { position: absolute; left: 0; right: 0; top: 14px; width: 100%; height: 70px; }
@@ -906,7 +907,7 @@ h1, h2, h3, h4 { font-weight: 400; letter-spacing: -.01em; line-height: 1.02; }
 
 /* ---------- lo que tiene cerca ---------- */
 .cerca { position: relative; overflow: hidden; }
-.cer-viento { position: absolute; left: 0; right: 0; top: 0; width: 100%; height: 110px; }
+.cer-viento { position: absolute; left: 0; right: 0; top: 6px; width: 100%; height: 44px; }
 .cer-viento path { stroke: rgba(240, 138, 108, .32); }
 .cerca .contenedor { position: relative; }
 .cer-lista { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; margin-inline: calc(-1 * var(--margen)); padding: 0 var(--margen) 6px; scroll-padding-inline: var(--margen); }
@@ -965,6 +966,8 @@ h1, h2, h3, h4 { font-weight: 400; letter-spacing: -.01em; line-height: 1.02; }
   .por-linea { font-size: 19px; }
   .buscador-sec { margin-top: -56px; }
   .pres-rej { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-rows: auto auto 1fr; column-gap: 72px; row-gap: 28px; align-items: start; }
+  .enc:not(.enc-con-foto) { padding: 64px 0 96px; }
+  .enc-viento { height: 64px; bottom: 14px; }
   .pres-txt { grid-column: 1; grid-row: 1; }
   .pres-ctl { grid-column: 1; grid-row: 2; padding: 26px 28px 28px; }
   .pres-pie { grid-column: 1; grid-row: 3; }
@@ -972,7 +975,7 @@ h1, h2, h3, h4 { font-weight: 400; letter-spacing: -.01em; line-height: 1.02; }
   .pres-item a { grid-template-columns: 64px minmax(0, 1fr) auto; padding: 12px 0; }
   .pres-foto { width: 64px; height: 64px; }
   .pres-nom { font-size: 22px; }
-  .cer-viento { height: 150px; }
+  .cer-viento { top: 14px; height: 84px; }
   .cer-lista { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; overflow: visible; margin: 0; padding: 0; }
   .cer-foto { aspect-ratio: 3 / 4; }
   .paso-n { font-size: 56px; }
