@@ -843,3 +843,60 @@ details[open]>summary .chev{transform:rotate(180deg)}
   .entrada-video{transition:none}
   .entrada-foto img.rota{transition:none}
 }
+
+/* ===== 25-11 tarde: secciones con sentido en vez de franjas de fotos ===== */
+/* Un día de playa en Corrales: línea de tiempo con la marea que sube */
+.marea{position:relative;display:grid;gap:30px;padding-left:34px;margin-top:8px}
+.marea::before,.marea::after{content:"";position:absolute;left:10px;top:8px;width:4px;border-radius:4px}
+.marea::before{bottom:8px;background:var(--arena2)}
+.marea::after{height:calc(var(--p,0) * (100% - 16px));background:linear-gradient(to bottom,#7FC4D6,var(--secundario) 45%,var(--primario))}
+.marea-paso{position:relative}
+.marea-paso::before{content:"";position:absolute;left:-31px;top:4px;width:18px;height:18px;border-radius:50%;background:var(--fondo);border:3px solid var(--arena2);box-sizing:border-box;transition:background-color .35s,border-color .35s,transform .35s var(--suave)}
+.marea-paso.mojado::before{background:var(--secundario);border-color:var(--secundario);transform:scale(1.12)}
+.marea-media img,.marea-media video{display:block;width:100%;aspect-ratio:4/3;height:auto;object-fit:cover;border-radius:4px 4px 22px 22px;background:var(--arena2)}
+.marea-txt{margin-top:12px}
+.marea-txt small{display:block;font-weight:600;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--secundario)}
+.marea-txt h3{margin-top:4px}
+.marea-txt p{margin-top:6px}
+
+/* Cuando cae el sol: tres planes de noche con su video */
+.noches{background:#0B2233;color:#E6EEF2}
+.noches h2,.noches h3{color:#fff}
+.noches .seccion-t p{color:#C9D6DD}
+.noches-lista{display:grid;gap:18px}
+.noches-lista li{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1fr);gap:16px;align-items:center}
+.noches-video video{display:block;width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:4px 4px 20px 20px;background:#13324A;box-shadow:0 0 0 1px rgba(255,255,255,.06);transition:box-shadow .9s ease}
+.noches-video video.listo{box-shadow:0 0 0 1px rgba(255,255,255,.1),0 14px 44px -10px rgba(90,150,255,.6)}
+.noches-txt p{margin-top:6px;font-size:.98rem;line-height:1.45}
+
+/* Recorra la casa: videos cortos uno tras otro, tipo historias, sin ocupar toda la pantalla */
+.recorrido{background:var(--papel)}
+.recorrido-txt p{margin-top:8px}
+.recorrido-chips{display:flex;gap:8px;overflow-x:auto;margin:16px calc(var(--margen) * -1) 0;padding:2px var(--margen);scrollbar-width:none}
+.recorrido-chips::-webkit-scrollbar{display:none}
+.recorrido-chips .chip{flex:none}
+.recorrido-pantalla{position:relative;height:min(56vh,440px);aspect-ratio:4/5;margin:16px auto 0;border-radius:4px 4px 26px 26px;overflow:hidden;background:var(--primario)}
+.recorrido-pantalla video{display:block;width:100%;height:100%;object-fit:cover;cursor:pointer}
+.recorrido-barras{position:absolute;z-index:2;top:10px;left:10px;right:10px;display:flex;gap:4px;pointer-events:none}
+.recorrido-barras i{flex:1;height:3px;border-radius:3px;background:rgba(255,255,255,.4);overflow:hidden}
+.recorrido-barras b{display:block;height:100%;background:#fff;transform:scaleX(0);transform-origin:left}
+.recorrido-infos{margin-top:16px}
+.rec-info p{margin-top:6px}
+
+@media (min-width:980px){
+  .marea{gap:46px;padding-left:46px}
+  .marea::before,.marea::after{left:14px}
+  .marea-paso{display:grid;grid-template-columns:minmax(0,520px) minmax(0,1fr);gap:40px;align-items:center}
+  .marea-paso::before{left:-40px;top:50%;margin-top:-9px}
+  .marea-txt{margin-top:0;max-width:44ch}
+  .noches-lista{grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+  .noches-lista li{grid-template-columns:1fr;align-items:start}
+  .recorrido-fila{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:64px;align-items:center}
+  .recorrido-chips{flex-wrap:wrap;margin-inline:0;padding-inline:0}
+  .recorrido-pantalla{height:min(72vh,600px);margin:0}
+}
+@media (prefers-reduced-motion:reduce){
+  .marea-paso::before,.noches-video video{transition:none}
+}
+.recorrido-chips .chip{padding:7px 16px}
+@media (min-width:640px) and (max-width:979px){.marea-media{max-width:440px}}

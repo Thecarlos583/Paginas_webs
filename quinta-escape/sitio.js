@@ -426,7 +426,57 @@ var CONFIG = {
     vids.forEach(function (v) { io.observe(v); });
   }
 
+  /* Un día de playa: la marea sube por la línea mientras se baja, y moja cada paso al pasar.
+     Todo el contenido se ve desde el principio; solo se mueve el agua de la línea. */
+  function initMarea() {
+    var ol = $("[data-marea]"); if (!ol) return;
+    var pasos = $$(".marea-paso", ol);
+    if (quieto) { ol.style.setProperty("--p", 1); pasos.forEach(function (p) { p.classList.add("mojado"); }); return; }
+    var pend = false;
+    function pinta() {
+      pend = false;
+      var vh = window.innerHeight, r = ol.getBoundingClientRect(), nivel = vh * .62;
+      var p = Math.max(0, Math.min(1, (nivel - r.top) / r.height));
+      ol.style.setProperty("--p", p.toFixed(3));
+      pasos.forEach(function (el) { el.classList.toggle("mojado", el.getBoundingClientRect().top + 18 < nivel); });
+    }
+    function pide() { if (!pend) { pend = true; requestAnimationFrame(pinta); } }
+    window.addEventListener("scroll", pide, { passive: true }); window.addEventListener("resize", pide); pinta();
+  }
+
+  /* Recorra la casa: videos cortos uno tras otro, con barritas de avance. Arranca al verse y se pausa al salir.
+     Tocar el video lo pausa o lo sigue. Con movimiento reducido o ahorro de datos no arranca solo. */
+  function initRecorrido() {
+    var caja = $("[data-recorrido]"); if (!caja) return;
+    var v = $("video", caja), chips = $$(".chip", caja), infos = $$(".rec-info", caja), barras = $$(".recorrido-barras b", caja);
+    var con = navigator.connection || {}, ahorro = con.saveData || /2g/.test(con.effectiveType || "");
+    var pc = window.matchMedia("(min-width:768px)").matches, i = 0, visto = false, manual = quieto || ahorro;
+    function marca() {
+      chips.forEach(function (c, k) { c.setAttribute("aria-pressed", k === i ? "true" : "false"); });
+      infos.forEach(function (d, k) { d.hidden = k !== i; });
+      barras.forEach(function (b, k) { b.style.transform = "scaleX(" + (k < i ? 1 : 0) + ")"; });
+    }
+    function carga(k, jugar) {
+      i = k; marca();
+      var n = chips[i].getAttribute("data-n");
+      v.poster = "videos/" + n + ".webp";
+      v.src = "videos/" + n + (pc ? "" : "-tel") + ".mp4";
+      if (jugar) { var pr = v.play(); if (pr && pr.catch) pr.catch(function () {}); }
+    }
+    v.addEventListener("timeupdate", function () { if (v.duration) barras[i].style.transform = "scaleX(" + (v.currentTime / v.duration) + ")"; });
+    v.addEventListener("ended", function () { carga((i + 1) % chips.length, true); });
+    v.addEventListener("click", function () { if (!v.getAttribute("src")) carga(i, true); else if (v.paused) v.play(); else v.pause(); });
+    chips.forEach(function (c, k) { c.addEventListener("click", function () { carga(k, visto && !manual || manual); }); });
+    marca();
+    if (manual || !("IntersectionObserver" in window)) return;
+    new IntersectionObserver(function (e) {
+      visto = e[0].isIntersecting;
+      if (visto) { if (!v.getAttribute("src")) carga(i, true); else v.play(); } else if (!v.paused) v.pause();
+    }, { threshold: .35 }).observe(v);
+  }
+
   safe(initVideos, "videos");
+  safe(initMarea, "marea"); safe(initRecorrido, "recorrido");
   safe(initFlotante, "flotante");
   safe(initMapa, "mapa"); safe(initCuenta, "cuenta"); safe(initRevela, "revela"); safe(initAnochecer, "anochecer"); safe(initHorizontal, "horizontal"); safe(initHoja, "hoja"); safe(initPortada, "portada"); safe(initParalaje, "paralaje");
   safe(initArmador, "armador"); safe(initDias, "dias"); safe(initHoy, "hoy"); safe(initColores, "colores"); safe(initGaleria, "galeria");
