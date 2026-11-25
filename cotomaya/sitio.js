@@ -55,7 +55,7 @@
   /* ------------------------------------------------------------ datos */
   var CFG = {}, D = null;
   var RESPALDO_CFG = {
-    marca: "Cotomaya Venezuela", whatsapp_principal: "584142506516", redes: {}, categorias: {}, tipos: {},
+    marca: "Cotomaya Venezuela", whatsapp_principal: "584245180022", redes: {}, categorias: {}, tipos: {},
     mensajes: { general: "Hola Cotomaya, requiero información" }
   };
   /* Número principal (whatsapp_principal). Se acepta el nombre viejo "whatsapp" por si alguien lo deja */
