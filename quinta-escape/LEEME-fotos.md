@@ -5,8 +5,9 @@ Para cambiar una, reemplace el archivo en `fotos/` con el mismo nombre, en WebP,
 
 | Foto | Qué es | Dónde sale |
 |---|---|---|
-| `galeria-12` | Comedor techado mirando a la piscina, la churuata y el mar | Inicio (portada, 1.a), Galería |
-| `churuata-2` / `galeria-21` | Churuata al atardecer / piscina de noche | Inicio (portada, 2.a y 3.a) |
+| `casa-general` | La casa completa con el jardín y la piscina (álbum del 24-11) | Inicio (portada, 1.a), Galería |
+| `casa-churuata` | La casa y la churuata (álbum del 24-11) | Inicio (portada, 2.a) |
+| `churuata-2` | Churuata al atardecer | Inicio (portada, 3.a) |
 | `vitor-yadilka` | Los dueños | Inicio (Bienvenidos) |
 | `galeria-22` / `noche-piscina` | Piscina al atardecer / de noche | Piscina y churuata (De la tarde a la noche) |
 | `chef`, `jardin` | Chef local, jardín | La casa |
