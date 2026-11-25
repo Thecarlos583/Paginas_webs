@@ -1,0 +1,647 @@
+[
+ {
+  "id": "aruba",
+  "ejemplo": true,
+  "destacado": true,
+  "nombre": "Aruba",
+  "articulo": "el paquete",
+  "ambito": "internacional",
+  "destino": "aruba",
+  "region": "Caribe",
+  "tipo": "playa",
+  "dias": 4,
+  "noches": 3,
+  "personas_max": 10,
+  "salida": "Vuelo desde Las Piedras, según disponibilidad",
+  "precio": 690,
+  "por": "por persona",
+  "resumen": "Tres noches frente a las playas de arena blanca, a un vuelo corto desde el Josefa Camejo.",
+  "incluye": [
+   "vuelo",
+   "hospedaje",
+   "desayunos",
+   "traslados",
+   "asistencia"
+  ],
+  "incluye_texto": [
+   "Vuelo ida y vuelta Las Piedras a Aruba",
+   "3 noches de hotel cerca de la playa",
+   "Desayunos",
+   "Traslados aeropuerto y hotel",
+   "Asistencia al viajero"
+  ],
+  "no_incluye": [
+   "Almuerzos y cenas",
+   "Alquiler de carro (se cotiza aparte)",
+   "Gastos personales"
+  ],
+  "itinerario": [
+   {
+    "titulo": "Llegada a Oranjestad",
+    "texto": "Vuelo corto desde Las Piedras, traslado al hotel y tarde de playa."
+   },
+   {
+    "titulo": "Playas del oeste",
+    "texto": "Palm Beach y Eagle Beach, agua quieta y atardecer frente al mar."
+   },
+   {
+    "titulo": "Vuelta a la isla",
+    "texto": "El faro California, la costa norte de piedra y el centro de Oranjestad."
+   },
+   {
+    "titulo": "Regreso",
+    "texto": "Desayuno, última mañana de playa y vuelo de vuelta a Las Piedras."
+   }
+  ],
+  "fotos": [
+   "ar-palm",
+   "ar-kite",
+   "ar-mesas",
+   "ar-costa",
+   "ar-oeste"
+  ]
+ },
+ {
+  "id": "los-roques",
+  "ejemplo": true,
+  "destacado": true,
+  "nombre": "Los Roques",
+  "articulo": "el paquete",
+  "ambito": "nacional",
+  "destino": "los-roques",
+  "tipo": "playa",
+  "dias": 3,
+  "noches": 2,
+  "personas_max": 6,
+  "salida": "Vuelo desde Maiquetía; el tramo desde Las Piedras se cotiza aparte",
+  "precio": 760,
+  "por": "por persona",
+  "resumen": "Posada en el Gran Roque, lancha a los cayos cada mañana y el agua más clara que va a ver.",
+  "incluye": [
+   "vuelo",
+   "hospedaje",
+   "comidas",
+   "lancha",
+   "traslados"
+  ],
+  "incluye_texto": [
+   "Vuelos ida y vuelta desde Maiquetía",
+   "2 noches en posada del Gran Roque",
+   "Pensión completa",
+   "Lancha diaria a los cayos con cava y sombrilla",
+   "Traslados en el archipiélago"
+  ],
+  "no_incluye": [
+   "Tramo Las Piedras a Maiquetía",
+   "Tasa de entrada al parque nacional",
+   "Bebidas alcohólicas"
+  ],
+  "itinerario": [
+   {
+    "titulo": "Llegada al Gran Roque",
+    "texto": "Vuelo, bienvenida en la posada y tarde en Madrisquí o Francisquí."
+   },
+   {
+    "titulo": "Día de cayos",
+    "texto": "Lancha a Crasquí o Cayo de Agua, almuerzo en la arena y atardecer en el pueblo."
+   },
+   {
+    "titulo": "Regreso",
+    "texto": "Mañana de playa cerca del pueblo y vuelo de vuelta."
+   }
+  ],
+  "fotos": [
+   "lr-cayo",
+   "lr-aerea",
+   "lr-agua",
+   "lr-arena",
+   "lr-lanchas"
+  ]
+ },
+ {
+  "id": "isla-de-margarita",
+  "ejemplo": true,
+  "destacado": true,
+  "nombre": "Isla de Margarita",
+  "articulo": "el paquete",
+  "ambito": "nacional",
+  "destino": "margarita",
+  "tipo": "playa",
+  "dias": 5,
+  "noches": 4,
+  "personas_max": 10,
+  "salida": "Vuelo desde Las Piedras con conexión, según disponibilidad",
+  "precio": 470,
+  "por": "por persona",
+  "resumen": "Playa El Agua, Juan Griego al atardecer y el castillo de Pampatar, con hotel y desayunos.",
+  "incluye": [
+   "vuelo",
+   "hospedaje",
+   "desayunos",
+   "traslados",
+   "excursiones"
+  ],
+  "incluye_texto": [
+   "Vuelo ida y vuelta Las Piedras a Porlamar",
+   "4 noches de hotel cerca de la playa",
+   "Desayunos",
+   "Traslados aeropuerto y hotel",
+   "Paseo por la isla con chofer"
+  ],
+  "no_incluye": [
+   "Almuerzos y cenas",
+   "Paseo a las islas vecinas (se cotiza aparte)",
+   "Gastos personales"
+  ],
+  "itinerario": [
+   {
+    "titulo": "Llegada",
+    "texto": "Vuelo a Porlamar, traslado al hotel y tarde de playa."
+   },
+   {
+    "titulo": "Playa El Agua",
+    "texto": "Día completo en Playa El Agua o Parguito."
+   },
+   {
+    "titulo": "Vuelta a la isla",
+    "texto": "Pampatar, La Asunción y el atardecer en Juan Griego."
+   },
+   {
+    "titulo": "Día libre",
+    "texto": "Compras en Porlamar o paseo opcional a una isla vecina."
+   },
+   {
+    "titulo": "Regreso",
+    "texto": "Desayuno y vuelo de vuelta a Las Piedras."
+   }
+  ],
+  "fotos": [
+   "mg-palmeras",
+   "mg-cocoteros",
+   "mg-atardecer",
+   "mg-castillo",
+   "mg-bahia"
+  ]
+ },
+ {
+  "id": "canaima-salto-angel",
+  "ejemplo": true,
+  "destacado": true,
+  "nombre": "Canaima y el Salto Ángel",
+  "articulo": "el paquete",
+  "ambito": "nacional",
+  "destino": "canaima",
+  "tipo": "selva",
+  "dias": 4,
+  "noches": 3,
+  "personas_max": 8,
+  "salida": "Vuelo desde Maiquetía; el tramo desde Las Piedras se cotiza aparte",
+  "precio": 690,
+  "por": "por persona",
+  "resumen": "La laguna, los saltos y la curiara río arriba hasta ver caer el Salto Ángel desde el Auyantepui.",
+  "incluye": [
+   "vuelo",
+   "hospedaje",
+   "comidas",
+   "lancha",
+   "guia",
+   "traslados"
+  ],
+  "incluye_texto": [
+   "Vuelo ida y vuelta Maiquetía a Canaima",
+   "3 noches en campamento con baño privado",
+   "Desayuno, almuerzo y cena",
+   "Paseo en curiara al Salto Ángel",
+   "Recorrido por la laguna y los saltos",
+   "Guía local en todos los paseos"
+  ],
+  "no_incluye": [
+   "Tramo Las Piedras a Maiquetía",
+   "Impuesto de entrada al parque nacional",
+   "Bebidas y propinas"
+  ],
+  "itinerario": [
+   {
+    "titulo": "Llegada a Canaima",
+    "texto": "Vuelo desde Maiquetía, almuerzo y paseo en la laguna frente a los saltos Hacha y Ucaima."
+   },
+   {
+    "titulo": "Río arriba",
+    "texto": "Curiara por el río Carrao y el Churún hasta la isla Ratoncito. Noche en hamaca frente al salto."
+   },
+   {
+    "titulo": "El Salto Ángel",
+    "texto": "Caminata al mirador al amanecer, regreso en curiara y tarde libre en la laguna."
+   },
+   {
+    "titulo": "Regreso",
+    "texto": "Paseo por detrás del Salto El Sapo, almuerzo y vuelo de vuelta a Maiquetía."
+   }
+  ],
+  "fotos": [
+   "canaima-salto",
+   "canaima-auyantepui",
+   "canaima-hacha",
+   "canaima-laguna",
+   "canaima-palmas"
+  ]
+ },
+ {
+  "id": "panama",
+  "ejemplo": true,
+  "destacado": true,
+  "nombre": "Ciudad de Panamá",
+  "articulo": "el paquete",
+  "ambito": "internacional",
+  "destino": "panama",
+  "region": "Centroamérica",
+  "tipo": "ciudad",
+  "dias": 5,
+  "noches": 4,
+  "personas_max": 10,
+  "salida": "Vuelo desde Maiquetía; el tramo desde Las Piedras se cotiza aparte",
+  "precio": 890,
+  "por": "por persona",
+  "resumen": "El Casco Antiguo, la Cinta Costera, las esclusas del Canal y un día para compras.",
+  "incluye": [
+   "vuelo",
+   "hospedaje",
+   "desayunos",
+   "traslados",
+   "excursiones",
+   "asistencia"
+  ],
+  "incluye_texto": [
+   "Vuelo ida y vuelta desde Maiquetía",
+   "4 noches de hotel en la ciudad",
+   "Desayunos",
+   "Traslados aeropuerto y hotel",
+   "Paseo al Canal de Panamá",
+   "Asistencia al viajero"
+  ],
+  "no_incluye": [
+   "Tramo Las Piedras a Maiquetía",
+   "Entrada al centro de visitantes del Canal",
+   "Almuerzos y cenas"
+  ],
+  "itinerario": [
+   {
+    "titulo": "Llegada",
+    "texto": "Traslado al hotel y paseo al atardecer por la Cinta Costera."
+   },
+   {
+    "titulo": "Casco Antiguo",
+    "texto": "Plazas, iglesias y balcones del barrio viejo, con la bahía de fondo."
+   },
+   {
+    "titulo": "El Canal",
+    "texto": "Las esclusas de Miraflores y el paso de los barcos."
+   },
+   {
+    "titulo": "Día de compras",
+    "texto": "Centros comerciales y tiendas de la ciudad, a su ritmo."
+   },
+   {
+    "titulo": "Regreso",
+    "texto": "Desayuno y traslado al aeropuerto."
+   }
+  ],
+  "fotos": [
+   "pn-skyline",
+   "pn-casco",
+   "pn-bahia",
+   "pn-ciudad",
+   "pn-tarde"
+  ]
+ },
+ {
+  "id": "curazao",
+  "ejemplo": true,
+  "destacado": false,
+  "nombre": "Curazao",
+  "articulo": "el paquete",
+  "ambito": "internacional",
+  "destino": "curazao",
+  "region": "Caribe",
+  "tipo": "playa",
+  "dias": 5,
+  "noches": 4,
+  "personas_max": 8,
+  "salida": "Vuelo desde Las Piedras, según disponibilidad",
+  "precio": 820,
+  "por": "por persona",
+  "resumen": "Las casas de colores de Willemstad, playas pequeñas de agua quieta y un carro para recorrer la isla.",
+  "incluye": [
+   "vuelo",
+   "hospedaje",
+   "desayunos",
+   "traslados",
+   "asistencia"
+  ],
+  "incluye_texto": [
+   "Vuelo ida y vuelta Las Piedras a Curazao",
+   "4 noches de hotel en Willemstad",
+   "Desayunos",
+   "Traslados aeropuerto y hotel",
+   "Asistencia al viajero"
+  ],
+  "no_incluye": [
+   "Alquiler de carro (se cotiza aparte)",
+   "Almuerzos y cenas",
+   "Gastos personales"
+  ],
+  "itinerario": [
+   {
+    "titulo": "Llegada a Willemstad",
+    "texto": "Traslado al hotel y paseo por Punda y el puente flotante."
+   },
+   {
+    "titulo": "Playas del oeste",
+    "texto": "Día de playa en las ensenadas del lado oeste."
+   },
+   {
+    "titulo": "La ciudad",
+    "texto": "Otrobanda, el mercado flotante y cena frente a la bahía."
+   },
+   {
+    "titulo": "Día libre",
+    "texto": "Más playa o compras en el centro."
+   },
+   {
+    "titulo": "Regreso",
+    "texto": "Desayuno y traslado al aeropuerto."
+   }
+  ],
+  "fotos": [
+   "cu-casas",
+   "cu-playa",
+   "cu-puente",
+   "cu-costa",
+   "cu-aerea"
+  ]
+ },
+ {
+  "id": "morrocoy",
+  "ejemplo": true,
+  "destacado": false,
+  "nombre": "Morrocoy",
+  "articulo": "el paquete",
+  "ambito": "nacional",
+  "destino": "morrocoy",
+  "tipo": "playa",
+  "dias": 3,
+  "noches": 2,
+  "personas_max": 12,
+  "salida": "Por carretera desde Punto Fijo",
+  "precio": 230,
+  "por": "por persona",
+  "resumen": "Tucacas como base y un cayo distinto cada día: Sombrero, Sal, Playuela.",
+  "incluye": [
+   "transporte",
+   "hospedaje",
+   "desayunos",
+   "lancha"
+  ],
+  "incluye_texto": [
+   "Camioneta ida y vuelta desde Punto Fijo",
+   "2 noches de hotel en Tucacas",
+   "Desayunos",
+   "Lancha a los cayos dos días"
+  ],
+  "no_incluye": [
+   "Almuerzos y cenas",
+   "Tasa del parque nacional",
+   "Toldo y sillas en los cayos"
+  ],
+  "itinerario": [
+   {
+    "titulo": "Rumbo a Tucacas",
+    "texto": "Salida temprano desde Punto Fijo por la costa de Falcón y tarde libre en Tucacas."
+   },
+   {
+    "titulo": "Cayo Sombrero",
+    "texto": "Lancha temprano y día completo en el cayo."
+   },
+   {
+    "titulo": "Cayo Sal y regreso",
+    "texto": "Mañana de aguas bajas y tranquilas, almuerzo y regreso a Punto Fijo."
+   }
+  ],
+  "fotos": [
+   "mo-playa",
+   "mo-palmera",
+   "mo-cayo",
+   "mo-bajo",
+   "mo-orilla"
+  ]
+ },
+ {
+  "id": "merida-andes",
+  "ejemplo": true,
+  "destacado": false,
+  "nombre": "Mérida y los Andes",
+  "articulo": "el paquete",
+  "ambito": "nacional",
+  "destino": "merida",
+  "tipo": "montana",
+  "dias": 6,
+  "noches": 5,
+  "personas_max": 10,
+  "salida": "Por carretera desde Punto Fijo",
+  "precio": 390,
+  "por": "por persona",
+  "resumen": "Teleférico, lagunas de páramo y pueblos de montaña, con abrigo y chocolate caliente al final del día.",
+  "incluye": [
+   "transporte",
+   "hospedaje",
+   "desayunos",
+   "excursiones",
+   "guia"
+  ],
+  "incluye_texto": [
+   "Camioneta ida y vuelta desde Punto Fijo",
+   "5 noches en posada de montaña",
+   "Desayunos",
+   "Paseo al páramo y a la Laguna de Mucubají",
+   "Guía en los paseos"
+  ],
+  "no_incluye": [
+   "Boleto del teleférico",
+   "Almuerzos y cenas",
+   "Gastos personales"
+  ],
+  "itinerario": [
+   {
+    "titulo": "Rumbo a los Andes",
+    "texto": "Salida temprano desde Punto Fijo, almuerzo en el camino y llegada a Mérida en la noche."
+   },
+   {
+    "titulo": "El teleférico",
+    "texto": "Subida en el teleférico hacia la Sierra Nevada."
+   },
+   {
+    "titulo": "Ruta del páramo",
+    "texto": "Laguna de Mucubají, pueblos del páramo y trucha para almorzar."
+   },
+   {
+    "titulo": "Pueblos",
+    "texto": "Jají o Los Pueblitos, artesanía y dulces abrillantados."
+   },
+   {
+    "titulo": "Mañana libre",
+    "texto": "Compras en el Mercado Principal o un último paseo por el centro."
+   },
+   {
+    "titulo": "Regreso",
+    "texto": "Desayuno temprano y viaje de vuelta a Punto Fijo."
+   }
+  ],
+  "fotos": [
+   "me-laguna",
+   "me-sierra",
+   "me-paramo",
+   "me-nubes",
+   "me-picos"
+  ]
+ },
+ {
+  "id": "cartagena",
+  "ejemplo": true,
+  "destacado": false,
+  "nombre": "Cartagena de Indias",
+  "articulo": "el paquete",
+  "ambito": "internacional",
+  "destino": "cartagena",
+  "region": "Suramérica",
+  "tipo": "ciudad",
+  "dias": 5,
+  "noches": 4,
+  "personas_max": 10,
+  "salida": "Vuelo desde Maiquetía; el tramo desde Las Piedras se cotiza aparte",
+  "precio": 980,
+  "por": "por persona",
+  "resumen": "La ciudad amurallada a pie, balcones con flores y un día en las Islas del Rosario.",
+  "incluye": [
+   "vuelo",
+   "hospedaje",
+   "desayunos",
+   "traslados",
+   "excursiones",
+   "asistencia"
+  ],
+  "incluye_texto": [
+   "Vuelo ida y vuelta",
+   "4 noches de hotel en el centro",
+   "Desayunos",
+   "Traslados aeropuerto y hotel",
+   "Paseo a las Islas del Rosario",
+   "Asistencia al viajero"
+  ],
+  "no_incluye": [
+   "Tramo Las Piedras a Maiquetía",
+   "Almuerzos y cenas",
+   "Impuesto de muelle"
+  ],
+  "itinerario": [
+   {
+    "titulo": "Llegada",
+    "texto": "Traslado al hotel y primera caminata por la ciudad amurallada."
+   },
+   {
+    "titulo": "Centro histórico",
+    "texto": "Getsemaní, las murallas y el atardecer en un baluarte."
+   },
+   {
+    "titulo": "Islas del Rosario",
+    "texto": "Lancha a las islas y día de playa."
+   },
+   {
+    "titulo": "Día libre",
+    "texto": "Castillo de San Felipe o compras."
+   },
+   {
+    "titulo": "Regreso",
+    "texto": "Desayuno y traslado al aeropuerto."
+   }
+  ],
+  "fotos": [
+   "ct-catedral",
+   "ct-balcones",
+   "ct-baluarte",
+   "ct-calle",
+   "ct-plaza"
+  ]
+ },
+ {
+  "id": "madrid-paris",
+  "ejemplo": true,
+  "destacado": false,
+  "nombre": "Madrid y París",
+  "articulo": "el paquete",
+  "ambito": "internacional",
+  "destino": "madrid",
+  "destinos_extra": [
+   "paris"
+  ],
+  "region": "Europa",
+  "tipo": "ciudad",
+  "dias": 10,
+  "noches": 9,
+  "personas_max": 8,
+  "salida": "Vuelo desde Maiquetía; el tramo desde Las Piedras se cotiza aparte",
+  "precio": 2890,
+  "por": "por persona",
+  "resumen": "Cinco noches en Madrid, tren a París y cuatro noches más junto al Sena.",
+  "incluye": [
+   "vuelo",
+   "hospedaje",
+   "desayunos",
+   "traslados",
+   "tren",
+   "asistencia"
+  ],
+  "incluye_texto": [
+   "Vuelos ida y vuelta",
+   "9 noches de hotel céntrico",
+   "Desayunos",
+   "Tren Madrid a París",
+   "Traslados de llegada y salida",
+   "Asistencia al viajero con cobertura Schengen"
+  ],
+  "no_incluye": [
+   "Tramo Las Piedras a Maiquetía",
+   "Visado, si su pasaporte lo requiere",
+   "Entradas a museos",
+   "Almuerzos y cenas"
+  ],
+  "itinerario": [
+   {
+    "titulo": "Llegada a Madrid",
+    "texto": "Traslado al hotel y paseo por la Gran Vía."
+   },
+   {
+    "titulo": "Días 2 al 5 en Madrid",
+    "texto": "Plaza Mayor, el Retiro, museos y un día en Toledo."
+   },
+   {
+    "titulo": "Día 6: tren a París",
+    "texto": "Viaje en tren y primera noche junto al Sena."
+   },
+   {
+    "titulo": "Días 7 al 9 en París",
+    "texto": "La Torre Eiffel, Montmartre, el Louvre y paseo en barco."
+   },
+   {
+    "titulo": "Día 10: regreso",
+    "texto": "Traslado al aeropuerto."
+   }
+  ],
+  "fotos": [
+   "eu-granvia",
+   "eu-eiffel",
+   "eu-plazamayor",
+   "eu-sena",
+   "eu-paris"
+  ]
+ }
+]

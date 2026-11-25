@@ -1,0 +1,107 @@
+[
+ {
+  "id": "los-roques",
+  "nombre": "Los Roques",
+  "ambito": "nacional",
+  "zona": "Dependencias Federales",
+  "linea": "Un archipiélago de cayos de arena blanca y un pueblo de casas pintadas.",
+  "foto": "lr-aerea",
+  "categoria": "playas"
+ },
+ {
+  "id": "margarita",
+  "nombre": "Isla de Margarita",
+  "ambito": "nacional",
+  "zona": "Nueva Esparta",
+  "linea": "Playas abiertas, castillos y atardeceres en Juan Griego.",
+  "foto": "mg-cocoteros",
+  "categoria": "playas"
+ },
+ {
+  "id": "canaima",
+  "nombre": "Canaima",
+  "ambito": "nacional",
+  "zona": "Bolívar",
+  "linea": "La laguna de los saltos y el Auyantepui, de donde cae el Salto Ángel.",
+  "foto": "canaima-laguna",
+  "categoria": "montana"
+ },
+ {
+  "id": "merida",
+  "nombre": "Mérida",
+  "ambito": "nacional",
+  "zona": "Los Andes",
+  "linea": "Páramo, lagunas, pueblos de montaña y el teleférico.",
+  "foto": "me-sierra",
+  "categoria": "montana"
+ },
+ {
+  "id": "morrocoy",
+  "nombre": "Morrocoy",
+  "ambito": "nacional",
+  "zona": "Falcón",
+  "linea": "Cayos de agua baja y tranquila en la misma costa de Falcón.",
+  "foto": "mo-playa",
+  "categoria": "playas"
+ },
+ {
+  "id": "aruba",
+  "nombre": "Aruba",
+  "ambito": "internacional",
+  "zona": "Caribe neerlandés",
+  "region": "Caribe",
+  "linea": "Arena blanca y agua quieta, al otro lado del mar que se ve desde Paraguaná.",
+  "foto": "ar-palm",
+  "categoria": "playas"
+ },
+ {
+  "id": "curazao",
+  "nombre": "Curazao",
+  "ambito": "internacional",
+  "zona": "Caribe neerlandés",
+  "region": "Caribe",
+  "linea": "Willemstad de colores y playas pequeñas de agua quieta.",
+  "foto": "cu-casas",
+  "categoria": "internacional"
+ },
+ {
+  "id": "panama",
+  "nombre": "Panamá",
+  "ambito": "internacional",
+  "zona": "Ciudad de Panamá",
+  "region": "Centroamérica",
+  "linea": "Rascacielos sobre la bahía, el Casco Antiguo y el Canal.",
+  "foto": "pn-skyline",
+  "categoria": "ciudades"
+ },
+ {
+  "id": "cartagena",
+  "nombre": "Cartagena de Indias",
+  "ambito": "internacional",
+  "zona": "Colombia",
+  "region": "Suramérica",
+  "linea": "La ciudad amurallada, balcones con flores y el mar al lado.",
+  "foto": "ct-catedral",
+  "categoria": "ciudades"
+ },
+ {
+  "id": "madrid",
+  "nombre": "Madrid",
+  "ambito": "internacional",
+  "zona": "España",
+  "region": "Europa",
+  "linea": "Plazas, museos y tapas en la Gran Vía y sus alrededores.",
+  "foto": "eu-granvia",
+  "categoria": "ciudades"
+ },
+ {
+  "id": "paris",
+  "nombre": "París",
+  "ambito": "internacional",
+  "zona": "Francia",
+  "region": "Europa",
+  "linea": "El Sena, la Torre Eiffel y barrios para caminar sin apuro.",
+  "foto": "eu-eiffel",
+  "categoria": "ciudades"
+ }
+]

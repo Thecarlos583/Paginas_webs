@@ -1,0 +1,81 @@
+{
+ "slug": "pf-travels",
+ "tema": "pf-travels",
+ "nombre": "PF Travels",
+ "nombre_corto": "PF Travels",
+ "marca": {
+  "palabra": "PF Travels",
+  "bajada": "agencia de viajes · Paraguaná",
+  "logo": null,
+  "logo_claro": null
+ },
+ "ciudad": "Punto Fijo",
+ "region_local": "Paraguaná",
+ "estado": "Península de Paraguaná, estado Falcón",
+ "direccion": "Aeropuerto Internacional Josefa Camejo, Punto Fijo, península de Paraguaná, estado Falcón",
+ "direccion_corta": "Aeropuerto Internacional Josefa Camejo, Punto Fijo",
+ "maps_busqueda": "PF Travels, Aeropuerto Josefa Camejo, Punto Fijo",
+ "whatsapp": "584146409944",
+ "whatsapp_ver": "+58 414 640 9944",
+ "wa_general": "Hola PF Travels, quiero información para un viaje",
+ "saludo_wa": "Hola PF Travels",
+ "salida": "Las Piedras (Punto Fijo)",
+ "mostrar_precios": true,
+ "moneda": "US$",
+ "instagram": null,
+ "demo": true,
+ "aviso": "Página de ejemplo con datos ficticios. Fotos referenciales.",
+ "horario_ejemplo": true,
+ "horario": [
+  [
+   "Lunes a viernes",
+   "8:00 a. m. a 5:00 p. m."
+  ],
+  [
+   "Sábados",
+   "9:00 a. m. a 1:00 p. m."
+  ],
+  [
+   "Domingos y feriados",
+   "Por WhatsApp"
+  ]
+ ],
+ "colores": {
+  "tema": "#0B3954",
+  "fondo": "#F1E4CC"
+ },
+ "fuentes_url": "https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Libre+Franklin:wght@400;500;600;700&display=swap",
+ "descripcion": "Agencia de viajes en el Aeropuerto Josefa Camejo, Punto Fijo: paquetes nacionales e internacionales, boletos aéreos, hoteles, traslados y viajes de grupo. Cotice por WhatsApp.",
+ "portada": {
+  "titulo": "Desde Paraguaná, a donde lo lleve *el viento*",
+  "linea": "Paquetes, boletos y hoteles armados en el Aeropuerto Josefa Camejo. Usted nos dice a dónde; nosotros nos ocupamos del resto.",
+  "video": "https://upload.wikimedia.org/wikipedia/commons/transcoded/f/f0/Ocean_surface_waves_03.ogv/Ocean_surface_waves_03.ogv.480p.vp9.webm",
+  "video_credito": {
+   "archivo": "Ocean surface waves 03.ogv",
+   "autor": "Mostafameraji",
+   "licencia": "CC0",
+   "pagina": "https://commons.wikimedia.org/wiki/File:Ocean_surface_waves_03.ogv"
+  },
+  "poster": "pa-viento"
+ },
+ "como_funciona": [
+  {
+   "titulo": "Nos escribe",
+   "texto": "Por WhatsApp o desde el cotizador: a dónde, cuándo y cuántos viajan."
+  },
+  {
+   "titulo": "Le armamos el viaje",
+   "texto": "Le mandamos opciones con vuelos, hotel y traslados, y ajustamos hasta que le guste."
+  },
+  {
+   "titulo": "Viaja tranquilo",
+   "texto": "Le enviamos sus boletos y reservas, y seguimos pendientes durante el viaje."
+  }
+ ],
+ "pagos": [
+  "Pago móvil",
+  "Zelle",
+  "Divisas en efectivo"
+ ],
+ "url_publica": "https://thecarlos583.github.io/Paginas_webs/pf-travels/"
+}

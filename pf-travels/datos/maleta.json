@@ -1,0 +1,54 @@
+{
+ "base": [
+  "Cédula de identidad",
+  "Boletos y reservas en el teléfono",
+  "Cargador y batería extra",
+  "Medicinas de uso diario"
+ ],
+ "tipos": {
+  "playa": {
+   "nombre": "Playa",
+   "cosas": [
+    "Traje de baño",
+    "Protector solar",
+    "Lentes de sol",
+    "Sandalias",
+    "Sombrero para el sol y el viento"
+   ]
+  },
+  "selva": {
+   "nombre": "Selva y sabana",
+   "cosas": [
+    "Repelente",
+    "Impermeable ligero",
+    "Zapatos que se puedan mojar",
+    "Linterna",
+    "Bolsa seca para el teléfono"
+   ]
+  },
+  "montana": {
+   "nombre": "Montaña",
+   "cosas": [
+    "Chaqueta abrigada",
+    "Guantes y gorro",
+    "Zapatos cerrados",
+    "Protector solar",
+    "Bloqueador labial"
+   ]
+  },
+  "ciudad": {
+   "nombre": "Ciudad",
+   "cosas": [
+    "Zapatos cómodos para caminar",
+    "Bolso pequeño cruzado",
+    "Un abrigo liviano",
+    "Adaptador de enchufe"
+   ]
+  }
+ },
+ "internacional": [
+  "Pasaporte vigente",
+  "Seguro o asistencia al viajero",
+  "Requisitos de entrada del país revisados"
+ ]
+}

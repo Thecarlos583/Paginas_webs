@@ -1,0 +1,81 @@
+[
+ {
+  "id": "boletos",
+  "nombre": "Boletos aéreos",
+  "foto": "av-ala",
+  "cotizar": "boletos",
+  "linea": "Nacionales e internacionales, de ida o de ida y vuelta.",
+  "texto": "Le buscamos las rutas y horarios que le convienen, desde Las Piedras o desde Maiquetía, con el equipaje que necesita, y le mandamos el boleto por WhatsApp.",
+  "puntos": [
+   "Vuelos desde el Aeropuerto Josefa Camejo",
+   "Vuelos internacionales con conexión",
+   "Cambios de fecha con la tarifa que lo permita"
+  ]
+ },
+ {
+  "id": "paquetes",
+  "nombre": "Paquetes de viaje",
+  "foto": "ar-kite",
+  "cotizar": "paquete",
+  "linea": "Vuelo, hotel, traslados y paseos en un solo precio.",
+  "texto": "Elija uno de nuestros paquetes o cuéntenos qué tiene en mente y se lo armamos a su medida.",
+  "puntos": [
+   "Destinos nacionales e internacionales",
+   "Fechas a su elección",
+   "Ajustes según su presupuesto"
+  ]
+ },
+ {
+  "id": "hoteles",
+  "nombre": "Hoteles y posadas",
+  "foto": "piscina2",
+  "cotizar": "hotel",
+  "linea": "Desde una posada sencilla hasta un todo incluido.",
+  "texto": "Le reservamos el hospedaje según la zona, el tipo de habitación y el plan de comidas que prefiera, afuera o aquí mismo en Paraguaná.",
+  "puntos": [
+   "Habitaciones para parejas, familias y grupos",
+   "Con desayuno, media pensión o todo incluido",
+   "Confirmación por escrito"
+  ]
+ },
+ {
+  "id": "traslados",
+  "nombre": "Traslados",
+  "foto": "traslado",
+  "cotizar": "traslado",
+  "linea": "Al aeropuerto y de vuelta, sin esperas.",
+  "texto": "Coordinamos quién lo busca al llegar y quién lo lleva de regreso: al Josefa Camejo, a su hotel en la península o en el destino.",
+  "puntos": [
+   "Aeropuerto Josefa Camejo y hoteles de Paraguaná",
+   "Paseos a Coro, Adícora y los médanos",
+   "Vehículos para grupos"
+  ]
+ },
+ {
+  "id": "documentos",
+  "nombre": "Asesoría de documentos",
+  "foto": "pasaporte",
+  "cotizar": "paquete",
+  "linea": "Pasaporte, visas y requisitos de entrada, explicado claro.",
+  "texto": "Le explicamos en general qué pide cada país para entrar y qué revisar antes de viajar. Los trámites los hace usted ante cada organismo; nosotros le orientamos.",
+  "puntos": [
+   "Vigencia del pasaporte",
+   "Países que piden visa",
+   "Seguros y requisitos de entrada"
+  ]
+ },
+ {
+  "id": "grupos",
+  "nombre": "Viajes de grupo",
+  "foto": "grupo",
+  "cotizar": "grupo",
+  "enlace": "grupos.html",
+  "linea": "Empresas, graduaciones, familias y amigos.",
+  "texto": "Un solo contacto para todo el grupo: vuelos, hospedaje, traslados y paseos, con un precio claro por persona.",
+  "puntos": [
+   "Cotización por persona",
+   "Habitaciones para todos juntos",
+   "Itinerario a la medida del grupo"
+  ]
+ }
+]

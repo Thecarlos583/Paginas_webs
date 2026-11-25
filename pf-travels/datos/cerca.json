@@ -1,0 +1,53 @@
+[
+ {
+  "id": "medanos",
+  "nombre": "Médanos de Coro",
+  "zona": "Istmo de Médanos, Falcón",
+  "foto": "pa-viento",
+  "fotos": [
+   "pa-viento",
+   "pa-duna",
+   "pa-tarde"
+  ],
+  "linea": "Dunas de arena que el viento mueve de lugar, en la entrada a la península.",
+  "idea": "Mejor temprano o al final de la tarde, cuando la arena no quema."
+ },
+ {
+  "id": "adicora",
+  "nombre": "Adícora",
+  "zona": "Costa este de Paraguaná",
+  "foto": "ad-pueblo",
+  "fotos": [
+   "ad-pueblo",
+   "ad-calle",
+   "ad-atardecer"
+  ],
+  "linea": "Pueblo de casas antiguas frente al mar, con viento para el kitesurf y el windsurf.",
+  "idea": "Un día de playa y un almuerzo de pescado frente al agua."
+ },
+ {
+  "id": "santa-ana",
+  "nombre": "Cerro Santa Ana",
+  "zona": "Centro de la península",
+  "foto": "sa-cerro",
+  "fotos": [
+   "sa-cerro",
+   "sa-entrada",
+   "sa-bosque"
+  ],
+  "linea": "El cerro que se ve desde toda la península, con bosque nublado en la parte alta.",
+  "idea": "Subida temprano, con guía y agua de sobra."
+ },
+ {
+  "id": "coro",
+  "nombre": "Coro colonial",
+  "zona": "Coro, Falcón",
+  "foto": "co-catedral",
+  "fotos": [
+   "co-catedral",
+   "co-campanario"
+  ],
+  "linea": "Calles de casas coloniales y la catedral, Patrimonio de la Humanidad.",
+  "idea": "Una mañana a pie por el centro y los médanos en la tarde."
+ }
+]
