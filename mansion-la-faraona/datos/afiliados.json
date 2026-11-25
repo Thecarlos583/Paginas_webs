@@ -1,0 +1,876 @@
+{
+ "_nota": "DEMOSTRACIÓN con datos de ejemplo. Ningún afiliado es real. Para conectarlo a un sistema real, reemplace este archivo por la respuesta del sistema con la misma forma.",
+ "version": 1,
+ "reglas": {
+  "descuentos": {
+   "alojamiento": 50,
+   "entradas": 50,
+   "salones": 50,
+   "comida": 10,
+   "planes": 10
+  },
+  "categorias": {
+   "alojamiento": "Alojamiento",
+   "entradas": "Entradas",
+   "salones": "Salones y espacios",
+   "comida": "Comida y bebida",
+   "planes": "Planes y eventos"
+  },
+  "comidas_hospedaje": {
+   "solo": "Solo habitación",
+   "desayuno": "Con desayuno",
+   "cena-desayuno": "Con cena y desayuno",
+   "tres-comidas": "Con cena, desayuno y almuerzo"
+  },
+  "saldo_cubre": [
+   "alojamiento",
+   "entradas"
+  ],
+  "saldo_texto": "Su saldo se le reembolsa en servicios: entradas y habitaciones. Cuando se consume, le quedan los descuentos hasta el vencimiento.",
+  "ninos_factor": 0.5,
+  "ninos_texto": "Niños de 3 a 8 años: 50 % del precio del adulto en entradas y Full Day.",
+  "iva": "No incluye IVA."
+ },
+ "afiliados": [
+  {
+   "codigo": "FAR-0001",
+   "documento": "J-00000000-1",
+   "tipo": "empresa",
+   "tipo_nombre": "Empresa",
+   "nombre": "Inversiones Ejemplo, C.A.",
+   "compra": "2026-03-15",
+   "vence": "2027-03-15",
+   "pagado": 450,
+   "consumos": [
+    {
+     "fecha": "2026-05-09",
+     "detalle": "Entradas para 12 adultos",
+     "monto": 72
+    },
+    {
+     "fecha": "2026-08-21",
+     "detalle": "Habitación cuádruple, 2 noches",
+     "monto": 80
+    }
+   ],
+   "precios": {
+    "alojamiento": [
+     {
+      "id": "matrimonial",
+      "nombre": "Habitación matrimonial o doble",
+      "capacidad": 2,
+      "noche": 55,
+      "comidas": {
+       "desayuno": 20,
+       "cena-desayuno": 43,
+       "tres-comidas": 73
+      }
+     },
+     {
+      "id": "triple",
+      "nombre": "Habitación triple",
+      "capacidad": 3,
+      "noche": 68,
+      "comidas": {
+       "desayuno": 30,
+       "cena-desayuno": 63,
+       "tres-comidas": 108
+      }
+     },
+     {
+      "id": "cuadruple",
+      "nombre": "Habitación cuádruple",
+      "capacidad": 4,
+      "noche": 80,
+      "comidas": {
+       "desayuno": 40,
+       "cena-desayuno": 85,
+       "tres-comidas": 145
+      }
+     }
+    ],
+    "entradas": [
+     {
+      "id": "full-day-basico",
+      "nombre": "Entrada, Full Day Plan Básico",
+      "detalle": "Solo la entrada y uso de instalaciones",
+      "precio": 12,
+      "cat": "entradas"
+     },
+     {
+      "id": "full-day-bronce",
+      "nombre": "Full Day Plan Bronce",
+      "detalle": "1 almuerzo (almuerzo del día)",
+      "precio": 20,
+      "cat": "planes"
+     },
+     {
+      "id": "full-day-plata",
+      "nombre": "Full Day Plan Plata",
+      "detalle": "Almuerzo: parrilla con dos contornos y una bebida",
+      "precio": 25,
+      "cat": "planes"
+     },
+     {
+      "id": "full-day-oro",
+      "nombre": "Full Day Plan Oro",
+      "detalle": "Coctel de bienvenida; Desayuno criollo; Almuerzo: parrilla con dos contornos y una bebida; Un descorche gratis: botella ",
+      "precio": 35,
+      "cat": "planes"
+     },
+     {
+      "id": "full-night",
+      "nombre": "Full Night",
+      "detalle": "Entrada; Cena; Ambiente musical",
+      "precio": 25,
+      "cat": "planes"
+     }
+    ],
+    "salones": [
+     {
+      "id": "principal-8h",
+      "nombre": "Salón Principal",
+      "detalle": "8 horas continuas, mínimo 50 personas. No incluye equipos audiovisuales, sillas ni mesas",
+      "horas": 8,
+      "minimo": 50,
+      "capacidad": 250,
+      "precio": 7.5,
+      "por": "persona",
+      "cat": "salones"
+     },
+     {
+      "id": "principal-4h",
+      "nombre": "Salón Principal",
+      "detalle": "4 horas continuas, mínimo 50 personas. No incluye equipos audiovisuales, sillas ni mesas",
+      "horas": 4,
+      "minimo": 50,
+      "capacidad": 250,
+      "precio": 5,
+      "por": "persona",
+      "cat": "salones"
+     },
+     {
+      "id": "lucrecia-8h",
+      "nombre": "Salón Lucrecia",
+      "detalle": "8 horas continuas, mínimo 25 personas. Incluye equipos audiovisuales y muebles",
+      "horas": 8,
+      "minimo": 25,
+      "capacidad": 100,
+      "precio": 12.5,
+      "por": "persona",
+      "cat": "salones"
+     },
+     {
+      "id": "lucrecia-4h",
+      "nombre": "Salón Lucrecia",
+      "detalle": "4 horas continuas, mínimo 25 personas. Incluye equipos audiovisuales y muebles",
+      "horas": 4,
+      "minimo": 25,
+      "capacidad": 100,
+      "precio": 10,
+      "por": "persona",
+      "cat": "salones"
+     },
+     {
+      "id": "caney-8h",
+      "nombre": "Caney",
+      "detalle": "8 horas continuas, mínimo 25 personas. Incluye sillas y mesas",
+      "horas": 8,
+      "minimo": 25,
+      "capacidad": 50,
+      "precio": 6,
+      "por": "persona",
+      "cat": "salones"
+     },
+     {
+      "id": "terraza-piscina-8h",
+      "nombre": "Terraza piscina",
+      "detalle": "8 horas continuas, mínimo 50 personas. No incluye sillas, mesas ni toldos",
+      "horas": 8,
+      "minimo": 50,
+      "capacidad": 350,
+      "precio": 3.75,
+      "por": "persona",
+      "cat": "salones"
+     },
+     {
+      "id": "area-jardin-8h",
+      "nombre": "Área jardín",
+      "detalle": "8 horas continuas, mínimo 50 personas. No incluye sillas, mesas ni toldos",
+      "horas": 8,
+      "minimo": 50,
+      "capacidad": 250,
+      "precio": 3.75,
+      "por": "persona",
+      "cat": "salones"
+     },
+     {
+      "id": "bodas-15-anos",
+      "nombre": "Plan de bodas y 15 años",
+      "detalle": "Plan completo para 60 personas",
+      "precio": 3500,
+      "por": "evento",
+      "cat": "planes"
+     },
+     {
+      "id": "promocion-salon",
+      "nombre": "Promoción salón para talleres y eventos corporativos",
+      "detalle": "Por participante",
+      "precio": 65,
+      "por": "persona",
+      "minimo": 1,
+      "cat": "planes"
+     }
+    ],
+    "comida": [
+     {
+      "id": "parrilla",
+      "nombre": "Parrilla",
+      "detalle": "Carne, yuca y ensalada rallada",
+      "precio": 15,
+      "grupo": "Comida",
+      "cat": "comida"
+     },
+     {
+      "id": "pollo-a-la-plancha",
+      "nombre": "Pollo a la plancha",
+      "detalle": "Milanesa de pollo, papas al vapor y ensalada mixta",
+      "precio": 12,
+      "grupo": "Comida",
+      "cat": "comida"
+     },
+     {
+      "id": "racion-de-5-tequenos",
+      "nombre": "Ración de 5 tequeños",
+      "detalle": "Con salsa tártara",
+      "precio": 5,
+      "grupo": "Comida",
+      "cat": "comida"
+     },
+     {
+      "id": "racion-de-5-empanaditas-de-pollo",
+      "nombre": "Ración de 5 empanaditas de pollo",
+      "detalle": "Con salsa tártara",
+      "precio": 5,
+      "grupo": "Comida",
+      "cat": "comida"
+     },
+     {
+      "id": "hamburguesa",
+      "nombre": "Hamburguesa",
+      "detalle": "",
+      "precio": 8,
+      "grupo": "Comida",
+      "cat": "comida"
+     },
+     {
+      "id": "perro-caliente",
+      "nombre": "Perro caliente",
+      "detalle": "",
+      "precio": 2,
+      "grupo": "Comida",
+      "cat": "comida"
+     },
+     {
+      "id": "whisky-12-anos-botella",
+      "nombre": "Whisky 12 años, botella",
+      "detalle": "Con hielo, 1 soda y 1 agua",
+      "precio": 60,
+      "grupo": "Bebidas",
+      "cat": "comida"
+     },
+     {
+      "id": "ron-botella",
+      "nombre": "Ron, botella",
+      "detalle": "Con hielo y 1 L de refresco",
+      "precio": 40,
+      "grupo": "Bebidas",
+      "cat": "comida"
+     },
+     {
+      "id": "vino-tinto-botella",
+      "nombre": "Vino tinto, botella",
+      "detalle": "",
+      "precio": 25,
+      "grupo": "Bebidas",
+      "cat": "comida"
+     },
+     {
+      "id": "refresco-o-papelon-con-limon",
+      "nombre": "Refresco o papelón con limón",
+      "detalle": "",
+      "precio": 2,
+      "grupo": "Bebidas",
+      "cat": "comida"
+     },
+     {
+      "id": "cerveza-pequena",
+      "nombre": "Cerveza pequeña",
+      "detalle": "",
+      "precio": 1.5,
+      "grupo": "Bebidas",
+      "cat": "comida"
+     }
+    ]
+   }
+  },
+  {
+   "codigo": "FAR-0002",
+   "documento": "J-00000000-2",
+   "tipo": "iglesia",
+   "tipo_nombre": "Iglesia",
+   "nombre": "Iglesia Comunidad de Ejemplo",
+   "compra": "2026-01-10",
+   "vence": "2027-01-10",
+   "pagado": 450,
+   "consumos": [
+    {
+     "fecha": "2026-02-21",
+     "detalle": "Retiro: 3 habitaciones cuádruples, 1 noche",
+     "monto": 120
+    },
+    {
+     "fecha": "2026-06-13",
+     "detalle": "Entradas para 40 adultos",
+     "monto": 240
+    },
+    {
+     "fecha": "2026-09-05",
+     "detalle": "Entradas para 8 adultos",
+     "monto": 48
+    }
+   ],
+   "precios": {
+    "alojamiento": [
+     {
+      "id": "matrimonial",
+      "nombre": "Habitación matrimonial o doble",
+      "capacidad": 2,
+      "noche": 55,
+      "comidas": {
+       "desayuno": 20,
+       "cena-desayuno": 43,
+       "tres-comidas": 73
+      }
+     },
+     {
+      "id": "triple",
+      "nombre": "Habitación triple",
+      "capacidad": 3,
+      "noche": 68,
+      "comidas": {
+       "desayuno": 30,
+       "cena-desayuno": 63,
+       "tres-comidas": 108
+      }
+     },
+     {
+      "id": "cuadruple",
+      "nombre": "Habitación cuádruple",
+      "capacidad": 4,
+      "noche": 80,
+      "comidas": {
+       "desayuno": 40,
+       "cena-desayuno": 85,
+       "tres-comidas": 145
+      }
+     }
+    ],
+    "entradas": [
+     {
+      "id": "full-day-basico",
+      "nombre": "Entrada, Full Day Plan Básico",
+      "detalle": "Solo la entrada y uso de instalaciones",
+      "precio": 12,
+      "cat": "entradas"
+     },
+     {
+      "id": "full-day-bronce",
+      "nombre": "Full Day Plan Bronce",
+      "detalle": "1 almuerzo (almuerzo del día)",
+      "precio": 20,
+      "cat": "planes"
+     },
+     {
+      "id": "full-day-plata",
+      "nombre": "Full Day Plan Plata",
+      "detalle": "Almuerzo: parrilla con dos contornos y una bebida",
+      "precio": 25,
+      "cat": "planes"
+     },
+     {
+      "id": "full-day-oro",
+      "nombre": "Full Day Plan Oro",
+      "detalle": "Coctel de bienvenida; Desayuno criollo; Almuerzo: parrilla con dos contornos y una bebida; Un descorche gratis: botella ",
+      "precio": 35,
+      "cat": "planes"
+     },
+     {
+      "id": "full-night",
+      "nombre": "Full Night",
+      "detalle": "Entrada; Cena; Ambiente musical",
+      "precio": 25,
+      "cat": "planes"
+     }
+    ],
+    "salones": [
+     {
+      "id": "principal-8h",
+      "nombre": "Salón Principal",
+      "detalle": "8 horas continuas, mínimo 50 personas. No incluye equipos audiovisuales, sillas ni mesas",
+      "horas": 8,
+      "minimo": 50,
+      "capacidad": 250,
+      "precio": 7.5,
+      "por": "persona",
+      "cat": "salones"
+     },
+     {
+      "id": "principal-4h",
+      "nombre": "Salón Principal",
+      "detalle": "4 horas continuas, mínimo 50 personas. No incluye equipos audiovisuales, sillas ni mesas",
+      "horas": 4,
+      "minimo": 50,
+      "capacidad": 250,
+      "precio": 5,
+      "por": "persona",
+      "cat": "salones"
+     },
+     {
+      "id": "lucrecia-8h",
+      "nombre": "Salón Lucrecia",
+      "detalle": "8 horas continuas, mínimo 25 personas. Incluye equipos audiovisuales y muebles",
+      "horas": 8,
+      "minimo": 25,
+      "capacidad": 100,
+      "precio": 12.5,
+      "por": "persona",
+      "cat": "salones"
+     },
+     {
+      "id": "lucrecia-4h",
+      "nombre": "Salón Lucrecia",
+      "detalle": "4 horas continuas, mínimo 25 personas. Incluye equipos audiovisuales y muebles",
+      "horas": 4,
+      "minimo": 25,
+      "capacidad": 100,
+      "precio": 10,
+      "por": "persona",
+      "cat": "salones"
+     },
+     {
+      "id": "caney-8h",
+      "nombre": "Caney",
+      "detalle": "8 horas continuas, mínimo 25 personas. Incluye sillas y mesas",
+      "horas": 8,
+      "minimo": 25,
+      "capacidad": 50,
+      "precio": 6,
+      "por": "persona",
+      "cat": "salones"
+     },
+     {
+      "id": "terraza-piscina-8h",
+      "nombre": "Terraza piscina",
+      "detalle": "8 horas continuas, mínimo 50 personas. No incluye sillas, mesas ni toldos",
+      "horas": 8,
+      "minimo": 50,
+      "capacidad": 350,
+      "precio": 3.75,
+      "por": "persona",
+      "cat": "salones"
+     },
+     {
+      "id": "area-jardin-8h",
+      "nombre": "Área jardín",
+      "detalle": "8 horas continuas, mínimo 50 personas. No incluye sillas, mesas ni toldos",
+      "horas": 8,
+      "minimo": 50,
+      "capacidad": 250,
+      "precio": 3.75,
+      "por": "persona",
+      "cat": "salones"
+     },
+     {
+      "id": "bodas-15-anos",
+      "nombre": "Plan de bodas y 15 años",
+      "detalle": "Plan completo para 60 personas",
+      "precio": 3500,
+      "por": "evento",
+      "cat": "planes"
+     },
+     {
+      "id": "promocion-salon",
+      "nombre": "Promoción salón para talleres y eventos corporativos",
+      "detalle": "Por participante",
+      "precio": 65,
+      "por": "persona",
+      "minimo": 1,
+      "cat": "planes"
+     }
+    ],
+    "comida": [
+     {
+      "id": "parrilla",
+      "nombre": "Parrilla",
+      "detalle": "Carne, yuca y ensalada rallada",
+      "precio": 15,
+      "grupo": "Comida",
+      "cat": "comida"
+     },
+     {
+      "id": "pollo-a-la-plancha",
+      "nombre": "Pollo a la plancha",
+      "detalle": "Milanesa de pollo, papas al vapor y ensalada mixta",
+      "precio": 12,
+      "grupo": "Comida",
+      "cat": "comida"
+     },
+     {
+      "id": "racion-de-5-tequenos",
+      "nombre": "Ración de 5 tequeños",
+      "detalle": "Con salsa tártara",
+      "precio": 5,
+      "grupo": "Comida",
+      "cat": "comida"
+     },
+     {
+      "id": "racion-de-5-empanaditas-de-pollo",
+      "nombre": "Ración de 5 empanaditas de pollo",
+      "detalle": "Con salsa tártara",
+      "precio": 5,
+      "grupo": "Comida",
+      "cat": "comida"
+     },
+     {
+      "id": "hamburguesa",
+      "nombre": "Hamburguesa",
+      "detalle": "",
+      "precio": 8,
+      "grupo": "Comida",
+      "cat": "comida"
+     },
+     {
+      "id": "perro-caliente",
+      "nombre": "Perro caliente",
+      "detalle": "",
+      "precio": 2,
+      "grupo": "Comida",
+      "cat": "comida"
+     },
+     {
+      "id": "whisky-12-anos-botella",
+      "nombre": "Whisky 12 años, botella",
+      "detalle": "Con hielo, 1 soda y 1 agua",
+      "precio": 60,
+      "grupo": "Bebidas",
+      "cat": "comida"
+     },
+     {
+      "id": "ron-botella",
+      "nombre": "Ron, botella",
+      "detalle": "Con hielo y 1 L de refresco",
+      "precio": 40,
+      "grupo": "Bebidas",
+      "cat": "comida"
+     },
+     {
+      "id": "vino-tinto-botella",
+      "nombre": "Vino tinto, botella",
+      "detalle": "",
+      "precio": 25,
+      "grupo": "Bebidas",
+      "cat": "comida"
+     },
+     {
+      "id": "refresco-o-papelon-con-limon",
+      "nombre": "Refresco o papelón con limón",
+      "detalle": "",
+      "precio": 2,
+      "grupo": "Bebidas",
+      "cat": "comida"
+     },
+     {
+      "id": "cerveza-pequena",
+      "nombre": "Cerveza pequeña",
+      "detalle": "",
+      "precio": 1.5,
+      "grupo": "Bebidas",
+      "cat": "comida"
+     }
+    ]
+   }
+  },
+  {
+   "codigo": "FAR-0003",
+   "documento": "V-00000000",
+   "tipo": "persona",
+   "tipo_nombre": "Persona",
+   "nombre": "Afiliado particular de ejemplo",
+   "compra": "2026-11-02",
+   "vence": "2027-11-02",
+   "pagado": 450,
+   "consumos": [],
+   "precios": {
+    "alojamiento": [
+     {
+      "id": "matrimonial",
+      "nombre": "Habitación matrimonial o doble",
+      "capacidad": 2,
+      "noche": 55,
+      "comidas": {
+       "desayuno": 20,
+       "cena-desayuno": 43,
+       "tres-comidas": 73
+      }
+     },
+     {
+      "id": "triple",
+      "nombre": "Habitación triple",
+      "capacidad": 3,
+      "noche": 68,
+      "comidas": {
+       "desayuno": 30,
+       "cena-desayuno": 63,
+       "tres-comidas": 108
+      }
+     },
+     {
+      "id": "cuadruple",
+      "nombre": "Habitación cuádruple",
+      "capacidad": 4,
+      "noche": 80,
+      "comidas": {
+       "desayuno": 40,
+       "cena-desayuno": 85,
+       "tres-comidas": 145
+      }
+     }
+    ],
+    "entradas": [
+     {
+      "id": "full-day-basico",
+      "nombre": "Entrada, Full Day Plan Básico",
+      "detalle": "Solo la entrada y uso de instalaciones",
+      "precio": 12,
+      "cat": "entradas"
+     },
+     {
+      "id": "full-day-bronce",
+      "nombre": "Full Day Plan Bronce",
+      "detalle": "1 almuerzo (almuerzo del día)",
+      "precio": 20,
+      "cat": "planes"
+     },
+     {
+      "id": "full-day-plata",
+      "nombre": "Full Day Plan Plata",
+      "detalle": "Almuerzo: parrilla con dos contornos y una bebida",
+      "precio": 25,
+      "cat": "planes"
+     },
+     {
+      "id": "full-day-oro",
+      "nombre": "Full Day Plan Oro",
+      "detalle": "Coctel de bienvenida; Desayuno criollo; Almuerzo: parrilla con dos contornos y una bebida; Un descorche gratis: botella ",
+      "precio": 35,
+      "cat": "planes"
+     },
+     {
+      "id": "full-night",
+      "nombre": "Full Night",
+      "detalle": "Entrada; Cena; Ambiente musical",
+      "precio": 25,
+      "cat": "planes"
+     }
+    ],
+    "salones": [
+     {
+      "id": "principal-8h",
+      "nombre": "Salón Principal",
+      "detalle": "8 horas continuas, mínimo 50 personas. No incluye equipos audiovisuales, sillas ni mesas",
+      "horas": 8,
+      "minimo": 50,
+      "capacidad": 250,
+      "precio": 7.5,
+      "por": "persona",
+      "cat": "salones"
+     },
+     {
+      "id": "principal-4h",
+      "nombre": "Salón Principal",
+      "detalle": "4 horas continuas, mínimo 50 personas. No incluye equipos audiovisuales, sillas ni mesas",
+      "horas": 4,
+      "minimo": 50,
+      "capacidad": 250,
+      "precio": 5,
+      "por": "persona",
+      "cat": "salones"
+     },
+     {
+      "id": "lucrecia-8h",
+      "nombre": "Salón Lucrecia",
+      "detalle": "8 horas continuas, mínimo 25 personas. Incluye equipos audiovisuales y muebles",
+      "horas": 8,
+      "minimo": 25,
+      "capacidad": 100,
+      "precio": 12.5,
+      "por": "persona",
+      "cat": "salones"
+     },
+     {
+      "id": "lucrecia-4h",
+      "nombre": "Salón Lucrecia",
+      "detalle": "4 horas continuas, mínimo 25 personas. Incluye equipos audiovisuales y muebles",
+      "horas": 4,
+      "minimo": 25,
+      "capacidad": 100,
+      "precio": 10,
+      "por": "persona",
+      "cat": "salones"
+     },
+     {
+      "id": "caney-8h",
+      "nombre": "Caney",
+      "detalle": "8 horas continuas, mínimo 25 personas. Incluye sillas y mesas",
+      "horas": 8,
+      "minimo": 25,
+      "capacidad": 50,
+      "precio": 6,
+      "por": "persona",
+      "cat": "salones"
+     },
+     {
+      "id": "terraza-piscina-8h",
+      "nombre": "Terraza piscina",
+      "detalle": "8 horas continuas, mínimo 50 personas. No incluye sillas, mesas ni toldos",
+      "horas": 8,
+      "minimo": 50,
+      "capacidad": 350,
+      "precio": 3.75,
+      "por": "persona",
+      "cat": "salones"
+     },
+     {
+      "id": "area-jardin-8h",
+      "nombre": "Área jardín",
+      "detalle": "8 horas continuas, mínimo 50 personas. No incluye sillas, mesas ni toldos",
+      "horas": 8,
+      "minimo": 50,
+      "capacidad": 250,
+      "precio": 3.75,
+      "por": "persona",
+      "cat": "salones"
+     },
+     {
+      "id": "bodas-15-anos",
+      "nombre": "Plan de bodas y 15 años",
+      "detalle": "Plan completo para 60 personas",
+      "precio": 3500,
+      "por": "evento",
+      "cat": "planes"
+     },
+     {
+      "id": "promocion-salon",
+      "nombre": "Promoción salón para talleres y eventos corporativos",
+      "detalle": "Por participante",
+      "precio": 65,
+      "por": "persona",
+      "minimo": 1,
+      "cat": "planes"
+     }
+    ],
+    "comida": [
+     {
+      "id": "parrilla",
+      "nombre": "Parrilla",
+      "detalle": "Carne, yuca y ensalada rallada",
+      "precio": 15,
+      "grupo": "Comida",
+      "cat": "comida"
+     },
+     {
+      "id": "pollo-a-la-plancha",
+      "nombre": "Pollo a la plancha",
+      "detalle": "Milanesa de pollo, papas al vapor y ensalada mixta",
+      "precio": 12,
+      "grupo": "Comida",
+      "cat": "comida"
+     },
+     {
+      "id": "racion-de-5-tequenos",
+      "nombre": "Ración de 5 tequeños",
+      "detalle": "Con salsa tártara",
+      "precio": 5,
+      "grupo": "Comida",
+      "cat": "comida"
+     },
+     {
+      "id": "racion-de-5-empanaditas-de-pollo",
+      "nombre": "Ración de 5 empanaditas de pollo",
+      "detalle": "Con salsa tártara",
+      "precio": 5,
+      "grupo": "Comida",
+      "cat": "comida"
+     },
+     {
+      "id": "hamburguesa",
+      "nombre": "Hamburguesa",
+      "detalle": "",
+      "precio": 8,
+      "grupo": "Comida",
+      "cat": "comida"
+     },
+     {
+      "id": "perro-caliente",
+      "nombre": "Perro caliente",
+      "detalle": "",
+      "precio": 2,
+      "grupo": "Comida",
+      "cat": "comida"
+     },
+     {
+      "id": "whisky-12-anos-botella",
+      "nombre": "Whisky 12 años, botella",
+      "detalle": "Con hielo, 1 soda y 1 agua",
+      "precio": 60,
+      "grupo": "Bebidas",
+      "cat": "comida"
+     },
+     {
+      "id": "ron-botella",
+      "nombre": "Ron, botella",
+      "detalle": "Con hielo y 1 L de refresco",
+      "precio": 40,
+      "grupo": "Bebidas",
+      "cat": "comida"
+     },
+     {
+      "id": "vino-tinto-botella",
+      "nombre": "Vino tinto, botella",
+      "detalle": "",
+      "precio": 25,
+      "grupo": "Bebidas",
+      "cat": "comida"
+     },
+     {
+      "id": "refresco-o-papelon-con-limon",
+      "nombre": "Refresco o papelón con limón",
+      "detalle": "",
+      "precio": 2,
+      "grupo": "Bebidas",
+      "cat": "comida"
+     },
+     {
+      "id": "cerveza-pequena",
+      "nombre": "Cerveza pequeña",
+      "detalle": "",
+      "precio": 1.5,
+      "grupo": "Bebidas",
+      "cat": "comida"
+     }
+    ]
+   }
+  }
+ ]
+}
