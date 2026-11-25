@@ -697,3 +697,96 @@ button.play { border: 0; background: none; cursor: pointer; color: inherit; }
   .portada-fondo video, .media-v > video { display: none; }
 }
 @media print { .barra, .cab, .hoja, .visor { display: none !important; } }
+
+/* ===== 40c · Más luz (pedido del Sr. Richard): cabecera, barra, pie y secciones en claro; fotos sin capa oscura ===== */
+.cab { background: var(--papel); color: var(--tinta); border-bottom: 1px solid var(--linea); box-shadow: 0 8px 22px -18px rgba(8, 50, 31, .45); }
+.marca { color: var(--verde); }
+.marca small { color: var(--dorado-texto); }
+.menu-btn { border-color: var(--linea); color: var(--verde); background: var(--crema); }
+@media (min-width: 1080px) {
+  .nav a.n1, .nav button.n1 { color: var(--tinta); }
+  .nav .n1:hover, .nav li:focus-within > .n1 { background: rgba(13, 74, 51, .07); }
+  .nav .n1[aria-current="page"], .nav li.actual > .n1 { box-shadow: inset 0 -2px 0 var(--dorado); color: var(--verde); }
+}
+.barra { background: var(--papel); border-top: 1px solid var(--linea); box-shadow: 0 -10px 24px -20px rgba(8, 50, 31, .5); }
+.barra a { color: var(--suave); }
+.barra a[aria-current="page"] { color: var(--verde); font-weight: 700; }
+.barra .barra-wa { color: var(--wa); font-weight: 600; }
+
+/* Portada: la foto limpia arriba y solo un velo crema suave donde va el texto */
+.portada { color: var(--tinta); background: var(--papel); }
+.portada-fondo img, .portada-fondo video { filter: brightness(1.06) saturate(1.06); }
+.portada::after { background: linear-gradient(180deg, rgba(251, 247, 238, 0) 0%, rgba(251, 247, 238, 0) 34%, rgba(251, 247, 238, .72) 46%, rgba(251, 247, 238, .88) 56%, rgba(251, 247, 238, .92) 100%); }
+.portada-logo { filter: drop-shadow(0 8px 18px rgba(8, 50, 31, .22)); }
+.portada h1 { color: var(--dorado-texto); }
+.portada h1 span { color: var(--verde); }
+.portada .lema { color: var(--verde); }
+.portada-linea { color: var(--suave); }
+.portada .btn--borde { color: var(--verde); border-color: var(--verde); }
+.portada .btn--borde:hover { background: rgba(13, 74, 51, .06); }
+@media (min-width: 1080px) {
+  .portada::after { background: linear-gradient(90deg, rgba(251, 247, 238, .95) 0%, rgba(251, 247, 238, .92) max(46%, 740px), rgba(251, 247, 238, .6) max(62%, 850px), rgba(251, 247, 238, 0) max(78%, 980px)); }
+}
+
+/* Accesos con foto: el degradado solo abajo, donde va el texto */
+@media (max-width: 899px) {
+  /* En el teléfono la foto va limpia y el texto debajo, sobre crema */
+  .acceso { min-height: 0; justify-content: flex-start; color: var(--tinta); background: var(--papel); border: 1px solid var(--linea); }
+  .acceso img { position: static; height: auto; aspect-ratio: 4 / 3; z-index: auto; }
+  .acceso::before { display: none; }
+  .acceso div { padding: 10px 12px 12px; }
+  .acceso h3 { font-size: 1.1rem; color: var(--verde); }
+  .acceso p { color: var(--suave); font-size: .86rem; }
+  .acceso::after { inset: 4px; }
+}
+@media (min-width: 900px) {
+  .acceso::before { background: linear-gradient(180deg, rgba(8, 50, 31, 0) 38%, rgba(8, 50, 31, .66) 62%, rgba(8, 50, 31, .9) 100%); }
+}
+
+/* Secciones verdes pasan a salvia claro (el portal de afiliados no cambia) */
+.sec--verde:not(.af-como) { background: #E3EBDC; color: var(--tinta); }
+.sec--verde:not(.af-como) a:not(.btn) { color: var(--verde); }
+.sec--verde:not(.af-como) .btn--wa { color: #fff; }
+.sec--verde:not(.af-como) .btn--verde { color: var(--crema); }
+.sec--verde:not(.af-como) .btn--dorado { color: var(--verde-noche); }
+.sec--verde:not(.af-como) .btn--borde { color: var(--verde); }
+.sec--verde:not(.af-como) .btn--borde:hover { background: rgba(13, 74, 51, .06); }
+.sec--verde:not(.af-como) .sec-cab p, .sec--verde:not(.af-como) .nota, .cierre p { color: var(--suave); }
+.sec--verde:not(.af-como) .antetitulo { color: var(--dorado-texto); }
+.sec--verde:not(.af-como) .enlace { color: var(--verde); }
+.sec--verde:not(.af-como) .pasos li::before { color: var(--dorado-texto); background: var(--papel); }
+
+/* Pie en beige */
+.pie { background: var(--beige); color: var(--suave); border-top: 1px solid var(--linea); }
+.pie a { color: var(--tinta); }
+.pie a:hover { text-decoration-color: var(--dorado); }
+.pie h3 { color: var(--verde); }
+.pie-abajo { border-top-color: var(--linea); }
+.pie-abajo .vp { color: var(--suave); }
+
+/* 40c · Membresía corporativa */
+.mem-ventajas { background: var(--papel); border: 1px solid var(--dorado); border-radius: var(--r); padding: 22px 20px; display: grid; gap: 18px; box-shadow: 0 24px 50px -36px rgba(8, 50, 31, .45); }
+.mem-ventajas h3 { margin: 0; color: var(--verde); }
+.mem-ventajas ul { list-style: none; display: grid; gap: 16px; }
+.mem-ventajas li { display: grid; grid-template-columns: 48px minmax(0, 1fr); gap: 14px; align-items: start; padding-top: 16px; border-top: 1px solid var(--linea); }
+.mem-ventajas li:first-child { padding-top: 0; border-top: 0; }
+.mv-ic { width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center; background: #E3EBDC; color: var(--verde); }
+.mv-ic svg { width: 24px; height: 24px; }
+.mem-ventajas b { display: block; font: 600 1.2rem/1.2 var(--serif); color: var(--tinta); }
+.mem-ventajas p { margin: 4px 0 0; color: var(--suave); font-size: .95rem; }
+.mem-ventajas .btn { justify-self: start; }
+.cierre-mem { padding-block: 56px; }
+.mem-cierre { display: grid; gap: 18px; align-items: center; padding: 24px 20px; border: 1px solid var(--linea); border-left: 3px solid var(--dorado); border-radius: var(--r); background: var(--papel); }
+.mem-cierre h2 { font-size: clamp(1.5rem, 4.6vw, 2.1rem); margin-bottom: 6px; }
+.mem-cierre p { margin: 0; color: var(--suave); }
+@media (min-width: 900px) { .mem-cierre { grid-template-columns: 1fr auto; padding: 32px 36px; } .mem-ventajas { padding: 30px 28px; } }
+.mem-ventajas .btn, .cabeza .btns .btn, .mem-cierre .btn { text-align: center; }
+@media (max-width: 699px) { .mem-ventajas .btn, .mem-cierre .btn { justify-self: stretch; } }
+@media (min-width: 1080px) {
+  .nav a.n1, .nav button.n1, .marca span { white-space: nowrap; }
+}
+@media (min-width: 1080px) and (max-width: 1439px) {
+  .n1-mas { display: none; }
+  .nav a.n1, .nav button.n1 { padding-inline: 9px; }
+}
+@media (min-width: 900px) { .pasos li { align-content: start; } }

@@ -169,7 +169,7 @@
     }
     if (q === "excursion") return fmt(D.exc.precio) + " por persona, al destino de su preferencia";
     if (q === "campamento") { x = (D.camp || []).filter(function (p) { return p.id === this.el("camp").value; }, this)[0]; return x ? (x.desde ? "Desde " : "") + fmt(x.precio) + " por persona · " + x.nombre : ""; }
-    if (q === "membresia") return fmt(D.mem) + " al año, sin cargo mensual";
+    if (q === "membresia") return "Le enviamos por WhatsApp las condiciones de la membresía corporativa";
     return "";
   };
   Cotizador.prototype.pintar = function () {
@@ -211,7 +211,7 @@
     if (["fullday", "fullnight", "evento", "excursion", "campamento"].indexOf(q) > -1 && fe.value) L.push("Fecha: " + fechaLarga(fe.value));
     L.push("Adultos: " + this.cuenta("adultos"));
     var ni = this.cuenta("ninos"); if (ni) L.push("Niños de 3 a 8 años: " + ni);
-    var r = this.referencia(); if (r) L.push("Tarifa de referencia: " + r);
+    var r = this.referencia(); if (r && q !== "membresia") L.push("Tarifa de referencia: " + r);
     var nota = this.el("nota").value.trim(); if (nota) L.push("Nota: " + nota);
     L.push("¿Me confirman la disponibilidad y el total, por favor?");
     return L.join("\n");

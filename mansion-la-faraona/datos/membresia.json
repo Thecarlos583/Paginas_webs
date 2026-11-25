@@ -31,5 +31,26 @@
    "Programe sus abonos en los plazos que le sean más cómodos.",
    "Al completar el valor, disfrute su servicio o evento sin preocupaciones."
   ]
- }
+ },
+ "_40c": "Solo se publica lo que coincide entre su web y su catálogo: precios congelados, descuentos y saldo con abonos. El costo (precio), el obsequio y los tipos NO se muestran hasta que el Sr. Richard los confirme (web: 2 noches y 48 pases; catálogo: 1 noche y 36 pases).",
+ "lead": "🤝 Para su empresa u organización: descuentos de hasta 50 % y la tarifa congelada durante 12 meses.",
+ "que_es_web": "Un programa para empresas y organizaciones: durante 12 meses, su gente disfruta de los espacios y servicios de Mansión La Faraona con descuentos y la tarifa congelada.",
+ "ventajas": [
+  [
+   "sello",
+   "Precios congelados",
+   "La tarifa del día en que se afilia se mantiene durante los 12 meses."
+  ],
+  [
+   "check",
+   "Hasta 50 % de descuento",
+   "50 % en entradas, habitaciones y espacios, y 10 % en comida, bebidas y eventos."
+  ],
+  [
+   "fecha",
+   "Saldo para sus servicios",
+   "Programa sus abonos y el saldo queda a favor de su empresa, para usarlo en los servicios y eventos de la casa."
+  ]
+ ],
+ "mensaje_wa": "Hola Mansión La Faraona, quiero información de la membresía corporativa."
 }
