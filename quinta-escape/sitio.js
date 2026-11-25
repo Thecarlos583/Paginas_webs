@@ -94,18 +94,21 @@ var CONFIG = {
     hoja.addEventListener("touchend", function (e) { if (y0 !== null && e.changedTouches[0].clientY - y0 > 70) cerrar(); }, { passive: true });
   }
 
-  /* Portada: las fotos se relevan solas, solo si se ve */
+  /* Portada: las fotos se relevan solas cada 3,5 s (el Sr. Vitor lo pidió más rápido), solo si se ve.
+     La primera (piscina, churuata y mar) queda debajo; las demás aparecen encima una a una. */
+  var CADA = 3500;
   function initPortada() {
-    var caja = $(".portada-fotos"); if (!caja) return;
-    var fotos = $$("img", caja), i = 0, visible = true;
-    if (fotos.length < 2 || quieto) return;
+    var caja = $(".entrada-foto"); if (!caja) return;
+    var extra = $$("img.rota", caja), i = 0, visible = true;
+    if (!extra.length || quieto) return;
     if ("IntersectionObserver" in window) new IntersectionObserver(function (e) { visible = e[0].isIntersecting; }, { threshold: .05 }).observe(caja);
     setInterval(function () {
       if (!visible || document.hidden) return;
-      var sig = fotos[(i + 1) % fotos.length];
-      if (!sig.complete) return;
-      fotos[i].classList.remove("ve"); i = (i + 1) % fotos.length; sig.classList.add("ve");
-    }, 7000);
+      var n = (i + 1) % (extra.length + 1), sig = n ? extra[n - 1] : null;
+      if (sig && !sig.complete) return;
+      extra.forEach(function (im, k) { im.classList.toggle("ve", k === n - 1); });
+      i = n;
+    }, CADA);
   }
 
   /* Lo esencial: los números ya se ven y cuentan una vez hasta su valor */

@@ -751,6 +751,9 @@ details[open]>summary .chev{transform:rotate(180deg)}
 .entrada{background:var(--primario)}
 .entrada-foto{position:relative;margin:0}
 .entrada-foto img{display:block;width:100%;height:auto}
+.entrada-foto{overflow:hidden}
+.entrada-foto img.rota{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .8s ease}
+.entrada-foto img.rota.ve{opacity:1}
 .entrada-foto::after{content:"";position:absolute;left:0;right:0;bottom:0;height:42%;background:linear-gradient(to bottom,rgba(15,58,90,0),rgba(15,58,90,.86));pointer-events:none}
 .entrada-txt{position:relative;padding:0 var(--margen) 20px;color:#fff}
 .entrada-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s ease}
@@ -838,4 +841,5 @@ details[open]>summary .chev{transform:rotate(180deg)}
 @media (prefers-reduced-motion:reduce){
   .entrada h1 span{animation:none;opacity:1;transform:none}
   .entrada-video{transition:none}
+  .entrada-foto img.rota{transition:none}
 }
