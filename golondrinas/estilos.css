@@ -553,6 +553,7 @@ body.menu-abierto .barra { transform: translateY(110%); }
 .menu-desayunos li { display: grid; gap: 2px; padding: 14px 0; border-bottom: 1px dotted rgba(12, 48, 36, .25); }
 .menu-desayunos b { font: 600 1.2rem/1.25 var(--serif); color: var(--hondo); }
 .menu-desayunos span { color: var(--gris); font-size: .98rem; }
+.menu-desayunos li { grid-template-columns: 1fr auto; align-items: center; gap: 4px 16px; }
 .nota-menu { margin-top: 12px; font-size: .9rem; color: var(--gris); }
 
 /* Mapa ilustrado de la ruta: solo se anima la línea y el marcador */
