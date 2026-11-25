@@ -915,8 +915,11 @@ details[open]>summary .chev{transform:rotate(180deg)}
 .marea-txt small::before{content:"";display:inline-block;width:18px;height:2px;margin:0 8px 3px 0;vertical-align:middle;background:var(--acento)}
 
 /* Los espacios: cinta que pasa sola */
-.espacios-sec.cinta .espacios-pista{scroll-snap-type:none}
+.espacios-sec.cinta .espacios-pista{overflow:hidden;scroll-snap-type:none}
 .espacios-sec.cinta .espacio{scroll-snap-align:none}
+.espacios-sec.cinta .espacios{animation:cinta var(--dur,60s) linear infinite;will-change:transform}
+.espacios-sec.quieta .espacios{animation-play-state:paused}
+@keyframes cinta{to{transform:translate3d(calc(-1 * var(--largo,0px)),0,0)}}
 
 /* De la tarde a la noche: se turnan solas, con transición suave */
 .anochecer.auto::before,.anochecer.auto figure.noche{transition:opacity 1.4s ease}

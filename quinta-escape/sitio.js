@@ -470,32 +470,22 @@ var CONFIG = {
     }, { threshold: .35 }).observe(v);
   }
 
-  /* Los espacios pasan solos, como una cinta, sin depender del scroll. Se detienen al tocarlos o con el cursor encima,
-     y se pueden deslizar con el dedo. La cinta va duplicada para que no tenga fin. */
+  /* Los espacios pasan solos, como una cinta, a velocidad pareja (animación de CSS, sin saltos).
+     No se detienen ni dependen del scroll. La cinta va duplicada para que no tenga fin. */
   function initCinta() {
     var s = $("[data-cinta]"); if (!s || quieto) return;
-    var pista = $(".espacios-pista", s), fila = $(".espacios", s); if (!pista || !fila) return;
+    var fila = $(".espacios", s); if (!fila) return;
     var orig = $$(".espacio", fila);
     orig.forEach(function (el) { var c = el.cloneNode(true); c.setAttribute("aria-hidden", "true"); $$("img", c).forEach(function (im) { im.alt = ""; }); fila.appendChild(c); });
-    s.classList.add("cinta");
-    var vel = .032, pos = pista.scrollLeft, antes = 0, hasta = 0, visible = true, encima = false;
-    if ("IntersectionObserver" in window) new IntersectionObserver(function (e) { visible = e[0].isIntersecting; }, { threshold: .1 }).observe(pista);
-    function espera() { hasta = performance.now() + 3500; }
-    ["pointerdown", "touchstart", "wheel"].forEach(function (ev) { pista.addEventListener(ev, espera, { passive: true }); });
-    pista.addEventListener("mouseenter", function () { encima = true; });
-    pista.addEventListener("mouseleave", function () { encima = false; espera(); });
-    function paso(ts) {
-      var dt = antes ? Math.min(64, ts - antes) : 16; antes = ts;
+    function mide() {
       var largo = fila.children[orig.length].offsetLeft - orig[0].offsetLeft;
-      if (Math.abs(pista.scrollLeft - pos) > 2) pos = pista.scrollLeft;   /* la persona lo movió con el dedo */
-      if (visible && !encima && !document.hidden && ts > hasta) {
-        pos += vel * dt;
-        if (pos >= largo) pos -= largo;
-        pista.scrollLeft = pos;
-      } else if (pos >= largo) { pos -= largo; pista.scrollLeft = pos; }
-      requestAnimationFrame(paso);
+      fila.style.setProperty("--largo", largo + "px");
+      fila.style.setProperty("--dur", (largo / 38).toFixed(1) + "s");   /* 38 px por segundo */
     }
-    requestAnimationFrame(paso);
+    s.classList.add("cinta"); mide();
+    window.addEventListener("resize", mide); window.addEventListener("load", mide);
+    /* fuera de pantalla se queda quieta, para no gastar batería */
+    if ("IntersectionObserver" in window) new IntersectionObserver(function (e) { s.classList.toggle("quieta", !e[0].isIntersecting); }).observe(s);
   }
 
   /* Fotos que cambian solas dentro de un mismo marco (Un día de playa), cada 3,5 s y desfasadas entre sí */
