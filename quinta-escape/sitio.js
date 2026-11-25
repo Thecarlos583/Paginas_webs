@@ -144,19 +144,14 @@ var CONFIG = {
     var s = $("[data-anochecer]"); if (!s) return;
     s.classList.add("vivo");
     if (quieto) { s.style.setProperty("--n", "1"); s.classList.add("de-noche"); return; }
-    var pend = false, tel = !matchMedia("(min-width:980px)").matches;
-    function pinta() {
-      pend = false;
-      var r = s.getBoundingClientRect(), alto = window.innerHeight;
-      var p = (alto * .85 - r.top) / (r.height * .9);
-      p = Math.max(0, Math.min(1, p));
-      if (tel) p = p < .34 ? 0 : (p < .67 ? .5 : 1);
-      s.style.setProperty("--n", p.toFixed(3));
-      s.classList.toggle("de-noche", p > .5);
-    }
-    window.addEventListener("scroll", function () { if (!pend) { pend = true; requestAnimationFrame(pinta); } }, { passive: true });
-    window.addEventListener("resize", function () { tel = !matchMedia("(min-width:980px)").matches; pinta(); });
-    pinta();
+    /* La tarde y la noche se turnan solas cada 4 s mientras la sección se ve (antes cambiaban al bajar). */
+    s.classList.add("auto");
+    var noche = false, visible = false;
+    if ("IntersectionObserver" in window) new IntersectionObserver(function (e) { visible = e[0].isIntersecting; }, { threshold: .2 }).observe(s);
+    setInterval(function () {
+      if (!visible || document.hidden) return;
+      noche = !noche; s.style.setProperty("--n", noche ? "1" : "0"); s.classList.toggle("de-noche", noche);
+    }, 4000);
   }
 
   /* Los espacios avanzan en horizontal al bajar (solo en computadora; en el teléfono se deslizan con el dedo) */
@@ -475,9 +470,58 @@ var CONFIG = {
     }, { threshold: .35 }).observe(v);
   }
 
+  /* Los espacios pasan solos, como una cinta, sin depender del scroll. Se detienen al tocarlos o con el cursor encima,
+     y se pueden deslizar con el dedo. La cinta va duplicada para que no tenga fin. */
+  function initCinta() {
+    var s = $("[data-cinta]"); if (!s || quieto) return;
+    var pista = $(".espacios-pista", s), fila = $(".espacios", s); if (!pista || !fila) return;
+    var orig = $$(".espacio", fila);
+    orig.forEach(function (el) { var c = el.cloneNode(true); c.setAttribute("aria-hidden", "true"); $$("img", c).forEach(function (im) { im.alt = ""; }); fila.appendChild(c); });
+    s.classList.add("cinta");
+    var vel = .032, pos = pista.scrollLeft, antes = 0, hasta = 0, visible = true, encima = false;
+    if ("IntersectionObserver" in window) new IntersectionObserver(function (e) { visible = e[0].isIntersecting; }, { threshold: .1 }).observe(pista);
+    function espera() { hasta = performance.now() + 3500; }
+    ["pointerdown", "touchstart", "wheel"].forEach(function (ev) { pista.addEventListener(ev, espera, { passive: true }); });
+    pista.addEventListener("mouseenter", function () { encima = true; });
+    pista.addEventListener("mouseleave", function () { encima = false; espera(); });
+    function paso(ts) {
+      var dt = antes ? Math.min(64, ts - antes) : 16; antes = ts;
+      var largo = fila.children[orig.length].offsetLeft - orig[0].offsetLeft;
+      if (Math.abs(pista.scrollLeft - pos) > 2) pos = pista.scrollLeft;   /* la persona lo movió con el dedo */
+      if (visible && !encima && !document.hidden && ts > hasta) {
+        pos += vel * dt;
+        if (pos >= largo) pos -= largo;
+        pista.scrollLeft = pos;
+      } else if (pos >= largo) { pos -= largo; pista.scrollLeft = pos; }
+      requestAnimationFrame(paso);
+    }
+    requestAnimationFrame(paso);
+  }
+
+  /* Fotos que cambian solas dentro de un mismo marco (Un día de playa), cada 3,5 s y desfasadas entre sí */
+  function initRotan() {
+    var cajas = $$("[data-rota]"); if (!cajas.length || quieto) return;
+    cajas.forEach(function (caja, k) {
+      var extra = $$("img.rota", caja), puntos = $$(".rota-puntos i", caja), i = 0, visible = false;
+      if (!extra.length) return;
+      if (puntos[0]) puntos[0].classList.add("on");
+      if ("IntersectionObserver" in window) new IntersectionObserver(function (e) { visible = e[0].isIntersecting; }, { threshold: .3 }).observe(caja);
+      setTimeout(function () {
+        setInterval(function () {
+          if (!visible || document.hidden) return;
+          var n = (i + 1) % (extra.length + 1), sig = n ? extra[n - 1] : null;
+          if (sig && !sig.complete) return;
+          extra.forEach(function (im, m) { im.classList.toggle("ve", m === n - 1); });
+          puntos.forEach(function (pt, m) { pt.classList.toggle("on", m === n); });
+          i = n;
+        }, 3500);
+      }, (k % 3) * 900);
+    });
+  }
+
   safe(initVideos, "videos");
-  safe(initMarea, "marea"); safe(initRecorrido, "recorrido");
+  safe(initRotan, "rotan"); safe(initRecorrido, "recorrido");
   safe(initFlotante, "flotante");
-  safe(initMapa, "mapa"); safe(initCuenta, "cuenta"); safe(initRevela, "revela"); safe(initAnochecer, "anochecer"); safe(initHorizontal, "horizontal"); safe(initHoja, "hoja"); safe(initPortada, "portada"); safe(initParalaje, "paralaje");
+  safe(initMapa, "mapa"); safe(initCuenta, "cuenta"); safe(initAnochecer, "anochecer"); safe(initCinta, "cinta"); safe(initHoja, "hoja"); safe(initPortada, "portada");
   safe(initArmador, "armador"); safe(initDias, "dias"); safe(initHoy, "hoy"); safe(initColores, "colores"); safe(initGaleria, "galeria");
 })();

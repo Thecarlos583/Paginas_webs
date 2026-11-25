@@ -900,3 +900,34 @@ details[open]>summary .chev{transform:rotate(180deg)}
 }
 .recorrido-chips .chip{padding:7px 16px}
 @media (min-width:640px) and (max-width:979px){.marea-media{max-width:440px}}
+
+/* ===== 25-11 noche: nada se mueve al bajar; todo cambia solo ===== */
+/* Un día de playa: sin la línea de la izquierda; fotos que se turnan en su marco */
+.marea{padding-left:0;gap:34px}
+.marea::before,.marea::after,.marea-paso::before{display:none}
+.marea-media{position:relative;overflow:hidden;border-radius:4px 4px 22px 22px;background:var(--arena2)}
+.marea-media img,.marea-media video{border-radius:0}
+.marea-media img.rota{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .9s ease}
+.marea-media img.rota.ve{opacity:1}
+.rota-puntos{position:absolute;left:50%;bottom:10px;transform:translateX(-50%);display:flex;gap:6px;padding:5px 8px;border-radius:20px;background:rgba(8,26,40,.35)}
+.rota-puntos i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.55);transition:background-color .4s,transform .4s var(--suave)}
+.rota-puntos i.on{background:#fff;transform:scale(1.25)}
+.marea-txt small::before{content:"";display:inline-block;width:18px;height:2px;margin:0 8px 3px 0;vertical-align:middle;background:var(--acento)}
+
+/* Los espacios: cinta que pasa sola */
+.espacios-sec.cinta .espacios-pista{scroll-snap-type:none}
+.espacios-sec.cinta .espacio{scroll-snap-align:none}
+
+/* De la tarde a la noche: se turnan solas, con transición suave */
+.anochecer.auto::before,.anochecer.auto figure.noche{transition:opacity 1.4s ease}
+.anochecer.vivo .anochecer-fotos{max-height:60svh}
+
+@media (min-width:980px){
+  .marea{gap:56px}
+  .marea-paso:nth-child(even){grid-template-columns:minmax(0,1fr) minmax(0,520px)}
+  .marea-paso:nth-child(even) .marea-media{order:2}
+  .marea-paso::before{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .marea-media img.rota,.rota-puntos i,.anochecer.auto::before,.anochecer.auto figure.noche{transition:none}
+}
