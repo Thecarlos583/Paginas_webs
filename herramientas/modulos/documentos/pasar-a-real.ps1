@@ -7,9 +7,7 @@ param([Parameter(Mandatory = $true)][string]$cliente, [Parameter(Mandatory = $tr
 . (Join-Path $PSScriptRoot "scripts\comun.ps1")
 $node = Join-Path $PSScriptRoot "scripts\d1.mjs"
 $clave = node $node clave
-$sql = (Get-Content (Join-Path $PSScriptRoot "scripts\borrar-todo.sql") -Raw -Encoding UTF8) + "`n"
-$sql += (node $node usuario $Usuario.ToLower() $Nombre admin $clave) + "`n"
-Invoke-SqlTexto $sql
+Invoke-SqlNode @("sql-real", $Usuario.ToLower(), $Nombre, $clave)
 $archivo = Join-Path $secretos "$cliente-documentos.txt"
 Add-Content -Path $archivo -Value "$($Usuario.ToLower())=$clave" -Encoding UTF8
 Write-Host "Listo: sin datos de ejemplo. Usuario $($Usuario.ToLower())   Contraseña: $clave   (guardada en $archivo)"

@@ -120,7 +120,9 @@ export function panel(conf, cabeceras) {
 </html>`;
   return new Response(html, {
     headers: {
-      ...cabeceras, "content-type": "text/html; charset=utf-8", "cache-control": "no-cache",
+      ...cabeceras, "content-type": "text/html; charset=utf-8",
+      // no-transform: que Cloudflare no le inserte su script de estadísticas al panel privado
+      "cache-control": "no-cache, no-transform",
       "content-security-policy": CSP, "x-frame-options": "DENY",
     },
   });

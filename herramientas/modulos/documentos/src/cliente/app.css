@@ -165,7 +165,7 @@ textarea.llenar { resize: vertical; min-height: 96px; }
 .segmento-envuelve { display: flex; }
 
 .contadores { display: grid; gap: 8px; }
-.contador { display: grid; grid-template-columns: 1fr 44px 48px 44px; align-items: center; gap: 4px; padding: 4px 4px 4px 14px; border-radius: 12px; background: var(--campo); }
+.contador { display: grid; grid-template-columns: minmax(0, 1fr) 44px 48px 44px; min-width: 0; align-items: center; gap: 4px; padding: 4px 4px 4px 14px; border-radius: 12px; background: var(--campo); }
 .cont-etq { font: 600 15px/1 var(--f-tit); }
 .cont-b { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 10px; border: 0; background: #fff; color: var(--acento); box-shadow: 0 0 0 1px var(--linea); cursor: pointer; }
 .cont-b svg { width: 20px; height: 20px; }
@@ -325,7 +325,10 @@ dialog[open] { animation: sube .26s var(--suave-mov); }
   .nuevo-cot { grid-template-columns: auto 1fr; }
   .rejilla { grid-template-columns: 1fr 1fr; gap: 16px 20px; }
   .fila.ancha { grid-column: 1 / -1; }
-  .contadores { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .contadores { grid-template-columns: repeat(auto-fit, minmax(196px, 1fr)); }
+  .contador { grid-template-columns: minmax(0, 1fr) 40px 34px 40px; gap: 2px; padding-left: 12px; }
+  .cont-etq { font-size: 14px; }
+  .contador .cont-b { width: 40px; height: 40px; }
   .dos { grid-template-columns: 1fr 1fr; gap: 24px; }
   .hoja { padding: 30px 32px 22px; }
   .hoja-cab { grid-template-columns: 1fr auto; align-items: start; }
@@ -349,7 +352,7 @@ dialog[open] { animation: sube .26s var(--suave-mov); }
   .cab { padding-top: 12px; padding-bottom: 12px; }
   .cab-logo { height: 30px; }
   .nav { position: static; display: flex; gap: 4px; margin-left: auto; background: none; border: 0; padding: 0; box-shadow: none; }
-  .nav-a { display: flex; gap: 8px; min-height: 42px; padding: 0 14px; border-radius: 999px; color: rgba(255,255,255,.86); font-size: 14px; }
+  .nav-a { display: flex; align-items: center; gap: 8px; min-height: 42px; padding: 0 14px; border-radius: 999px; color: rgba(255,255,255,.86); font-size: 14px; }
   .nav-a svg { width: 19px; height: 19px; }
   .nav-a.activa { color: #fff; background: rgba(255,255,255,.18); }
   main { padding: 32px 28px 64px; }
@@ -370,8 +373,9 @@ dialog[open] { animation: sube .26s var(--suave-mov); }
   .rejilla .fila:not(.ancha) .fijo { line-height: 1.2; }
   .barra-guardar { bottom: 16px; justify-items: end; }
   .barra-guardar .btn { width: auto; min-width: 300px; }
-  .doc-cuerpo { grid-template-columns: minmax(0, 1fr) 360px; grid-template-areas: "pdf lado" "pdf mas"; grid-template-rows: auto 1fr; align-items: start; gap: 18px 24px; }
+  .doc-cuerpo { grid-template-columns: minmax(0, 1fr) 380px; grid-template-areas: "pdf lado" "pdf mas"; grid-template-rows: auto 1fr; align-items: start; gap: 18px 24px; }
   .doc-pdf { grid-area: pdf; }
+  .acc-dos .btn { font-size: 15px; padding: 0 10px; }
   .doc-lado { grid-area: lado; }
   .doc-mas { grid-area: mas; }
   .pdf-marco { padding: 18px; }

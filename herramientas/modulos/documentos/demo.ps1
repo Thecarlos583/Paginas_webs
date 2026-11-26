@@ -13,13 +13,7 @@ if (-not (Test-Path $archivo)) {
 $claves = @{}
 Get-Content $archivo | ForEach-Object { if ($_ -match '^([^=]+)=(.+)$') { $claves[$Matches[1]] = $Matches[2] } }
 
-$sql = (Get-Content (Join-Path $PSScriptRoot "scripts\borrar-todo.sql") -Raw -Encoding UTF8) + "`n"
-$sql += (node $node usuario demo "Patricia (demostración)" admin $claves["demo"]) + "`n"
-$sql += (node $node usuario maria.demo "María (ejemplo)" asesor $claves["maria.demo"]) + "`n"
-$ahora = [DateTimeOffset]::UtcNow.ToUnixTimeMilliseconds()
-$sql += "INSERT INTO clientes (nombre, documento, telefono, correo, busqueda, creado, actualizado) VALUES ('Carolina Vargas (ejemplo)', 'V-00000004', '0416-000-0004', '', 'carolina vargas ejemplo v 00000004 04160000004', $ahora, $ahora);`n"
-$sql += "UPDATE ajustes SET valor = '1' WHERE clave = 'demo';`n"
-Invoke-SqlTexto $sql
+Invoke-SqlNode @("sql-demo", $claves["demo"], $claves["maria.demo"])
 node $node demo $Url demo $claves["demo"] maria.demo $claves["maria.demo"]
 if ($LASTEXITCODE -ne 0) { Write-Error "No se pudieron cargar los documentos de ejemplo."; exit 1 }
 Write-Host "Usuario de demostración: demo   Contraseña: $($claves['demo'])"

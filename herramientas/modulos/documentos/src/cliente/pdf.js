@@ -56,8 +56,8 @@
       hLineColor: function () { return col.linea; },
       paddingLeft: function () { return 0; },
       paddingRight: function (i) { return i === 0 ? 10 : 0; },
-      paddingTop: function () { return 4.5; },
-      paddingBottom: function () { return 4.5; },
+      paddingTop: function () { return 3; },
+      paddingBottom: function () { return 3; },
     };
 
     function pares(lista) {
@@ -69,7 +69,7 @@
       };
     }
     function seccion(titulo, cuerpo, extra) {
-      var s = { stack: [{ text: titulo, style: "secTit" }, cuerpo], margin: [0, 16, 0, 0] };
+      var s = { stack: [{ text: titulo, style: "secTit" }, cuerpo], margin: [0, 11, 0, 0] };
       if (extra) for (var k in extra) s[k] = extra[k];
       return s;
     }
@@ -88,7 +88,7 @@
         { width: "*", stack: datosAg, alignment: "right", style: "agDatos" },
       ],
     });
-    contenido.push({ canvas: [{ type: "rect", x: 0, y: 0, w: ANCHO, h: 3, linearGradient: [col.c1, col.c2, col.c3] }], margin: [0, 14, 0, 18] });
+    contenido.push({ canvas: [{ type: "rect", x: 0, y: 0, w: ANCHO, h: 3, linearGradient: [col.c1, col.c2, col.c3] }], margin: [0, 10, 0, 12] });
 
     // Título y datos del documento.
     var meta = [[E.numero, doc.numero], [E.emision, fecha(doc.emision)]];
@@ -96,7 +96,7 @@
     if (doc.asesor) meta.push([E.asesor, doc.asesor]);
     contenido.push({
       columns: [
-        { width: "*", stack: [{ text: tipo.titulo, style: "titulo" }, v.destino ? { text: v.destino, style: "bajada" } : { text: "" }] },
+        { width: "*", stack: [{ text: tipo.titulo, style: "titulo", fontSize: tipo.titulo.length > 14 ? 20 : 24 }, v.destino ? { text: v.destino, style: "bajada" } : { text: "" }] },
         {
           width: 200,
           table: { widths: [86, "*"], body: meta.map(function (p, i) { return [{ text: p[0], style: "etq" }, { text: p[1], style: i === 0 ? "numero" : "val", alignment: "right" }]; }) },
@@ -120,7 +120,7 @@
     if (v.noches) izq.push([E.noches, String(v.noches)]);
     var der = [[E.pasajeros, pasajeros(v), true], [E.hotel, v.hotel], [E.regimen, v.regimen], [E.traslados, v.traslados]];
     var viaje = [{ columns: [pares(izq), pares(der)], columnGap: 24 }];
-    if (v.vuelos) viaje.push({ margin: [0, 6, 0, 0], table: { widths: [78, "*"], body: [[{ text: E.vuelos, style: "etq" }, { text: v.vuelos, style: "val" }]] }, layout: lineas });
+    if (v.vuelos) viaje.push({ margin: [0, 3, 0, 0], table: { widths: [78, "*"], body: [[{ text: E.vuelos, style: "etq" }, { text: v.vuelos, style: "val" }]] }, layout: lineas });
     if (doc.tipo === "voucher") {
       viaje.unshift({
         table: { widths: ["*"], body: [[{ stack: [{ text: E.confirmacion, style: "etq" }, { text: v.confirmacion || " ", style: "codigo" }], margin: [12, 8, 12, 8] }]] },
@@ -135,12 +135,12 @@
       var lista = function (titulo, items, color) {
         return {
           width: "*",
-          stack: [{ text: titulo, style: "subTit" }, items && items.length ? { ul: items, markerColor: color, style: "val", margin: [0, 2, 0, 0] } : { text: "Nada indicado.", style: "etq" }],
+          stack: [{ text: titulo, style: "subTit" }, items && items.length ? { ul: items, markerColor: color, style: "val", lineHeight: 1.1, margin: [0, 1, 0, 0] } : { text: "Nada indicado.", style: "etq" }],
         };
       };
       contenido.push({
         columns: [lista(E.incluye, d.incluye, col.c1), lista(E.no_incluye, d.no_incluye, col.suave)],
-        columnGap: 24, margin: [0, 16, 0, 0],
+        columnGap: 24, margin: [0, 11, 0, 0],
       });
     }
 
@@ -151,8 +151,8 @@
         (p.referencia ? ", referencia " + p.referencia : "") + ".";
       contenido.push(seccion(E.recibimos, {
         table: {
-          widths: ["*", "auto"],
-          body: [[{ text: frase, style: "val", margin: [12, 10, 0, 10] }, { text: din(p.monto), style: "pagoMonto", margin: [0, 7, 12, 7], alignment: "right" }]],
+          widths: ["*", 150],
+          body: [[{ text: frase, style: "val", margin: [12, 8, 0, 8] }, { text: din(p.monto), style: "pagoMonto", margin: [0, 6, 12, 6], alignment: "right", noWrap: true }]],
         },
         layout: { hLineWidth: function () { return 0; }, vLineWidth: function () { return 0; }, fillColor: function () { return col.campo; } },
       }));
@@ -187,16 +187,16 @@
             hLineColor: function (i, node) { return i === node.table.body.length ? col.tinta : col.linea; },
             fillColor: function (i) { return i === 0 ? col.campo : null; },
             paddingLeft: function (i) { return i === 0 ? 8 : 4; }, paddingRight: function (i, node) { return i === node.table.widths.length - 1 ? 8 : 4; },
-            paddingTop: function () { return 5; }, paddingBottom: function () { return 5; },
+            paddingTop: function () { return 3.5; }, paddingBottom: function () { return 3.5; },
           },
         },
         {
           columns: [{ width: "*", text: "" }, {
             width: 220,
             table: { widths: ["*", "auto"], body: tot },
-            layout: { hLineWidth: function () { return 0; }, vLineWidth: function () { return 0; }, paddingLeft: function () { return 0; }, paddingRight: function (i) { return i === 1 ? 8 : 0; }, paddingTop: function () { return 3; }, paddingBottom: function () { return 3; } },
+            layout: { hLineWidth: function () { return 0; }, vLineWidth: function () { return 0; }, paddingLeft: function () { return 0; }, paddingRight: function (i) { return i === 1 ? 8 : 0; }, paddingTop: function () { return 2; }, paddingBottom: function () { return 2; } },
           }],
-          margin: [0, 6, 0, 0],
+          margin: [0, 4, 0, 0],
         },
       ];
       if (d.bs && d.bs.mostrar && d.bs.tasa) {
@@ -204,7 +204,7 @@
         var txt = E.equivalente + ": Bs. " + num(total * t);
         if (tipo.pagos) txt += ". Saldo: Bs. " + num((total - abonado) * t);
         txt += ". Tasa: Bs. " + num(t) + " por dólar" + (d.bs.fecha || doc.emision ? ", del " + fecha(d.bs.fecha || doc.emision) : "") + ".";
-        montos.push({ text: txt, style: "etq", alignment: "right", margin: [0, 6, 8, 0] });
+        montos.push({ text: txt, style: "etq", alignment: "right", margin: [0, 4, 8, 0] });
       }
       contenido.push(seccion(E.seccion_montos, { stack: montos }));
     }
@@ -212,7 +212,7 @@
     // Pagos registrados.
     if (tipo.pagos) {
       var pagos = doc.tipo === "proforma" ? (d.abonos || []) : (d.abonos_previos || []).concat(d.pago ? [d.pago] : []);
-      if (pagos.length) {
+      if (pagos.length && !(doc.tipo === "comprobante" && pagos.length === 1)) {
         var fp = [[{ text: "Fecha", style: "th" }, { text: "Método", style: "th" }, { text: "Referencia", style: "th" }, { text: "Monto", style: "th", alignment: "right" }]];
         pagos.forEach(function (a) {
           var este = doc.tipo === "comprobante" && d.pago && a.id === d.pago.id;
@@ -225,7 +225,7 @@
             hLineWidth: function (i) { return i === 0 ? 0 : 0.6; }, vLineWidth: function () { return 0; }, hLineColor: function () { return col.linea; },
             fillColor: function (i) { return i === 0 ? col.campo : null; },
             paddingLeft: function (i) { return i === 0 ? 8 : 4; }, paddingRight: function (i, node) { return i === node.table.widths.length - 1 ? 8 : 4; },
-            paddingTop: function () { return 5; }, paddingBottom: function () { return 5; },
+            paddingTop: function () { return 3.5; }, paddingBottom: function () { return 3.5; },
           },
         }));
       }
@@ -239,20 +239,20 @@
 
     var dd = {
       pageSize: "A4",
-      pageMargins: [40, 40, 40, 56],
+      pageMargins: [40, 34, 40, 50],
       info: { title: tipo.titulo + " " + doc.numero, author: A.nombre, subject: tipo.titulo + (v.destino ? ", " + v.destino : ""), creator: A.nombre, producer: A.nombre },
       content: contenido,
       images: { logo: location.origin + conf.pdf.logo },
       footer: function (pag, total) {
         return {
-          margin: [40, 18, 40, 0],
+          margin: [40, 16, 40, 0],
           columns: [
             { text: conf.pdf.pie, style: "pie" },
             { text: doc.numero + ", página " + pag + " de " + total, style: "pie", alignment: "right", width: 160 },
           ],
         };
       },
-      defaultStyle: { font: "Txt", fontSize: 9.5, color: col.tinta, lineHeight: 1.22 },
+      defaultStyle: { font: "Txt", fontSize: 9.2, color: col.tinta, lineHeight: 1.18 },
       styles: {
         agNombre: { font: "Tit", bold: true, fontSize: 11, color: col.tinta, margin: [0, 0, 0, 2] },
         agDatos: { fontSize: 8, color: col.suave, lineHeight: 1.3 },
@@ -262,8 +262,8 @@
         secTit: { font: "Tit", bold: true, fontSize: 9, color: col.acento, margin: [0, 0, 0, 4], characterSpacing: 0.3 },
         subTit: { font: "Tit", bold: true, fontSize: 9, color: col.tinta, margin: [0, 0, 0, 2] },
         etq: { fontSize: 8.5, color: col.suave },
-        val: { fontSize: 9.5, color: col.tinta },
-        valB: { fontSize: 9.5, color: col.tinta, bold: true },
+        val: { fontSize: 9.2, color: col.tinta },
+        valB: { fontSize: 9.2, color: col.tinta, bold: true },
         th: { font: "Tit", bold: false, fontSize: 8, color: col.suave },
         totEtq: { font: "Tit", bold: true, fontSize: 10 },
         totVal: { font: "Tit", bold: true, fontSize: 10 },

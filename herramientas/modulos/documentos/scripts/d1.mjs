@@ -1,22 +1,41 @@
 // Ayudante de Node para los scripts .ps1 del módulo de documentos.
-//   node d1.mjs usuario <usuario> "<nombre>" <admin|asesor> <clave>   -> imprime el SQL del usuario (con la contraseña cifrada)
-//   node d1.mjs clave                                                -> imprime una contraseña nueva
-//   node d1.mjs demo <url> <usuario> <clave> <usuario2> <clave2>     -> llena la demostración usando la API real del panel
+// El SQL se escribe directo a un archivo en UTF-8: si PowerShell 5.1 captura la salida de Node, daña las tildes.
+//   node d1.mjs clave                                              -> imprime una contraseña nueva
+//   node d1.mjs sql-demo <archivo> <clave-demo> <clave-asesora>   -> SQL: borra todo, usuarios y cliente de ejemplo, modo demo
+//   node d1.mjs sql-real <archivo> <usuario> "<nombre>" <clave>   -> SQL: borra todo y crea el Administrador real
+//   node d1.mjs demo <url> <usuario> <clave> <usuario2> <clave2>  -> llena la demostración usando la API real del panel
+import fs from "node:fs";
+import { fileURLToPath } from "node:url";
 import { claveNueva, hashClave } from "../src/util.js";
 
 const [, , orden, ...args] = process.argv;
 const sql = (s) => "'" + String(s).replace(/'/g, "''") + "'";
+const BORRAR = fs.readFileSync(fileURLToPath(new URL("./borrar-todo.sql", import.meta.url)), "utf8");
+
+async function usuario(u, nombre, rol, clave) {
+  return `INSERT INTO usuarios (usuario, nombre, rol, clave, activo, creado) VALUES (${sql(u.toLowerCase())}, ${sql(nombre)}, ${sql(rol)}, ${sql(await hashClave(clave))}, 1, ${Date.now()});`;
+}
 
 if (orden === "clave") {
   console.log(claveNueva());
-} else if (orden === "usuario") {
-  const [usuario, nombre, rol, clave] = args;
-  if (!usuario || !nombre || !["admin", "asesor"].includes(rol) || !clave) { console.error("Uso: node d1.mjs usuario <usuario> <nombre> <admin|asesor> <clave>"); process.exit(1); }
-  console.log(`INSERT INTO usuarios (usuario, nombre, rol, clave, activo, creado) VALUES (${sql(usuario.toLowerCase())}, ${sql(nombre)}, ${sql(rol)}, ${sql(await hashClave(clave))}, 1, ${Date.now()});`);
+} else if (orden === "sql-demo") {
+  const [archivo, c1, c2] = args;
+  const ahora = Date.now();
+  fs.writeFileSync(archivo, [
+    BORRAR,
+    await usuario("demo", "Patricia (demostración)", "admin", c1),
+    await usuario("maria.demo", "María (ejemplo)", "asesor", c2),
+    `INSERT INTO clientes (nombre, documento, telefono, correo, busqueda, creado, actualizado) VALUES ('Carolina Vargas (ejemplo)', 'V-00000004', '0416-000-0004', '', 'carolina vargas ejemplo v 00000004 04160000004', ${ahora}, ${ahora});`,
+    "UPDATE ajustes SET valor = '1' WHERE clave = 'demo';",
+  ].join("\n"), "utf8");
+} else if (orden === "sql-real") {
+  const [archivo, u, nombre, clave] = args;
+  if (!u || !nombre || !clave) { console.error("Faltan datos: usuario, nombre y clave."); process.exit(1); }
+  fs.writeFileSync(archivo, [BORRAR, await usuario(u, nombre, "admin", clave)].join("\n"), "utf8");
 } else if (orden === "demo") {
   await demo(...args);
 } else {
-  console.error("Órdenes: usuario, clave, demo");
+  console.error("Órdenes: clave, sql-demo, sql-real, demo");
   process.exit(1);
 }
 
