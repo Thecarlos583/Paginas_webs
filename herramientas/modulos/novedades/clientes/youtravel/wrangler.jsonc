@@ -6,9 +6,8 @@
   "name": "youtravel",
   "main": "../../src/index.js",
   "compatibility_date": "2026-11-01",
-  "workers_dev": true,
-  // El dominio entra cuando la zona esté activa en Cloudflare (nameservers cambiados en Porkbun):
-  // "routes": [{ "pattern": "youtravelagenciadeviajes.com", "custom_domain": true }],
+  "workers_dev": false,
+  "routes": [{ "pattern": "youtravelagenciadeviajes.com", "custom_domain": true }],
   "assets": {
     "directory": "../../../../../youtravel",
     "binding": "ASSETS",
@@ -30,7 +29,7 @@
       "texto_vacio": "Muy pronto, novedades de viajes.",
       "plantilla": "/novedades.html",
       "imagen_compartir": "/img/novedades-compartir.jpg",
-      "indexar": false,
+      "indexar": true,
       "panel_nombre": "Panel YouTravel",
       "logo": "/img/logo.webp",
       "logo_claro": "/img/logo-claro.webp",

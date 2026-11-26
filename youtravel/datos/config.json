@@ -24,7 +24,7 @@
  "galeria": false,
  "moneda": "US$",
  "demo": false,
- "indexar": false,
+ "indexar": true,
  "aviso": "Paquetes y fotos de referencia.",
  "horario_ejemplo": false,
  "horario": [["Lunes a viernes", "8:00 a. m. a 4:00 p. m."]],
