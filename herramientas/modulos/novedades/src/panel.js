@@ -91,6 +91,7 @@ main { max-width: 600px; margin: 0 auto; padding: 24px 18px calc(env(safe-area-i
 .entrada { width: 100%; min-height: 56px; padding: 14px 16px; border: 1.5px solid var(--linea-f); border-radius: 14px; background: #fff; font-size: 18px; line-height: 1.45; transition: border-color .2s, box-shadow .2s; }
 .entrada:focus { outline: none; border-color: var(--acento); box-shadow: 0 0 0 4px var(--foco); }
 textarea.entrada { resize: vertical; min-height: 120px; }
+textarea.entrada-tit { min-height: 0; resize: none; overflow: hidden; font-family: var(--f-tit); font-weight: 700; }
 #f-cuerpo { min-height: 260px; }
 .cont { justify-self: end; font-size: 14px; color: var(--suave); font-variant-numeric: tabular-nums; }
 .cont.cerca { color: var(--aviso); font-weight: 700; }
@@ -113,11 +114,14 @@ textarea.entrada { resize: vertical; min-height: 120px; }
 .chip { display: inline-flex; align-items: center; min-height: 26px; padding: 0 10px; border-radius: 999px; font: 700 13px/1 var(--f-tit); }
 .chip-pub { background: #E2F3E8; color: var(--wa); }
 .chip-bor { background: var(--fondo-2); color: var(--suave); }
-.art-acc { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
-.art-acc .btn { min-height: 48px; padding: 0 8px; font-size: 14px; gap: 6px; }
+.art-acc { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.art-acc .btn-wa { grid-column: 1 / -1; }
+.art-acc .btn { white-space: nowrap; }
+@media (max-width: 399px) { .art-acc .btn-borde svg { display: none; } }
+.art-acc .btn { min-height: 48px; padding: 0 10px; font-size: 15px; gap: 8px; }
 .art-acc .btn svg { width: 18px; height: 18px; }
 .art-acc .btn-borde { box-shadow: inset 0 0 0 1.5px var(--linea-f); }
-.art-nota { grid-column: 2 / -1; align-self: center; font-size: 14px; color: var(--suave); }
+.art-nota { align-self: center; font-size: 14px; line-height: 1.35; color: var(--suave); }
 .vacio { padding: 32px 22px; border-radius: 22px; border: 1.5px dashed var(--linea-f); text-align: center; color: var(--suave); }
 .foto-caja { display: grid; gap: 12px; }
 .foto-prev { width: 100%; aspect-ratio: 1200 / 630; object-fit: cover; border-radius: 16px; background: var(--fondo-2); }
@@ -214,7 +218,7 @@ dialog[open] { animation: sube .28s var(--suave-mov); }
  <form class="pila" id="f-art" novalidate>
   <div class="campo">
    <label for="f-titulo">Título</label>
-   <input class="entrada" id="f-titulo" name="titulo" type="text" maxlength="${LIMITES.titulo}" autocomplete="off" autocapitalize="sentences" enterkeyhint="next" aria-describedby="c-titulo">
+   <textarea class="entrada entrada-tit" id="f-titulo" name="titulo" rows="2" maxlength="${LIMITES.titulo}" autocomplete="off" autocapitalize="sentences" enterkeyhint="next" aria-describedby="c-titulo"></textarea>
    <span class="cont" id="c-titulo">0 de ${LIMITES.titulo}</span>
   </div>
   <div class="campo">
@@ -256,8 +260,7 @@ dialog[open] { animation: sube .28s var(--suave-mov); }
   <p class="linea">Ya está en la página. Compártalo así:</p>
  </div>
  <div class="chat" id="listo-chat"></div>
- <p class="enlace" id="listo-enlace"></p>
- <div class="pila">
+<div class="pila">
   <button class="btn btn-wa" type="button" id="listo-wa"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.2A9.7 9.7 0 0 0 3.7 16.9L2.3 21.8l5-1.3A9.7 9.7 0 1 0 12 2.2zm0 17.7a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 19.9zm4.4-6c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.5.1l-.8 1c-.1.2-.3.2-.5.1a6.6 6.6 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.5-.4h-.5a.9.9 0 0 0-.7.3 2.8 2.8 0 0 0-.9 2.1 4.9 4.9 0 0 0 1 2.6 11.2 11.2 0 0 0 4.3 3.8c1.6.7 2.2.7 3 .6a2.6 2.6 0 0 0 1.7-1.2 2.1 2.1 0 0 0 .1-1.2c0-.1-.2-.2-.5-.3z"/></svg>Compartir por WhatsApp</button>
   <button class="btn btn-borde" type="button" id="listo-copiar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2.5"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg>Copiar enlace</button>
   <a class="btn btn-suave" id="listo-ver" href="/novedades" target="_blank" rel="noopener">Ver el artículo en la página</a>
@@ -404,8 +407,7 @@ const PANEL_JS = String.raw`
       acc.appendChild(boton("btn-borde", ICO_ED + "<span>Editar</span>", function () { ir("#editar/" + a.slug); }));
       if (pub) {
         acc.appendChild(boton("btn-borde", ICO_CP + "<span>Copiar enlace</span>", function () { copiar(enlace(a.slug)); }));
-        acc.appendChild(boton("btn-wa", ICO_WA + "<span>WhatsApp</span>", function () { compartirWA(a.titulo, a.slug); }));
-        acc.lastChild.setAttribute("aria-label", "Compartir por WhatsApp");
+        acc.appendChild(boton("btn-wa", ICO_WA + "<span>Compartir por WhatsApp</span>", function () { compartirWA(a.titulo, a.slug); }));
       } else {
         acc.appendChild(el("p", "art-nota", "Publíquelo para poder compartirlo."));
       }
@@ -466,7 +468,10 @@ const PANEL_JS = String.raw`
     c.classList.toggle("tope", quedan <= 0);
     c.textContent = quedan <= 0 ? "Llegó al límite de " + L[n] : quedan <= umbral[n] ? "Le quedan " + quedan + " de " + L[n] : usado + " de " + L[n];
   }
-  function crecer() { var t = campos.cuerpo; t.style.height = "auto"; t.style.height = Math.max(260, t.scrollHeight + 4) + "px"; }
+  function crecer() {
+    var t = campos.cuerpo; t.style.height = "auto"; t.style.height = Math.max(260, t.scrollHeight + 4) + "px";
+    var x = campos.titulo; x.style.height = "auto"; x.style.height = (x.scrollHeight + 3) + "px";
+  }
 
   function claveBorrador() { return "nov:borrador:" + (ed && ed.slug ? ed.slug : "nuevo"); }
   var guardarT;
@@ -481,7 +486,11 @@ const PANEL_JS = String.raw`
   function borrarLocal() { try { localStorage.removeItem(claveBorrador()); } catch (e) {} }
 
   Object.keys(campos).forEach(function (n) {
-    campos[n].addEventListener("input", function () { contar(n); if (n === "cuerpo") crecer(); guardarLocal(); });
+    campos[n].addEventListener("input", function () {
+      // el título va en una sola línea aunque se escriba en un área que crece
+      if (n === "titulo" && /\n/.test(campos.titulo.value)) campos.titulo.value = campos.titulo.value.replace(/\s*\n+\s*/g, " ");
+      contar(n); if (n !== "subtitulo") crecer(); guardarLocal();
+    });
   });
   campos.titulo.addEventListener("keydown", function (e) { if (e.key === "Enter") { e.preventDefault(); campos.subtitulo.focus(); } });
 
@@ -516,6 +525,7 @@ const PANEL_JS = String.raw`
     $("descartar").textContent = art ? "Descartar esos cambios" : "Empezar de cero";
     pintarFoto();
     mostrar("editor");
+    crecer(); // con el editor ya visible, para que mida bien el alto
   }
   $("descartar").addEventListener("click", function () {
     borrarLocal(); $("recuperado").hidden = true;
@@ -704,8 +714,7 @@ const PANEL_JS = String.raw`
     if (!ultimo) return ir("#lista", true);
     var url = enlace(ultimo.slug);
     tarjetaWA($("listo-chat"), ultimo.titulo, ultimo.subtitulo, ultimo.img, url);
-    $("listo-enlace").textContent = url;
-    $("listo-ver").href = "/novedades/" + ultimo.slug;
+   $("listo-ver").href = "/novedades/" + ultimo.slug;
     mostrar("listo");
     $("t-listo").focus({ preventScroll: true });
   }
