@@ -30,7 +30,7 @@
       "texto_vacio": "Muy pronto, novedades de viajes.",
       "plantilla": "/novedades.html",
       "imagen_compartir": "/img/novedades-compartir.jpg",
-      "indexar": true,
+      "indexar": false,
       "panel_nombre": "Panel YouTravel",
       "logo": "/img/logo.webp",
       "logo_claro": "/img/logo-claro.webp",
