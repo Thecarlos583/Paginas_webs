@@ -652,8 +652,8 @@
   }
 
   /* ---- Ficha de propiedad ---- */
-  /* Las únicas plataformas que maneja la clienta (18/11/2026): Airbnb y Stay */
-  var PLATAFORMAS = [["airbnb", "Airbnb"], ["stay", "Stay"]];
+  /* Las únicas plataformas que maneja la clienta (18/11/2026): Airbnb y Estei (enlaces.stay) */
+  var PLATAFORMAS = [["airbnb", "Airbnb"], ["stay", "Estei"]];
   function rutaVideo(r) { return /^https?:\/\//.test(r) || /^fotos\//.test(r) ? r : "fotos/propiedades/" + r; }
   function youtube(u) {
     var m = String(u).match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|shorts\/|embed\/))([\w-]{6,})/);
