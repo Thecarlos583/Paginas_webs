@@ -13,6 +13,16 @@
    "alt": "Vista aérea del complejo con la piscina semiolímpica y los techos rojos"
   },
   {
+   "id": "piscina-churuatas",
+   "cat": "piscinas",
+   "alt": "Piscina semiolímpica con churuatas y plantas en primer plano"
+  },
+  {
+   "id": "piscina-palmeras",
+   "cat": "piscinas",
+   "alt": "Piscina semiolímpica vista entre palmeras, con sombrillas al fondo"
+  },
+  {
    "id": "v:portada-pc",
    "cat": "piscinas",
    "alt": "Video de la piscina semiolímpica con sus tumbonas"
@@ -216,6 +226,11 @@
    "id": "v:piscina-cascada-video",
    "cat": "piscinas",
    "alt": "Video de la piscina con barra cascada"
+  },
+  {
+   "id": "jardin-churuata",
+   "cat": "instalaciones",
+   "alt": "Jardín con churuata y mesas junto a la piscina"
   }
  ]
 }
