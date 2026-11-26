@@ -1,6 +1,6 @@
 # YouTravel Agencia de Viajes · DESIGN.md
 
-Vista previa de prospección (Puerto Ordaz). Generada con `contexto-claude-code/herramientas/agencias/agencia.py youtravel`. Los datos viven en `datos/*.json`; el diseño, en `herramientas/agencias/temas/youtravel.css`.
+Web de la clienta (Puerto Ordaz). Desde el 26-11 (prompt-48c): logo real, letras de la marca, datos reales y sin precios. Generada con `contexto-claude-code/herramientas/agencias/agencia.py youtravel`. Los datos viven en `datos/*.json`; el diseño, en `herramientas/agencias/temas/youtravel.css`.
 
 ## Idea
 En esta página, **la "o" del logo (un aro con un avioncito)** se vuelve **la ventana por donde se asoma cada viaje**: la portada se abre desde el aro, el aro se llena mientras usted arma su maleta y las rutas curvas salen de él.
@@ -17,17 +17,21 @@ Prueba del competidor: otra agencia de Puerto Ordaz no tiene un aro en su nombre
 ## Últimas 5 (no parecerse)
 Oasis (Caprasimo, arena y turquesa, mapa de senderos), Faraona (Brygada, verde y dorado, reloj de sol), Vistas de Oriana (Italiana, hora del día), 0295 VIP (Gloock, azul noche, carta de navegación), Villa 52 (Federo, piscina art déco). Esta: **blanco luminoso + casi negro azulado + degradado turquesa a violeta**, sans geométrico grueso, sin serif, sin papel ni crema.
 
-## Tipografía
-- Títulos: **Funnel Display** 700/800 (geométrico grueso, combina con el logo). Interlineado 0,95, tracking -0,02em.
-- Texto: **Funnel Sans** 400/500/600.
-- Cinco tamaños: 13 / 16 / 20 / clamp(30-48) / clamp(44-96).
+## Tipografía (letras de la marca, 48c)
+- Títulos: **Montserrat** 700/800. Botones y etiquetas con peso: Montserrat 600.
+- Texto: **Questrial** (solo tiene 400; no se le simula negrita).
+- Acento: **Satisfy** (Google Fonts), la más parecida a Sprint LP, que no llegó. Solo en acentos cortos: debajo del nombre de cada destino y de cada paquete, y el lema en el pie. Nunca en párrafos, botones ni menús; nunca menor de 22 px.
+- Patrón de la marca: título en Montserrat, debajo el lugar en script y una etiqueta pequeña en Questrial ("Los Roques" / *Archipiélago* / NACIONAL).
+
+## Botones (48c)
+Un solo sistema: principal con el degradado, secundario con contorno, WhatsApp en verde. 52 px de alto, radio redondo, texto en una línea, se encogen a 0,97 al tocar. En el teléfono van a lo ancho, uno debajo del otro, con 12 px.
 
 ## Colores (contraste medido)
 | Uso | Color | Contraste |
 |---|---|---|
 | Fondo principal (blanco cálido) | #FAF9F7 | |
 | Fondo alterno (gris muy claro) | #F0F1F4 | |
-| Tinta (casi negro azulado del logo) | #141A2E | 16,4:1 sobre #FAF9F7 |
+| Tinta (la del logo) | #0B1C23 | 16,4:1 sobre #FAF9F7 |
 | Texto suave | #4A5168 | 7,6:1 |
 | Sección oscura | #141A2E con texto #F4F5F8 | 15,6:1 |
 | Degradado de marca | #0B7F8C → #6B3FD6 | texto blanco 4,9:1 y 6,2:1 |
