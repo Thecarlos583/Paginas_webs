@@ -1,0 +1,63 @@
+// YouTravel: la web completa (Paginas_webs/youtravel) + Novedades + panel, en su dominio.
+// Publicar: herramientas\modulos\novedades\publicar.ps1 youtravel
+// La contraseña del panel NO va aquí: es el secreto PANEL_CLAVE (ver LEEME.md).
+{
+  "$schema": "https://unpkg.com/wrangler/config-schema.json",
+  "name": "youtravel",
+  "main": "../../src/index.js",
+  "compatibility_date": "2026-11-01",
+  "workers_dev": true,
+  // El dominio entra cuando la zona esté activa en Cloudflare (nameservers cambiados en Porkbun):
+  // "routes": [{ "pattern": "youtravelagenciadeviajes.com", "custom_domain": true }],
+  "assets": {
+    "directory": "../../../../../youtravel",
+    "binding": "ASSETS",
+    "html_handling": "none",
+    "not_found_handling": "none",
+    "run_worker_first": ["/", "/sitemap.xml", "/novedades", "/novedades.html", "/novedades/*", "/panel", "/panel/*", "/api/*"]
+  },
+  "kv_namespaces": [
+    { "binding": "NOVEDADES", "id": "e168a9c526aa44dcb04121593dff7a1a" }
+  ],
+  "observability": { "enabled": true },
+  "vars": {
+    "CLIENTE": {
+      "nombre": "YouTravel Agencia de Viajes",
+      "nombre_corto": "YouTravel",
+      "dominio": "youtravelagenciadeviajes.com",
+      "whatsapp": "584249572232",
+      "msg_cotizar": "Hola YouTravel, vi su publicación «{titulo}» y quiero información.",
+      "texto_vacio": "Muy pronto, novedades de viajes.",
+      "plantilla": "/novedades.html",
+      "imagen_compartir": "/img/novedades-compartir.jpg",
+      "indexar": true,
+      "panel_nombre": "Panel YouTravel",
+      "logo": "/img/logo.webp",
+      "logo_claro": "/img/logo-claro.webp",
+      "logo_ancho": 960,
+      "logo_alto": 243,
+      "iconos": {
+        "192": "/img/icono-192.png",
+        "512": "/img/icono-512.png",
+        "maskable": "/img/icono-maskable-512.png",
+        "apple": "/img/favicon-180.png",
+        "favicon": "/img/favicon-32.png"
+      },
+      "fuentes_url": "https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Questrial&display=swap",
+      "f_tit": "Montserrat",
+      "f_txt": "Questrial",
+      "colores": {
+        "tema": "#0B1C23",
+        "fondo": "#FAF9F7",
+        "fondo_2": "#EFF2F3",
+        "tinta": "#0B1C23",
+        "suave": "#475A62",
+        "linea": "#E1E6E8",
+        "linea_fuerte": "#BFC9CD",
+        "acento_txt": "#0B7F8C",
+        "foco": "rgba(25, 183, 195, .22)",
+        "grad": "linear-gradient(115deg, #0B7F8C 0%, #3A64B8 52%, #7A3FD0 100%)"
+      }
+    }
+  }
+}

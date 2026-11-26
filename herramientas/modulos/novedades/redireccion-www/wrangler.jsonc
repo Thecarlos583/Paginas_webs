@@ -1,0 +1,11 @@
+// Un Worker para todos los clientes: agregar aquí www.<dominio> de cada uno cuando su zona esté en Cloudflare.
+{
+  "$schema": "https://unpkg.com/wrangler/config-schema.json",
+  "name": "redireccion-www",
+  "main": "index.js",
+  "compatibility_date": "2026-11-01",
+  "workers_dev": false,
+  "routes": [
+    { "pattern": "www.youtravelagenciadeviajes.com", "custom_domain": true }
+  ]
+}

@@ -58,5 +58,7 @@
   {"titulo": "Viaja tranquilo", "texto": "Le enviamos sus boletos y reservas, y seguimos pendientes durante el viaje."}
  ],
  "pagos": ["Pago móvil", "Zelle", "Divisas en efectivo"],
- "url_publica": "https://thecarlos583.github.io/Paginas_webs/youtravel/"
+ "url_publica": "https://youtravelagenciadeviajes.com/",
+ "novedades": true,
+ "novedades_textos": {"linea": "Anuncios, publicaciones y noticias de viajes de YouTravel.", "vacio": "Muy pronto, novedades de viajes."}
 }
