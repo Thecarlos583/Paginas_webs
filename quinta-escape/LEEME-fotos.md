@@ -6,8 +6,8 @@ Para cambiar una, reemplace el archivo en `fotos/` con el mismo nombre, en WebP,
 
 | Foto o video | Qué es | Dónde sale |
 |---|---|---|
-| `galeria-12` / `portada-tel` | La piscina, la churuata y el mar desde el comedor techado (completa en computadora; recorte propio en el teléfono) | Inicio (portada), Galería |
-| `videos/mar`, `videos/mar-tel` | Playa Corrales con luna, en bucle y sin audio (430 y 150 KB) | Fondo del texto de la portada |
+| `galeria-12`, `piscina`, `casa-3`, `playa-palmera`, `playa-corrales` | Las 5 fotos de la portada, todas con mar; cada una con su encuadre para teléfono y computadora (lista `PORTADA` del generador). La primera es la piscina con la churuata y el mar | Inicio (portada), Galería |
+| `videos/mar`, `videos/mar-tel` | Playa Corrales con luna, en bucle y sin audio (430 y 150 KB) | Galería (desde el 26-11 ya no va detrás del texto de la portada) |
 | `videos/piscina-mar`, `churuata-noche`, `olas` (+ `-tel`) | La piscina con el mar, la churuata de noche, las olas | Inicio (Lo que le espera), Piscina y churuata, Playas, Galería |
 | `noche-*` | La piscina y la churuata de noche | Piscina y churuata, Tarifas (cabecera), Galería |
 | `mar-*`, `amanecer-casa`, `bahia-tarde` | El mar desde la casa | La casa, Inicio, Galería |

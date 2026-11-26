@@ -13,7 +13,7 @@
   --cuerpo:"Wix Madefor Text",system-ui,-apple-system,"Segoe UI",sans-serif;
   --margen:20px;
   --cab:56px;
-  --fleco:17px;
+  --fleco:0px;
   --barra:66px;
   --suave:cubic-bezier(.22,.8,.26,1);
   color-scheme:only light;
@@ -67,17 +67,13 @@ svg.pin{fill:none!important;stroke:currentColor;stroke-width:1.8;stroke-linecap:
 .oscura .enlace{color:#fff}
 .botones{display:grid;gap:10px;margin-top:20px}
 
-/* Cabecera con el fleco del toldo: 14 franjas, camas para 14 personas */
+/* Cabecera con borde recto y limpio (46d: sin el fleco de semicírculos) */
 .tapa{position:fixed;z-index:31;top:-400px;left:0;right:0;height:400px;background:var(--primario)}
-.cab{position:sticky;top:0;z-index:30;background:var(--primario);color:#fff;padding-top:env(safe-area-inset-top)}
+.cab{position:sticky;top:0;z-index:30;background:var(--primario);color:#fff;padding-top:env(safe-area-inset-top);box-shadow:0 1px 0 rgba(255,255,255,.14)}
 .cab-fila{display:flex;align-items:center;justify-content:space-between;gap:20px;height:var(--cab)}
 .marca{display:inline-flex;align-items:center;font:400 1.5rem/1 var(--titulos);color:#fff;text-decoration:none;white-space:nowrap}
 .marca img{height:38px;width:auto}
 .cab-nav{display:none}
-.toldo{position:absolute;top:100%;left:0;right:0;height:var(--fleco);display:grid;grid-template-columns:repeat(14,minmax(0,1fr));pointer-events:none;filter:drop-shadow(0 2px 2px rgba(10,30,45,.28))}
-.toldo i{display:block;margin-top:-1px;border-radius:0 0 50% 50%/0 0 100% 100%;background:var(--primario);transform-origin:50% 0;animation:brisa 4.6s ease-in-out infinite alternate;animation-delay:calc(var(--n)*-.33s)}
-.toldo i:nth-child(even){background:var(--papel)}
-@keyframes brisa{from{transform:scaleY(1)}to{transform:scaleY(.72)}}
 
 /* Portada */
 .portada{display:grid;grid-template-rows:minmax(0,1fr) auto;height:calc(100svh - var(--cab) - var(--barra) - env(safe-area-inset-bottom));min-height:430px;max-height:880px;background:var(--fondo)}
@@ -383,7 +379,7 @@ svg.pin{fill:none!important;stroke:currentColor;stroke-width:1.8;stroke-linecap:
 
 /* Tabletas */
 @media (min-width:640px){
-  :root{--margen:32px;--fleco:22px}
+  :root{--margen:32px}
   .espacios,.incluye,.reglas,.notas2{grid-template-columns:repeat(2,minmax(0,1fr))}
   .mosaico{grid-template-columns:repeat(3,minmax(0,1fr))}
   .tile.grande{grid-column:span 2}
@@ -404,7 +400,7 @@ svg.pin{fill:none!important;stroke:currentColor;stroke-width:1.8;stroke-linecap:
 
 /* Computadora */
 @media (min-width:980px){
-  :root{--cab:74px;--fleco:30px;--margen:44px}
+  :root{--cab:74px;--margen:44px}
   h1{font-size:3.9rem}
   h2{font-size:3rem}
   h3{font-size:1.7rem}
@@ -524,7 +520,7 @@ svg.pin{fill:none!important;stroke:currentColor;stroke-width:1.8;stroke-linecap:
 }
 
 @media (prefers-reduced-motion:reduce){
-  .toldo i,.portada-fotos img.ve{animation:none}
+  .portada-fotos img.ve{animation:none}
   .portada-txt h1 span{animation:none;opacity:1;transform:none}
   html{scroll-behavior:auto}
 }
@@ -543,8 +539,8 @@ svg.pin{fill:none!important;stroke:currentColor;stroke-width:1.8;stroke-linecap:
 
 /* Barra de abajo: Inicio, La casa, Tarifas, Cómo llegar y WhatsApp */
 .barra .activo{color:var(--coral);font-weight:600}
-.barra-wa b{display:grid;place-items:center;width:50px;height:50px;margin-top:-22px;background:var(--acento);color:#fff;border-radius:6px 6px 25px 25px;border:3px solid var(--primario)}
-.barra .barra-wa svg{width:24px;height:24px;fill:currentColor;stroke:none}
+.barra-wa b{display:grid;place-items:center;width:44px;height:34px;background:var(--acento);color:#fff;border-radius:17px}
+.barra .barra-wa svg{width:21px;height:21px;fill:currentColor;stroke:none}
 .barra-wa{color:#fff}
 
 /* Cajón del menú en el teléfono: grupos en acordeón */
@@ -747,20 +743,15 @@ details[open]>summary .chev{transform:rotate(180deg)}
 }
 
 /* ===== 46c: lo que pidió el Sr. Vitor (25-11-2026) ===== */
-/* Portada: la piscina, la churuata y el mar sin recortar; el texto va sobre el mar en movimiento */
+/* Portada (46d, 26-11): la foto va completa arriba, sin capa oscura ni texto encima, y el texto debajo.
+   Cada foto trae su encuadre: --tel en el teléfono y --pc en la computadora (lista PORTADA del generador). */
 .entrada{background:var(--primario)}
-.entrada-foto{position:relative;margin:0}
-.entrada-foto img{display:block;width:100%;height:auto}
-.entrada-foto{overflow:hidden}
-.entrada-foto img.rota{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .8s ease}
+.entrada-foto{position:relative;margin:0;overflow:hidden;background:var(--primario);height:min(75vw,40vh);height:min(75vw,40svh)}
+.entrada-foto img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;object-position:var(--tel,50% 50%)}
+.entrada-foto img.rota{opacity:0;transition:opacity .8s ease}
 .entrada-foto img.rota.ve{opacity:1}
-.entrada-foto::after{content:"";position:absolute;left:0;right:0;bottom:0;height:42%;background:linear-gradient(to bottom,rgba(15,58,90,0),rgba(15,58,90,.86));pointer-events:none}
-.entrada-txt{position:relative;padding:0 var(--margen) 20px;color:#fff}
-.entrada-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s ease}
-.entrada-video.listo{opacity:.6}
-.entrada-txt::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(to bottom,rgba(15,58,90,.94),rgba(15,58,90,.72))}
-.entrada-contenido{position:relative;z-index:2}
-.entrada h1{margin-top:-2.45em;font-size:2.35rem;color:#fff;text-shadow:0 2px 16px rgba(5,20,32,.45)}
+.entrada-txt{position:relative;padding:18px var(--margen) 22px;color:#fff}
+.entrada h1{font-size:2.35rem;color:#fff}
 .entrada h1 span{display:inline-block;opacity:0;transform:translateY(.42em);animation:palabra .7s var(--suave) forwards;animation-delay:calc(.12s + var(--i)*.07s)}
 .entrada-sub{margin-top:10px;font-size:.98rem;line-height:1.4;color:#EAF1F4}
 .precios-entrada{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px;margin:12px 0 14px}
@@ -768,6 +759,15 @@ details[open]>summary .chev{transform:rotate(180deg)}
 .precios-entrada span{display:block;font-size:.8rem;line-height:1.25;color:#D5E2E9}
 .precios-entrada b{display:block;margin-top:2px;font:400 1.6rem/1.05 var(--titulos);color:#fff}
 .camas-entrada{margin-top:10px;font-size:.84rem;line-height:1.35;color:#D5E2E9}
+/* Teléfonos bajos (375x667): foto algo más baja y texto más compacto, para que el botón se vea sin bajar */
+@media (max-height:700px) and (max-width:979px){
+  .entrada-foto{height:min(75vw,34vh);height:min(75vw,34svh)}
+  .entrada-txt{padding-top:14px}
+  .entrada h1{font-size:2rem}
+  .entrada-sub{margin-top:6px;font-size:.92rem;line-height:1.35}
+  .precios-entrada{margin:9px 0 11px}
+  .precios-entrada b{font-size:1.45rem}
+}
 
 /* Lo que le espera: escenas grandes con foto o video y su texto abajo */
 .vid{background:var(--primario)}
@@ -820,11 +820,9 @@ details[open]>summary .chev{transform:rotate(180deg)}
 @media (min-width:980px){
   .entrada{display:grid;grid-template-columns:minmax(0,1fr) auto;height:calc(100svh - var(--cab));min-height:560px;max-height:920px}
   .entrada-foto{order:2;height:100%;aspect-ratio:4/3;max-width:68vw}
-  .entrada-foto img{height:100%;object-fit:cover}
-  .entrada-foto::after{display:none}
-  .entrada-txt{order:1;display:flex;align-items:flex-end;padding:48px 44px 46px}
-  .entrada-txt::before{background:linear-gradient(to top,rgba(15,58,90,.95) 40%,rgba(15,58,90,.3))}
-  .entrada h1{margin-top:0;font-size:clamp(2.6rem,3.3vw,4rem)}
+  .entrada-foto img{object-position:var(--pc,50% 50%)}
+  .entrada-txt{order:1;display:flex;align-items:center;padding:48px 44px 46px}
+  .entrada h1{font-size:clamp(2.6rem,3.3vw,4rem)}
   .entrada-sub{font-size:1.08rem;margin-top:14px}
   .precios-entrada{margin:18px 0 20px}
   .precios-entrada b{font-size:2.1rem}
@@ -840,7 +838,6 @@ details[open]>summary .chev{transform:rotate(180deg)}
 }
 @media (prefers-reduced-motion:reduce){
   .entrada h1 span{animation:none;opacity:1;transform:none}
-  .entrada-video{transition:none}
   .entrada-foto img.rota{transition:none}
 }
 
