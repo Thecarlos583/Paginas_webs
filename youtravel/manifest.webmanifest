@@ -2,12 +2,12 @@
  "name": "YouTravel Agencia de Viajes",
  "short_name": "YouTravel",
  "lang": "es-VE",
- "description": "Agencia de viajes en Puerto Ordaz: paquetes nacionales e internacionales, boletos aéreos, hoteles, traslados y viajes de grupo. Cotice por WhatsApp.",
+ "description": "YouTravel, agencia de viajes en Puerto Ordaz: tu viaje en manos de expertos. Viajes corporativos, familiares y de parejas, nacionales e internacionales. Cotice por WhatsApp.",
  "start_url": "./index.html",
  "scope": "./",
  "display": "standalone",
  "background_color": "#FAF9F7",
- "theme_color": "#141A2E",
+ "theme_color": "#0B1C23",
  "icons": [
   {
    "src": "img/icono-192.png",

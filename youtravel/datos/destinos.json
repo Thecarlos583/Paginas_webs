@@ -1,14 +1,128 @@
 [
- {"id": "canaima", "nombre": "Canaima", "ambito": "nacional", "zona": "Bolívar", "linea": "La laguna de los saltos y el Auyantepui, de donde cae el Salto Ángel.", "foto": "canaima-laguna", "categoria": "montana"},
- {"id": "gran-sabana", "nombre": "Gran Sabana", "ambito": "nacional", "zona": "Bolívar", "linea": "Tepuyes, quebradas de piedra roja y saltos a la orilla de la carretera.", "foto": "gs-tepuy", "categoria": "montana"},
- {"id": "los-roques", "nombre": "Los Roques", "ambito": "nacional", "zona": "Dependencias Federales", "linea": "Un archipiélago de cayos de arena blanca y un pueblo de casas pintadas.", "foto": "lr-aerea", "categoria": "playas"},
- {"id": "margarita", "nombre": "Isla de Margarita", "ambito": "nacional", "zona": "Nueva Esparta", "linea": "Playas abiertas, castillos y atardeceres en Juan Griego.", "foto": "mg-cocoteros", "categoria": "playas"},
- {"id": "merida", "nombre": "Mérida", "ambito": "nacional", "zona": "Los Andes", "linea": "Páramo, lagunas, pueblos de montaña y el teleférico.", "foto": "me-sierra", "categoria": "montana"},
- {"id": "morrocoy", "nombre": "Morrocoy", "ambito": "nacional", "zona": "Falcón", "linea": "Cayos cerca de la costa, de agua baja y tranquila.", "foto": "mo-playa", "categoria": "playas"},
- {"id": "punta-cana", "nombre": "Punta Cana", "ambito": "internacional", "zona": "República Dominicana", "region": "Caribe", "linea": "Playas largas de palmeras y hoteles todo incluido.", "foto": "pc-playa", "categoria": "internacional"},
- {"id": "curazao", "nombre": "Curazao", "ambito": "internacional", "zona": "Caribe neerlandés", "region": "Caribe", "linea": "Willemstad de colores y playas pequeñas de agua quieta.", "foto": "cu-casas", "categoria": "internacional"},
- {"id": "cartagena", "nombre": "Cartagena de Indias", "ambito": "internacional", "zona": "Colombia", "region": "Suramérica", "linea": "La ciudad amurallada, balcones con flores y el mar al lado.", "foto": "ct-catedral", "categoria": "ciudades"},
- {"id": "cusco", "nombre": "Cusco y Machu Picchu", "ambito": "internacional", "zona": "Perú", "region": "Suramérica", "linea": "La antigua capital inca y la ciudadela entre montañas.", "foto": "cz-machu", "categoria": "internacional"},
- {"id": "madrid", "nombre": "Madrid", "ambito": "internacional", "zona": "España", "region": "Europa", "linea": "Plazas, museos y tapas en la Gran Vía y sus alrededores.", "foto": "eu-granvia", "categoria": "ciudades"},
- {"id": "paris", "nombre": "París", "ambito": "internacional", "zona": "Francia", "region": "Europa", "linea": "El Sena, la Torre Eiffel y barrios para caminar sin apuro.", "foto": "eu-eiffel", "categoria": "ciudades"}
+ {
+  "id": "canaima",
+  "nombre": "Canaima",
+  "ambito": "nacional",
+  "zona": "Bolívar",
+  "linea": "La laguna de los saltos y el Auyantepui, de donde cae el Salto Ángel.",
+  "foto": "canaima-laguna",
+  "categoria": "montana",
+  "acento": "Salto Ángel"
+ },
+ {
+  "id": "gran-sabana",
+  "nombre": "Gran Sabana",
+  "ambito": "nacional",
+  "zona": "Bolívar",
+  "linea": "Tepuyes, quebradas de piedra roja y saltos a la orilla de la carretera.",
+  "foto": "gs-tepuy",
+  "categoria": "montana",
+  "acento": "Tierra de tepuyes"
+ },
+ {
+  "id": "los-roques",
+  "nombre": "Los Roques",
+  "ambito": "nacional",
+  "zona": "Dependencias Federales",
+  "linea": "Un archipiélago de cayos de arena blanca y un pueblo de casas pintadas.",
+  "foto": "lr-aerea",
+  "categoria": "playas",
+  "acento": "Archipiélago"
+ },
+ {
+  "id": "margarita",
+  "nombre": "Isla de Margarita",
+  "ambito": "nacional",
+  "zona": "Nueva Esparta",
+  "linea": "Playas abiertas, castillos y atardeceres en Juan Griego.",
+  "foto": "mg-cocoteros",
+  "categoria": "playas",
+  "acento": "Nueva Esparta"
+ },
+ {
+  "id": "merida",
+  "nombre": "Mérida",
+  "ambito": "nacional",
+  "zona": "Los Andes",
+  "linea": "Páramo, lagunas, pueblos de montaña y el teleférico.",
+  "foto": "me-sierra",
+  "categoria": "montana",
+  "acento": "Los Andes"
+ },
+ {
+  "id": "morrocoy",
+  "nombre": "Morrocoy",
+  "ambito": "nacional",
+  "zona": "Falcón",
+  "linea": "Cayos cerca de la costa, de agua baja y tranquila.",
+  "foto": "mo-playa",
+  "categoria": "playas",
+  "acento": "Parque nacional"
+ },
+ {
+  "id": "punta-cana",
+  "nombre": "Punta Cana",
+  "ambito": "internacional",
+  "zona": "República Dominicana",
+  "region": "Caribe",
+  "linea": "Playas largas de palmeras y hoteles todo incluido.",
+  "foto": "pc-playa",
+  "categoria": "internacional",
+  "acento": "República Dominicana"
+ },
+ {
+  "id": "curazao",
+  "nombre": "Curazao",
+  "ambito": "internacional",
+  "zona": "Caribe neerlandés",
+  "region": "Caribe",
+  "linea": "Willemstad de colores y playas pequeñas de agua quieta.",
+  "foto": "cu-casas",
+  "categoria": "internacional",
+  "acento": "Willemstad"
+ },
+ {
+  "id": "cartagena",
+  "nombre": "Cartagena de Indias",
+  "ambito": "internacional",
+  "zona": "Colombia",
+  "region": "Suramérica",
+  "linea": "La ciudad amurallada, balcones con flores y el mar al lado.",
+  "foto": "ct-catedral",
+  "categoria": "ciudades",
+  "acento": "Ciudad amurallada"
+ },
+ {
+  "id": "cusco",
+  "nombre": "Cusco y Machu Picchu",
+  "ambito": "internacional",
+  "zona": "Perú",
+  "region": "Suramérica",
+  "linea": "La antigua capital inca y la ciudadela entre montañas.",
+  "foto": "cz-machu",
+  "categoria": "internacional",
+  "acento": "Perú"
+ },
+ {
+  "id": "madrid",
+  "nombre": "Madrid",
+  "ambito": "internacional",
+  "zona": "España",
+  "region": "Europa",
+  "linea": "Plazas, museos y tapas en la Gran Vía y sus alrededores.",
+  "foto": "eu-granvia",
+  "categoria": "ciudades",
+  "acento": "España"
+ },
+ {
+  "id": "paris",
+  "nombre": "París",
+  "ambito": "internacional",
+  "zona": "Francia",
+  "region": "Europa",
+  "linea": "El Sena, la Torre Eiffel y barrios para caminar sin apuro.",
+  "foto": "eu-eiffel",
+  "categoria": "ciudades",
+  "acento": "Francia"
+ }
 ]

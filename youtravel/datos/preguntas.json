@@ -1,10 +1,34 @@
 [
- {"p": "¿Desde dónde salen los paquetes?", "r": "Los nacionales salen desde Puerto Ordaz, en avión o por carretera según el destino. Los internacionales salen desde Maiquetía, y el tramo desde Puerto Ordaz se lo cotizamos aparte."},
- {"p": "¿Los precios de la página son los finales?", "r": "Son precios de ejemplo. El precio real depende de la fecha, la disponibilidad y cuántos viajan. Se lo confirmamos por WhatsApp antes de que pague."},
- {"p": "¿Cómo se paga?", "r": "Con pago móvil, Zelle o divisas en efectivo. Los bolívares se calculan a la tasa del día."},
- {"p": "¿Puedo apartar con un abono?", "r": "Sí. Con un abono se aparta el cupo y el resto se paga antes de la fecha que le indiquemos para cada viaje."},
- {"p": "¿Me ayudan con el pasaporte o la visa?", "r": "Le orientamos sobre qué pide cada país y qué revisar antes de viajar. Los trámites se hacen ante cada organismo y la decisión es de cada país."},
- {"p": "¿Se puede cambiar un paquete?", "r": "Sí. Podemos sumar noches, cambiar el hotel o quitar paseos. Cuéntenos y le mandamos la nueva cotización."},
- {"p": "¿Viajan niños?", "r": "Sí. En el cotizador indique cuántos niños viajan y sus edades por WhatsApp, porque algunas tarifas cambian según la edad."},
- {"p": "¿Hacen viajes para grupos grandes?", "r": "Sí, para empresas, graduaciones y familias. Escríbanos desde la página de grupos y le armamos una propuesta por persona."}
+ {
+  "p": "¿Desde dónde salen los paquetes?",
+  "r": "Los nacionales salen desde Puerto Ordaz, en avión o por carretera según el destino. Los internacionales salen desde Maiquetía, y el tramo desde Puerto Ordaz se lo cotizamos aparte."
+ },
+ {
+  "p": "¿Cuánto cuesta un paquete?",
+  "r": "Depende de la fecha, la disponibilidad y cuántos viajan. Escríbanos por WhatsApp y le enviamos la cotización antes de que pague."
+ },
+ {
+  "p": "¿Cómo se paga?",
+  "r": "Con pago móvil, Zelle o divisas en efectivo. Las divisas en efectivo se reciben solo en nuestra oficina del C.C. Portofino. Los bolívares se calculan a la tasa del día."
+ },
+ {
+  "p": "¿Puedo apartar con un abono?",
+  "r": "Sí. Con un abono se aparta el cupo y el resto se paga antes de la fecha que le indiquemos para cada viaje."
+ },
+ {
+  "p": "¿Me ayudan con el pasaporte o la visa?",
+  "r": "Le orientamos sobre qué pide cada país y qué revisar antes de viajar. Los trámites se hacen ante cada organismo y la decisión es de cada país."
+ },
+ {
+  "p": "¿Se puede cambiar un paquete?",
+  "r": "Sí. Podemos sumar noches, cambiar el hotel o quitar paseos. Cuéntenos y le mandamos la nueva cotización."
+ },
+ {
+  "p": "¿Viajan niños?",
+  "r": "Sí. En el cotizador indique cuántos niños viajan y sus edades por WhatsApp, porque algunas tarifas cambian según la edad."
+ },
+ {
+  "p": "¿Hacen viajes para grupos grandes?",
+  "r": "Sí, para empresas, graduaciones y familias. Escríbanos desde la página de grupos y le armamos una propuesta por persona."
+ }
 ]

@@ -1,5 +1,5 @@
 /* Agencias de viajes · JS común. Todo el contenido ya viene escrito en el HTML:
-   esto solo arma mensajes de WhatsApp, filtra, compara y mueve. Cada parte va protegida. */
+   esto solo arma mensajes de WhatsApp, filtra y mueve. Nada retiene el scroll. Cada parte va protegida. */
 (function () {
   "use strict";
   function safe(fn, n) { try { fn(); } catch (err) { if (window.console) console.warn("[" + n + "]", err); } }
@@ -279,63 +279,7 @@
     aplicar(false);
   }
 
-  /* ---------- comparador ---------- */
-  function initComparador() {
-    var cajas = $$("[data-comparar]"); if (!cajas.length) return;
-    var bandeja = $("[data-cmp-bandeja]"), dlg = $("[data-cmp-dlg]"), pista = $("[data-cmp-pista]");
-    var q = new URLSearchParams(location.search), elegidos = (q.get("comparar") || "").split(",").filter(paquete).slice(0, 3);
-    function pintar(guardar) {
-      cajas.forEach(function (c) {
-        c.checked = elegidos.indexOf(c.value) >= 0;
-        c.disabled = !c.checked && elegidos.length >= 3;
-        var t = c.closest(".tp"); if (t) t.classList.toggle("en-cmp", c.checked);
-      });
-      if (bandeja) { bandeja.hidden = elegidos.length === 0; $("[data-cmp-n]", bandeja).textContent = elegidos.length; $("[data-cmp-abrir]", bandeja).disabled = elegidos.length < 2; }
-      if (guardar) { var u = new URLSearchParams(location.search); if (elegidos.length) u.set("comparar", elegidos.join(",")); else u.delete("comparar"); history.replaceState(null, "", location.pathname + (u.toString() ? "?" + u.toString() : "")); }
-    }
-    cajas.forEach(function (c) {
-      c.addEventListener("change", function () {
-        var i = elegidos.indexOf(c.value);
-        if (c.checked && i < 0) elegidos.push(c.value); if (!c.checked && i >= 0) elegidos.splice(i, 1);
-        pintar(true);
-      });
-    });
-    function esc(t) { var d = document.createElement("div"); d.textContent = t; return d.innerHTML; }
-    function abrir() {
-      if (!dlg || elegidos.length < 2) return;
-      var todos = {}; elegidos.forEach(function (id) { paquete(id).incluye.forEach(function (k) { todos[k] = 1; }); });
-      var claves = Object.keys(todos);
-      pista.style.setProperty("--n", elegidos.length);
-      pista.innerHTML = elegidos.map(function (id, i) {
-        var p = paquete(id), foto = (D.fotos[p.foto] || "").replace("{w}", "500");
-        var inc = claves.map(function (k) {
-          var si = p.incluye.indexOf(k) >= 0;
-          return '<li class="' + (si ? "cmp-si" : "cmp-no") + '"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true">' + (si ? '<path d="m5 12.5 4.5 4.5L19 7.5"/>' : '<path d="M5 12h14"/>') + "</svg>" + esc(D.etiquetas[k] || k) + (si ? "" : " (no)") + "</li>";
-        }).join("");
-        var pr = D.precios ? "desde " + dinero(p.precio) + " por persona" : "Consulte la tarifa";
-        return '<article class="cmp-col" style="--i:' + i + '"><img src="' + esc(foto) + '" alt="" loading="lazy"><h3>' + esc(p.nombre) + "</h3><dl>" +
-          '<div class="cmp-fila"><dt>Tipo</dt><dd>' + (p.ambito === "nacional" ? "Nacional" : "Internacional · " + esc(p.region)) + "</dd></div>" +
-          '<div class="cmp-fila"><dt>Duración</dt><dd>' + p.dias + " días, " + p.noches + " noches</dd></div>" +
-          '<div class="cmp-fila"><dt>Salida</dt><dd>' + esc(p.salida) + "</dd></div>" +
-          '<div class="cmp-fila"><dt>Precio de ejemplo</dt><dd><strong>' + pr + "</strong></dd></div>" +
-          '<div class="cmp-fila"><dt>Incluye</dt><dd><ul>' + inc + "</ul></dd></div></dl>" +
-          '<a class="btn btn-tinta btn-chico" href="paquete-' + esc(p.id) + '.html">Ver paquete</a></article>';
-      }).join("");
-      dlg.showModal(); document.documentElement.classList.add("hoja-abierta");
-    }
-    if (bandeja) {
-      $("[data-cmp-abrir]", bandeja).addEventListener("click", abrir);
-      $("[data-cmp-vaciar]", bandeja).addEventListener("click", function () { elegidos = []; pintar(true); });
-    }
-    if (dlg) {
-      $("[data-cmp-cerrar]", dlg).addEventListener("click", function () { dlg.close(); });
-      dlg.addEventListener("click", function (ev) { if (ev.target === dlg) dlg.close(); });
-      dlg.addEventListener("close", function () { document.documentElement.classList.remove("hoja-abierta"); });
-    }
-    pintar(false);
-  }
-
-  /* ---------- visor de fotos ---------- */
+    /* ---------- visor de fotos ---------- */
   function initVisor() {
     var v = $("[data-visor]"), botones = $$("[data-visor-abrir]"); if (!v || !botones.length) return;
     var caja = $("[data-visor-foto]", v), grupo = [], i = 0, ultimo = null;
@@ -368,65 +312,46 @@
     caja.addEventListener("touchend", function (ev) { if (x0 === null) return; var dx = ev.changedTouches[0].clientX - x0; if (Math.abs(dx) > 45) paso(dx < 0 ? 1 : -1); x0 = null; });
   }
 
-  /* ---------- galería con filtros ---------- */
-  function initGaleria() {
-    var f = $("[data-gal-filtros]"), m = $("[data-mosaico]"); if (!f || !m) return;
-    f.addEventListener("change", function () {
-      var c = (f.querySelector("input:checked") || {}).value || "";
-      $$(".mos-item", m).forEach(function (li) { li.classList.toggle("oculto", !!c && li.getAttribute("data-cat") !== c); });
-    });
-  }
-
-  /* ---------- destinos: galería horizontal fijada (computadora) ---------- */
-  function initHorizontal() {
-    var sec = $("[data-horizontal]"); if (!sec) return;
-    var fijo = $(".destinos-h-fijo", sec), pista = $("[data-pista]", sec);
-    var mq = matchMedia("(min-width: 900px) and (hover: hover) and (pointer: fine)");
-    var dist = 0, activo = false, pend = false;
-    function cab() { return parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--cab-alto")) || 76; }
-    function medir() {
-      activo = mq.matches && !reducido && innerHeight >= 600;
-      sec.classList.toggle("h-activo", activo);
-      if (!activo) { sec.style.height = ""; pista.style.transform = ""; return; }
-      pista.style.transform = "";
-      dist = Math.max(0, pista.scrollWidth - fijo.clientWidth);
-      sec.style.height = (fijo.offsetHeight + dist * 0.7) + "px";
-      mover();
+    /* ---------- destinos: carrusel que avanza solo y despacio (nunca retiene el scroll) ---------- */
+  function initCarrusel() {
+    var sec = $("[data-carrusel]"); if (!sec) return;
+    var pista = $("[data-pista]", sec), ant = $("[data-carr-ant]", sec), sig = $("[data-carr-sig]", sec);
+    var parado = reducido, encima = false, visible = false, reloj = null;
+    function paso() { var it = $(".des-item", pista); return it ? it.offsetWidth + (parseFloat(getComputedStyle(pista).columnGap) || 14) : 300; }
+    function ir(n) {
+      var max = pista.scrollWidth - pista.clientWidth - 4;
+      if (n > 0 && pista.scrollLeft >= max) pista.scrollTo({ left: 0, behavior: reducido ? "auto" : "smooth" });
+      else if (n < 0 && pista.scrollLeft <= 4) pista.scrollTo({ left: max + 4, behavior: reducido ? "auto" : "smooth" });
+      else pista.scrollBy({ left: n * paso(), behavior: reducido ? "auto" : "smooth" });
     }
-    function mover() {
-      pend = false; if (!activo) return;
-      var r = sec.getBoundingClientRect(), total = sec.offsetHeight - fijo.offsetHeight;
-      var p = total > 0 ? Math.min(1, Math.max(0, (cab() - r.top) / total)) : 0;
-      pista.style.transform = "translate3d(" + (-dist * p).toFixed(1) + "px,0,0)";
-    }
-    addEventListener("scroll", function () { if (!pend && activo) { pend = true; requestAnimationFrame(mover); } }, { passive: true });
-    addEventListener("resize", medir);
-    if (mq.addEventListener) mq.addEventListener("change", medir);
-    addEventListener("load", medir);
-    medir();
-    /* flechas y arrastre cuando no está fijada */
-    var ant = $("[data-carr-ant]", sec), sig = $("[data-carr-sig]", sec);
-    function des(n) { var item = $(".des-item", pista); var w = item ? item.offsetWidth + 14 : 300; pista.scrollBy({ left: n * w, behavior: reducido ? "auto" : "smooth" }); }
-    if (ant) ant.addEventListener("click", function () { des(-1); });
-    if (sig) sig.addEventListener("click", function () { des(1); });
+    function tic() { if (!parado && !encima && visible && !document.hidden) ir(1); }
+    function parar() { parado = true; if (reloj) { clearInterval(reloj); reloj = null; } }
+    /* se detiene apenas la persona lo toca, lo arrastra o usa las flechas */
+    ["pointerdown", "touchstart", "wheel", "keydown"].forEach(function (t) { pista.addEventListener(t, parar, { passive: true }); });
+    pista.addEventListener("focusin", parar);
+    pista.addEventListener("mouseenter", function () { encima = true; });
+    pista.addEventListener("mouseleave", function () { encima = false; });
+    if (ant) ant.addEventListener("click", function () { parar(); ir(-1); });
+    if (sig) sig.addEventListener("click", function () { parar(); ir(1); });
+    if ("IntersectionObserver" in window) new IntersectionObserver(function (es) { visible = es[0].isIntersecting; }, { threshold: 0.4 }).observe(pista);
+    else visible = true;
+    if (!parado) reloj = setInterval(tic, 3500);
+    /* arrastre con el mouse en la computadora */
     var x0 = null, s0 = 0, movio = false;
-    pista.addEventListener("pointerdown", function (ev) { if (activo || ev.pointerType !== "mouse") return; x0 = ev.clientX; s0 = pista.scrollLeft; movio = false; });
+    pista.addEventListener("pointerdown", function (ev) { if (ev.pointerType !== "mouse") return; x0 = ev.clientX; s0 = pista.scrollLeft; movio = false; });
     addEventListener("pointermove", function (ev) { if (x0 === null) return; var dx = ev.clientX - x0; if (Math.abs(dx) > 5) { movio = true; pista.classList.add("arrastrando"); pista.scrollLeft = s0 - dx; } });
     addEventListener("pointerup", function () { x0 = null; setTimeout(function () { pista.classList.remove("arrastrando"); }, 0); });
     pista.addEventListener("click", function (ev) { if (movio) { ev.preventDefault(); movio = false; } }, true);
   }
 
-  /* ---------- avioncito por la ruta de "Así de sencillo" ---------- */
+  /* ---------- avioncito de "Así de sencillo": recorre su ruta solo, una vez, al aparecer ---------- */
   function initAvion() {
     var sec = $("[data-ruta-avion]"); if (!sec) return;
-    var caja = $(".como-ruta", sec), avion = $("[data-avion]", sec), pend = false;
+    var caja = $(".como-ruta", sec), avion = $("[data-avion]", sec), p = reducido ? 1 : 0, hecho = false;
     function svgVisible() { return $$(".como-svg", sec).filter(function (s) { return getComputedStyle(s).display !== "none"; })[0]; }
-    function mover() {
-      pend = false;
+    function poner() {
       var svg = svgVisible(); if (!svg) return;
       var path = $("[data-trazo]", svg), L = path.getTotalLength(), vb = svg.viewBox.baseVal;
-      var r = sec.getBoundingClientRect(), vh = innerHeight;
-      var p = reducido ? 1 : Math.min(1, Math.max(0, (vh * 0.8 - r.top) / (r.height * 0.75)));
       path.style.strokeDasharray = L + " " + L; path.style.strokeDashoffset = (L * (1 - p)).toFixed(1);
       var sx = svg.clientWidth / vb.width, sy = svg.clientHeight / vb.height;
       var a = path.getPointAtLength(L * p), b = path.getPointAtLength(Math.min(L, L * p + 2)), c = path.getPointAtLength(Math.max(0, L * p - 2));
@@ -434,17 +359,28 @@
       var so = svg.getBoundingClientRect(), co = caja.getBoundingClientRect();
       avion.style.transform = "translate(" + (so.left - co.left + a.x * sx - 20).toFixed(1) + "px," + (so.top - co.top + a.y * sy - 20).toFixed(1) + "px) rotate(" + ang.toFixed(1) + "deg)";
     }
-    addEventListener("scroll", function () { if (!pend) { pend = true; requestAnimationFrame(mover); } }, { passive: true });
-    addEventListener("resize", mover);
-    mover();
+    function volar() {
+      if (hecho) return; hecho = true;
+      var t0 = null, dur = 900;
+      function cuadro(t) { if (t0 === null) t0 = t; var k = Math.min(1, (t - t0) / dur); p = 1 - Math.pow(1 - k, 3); poner(); if (k < 1) requestAnimationFrame(cuadro); }
+      requestAnimationFrame(cuadro);
+    }
+    addEventListener("resize", poner);
+    poner();
+    if (reducido || !("IntersectionObserver" in window)) { p = 1; poner(); return; }
+    var io = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { volar(); io.disconnect(); } }, { threshold: 0.45 });
+    io.observe(caja);
   }
 
-  /* ---------- video de la portada (solo computadora y buena conexión) ---------- */
+  /* ---------- video de la portada: vertical en el teléfono, 16:9 en la computadora ---------- */
   function initVideo() {
     var v = $(".por-video"); if (!v) return;
     var c = navigator.connection || {};
-    if (reducido || c.saveData || /2g/.test(c.effectiveType || "") || innerWidth < 900) return;
-    v.src = v.getAttribute("data-video");
+    if (reducido || c.saveData || /2g/.test(c.effectiveType || "")) return;
+    var tel = innerWidth < 900, src = v.getAttribute(tel ? "data-video-tel" : "data-video-pc") || v.getAttribute("data-video-pc") || "";
+    if (!src) return;
+    var pos = v.getAttribute(tel ? "data-poster-tel" : "data-poster-pc"); if (pos) v.poster = pos;
+    v.src = src;
     v.addEventListener("canplay", function () { v.classList.add("lista"); var pr = v.play(); if (pr && pr.catch) pr.catch(function () {}); }, { once: true });
     if ("IntersectionObserver" in window) new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { var pr = v.play(); if (pr && pr.catch) pr.catch(function () {}); } else v.pause(); }); }).observe(v);
   }
@@ -518,10 +454,8 @@
   safe(initGrupos, "grupos");
   safe(initBuscador, "buscador");
   safe(initFiltros, "filtros");
-  safe(initComparador, "comparador");
-  safe(initVisor, "visor");
-  safe(initGaleria, "galeria");
-  safe(initHorizontal, "horizontal");
+    safe(initVisor, "visor");
+    safe(initCarrusel, "carrusel");
   safe(initAvion, "avion");
   safe(initVideo, "video");
   safe(initMaleta, "maleta");
