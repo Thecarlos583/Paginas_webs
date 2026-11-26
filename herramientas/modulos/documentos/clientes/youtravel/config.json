@@ -1,0 +1,175 @@
+{
+  "_nota": "Formato genérico de agencia (la Sra. Patricia todavía no mandó sus formatos). Al recibirlos, cambiar etiquetas, condiciones, listas y secciones aquí. Ver LEEME.md.",
+  "agencia": {
+    "nombre": "YouTravel Agencia de Viajes",
+    "nombre_corto": "YouTravel",
+    "rif": "",
+    "direccion": "Centro Comercial Portofino, PB, Local B21-B, Puerto Ordaz, estado Bolívar",
+    "telefonos": ["+58 424 957 2232", "+58 286 923 1746"],
+    "correo": "youtravelagenciadeviajes@gmail.com",
+    "instagram": "@youtravelve",
+    "web": "youtravelagenciadeviajes.com",
+    "whatsapp": "584249572232"
+  },
+  "panel": {
+    "nombre": "Panel YouTravel",
+    "logo_claro": "/img/logo-claro.webp",
+    "logo_ancho": 960,
+    "logo_alto": 243,
+    "iconos": {
+      "192": "/img/icono-192.png",
+      "512": "/img/icono-512.png",
+      "maskable": "/img/icono-maskable-512.png",
+      "apple": "/img/favicon-180.png",
+      "favicon": "/img/favicon-32.png"
+    },
+    "fuentes_url": "https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Questrial&display=swap",
+    "f_tit": "Montserrat",
+    "f_txt": "Questrial",
+    "colores": {
+      "tema": "#0B1C23",
+      "fondo": "#F4F6F7",
+      "papel": "#FFFFFF",
+      "tinta": "#0B1C23",
+      "suave": "#4A5D65",
+      "linea": "#DFE5E8",
+      "linea_fuerte": "#B9C5CA",
+      "campo": "#F1F8F9",
+      "acento": "#0B7F8C",
+      "foco": "rgba(25, 183, 195, .24)",
+      "c1": "#0B7F8C",
+      "c2": "#3A64B8",
+      "c3": "#7A3FD0"
+    }
+  },
+  "pdf": {
+    "logo": "/img/logo.png",
+    "logo_ancho": 960,
+    "logo_alto": 243,
+    "fuentes": {
+      "titulo": {
+        "normal": "https://cdn.jsdelivr.net/fontsource/fonts/montserrat@5.2.8/latin-600-normal.ttf",
+        "bold": "https://cdn.jsdelivr.net/fontsource/fonts/montserrat@5.2.8/latin-700-normal.ttf"
+      },
+      "texto": {
+        "normal": "https://cdn.jsdelivr.net/fontsource/fonts/questrial@5.2.8/latin-400-normal.ttf",
+        "bold": "https://cdn.jsdelivr.net/fontsource/fonts/montserrat@5.2.8/latin-600-normal.ttf"
+      }
+    },
+    "pie": "Documento no fiscal. No sustituye la factura."
+  },
+  "moneda": { "simbolo": "US$", "nombre": "dólares" },
+  "documentos": {
+    "cotizacion": {
+      "titulo": "Cotización",
+      "prefijo": "COT",
+      "validez_dias": 3,
+      "montos": true,
+      "pagos": false,
+      "condiciones": [
+        "Precios sujetos a disponibilidad al momento de reservar.",
+        "Esta cotización no garantiza la reserva hasta recibir el pago acordado.",
+        "Tarifas en dólares. Si paga en bolívares, se calcula a la tasa del día del pago."
+      ]
+    },
+    "proforma": {
+      "titulo": "Proforma",
+      "prefijo": "PRO",
+      "montos": true,
+      "pagos": true,
+      "condiciones": [
+        "Para confirmar la reserva se requiere el abono acordado.",
+        "El saldo debe cancelarse antes de la fecha de salida acordada con su asesor.",
+        "Cambios y cancelaciones según las políticas de cada proveedor."
+      ]
+    },
+    "comprobante": {
+      "titulo": "Comprobante de pago",
+      "prefijo": "CP",
+      "montos": true,
+      "pagos": true,
+      "condiciones": [
+        "Este comprobante confirma el pago recibido.",
+        "Conserve este comprobante hasta el final de su viaje."
+      ]
+    },
+    "voucher": {
+      "titulo": "Voucher",
+      "prefijo": "VOU",
+      "montos": false,
+      "pagos": false,
+      "condiciones": [
+        "Presente este voucher, impreso o en el teléfono, al llegar al hotel o al prestador del servicio.",
+        "Lleve su documento de identidad vigente.",
+        "Ante cualquier novedad durante el viaje, escríbanos al +58 424 957 2232."
+      ]
+    }
+  },
+  "etiquetas": {
+    "numero": "N.º",
+    "emision": "Fecha de emisión",
+    "valida_hasta": "Válida hasta",
+    "asesor": "Asesor",
+    "seccion_cliente": "Datos del cliente",
+    "cliente": "Cliente",
+    "documento": "Cédula o RIF",
+    "telefono": "Teléfono",
+    "correo": "Correo",
+    "seccion_viaje": "Datos del viaje",
+    "tipo_viaje": "Tipo",
+    "destino": "Destino",
+    "ida": "Salida",
+    "vuelta": "Regreso",
+    "noches": "Noches",
+    "pasajeros": "Pasajeros",
+    "hotel": "Hotel",
+    "regimen": "Régimen",
+    "traslados": "Traslados",
+    "vuelos": "Vuelos",
+    "confirmacion": "Código de reserva",
+    "incluye": "Incluye",
+    "no_incluye": "No incluye",
+    "seccion_montos": "Monto",
+    "descripcion": "Descripción",
+    "cantidad": "Cant.",
+    "precio": "Precio",
+    "importe": "Importe",
+    "total": "Total",
+    "abonado": "Abonado",
+    "saldo": "Saldo pendiente",
+    "equivalente": "Equivalente en bolívares",
+    "seccion_pagos": "Pagos registrados",
+    "recibimos": "Pago recibido",
+    "notas": "Observaciones",
+    "condiciones": "Condiciones"
+  },
+  "listas": {
+    "incluye": [
+      "Boleto aéreo ida y vuelta",
+      "Traslado aeropuerto-hotel-aeropuerto",
+      "Alojamiento",
+      "Desayunos",
+      "Pensión completa",
+      "Todo incluido",
+      "Excursiones indicadas",
+      "Seguro de viaje",
+      "Tasas aeroportuarias",
+      "Impuestos hoteleros",
+      "Asistencia de la agencia durante el viaje"
+    ],
+    "no_incluye": [
+      "Boleto aéreo",
+      "Tasas aeroportuarias",
+      "Seguro de viaje",
+      "Propinas",
+      "Gastos personales",
+      "Comidas no indicadas",
+      "Excursiones opcionales",
+      "Exceso de equipaje",
+      "Impuesto de entrada al parque"
+    ],
+    "regimen": ["Solo alojamiento", "Alojamiento y desayuno", "Media pensión", "Pensión completa", "Todo incluido"],
+    "traslados": ["Aeropuerto-hotel-aeropuerto", "Solo llegada", "Sin traslados"],
+    "metodos_pago": ["Zelle", "Pago móvil", "Transferencia", "Divisas en efectivo"]
+  }
+}

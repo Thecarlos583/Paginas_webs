@@ -4,7 +4,7 @@
 {
   "$schema": "https://unpkg.com/wrangler/config-schema.json",
   "name": "youtravel",
-  "main": "../../src/index.js",
+  "main": "../../../documentos/clientes/youtravel/worker.js",
   "compatibility_date": "2026-11-01",
   "workers_dev": false,
   "routes": [{ "pattern": "youtravelagenciadeviajes.com", "custom_domain": true }],
@@ -13,8 +13,13 @@
     "binding": "ASSETS",
     "html_handling": "none",
     "not_found_handling": "none",
-    "run_worker_first": ["/", "/sitemap.xml", "/novedades", "/novedades.html", "/novedades/*", "/panel", "/panel/*", "/api/*"]
+    "run_worker_first": ["/", "/sitemap.xml", "/novedades", "/novedades.html", "/novedades/*", "/panel", "/panel/*", "/api/*", "/admin", "/admin/*"]
   },
+  // app.js y app.css del panel de documentos van dentro del Worker como texto.
+  "rules": [{ "type": "Text", "globs": ["**/cliente/*.js", "**/cliente/*.css"], "fallthrough": true }],
+  "d1_databases": [
+    { "binding": "DOCUMENTOS", "database_name": "documentos-youtravel", "database_id": "b4bac832-04c1-4272-af48-07bdd5fe5d05" }
+  ],
   "kv_namespaces": [
     { "binding": "NOVEDADES", "id": "e168a9c526aa44dcb04121593dff7a1a" }
   ],
