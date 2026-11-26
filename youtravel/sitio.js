@@ -3,6 +3,8 @@
 (function () {
   "use strict";
   function safe(fn, n) { try { fn(); } catch (err) { if (window.console) console.warn("[" + n + "]", err); } }
+  // las páginas que arma el Worker de Novedades (/novedades/<slug>) marcan la raíz del sitio: data-raiz="/"
+  var RAIZ = document.documentElement.getAttribute("data-raiz") || "";
   function $(s, c) { return (c || document).querySelector(s); }
   function $$(s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); }
   var D = {};
@@ -228,9 +230,9 @@
       var amb = f.elements.ambito.value, de = f.elements.destino.value, pe = f.elements.personas.value;
       ev.preventDefault();
       var q = new URLSearchParams();
-      if (amb === "boletos") { q.set("servicio", "boletos"); if (de) q.set("destino", de); if (pe) q.set("personas", pe); location.href = "cotizar.html?" + q.toString(); return; }
+      if (amb === "boletos") { q.set("servicio", "boletos"); if (de) q.set("destino", de); if (pe) q.set("personas", pe); location.href = RAIZ + "cotizar.html?" + q.toString(); return; }
       if (amb) q.set("ambito", amb); if (de) q.set("destino", de); if (pe && +pe > 1) q.set("personas", pe);
-      location.href = "paquetes.html" + (q.toString() ? "?" + q.toString() : "");
+      location.href = RAIZ + "paquetes.html" + (q.toString() ? "?" + q.toString() : "");
     });
   }
 
@@ -424,7 +426,7 @@
   /* ---------- instalar como app ---------- */
   function initApp() {
     if ("serviceWorker" in navigator && /^https?:$/.test(location.protocol)) {
-      addEventListener("load", function () { navigator.serviceWorker.register("sw.js").catch(function () {}); });
+      addEventListener("load", function () { navigator.serviceWorker.register(RAIZ + "sw.js").catch(function () {}); });
     }
     var caja = $("[data-instalar]"), btn = $("[data-instalar-btn]"), ios = $("[data-ios]"), ya = $("[data-instalada]");
     var standalone = (matchMedia && matchMedia("(display-mode: standalone)").matches) || navigator.standalone;
@@ -441,6 +443,19 @@
     });
     addEventListener("appinstalled", function () { if (btn) btn.hidden = true; if (ya) ya.hidden = false; });
   }
+
+  /* [novedades] */
+  /* ---------- compartir un artículo de Novedades: menú del teléfono si existe; si no, WhatsApp ---------- */
+  function initCompartir() {
+    Array.prototype.forEach.call(document.querySelectorAll("[data-compartir]"), function (b) {
+      if (!navigator.share) return;
+      b.addEventListener("click", function (ev) {
+        ev.preventDefault();
+        navigator.share({ title: b.getAttribute("data-titulo"), url: b.getAttribute("data-url") }).catch(function () {});
+      });
+    });
+  }
+  /* [/novedades] */
 
   function initPausa() {
     document.addEventListener("visibilitychange", function () { document.body.classList.toggle("pausado", document.hidden); });
@@ -461,5 +476,8 @@
   safe(initMaleta, "maleta");
   safe(initTabs, "tabs");
   safe(initApp, "app");
+  /* [novedades] */
+  safe(initCompartir, "compartir");
+  /* [/novedades] */
   safe(initPausa, "pausa");
 })();
