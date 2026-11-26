@@ -717,3 +717,16 @@ img[src*="jardin-muro"] { object-position: 50% 58%; }
 
 /* Pie: íconos de los enlaces de mapa */
 .pie p a svg { width: 20px; height: 20px; flex: none; color: var(--naranja-claro); }
+
+/* ===================== prompt-45d: frase del hijo del Sr. Pedro en la portada ===================== */
+/* Más grande que la bajada de antes, con la letra de los títulos, sin competir con el nombre de la posada. */
+.portada .lema { margin-top: 14px; font: 500 clamp(1.5rem, 6.6vw, 2.15rem)/1.12 var(--serif); letter-spacing: -.01em; color: #fff; max-width: 20ch; text-wrap: balance; }
+.portada .lema em { font-style: italic; font-weight: 400; color: var(--naranja-claro); white-space: nowrap; }
+.portada .lugar { display: inline-flex; align-items: center; gap: 7px; margin-top: 10px; padding: 5px 12px 5px 9px; border: 1px solid rgba(255, 255, 255, .32); border-radius: 999px; font-size: .9rem; font-weight: 600; letter-spacing: .04em; color: rgba(255, 255, 255, .92); }
+.portada .lugar svg { width: 15px; height: 15px; flex: none; color: var(--naranja-claro); }
+.portada .lema { animation: sube .7s cubic-bezier(.2, .7, .2, 1) .5s both; }
+.portada .lugar { animation: aparece .6s ease .62s both; }
+@media (min-width: 900px) { .portada .lema { font-size: clamp(1.9rem, 2.5vw, 2.4rem); } }
+@media (prefers-reduced-motion: reduce) { .portada .lema, .portada .lugar { animation: none !important; } }
+/* prompt-45d: con Threads son 5 contactos; en dos columnas WhatsApp va a lo ancho arriba y los otros 4 quedan parejos */
+@media (min-width: 760px) { .contactos .contacto-wa { grid-column: 1 / -1; } }
