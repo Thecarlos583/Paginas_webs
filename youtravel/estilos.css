@@ -880,6 +880,10 @@ body.pausado *, body.pausado *::before, body.pausado *::after { animation-play-s
   .nov-t, .nov-t-foto img, .nov-t-ir .ico { transition: none; }
 }
 /* [/novedades] */
+/* nota debajo de los pasos de Cómo funciona (solo si config.json la trae) */
+.como-nota { margin-top: 36px; padding-left: 84px; font-size: 18px; line-height: 1.5; color: var(--tinta-suave); max-width: calc(52ch + 84px); }
+@media (min-width: 900px) { .como-nota { padding-left: 0; max-width: 60ch; margin-top: 48px; } }
+
 /* ===== tema ===== */
 /* YouTravel: blanco luminoso, la tinta del logo (#0B1C23) y el degradado turquesa a violeta
    del aro solo en detalles (botón principal, aro, una línea fina por pantalla, número grande).
@@ -926,7 +930,7 @@ h1, h2, h3, h4 { font-weight: 800; letter-spacing: -.025em; }
 .srv-linea { font-weight: 600; font-size: 18px; }
 /* menú del teléfono: letra más calmada (antes 30 px en 800 se veía muy saltona) */
 .menu-movil nav a { font-weight: 600; font-size: 20px; line-height: 1.25; letter-spacing: 0; padding: 15px 2px; }
-/* el número grande del contador y "10+" llevan el degradado */
+/* el número grande del contador y la cifra de años llevan el degradado */
 .cat-contador strong { background: var(--marca-grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
 /* aro de la portada con un brillo mientras se dibuja */
 .por-aro circle { filter: drop-shadow(0 0 18px rgba(25, 183, 195, .35)); }

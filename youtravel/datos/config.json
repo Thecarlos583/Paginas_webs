@@ -27,21 +27,21 @@
  "indexar": true,
  "aviso": "Paquetes y fotos de referencia.",
  "horario_ejemplo": false,
- "horario": [["Lunes a viernes", "8:00 a. m. a 4:00 p. m."]],
+ "horario": [["Oficina: lunes a viernes", "8:00 a. m. a 5:00 p. m."], ["WhatsApp: todos los días", "8:00 a. m. a 10:00 p. m."]],
  "divisas_nota": "Divisas en efectivo: solo en nuestra oficina del C.C. Portofino.",
  "colores": {"tema": "#0B1C23", "fondo": "#FAF9F7"},
  "fuentes_url": "https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Questrial&family=Satisfy&display=swap",
  "descripcion": "YouTravel, agencia de viajes en Puerto Ordaz: tu viaje en manos de expertos. Viajes corporativos, familiares y de parejas, nacionales e internacionales. Cotice por WhatsApp.",
  "quienes": {
   "etiqueta": "Quiénes somos",
-  "titulo": "Más de 10 años creando paquetes turísticos",
-  "texto": "Somos expertos en viajes corporativos, familiares y de parejas, con destinos nacionales e internacionales. Nos encuentra en el C.C. Portofino, en Puerto Ordaz.",
-  "cifra": "10+", "cifra_txt": "años creando paquetes turísticos",
+  "titulo": "Más de 7 años diseñando paquetes turísticos nacionales e internacionales.",
+  "texto": "Somos expertos en viajes corporativos, familiares y de parejas.",
+  "cifra": "7+", "cifra_txt": "años diseñando paquetes turísticos",
   "tipos": ["Viajes corporativos", "Viajes familiares", "Viajes de parejas"]
  },
  "portada": {
   "titulo": "Tu viaje en manos de expertos",
-  "linea": "Paquetes nacionales e internacionales desde Puerto Ordaz. Usted nos dice a dónde y nosotros nos ocupamos del resto.",
+  "linea": "El viaje de tus sueños comienza aquí.",
   "video_pc": "https://videos.pexels.com/video-files/12021278/12021278-hd_1920_1080_30fps.mp4",
   "video_tel": "https://videos.pexels.com/video-files/33007495/14068047_720_1280_60fps.mp4",
   "poster_pc": "img/portada-pc.webp",
@@ -53,10 +53,16 @@
   ]
  },
  "como_funciona": [
-  {"titulo": "Nos escribe", "texto": "Por WhatsApp o desde el cotizador: a dónde, cuándo y cuántos viajan."},
-  {"titulo": "Le armamos el viaje", "texto": "Le mandamos opciones con vuelos, hotel y traslados, y ajustamos hasta que le guste."},
-  {"titulo": "Viaja tranquilo", "texto": "Le enviamos sus boletos y reservas, y seguimos pendientes durante el viaje."}
+  {"titulo": "Escríbenos"},
+  {"titulo": "Organizamos"},
+  {"titulo": "Viaja con tranquilidad"}
  ],
+ "inicio": {
+  "destinos": {"titulo": "¿A dónde quieres ir?", "linea": "En Venezuela o en el exterior del país."},
+  "paquetes": {"titulo": "Paquetes estructurados", "linea": "Cada uno se ajusta a las fechas y a la cantidad de pasajeros."},
+  "servicios": {"etiqueta": "Atención personalizada", "titulo": "Todo en un solo lugar", "linea": "Boletos, hoteles, seguros de viaje, traslados y documentación."},
+  "como": {"etiqueta": "", "titulo": "Cómo funciona", "linea": "Sigue 3 pasos sencillos", "nota": "Escríbenos con el destino y las fechas. Te enviamos varias opciones para escoger."}
+ },
  "pagos": ["Pago móvil", "Zelle", "Divisas en efectivo"],
  "url_publica": "https://youtravelagenciadeviajes.com/",
  "novedades": true,
