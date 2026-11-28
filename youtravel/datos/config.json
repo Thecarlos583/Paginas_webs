@@ -27,6 +27,7 @@
  "pie_extra": ["grupos.html", "novedades.html"],
  "destinos_en_paquetes": true,
  "inicio_orden": ["portada", "buscador", "quienes", "servicios", "paquetes", "corporativo", "como", "cierre"],
+ "certificacion": {"texto": "Agencia de viajes certificada por el Ministerio de Turismo.", "datos": [["RIF", "J-41305627-5"], ["RTN", "21933"], ["LIC", "A-3349"]]},
  "moneda": "US$",
  "demo": false,
  "indexar": true,
