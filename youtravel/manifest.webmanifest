@@ -2,7 +2,7 @@
  "name": "YouTravel Agencia de Viajes",
  "short_name": "YouTravel",
  "lang": "es-VE",
- "description": "YouTravel, agencia de viajes en Puerto Ordaz: tu viaje en manos de expertos. Viajes corporativos, familiares y de parejas, nacionales e internacionales. Cotice por WhatsApp.",
+ "description": "YouTravel, agencia de viajes en Puerto Ordaz: tu viaje en manos de expertos. Viajes corporativos, familiares y de parejas, nacionales e internacionales. Cotiza por WhatsApp.",
  "start_url": "./index.html",
  "scope": "./",
  "display": "standalone",

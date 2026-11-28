@@ -5,7 +5,7 @@
   "foto": "av-ala",
   "cotizar": "boletos",
   "linea": "Nacionales e internacionales, de ida o de ida y vuelta.",
-  "texto": "Le buscamos las rutas y horarios que le convienen, con el equipaje que necesita, y le mandamos el boleto por WhatsApp.",
+  "texto": "Te buscamos las rutas y horarios que te convienen, con el equipaje que necesitas, y te mandamos el boleto por WhatsApp.",
   "puntos": [
    "Vuelos nacionales desde Puerto Ordaz",
    "Vuelos internacionales con conexión",
@@ -19,11 +19,11 @@
   "foto": "lr-agua",
   "cotizar": "paquete",
   "linea": "Vuelo, hotel, traslados y paseos en un solo precio.",
-  "texto": "Elija uno de nuestros paquetes o cuéntenos qué tiene en mente y se lo armamos a su medida.",
+  "texto": "Elige uno de nuestros paquetes o cuéntanos qué tienes en mente y te lo armamos a tu medida.",
   "puntos": [
    "Destinos nacionales e internacionales",
-   "Fechas a su elección",
-   "Ajustes según su presupuesto"
+   "Fechas a tu elección",
+   "Ajustes según tu presupuesto"
   ],
   "mensaje": "Hola YouTravel, quiero cotizar un paquete de viaje."
  },
@@ -33,7 +33,7 @@
   "foto": "piscina2",
   "cotizar": "hotel",
   "linea": "Desde una posada sencilla hasta un todo incluido.",
-  "texto": "Le reservamos el hospedaje según la zona, el tipo de habitación y el plan de comidas que prefiera.",
+  "texto": "Te reservamos el hospedaje según la zona, el tipo de habitación y el plan de comidas que prefieras.",
   "puntos": [
    "Habitaciones para parejas, familias y grupos",
    "Con desayuno, media pensión o todo incluido",
@@ -46,10 +46,10 @@
   "nombre": "Seguros de viaje",
   "foto": "maleta",
   "cotizar": "paquete",
-  "linea": "Para viajar con respaldo, según su destino y sus fechas.",
-  "texto": "Le cotizamos el seguro de viaje según el destino, las fechas y quiénes viajan. Antes de contratarlo le explicamos qué cubre.",
+  "linea": "Para viajar con respaldo, según tu destino y tus fechas.",
+  "texto": "Te cotizamos el seguro de viaje según el destino, las fechas y quiénes viajan. Antes de contratarlo te explicamos qué cubre.",
   "puntos": [
-   "Según su destino",
+   "Según tu destino",
    "Según las fechas del viaje",
    "Para una persona, una familia o un grupo"
   ],
@@ -61,7 +61,7 @@
   "foto": "traslado",
   "cotizar": "traslado",
   "linea": "Del aeropuerto al hotel y de vuelta, sin esperas.",
-  "texto": "Coordinamos quién lo busca al llegar y quién lo lleva de regreso, en el destino o aquí en Puerto Ordaz.",
+  "texto": "Coordinamos quién te busca al llegar y quién te lleva de regreso, en el destino o aquí en Puerto Ordaz.",
   "puntos": [
    "Aeropuerto y hotel",
    "Traslados entre ciudades",
@@ -75,7 +75,7 @@
   "foto": "pasaporte",
   "cotizar": "paquete",
   "linea": "Pasaporte, visas y requisitos de entrada, explicado claro.",
-  "texto": "Le explicamos en general qué pide cada país para entrar y qué revisar antes de viajar. Los trámites los hace usted ante cada organismo; nosotros le orientamos.",
+  "texto": "Te explicamos en general qué pide cada país para entrar y qué revisar antes de viajar. Los trámites los haces tú ante cada organismo; nosotros te orientamos.",
   "puntos": [
    "Vigencia del pasaporte",
    "Países que piden visa",

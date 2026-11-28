@@ -121,7 +121,7 @@
   "dias": 6, "noches": 5, "personas_max": 10,
   "salida": "Salida desde Maiquetía; el tramo desde Puerto Ordaz se cotiza aparte",
   "precio": 1290, "por": "por persona",
-  "resumen": "Cinco noches frente al mar con comidas y bebidas incluidas. Solo tiene que llevar el traje de baño.",
+  "resumen": "Cinco noches frente al mar con comidas y bebidas incluidas. Solo tienes que llevar el traje de baño.",
   "incluye": ["vuelo", "hospedaje", "todo-incluido", "traslados", "asistencia"],
   "incluye_texto": ["Vuelo internacional ida y vuelta", "5 noches en hotel todo incluido", "Comidas y bebidas en el hotel", "Traslados aeropuerto y hotel", "Asistencia al viajero"],
   "no_incluye": ["Tramo Puerto Ordaz a Maiquetía", "Excursiones fuera del hotel", "Propinas"],
@@ -204,7 +204,7 @@
   "resumen": "Cinco noches en Madrid, tren a París y cuatro noches más junto al Sena.",
   "incluye": ["vuelo", "hospedaje", "desayunos", "traslados", "tren", "asistencia"],
   "incluye_texto": ["Vuelos ida y vuelta", "9 noches de hotel céntrico", "Desayunos", "Tren Madrid a París", "Traslados de llegada y salida", "Asistencia al viajero con cobertura Schengen"],
-  "no_incluye": ["Tramo Puerto Ordaz a Maiquetía", "Visado, si su pasaporte lo requiere", "Entradas a museos", "Almuerzos y cenas"],
+  "no_incluye": ["Tramo Puerto Ordaz a Maiquetía", "Visado, si tu pasaporte lo requiere", "Entradas a museos", "Almuerzos y cenas"],
   "itinerario": [
    {"titulo": "Llegada a Madrid", "texto": "Traslado al hotel y paseo por la Gran Vía."},
    {"titulo": "Días 2 al 5 en Madrid", "texto": "Plaza Mayor, el Retiro, museos y un día en Toledo."},

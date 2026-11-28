@@ -112,46 +112,46 @@
     function cola(t) { var n = val("nota"); return t + (n ? "\n\nAlgo más: " + n : ""); }
     function mensaje() {
       var s = servicio(), S = D.saludo || "Hola", ad = num("adultos"), ni = num("ninos"), gente = personas(ad, ni), hoyD = fecha(hoy);
-      if (s !== "grupo" && ad < 1) return falta("adultos", "Indique al menos un adulto.");
+      if (s !== "grupo" && ad < 1) return falta("adultos", "Indica al menos un adulto.");
       if (s === "paquete") {
         var p = paquete(val("paquete"));
-        if (!p) return falta("paquete", "Elija el paquete que quiere cotizar.");
-        if (!val("p_salida")) return falta("p_salida", "Elija la fecha de salida, aunque sea aproximada.");
-        var a = fecha(val("p_salida")); if (a < hoyD) return falta("p_salida", "Esa fecha ya pasó. Elija una fecha próxima.");
+        if (!p) return falta("paquete", "Elige el paquete que quieres cotizar.");
+        if (!val("p_salida")) return falta("p_salida", "Elige la fecha de salida, aunque sea aproximada.");
+        var a = fecha(val("p_salida")); if (a < hoyD) return falta("p_salida", "Esa fecha ya pasó. Elige una fecha próxima.");
         return cola(S + ", quiero cotizar un paquete: " + p.nombre + ", " + rango(a, mas(a, p.noches)) + ", " + gente + ".");
       }
       if (s === "boletos") {
         var o = val("b_origen"), de = val("b_destino"), tipo = val("b_tipo") || "ida y vuelta";
-        if (!o) return falta("b_origen", "Escriba desde dónde sale.");
-        if (!de) return falta("b_destino", "Escriba a dónde quiere volar.");
-        if (!val("b_ida")) return falta("b_ida", "Elija la fecha de ida.");
-        var ida = fecha(val("b_ida")); if (ida < hoyD) return falta("b_ida", "Esa fecha ya pasó. Elija una fecha próxima.");
+        if (!o) return falta("b_origen", "Escribe desde dónde sales.");
+        if (!de) return falta("b_destino", "Escribe a dónde quieres volar.");
+        if (!val("b_ida")) return falta("b_ida", "Elige la fecha de ida.");
+        var ida = fecha(val("b_ida")); if (ida < hoyD) return falta("b_ida", "Esa fecha ya pasó. Elige una fecha próxima.");
         if (tipo === "solo ida") return cola(S + ", quiero cotizar boletos aéreos: de " + o + " a " + de + ", solo ida, " + unDia(ida) + ", " + gente + ".");
-        if (!val("b_vuelta")) return falta("b_vuelta", "Elija la fecha de vuelta, o marque solo ida.");
+        if (!val("b_vuelta")) return falta("b_vuelta", "Elige la fecha de vuelta, o marca solo ida.");
         var vu = fecha(val("b_vuelta")); if (vu < ida) return falta("b_vuelta", "La vuelta debe ser después de la ida.");
         return cola(S + ", quiero cotizar boletos aéreos: de " + o + " a " + de + ", ida y vuelta, " + rango(ida, vu) + ", " + gente + ".");
       }
       if (s === "hotel") {
         var hd = val("h_destino");
-        if (!hd) return falta("h_destino", "Escriba la ciudad o la playa donde quiere el hotel.");
-        if (!val("h_entrada")) return falta("h_entrada", "Elija la fecha de entrada.");
-        if (!val("h_salida")) return falta("h_salida", "Elija la fecha de salida.");
+        if (!hd) return falta("h_destino", "Escribe la ciudad o la playa donde quieres el hotel.");
+        if (!val("h_entrada")) return falta("h_entrada", "Elige la fecha de entrada.");
+        if (!val("h_salida")) return falta("h_salida", "Elige la fecha de salida.");
         var en = fecha(val("h_entrada")), sa = fecha(val("h_salida"));
-        if (en < hoyD) return falta("h_entrada", "Esa fecha ya pasó. Elija una fecha próxima.");
+        if (en < hoyD) return falta("h_entrada", "Esa fecha ya pasó. Elige una fecha próxima.");
         if (sa <= en) return falta("h_salida", "La salida debe ser después de la entrada.");
         var noches = Math.round((sa - en) / 864e5);
         return cola(S + ", quiero cotizar hotel en " + hd + ": " + rango(en, sa) + " (" + noches + (noches === 1 ? " noche" : " noches") + "), " + gente + ".");
       }
       if (s === "traslado") {
-        if (!val("t_desde")) return falta("t_desde", "Escriba desde dónde lo buscamos.");
-        if (!val("t_hasta")) return falta("t_hasta", "Escriba a dónde lo llevamos.");
-        if (!val("t_fecha")) return falta("t_fecha", "Elija la fecha del traslado.");
-        var tf = fecha(val("t_fecha")); if (tf < hoyD) return falta("t_fecha", "Esa fecha ya pasó. Elija una fecha próxima.");
+        if (!val("t_desde")) return falta("t_desde", "Escribe desde dónde te buscamos.");
+        if (!val("t_hasta")) return falta("t_hasta", "Escribe a dónde te llevamos.");
+        if (!val("t_fecha")) return falta("t_fecha", "Elige la fecha del traslado.");
+        var tf = fecha(val("t_fecha")); if (tf < hoyD) return falta("t_fecha", "Esa fecha ya pasó. Elige una fecha próxima.");
         return cola(S + ", quiero cotizar un traslado: desde " + val("t_desde") + " hasta " + val("t_hasta") + ", " + unDia(tf) + ", " + gente + ".");
       }
       if (s === "grupo") {
         var gd = val("g_destino"), gp = num("g_personas"), gm = val("g_mes"), gt = (val("g_tipo") || "grupo").toLowerCase();
-        if (!gd) return falta("g_destino", "Escriba a dónde quiere ir el grupo.");
+        if (!gd) return falta("g_destino", "Escribe a dónde quiere ir el grupo.");
         if (gp < 6) return falta("g_personas", "Los viajes de grupo son desde 6 personas.");
         var cuando = "fecha por definir";
         if (gm) { var md = fecha(gm + "-01"); cuando = "en " + MESES[md.getMonth()] + " de " + md.getFullYear(); }

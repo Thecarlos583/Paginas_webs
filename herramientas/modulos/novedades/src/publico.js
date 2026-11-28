@@ -129,7 +129,7 @@ function articuloHTML(a, c, base, otras) {
  <div class="contenedor nov-art-texto">
   ${parrafos(a.cuerpo)}
   <div class="nov-art-fin">
-   <p class="nov-art-fin-txt">¿Le interesa? Escríbanos y le damos todos los detalles.</p>
+   <p class="nov-art-fin-txt">${esc(c.texto_fin || "¿Le interesa? Escríbanos y le damos todos los detalles.")}</p>
    <a class="btn btn-wa" href="${esc(cotizar)}" target="_blank" rel="noopener">${WA_SVG}<span>Cotizar este viaje</span></a>
   </div>
  </div>
