@@ -28,6 +28,15 @@
   "mensaje": "Hola YouTravel, quiero cotizar un paquete de viaje."
  },
  {
+  "id": "cruceros",
+  "nombre": "Cruceros y circuitos",
+  "foto": "crucero",
+  "cotizar": "paquete",
+  "linea": "Variedad de líneas y rutas, con opciones de camarote.",
+  "texto": "Cruceros con actividades a bordo para todo tipo de viajeros, y circuitos por Europa, Asia, África y Oceanía.",
+  "mensaje": "Hola YouTravel, quiero cotizar un crucero o un circuito."
+ },
+ {
   "id": "hoteles",
   "nombre": "Hoteles y posadas",
   "foto": "piscina2",
@@ -56,6 +65,15 @@
   "mensaje": "Hola YouTravel, quiero cotizar un seguro de viaje."
  },
  {
+  "id": "asistencia",
+  "nombre": "Asistencia al pasajero",
+  "foto": "asistencia",
+  "cotizar": "paquete",
+  "linea": "Atención personalizada para cada pasajero.",
+  "texto": "Asesoría dedicada para cada cliente, en viajes de placer, de negocios y de grupo.",
+  "mensaje": "Hola YouTravel, quiero información sobre la asistencia al pasajero."
+ },
+ {
   "id": "traslados",
   "nombre": "Traslados",
   "foto": "traslado",
@@ -68,6 +86,24 @@
    "Vehículos para grupos"
   ],
   "mensaje": "Hola YouTravel, quiero cotizar un traslado."
+ },
+ {
+  "id": "alquiler",
+  "nombre": "Alquiler de vehículos",
+  "foto": "alquiler",
+  "cotizar": "traslado",
+  "linea": "Para moverte a tu ritmo en el destino.",
+  "texto": "Te cotizamos el alquiler del vehículo junto con tus traslados nacionales e internacionales.",
+  "mensaje": "Hola YouTravel, quiero cotizar el alquiler de un vehículo."
+ },
+ {
+  "id": "excursiones",
+  "nombre": "Excursiones guiadas",
+  "foto": "excursion",
+  "cotizar": "paquete",
+  "linea": "Rutas guiadas para conocer cada destino.",
+  "texto": "Excursiones con guía, con logística y atención especializada.",
+  "mensaje": "Hola YouTravel, quiero cotizar una excursión guiada."
  },
  {
   "id": "documentos",

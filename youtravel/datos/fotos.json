@@ -798,5 +798,55 @@
   "archivo": "New terminal building at Faisalabad International Airport 11.jpg",
   "ancho": 4032,
   "alto": 3024
+ },
+ "crucero": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/Independence_of_the_Seas_%28Unsplash%29.jpg/{w}px-Independence_of_the_Seas_%28Unsplash%29.jpg",
+  "alt": "Crucero navegando frente a montañas nevadas",
+  "autor": "Steinar Engeland",
+  "licencia": "CC0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Independence_of_the_Seas_(Unsplash).jpg",
+  "archivo": "Independence of the Seas (Unsplash).jpg",
+  "ancho": 4896,
+  "alto": 2996
+ },
+ "excursion": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/09/Norwegian_tourists_listening_to_guide_at_Temple_of_Heaven%2C_Beijing.jpg/{w}px-Norwegian_tourists_listening_to_guide_at_Temple_of_Heaven%2C_Beijing.jpg",
+  "alt": "Grupo de viajeros escuchando a su guía en una excursión",
+  "autor": "Daniel Case",
+  "licencia": "CC BY-SA 3.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Norwegian_tourists_listening_to_guide_at_Temple_of_Heaven,_Beijing.jpg",
+  "archivo": "Norwegian tourists listening to guide at Temple of Heaven, Beijing.jpg",
+  "ancho": 4758,
+  "alto": 3408
+ },
+ "corporativo": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/Business_travel_%28Unsplash%29.jpg/{w}px-Business_travel_%28Unsplash%29.jpg",
+  "alt": "Avión ejecutivo en la pista de un aeropuerto",
+  "autor": "Marcus Zymmer",
+  "licencia": "CC0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Business_travel_(Unsplash).jpg",
+  "archivo": "Business travel (Unsplash).jpg",
+  "ancho": 3000,
+  "alto": 2003
+ },
+ "alquiler": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Man_driving_car_near_coast_%28Unsplash%29.jpg/{w}px-Man_driving_car_near_coast_%28Unsplash%29.jpg",
+  "alt": "Manos al volante de un carro en una carretera junto al mar",
+  "autor": "Juan Di Nella",
+  "licencia": "CC0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Man_driving_car_near_coast_(Unsplash).jpg",
+  "archivo": "Man driving car near coast (Unsplash).jpg",
+  "ancho": 5184,
+  "alto": 3456
+ },
+ "asistencia": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/At_the_Gdansk_airport_%28Unsplash%29.jpg/{w}px-At_the_Gdansk_airport_%28Unsplash%29.jpg",
+  "alt": "Maleta junto a los asientos de la sala de espera de un aeropuerto",
+  "autor": "Michał Parzuchowski",
+  "licencia": "CC0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:At_the_Gdansk_airport_(Unsplash).jpg",
+  "archivo": "At the Gdansk airport (Unsplash).jpg",
+  "ancho": 5014,
+  "alto": 3343
  }
 }

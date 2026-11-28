@@ -9,6 +9,7 @@
  "estado": "estado Bolívar",
  "direccion": "Centro Comercial Portofino, PB, Local B21-B, Puerto Ordaz, estado Bolívar",
  "direccion_corta": "C.C. Portofino, PB, Local B21-B",
+ "referencia": "Detrás de la Torre Loreto",
  "maps_url": "https://www.google.com/maps?cid=16414768939412062068",
  "whatsapp": "584249572232",
  "whatsapp_ver": "+58 424 957 2232",
@@ -16,7 +17,7 @@
  "oficina_ver": "+58 286 923 1746",
  "correo": "youtravelagenciadeviajes@gmail.com",
  "instagram": {"usuario": "@youtravelve", "url": "https://instagram.com/youtravelve"},
- "wa_general": "Hola YouTravel, quiero información para un viaje",
+ "wa_general": "Hola YouTravel, quiero información para un viaje.",
  "saludo_wa": "Hola YouTravel",
  "salida": "Puerto Ordaz",
  "mostrar_precios": false,
@@ -71,6 +72,35 @@
   "como": {"etiqueta": "", "titulo": "Cómo funciona", "linea": "Sigue 3 pasos sencillos", "nota": "Escríbenos con el destino y las fechas. Te enviamos varias opciones para escoger."}
  },
  "pagos": ["Pago móvil", "Zelle", "Divisas en efectivo"],
+ "corporativo": {
+  "etiqueta": "Empresas",
+  "titulo": "Viajes corporativos y convenciones",
+  "linea": "Para tu empresa: viajes de negocios, convenciones y grupos.",
+  "foto": "corporativo",
+  "cifra": "200.000+", "cifra_txt": "opciones en cadenas internacionales y hoteles boutique",
+  "puntos": [
+   {"icono": "calendario", "titulo": "Itinerarios personalizados", "texto": "Cada viaje de negocios, armado a la medida."},
+   {"icono": "mapa", "titulo": "Programas para grupos", "texto": "Rutas guiadas y circuitos por Europa, Asia, África y Oceanía, con logística y atención especializada."},
+   {"icono": "personas", "titulo": "Atención personalizada", "texto": "Asesoría dedicada para cada cliente: placer, negocios y grupos."}
+  ],
+  "mensaje": "Hola YouTravel, quiero cotizar un viaje corporativo para mi empresa.",
+  "boton": "Cotiza tu viaje corporativo",
+  "enlace_grupos": "Convenios y viajes de grupo"
+ },
+ "convenio": {
+  "etiqueta": "Convenio corporativo",
+  "titulo": "Cómo empezar con tu convenio",
+  "linea": "Cinco pasos para que tu empresa viaje con YouTravel.",
+  "pasos": [
+   "Aceptación del convenio y envío del RIF de la empresa.",
+   "Gestiona tu viaje corporativo con tu asesor asignado.",
+   "Aprobación de la proforma para la emisión.",
+   "Gestión de pago, solo en divisas.",
+   "Envío de facturación y solicitudes de retenciones, en el caso que aplique."
+  ],
+  "mensaje": "Hola YouTravel, quiero información sobre el convenio corporativo para mi empresa.",
+  "boton": "Pide el convenio para tu empresa"
+ },
  "url_publica": "https://youtravelagenciadeviajes.com/",
  "novedades": true,
  "novedades_textos": {"linea": "Anuncios, publicaciones y noticias de viajes de YouTravel.", "vacio": "Muy pronto, novedades de viajes."}
