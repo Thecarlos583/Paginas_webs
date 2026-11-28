@@ -314,34 +314,65 @@
     caja.addEventListener("touchend", function (ev) { if (x0 === null) return; var dx = ev.changedTouches[0].clientX - x0; if (Math.abs(dx) > 45) paso(dx < 0 ? 1 : -1); x0 = null; });
   }
 
-    /* ---------- destinos: carrusel que avanza solo y despacio (nunca retiene el scroll) ---------- */
+    /* ---------- destinos: cinta que avanza sola y despacio, sin fin (nunca retiene el scroll) ---------- */
   function initCarrusel() {
     var sec = $("[data-carrusel]"); if (!sec) return;
     var pista = $("[data-pista]", sec), ant = $("[data-carr-ant]", sec), sig = $("[data-carr-sig]", sec);
-    var parado = reducido, encima = false, visible = false, reloj = null;
+    var VEL = 24; /* px por segundo: despacio, para leer cada destino */
+    var encima = false, visible = false, pausaHasta = 0, pos = 0, ultimo = -1, t0 = 0, ancho = 0;
+    var originales = [].slice.call(pista.children);
+    /* copia decorativa al final para que la cinta no se acabe; solo con movimiento */
+    if (!reducido && originales.length > 1) {
+      originales.forEach(function (li) {
+        var c = li.cloneNode(true); c.setAttribute("aria-hidden", "true"); c.classList.add("des-copia");
+        [].forEach.call(c.querySelectorAll("a, button"), function (a) { a.setAttribute("tabindex", "-1"); });
+        pista.appendChild(c);
+      });
+      pista.classList.add("deriva");
+    }
+    function medir() { var c = $(".des-copia", pista); ancho = c ? c.offsetLeft - originales[0].offsetLeft : 0; }
     function paso() { var it = $(".des-item", pista); return it ? it.offsetWidth + (parseFloat(getComputedStyle(pista).columnGap) || 14) : 300; }
+    function pausar(ms) { pausaHasta = Date.now() + (ms || 4000); }
     function ir(n) {
+      pausar(5000);
+      if (ancho) {
+        if (n < 0 && pista.scrollLeft < paso()) pista.scrollLeft += ancho;
+        pista.scrollBy({ left: n * paso(), behavior: "smooth" });
+        return;
+      }
       var max = pista.scrollWidth - pista.clientWidth - 4;
       if (n > 0 && pista.scrollLeft >= max) pista.scrollTo({ left: 0, behavior: reducido ? "auto" : "smooth" });
       else if (n < 0 && pista.scrollLeft <= 4) pista.scrollTo({ left: max + 4, behavior: reducido ? "auto" : "smooth" });
       else pista.scrollBy({ left: n * paso(), behavior: reducido ? "auto" : "smooth" });
     }
-    function tic() { if (!parado && !encima && visible && !document.hidden) ir(1); }
-    function parar() { parado = true; if (reloj) { clearInterval(reloj); reloj = null; } }
-    /* se detiene apenas la persona lo toca, lo arrastra o usa las flechas */
-    ["pointerdown", "touchstart", "wheel", "keydown"].forEach(function (t) { pista.addEventListener(t, parar, { passive: true }); });
-    pista.addEventListener("focusin", parar);
+    function cuadro(t) {
+      var dt = t0 ? Math.min(t - t0, 64) : 0; t0 = t;
+      if (ancho && visible && !encima && !document.hidden && Date.now() > pausaHasta) {
+        /* si la persona la movió, seguir desde donde la dejó */
+        if (ultimo < 0 || Math.abs(pista.scrollLeft - ultimo) > 2) pos = pista.scrollLeft;
+        pos += VEL * dt / 1000;
+        if (pos >= ancho) pos -= ancho;
+        pista.scrollLeft = pos; ultimo = pista.scrollLeft;
+      } else ultimo = -1;
+      requestAnimationFrame(cuadro);
+    }
+    /* se pausa mientras la tocan, la arrastran o usan las flechas, y sigue sola a los 4 segundos */
+    ["pointerdown", "touchstart", "touchmove", "wheel", "keydown"].forEach(function (t) { pista.addEventListener(t, function () { pausar(); }, { passive: true }); });
+    pista.addEventListener("focusin", function () { pausar(8000); });
     pista.addEventListener("mouseenter", function () { encima = true; });
-    pista.addEventListener("mouseleave", function () { encima = false; });
-    if (ant) ant.addEventListener("click", function () { parar(); ir(-1); });
-    if (sig) sig.addEventListener("click", function () { parar(); ir(1); });
-    if ("IntersectionObserver" in window) new IntersectionObserver(function (es) { visible = es[0].isIntersecting; }, { threshold: 0.4 }).observe(pista);
+    pista.addEventListener("mouseleave", function () { encima = false; pausar(1200); });
+    if (ant) ant.addEventListener("click", function () { ir(-1); });
+    if (sig) sig.addEventListener("click", function () { ir(1); });
+    if ("IntersectionObserver" in window) new IntersectionObserver(function (es) { visible = es[0].isIntersecting; }, { threshold: 0.2 }).observe(pista);
     else visible = true;
-    if (!parado) reloj = setInterval(tic, 3500);
+    if (!reducido && originales.length > 1) {
+      medir(); addEventListener("resize", medir); addEventListener("load", medir);
+      requestAnimationFrame(cuadro);
+    }
     /* arrastre con el mouse en la computadora */
     var x0 = null, s0 = 0, movio = false;
     pista.addEventListener("pointerdown", function (ev) { if (ev.pointerType !== "mouse") return; x0 = ev.clientX; s0 = pista.scrollLeft; movio = false; });
-    addEventListener("pointermove", function (ev) { if (x0 === null) return; var dx = ev.clientX - x0; if (Math.abs(dx) > 5) { movio = true; pista.classList.add("arrastrando"); pista.scrollLeft = s0 - dx; } });
+    addEventListener("pointermove", function (ev) { if (x0 === null) return; pausar(); var dx = ev.clientX - x0; if (Math.abs(dx) > 5) { movio = true; pista.classList.add("arrastrando"); pista.scrollLeft = s0 - dx; } });
     addEventListener("pointerup", function () { x0 = null; setTimeout(function () { pista.classList.remove("arrastrando"); }, 0); });
     pista.addEventListener("click", function (ev) { if (movio) { ev.preventDefault(); movio = false; } }, true);
   }
