@@ -26,6 +26,7 @@
  "barra": ["index.html", "servicios.html", "cotizar", "paquetes.html"],
  "pie_extra": ["grupos.html", "novedades.html"],
  "destinos_en_paquetes": true,
+ "inicio_orden": ["portada", "buscador", "quienes", "servicios", "paquetes", "corporativo", "como", "cierre"],
  "moneda": "US$",
  "demo": false,
  "indexar": true,
@@ -46,6 +47,7 @@
  "portada": {
   "titulo": "Tu viaje en manos de expertos",
   "linea": "El viaje de tus sueños comienza aquí.",
+  "boton2": ["servicios.html", "Ver servicios"],
   "video_pc": "https://videos.pexels.com/video-files/12021278/12021278-hd_1920_1080_30fps.mp4",
   "video_tel": "https://videos.pexels.com/video-files/33007495/14068047_720_1280_60fps.mp4",
   "poster_pc": "img/portada-pc.webp",
