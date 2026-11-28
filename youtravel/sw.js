@@ -2,8 +2,8 @@
    Páginas: primero la red (para ver siempre lo último) y, sin conexión, la copia guardada.
    CSS, JS e íconos: la copia guardada (cambian de nombre con ?v= en cada versión).
    Fotos y videos de otros sitios: no se tocan (los maneja el navegador). */
-var CACHE = "agencia-ade18c7d";
-var ARCHIVOS = ["./", "index.html", "paquetes.html", "destinos.html", "servicios.html", "grupos.html", "cotizar.html", "contacto.html", "creditos.html", "novedades.html", "paquete-canaima-salto-angel.html", "paquete-gran-sabana.html", "paquete-los-roques.html", "paquete-isla-de-margarita.html", "paquete-merida-andes.html", "paquete-morrocoy.html", "paquete-punta-cana.html", "paquete-curazao.html", "paquete-cartagena.html", "paquete-cusco-machu-picchu.html", "paquete-madrid-paris.html", "estilos.css?v=ade18c7d", "sitio.js?v=ade18c7d", "manifest.webmanifest", "img/favicon-32.png"];
+var CACHE = "agencia-89eeb3b9";
+var ARCHIVOS = ["./", "index.html", "paquetes.html", "servicios.html", "grupos.html", "cotizar.html", "contacto.html", "creditos.html", "novedades.html", "paquete-canaima-salto-angel.html", "paquete-gran-sabana.html", "paquete-los-roques.html", "paquete-isla-de-margarita.html", "paquete-merida-andes.html", "paquete-morrocoy.html", "paquete-punta-cana.html", "paquete-curazao.html", "paquete-cartagena.html", "paquete-cusco-machu-picchu.html", "paquete-madrid-paris.html", "estilos.css?v=89eeb3b9", "sitio.js?v=89eeb3b9", "manifest.webmanifest", "img/favicon-32.png"];
 
 self.addEventListener("install", function (ev) {
   ev.waitUntil(

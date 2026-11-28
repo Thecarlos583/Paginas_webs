@@ -244,9 +244,34 @@
     ["ambito", "duracion"].forEach(function (k) { var v = q.get(k) || ""; $$('input[name="' + k + '"]', f).forEach(function (r) { r.checked = r.value === v; }); });
     if (q.get("destino")) f.elements.destino.value = q.get("destino");
     if (q.get("personas")) f.elements.personas.value = Math.min(10, parseInt(q.get("personas"), 10) || 0) || "";
+    /* destinos como filtros arriba de la lista (y la dirección vieja destinos.html#canaima) */
+    var lug = $("[data-lugares]"), infos = $$("[data-dst-info]");
+    var h = (location.hash || "").replace(/^#(destino-)?/, "");
+    if (h && /^[a-z0-9-]+$/.test(h) && !q.get("destino")) {
+      var op = $$("option", f.elements.destino).filter(function (o) { return o.value === h; })[0];
+      if (op) f.elements.destino.value = h;
+    }
     function v(n) { var el = f.elements[n]; if (el.length && !el.tagName) { for (var i = 0; i < el.length; i++) if (el[i].checked) return el[i].value; return ""; } return el.value; }
+    function marcarLugar(amb, de) {
+      if (lug) {
+        var clave = de ? "d:" + de : (amb ? "a:" + amb : "");
+        $$("[data-lugar]", lug).forEach(function (a) { if (a.getAttribute("data-lugar") === clave) a.setAttribute("aria-current", "true"); else a.removeAttribute("aria-current"); });
+      }
+      infos.forEach(function (x) { x.hidden = x.getAttribute("data-dst-info") !== de; });
+    }
+    if (lug) {
+      lug.addEventListener("click", function (ev) {
+        var a = ev.target.closest ? ev.target.closest("[data-lugar]") : null; if (!a) return;
+        ev.preventDefault();
+        var c = a.getAttribute("data-lugar"), amb = c.indexOf("a:") === 0 ? c.slice(2) : "", de = c.indexOf("d:") === 0 ? c.slice(2) : "";
+        $$('input[name="ambito"]', f).forEach(function (r) { r.checked = r.value === amb; });
+        f.elements.destino.value = de;
+        aplicar(true);
+      });
+    }
     function aplicar(guardar) {
       var amb = v("ambito"), de = v("destino"), du = v("duracion"), pe = parseInt(v("personas"), 10) || 0, n = 0;
+      marcarLugar(amb, de);
       tarj.forEach(function (t) {
         var dias = +t.getAttribute("data-dias"), ok = true;
         if (amb && t.getAttribute("data-ambito") !== amb) ok = false;
@@ -278,7 +303,10 @@
     if (btnAbrir) btnAbrir.addEventListener("click", abrir);
     $$("[data-filtros-cerrar]", f).forEach(function (b) { b.addEventListener("click", cerrar); });
     document.addEventListener("keydown", function (ev) { if (ev.key === "Escape" && f.classList.contains("abierto")) cerrar(); });
-    aplicar(false);
+    aplicar(!!h);
+    /* el filtro elegido queda a la vista dentro de la fila (sin mover la página) */
+    var act = lug && $('[aria-current="true"]', lug);
+    if (act && lug.scrollWidth > lug.clientWidth) lug.scrollLeft = act.offsetLeft - (lug.clientWidth - act.offsetWidth) / 2;
   }
 
     /* ---------- visor de fotos ---------- */
