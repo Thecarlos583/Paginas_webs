@@ -975,14 +975,16 @@ body.pausado *, body.pausado *::before, body.pausado *::after { animation-play-s
 }
 /* asesores */
 .ase-rej { display: grid; gap: 16px; }
-.ase { display: grid; justify-items: center; align-content: start; text-align: center; gap: 8px; padding: 28px 20px 22px; border-radius: var(--radio); background: var(--tarjeta); box-shadow: inset 0 0 0 1px var(--linea), 0 18px 40px -30px rgba(11, 28, 35, .55); }
+.ase { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px; padding: 28px 20px 22px; border-radius: var(--radio); background: var(--tarjeta); box-shadow: inset 0 0 0 1px var(--linea), 0 18px 40px -30px rgba(11, 28, 35, .55); }
 .ase-cara { width: 112px; height: 112px; margin-bottom: 6px; border-radius: 50%; padding: 3px; background: var(--marca-grad); }
 .ase-cara img, .ase-cara span { width: 100%; height: 100%; display: grid; place-items: center; border-radius: 50%; border: 3px solid var(--tarjeta); object-fit: cover; background: var(--fondo-2); font: 800 36px/1 var(--f-tit); color: var(--tinta); }
 .ase-nom { font-size: 22px; line-height: 1.15; }
 .ase-cargo { font-size: 15px; color: var(--tinta-suave); }
-.ase-correo { display: inline-flex; align-items: center; gap: 8px; max-width: 100%; min-height: 44px; font-size: 15px; color: var(--tinta); text-underline-offset: 3px; overflow-wrap: anywhere; }
+.ase-correo { display: inline-flex; align-items: center; gap: 8px; max-width: 100%; min-height: 44px; font-size: 15px; color: var(--tinta); text-underline-offset: 3px; overflow-wrap: break-word; }
 .ase-correo .ico { flex: none; width: 18px; height: 18px; stroke: var(--marca-1-txt); }
-.ase .btn { width: 100%; margin-top: 4px; }
+.ase .btn { width: 100%; margin-top: auto; }
+.ase-correo + .btn, .ase-nom + .btn, .ase-cargo + .btn { margin-top: auto; }
+.ase > :nth-last-child(2) { margin-bottom: 6px; }
 @media (min-width: 600px) { .ase-rej { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (min-width: 1000px) { .ase-rej { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 .cierre-ase { width: 100%; padding-top: 14px; border-top: 1px solid rgba(255, 255, 255, .18); }
