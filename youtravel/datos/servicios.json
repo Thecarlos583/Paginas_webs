@@ -42,6 +42,20 @@
   "mensaje": "Hola YouTravel, quiero cotizar un hotel o una posada."
  },
  {
+  "id": "seguros",
+  "nombre": "Seguros de viaje",
+  "foto": "maleta",
+  "cotizar": "paquete",
+  "linea": "Para viajar con respaldo, según su destino y sus fechas.",
+  "texto": "Le cotizamos el seguro de viaje según el destino, las fechas y quiénes viajan. Antes de contratarlo le explicamos qué cubre.",
+  "puntos": [
+   "Según su destino",
+   "Según las fechas del viaje",
+   "Para una persona, una familia o un grupo"
+  ],
+  "mensaje": "Hola YouTravel, quiero cotizar un seguro de viaje."
+ },
+ {
   "id": "traslados",
   "nombre": "Traslados",
   "foto": "traslado",
